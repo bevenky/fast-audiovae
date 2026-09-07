@@ -13,7 +13,7 @@ def main():
     prepare.add_argument("--amd-build", help="Optional AMD packed-matrix build.json")
     inspect = commands.add_parser("inspect", help="Show the backend selected for a model bundle")
     inspect.add_argument("model_dir")
-    inspect.add_argument("--threads", type=int, default=4)
+    inspect.add_argument("--threads", type=int, help="CPU workers; default is up to four visible CPUs")
     inspect.add_argument("--amd-packed", action="store_true")
     args = parser.parse_args()
     if args.command == "prepare":

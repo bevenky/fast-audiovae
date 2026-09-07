@@ -6,13 +6,25 @@ standard-ONNX fallback. This interface does not expose streaming state.
 """
 import ctypes
 import json
+import os
 import platform
 from pathlib import Path
 
 import onnxruntime as ort
 
 
-def load_decoder(model_dir="artifacts", *, threads=4, prefer_custom=True, prefer_packed=False):
+def _default_threads():
+    try:
+        available = len(os.sched_getaffinity(0))
+    except (AttributeError, OSError):
+        available = os.cpu_count()
+    return min(4, max(1, available or 1))
+
+
+def load_decoder(model_dir="artifacts", *, threads=None, prefer_custom=True, prefer_packed=False):
+    automatic_threads = threads is None
+    if automatic_threads:
+        threads = _default_threads()
     if isinstance(threads,bool) or not isinstance(threads,int) or threads<1:
         raise ValueError('threads must be a positive integer')
     root=Path(model_dir).resolve()
@@ -23,7 +35,8 @@ def load_decoder(model_dir="artifacts", *, threads=4, prefer_custom=True, prefer
     selected=manifest['fallback'];library=None;packed_library=None
     info={'platform':key,'selected':'portable_onnx','reason':'standard ONNX fallback',
           'sample_rate':48000,'latent_rate':25,'latent_channels':64,'fresh_call_only':True,
-          'threads':threads,'onnxruntime':ort.__version__,'tested_runtime':manifest['onnxruntime']}
+          'threads':threads,'thread_policy':'visible_cpus_capped_at_four' if automatic_threads else 'explicit',
+          'onnxruntime':ort.__version__,'tested_runtime':manifest['onnxruntime']}
     options=ort.SessionOptions();options.intra_op_num_threads=threads;options.inter_op_num_threads=1
     options.execution_mode=ort.ExecutionMode.ORT_SEQUENTIAL
     options.graph_optimization_level=ort.GraphOptimizationLevel.ORT_ENABLE_ALL

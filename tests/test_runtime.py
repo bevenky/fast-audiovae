@@ -86,6 +86,35 @@ class RuntimeTests(unittest.TestCase):
             with self.subTest(value=value), self.assertRaises(ValueError):
                 runtime.load_decoder(self.root, threads=value)
 
+    def test_automatic_workers_respect_process_affinity(self):
+        with patch.object(runtime.os, 'sched_getaffinity', return_value={6, 7}, create=True), \
+             patch.object(runtime.os, 'cpu_count', return_value=192), \
+             patch.object(runtime.platform, 'system', return_value='Windows'):
+            session, info = runtime.load_decoder(self.root)
+        self.assertEqual(session.options.intra_op_num_threads, 2)
+        self.assertEqual(info['threads'], 2)
+        self.assertEqual(info['thread_policy'], 'visible_cpus_capped_at_four')
+
+    def test_large_affinity_retains_four_worker_default(self):
+        with patch.object(runtime.os, 'sched_getaffinity', return_value=set(range(18)), create=True):
+            self.assertEqual(runtime._default_threads(), 4)
+
+    def test_unavailable_affinity_uses_cpu_count(self):
+        for error in (OSError, AttributeError):
+            for count, expected in ((2, 2), (18, 4), (None, 1)):
+                with self.subTest(error=error.__name__, count=count), \
+                     patch.object(runtime.os, 'sched_getaffinity', side_effect=error('unavailable'), create=True), \
+                     patch.object(runtime.os, 'cpu_count', return_value=count):
+                    self.assertEqual(runtime._default_threads(), expected)
+
+    def test_explicit_worker_count_is_preserved(self):
+        with patch.object(runtime, '_default_threads') as detect, \
+             patch.object(runtime.platform, 'system', return_value='Windows'):
+            session, info = runtime.load_decoder(self.root, threads=4)
+        detect.assert_not_called()
+        self.assertEqual(session.options.intra_op_num_threads, 4)
+        self.assertEqual(info['thread_policy'], 'explicit')
+
     def native_library(self, vector_sine=True):
         return SimpleNamespace(ncc_abi_version=Mock(return_value=1),
             ncc_selected_backend=Mock(return_value=3), ncc_capabilities=Mock(return_value=64),

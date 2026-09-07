@@ -32,13 +32,15 @@ For standard ONNX without native operators, skip `tools/build.py`. Build depende
 ```python
 from fast_audiovae import load_decoder
 
-session, selected = load_decoder("artifacts", threads=4)
+session, selected = load_decoder("artifacts")
 print(selected)
 # latents: contiguous NumPy float32 array, shape [1, 64, L]
 audio = session.run(None, {session.get_inputs()[0].name: latents})[0]
 ```
 
 Calls start with fresh causal history. There is no cached streaming API. Model loading, encoding and TTS generation are separate from decoding.
+
+The default uses up to four CPUs visible to the process, so a two-vCPU VM uses two workers. Set `threads` explicitly if needed, including when a container's CPU quota is smaller than its visible CPU count.
 
 ## Hardware
 
