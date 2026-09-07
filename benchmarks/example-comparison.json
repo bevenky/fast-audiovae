@@ -1,0 +1,60 @@
+{
+  "_instructions": [
+    "Copy this template and replace every path, UID and SHA256 placeholder before running.",
+    "Paths are relative to this config. Model and case preparation is separate: this harness does not download, encode or export any model.",
+    "Each NPZ contains UID__z FP32[1,C,L] and UID__ref FP32[1,1,hop*L], including decoder right padding. The companion JSON has timed_ids in frozen order.",
+    "The first metadata timed_id needs at least 17 latent frames. All codec archives must contain identical UIDs and metadata timed_ids.",
+    "Meta's fixed watermark_message FP32[1,16] is an NPZ auxiliary array. The graph must include the complete watermarked decoder.",
+    "Fill artifact_sha256 with real SHA256 hashes. Add every external_data file and custom library, then freeze the config and pass its hash as --config-sha256.",
+    "Select the native model and custom library for the current CPU platform. Use decoder.onnx without custom_library for the portable fallback. Do not label the rewritten fallback audio_stock.",
+    "Run with CUDA_VISIBLE_DEVICES=-1 NVIDIA_VISIBLE_DEVICES=void ROCR_VISIBLE_DEVICES=-1 HIP_VISIBLE_DEVICES=-1 before Python imports ORT.",
+    "Example: python benchmarks/compare_decoders.py --config comparison.json --config-sha256 REPLACE_WITH_CONFIG_SHA256 --output comparison-results.json --threads 1,4",
+    "timing_uids selects the timing cohort only. Full corpus validation remains the default. The two example UIDs are placeholders, not published corpus identifiers."
+  ],
+  "expected_case_count": 2,
+  "expected_uids": ["clip_a", "clip_b"],
+  "timing_uids": ["clip_a", "clip_b"],
+  "kind_contracts": {
+    "audio": {"sample_rate": 48000, "hop": 1920, "latent_channels": 64},
+    "mimi": {"sample_rate": 24000, "hop": 1920, "latent_channels": 32},
+    "meta": {"sample_rate": 48000, "hop": 1920, "latent_channels": 128}
+  },
+  "models": [
+    {
+      "name": "audio_stock", "kind": "audio", "causal": true,
+      "path": "models/audio_vae_decoder.onnx",
+      "external_data": ["models/audio_vae_decoder.onnx.data"]
+    },
+    {
+      "name": "fast_default", "kind": "audio", "causal": true,
+      "path": "models/decoder_native.onnx",
+      "custom_library": "models/runtime/REPLACE_WITH_PLATFORM_LIBRARY"
+    },
+    {
+      "name": "mimi", "kind": "mimi", "causal": true,
+      "path": "models/pocket_continuous_mimi.onnx"
+    },
+    {
+      "name": "meta_dacvae", "kind": "meta", "causal": false,
+      "path": "models/meta_dacvae_watermarked.onnx",
+      "extra_inputs": {"watermark_message": "watermark_message"}
+    }
+  ],
+  "audio_cases": "cases/audiovae2.npz",
+  "mimi_cases": "cases/pocket_mimi.npz",
+  "meta_cases": "cases/meta_dacvae.npz",
+  "artifact_sha256": {
+    "models/audio_vae_decoder.onnx": "REPLACE_WITH_SHA256",
+    "models/audio_vae_decoder.onnx.data": "REPLACE_WITH_SHA256",
+    "models/decoder_native.onnx": "REPLACE_WITH_SHA256",
+    "models/runtime/REPLACE_WITH_PLATFORM_LIBRARY": "REPLACE_WITH_SHA256",
+    "models/pocket_continuous_mimi.onnx": "REPLACE_WITH_SHA256",
+    "models/meta_dacvae_watermarked.onnx": "REPLACE_WITH_SHA256",
+    "cases/audiovae2.npz": "REPLACE_WITH_SHA256",
+    "cases/audiovae2.json": "REPLACE_WITH_SHA256",
+    "cases/pocket_mimi.npz": "REPLACE_WITH_SHA256",
+    "cases/pocket_mimi.json": "REPLACE_WITH_SHA256",
+    "cases/meta_dacvae.npz": "REPLACE_WITH_SHA256",
+    "cases/meta_dacvae.json": "REPLACE_WITH_SHA256"
+  }
+}
