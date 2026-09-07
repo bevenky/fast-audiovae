@@ -44,7 +44,7 @@ python "$CPU_STAGE/compose_candidates.py" --original "$CPU_STAGE_ORIGINAL" \
 
 For matrix-only candidates, use `matrix/rewrite.py` with `--channels`, `--mode` and `--isa`. Compose with `--kind matrix`. Repeated `--candidate KIND MODEL AUDIT` arguments combine disjoint original regions, including different stage tile choices. The composer re-proves the base, checks hash-bound audits, preserves coefficients, and rejects overlaps or changed activation boundaries. Supply unfused original derivatives without `--native-chains`.
 
-The older optional Intel MKL adapter remains separate. An existing original-derived MKL graph and its audit can be composed with `--kind mkl`; its library must also be registered for inference.
+The [optional Intel MKL adapter](mkl/README.md) stays separate in `mkl/`. Its original-derived graph and audit compose with `--kind mkl`; register its library as well when running that graph.
 
 ## Validate before timing
 

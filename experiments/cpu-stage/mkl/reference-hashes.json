@@ -1,0 +1,96 @@
+{
+  "native_source_sha256": "34ccdc4b835d04c6a240c7cd2c8025995d22b4c9f3877e61e0b9ee7524d5de66",
+  "derivative_sha256_by_threads": {
+    "1": "60a594103df13d5cb27ec9213146f026d8364549b98a3f0576348fc47e2d0dad",
+    "2": "c43a890e91152705ce94174e26231bb3933c27966ae48c9c7053a84f1c26e533"
+  },
+  "selected_nodes": [
+    {
+      "name": "ncc_up_1_split_matmul_current_node",
+      "M": 8192,
+      "K": 2048,
+      "dynamic_time": true,
+      "weights": "ncc_up_1_split_matmul_current_w"
+    },
+    {
+      "name": "ncc_up_1_split_matmul_previous_unshifted_node",
+      "M": 8192,
+      "K": 2048,
+      "dynamic_time": true,
+      "weights": "ncc_up_1_split_matmul_previous_w"
+    },
+    {
+      "name": "node_conv1d_3__bct_mm",
+      "M": 1024,
+      "K": 1024,
+      "dynamic_time": true,
+      "weights": "node_conv1d_3__bct_mm_weight"
+    },
+    {
+      "name": "node_conv1d_5__bct_mm",
+      "M": 1024,
+      "K": 1024,
+      "dynamic_time": true,
+      "weights": "node_conv1d_5__bct_mm_weight"
+    },
+    {
+      "name": "node_conv1d_7__bct_mm",
+      "M": 1024,
+      "K": 1024,
+      "dynamic_time": true,
+      "weights": "node_conv1d_7__bct_mm_weight"
+    },
+    {
+      "name": "ncc_up_2_split_matmul_current_node",
+      "M": 3072,
+      "K": 1024,
+      "dynamic_time": true,
+      "weights": "ncc_up_2_split_matmul_current_w"
+    },
+    {
+      "name": "ncc_up_2_split_matmul_previous_unshifted_node",
+      "M": 3072,
+      "K": 1024,
+      "dynamic_time": true,
+      "weights": "ncc_up_2_split_matmul_previous_w"
+    },
+    {
+      "name": "node_conv1d_9__bct_mm",
+      "M": 512,
+      "K": 512,
+      "dynamic_time": true,
+      "weights": "node_conv1d_9__bct_mm_weight"
+    },
+    {
+      "name": "node_conv1d_11__bct_mm",
+      "M": 512,
+      "K": 512,
+      "dynamic_time": true,
+      "weights": "node_conv1d_11__bct_mm_weight"
+    },
+    {
+      "name": "node_conv1d_13__bct_mm",
+      "M": 512,
+      "K": 512,
+      "dynamic_time": true,
+      "weights": "node_conv1d_13__bct_mm_weight"
+    },
+    {
+      "name": "ncc_up_3_split_matmul_current_node",
+      "M": 1280,
+      "K": 512,
+      "dynamic_time": true,
+      "weights": "ncc_up_3_split_matmul_current_w"
+    },
+    {
+      "name": "ncc_up_3_split_matmul_previous_unshifted_node",
+      "M": 1280,
+      "K": 512,
+      "dynamic_time": true,
+      "weights": "ncc_up_3_split_matmul_previous_w"
+    }
+  ],
+  "native_cpp_sha256": "08e2c4ba2cff833eea318e30dd4ffc2c9ae7233fd9a5ad11826f2d807bddfb15",
+  "original_rewriter_sha256": "ea631ded0f13ecd68f22f90cd34b17567eec0a4e38af44233a2b61b519086c19",
+  "scope": "Artifact fingerprints from the existing Intel experiment; no model or binary is bundled."
+}
