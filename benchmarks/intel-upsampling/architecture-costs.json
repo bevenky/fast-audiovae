@@ -1,0 +1,4937 @@
+{
+  "scope": "Static graph and saved-shape audit only; batch one; no neural inference or new benchmarking.",
+  "counting_convention": {
+    "one_MAC": "one multiply-accumulate in a dense or convolution contraction",
+    "FLOPs_per_MAC": 2,
+    "headline_scope": "Canonical network contractions, not redundant tiling work or all floating-point operations",
+    "excluded": [
+      "Bias and residual additions; phase overlap/interleave additions; scalar multiplications/divisions and learned scaling.",
+      "Snake/sine, GELU/erf, PReLU, tanh, normalization/reductions and latent normalization.",
+      "Shape operations, padding/copies/transposes/reshapes, memory traffic, weight packing, allocation and dispatch.",
+      "These are canonical neural matrix/convolution MAC counts. They are not total CPU arithmetic or machine instructions.",
+      "AudioVAE2 StageStack redundant segment warmup and projection seed/replay overhead are excluded from the headline architecture count. These depend on segment count, duration and kernel implementation.",
+      "Convolutions count all stored taps, including conventional padded-boundary terms. Boundary kernels may skip some zero terms.",
+      "Both phase projection matrices count all unshifted columns, including their final previous column, although phase merging does not consume that last column.",
+      "No encoder computation, teacher computation, resampling, training or inference was run or counted."
+    ]
+  },
+  "source_provenance": {
+    "supertonic_graph": {
+      "path": "work/supertonic3_assets/vocoder.onnx",
+      "sha256": "085de76dd8e8d5836d6ca66826601f615939218f90e519f70ee8a36ed2a4c4ba"
+    },
+    "audio_graph": {
+      "path": "work/intel-iteration2/source/stage_mkl.onnx",
+      "sha256": "e188d0609795d256627b4e39b632d5c5ca064256d410899ecb05ac4eb6301bc2"
+    },
+    "audio_saved_shape_profile": {
+      "path": "work/fusion-benchmark-20260907/intel/combined/profiles/stage_mkl.json",
+      "sha256": "52a26f7fae38ca96eb52b3e0b87432bcabea1d4abfabdc55ff0ea077264f4cc6"
+    },
+    "previous_independent_audio_audit": {
+      "path": "work/deep-cpu-audit/stages/arithmetic_verification.json",
+      "sha256": "646995c2c2543e2332a4a290a3da4b12a7f5a97477be607eb2bc6a5b2ead0fdb"
+    },
+    "supertonic_full_static_audit": {
+      "path": "work/native_codec_cpu/supertonic_static_audit.json",
+      "sha256": "64b8d27f02d05bc6ab530c055d679f66c71baddee6f20f8de5f67eb8299a9ba5"
+    },
+    "audio_stage_semantics": {
+      "path": "work/fast-audiovae/experiments/cpu-stage/stage/custom_op.cpp",
+      "sha256": "9376552829133522fd1c5f259e74c0bb0adafe1a9534355ef5c343371746cd77"
+    },
+    "audio_native_semantics": {
+      "path": "work/fast-audiovae/native/x86/custom_ops.cpp",
+      "sha256": "2e1a60139ff929b7780decf16687121c9e46a654e96f8b22dc5ef72da1798705"
+    },
+    "audio_mkl_semantics": {
+      "path": "work/fast-audiovae/experiments/cpu-stage/mkl/intel_decoder.cpp",
+      "sha256": "08e2c4ba2cff833eea318e30dd4ffc2c9ae7233fd9a5ad11826f2d807bddfb15"
+    }
+  },
+  "audio_vae2": {
+    "sample_rate_hz": 48000,
+    "latent_channels": 64,
+    "latent_frames_per_second": 25,
+    "latent_values_per_second": 1600,
+    "output_samples_per_latent_frame": 1920,
+    "saved_latent_shape": [
+      1,
+      64,
+      170
+    ],
+    "saved_generated_seconds": 6.8,
+    "saved_output_shape": [
+      1,
+      1,
+      326400
+    ],
+    "included_node_count": 31,
+    "included_operations": [
+      {
+        "name": "sp_stage_c256",
+        "source_operator": "StageStackF32",
+        "source_domain": "fast.audiovae.stage.experimental",
+        "saved_executed_operator": "StageStackF32",
+        "input_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              256,
+              40800
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              256,
+              1,
+              7
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              256
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              256
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              256
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              256
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              256
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              256,
+              256
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              256
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              256,
+              1,
+              7
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              256
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              256
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              256
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              256
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              256
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              256,
+              256
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              256
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              256,
+              1,
+              7
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              256
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              256
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              256
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              256
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              256
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              256,
+              256
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              256
+            ]
+          }
+        ],
+        "output_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              256,
+              40800
+            ]
+          }
+        ],
+        "constants": [
+          {
+            "name": "audio_vae.decoder.model.4.block.2.block.1.weight",
+            "shape": [
+              256,
+              1,
+              7
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "audio_vae.decoder.model.4.block.2.block.1.bias",
+            "shape": [
+              256
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_513__ncc_alpha",
+            "shape": [
+              256
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_513__ncc_reciprocal",
+            "shape": [
+              256
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_542__ncc_alpha",
+            "shape": [
+              256
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_542__ncc_reciprocal",
+            "shape": [
+              256
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "node_conv1d_15__bct_mm_weight",
+            "shape": [
+              256,
+              256
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "ncc_block_adds_92_bias",
+            "shape": [
+              256
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "audio_vae.decoder.model.4.block.3.block.1.weight",
+            "shape": [
+              256,
+              1,
+              7
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "audio_vae.decoder.model.4.block.3.block.1.bias",
+            "shape": [
+              256
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_575__ncc_alpha",
+            "shape": [
+              256
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_575__ncc_reciprocal",
+            "shape": [
+              256
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_604__ncc_alpha",
+            "shape": [
+              256
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_604__ncc_reciprocal",
+            "shape": [
+              256
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "node_conv1d_17__bct_mm_weight",
+            "shape": [
+              256,
+              256
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "ncc_block_adds_100_bias",
+            "shape": [
+              256
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "audio_vae.decoder.model.4.block.4.block.1.weight",
+            "shape": [
+              256,
+              1,
+              7
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "audio_vae.decoder.model.4.block.4.block.1.bias",
+            "shape": [
+              256
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_637__ncc_alpha",
+            "shape": [
+              256
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_637__ncc_reciprocal",
+            "shape": [
+              256
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_666__ncc_alpha",
+            "shape": [
+              256
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_666__ncc_reciprocal",
+            "shape": [
+              256
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "node_conv1d_19__bct_mm_weight",
+            "shape": [
+              256,
+              256
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "ncc_block_adds_108_bias",
+            "shape": [
+              256
+            ],
+            "dtype": "FP32"
+          }
+        ],
+        "formula": "B * T * 3 * (C*C + 7*C) for three pointwise matrices and three depthwise kernels",
+        "mac_full_call": 8240947200,
+        "mac_per_audio_second": 1211904000.0,
+        "included_internal_operations": [
+          {
+            "unit": 0,
+            "kind": "depthwise7",
+            "weight_shape": [
+              256,
+              1,
+              7
+            ],
+            "mac_full_call": 73113600
+          },
+          {
+            "unit": 0,
+            "kind": "pointwise",
+            "weight_shape": [
+              256,
+              256
+            ],
+            "mac_full_call": 2673868800
+          },
+          {
+            "unit": 1,
+            "kind": "depthwise7",
+            "weight_shape": [
+              256,
+              1,
+              7
+            ],
+            "mac_full_call": 73113600
+          },
+          {
+            "unit": 1,
+            "kind": "pointwise",
+            "weight_shape": [
+              256,
+              256
+            ],
+            "mac_full_call": 2673868800
+          },
+          {
+            "unit": 2,
+            "kind": "depthwise7",
+            "weight_shape": [
+              256,
+              1,
+              7
+            ],
+            "mac_full_call": 73113600
+          },
+          {
+            "unit": 2,
+            "kind": "pointwise",
+            "weight_shape": [
+              256,
+              256
+            ],
+            "mac_full_call": 2673868800
+          }
+        ]
+      },
+      {
+        "name": "sp_stage_c128",
+        "source_operator": "StageStackF32",
+        "source_domain": "fast.audiovae.stage.experimental",
+        "saved_executed_operator": "StageStackF32",
+        "input_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              128,
+              81600
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              128,
+              1,
+              7
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              128
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              128
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              128
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              128
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              128
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              128,
+              128
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              128
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              128,
+              1,
+              7
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              128
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              128
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              128
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              128
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              128
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              128,
+              128
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              128
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              128,
+              1,
+              7
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              128
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              128
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              128
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              128
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              128
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              128,
+              128
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              128
+            ]
+          }
+        ],
+        "output_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              128,
+              81600
+            ]
+          }
+        ],
+        "constants": [
+          {
+            "name": "audio_vae.decoder.model.5.block.2.block.1.weight",
+            "shape": [
+              128,
+              1,
+              7
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "audio_vae.decoder.model.5.block.2.block.1.bias",
+            "shape": [
+              128
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_735__ncc_alpha",
+            "shape": [
+              128
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_735__ncc_reciprocal",
+            "shape": [
+              128
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_764__ncc_alpha",
+            "shape": [
+              128
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_764__ncc_reciprocal",
+            "shape": [
+              128
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "node_conv1d_21__bct_mm_weight",
+            "shape": [
+              128,
+              128
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "ncc_block_adds_127_bias",
+            "shape": [
+              128
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "audio_vae.decoder.model.5.block.3.block.1.weight",
+            "shape": [
+              128,
+              1,
+              7
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "audio_vae.decoder.model.5.block.3.block.1.bias",
+            "shape": [
+              128
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_797__ncc_alpha",
+            "shape": [
+              128
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_797__ncc_reciprocal",
+            "shape": [
+              128
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_826__ncc_alpha",
+            "shape": [
+              128
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_826__ncc_reciprocal",
+            "shape": [
+              128
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "node_conv1d_23__bct_mm_weight",
+            "shape": [
+              128,
+              128
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "ncc_block_adds_135_bias",
+            "shape": [
+              128
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "audio_vae.decoder.model.5.block.4.block.1.weight",
+            "shape": [
+              128,
+              1,
+              7
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "audio_vae.decoder.model.5.block.4.block.1.bias",
+            "shape": [
+              128
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_859__ncc_alpha",
+            "shape": [
+              128
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_859__ncc_reciprocal",
+            "shape": [
+              128
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_888__ncc_alpha",
+            "shape": [
+              128
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_888__ncc_reciprocal",
+            "shape": [
+              128
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "node_conv1d_25__bct_mm_weight",
+            "shape": [
+              128,
+              128
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "ncc_block_adds_143_bias",
+            "shape": [
+              128
+            ],
+            "dtype": "FP32"
+          }
+        ],
+        "formula": "B * T * 3 * (C*C + 7*C) for three pointwise matrices and three depthwise kernels",
+        "mac_full_call": 4230144000,
+        "mac_per_audio_second": 622080000.0,
+        "included_internal_operations": [
+          {
+            "unit": 0,
+            "kind": "depthwise7",
+            "weight_shape": [
+              128,
+              1,
+              7
+            ],
+            "mac_full_call": 73113600
+          },
+          {
+            "unit": 0,
+            "kind": "pointwise",
+            "weight_shape": [
+              128,
+              128
+            ],
+            "mac_full_call": 1336934400
+          },
+          {
+            "unit": 1,
+            "kind": "depthwise7",
+            "weight_shape": [
+              128,
+              1,
+              7
+            ],
+            "mac_full_call": 73113600
+          },
+          {
+            "unit": 1,
+            "kind": "pointwise",
+            "weight_shape": [
+              128,
+              128
+            ],
+            "mac_full_call": 1336934400
+          },
+          {
+            "unit": 2,
+            "kind": "depthwise7",
+            "weight_shape": [
+              128,
+              1,
+              7
+            ],
+            "mac_full_call": 73113600
+          },
+          {
+            "unit": 2,
+            "kind": "pointwise",
+            "weight_shape": [
+              128,
+              128
+            ],
+            "mac_full_call": 1336934400
+          }
+        ]
+      },
+      {
+        "name": "sp_stage_c64",
+        "source_operator": "StageStackF32",
+        "source_domain": "fast.audiovae.stage.experimental",
+        "saved_executed_operator": "StageStackF32",
+        "input_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              64,
+              163200
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              64,
+              1,
+              7
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              64
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              64
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              64
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              64
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              64
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              64,
+              64
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              64
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              64,
+              1,
+              7
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              64
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              64
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              64
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              64
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              64
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              64,
+              64
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              64
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              64,
+              1,
+              7
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              64
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              64
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              64
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              64
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              64
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              64,
+              64
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              64
+            ]
+          }
+        ],
+        "output_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              64,
+              163200
+            ]
+          }
+        ],
+        "constants": [
+          {
+            "name": "audio_vae.decoder.model.6.block.2.block.1.weight",
+            "shape": [
+              64,
+              1,
+              7
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "audio_vae.decoder.model.6.block.2.block.1.bias",
+            "shape": [
+              64
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_957__ncc_alpha",
+            "shape": [
+              64
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_957__ncc_reciprocal",
+            "shape": [
+              64
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_986__ncc_alpha",
+            "shape": [
+              64
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_986__ncc_reciprocal",
+            "shape": [
+              64
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "node_conv1d_27__bct_mm_weight",
+            "shape": [
+              64,
+              64
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "ncc_block_adds_162_bias",
+            "shape": [
+              64
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "audio_vae.decoder.model.6.block.3.block.1.weight",
+            "shape": [
+              64,
+              1,
+              7
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "audio_vae.decoder.model.6.block.3.block.1.bias",
+            "shape": [
+              64
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_1019__ncc_alpha",
+            "shape": [
+              64
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_1019__ncc_reciprocal",
+            "shape": [
+              64
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_1048__ncc_alpha",
+            "shape": [
+              64
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_1048__ncc_reciprocal",
+            "shape": [
+              64
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "node_conv1d_29__bct_mm_weight",
+            "shape": [
+              64,
+              64
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "ncc_block_adds_170_bias",
+            "shape": [
+              64
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "audio_vae.decoder.model.6.block.4.block.1.weight",
+            "shape": [
+              64,
+              1,
+              7
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "audio_vae.decoder.model.6.block.4.block.1.bias",
+            "shape": [
+              64
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_1081__ncc_alpha",
+            "shape": [
+              64
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_1081__ncc_reciprocal",
+            "shape": [
+              64
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_1110__ncc_alpha",
+            "shape": [
+              64
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_1110__ncc_reciprocal",
+            "shape": [
+              64
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "node_conv1d_31__bct_mm_weight",
+            "shape": [
+              64,
+              64
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "ncc_block_adds_178_bias",
+            "shape": [
+              64
+            ],
+            "dtype": "FP32"
+          }
+        ],
+        "formula": "B * T * 3 * (C*C + 7*C) for three pointwise matrices and three depthwise kernels",
+        "mac_full_call": 2224742400,
+        "mac_per_audio_second": 327168000.0,
+        "included_internal_operations": [
+          {
+            "unit": 0,
+            "kind": "depthwise7",
+            "weight_shape": [
+              64,
+              1,
+              7
+            ],
+            "mac_full_call": 73113600
+          },
+          {
+            "unit": 0,
+            "kind": "pointwise",
+            "weight_shape": [
+              64,
+              64
+            ],
+            "mac_full_call": 668467200
+          },
+          {
+            "unit": 1,
+            "kind": "depthwise7",
+            "weight_shape": [
+              64,
+              1,
+              7
+            ],
+            "mac_full_call": 73113600
+          },
+          {
+            "unit": 1,
+            "kind": "pointwise",
+            "weight_shape": [
+              64,
+              64
+            ],
+            "mac_full_call": 668467200
+          },
+          {
+            "unit": 2,
+            "kind": "depthwise7",
+            "weight_shape": [
+              64,
+              1,
+              7
+            ],
+            "mac_full_call": 73113600
+          },
+          {
+            "unit": 2,
+            "kind": "pointwise",
+            "weight_shape": [
+              64,
+              64
+            ],
+            "mac_full_call": 668467200
+          }
+        ]
+      },
+      {
+        "name": "sp_stage_c32",
+        "source_operator": "StageStackF32",
+        "source_domain": "fast.audiovae.stage.experimental",
+        "saved_executed_operator": "StageStackF32",
+        "input_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              32,
+              326400
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              32,
+              1,
+              7
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              32
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              32
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              32
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              32
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              32
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              32,
+              32
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              32
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              32,
+              1,
+              7
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              32
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              32
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              32
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              32
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              32
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              32,
+              32
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              32
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              32,
+              1,
+              7
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              32
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              32
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              32
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              32
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              32
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              32,
+              32
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              32
+            ]
+          }
+        ],
+        "output_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              32,
+              326400
+            ]
+          }
+        ],
+        "constants": [
+          {
+            "name": "audio_vae.decoder.model.7.block.2.block.1.weight",
+            "shape": [
+              32,
+              1,
+              7
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "audio_vae.decoder.model.7.block.2.block.1.bias",
+            "shape": [
+              32
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_1179__ncc_alpha",
+            "shape": [
+              32
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_1179__ncc_reciprocal",
+            "shape": [
+              32
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_1208__ncc_alpha",
+            "shape": [
+              32
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_1208__ncc_reciprocal",
+            "shape": [
+              32
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "node_conv1d_33__bct_mm_weight",
+            "shape": [
+              32,
+              32
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "ncc_block_adds_197_bias",
+            "shape": [
+              32
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "audio_vae.decoder.model.7.block.3.block.1.weight",
+            "shape": [
+              32,
+              1,
+              7
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "audio_vae.decoder.model.7.block.3.block.1.bias",
+            "shape": [
+              32
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_1241__ncc_alpha",
+            "shape": [
+              32
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_1241__ncc_reciprocal",
+            "shape": [
+              32
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_1270__ncc_alpha",
+            "shape": [
+              32
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_1270__ncc_reciprocal",
+            "shape": [
+              32
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "node_conv1d_35__bct_mm_weight",
+            "shape": [
+              32,
+              32
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "ncc_block_adds_205_bias",
+            "shape": [
+              32
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "audio_vae.decoder.model.7.block.4.block.1.weight",
+            "shape": [
+              32,
+              1,
+              7
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "audio_vae.decoder.model.7.block.4.block.1.bias",
+            "shape": [
+              32
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_1303__ncc_alpha",
+            "shape": [
+              32
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_1303__ncc_reciprocal",
+            "shape": [
+              32
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_1332__ncc_alpha",
+            "shape": [
+              32
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_1332__ncc_reciprocal",
+            "shape": [
+              32
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "node_conv1d_37__bct_mm_weight",
+            "shape": [
+              32,
+              32
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "ncc_block_adds_213_bias",
+            "shape": [
+              32
+            ],
+            "dtype": "FP32"
+          }
+        ],
+        "formula": "B * T * 3 * (C*C + 7*C) for three pointwise matrices and three depthwise kernels",
+        "mac_full_call": 1222041600,
+        "mac_per_audio_second": 179712000.0,
+        "included_internal_operations": [
+          {
+            "unit": 0,
+            "kind": "depthwise7",
+            "weight_shape": [
+              32,
+              1,
+              7
+            ],
+            "mac_full_call": 73113600
+          },
+          {
+            "unit": 0,
+            "kind": "pointwise",
+            "weight_shape": [
+              32,
+              32
+            ],
+            "mac_full_call": 334233600
+          },
+          {
+            "unit": 1,
+            "kind": "depthwise7",
+            "weight_shape": [
+              32,
+              1,
+              7
+            ],
+            "mac_full_call": 73113600
+          },
+          {
+            "unit": 1,
+            "kind": "pointwise",
+            "weight_shape": [
+              32,
+              32
+            ],
+            "mac_full_call": 334233600
+          },
+          {
+            "unit": 2,
+            "kind": "depthwise7",
+            "weight_shape": [
+              32,
+              1,
+              7
+            ],
+            "mac_full_call": 73113600
+          },
+          {
+            "unit": 2,
+            "kind": "pointwise",
+            "weight_shape": [
+              32,
+              32
+            ],
+            "mac_full_call": 334233600
+          }
+        ]
+      },
+      {
+        "name": "ncc_up_3_split_matmul_current_node",
+        "source_operator": "IntelPlainMatMulF32",
+        "source_domain": "venky.audio.intel.decoder.experimental",
+        "saved_executed_operator": "IntelPlainMatMulF32",
+        "input_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1280,
+              512
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              512,
+              8160
+            ]
+          }
+        ],
+        "output_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              1280,
+              8160
+            ]
+          }
+        ],
+        "constants": [
+          {
+            "name": "ncc_up_3_split_matmul_current_w",
+            "shape": [
+              1280,
+              512
+            ],
+            "dtype": "FP32"
+          }
+        ],
+        "formula": "B * M * K * T, W[M,K] times X[B,K,T]",
+        "mac_full_call": 5347737600,
+        "mac_per_audio_second": 786432000.0,
+        "included_internal_operations": []
+      },
+      {
+        "name": "ncc_up_3_split_matmul_previous_unshifted_node",
+        "source_operator": "IntelPlainMatMulF32",
+        "source_domain": "venky.audio.intel.decoder.experimental",
+        "saved_executed_operator": "IntelPlainMatMulF32",
+        "input_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1280,
+              512
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              512,
+              8160
+            ]
+          }
+        ],
+        "output_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              1280,
+              8160
+            ]
+          }
+        ],
+        "constants": [
+          {
+            "name": "ncc_up_3_split_matmul_previous_w",
+            "shape": [
+              1280,
+              512
+            ],
+            "dtype": "FP32"
+          }
+        ],
+        "formula": "B * M * K * T, W[M,K] times X[B,K,T]",
+        "mac_full_call": 5347737600,
+        "mac_per_audio_second": 786432000.0,
+        "included_internal_operations": []
+      },
+      {
+        "name": "ncc_up_2_split_matmul_current_node",
+        "source_operator": "IntelPlainMatMulF32",
+        "source_domain": "venky.audio.intel.decoder.experimental",
+        "saved_executed_operator": "IntelPlainMatMulF32",
+        "input_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              3072,
+              1024
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              1024,
+              1360
+            ]
+          }
+        ],
+        "output_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              3072,
+              1360
+            ]
+          }
+        ],
+        "constants": [
+          {
+            "name": "ncc_up_2_split_matmul_current_w",
+            "shape": [
+              3072,
+              1024
+            ],
+            "dtype": "FP32"
+          }
+        ],
+        "formula": "B * M * K * T, W[M,K] times X[B,K,T]",
+        "mac_full_call": 4278190080,
+        "mac_per_audio_second": 629145600.0,
+        "included_internal_operations": []
+      },
+      {
+        "name": "ncc_up_2_split_matmul_previous_unshifted_node",
+        "source_operator": "IntelPlainMatMulF32",
+        "source_domain": "venky.audio.intel.decoder.experimental",
+        "saved_executed_operator": "IntelPlainMatMulF32",
+        "input_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              3072,
+              1024
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              1024,
+              1360
+            ]
+          }
+        ],
+        "output_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              3072,
+              1360
+            ]
+          }
+        ],
+        "constants": [
+          {
+            "name": "ncc_up_2_split_matmul_previous_w",
+            "shape": [
+              3072,
+              1024
+            ],
+            "dtype": "FP32"
+          }
+        ],
+        "formula": "B * M * K * T, W[M,K] times X[B,K,T]",
+        "mac_full_call": 4278190080,
+        "mac_per_audio_second": 629145600.0,
+        "included_internal_operations": []
+      },
+      {
+        "name": "ncc_up_1_split_matmul_previous_unshifted_node",
+        "source_operator": "IntelPlainMatMulF32",
+        "source_domain": "venky.audio.intel.decoder.experimental",
+        "saved_executed_operator": "IntelPlainMatMulF32",
+        "input_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              8192,
+              2048
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              2048,
+              170
+            ]
+          }
+        ],
+        "output_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              8192,
+              170
+            ]
+          }
+        ],
+        "constants": [
+          {
+            "name": "ncc_up_1_split_matmul_previous_w",
+            "shape": [
+              8192,
+              2048
+            ],
+            "dtype": "FP32"
+          }
+        ],
+        "formula": "B * M * K * T, W[M,K] times X[B,K,T]",
+        "mac_full_call": 2852126720,
+        "mac_per_audio_second": 419430400.0,
+        "included_internal_operations": []
+      },
+      {
+        "name": "ncc_up_1_split_matmul_current_node",
+        "source_operator": "IntelPlainMatMulF32",
+        "source_domain": "venky.audio.intel.decoder.experimental",
+        "saved_executed_operator": "IntelPlainMatMulF32",
+        "input_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              8192,
+              2048
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              2048,
+              170
+            ]
+          }
+        ],
+        "output_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              8192,
+              170
+            ]
+          }
+        ],
+        "constants": [
+          {
+            "name": "ncc_up_1_split_matmul_current_w",
+            "shape": [
+              8192,
+              2048
+            ],
+            "dtype": "FP32"
+          }
+        ],
+        "formula": "B * M * K * T, W[M,K] times X[B,K,T]",
+        "mac_full_call": 2852126720,
+        "mac_per_audio_second": 419430400.0,
+        "included_internal_operations": []
+      },
+      {
+        "name": "ncc_up_4_split_matmul_previous_unshifted_node",
+        "source_operator": "MatMul",
+        "source_domain": "",
+        "saved_executed_operator": "MatMul",
+        "input_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              256,
+              256
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              256,
+              40800
+            ]
+          }
+        ],
+        "output_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              256,
+              40800
+            ]
+          }
+        ],
+        "constants": [
+          {
+            "name": "ncc_up_4_split_matmul_previous_w",
+            "shape": [
+              256,
+              256
+            ],
+            "dtype": "FP32"
+          }
+        ],
+        "formula": "B * M * K * T, W[M,K] times X[B,K,T]",
+        "mac_full_call": 2673868800,
+        "mac_per_audio_second": 393216000.0,
+        "included_internal_operations": []
+      },
+      {
+        "name": "ncc_up_4_split_matmul_current_node",
+        "source_operator": "MatMul",
+        "source_domain": "",
+        "saved_executed_operator": "MatMul",
+        "input_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              256,
+              256
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              256,
+              40800
+            ]
+          }
+        ],
+        "output_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              256,
+              40800
+            ]
+          }
+        ],
+        "constants": [
+          {
+            "name": "ncc_up_4_split_matmul_current_w",
+            "shape": [
+              256,
+              256
+            ],
+            "dtype": "FP32"
+          }
+        ],
+        "formula": "B * M * K * T, W[M,K] times X[B,K,T]",
+        "mac_full_call": 2673868800,
+        "mac_per_audio_second": 393216000.0,
+        "included_internal_operations": []
+      },
+      {
+        "name": "node_conv1d_11__bct_mm",
+        "source_operator": "IntelPlainMatMulF32",
+        "source_domain": "venky.audio.intel.decoder.experimental",
+        "saved_executed_operator": "IntelPlainMatMulF32",
+        "input_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              512,
+              512
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              512,
+              8160
+            ]
+          }
+        ],
+        "output_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              512,
+              8160
+            ]
+          }
+        ],
+        "constants": [
+          {
+            "name": "node_conv1d_11__bct_mm_weight",
+            "shape": [
+              512,
+              512
+            ],
+            "dtype": "FP32"
+          }
+        ],
+        "formula": "B * M * K * T, W[M,K] times X[B,K,T]",
+        "mac_full_call": 2139095040,
+        "mac_per_audio_second": 314572800.0,
+        "included_internal_operations": []
+      },
+      {
+        "name": "node_conv1d_13__bct_mm",
+        "source_operator": "IntelPlainMatMulF32",
+        "source_domain": "venky.audio.intel.decoder.experimental",
+        "saved_executed_operator": "IntelPlainMatMulF32",
+        "input_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              512,
+              512
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              512,
+              8160
+            ]
+          }
+        ],
+        "output_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              512,
+              8160
+            ]
+          }
+        ],
+        "constants": [
+          {
+            "name": "node_conv1d_13__bct_mm_weight",
+            "shape": [
+              512,
+              512
+            ],
+            "dtype": "FP32"
+          }
+        ],
+        "formula": "B * M * K * T, W[M,K] times X[B,K,T]",
+        "mac_full_call": 2139095040,
+        "mac_per_audio_second": 314572800.0,
+        "included_internal_operations": []
+      },
+      {
+        "name": "node_conv1d_9__bct_mm",
+        "source_operator": "IntelPlainMatMulF32",
+        "source_domain": "venky.audio.intel.decoder.experimental",
+        "saved_executed_operator": "IntelPlainMatMulF32",
+        "input_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              512,
+              512
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              512,
+              8160
+            ]
+          }
+        ],
+        "output_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              512,
+              8160
+            ]
+          }
+        ],
+        "constants": [
+          {
+            "name": "node_conv1d_9__bct_mm_weight",
+            "shape": [
+              512,
+              512
+            ],
+            "dtype": "FP32"
+          }
+        ],
+        "formula": "B * M * K * T, W[M,K] times X[B,K,T]",
+        "mac_full_call": 2139095040,
+        "mac_per_audio_second": 314572800.0,
+        "included_internal_operations": []
+      },
+      {
+        "name": "ncc_up_5_split_matmul_current_node",
+        "source_operator": "MatMul",
+        "source_domain": "",
+        "saved_executed_operator": "MatMul",
+        "input_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              128,
+              128
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              128,
+              81600
+            ]
+          }
+        ],
+        "output_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              128,
+              81600
+            ]
+          }
+        ],
+        "constants": [
+          {
+            "name": "ncc_up_5_split_matmul_current_w",
+            "shape": [
+              128,
+              128
+            ],
+            "dtype": "FP32"
+          }
+        ],
+        "formula": "B * M * K * T, W[M,K] times X[B,K,T]",
+        "mac_full_call": 1336934400,
+        "mac_per_audio_second": 196608000.0,
+        "included_internal_operations": []
+      },
+      {
+        "name": "ncc_up_5_split_matmul_previous_unshifted_node",
+        "source_operator": "MatMul",
+        "source_domain": "",
+        "saved_executed_operator": "MatMul",
+        "input_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              128,
+              128
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              128,
+              81600
+            ]
+          }
+        ],
+        "output_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              128,
+              81600
+            ]
+          }
+        ],
+        "constants": [
+          {
+            "name": "ncc_up_5_split_matmul_previous_w",
+            "shape": [
+              128,
+              128
+            ],
+            "dtype": "FP32"
+          }
+        ],
+        "formula": "B * M * K * T, W[M,K] times X[B,K,T]",
+        "mac_full_call": 1336934400,
+        "mac_per_audio_second": 196608000.0,
+        "included_internal_operations": []
+      },
+      {
+        "name": "node_conv1d_7__bct_mm",
+        "source_operator": "IntelPlainMatMulF32",
+        "source_domain": "venky.audio.intel.decoder.experimental",
+        "saved_executed_operator": "IntelPlainMatMulF32",
+        "input_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1024,
+              1024
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              1024,
+              1360
+            ]
+          }
+        ],
+        "output_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              1024,
+              1360
+            ]
+          }
+        ],
+        "constants": [
+          {
+            "name": "node_conv1d_7__bct_mm_weight",
+            "shape": [
+              1024,
+              1024
+            ],
+            "dtype": "FP32"
+          }
+        ],
+        "formula": "B * M * K * T, W[M,K] times X[B,K,T]",
+        "mac_full_call": 1426063360,
+        "mac_per_audio_second": 209715200.0,
+        "included_internal_operations": []
+      },
+      {
+        "name": "node_conv1d_3__bct_mm",
+        "source_operator": "IntelPlainMatMulF32",
+        "source_domain": "venky.audio.intel.decoder.experimental",
+        "saved_executed_operator": "IntelPlainMatMulF32",
+        "input_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1024,
+              1024
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              1024,
+              1360
+            ]
+          }
+        ],
+        "output_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              1024,
+              1360
+            ]
+          }
+        ],
+        "constants": [
+          {
+            "name": "node_conv1d_3__bct_mm_weight",
+            "shape": [
+              1024,
+              1024
+            ],
+            "dtype": "FP32"
+          }
+        ],
+        "formula": "B * M * K * T, W[M,K] times X[B,K,T]",
+        "mac_full_call": 1426063360,
+        "mac_per_audio_second": 209715200.0,
+        "included_internal_operations": []
+      },
+      {
+        "name": "node_conv1d_5__bct_mm",
+        "source_operator": "IntelPlainMatMulF32",
+        "source_domain": "venky.audio.intel.decoder.experimental",
+        "saved_executed_operator": "IntelPlainMatMulF32",
+        "input_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1024,
+              1024
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              1024,
+              1360
+            ]
+          }
+        ],
+        "output_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              1024,
+              1360
+            ]
+          }
+        ],
+        "constants": [
+          {
+            "name": "node_conv1d_5__bct_mm_weight",
+            "shape": [
+              1024,
+              1024
+            ],
+            "dtype": "FP32"
+          }
+        ],
+        "formula": "B * M * K * T, W[M,K] times X[B,K,T]",
+        "mac_full_call": 1426063360,
+        "mac_per_audio_second": 209715200.0,
+        "included_internal_operations": []
+      },
+      {
+        "name": "node_conv1d_38",
+        "source_operator": "Conv",
+        "source_domain": "",
+        "saved_executed_operator": "FusedConv",
+        "input_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              32,
+              326400
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              32,
+              7
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              1
+            ]
+          }
+        ],
+        "output_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              1,
+              326400
+            ]
+          }
+        ],
+        "constants": [
+          {
+            "name": "audio_vae.decoder.model.9.weight",
+            "shape": [
+              1,
+              32,
+              7
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "audio_vae.decoder.model.9.bias",
+            "shape": [
+              1
+            ],
+            "dtype": "FP32"
+          }
+        ],
+        "formula": "output_elements * (Cin/group) * kernel_width; fused activation excluded",
+        "mac_full_call": 73113600,
+        "mac_per_audio_second": 10752000.0,
+        "included_internal_operations": []
+      },
+      {
+        "name": "ncc_up_6_split_matmul_current_node",
+        "source_operator": "MatMul",
+        "source_domain": "",
+        "saved_executed_operator": "MatMul",
+        "input_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              64,
+              64
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              64,
+              163200
+            ]
+          }
+        ],
+        "output_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              64,
+              163200
+            ]
+          }
+        ],
+        "constants": [
+          {
+            "name": "ncc_up_6_split_matmul_current_w",
+            "shape": [
+              64,
+              64
+            ],
+            "dtype": "FP32"
+          }
+        ],
+        "formula": "B * M * K * T, W[M,K] times X[B,K,T]",
+        "mac_full_call": 668467200,
+        "mac_per_audio_second": 98304000.0,
+        "included_internal_operations": []
+      },
+      {
+        "name": "ncc_up_6_split_matmul_previous_unshifted_node",
+        "source_operator": "MatMul",
+        "source_domain": "",
+        "saved_executed_operator": "MatMul",
+        "input_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              64,
+              64
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              64,
+              163200
+            ]
+          }
+        ],
+        "output_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              64,
+              163200
+            ]
+          }
+        ],
+        "constants": [
+          {
+            "name": "ncc_up_6_split_matmul_previous_w",
+            "shape": [
+              64,
+              64
+            ],
+            "dtype": "FP32"
+          }
+        ],
+        "formula": "B * M * K * T, W[M,K] times X[B,K,T]",
+        "mac_full_call": 668467200,
+        "mac_per_audio_second": 98304000.0,
+        "included_internal_operations": []
+      },
+      {
+        "name": "ncc_block_chain_53",
+        "source_operator": "SnakeDW7SnakeF32",
+        "source_domain": "venky.audio.cpu.portable",
+        "saved_executed_operator": "SnakeDW7SnakeF32",
+        "input_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              512,
+              8160
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              512,
+              1,
+              7
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              512
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              512
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              512
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              512
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              512
+            ]
+          }
+        ],
+        "output_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              512,
+              8160
+            ]
+          }
+        ],
+        "constants": [
+          {
+            "name": "audio_vae.decoder.model.3.block.2.block.1.weight",
+            "shape": [
+              512,
+              1,
+              7
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "audio_vae.decoder.model.3.block.2.block.1.bias",
+            "shape": [
+              512
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_291__ncc_alpha",
+            "shape": [
+              512
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_291__ncc_reciprocal",
+            "shape": [
+              512
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_320__ncc_alpha",
+            "shape": [
+              512
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_320__ncc_reciprocal",
+            "shape": [
+              512
+            ],
+            "dtype": "FP32"
+          }
+        ],
+        "formula": "B * C * T * 7; Snake arithmetic excluded",
+        "mac_full_call": 29245440,
+        "mac_per_audio_second": 4300800.0,
+        "included_internal_operations": []
+      },
+      {
+        "name": "ncc_block_chain_69",
+        "source_operator": "SnakeDW7SnakeF32",
+        "source_domain": "venky.audio.cpu.portable",
+        "saved_executed_operator": "SnakeDW7SnakeF32",
+        "input_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              512,
+              8160
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              512,
+              1,
+              7
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              512
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              512
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              512
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              512
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              512
+            ]
+          }
+        ],
+        "output_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              512,
+              8160
+            ]
+          }
+        ],
+        "constants": [
+          {
+            "name": "audio_vae.decoder.model.3.block.4.block.1.weight",
+            "shape": [
+              512,
+              1,
+              7
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "audio_vae.decoder.model.3.block.4.block.1.bias",
+            "shape": [
+              512
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_415__ncc_alpha",
+            "shape": [
+              512
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_415__ncc_reciprocal",
+            "shape": [
+              512
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_444__ncc_alpha",
+            "shape": [
+              512
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_444__ncc_reciprocal",
+            "shape": [
+              512
+            ],
+            "dtype": "FP32"
+          }
+        ],
+        "formula": "B * C * T * 7; Snake arithmetic excluded",
+        "mac_full_call": 29245440,
+        "mac_per_audio_second": 4300800.0,
+        "included_internal_operations": []
+      },
+      {
+        "name": "ncc_block_chain_61",
+        "source_operator": "SnakeDW7SnakeF32",
+        "source_domain": "venky.audio.cpu.portable",
+        "saved_executed_operator": "SnakeDW7SnakeF32",
+        "input_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              512,
+              8160
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              512,
+              1,
+              7
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              512
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              512
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              512
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              512
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              512
+            ]
+          }
+        ],
+        "output_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              512,
+              8160
+            ]
+          }
+        ],
+        "constants": [
+          {
+            "name": "audio_vae.decoder.model.3.block.3.block.1.weight",
+            "shape": [
+              512,
+              1,
+              7
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "audio_vae.decoder.model.3.block.3.block.1.bias",
+            "shape": [
+              512
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_353__ncc_alpha",
+            "shape": [
+              512
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_353__ncc_reciprocal",
+            "shape": [
+              512
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_382__ncc_alpha",
+            "shape": [
+              512
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_382__ncc_reciprocal",
+            "shape": [
+              512
+            ],
+            "dtype": "FP32"
+          }
+        ],
+        "formula": "B * C * T * 7; Snake arithmetic excluded",
+        "mac_full_call": 29245440,
+        "mac_per_audio_second": 4300800.0,
+        "included_internal_operations": []
+      },
+      {
+        "name": "ncc_block_chain_34",
+        "source_operator": "SnakeDW7SnakeF32",
+        "source_domain": "venky.audio.cpu.portable",
+        "saved_executed_operator": "SnakeDW7SnakeF32",
+        "input_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              1024,
+              1360
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              1024,
+              1,
+              7
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              1024
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              1024
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              1024
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              1024
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              1024
+            ]
+          }
+        ],
+        "output_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              1024,
+              1360
+            ]
+          }
+        ],
+        "constants": [
+          {
+            "name": "audio_vae.decoder.model.2.block.4.block.1.weight",
+            "shape": [
+              1024,
+              1,
+              7
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "audio_vae.decoder.model.2.block.4.block.1.bias",
+            "shape": [
+              1024
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_193__ncc_alpha",
+            "shape": [
+              1024
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_193__ncc_reciprocal",
+            "shape": [
+              1024
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_222__ncc_alpha",
+            "shape": [
+              1024
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_222__ncc_reciprocal",
+            "shape": [
+              1024
+            ],
+            "dtype": "FP32"
+          }
+        ],
+        "formula": "B * C * T * 7; Snake arithmetic excluded",
+        "mac_full_call": 9748480,
+        "mac_per_audio_second": 1433600.0,
+        "included_internal_operations": []
+      },
+      {
+        "name": "ncc_block_chain_18",
+        "source_operator": "SnakeDW7SnakeF32",
+        "source_domain": "venky.audio.cpu.portable",
+        "saved_executed_operator": "SnakeDW7SnakeF32",
+        "input_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              1024,
+              1360
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              1024,
+              1,
+              7
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              1024
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              1024
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              1024
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              1024
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              1024
+            ]
+          }
+        ],
+        "output_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              1024,
+              1360
+            ]
+          }
+        ],
+        "constants": [
+          {
+            "name": "audio_vae.decoder.model.2.block.2.block.1.weight",
+            "shape": [
+              1024,
+              1,
+              7
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "audio_vae.decoder.model.2.block.2.block.1.bias",
+            "shape": [
+              1024
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_69__ncc_alpha",
+            "shape": [
+              1024
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_69__ncc_reciprocal",
+            "shape": [
+              1024
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_98__ncc_alpha",
+            "shape": [
+              1024
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_98__ncc_reciprocal",
+            "shape": [
+              1024
+            ],
+            "dtype": "FP32"
+          }
+        ],
+        "formula": "B * C * T * 7; Snake arithmetic excluded",
+        "mac_full_call": 9748480,
+        "mac_per_audio_second": 1433600.0,
+        "included_internal_operations": []
+      },
+      {
+        "name": "ncc_block_chain_26",
+        "source_operator": "SnakeDW7SnakeF32",
+        "source_domain": "venky.audio.cpu.portable",
+        "saved_executed_operator": "SnakeDW7SnakeF32",
+        "input_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              1024,
+              1360
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              1024,
+              1,
+              7
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              1024
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              1024
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              1024
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              1024
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              1024
+            ]
+          }
+        ],
+        "output_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              1024,
+              1360
+            ]
+          }
+        ],
+        "constants": [
+          {
+            "name": "audio_vae.decoder.model.2.block.3.block.1.weight",
+            "shape": [
+              1024,
+              1,
+              7
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "audio_vae.decoder.model.2.block.3.block.1.bias",
+            "shape": [
+              1024
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_131__ncc_alpha",
+            "shape": [
+              1024
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_131__ncc_reciprocal",
+            "shape": [
+              1024
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_160__ncc_alpha",
+            "shape": [
+              1024
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "add_160__ncc_reciprocal",
+            "shape": [
+              1024
+            ],
+            "dtype": "FP32"
+          }
+        ],
+        "formula": "B * C * T * 7; Snake arithmetic excluded",
+        "mac_full_call": 9748480,
+        "mac_per_audio_second": 1433600.0,
+        "included_internal_operations": []
+      },
+      {
+        "name": "node_conv1d_1__bct_mm",
+        "source_operator": "MatMul",
+        "source_domain": "",
+        "saved_executed_operator": "MatMul",
+        "input_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              2048,
+              64
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              64,
+              170
+            ]
+          }
+        ],
+        "output_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              2048,
+              170
+            ]
+          }
+        ],
+        "constants": [
+          {
+            "name": "node_conv1d_1__bct_mm_weight",
+            "shape": [
+              2048,
+              64
+            ],
+            "dtype": "FP32"
+          }
+        ],
+        "formula": "B * M * K * T, W[M,K] times X[B,K,T]",
+        "mac_full_call": 22282240,
+        "mac_per_audio_second": 3276800.0,
+        "included_internal_operations": []
+      },
+      {
+        "name": "ncc_node_conv1d",
+        "source_operator": "CausalDW7F32",
+        "source_domain": "venky.audio.cpu.portable",
+        "saved_executed_operator": "CausalDW7F32",
+        "input_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              64,
+              170
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              64,
+              1,
+              7
+            ]
+          },
+          {
+            "dtype": "float",
+            "shape": [
+              64
+            ]
+          }
+        ],
+        "output_shapes": [
+          {
+            "dtype": "float",
+            "shape": [
+              1,
+              64,
+              170
+            ]
+          }
+        ],
+        "constants": [
+          {
+            "name": "audio_vae.decoder.model.0.weight",
+            "shape": [
+              64,
+              1,
+              7
+            ],
+            "dtype": "FP32"
+          },
+          {
+            "name": "audio_vae.decoder.model.0.bias",
+            "shape": [
+              64
+            ],
+            "dtype": "FP32"
+          }
+        ],
+        "formula": "B * C * T * 7; Snake arithmetic excluded",
+        "mac_full_call": 76160,
+        "mac_per_audio_second": 11200.0,
+        "included_internal_operations": []
+      }
+    ],
+    "mac_full_call": 61140453760,
+    "GMAC_per_audio_second": 8.9912432,
+    "source_operator_MAC_full_call": {
+      "StageStackF32": 15917875200,
+      "IntelPlainMatMulF32": 35651584000,
+      "MatMul": 9380823040,
+      "Conv": 73113600,
+      "SnakeDW7SnakeF32": 116981760,
+      "CausalDW7F32": 76160
+    },
+    "excluded_executed_operator_counts": {
+      "SnakeF32": 7,
+      "PhaseSumBiasInterleaveF32": 6,
+      "Mul": 12,
+      "Add": 7,
+      "BiasResidualF32": 6,
+      "Shape": 1,
+      "Reshape": 31,
+      "Concat": 6,
+      "Squeeze": 1
+    },
+    "stages": [
+      {
+        "stride": 8,
+        "channels": 1024,
+        "rate": 200,
+        "upsample_mac_per_second": 838860800,
+        "residual_pointwise_mac_per_second": 629145600,
+        "depthwise_mac_per_second": 4300800,
+        "main_feature_values_per_audio_second": 204800
+      },
+      {
+        "stride": 6,
+        "channels": 512,
+        "rate": 1200,
+        "upsample_mac_per_second": 1258291200,
+        "residual_pointwise_mac_per_second": 943718400,
+        "depthwise_mac_per_second": 12902400,
+        "main_feature_values_per_audio_second": 614400
+      },
+      {
+        "stride": 5,
+        "channels": 256,
+        "rate": 6000,
+        "upsample_mac_per_second": 1572864000,
+        "residual_pointwise_mac_per_second": 1179648000,
+        "depthwise_mac_per_second": 32256000,
+        "main_feature_values_per_audio_second": 1536000
+      },
+      {
+        "stride": 2,
+        "channels": 128,
+        "rate": 12000,
+        "upsample_mac_per_second": 786432000,
+        "residual_pointwise_mac_per_second": 589824000,
+        "depthwise_mac_per_second": 32256000,
+        "main_feature_values_per_audio_second": 1536000
+      },
+      {
+        "stride": 2,
+        "channels": 64,
+        "rate": 24000,
+        "upsample_mac_per_second": 393216000,
+        "residual_pointwise_mac_per_second": 294912000,
+        "depthwise_mac_per_second": 32256000,
+        "main_feature_values_per_audio_second": 1536000
+      },
+      {
+        "stride": 2,
+        "channels": 32,
+        "rate": 48000,
+        "upsample_mac_per_second": 196608000,
+        "residual_pointwise_mac_per_second": 147456000,
+        "depthwise_mac_per_second": 32256000,
+        "main_feature_values_per_audio_second": 1536000
+      }
+    ],
+    "stage_replay_note": {
+      "scope": "Additional conventional MACs from 78 replayed positions in each of four long stages with two segments, not part of headline network count.",
+      "additional_MAC_full_call": 21153600
+    },
+    "excluded_source_operator_counts": {
+      "Shape": 1,
+      "Squeeze": 1,
+      "Add": 7,
+      "Mul": 12,
+      "Reshape": 31,
+      "SnakeF32": 7,
+      "PhaseSumBiasInterleaveF32": 6,
+      "Concat": 6,
+      "BiasResidualF32": 6,
+      "Tanh": 1
+    }
+  },
+  "supertonic3_released": {
+    "sample_rate_hz": 44100,
+    "samples_per_internal_frame": 512,
+    "internal_frames_per_second": 86.1328125,
+    "internal_latent_channels": 24,
+    "latent_values_per_second": 2067.1875,
+    "packed_input_channels": 144,
+    "frames_per_exported_input_step": 6,
+    "packed_steps_per_second": 14.35546875,
+    "body_channels": 512,
+    "expansion_channels": 2048,
+    "body_blocks": 10,
+    "included_node_count": 33,
+    "included_operations": [
+      {
+        "name": "/decoder/embed/net/Conv",
+        "operator": "Conv",
+        "component": "embedding",
+        "input_shape_per_internal_frame": [
+          "B",
+          24,
+          "F"
+        ],
+        "output_shape": [
+          "B",
+          512,
+          "F"
+        ],
+        "weight_name": "onnx::Conv_1441",
+        "weight_shape": [
+          512,
+          24,
+          7
+        ],
+        "attributes": {
+          "dilations": [
+            1
+          ],
+          "group": 1,
+          "kernel_shape": [
+            7
+          ],
+          "pads": [
+            0,
+            0
+          ],
+          "strides": [
+            1
+          ]
+        },
+        "formula": "B * F * Cout * (Cin/group) * kernel_width; table uses B=1,F=1",
+        "mac_per_internal_frame": 86016,
+        "mac_per_audio_second": 7408800.0
+      },
+      {
+        "name": "/decoder/convnext.0/dwconv/net/Conv",
+        "operator": "Conv",
+        "component": "body_depthwise",
+        "input_shape_per_internal_frame": [
+          "B",
+          512,
+          "F"
+        ],
+        "output_shape": [
+          "B",
+          512,
+          "F"
+        ],
+        "weight_name": "tts.ae.decoder.convnext.0.dwconv.net.weight",
+        "weight_shape": [
+          512,
+          1,
+          7
+        ],
+        "attributes": {
+          "dilations": [
+            1
+          ],
+          "group": 512,
+          "kernel_shape": [
+            7
+          ],
+          "pads": [
+            0,
+            0
+          ],
+          "strides": [
+            1
+          ]
+        },
+        "formula": "B * F * Cout * (Cin/group) * kernel_width; table uses B=1,F=1",
+        "mac_per_internal_frame": 3584,
+        "mac_per_audio_second": 308700.0
+      },
+      {
+        "name": "/decoder/convnext.0/pwconv1/Conv",
+        "operator": "Conv",
+        "component": "body_pointwise",
+        "input_shape_per_internal_frame": [
+          "B",
+          512,
+          "F"
+        ],
+        "output_shape": [
+          "B",
+          2048,
+          "F"
+        ],
+        "weight_name": "tts.ae.decoder.convnext.0.pwconv1.weight",
+        "weight_shape": [
+          2048,
+          512,
+          1
+        ],
+        "attributes": {
+          "dilations": [
+            1
+          ],
+          "group": 1,
+          "kernel_shape": [
+            1
+          ],
+          "pads": [
+            0,
+            0
+          ],
+          "strides": [
+            1
+          ]
+        },
+        "formula": "B * F * Cout * (Cin/group) * kernel_width; table uses B=1,F=1",
+        "mac_per_internal_frame": 1048576,
+        "mac_per_audio_second": 90316800.0
+      },
+      {
+        "name": "/decoder/convnext.0/pwconv2/Conv",
+        "operator": "Conv",
+        "component": "body_pointwise",
+        "input_shape_per_internal_frame": [
+          "B",
+          2048,
+          "F"
+        ],
+        "output_shape": [
+          "B",
+          512,
+          "F"
+        ],
+        "weight_name": "tts.ae.decoder.convnext.0.pwconv2.weight",
+        "weight_shape": [
+          512,
+          2048,
+          1
+        ],
+        "attributes": {
+          "dilations": [
+            1
+          ],
+          "group": 1,
+          "kernel_shape": [
+            1
+          ],
+          "pads": [
+            0,
+            0
+          ],
+          "strides": [
+            1
+          ]
+        },
+        "formula": "B * F * Cout * (Cin/group) * kernel_width; table uses B=1,F=1",
+        "mac_per_internal_frame": 1048576,
+        "mac_per_audio_second": 90316800.0
+      },
+      {
+        "name": "/decoder/convnext.1/dwconv/net/Conv",
+        "operator": "Conv",
+        "component": "body_depthwise",
+        "input_shape_per_internal_frame": [
+          "B",
+          512,
+          "F"
+        ],
+        "output_shape": [
+          "B",
+          512,
+          "F"
+        ],
+        "weight_name": "tts.ae.decoder.convnext.1.dwconv.net.weight",
+        "weight_shape": [
+          512,
+          1,
+          7
+        ],
+        "attributes": {
+          "dilations": [
+            2
+          ],
+          "group": 512,
+          "kernel_shape": [
+            7
+          ],
+          "pads": [
+            0,
+            0
+          ],
+          "strides": [
+            1
+          ]
+        },
+        "formula": "B * F * Cout * (Cin/group) * kernel_width; table uses B=1,F=1",
+        "mac_per_internal_frame": 3584,
+        "mac_per_audio_second": 308700.0
+      },
+      {
+        "name": "/decoder/convnext.1/pwconv1/Conv",
+        "operator": "Conv",
+        "component": "body_pointwise",
+        "input_shape_per_internal_frame": [
+          "B",
+          512,
+          "F"
+        ],
+        "output_shape": [
+          "B",
+          2048,
+          "F"
+        ],
+        "weight_name": "tts.ae.decoder.convnext.1.pwconv1.weight",
+        "weight_shape": [
+          2048,
+          512,
+          1
+        ],
+        "attributes": {
+          "dilations": [
+            1
+          ],
+          "group": 1,
+          "kernel_shape": [
+            1
+          ],
+          "pads": [
+            0,
+            0
+          ],
+          "strides": [
+            1
+          ]
+        },
+        "formula": "B * F * Cout * (Cin/group) * kernel_width; table uses B=1,F=1",
+        "mac_per_internal_frame": 1048576,
+        "mac_per_audio_second": 90316800.0
+      },
+      {
+        "name": "/decoder/convnext.1/pwconv2/Conv",
+        "operator": "Conv",
+        "component": "body_pointwise",
+        "input_shape_per_internal_frame": [
+          "B",
+          2048,
+          "F"
+        ],
+        "output_shape": [
+          "B",
+          512,
+          "F"
+        ],
+        "weight_name": "tts.ae.decoder.convnext.1.pwconv2.weight",
+        "weight_shape": [
+          512,
+          2048,
+          1
+        ],
+        "attributes": {
+          "dilations": [
+            1
+          ],
+          "group": 1,
+          "kernel_shape": [
+            1
+          ],
+          "pads": [
+            0,
+            0
+          ],
+          "strides": [
+            1
+          ]
+        },
+        "formula": "B * F * Cout * (Cin/group) * kernel_width; table uses B=1,F=1",
+        "mac_per_internal_frame": 1048576,
+        "mac_per_audio_second": 90316800.0
+      },
+      {
+        "name": "/decoder/convnext.2/dwconv/net/Conv",
+        "operator": "Conv",
+        "component": "body_depthwise",
+        "input_shape_per_internal_frame": [
+          "B",
+          512,
+          "F"
+        ],
+        "output_shape": [
+          "B",
+          512,
+          "F"
+        ],
+        "weight_name": "tts.ae.decoder.convnext.2.dwconv.net.weight",
+        "weight_shape": [
+          512,
+          1,
+          7
+        ],
+        "attributes": {
+          "dilations": [
+            4
+          ],
+          "group": 512,
+          "kernel_shape": [
+            7
+          ],
+          "pads": [
+            0,
+            0
+          ],
+          "strides": [
+            1
+          ]
+        },
+        "formula": "B * F * Cout * (Cin/group) * kernel_width; table uses B=1,F=1",
+        "mac_per_internal_frame": 3584,
+        "mac_per_audio_second": 308700.0
+      },
+      {
+        "name": "/decoder/convnext.2/pwconv1/Conv",
+        "operator": "Conv",
+        "component": "body_pointwise",
+        "input_shape_per_internal_frame": [
+          "B",
+          512,
+          "F"
+        ],
+        "output_shape": [
+          "B",
+          2048,
+          "F"
+        ],
+        "weight_name": "tts.ae.decoder.convnext.2.pwconv1.weight",
+        "weight_shape": [
+          2048,
+          512,
+          1
+        ],
+        "attributes": {
+          "dilations": [
+            1
+          ],
+          "group": 1,
+          "kernel_shape": [
+            1
+          ],
+          "pads": [
+            0,
+            0
+          ],
+          "strides": [
+            1
+          ]
+        },
+        "formula": "B * F * Cout * (Cin/group) * kernel_width; table uses B=1,F=1",
+        "mac_per_internal_frame": 1048576,
+        "mac_per_audio_second": 90316800.0
+      },
+      {
+        "name": "/decoder/convnext.2/pwconv2/Conv",
+        "operator": "Conv",
+        "component": "body_pointwise",
+        "input_shape_per_internal_frame": [
+          "B",
+          2048,
+          "F"
+        ],
+        "output_shape": [
+          "B",
+          512,
+          "F"
+        ],
+        "weight_name": "tts.ae.decoder.convnext.2.pwconv2.weight",
+        "weight_shape": [
+          512,
+          2048,
+          1
+        ],
+        "attributes": {
+          "dilations": [
+            1
+          ],
+          "group": 1,
+          "kernel_shape": [
+            1
+          ],
+          "pads": [
+            0,
+            0
+          ],
+          "strides": [
+            1
+          ]
+        },
+        "formula": "B * F * Cout * (Cin/group) * kernel_width; table uses B=1,F=1",
+        "mac_per_internal_frame": 1048576,
+        "mac_per_audio_second": 90316800.0
+      },
+      {
+        "name": "/decoder/convnext.3/dwconv/net/Conv",
+        "operator": "Conv",
+        "component": "body_depthwise",
+        "input_shape_per_internal_frame": [
+          "B",
+          512,
+          "F"
+        ],
+        "output_shape": [
+          "B",
+          512,
+          "F"
+        ],
+        "weight_name": "tts.ae.decoder.convnext.3.dwconv.net.weight",
+        "weight_shape": [
+          512,
+          1,
+          7
+        ],
+        "attributes": {
+          "dilations": [
+            1
+          ],
+          "group": 512,
+          "kernel_shape": [
+            7
+          ],
+          "pads": [
+            0,
+            0
+          ],
+          "strides": [
+            1
+          ]
+        },
+        "formula": "B * F * Cout * (Cin/group) * kernel_width; table uses B=1,F=1",
+        "mac_per_internal_frame": 3584,
+        "mac_per_audio_second": 308700.0
+      },
+      {
+        "name": "/decoder/convnext.3/pwconv1/Conv",
+        "operator": "Conv",
+        "component": "body_pointwise",
+        "input_shape_per_internal_frame": [
+          "B",
+          512,
+          "F"
+        ],
+        "output_shape": [
+          "B",
+          2048,
+          "F"
+        ],
+        "weight_name": "tts.ae.decoder.convnext.3.pwconv1.weight",
+        "weight_shape": [
+          2048,
+          512,
+          1
+        ],
+        "attributes": {
+          "dilations": [
+            1
+          ],
+          "group": 1,
+          "kernel_shape": [
+            1
+          ],
+          "pads": [
+            0,
+            0
+          ],
+          "strides": [
+            1
+          ]
+        },
+        "formula": "B * F * Cout * (Cin/group) * kernel_width; table uses B=1,F=1",
+        "mac_per_internal_frame": 1048576,
+        "mac_per_audio_second": 90316800.0
+      },
+      {
+        "name": "/decoder/convnext.3/pwconv2/Conv",
+        "operator": "Conv",
+        "component": "body_pointwise",
+        "input_shape_per_internal_frame": [
+          "B",
+          2048,
+          "F"
+        ],
+        "output_shape": [
+          "B",
+          512,
+          "F"
+        ],
+        "weight_name": "tts.ae.decoder.convnext.3.pwconv2.weight",
+        "weight_shape": [
+          512,
+          2048,
+          1
+        ],
+        "attributes": {
+          "dilations": [
+            1
+          ],
+          "group": 1,
+          "kernel_shape": [
+            1
+          ],
+          "pads": [
+            0,
+            0
+          ],
+          "strides": [
+            1
+          ]
+        },
+        "formula": "B * F * Cout * (Cin/group) * kernel_width; table uses B=1,F=1",
+        "mac_per_internal_frame": 1048576,
+        "mac_per_audio_second": 90316800.0
+      },
+      {
+        "name": "/decoder/convnext.4/dwconv/net/Conv",
+        "operator": "Conv",
+        "component": "body_depthwise",
+        "input_shape_per_internal_frame": [
+          "B",
+          512,
+          "F"
+        ],
+        "output_shape": [
+          "B",
+          512,
+          "F"
+        ],
+        "weight_name": "tts.ae.decoder.convnext.4.dwconv.net.weight",
+        "weight_shape": [
+          512,
+          1,
+          7
+        ],
+        "attributes": {
+          "dilations": [
+            2
+          ],
+          "group": 512,
+          "kernel_shape": [
+            7
+          ],
+          "pads": [
+            0,
+            0
+          ],
+          "strides": [
+            1
+          ]
+        },
+        "formula": "B * F * Cout * (Cin/group) * kernel_width; table uses B=1,F=1",
+        "mac_per_internal_frame": 3584,
+        "mac_per_audio_second": 308700.0
+      },
+      {
+        "name": "/decoder/convnext.4/pwconv1/Conv",
+        "operator": "Conv",
+        "component": "body_pointwise",
+        "input_shape_per_internal_frame": [
+          "B",
+          512,
+          "F"
+        ],
+        "output_shape": [
+          "B",
+          2048,
+          "F"
+        ],
+        "weight_name": "tts.ae.decoder.convnext.4.pwconv1.weight",
+        "weight_shape": [
+          2048,
+          512,
+          1
+        ],
+        "attributes": {
+          "dilations": [
+            1
+          ],
+          "group": 1,
+          "kernel_shape": [
+            1
+          ],
+          "pads": [
+            0,
+            0
+          ],
+          "strides": [
+            1
+          ]
+        },
+        "formula": "B * F * Cout * (Cin/group) * kernel_width; table uses B=1,F=1",
+        "mac_per_internal_frame": 1048576,
+        "mac_per_audio_second": 90316800.0
+      },
+      {
+        "name": "/decoder/convnext.4/pwconv2/Conv",
+        "operator": "Conv",
+        "component": "body_pointwise",
+        "input_shape_per_internal_frame": [
+          "B",
+          2048,
+          "F"
+        ],
+        "output_shape": [
+          "B",
+          512,
+          "F"
+        ],
+        "weight_name": "tts.ae.decoder.convnext.4.pwconv2.weight",
+        "weight_shape": [
+          512,
+          2048,
+          1
+        ],
+        "attributes": {
+          "dilations": [
+            1
+          ],
+          "group": 1,
+          "kernel_shape": [
+            1
+          ],
+          "pads": [
+            0,
+            0
+          ],
+          "strides": [
+            1
+          ]
+        },
+        "formula": "B * F * Cout * (Cin/group) * kernel_width; table uses B=1,F=1",
+        "mac_per_internal_frame": 1048576,
+        "mac_per_audio_second": 90316800.0
+      },
+      {
+        "name": "/decoder/convnext.5/dwconv/net/Conv",
+        "operator": "Conv",
+        "component": "body_depthwise",
+        "input_shape_per_internal_frame": [
+          "B",
+          512,
+          "F"
+        ],
+        "output_shape": [
+          "B",
+          512,
+          "F"
+        ],
+        "weight_name": "tts.ae.decoder.convnext.5.dwconv.net.weight",
+        "weight_shape": [
+          512,
+          1,
+          7
+        ],
+        "attributes": {
+          "dilations": [
+            4
+          ],
+          "group": 512,
+          "kernel_shape": [
+            7
+          ],
+          "pads": [
+            0,
+            0
+          ],
+          "strides": [
+            1
+          ]
+        },
+        "formula": "B * F * Cout * (Cin/group) * kernel_width; table uses B=1,F=1",
+        "mac_per_internal_frame": 3584,
+        "mac_per_audio_second": 308700.0
+      },
+      {
+        "name": "/decoder/convnext.5/pwconv1/Conv",
+        "operator": "Conv",
+        "component": "body_pointwise",
+        "input_shape_per_internal_frame": [
+          "B",
+          512,
+          "F"
+        ],
+        "output_shape": [
+          "B",
+          2048,
+          "F"
+        ],
+        "weight_name": "tts.ae.decoder.convnext.5.pwconv1.weight",
+        "weight_shape": [
+          2048,
+          512,
+          1
+        ],
+        "attributes": {
+          "dilations": [
+            1
+          ],
+          "group": 1,
+          "kernel_shape": [
+            1
+          ],
+          "pads": [
+            0,
+            0
+          ],
+          "strides": [
+            1
+          ]
+        },
+        "formula": "B * F * Cout * (Cin/group) * kernel_width; table uses B=1,F=1",
+        "mac_per_internal_frame": 1048576,
+        "mac_per_audio_second": 90316800.0
+      },
+      {
+        "name": "/decoder/convnext.5/pwconv2/Conv",
+        "operator": "Conv",
+        "component": "body_pointwise",
+        "input_shape_per_internal_frame": [
+          "B",
+          2048,
+          "F"
+        ],
+        "output_shape": [
+          "B",
+          512,
+          "F"
+        ],
+        "weight_name": "tts.ae.decoder.convnext.5.pwconv2.weight",
+        "weight_shape": [
+          512,
+          2048,
+          1
+        ],
+        "attributes": {
+          "dilations": [
+            1
+          ],
+          "group": 1,
+          "kernel_shape": [
+            1
+          ],
+          "pads": [
+            0,
+            0
+          ],
+          "strides": [
+            1
+          ]
+        },
+        "formula": "B * F * Cout * (Cin/group) * kernel_width; table uses B=1,F=1",
+        "mac_per_internal_frame": 1048576,
+        "mac_per_audio_second": 90316800.0
+      },
+      {
+        "name": "/decoder/convnext.6/dwconv/net/Conv",
+        "operator": "Conv",
+        "component": "body_depthwise",
+        "input_shape_per_internal_frame": [
+          "B",
+          512,
+          "F"
+        ],
+        "output_shape": [
+          "B",
+          512,
+          "F"
+        ],
+        "weight_name": "tts.ae.decoder.convnext.6.dwconv.net.weight",
+        "weight_shape": [
+          512,
+          1,
+          7
+        ],
+        "attributes": {
+          "dilations": [
+            1
+          ],
+          "group": 512,
+          "kernel_shape": [
+            7
+          ],
+          "pads": [
+            0,
+            0
+          ],
+          "strides": [
+            1
+          ]
+        },
+        "formula": "B * F * Cout * (Cin/group) * kernel_width; table uses B=1,F=1",
+        "mac_per_internal_frame": 3584,
+        "mac_per_audio_second": 308700.0
+      },
+      {
+        "name": "/decoder/convnext.6/pwconv1/Conv",
+        "operator": "Conv",
+        "component": "body_pointwise",
+        "input_shape_per_internal_frame": [
+          "B",
+          512,
+          "F"
+        ],
+        "output_shape": [
+          "B",
+          2048,
+          "F"
+        ],
+        "weight_name": "tts.ae.decoder.convnext.6.pwconv1.weight",
+        "weight_shape": [
+          2048,
+          512,
+          1
+        ],
+        "attributes": {
+          "dilations": [
+            1
+          ],
+          "group": 1,
+          "kernel_shape": [
+            1
+          ],
+          "pads": [
+            0,
+            0
+          ],
+          "strides": [
+            1
+          ]
+        },
+        "formula": "B * F * Cout * (Cin/group) * kernel_width; table uses B=1,F=1",
+        "mac_per_internal_frame": 1048576,
+        "mac_per_audio_second": 90316800.0
+      },
+      {
+        "name": "/decoder/convnext.6/pwconv2/Conv",
+        "operator": "Conv",
+        "component": "body_pointwise",
+        "input_shape_per_internal_frame": [
+          "B",
+          2048,
+          "F"
+        ],
+        "output_shape": [
+          "B",
+          512,
+          "F"
+        ],
+        "weight_name": "tts.ae.decoder.convnext.6.pwconv2.weight",
+        "weight_shape": [
+          512,
+          2048,
+          1
+        ],
+        "attributes": {
+          "dilations": [
+            1
+          ],
+          "group": 1,
+          "kernel_shape": [
+            1
+          ],
+          "pads": [
+            0,
+            0
+          ],
+          "strides": [
+            1
+          ]
+        },
+        "formula": "B * F * Cout * (Cin/group) * kernel_width; table uses B=1,F=1",
+        "mac_per_internal_frame": 1048576,
+        "mac_per_audio_second": 90316800.0
+      },
+      {
+        "name": "/decoder/convnext.7/dwconv/net/Conv",
+        "operator": "Conv",
+        "component": "body_depthwise",
+        "input_shape_per_internal_frame": [
+          "B",
+          512,
+          "F"
+        ],
+        "output_shape": [
+          "B",
+          512,
+          "F"
+        ],
+        "weight_name": "tts.ae.decoder.convnext.7.dwconv.net.weight",
+        "weight_shape": [
+          512,
+          1,
+          7
+        ],
+        "attributes": {
+          "dilations": [
+            1
+          ],
+          "group": 512,
+          "kernel_shape": [
+            7
+          ],
+          "pads": [
+            0,
+            0
+          ],
+          "strides": [
+            1
+          ]
+        },
+        "formula": "B * F * Cout * (Cin/group) * kernel_width; table uses B=1,F=1",
+        "mac_per_internal_frame": 3584,
+        "mac_per_audio_second": 308700.0
+      },
+      {
+        "name": "/decoder/convnext.7/pwconv1/Conv",
+        "operator": "Conv",
+        "component": "body_pointwise",
+        "input_shape_per_internal_frame": [
+          "B",
+          512,
+          "F"
+        ],
+        "output_shape": [
+          "B",
+          2048,
+          "F"
+        ],
+        "weight_name": "tts.ae.decoder.convnext.7.pwconv1.weight",
+        "weight_shape": [
+          2048,
+          512,
+          1
+        ],
+        "attributes": {
+          "dilations": [
+            1
+          ],
+          "group": 1,
+          "kernel_shape": [
+            1
+          ],
+          "pads": [
+            0,
+            0
+          ],
+          "strides": [
+            1
+          ]
+        },
+        "formula": "B * F * Cout * (Cin/group) * kernel_width; table uses B=1,F=1",
+        "mac_per_internal_frame": 1048576,
+        "mac_per_audio_second": 90316800.0
+      },
+      {
+        "name": "/decoder/convnext.7/pwconv2/Conv",
+        "operator": "Conv",
+        "component": "body_pointwise",
+        "input_shape_per_internal_frame": [
+          "B",
+          2048,
+          "F"
+        ],
+        "output_shape": [
+          "B",
+          512,
+          "F"
+        ],
+        "weight_name": "tts.ae.decoder.convnext.7.pwconv2.weight",
+        "weight_shape": [
+          512,
+          2048,
+          1
+        ],
+        "attributes": {
+          "dilations": [
+            1
+          ],
+          "group": 1,
+          "kernel_shape": [
+            1
+          ],
+          "pads": [
+            0,
+            0
+          ],
+          "strides": [
+            1
+          ]
+        },
+        "formula": "B * F * Cout * (Cin/group) * kernel_width; table uses B=1,F=1",
+        "mac_per_internal_frame": 1048576,
+        "mac_per_audio_second": 90316800.0
+      },
+      {
+        "name": "/decoder/convnext.8/dwconv/net/Conv",
+        "operator": "Conv",
+        "component": "body_depthwise",
+        "input_shape_per_internal_frame": [
+          "B",
+          512,
+          "F"
+        ],
+        "output_shape": [
+          "B",
+          512,
+          "F"
+        ],
+        "weight_name": "tts.ae.decoder.convnext.8.dwconv.net.weight",
+        "weight_shape": [
+          512,
+          1,
+          7
+        ],
+        "attributes": {
+          "dilations": [
+            1
+          ],
+          "group": 512,
+          "kernel_shape": [
+            7
+          ],
+          "pads": [
+            0,
+            0
+          ],
+          "strides": [
+            1
+          ]
+        },
+        "formula": "B * F * Cout * (Cin/group) * kernel_width; table uses B=1,F=1",
+        "mac_per_internal_frame": 3584,
+        "mac_per_audio_second": 308700.0
+      },
+      {
+        "name": "/decoder/convnext.8/pwconv1/Conv",
+        "operator": "Conv",
+        "component": "body_pointwise",
+        "input_shape_per_internal_frame": [
+          "B",
+          512,
+          "F"
+        ],
+        "output_shape": [
+          "B",
+          2048,
+          "F"
+        ],
+        "weight_name": "tts.ae.decoder.convnext.8.pwconv1.weight",
+        "weight_shape": [
+          2048,
+          512,
+          1
+        ],
+        "attributes": {
+          "dilations": [
+            1
+          ],
+          "group": 1,
+          "kernel_shape": [
+            1
+          ],
+          "pads": [
+            0,
+            0
+          ],
+          "strides": [
+            1
+          ]
+        },
+        "formula": "B * F * Cout * (Cin/group) * kernel_width; table uses B=1,F=1",
+        "mac_per_internal_frame": 1048576,
+        "mac_per_audio_second": 90316800.0
+      },
+      {
+        "name": "/decoder/convnext.8/pwconv2/Conv",
+        "operator": "Conv",
+        "component": "body_pointwise",
+        "input_shape_per_internal_frame": [
+          "B",
+          2048,
+          "F"
+        ],
+        "output_shape": [
+          "B",
+          512,
+          "F"
+        ],
+        "weight_name": "tts.ae.decoder.convnext.8.pwconv2.weight",
+        "weight_shape": [
+          512,
+          2048,
+          1
+        ],
+        "attributes": {
+          "dilations": [
+            1
+          ],
+          "group": 1,
+          "kernel_shape": [
+            1
+          ],
+          "pads": [
+            0,
+            0
+          ],
+          "strides": [
+            1
+          ]
+        },
+        "formula": "B * F * Cout * (Cin/group) * kernel_width; table uses B=1,F=1",
+        "mac_per_internal_frame": 1048576,
+        "mac_per_audio_second": 90316800.0
+      },
+      {
+        "name": "/decoder/convnext.9/dwconv/net/Conv",
+        "operator": "Conv",
+        "component": "body_depthwise",
+        "input_shape_per_internal_frame": [
+          "B",
+          512,
+          "F"
+        ],
+        "output_shape": [
+          "B",
+          512,
+          "F"
+        ],
+        "weight_name": "tts.ae.decoder.convnext.9.dwconv.net.weight",
+        "weight_shape": [
+          512,
+          1,
+          7
+        ],
+        "attributes": {
+          "dilations": [
+            1
+          ],
+          "group": 512,
+          "kernel_shape": [
+            7
+          ],
+          "pads": [
+            0,
+            0
+          ],
+          "strides": [
+            1
+          ]
+        },
+        "formula": "B * F * Cout * (Cin/group) * kernel_width; table uses B=1,F=1",
+        "mac_per_internal_frame": 3584,
+        "mac_per_audio_second": 308700.0
+      },
+      {
+        "name": "/decoder/convnext.9/pwconv1/Conv",
+        "operator": "Conv",
+        "component": "body_pointwise",
+        "input_shape_per_internal_frame": [
+          "B",
+          512,
+          "F"
+        ],
+        "output_shape": [
+          "B",
+          2048,
+          "F"
+        ],
+        "weight_name": "tts.ae.decoder.convnext.9.pwconv1.weight",
+        "weight_shape": [
+          2048,
+          512,
+          1
+        ],
+        "attributes": {
+          "dilations": [
+            1
+          ],
+          "group": 1,
+          "kernel_shape": [
+            1
+          ],
+          "pads": [
+            0,
+            0
+          ],
+          "strides": [
+            1
+          ]
+        },
+        "formula": "B * F * Cout * (Cin/group) * kernel_width; table uses B=1,F=1",
+        "mac_per_internal_frame": 1048576,
+        "mac_per_audio_second": 90316800.0
+      },
+      {
+        "name": "/decoder/convnext.9/pwconv2/Conv",
+        "operator": "Conv",
+        "component": "body_pointwise",
+        "input_shape_per_internal_frame": [
+          "B",
+          2048,
+          "F"
+        ],
+        "output_shape": [
+          "B",
+          512,
+          "F"
+        ],
+        "weight_name": "tts.ae.decoder.convnext.9.pwconv2.weight",
+        "weight_shape": [
+          512,
+          2048,
+          1
+        ],
+        "attributes": {
+          "dilations": [
+            1
+          ],
+          "group": 1,
+          "kernel_shape": [
+            1
+          ],
+          "pads": [
+            0,
+            0
+          ],
+          "strides": [
+            1
+          ]
+        },
+        "formula": "B * F * Cout * (Cin/group) * kernel_width; table uses B=1,F=1",
+        "mac_per_internal_frame": 1048576,
+        "mac_per_audio_second": 90316800.0
+      },
+      {
+        "name": "/decoder/head/layer1/net/Conv",
+        "operator": "Conv",
+        "component": "head",
+        "input_shape_per_internal_frame": [
+          "B",
+          512,
+          "F"
+        ],
+        "output_shape": [
+          "B",
+          2048,
+          "F"
+        ],
+        "weight_name": "tts.ae.decoder.head.layer1.net.weight",
+        "weight_shape": [
+          2048,
+          512,
+          3
+        ],
+        "attributes": {
+          "dilations": [
+            1
+          ],
+          "group": 1,
+          "kernel_shape": [
+            3
+          ],
+          "pads": [
+            0,
+            0
+          ],
+          "strides": [
+            1
+          ]
+        },
+        "formula": "B * F * Cout * (Cin/group) * kernel_width; table uses B=1,F=1",
+        "mac_per_internal_frame": 3145728,
+        "mac_per_audio_second": 270950400.0
+      },
+      {
+        "name": "/decoder/head/layer2/Conv",
+        "operator": "Conv",
+        "component": "head",
+        "input_shape_per_internal_frame": [
+          "B",
+          2048,
+          "F"
+        ],
+        "output_shape": [
+          "B",
+          512,
+          "F"
+        ],
+        "weight_name": "tts.ae.decoder.head.layer2.weight",
+        "weight_shape": [
+          512,
+          2048,
+          1
+        ],
+        "attributes": {
+          "dilations": [
+            1
+          ],
+          "group": 1,
+          "kernel_shape": [
+            1
+          ],
+          "pads": [
+            0,
+            0
+          ],
+          "strides": [
+            1
+          ]
+        },
+        "formula": "B * F * Cout * (Cin/group) * kernel_width; table uses B=1,F=1",
+        "mac_per_internal_frame": 1048576,
+        "mac_per_audio_second": 90316800.0
+      }
+    ],
+    "MAC_per_internal_frame": 25287680,
+    "GMAC_per_audio_second": 2.178099,
+    "component_MAC_per_internal_frame": {
+      "embedding": 86016,
+      "body_depthwise": 35840,
+      "body_pointwise": 20971520,
+      "head": 4194304
+    },
+    "excluded_source_operator_counts": {
+      "Div": 11,
+      "Shape": 5,
+      "Constant": 143,
+      "Gather": 4,
+      "Slice": 13,
+      "Squeeze": 1,
+      "Unsqueeze": 5,
+      "Concat": 15,
+      "Reshape": 27,
+      "Transpose": 34,
+      "Mul": 31,
+      "Add": 21,
+      "ConstantOfShape": 12,
+      "Cast": 12,
+      "Pad": 12,
+      "LayerNormalization": 10,
+      "Erf": 10,
+      "BatchNormalization": 1,
+      "PRelu": 1
+    },
+    "main_feature_values_per_audio_second": 44100.0,
+    "expanded_feature_values_per_audio_second": 176400.0,
+    "GELU_element_evaluations_per_second": 1764000.0,
+    "Snake_nodes": 0
+  },
+  "hypothetical_48k_template": {
+    "measured": false,
+    "description": "Same ten-block 512/2048 decoder topology and 512-sample direct head retrained at 48 kHz; no deployed encoder or quality result implied.",
+    "sample_rate_hz": 48000,
+    "samples_per_internal_frame": 512,
+    "internal_frames_per_second": 93.75,
+    "latent_channels_if_kept": 24,
+    "latent_values_per_second_if_kept": 2250,
+    "MAC_per_internal_frame": 25287680,
+    "GMAC_per_audio_second": 2.37072,
+    "main_feature_values_per_audio_second": 48000,
+    "expanded_feature_values_per_audio_second": 192000,
+    "representation_warning": "24D at 93.75 Hz has 2250 scalar latent values/s versus AudioVAE2 64D at 25 Hz with 1600. This changes the latent clock and representation budget; it is not a latent-compatible replacement, a quality guarantee, or a coded-bitrate comparison."
+  },
+  "comparisons": {
+    "audio_MAC_over_released_supertonic": 4.128023198210917,
+    "audio_MAC_over_hypothetical_48k_template": 3.79262131335628,
+    "hypothetical_48k_template_MAC_reduction_percent": 73.63301217344448,
+    "individual_late_audio_featuremap_over_48k_template_core": 32.0,
+    "timing_warning": "Neither MAC ratios nor individual featuremap ratios predict measured RTF. Different representations, model quality, normalization/activation costs, memory access and CPU kernels remain material."
+  }
+}
