@@ -1,0 +1,971 @@
+{
+  "source_sha256": "56e7318d234cfb65bb87902d796e54ffa3aa3fd3fbfc562382f96107aafa7916",
+  "new_predictor_signals": 300,
+  "cached_primary_signals": 300,
+  "errors": [],
+  "warnings": 0,
+  "means": {
+    "baseline_original_reference": {
+      "utmos": 2.3206643124421436,
+      "dnsmos_sig": 3.258729224929187,
+      "dnsmos_bak": 3.5834237373744773,
+      "dnsmos_ovrl": 2.7750296487207238,
+      "dnsmos_p808": 3.4283738823069467
+    },
+    "original_at_mimi_rms": {
+      "utmos": 2.29073992172877,
+      "dnsmos_sig": 3.2255866920407374,
+      "dnsmos_bak": 3.586811855434782,
+      "dnsmos_ovrl": 2.7502778454909227,
+      "dnsmos_p808": 3.4264975300856997
+    },
+    "baseline_fast_audiovae2": {
+      "utmos": 2.2568999608357747,
+      "dnsmos_sig": 3.2349339759857734,
+      "dnsmos_bak": 3.6134038254989758,
+      "dnsmos_ovrl": 2.7653481322861055,
+      "dnsmos_p808": 3.403931715403284
+    },
+    "fast_audiovae2_rms_matched": {
+      "utmos": 2.257313827673594,
+      "dnsmos_sig": 3.23176575267527,
+      "dnsmos_bak": 3.6156847446224782,
+      "dnsmos_ovrl": 2.7639775389343817,
+      "dnsmos_p808": 3.403939292478183
+    },
+    "baseline_stock_audiovae2": {
+      "utmos": 2.2568998634815216,
+      "dnsmos_sig": 3.2349331986386263,
+      "dnsmos_bak": 3.6134001439070498,
+      "dnsmos_ovrl": 2.765347068041014,
+      "dnsmos_p808": 3.4039319375488493
+    },
+    "stock_audiovae2_rms_matched": {
+      "utmos": 2.2573138236999513,
+      "dnsmos_sig": 3.2317640405737293,
+      "dnsmos_bak": 3.6156826414161745,
+      "dnsmos_ovrl": 2.763976575604049,
+      "dnsmos_p808": 3.403939544567986
+    },
+    "baseline_mimi_vae": {
+      "utmos": 2.5167768398920694,
+      "dnsmos_sig": 3.316351715827774,
+      "dnsmos_bak": 3.820211321675502,
+      "dnsmos_ovrl": 2.8940325434390712,
+      "dnsmos_p808": 3.3387255303632646
+    },
+    "mimi_vae_rms_matched": {
+      "utmos": 2.507749209801356,
+      "dnsmos_sig": 3.3301788830992445,
+      "dnsmos_bak": 3.8003080747285813,
+      "dnsmos_ovrl": 2.9039337461785037,
+      "dnsmos_p808": 3.3396104187719406
+    },
+    "baseline_meta_dacvae": {
+      "utmos": 2.221748928229014,
+      "dnsmos_sig": 3.2553272596125744,
+      "dnsmos_bak": 3.6034142983103896,
+      "dnsmos_ovrl": 2.778971456788223,
+      "dnsmos_p808": 3.431278300029891
+    },
+    "meta_dacvae_rms_matched": {
+      "utmos": 2.2220735708872477,
+      "dnsmos_sig": 3.2545560031077545,
+      "dnsmos_bak": 3.6050010298636277,
+      "dnsmos_ovrl": 2.7797902535298777,
+      "dnsmos_p808": 3.4312822107190177
+    }
+  },
+  "levels": {
+    "original_at_mimi_rms": {
+      "gain_db_mean": -1.6611397789705256,
+      "gain_db_median": -1.242605852333588,
+      "gain_db_min": -5.860957915061638,
+      "gain_db_max": -0.507309972795343,
+      "adjusted_clips_with_samples_above_unit": 0,
+      "adjusted_peak_max": 0.9380725026130676
+    },
+    "fast_audiovae2_rms_matched": {
+      "gain_db_mean": -0.21788533773062993,
+      "gain_db_median": -0.22712167294314972,
+      "gain_db_min": -0.4441012308092665,
+      "gain_db_max": 0.22865909827546213,
+      "adjusted_clips_with_samples_above_unit": 2,
+      "adjusted_peak_max": 1.0299930572509766
+    },
+    "stock_audiovae2_rms_matched": {
+      "gain_db_mean": -0.2178851172075604,
+      "gain_db_median": -0.22712138399873327,
+      "gain_db_min": -0.44410091084520653,
+      "gain_db_max": 0.22865910901837005,
+      "adjusted_clips_with_samples_above_unit": 2,
+      "adjusted_peak_max": 1.029992938041687
+    },
+    "mimi_vae_rms_matched": {
+      "gain_db_mean": 1.6611397789705256,
+      "gain_db_median": 1.2426058523335881,
+      "gain_db_min": 0.5073099727953435,
+      "gain_db_max": 5.860957915061639,
+      "adjusted_clips_with_samples_above_unit": 2,
+      "adjusted_peak_max": 1.2922550439834595
+    },
+    "meta_dacvae_rms_matched": {
+      "gain_db_mean": 0.016965761587341414,
+      "gain_db_median": -0.014218611752925048,
+      "gain_db_min": -0.14342820976511236,
+      "gain_db_max": 0.5186168577394702,
+      "adjusted_clips_with_samples_above_unit": 2,
+      "adjusted_peak_max": 1.0631753206253052
+    }
+  },
+  "paired_comparisons": {
+    "fast_audiovae2_rms_matched minus baseline_fast_audiovae2": {
+      "utmos": {
+        "mean_first_minus_second": 0.00041386683781941734,
+        "median_first_minus_second": 0.00041687488555908203,
+        "max_absolute_difference": 0.015166401863098145,
+        "first_higher": 42,
+        "second_higher": 18,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_sig": {
+        "mean_first_minus_second": -0.003168223310503789,
+        "median_first_minus_second": -0.0016112798235716763,
+        "max_absolute_difference": 0.045574340764477084,
+        "first_higher": 23,
+        "second_higher": 37,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_bak": {
+        "mean_first_minus_second": 0.002280919123502845,
+        "median_first_minus_second": 0.0009092977201508035,
+        "max_absolute_difference": 0.0271534270100382,
+        "first_higher": 34,
+        "second_higher": 26,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_ovrl": {
+        "mean_first_minus_second": -0.0013705933517239404,
+        "median_first_minus_second": -0.001160046442864937,
+        "max_absolute_difference": 0.02878607125132393,
+        "first_higher": 23,
+        "second_higher": 37,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_p808": {
+        "mean_first_minus_second": 7.577074898616291e-06,
+        "median_first_minus_second": 0.0,
+        "max_absolute_difference": 0.0006049474080405126,
+        "first_higher": 20,
+        "second_higher": 29,
+        "ties": 11,
+        "pairs": 60
+      }
+    },
+    "stock_audiovae2_rms_matched minus baseline_stock_audiovae2": {
+      "utmos": {
+        "mean_first_minus_second": 0.00041396021842956545,
+        "median_first_minus_second": 0.0004165172576904297,
+        "max_absolute_difference": 0.015166878700256348,
+        "first_higher": 42,
+        "second_higher": 18,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_sig": {
+        "mean_first_minus_second": -0.003169158064896756,
+        "median_first_minus_second": -0.0016107169536143662,
+        "max_absolute_difference": 0.04556867696424094,
+        "first_higher": 23,
+        "second_higher": 37,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_bak": {
+        "mean_first_minus_second": 0.0022824975091247516,
+        "median_first_minus_second": 0.000908045899169263,
+        "max_absolute_difference": 0.027152510847302302,
+        "first_higher": 34,
+        "second_higher": 26,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_ovrl": {
+        "mean_first_minus_second": -0.0013704924369654314,
+        "median_first_minus_second": -0.0011619279123786797,
+        "max_absolute_difference": 0.02878536022754874,
+        "first_higher": 23,
+        "second_higher": 37,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_p808": {
+        "mean_first_minus_second": 7.6070191368016186e-06,
+        "median_first_minus_second": 0.0,
+        "max_absolute_difference": 0.0006051063537597656,
+        "first_higher": 19,
+        "second_higher": 25,
+        "ties": 16,
+        "pairs": 60
+      }
+    },
+    "mimi_vae_rms_matched minus baseline_mimi_vae": {
+      "utmos": {
+        "mean_first_minus_second": -0.009027630090713501,
+        "median_first_minus_second": -0.007256150245666504,
+        "max_absolute_difference": 0.1576080322265625,
+        "first_higher": 16,
+        "second_higher": 44,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_sig": {
+        "mean_first_minus_second": 0.01382716727147049,
+        "median_first_minus_second": 0.004325073187631645,
+        "max_absolute_difference": 0.31906313996334323,
+        "first_higher": 35,
+        "second_higher": 25,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_bak": {
+        "mean_first_minus_second": -0.01990324694692033,
+        "median_first_minus_second": -0.0057050489876742105,
+        "max_absolute_difference": 0.47412008667729166,
+        "first_higher": 22,
+        "second_higher": 38,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_ovrl": {
+        "mean_first_minus_second": 0.009901202739432584,
+        "median_first_minus_second": 0.006322869724384894,
+        "max_absolute_difference": 0.28663653961135327,
+        "first_higher": 34,
+        "second_higher": 26,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_p808": {
+        "mean_first_minus_second": 0.0008848884086760286,
+        "median_first_minus_second": 0.0,
+        "max_absolute_difference": 0.03300809860229492,
+        "first_higher": 23,
+        "second_higher": 21,
+        "ties": 16,
+        "pairs": 60
+      }
+    },
+    "meta_dacvae_rms_matched minus baseline_meta_dacvae": {
+      "utmos": {
+        "mean_first_minus_second": 0.0003246426582336426,
+        "median_first_minus_second": -1.6689300537109375e-06,
+        "max_absolute_difference": 0.012640953063964844,
+        "first_higher": 29,
+        "second_higher": 31,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_sig": {
+        "mean_first_minus_second": -0.000771256504819932,
+        "median_first_minus_second": 1.391090145297369e-07,
+        "max_absolute_difference": 0.03341845405287214,
+        "first_higher": 30,
+        "second_higher": 30,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_bak": {
+        "mean_first_minus_second": 0.0015867315532379855,
+        "median_first_minus_second": 0.00030366666550540877,
+        "max_absolute_difference": 0.04826452027538508,
+        "first_higher": 39,
+        "second_higher": 21,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_ovrl": {
+        "mean_first_minus_second": 0.0008187967416548777,
+        "median_first_minus_second": 0.00012340282301637195,
+        "max_absolute_difference": 0.028288392038833265,
+        "first_higher": 35,
+        "second_higher": 25,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_p808": {
+        "mean_first_minus_second": 3.910689126884747e-06,
+        "median_first_minus_second": 0.0,
+        "max_absolute_difference": 0.0002377033233642578,
+        "first_higher": 21,
+        "second_higher": 22,
+        "ties": 17,
+        "pairs": 60
+      }
+    },
+    "original_at_mimi_rms minus baseline_original_reference": {
+      "utmos": {
+        "mean_first_minus_second": -0.02992439071337382,
+        "median_first_minus_second": 0.0012664794921875,
+        "max_absolute_difference": 1.0130385160446167,
+        "first_higher": 39,
+        "second_higher": 21,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_sig": {
+        "mean_first_minus_second": -0.03314253288844976,
+        "median_first_minus_second": -0.0056753996250271666,
+        "max_absolute_difference": 0.5487558519494737,
+        "first_higher": 20,
+        "second_higher": 40,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_bak": {
+        "mean_first_minus_second": 0.0033881180603051045,
+        "median_first_minus_second": 0.012070822377800994,
+        "max_absolute_difference": 0.31329227044618624,
+        "first_higher": 38,
+        "second_higher": 22,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_ovrl": {
+        "mean_first_minus_second": -0.0247518032298011,
+        "median_first_minus_second": -0.003528566112152909,
+        "max_absolute_difference": 0.33408635154772726,
+        "first_higher": 27,
+        "second_higher": 33,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_p808": {
+        "mean_first_minus_second": -0.0018763522212467724,
+        "median_first_minus_second": 0.0,
+        "max_absolute_difference": 0.06587203343709325,
+        "first_higher": 26,
+        "second_higher": 24,
+        "ties": 10,
+        "pairs": 60
+      }
+    },
+    "baseline_fast_audiovae2 minus baseline_mimi_vae": {
+      "utmos": {
+        "mean_first_minus_second": -0.25987687905629475,
+        "median_first_minus_second": -0.3111158609390259,
+        "max_absolute_difference": 2.323585867881775,
+        "first_higher": 9,
+        "second_higher": 51,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_sig": {
+        "mean_first_minus_second": -0.08141773984200043,
+        "median_first_minus_second": -0.05801302479087367,
+        "max_absolute_difference": 1.1802624884785138,
+        "first_higher": 20,
+        "second_higher": 40,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_bak": {
+        "mean_first_minus_second": -0.20680749617652627,
+        "median_first_minus_second": -0.14067485316631867,
+        "max_absolute_difference": 1.3483431736183533,
+        "first_higher": 9,
+        "second_higher": 51,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_ovrl": {
+        "mean_first_minus_second": -0.12868441115296578,
+        "median_first_minus_second": -0.13997377574948544,
+        "max_absolute_difference": 0.8220671731111031,
+        "first_higher": 16,
+        "second_higher": 44,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_p808": {
+        "mean_first_minus_second": 0.06520618504001979,
+        "median_first_minus_second": 0.07162408317838387,
+        "max_absolute_difference": 0.7204543352127075,
+        "first_higher": 39,
+        "second_higher": 21,
+        "ties": 0,
+        "pairs": 60
+      }
+    },
+    "baseline_fast_audiovae2 minus baseline_meta_dacvae": {
+      "utmos": {
+        "mean_first_minus_second": 0.03515103260676066,
+        "median_first_minus_second": 0.014997601509094238,
+        "max_absolute_difference": 0.770667552947998,
+        "first_higher": 34,
+        "second_higher": 26,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_sig": {
+        "mean_first_minus_second": -0.020393283626801036,
+        "median_first_minus_second": -0.01833653562727977,
+        "max_absolute_difference": 0.4988104447548769,
+        "first_higher": 21,
+        "second_higher": 39,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_bak": {
+        "mean_first_minus_second": 0.009989527188585793,
+        "median_first_minus_second": -0.0009047101519199519,
+        "max_absolute_difference": 0.7973161604555803,
+        "first_higher": 30,
+        "second_higher": 30,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_ovrl": {
+        "mean_first_minus_second": -0.01362332450211748,
+        "median_first_minus_second": -0.016935003768956403,
+        "max_absolute_difference": 0.3532926976136468,
+        "first_higher": 25,
+        "second_higher": 35,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_p808": {
+        "mean_first_minus_second": -0.027346584626606538,
+        "median_first_minus_second": -0.014394819736480713,
+        "max_absolute_difference": 0.4729299545288086,
+        "first_higher": 28,
+        "second_higher": 32,
+        "ties": 0,
+        "pairs": 60
+      }
+    },
+    "baseline_mimi_vae minus baseline_meta_dacvae": {
+      "utmos": {
+        "mean_first_minus_second": 0.2950279116630554,
+        "median_first_minus_second": 0.3240361213684082,
+        "max_absolute_difference": 2.52221143245697,
+        "first_higher": 51,
+        "second_higher": 9,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_sig": {
+        "mean_first_minus_second": 0.0610244562151994,
+        "median_first_minus_second": 0.02923572992993906,
+        "max_absolute_difference": 1.015989896831581,
+        "first_higher": 36,
+        "second_higher": 24,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_bak": {
+        "mean_first_minus_second": 0.21679702336511206,
+        "median_first_minus_second": 0.1324998098294048,
+        "max_absolute_difference": 1.4571735532609948,
+        "first_higher": 50,
+        "second_higher": 10,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_ovrl": {
+        "mean_first_minus_second": 0.1150610866508483,
+        "median_first_minus_second": 0.07233563526307307,
+        "max_absolute_difference": 0.7353738022153009,
+        "first_higher": 47,
+        "second_higher": 13,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_p808": {
+        "mean_first_minus_second": -0.09255276966662633,
+        "median_first_minus_second": -0.058301149095807636,
+        "max_absolute_difference": 0.7244890928268433,
+        "first_higher": 22,
+        "second_higher": 38,
+        "ties": 0,
+        "pairs": 60
+      }
+    },
+    "fast_audiovae2_rms_matched minus mimi_vae_rms_matched": {
+      "utmos": {
+        "mean_first_minus_second": -0.25043538212776184,
+        "median_first_minus_second": -0.3073493242263794,
+        "max_absolute_difference": 2.307305693626404,
+        "first_higher": 10,
+        "second_higher": 50,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_sig": {
+        "mean_first_minus_second": -0.09841313042397472,
+        "median_first_minus_second": -0.07907302775282621,
+        "max_absolute_difference": 1.3809449361507924,
+        "first_higher": 18,
+        "second_higher": 42,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_bak": {
+        "mean_first_minus_second": -0.1846233301061031,
+        "median_first_minus_second": -0.1166063961833752,
+        "max_absolute_difference": 1.4122873049955913,
+        "first_higher": 11,
+        "second_higher": 49,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_ovrl": {
+        "mean_first_minus_second": -0.1399562072441223,
+        "median_first_minus_second": -0.14173222170906508,
+        "max_absolute_difference": 0.9598560462786982,
+        "first_higher": 12,
+        "second_higher": 48,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_p808": {
+        "mean_first_minus_second": 0.06432887370624238,
+        "median_first_minus_second": 0.07162432159696297,
+        "max_absolute_difference": 0.7098043759663901,
+        "first_higher": 39,
+        "second_higher": 21,
+        "ties": 0,
+        "pairs": 60
+      }
+    },
+    "fast_audiovae2_rms_matched minus meta_dacvae_rms_matched": {
+      "utmos": {
+        "mean_first_minus_second": 0.03524025678634644,
+        "median_first_minus_second": 0.013404548168182373,
+        "max_absolute_difference": 0.7685079574584961,
+        "first_higher": 34,
+        "second_higher": 26,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_sig": {
+        "mean_first_minus_second": -0.022790250432484893,
+        "median_first_minus_second": -0.021518811193141918,
+        "max_absolute_difference": 0.4988865642732381,
+        "first_higher": 20,
+        "second_higher": 40,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_bak": {
+        "mean_first_minus_second": 0.010683714758850653,
+        "median_first_minus_second": -0.006743794383856416,
+        "max_absolute_difference": 0.7982378882148584,
+        "first_higher": 28,
+        "second_higher": 32,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_ovrl": {
+        "mean_first_minus_second": -0.0158127145954963,
+        "median_first_minus_second": -0.019445964327585274,
+        "max_absolute_difference": 0.35324844767826646,
+        "first_higher": 25,
+        "second_higher": 35,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_p808": {
+        "mean_first_minus_second": -0.027342918240834804,
+        "median_first_minus_second": -0.014394879341125488,
+        "max_absolute_difference": 0.472930908203125,
+        "first_higher": 28,
+        "second_higher": 32,
+        "ties": 0,
+        "pairs": 60
+      }
+    },
+    "mimi_vae_rms_matched minus meta_dacvae_rms_matched": {
+      "utmos": {
+        "mean_first_minus_second": 0.2856756389141083,
+        "median_first_minus_second": 0.32482361793518066,
+        "max_absolute_difference": 2.5272589921951294,
+        "first_higher": 51,
+        "second_higher": 9,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_sig": {
+        "mean_first_minus_second": 0.07562287999148982,
+        "median_first_minus_second": 0.04565139402716811,
+        "max_absolute_difference": 1.2045164577922547,
+        "first_higher": 38,
+        "second_higher": 22,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_bak": {
+        "mean_first_minus_second": 0.19530704486495373,
+        "median_first_minus_second": 0.099205693389814,
+        "max_absolute_difference": 1.3932773244651404,
+        "first_higher": 48,
+        "second_higher": 12,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_ovrl": {
+        "mean_first_minus_second": 0.12414349264862601,
+        "median_first_minus_second": 0.10207908019069989,
+        "max_absolute_difference": 0.8510889440674909,
+        "first_higher": 46,
+        "second_higher": 14,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_p808": {
+        "mean_first_minus_second": -0.09167179194707718,
+        "median_first_minus_second": -0.058300910677228535,
+        "max_absolute_difference": 0.7156592607498169,
+        "first_higher": 22,
+        "second_higher": 38,
+        "ties": 0,
+        "pairs": 60
+      }
+    },
+    "baseline_fast_audiovae2 minus baseline_original_reference": {
+      "utmos": {
+        "mean_first_minus_second": -0.06376435160636902,
+        "median_first_minus_second": -0.040614545345306396,
+        "max_absolute_difference": 0.5178416967391968,
+        "first_higher": 19,
+        "second_higher": 41,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_sig": {
+        "mean_first_minus_second": -0.02379524894341374,
+        "median_first_minus_second": -0.021428022353946696,
+        "max_absolute_difference": 0.30511956931407336,
+        "first_higher": 19,
+        "second_higher": 41,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_bak": {
+        "mean_first_minus_second": 0.029980088124498355,
+        "median_first_minus_second": 0.03628672491921803,
+        "max_absolute_difference": 0.4600604605657481,
+        "first_higher": 36,
+        "second_higher": 24,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_ovrl": {
+        "mean_first_minus_second": -0.009681516434618238,
+        "median_first_minus_second": -0.004664713789188424,
+        "max_absolute_difference": 0.23262148008315764,
+        "first_higher": 28,
+        "second_higher": 32,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_p808": {
+        "mean_first_minus_second": -0.02444216690366233,
+        "median_first_minus_second": -0.027190744876861572,
+        "max_absolute_difference": 0.5131590366363525,
+        "first_higher": 24,
+        "second_higher": 36,
+        "ties": 0,
+        "pairs": 60
+      }
+    },
+    "fast_audiovae2_rms_matched minus baseline_original_reference": {
+      "utmos": {
+        "mean_first_minus_second": -0.0633504847685496,
+        "median_first_minus_second": -0.038937389850616455,
+        "max_absolute_difference": 0.5330080986022949,
+        "first_higher": 19,
+        "second_higher": 41,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_sig": {
+        "mean_first_minus_second": -0.02696347225391753,
+        "median_first_minus_second": -0.02099499117173509,
+        "max_absolute_difference": 0.35069391007855044,
+        "first_higher": 18,
+        "second_higher": 42,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_bak": {
+        "mean_first_minus_second": 0.0322610072480012,
+        "median_first_minus_second": 0.03546935156256881,
+        "max_absolute_difference": 0.45242897254017134,
+        "first_higher": 36,
+        "second_higher": 24,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_ovrl": {
+        "mean_first_minus_second": -0.01105210978634218,
+        "median_first_minus_second": -0.0027018548493298322,
+        "max_absolute_difference": 0.2379155116749545,
+        "first_higher": 30,
+        "second_higher": 30,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_p808": {
+        "mean_first_minus_second": -0.024434589828763714,
+        "median_first_minus_second": -0.027190983295440674,
+        "max_absolute_difference": 0.5131595134735107,
+        "first_higher": 24,
+        "second_higher": 36,
+        "ties": 0,
+        "pairs": 60
+      }
+    },
+    "baseline_mimi_vae minus baseline_original_reference": {
+      "utmos": {
+        "mean_first_minus_second": 0.19611252744992574,
+        "median_first_minus_second": 0.25713324546813965,
+        "max_absolute_difference": 2.698970913887024,
+        "first_higher": 48,
+        "second_higher": 12,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_sig": {
+        "mean_first_minus_second": 0.05762249089858669,
+        "median_first_minus_second": 0.03487796604395155,
+        "max_absolute_difference": 0.8751429191644404,
+        "first_higher": 37,
+        "second_higher": 23,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_bak": {
+        "mean_first_minus_second": 0.23678758430102462,
+        "median_first_minus_second": 0.1913207765599263,
+        "max_absolute_difference": 1.0937097324397196,
+        "first_higher": 51,
+        "second_higher": 9,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_ovrl": {
+        "mean_first_minus_second": 0.11900289471834755,
+        "median_first_minus_second": 0.10516401319569768,
+        "max_absolute_difference": 0.6874350620556595,
+        "first_higher": 48,
+        "second_higher": 12,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_p808": {
+        "mean_first_minus_second": -0.08964835194368212,
+        "median_first_minus_second": -0.02818012237548828,
+        "max_absolute_difference": 1.0926623344421387,
+        "first_higher": 27,
+        "second_higher": 33,
+        "ties": 0,
+        "pairs": 60
+      }
+    },
+    "mimi_vae_rms_matched minus baseline_original_reference": {
+      "utmos": {
+        "mean_first_minus_second": 0.18708489735921224,
+        "median_first_minus_second": 0.24661600589752197,
+        "max_absolute_difference": 2.6913775205612183,
+        "first_higher": 46,
+        "second_higher": 14,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_sig": {
+        "mean_first_minus_second": 0.07144965817005718,
+        "median_first_minus_second": 0.06937299392250895,
+        "max_absolute_difference": 1.030251026072242,
+        "first_higher": 39,
+        "second_higher": 21,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_bak": {
+        "mean_first_minus_second": 0.21688433735410428,
+        "median_first_minus_second": 0.15433068844775022,
+        "max_absolute_difference": 1.0634195516238445,
+        "first_higher": 51,
+        "second_higher": 9,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_ovrl": {
+        "mean_first_minus_second": 0.12890409745778011,
+        "median_first_minus_second": 0.11667674500044578,
+        "max_absolute_difference": 0.8172629648825644,
+        "first_higher": 51,
+        "second_higher": 9,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_p808": {
+        "mean_first_minus_second": -0.0887634635350061,
+        "median_first_minus_second": -0.02818012237548828,
+        "max_absolute_difference": 1.0596542358398438,
+        "first_higher": 27,
+        "second_higher": 33,
+        "ties": 0,
+        "pairs": 60
+      }
+    },
+    "baseline_meta_dacvae minus baseline_original_reference": {
+      "utmos": {
+        "mean_first_minus_second": -0.09891538421312968,
+        "median_first_minus_second": -0.08402353525161743,
+        "max_absolute_difference": 0.40130043029785156,
+        "first_higher": 9,
+        "second_higher": 51,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_sig": {
+        "mean_first_minus_second": -0.003401965316612706,
+        "median_first_minus_second": 0.00013896087542542013,
+        "max_absolute_difference": 0.3507815750522718,
+        "first_higher": 30,
+        "second_higher": 30,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_bak": {
+        "mean_first_minus_second": 0.01999056093591256,
+        "median_first_minus_second": 0.030906646751815092,
+        "max_absolute_difference": 0.36986381388345935,
+        "first_higher": 41,
+        "second_higher": 19,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_ovrl": {
+        "mean_first_minus_second": 0.003941808067499242,
+        "median_first_minus_second": 0.010638722981329396,
+        "max_absolute_difference": 0.2861620006128336,
+        "first_higher": 36,
+        "second_higher": 24,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_p808": {
+        "mean_first_minus_second": 0.0029044177229442083,
+        "median_first_minus_second": -0.0020981788635252574,
+        "max_absolute_difference": 0.47321128845214844,
+        "first_higher": 30,
+        "second_higher": 30,
+        "ties": 0,
+        "pairs": 60
+      }
+    },
+    "meta_dacvae_rms_matched minus baseline_original_reference": {
+      "utmos": {
+        "mean_first_minus_second": -0.09859074155489604,
+        "median_first_minus_second": -0.08408010005950928,
+        "max_absolute_difference": 0.4004185199737549,
+        "first_higher": 9,
+        "second_higher": 51,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_sig": {
+        "mean_first_minus_second": -0.004173221821432638,
+        "median_first_minus_second": 0.0001090289758982621,
+        "max_absolute_difference": 0.35039376483389884,
+        "first_higher": 30,
+        "second_higher": 30,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_bak": {
+        "mean_first_minus_second": 0.021577292489150544,
+        "median_first_minus_second": 0.03077952046040089,
+        "max_absolute_difference": 0.3694288283300011,
+        "first_higher": 41,
+        "second_higher": 19,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_ovrl": {
+        "mean_first_minus_second": 0.0047606048091541195,
+        "median_first_minus_second": 0.013390524698792872,
+        "max_absolute_difference": 0.286686752988214,
+        "first_higher": 37,
+        "second_higher": 23,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_p808": {
+        "mean_first_minus_second": 0.002908328412071093,
+        "median_first_minus_second": -0.0020983219146728516,
+        "max_absolute_difference": 0.4729735851287842,
+        "first_higher": 30,
+        "second_higher": 30,
+        "ties": 0,
+        "pairs": 60
+      }
+    },
+    "baseline_mimi_vae minus original_at_mimi_rms": {
+      "utmos": {
+        "mean_first_minus_second": 0.22603691816329957,
+        "median_first_minus_second": 0.2532930374145508,
+        "max_absolute_difference": 2.4636510610580444,
+        "first_higher": 49,
+        "second_higher": 11,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_sig": {
+        "mean_first_minus_second": 0.09076502378703645,
+        "median_first_minus_second": 0.04031403918998522,
+        "max_absolute_difference": 1.172246894754009,
+        "first_higher": 39,
+        "second_higher": 21,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_bak": {
+        "mean_first_minus_second": 0.23339946624071953,
+        "median_first_minus_second": 0.1827490394837361,
+        "max_absolute_difference": 1.132063411699005,
+        "first_higher": 52,
+        "second_higher": 8,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_ovrl": {
+        "mean_first_minus_second": 0.14375469794814866,
+        "median_first_minus_second": 0.12110062873592731,
+        "max_absolute_difference": 0.8225520046908343,
+        "first_higher": 48,
+        "second_higher": 12,
+        "ties": 0,
+        "pairs": 60
+      },
+      "dnsmos_p808": {
+        "mean_first_minus_second": -0.08777199972243535,
+        "median_first_minus_second": -0.02817976474761963,
+        "max_absolute_difference": 1.036818027496338,
+        "first_higher": 27,
+        "second_higher": 33,
+        "ties": 0,
+        "pairs": 60
+      }
+    }
+  },
+  "aggregation": "60 clips, six per language; pooled means equal the fixed-language macro means",
+  "interpretation": "Secondary intervention; unchanged primary codec scores remain authoritative for that protocol"
+}
