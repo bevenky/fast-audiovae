@@ -1,0 +1,7099 @@
+{
+  "scope": "Separate 6.8-second English technical-screen profile, not the multilingual timing campaign or whole TTS",
+  "source_record_sha256": "55b0c9f32ece22971e698457f460e8e3cb7efaf1f079c38dc4829cbd79f5e611",
+  "onnxruntime": "1.29.0",
+  "library_sha256": "0ccd045a479bdbdd5ae409d59ad00e9f7301ed7470b00f7c0449b8b570f72d0c",
+  "graph_sha256": "34ccdc4b835d04c6a240c7cd2c8025995d22b4c9f3877e61e0b9ee7524d5de66",
+  "source_sha256": "fdd20e200675ab9649bf33f16bc5974101ba5cf47ab89fbfe29f3d36ff6c3c84",
+  "case_sha256": "b29c1eed5e5bd4e20446049f88fb79af90314ff396b0eacf642072de050a2e36",
+  "harness_sha256": "153a0d6e28920afc20d481900e672b915b4f6dbd1bb278571b4ee164f3773e47",
+  "cpu": "Intel Xeon Platinum 8280 KVM guest, two visible vCPUs",
+  "precision": "FP32",
+  "threads": 2,
+  "uid": "en_us_00206_1977",
+  "audio_s": 6.8,
+  "profiled_calls": 3,
+  "operator_us": {
+    "Shape": 65.0,
+    "Squeeze": 30.0,
+    "Mul": 69246.0,
+    "Reshape": 4527.0,
+    "Concat": 148.0,
+    "CausalDW7F32": 192.0,
+    "MatMul": 4099343.0,
+    "Add": 734413.0,
+    "SnakeF32": 1118679.0,
+    "PhaseSumBiasInterleaveF32": 133476.0,
+    "CausalDW7SnakeF32": 1025052.0,
+    "FusedConv": 67736.0
+  },
+  "operator_time_percent": {
+    "MatMul": 56.519999498132265,
+    "SnakeF32": 15.42387073210783,
+    "CausalDW7SnakeF32": 14.13298143764976,
+    "Add": 10.125774396390302,
+    "PhaseSumBiasInterleaveF32": 1.8403103748607283,
+    "Mul": 0.9547344257964427,
+    "FusedConv": 0.9339151873862439,
+    "Reshape": 0.06241635250527823,
+    "CausalDW7F32": 0.0026472144203696533,
+    "Concat": 0.0020405611157016078,
+    "Shape": 0.0008961923818959763,
+    "Squeeze": 0.0004136272531827583
+  },
+  "nodes": [
+    {
+      "name": "node_Shape_0_kernel_time",
+      "op": "Shape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 65.0,
+      "input": [
+        {
+          "float": [
+            1,
+            64,
+            170
+          ]
+        }
+      ],
+      "output": [
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_sym_size_int_72_kernel_time",
+      "op": "Squeeze",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 30.0,
+      "input": [
+        {
+          "int64": [
+            1
+          ]
+        }
+      ],
+      "output": [
+        {
+          "int64": []
+        }
+      ]
+    },
+    {
+      "name": "node_mul_1633_kernel_time",
+      "op": "Mul",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 35.0,
+      "input": [
+        {
+          "int64": []
+        },
+        {
+          "int64": []
+        }
+      ],
+      "output": [
+        {
+          "int64": []
+        }
+      ]
+    },
+    {
+      "name": "node_Reshape_549_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 23.0,
+      "input": [
+        {
+          "int64": []
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ],
+      "output": [
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_Concat_550_kernel_time",
+      "op": "Concat",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 39.0,
+      "input": [
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ],
+      "output": [
+        {
+          "int64": [
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_mul_1632_kernel_time",
+      "op": "Mul",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 20.0,
+      "input": [
+        {
+          "int64": []
+        },
+        {
+          "int64": []
+        }
+      ],
+      "output": [
+        {
+          "int64": []
+        }
+      ]
+    },
+    {
+      "name": "node_Reshape_455_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 19.0,
+      "input": [
+        {
+          "int64": []
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ],
+      "output": [
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_Concat_456_kernel_time",
+      "op": "Concat",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 24.0,
+      "input": [
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ],
+      "output": [
+        {
+          "int64": [
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_mul_1631_kernel_time",
+      "op": "Mul",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 19.0,
+      "input": [
+        {
+          "int64": []
+        },
+        {
+          "int64": []
+        }
+      ],
+      "output": [
+        {
+          "int64": []
+        }
+      ]
+    },
+    {
+      "name": "node_Reshape_361_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 17.0,
+      "input": [
+        {
+          "int64": []
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ],
+      "output": [
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_Concat_362_kernel_time",
+      "op": "Concat",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 22.0,
+      "input": [
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ],
+      "output": [
+        {
+          "int64": [
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_mul_1630_kernel_time",
+      "op": "Mul",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 18.0,
+      "input": [
+        {
+          "int64": []
+        },
+        {
+          "int64": []
+        }
+      ],
+      "output": [
+        {
+          "int64": []
+        }
+      ]
+    },
+    {
+      "name": "node_Reshape_266_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 17.0,
+      "input": [
+        {
+          "int64": []
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ],
+      "output": [
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_Concat_267_kernel_time",
+      "op": "Concat",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 22.0,
+      "input": [
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ],
+      "output": [
+        {
+          "int64": [
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_mul_1629_kernel_time",
+      "op": "Mul",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 18.0,
+      "input": [
+        {
+          "int64": []
+        },
+        {
+          "int64": []
+        }
+      ],
+      "output": [
+        {
+          "int64": []
+        }
+      ]
+    },
+    {
+      "name": "node_Reshape_170_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 18.0,
+      "input": [
+        {
+          "int64": []
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ],
+      "output": [
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_Concat_171_kernel_time",
+      "op": "Concat",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 20.0,
+      "input": [
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ],
+      "output": [
+        {
+          "int64": [
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_mul_1628_kernel_time",
+      "op": "Mul",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 17.0,
+      "input": [
+        {
+          "int64": []
+        },
+        {
+          "int64": []
+        }
+      ],
+      "output": [
+        {
+          "int64": []
+        }
+      ]
+    },
+    {
+      "name": "node_Reshape_74_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 16.0,
+      "input": [
+        {
+          "int64": []
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ],
+      "output": [
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_Concat_75_kernel_time",
+      "op": "Concat",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 21.0,
+      "input": [
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ],
+      "output": [
+        {
+          "int64": [
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_node_conv1d_kernel_time",
+      "op": "CausalDW7F32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 192.0,
+      "input": [
+        {
+          "float": [
+            1,
+            64,
+            170
+          ]
+        },
+        {
+          "float": [
+            64,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            64,
+            170
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_conv1d_1__bct_mm_kernel_time",
+      "op": "MatMul",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 1667.0,
+      "input": [
+        {
+          "float": [
+            2048,
+            64
+          ]
+        },
+        {
+          "float": [
+            1,
+            64,
+            170
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            2048,
+            170
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_conv1d_1__bct_mm_add_kernel_time",
+      "op": "Add",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 773.0,
+      "input": [
+        {
+          "float": [
+            1,
+            2048,
+            170
+          ]
+        },
+        {
+          "float": [
+            1,
+            2048,
+            1
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            2048,
+            170
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_mul_12_kernel_time",
+      "op": "Mul",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 515.0,
+      "input": [
+        {
+          "float": [
+            1,
+            2048,
+            170
+          ]
+        },
+        {
+          "float": [
+            1,
+            2048,
+            1
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            2048,
+            170
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_add_20_kernel_time",
+      "op": "Add",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 500.0,
+      "input": [
+        {
+          "float": [
+            1,
+            2048,
+            170
+          ]
+        },
+        {
+          "float": [
+            1,
+            2048,
+            1
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            2048,
+            170
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 55.0,
+      "input": [
+        {
+          "float": [
+            1,
+            2048,
+            170
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            2048,
+            170
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_node_add_40_kernel_time",
+      "op": "SnakeF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 2638.0,
+      "input": [
+        {
+          "float": [
+            1,
+            2048,
+            170
+          ]
+        },
+        {
+          "float": [
+            2048
+          ]
+        },
+        {
+          "float": [
+            2048
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            2048,
+            170
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_up_1_split_matmul_previous_unshifted_node_kernel_time",
+      "op": "MatMul",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 264825.0,
+      "input": [
+        {
+          "float": [
+            8192,
+            2048
+          ]
+        },
+        {
+          "float": [
+            1,
+            2048,
+            170
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            8192,
+            170
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_up_1_split_matmul_current_node_kernel_time",
+      "op": "MatMul",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 273853.0,
+      "input": [
+        {
+          "float": [
+            8192,
+            2048
+          ]
+        },
+        {
+          "float": [
+            1,
+            2048,
+            170
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            8192,
+            170
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_phase_finish_17_op_kernel_time",
+      "op": "PhaseSumBiasInterleaveF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 4073.0,
+      "input": [
+        {
+          "float": [
+            1,
+            8192,
+            170
+          ]
+        },
+        {
+          "float": [
+            1,
+            8192,
+            170
+          ]
+        },
+        {
+          "float": [
+            1024
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_2_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 65.0,
+      "input": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_node_add_69_kernel_time",
+      "op": "SnakeF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 8488.0,
+      "input": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        },
+        {
+          "float": [
+            1024
+          ]
+        },
+        {
+          "float": [
+            1024
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_3_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 60.0,
+      "input": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_node_add_98_kernel_time",
+      "op": "CausalDW7SnakeF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 10431.0,
+      "input": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        },
+        {
+          "float": [
+            1024,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            1024
+          ]
+        },
+        {
+          "float": [
+            1024
+          ]
+        },
+        {
+          "float": [
+            1024
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_5_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 55.0,
+      "input": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_conv1d_3__bct_mm_kernel_time",
+      "op": "MatMul",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 97853.0,
+      "input": [
+        {
+          "float": [
+            1024,
+            1024
+          ]
+        },
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_conv1d_3__bct_mm_add_kernel_time",
+      "op": "Add",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 2511.0,
+      "input": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        },
+        {
+          "float": [
+            1,
+            1024,
+            1
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_add_111_kernel_time",
+      "op": "Add",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 3259.0,
+      "input": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        },
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_6_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 47.0,
+      "input": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_node_add_131_kernel_time",
+      "op": "SnakeF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 8000.0,
+      "input": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        },
+        {
+          "float": [
+            1024
+          ]
+        },
+        {
+          "float": [
+            1024
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_7_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 59.0,
+      "input": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_node_add_160_kernel_time",
+      "op": "CausalDW7SnakeF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 10551.0,
+      "input": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        },
+        {
+          "float": [
+            1024,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            1024
+          ]
+        },
+        {
+          "float": [
+            1024
+          ]
+        },
+        {
+          "float": [
+            1024
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_9_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 66.0,
+      "input": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_conv1d_5__bct_mm_kernel_time",
+      "op": "MatMul",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 100089.0,
+      "input": [
+        {
+          "float": [
+            1024,
+            1024
+          ]
+        },
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_conv1d_5__bct_mm_add_kernel_time",
+      "op": "Add",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 2482.0,
+      "input": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        },
+        {
+          "float": [
+            1,
+            1024,
+            1
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_add_173_kernel_time",
+      "op": "Add",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 3359.0,
+      "input": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        },
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_10_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 52.0,
+      "input": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_node_add_193_kernel_time",
+      "op": "SnakeF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 8072.0,
+      "input": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        },
+        {
+          "float": [
+            1024
+          ]
+        },
+        {
+          "float": [
+            1024
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_11_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 52.0,
+      "input": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_node_add_222_kernel_time",
+      "op": "CausalDW7SnakeF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 11620.0,
+      "input": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        },
+        {
+          "float": [
+            1024,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            1024
+          ]
+        },
+        {
+          "float": [
+            1024
+          ]
+        },
+        {
+          "float": [
+            1024
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_13_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 53.0,
+      "input": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_conv1d_7__bct_mm_kernel_time",
+      "op": "MatMul",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 102239.0,
+      "input": [
+        {
+          "float": [
+            1024,
+            1024
+          ]
+        },
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_conv1d_7__bct_mm_add_kernel_time",
+      "op": "Add",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 2560.0,
+      "input": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        },
+        {
+          "float": [
+            1,
+            1024,
+            1
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_add_235_kernel_time",
+      "op": "Add",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 3302.0,
+      "input": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        },
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_mul_275_kernel_time",
+      "op": "Mul",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 1667.0,
+      "input": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        },
+        {
+          "float": [
+            1,
+            1024,
+            1
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_add_242_kernel_time",
+      "op": "Add",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 1485.0,
+      "input": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        },
+        {
+          "float": [
+            1,
+            1024,
+            1
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_14_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 47.0,
+      "input": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_node_add_262_kernel_time",
+      "op": "SnakeF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 7890.0,
+      "input": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        },
+        {
+          "float": [
+            1024
+          ]
+        },
+        {
+          "float": [
+            1024
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_15_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 49.0,
+      "input": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_up_2_split_matmul_previous_unshifted_node_kernel_time",
+      "op": "MatMul",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 351139.0,
+      "input": [
+        {
+          "float": [
+            3072,
+            1024
+          ]
+        },
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            3072,
+            1360
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_up_2_split_matmul_current_node_kernel_time",
+      "op": "MatMul",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 321456.0,
+      "input": [
+        {
+          "float": [
+            3072,
+            1024
+          ]
+        },
+        {
+          "float": [
+            1,
+            1024,
+            1360
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            3072,
+            1360
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_phase_finish_58_op_kernel_time",
+      "op": "PhaseSumBiasInterleaveF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 11862.0,
+      "input": [
+        {
+          "float": [
+            1,
+            3072,
+            1360
+          ]
+        },
+        {
+          "float": [
+            1,
+            3072,
+            1360
+          ]
+        },
+        {
+          "float": [
+            512
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_16_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 59.0,
+      "input": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_node_add_291_kernel_time",
+      "op": "SnakeF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 24316.0,
+      "input": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        },
+        {
+          "float": [
+            512
+          ]
+        },
+        {
+          "float": [
+            512
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_17_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 59.0,
+      "input": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_node_add_320_kernel_time",
+      "op": "CausalDW7SnakeF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 29821.0,
+      "input": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        },
+        {
+          "float": [
+            512,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            512
+          ]
+        },
+        {
+          "float": [
+            512
+          ]
+        },
+        {
+          "float": [
+            512
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_19_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 65.0,
+      "input": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_conv1d_9__bct_mm_kernel_time",
+      "op": "MatMul",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 119837.0,
+      "input": [
+        {
+          "float": [
+            512,
+            512
+          ]
+        },
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_conv1d_9__bct_mm_add_kernel_time",
+      "op": "Add",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 7453.0,
+      "input": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        },
+        {
+          "float": [
+            1,
+            512,
+            1
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_add_333_kernel_time",
+      "op": "Add",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 10598.0,
+      "input": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        },
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_20_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 58.0,
+      "input": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_node_add_353_kernel_time",
+      "op": "SnakeF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 24877.0,
+      "input": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        },
+        {
+          "float": [
+            512
+          ]
+        },
+        {
+          "float": [
+            512
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_21_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 65.0,
+      "input": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_node_add_382_kernel_time",
+      "op": "CausalDW7SnakeF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 31898.0,
+      "input": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        },
+        {
+          "float": [
+            512,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            512
+          ]
+        },
+        {
+          "float": [
+            512
+          ]
+        },
+        {
+          "float": [
+            512
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_23_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 68.0,
+      "input": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_conv1d_11__bct_mm_kernel_time",
+      "op": "MatMul",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 118463.0,
+      "input": [
+        {
+          "float": [
+            512,
+            512
+          ]
+        },
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_conv1d_11__bct_mm_add_kernel_time",
+      "op": "Add",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 7724.0,
+      "input": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        },
+        {
+          "float": [
+            1,
+            512,
+            1
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_add_395_kernel_time",
+      "op": "Add",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 10835.0,
+      "input": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        },
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_24_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 60.0,
+      "input": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_node_add_415_kernel_time",
+      "op": "SnakeF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 24167.0,
+      "input": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        },
+        {
+          "float": [
+            512
+          ]
+        },
+        {
+          "float": [
+            512
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_25_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 63.0,
+      "input": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_node_add_444_kernel_time",
+      "op": "CausalDW7SnakeF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 30110.0,
+      "input": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        },
+        {
+          "float": [
+            512,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            512
+          ]
+        },
+        {
+          "float": [
+            512
+          ]
+        },
+        {
+          "float": [
+            512
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_27_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 64.0,
+      "input": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_conv1d_13__bct_mm_kernel_time",
+      "op": "MatMul",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 118224.0,
+      "input": [
+        {
+          "float": [
+            512,
+            512
+          ]
+        },
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_conv1d_13__bct_mm_add_kernel_time",
+      "op": "Add",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 7472.0,
+      "input": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        },
+        {
+          "float": [
+            1,
+            512,
+            1
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_add_457_kernel_time",
+      "op": "Add",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 10677.0,
+      "input": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        },
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_mul_538_kernel_time",
+      "op": "Mul",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 6921.0,
+      "input": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        },
+        {
+          "float": [
+            1,
+            512,
+            1
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_add_464_kernel_time",
+      "op": "Add",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 6641.0,
+      "input": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        },
+        {
+          "float": [
+            1,
+            512,
+            1
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_28_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 53.0,
+      "input": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_node_add_484_kernel_time",
+      "op": "SnakeF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 26111.0,
+      "input": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        },
+        {
+          "float": [
+            512
+          ]
+        },
+        {
+          "float": [
+            512
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_29_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 64.0,
+      "input": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_up_3_split_matmul_previous_unshifted_node_kernel_time",
+      "op": "MatMul",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 288146.0,
+      "input": [
+        {
+          "float": [
+            1280,
+            512
+          ]
+        },
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            1280,
+            8160
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_up_3_split_matmul_current_node_kernel_time",
+      "op": "MatMul",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 292452.0,
+      "input": [
+        {
+          "float": [
+            1280,
+            512
+          ]
+        },
+        {
+          "float": [
+            1,
+            512,
+            8160
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            1280,
+            8160
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_phase_finish_99_op_kernel_time",
+      "op": "PhaseSumBiasInterleaveF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 30484.0,
+      "input": [
+        {
+          "float": [
+            1,
+            1280,
+            8160
+          ]
+        },
+        {
+          "float": [
+            1,
+            1280,
+            8160
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_30_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 66.0,
+      "input": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_node_add_513_kernel_time",
+      "op": "SnakeF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 61797.0,
+      "input": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_31_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 80.0,
+      "input": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_node_add_542_kernel_time",
+      "op": "CausalDW7SnakeF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 75312.0,
+      "input": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        },
+        {
+          "float": [
+            256,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_33_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 77.0,
+      "input": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_conv1d_15__bct_mm_kernel_time",
+      "op": "MatMul",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 147609.0,
+      "input": [
+        {
+          "float": [
+            256,
+            256
+          ]
+        },
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_conv1d_15__bct_mm_add_kernel_time",
+      "op": "Add",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 19966.0,
+      "input": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        },
+        {
+          "float": [
+            1,
+            256,
+            1
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_add_555_kernel_time",
+      "op": "Add",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 29062.0,
+      "input": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        },
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_34_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 69.0,
+      "input": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_node_add_575_kernel_time",
+      "op": "SnakeF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 61220.0,
+      "input": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_35_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 70.0,
+      "input": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_node_add_604_kernel_time",
+      "op": "CausalDW7SnakeF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 75508.0,
+      "input": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        },
+        {
+          "float": [
+            256,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_37_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 71.0,
+      "input": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_conv1d_17__bct_mm_kernel_time",
+      "op": "MatMul",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 147071.0,
+      "input": [
+        {
+          "float": [
+            256,
+            256
+          ]
+        },
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_conv1d_17__bct_mm_add_kernel_time",
+      "op": "Add",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 20255.0,
+      "input": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        },
+        {
+          "float": [
+            1,
+            256,
+            1
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_add_617_kernel_time",
+      "op": "Add",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 29138.0,
+      "input": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        },
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_38_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 67.0,
+      "input": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_node_add_637_kernel_time",
+      "op": "SnakeF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 61418.0,
+      "input": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_39_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 63.0,
+      "input": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_node_add_666_kernel_time",
+      "op": "CausalDW7SnakeF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 74441.0,
+      "input": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        },
+        {
+          "float": [
+            256,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_41_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 68.0,
+      "input": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_conv1d_19__bct_mm_kernel_time",
+      "op": "MatMul",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 146352.0,
+      "input": [
+        {
+          "float": [
+            256,
+            256
+          ]
+        },
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_conv1d_19__bct_mm_add_kernel_time",
+      "op": "Add",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 20017.0,
+      "input": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        },
+        {
+          "float": [
+            1,
+            256,
+            1
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_add_679_kernel_time",
+      "op": "Add",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 29041.0,
+      "input": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        },
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_mul_801_kernel_time",
+      "op": "Mul",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 19547.0,
+      "input": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        },
+        {
+          "float": [
+            1,
+            256,
+            1
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_add_686_kernel_time",
+      "op": "Add",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 19332.0,
+      "input": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        },
+        {
+          "float": [
+            1,
+            256,
+            1
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_42_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 61.0,
+      "input": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_node_add_706_kernel_time",
+      "op": "SnakeF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 61058.0,
+      "input": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_43_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 85.0,
+      "input": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_up_4_split_matmul_previous_unshifted_node_kernel_time",
+      "op": "MatMul",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 145922.0,
+      "input": [
+        {
+          "float": [
+            256,
+            256
+          ]
+        },
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_up_4_split_matmul_current_node_kernel_time",
+      "op": "MatMul",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 146290.0,
+      "input": [
+        {
+          "float": [
+            256,
+            256
+          ]
+        },
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_phase_finish_140_op_kernel_time",
+      "op": "PhaseSumBiasInterleaveF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 28916.0,
+      "input": [
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        },
+        {
+          "float": [
+            1,
+            256,
+            40800
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_44_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 65.0,
+      "input": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_node_add_735_kernel_time",
+      "op": "SnakeF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 61012.0,
+      "input": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_45_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 67.0,
+      "input": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_node_add_764_kernel_time",
+      "op": "CausalDW7SnakeF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 74351.0,
+      "input": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        },
+        {
+          "float": [
+            128,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_47_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 75.0,
+      "input": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_conv1d_21__bct_mm_kernel_time",
+      "op": "MatMul",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 90957.0,
+      "input": [
+        {
+          "float": [
+            128,
+            128
+          ]
+        },
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_conv1d_21__bct_mm_add_kernel_time",
+      "op": "Add",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 20318.0,
+      "input": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        },
+        {
+          "float": [
+            1,
+            128,
+            1
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_add_777_kernel_time",
+      "op": "Add",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 29300.0,
+      "input": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        },
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_48_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 66.0,
+      "input": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_node_add_797_kernel_time",
+      "op": "SnakeF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 62186.0,
+      "input": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_49_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 78.0,
+      "input": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_node_add_826_kernel_time",
+      "op": "CausalDW7SnakeF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 74968.0,
+      "input": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        },
+        {
+          "float": [
+            128,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_51_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 61.0,
+      "input": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_conv1d_23__bct_mm_kernel_time",
+      "op": "MatMul",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 90440.0,
+      "input": [
+        {
+          "float": [
+            128,
+            128
+          ]
+        },
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_conv1d_23__bct_mm_add_kernel_time",
+      "op": "Add",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 20613.0,
+      "input": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        },
+        {
+          "float": [
+            1,
+            128,
+            1
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_add_839_kernel_time",
+      "op": "Add",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 29458.0,
+      "input": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        },
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_52_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 70.0,
+      "input": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_node_add_859_kernel_time",
+      "op": "SnakeF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 61206.0,
+      "input": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_53_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 57.0,
+      "input": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_node_add_888_kernel_time",
+      "op": "CausalDW7SnakeF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 73761.0,
+      "input": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        },
+        {
+          "float": [
+            128,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_55_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 63.0,
+      "input": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_conv1d_25__bct_mm_kernel_time",
+      "op": "MatMul",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 90523.0,
+      "input": [
+        {
+          "float": [
+            128,
+            128
+          ]
+        },
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_conv1d_25__bct_mm_add_kernel_time",
+      "op": "Add",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 20373.0,
+      "input": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        },
+        {
+          "float": [
+            1,
+            128,
+            1
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_add_901_kernel_time",
+      "op": "Add",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 29271.0,
+      "input": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        },
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_mul_1064_kernel_time",
+      "op": "Mul",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 19950.0,
+      "input": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        },
+        {
+          "float": [
+            1,
+            128,
+            1
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_add_908_kernel_time",
+      "op": "Add",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 19443.0,
+      "input": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        },
+        {
+          "float": [
+            1,
+            128,
+            1
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_56_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 65.0,
+      "input": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_node_add_928_kernel_time",
+      "op": "SnakeF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 61441.0,
+      "input": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_57_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 69.0,
+      "input": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_up_5_split_matmul_previous_unshifted_node_kernel_time",
+      "op": "MatMul",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 89455.0,
+      "input": [
+        {
+          "float": [
+            128,
+            128
+          ]
+        },
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_up_5_split_matmul_current_node_kernel_time",
+      "op": "MatMul",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 91230.0,
+      "input": [
+        {
+          "float": [
+            128,
+            128
+          ]
+        },
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_phase_finish_181_op_kernel_time",
+      "op": "PhaseSumBiasInterleaveF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 29206.0,
+      "input": [
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        },
+        {
+          "float": [
+            1,
+            128,
+            81600
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_58_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 62.0,
+      "input": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_node_add_957_kernel_time",
+      "op": "SnakeF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 61383.0,
+      "input": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_59_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 75.0,
+      "input": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_node_add_986_kernel_time",
+      "op": "CausalDW7SnakeF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 76275.0,
+      "input": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        },
+        {
+          "float": [
+            64,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_61_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 72.0,
+      "input": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_conv1d_27__bct_mm_kernel_time",
+      "op": "MatMul",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 61971.0,
+      "input": [
+        {
+          "float": [
+            64,
+            64
+          ]
+        },
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_conv1d_27__bct_mm_add_kernel_time",
+      "op": "Add",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 20519.0,
+      "input": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        },
+        {
+          "float": [
+            1,
+            64,
+            1
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_add_999_kernel_time",
+      "op": "Add",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 29186.0,
+      "input": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        },
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_62_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 68.0,
+      "input": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_node_add_1019_kernel_time",
+      "op": "SnakeF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 62145.0,
+      "input": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_63_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 74.0,
+      "input": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_node_add_1048_kernel_time",
+      "op": "CausalDW7SnakeF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 75481.0,
+      "input": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        },
+        {
+          "float": [
+            64,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_65_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 84.0,
+      "input": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_conv1d_29__bct_mm_kernel_time",
+      "op": "MatMul",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 62283.0,
+      "input": [
+        {
+          "float": [
+            64,
+            64
+          ]
+        },
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_conv1d_29__bct_mm_add_kernel_time",
+      "op": "Add",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 20747.0,
+      "input": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        },
+        {
+          "float": [
+            1,
+            64,
+            1
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_add_1061_kernel_time",
+      "op": "Add",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 29381.0,
+      "input": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        },
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_66_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 68.0,
+      "input": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_node_add_1081_kernel_time",
+      "op": "SnakeF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 62790.0,
+      "input": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_67_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 69.0,
+      "input": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_node_add_1110_kernel_time",
+      "op": "CausalDW7SnakeF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 75941.0,
+      "input": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        },
+        {
+          "float": [
+            64,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_69_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 76.0,
+      "input": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_conv1d_31__bct_mm_kernel_time",
+      "op": "MatMul",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 62496.0,
+      "input": [
+        {
+          "float": [
+            64,
+            64
+          ]
+        },
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_conv1d_31__bct_mm_add_kernel_time",
+      "op": "Add",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 20424.0,
+      "input": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        },
+        {
+          "float": [
+            1,
+            64,
+            1
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_add_1123_kernel_time",
+      "op": "Add",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 29496.0,
+      "input": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        },
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_mul_1327_kernel_time",
+      "op": "Mul",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 20519.0,
+      "input": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        },
+        {
+          "float": [
+            1,
+            64,
+            1
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_add_1130_kernel_time",
+      "op": "Add",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 20361.0,
+      "input": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        },
+        {
+          "float": [
+            1,
+            64,
+            1
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_70_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 69.0,
+      "input": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_node_add_1150_kernel_time",
+      "op": "SnakeF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 62271.0,
+      "input": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_71_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 70.0,
+      "input": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_up_6_split_matmul_previous_unshifted_node_kernel_time",
+      "op": "MatMul",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 62466.0,
+      "input": [
+        {
+          "float": [
+            64,
+            64
+          ]
+        },
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_up_6_split_matmul_current_node_kernel_time",
+      "op": "MatMul",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 61977.0,
+      "input": [
+        {
+          "float": [
+            64,
+            64
+          ]
+        },
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_phase_finish_222_op_kernel_time",
+      "op": "PhaseSumBiasInterleaveF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 28935.0,
+      "input": [
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        },
+        {
+          "float": [
+            1,
+            64,
+            163200
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_72_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 79.0,
+      "input": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_node_add_1179_kernel_time",
+      "op": "SnakeF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 61530.0,
+      "input": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_73_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 70.0,
+      "input": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_node_add_1208_kernel_time",
+      "op": "CausalDW7SnakeF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 75804.0,
+      "input": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        },
+        {
+          "float": [
+            32,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_75_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 71.0,
+      "input": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_conv1d_33__bct_mm_kernel_time",
+      "op": "MatMul",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 50709.0,
+      "input": [
+        {
+          "float": [
+            32,
+            32
+          ]
+        },
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_conv1d_33__bct_mm_add_kernel_time",
+      "op": "Add",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 20162.0,
+      "input": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        },
+        {
+          "float": [
+            1,
+            32,
+            1
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_add_1221_kernel_time",
+      "op": "Add",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 28712.0,
+      "input": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        },
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_76_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 69.0,
+      "input": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_node_add_1241_kernel_time",
+      "op": "SnakeF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 61224.0,
+      "input": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_77_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 74.0,
+      "input": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_node_add_1270_kernel_time",
+      "op": "CausalDW7SnakeF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 74110.0,
+      "input": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        },
+        {
+          "float": [
+            32,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_79_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 70.0,
+      "input": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_conv1d_35__bct_mm_kernel_time",
+      "op": "MatMul",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 50787.0,
+      "input": [
+        {
+          "float": [
+            32,
+            32
+          ]
+        },
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_conv1d_35__bct_mm_add_kernel_time",
+      "op": "Add",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 20235.0,
+      "input": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        },
+        {
+          "float": [
+            1,
+            32,
+            1
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_add_1283_kernel_time",
+      "op": "Add",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 28945.0,
+      "input": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        },
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_80_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 65.0,
+      "input": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_node_add_1303_kernel_time",
+      "op": "SnakeF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 60477.0,
+      "input": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_81_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 72.0,
+      "input": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_node_add_1332_kernel_time",
+      "op": "CausalDW7SnakeF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 74669.0,
+      "input": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        },
+        {
+          "float": [
+            32,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_83_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 70.0,
+      "input": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_conv1d_37__bct_mm_kernel_time",
+      "op": "MatMul",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 50562.0,
+      "input": [
+        {
+          "float": [
+            32,
+            32
+          ]
+        },
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_conv1d_37__bct_mm_add_kernel_time",
+      "op": "Add",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 19979.0,
+      "input": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        },
+        {
+          "float": [
+            1,
+            32,
+            1
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_add_1345_kernel_time",
+      "op": "Add",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 29048.0,
+      "input": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        },
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_84_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 69.0,
+      "input": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ncc_node_add_1365_kernel_time",
+      "op": "SnakeF32",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 60962.0,
+      "input": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_view_85_kernel_time",
+      "op": "Reshape",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 70.0,
+      "input": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        }
+      ]
+    },
+    {
+      "name": "node_conv1d_38_kernel_time",
+      "op": "FusedConv",
+      "provider": "CPUExecutionProvider",
+      "calls": 3,
+      "us": 67736.0,
+      "input": [
+        {
+          "float": [
+            1,
+            32,
+            326400
+          ]
+        },
+        {
+          "float": [
+            1,
+            32,
+            7
+          ]
+        },
+        {
+          "float": [
+            1
+          ]
+        }
+      ],
+      "output": [
+        {
+          "float": [
+            1,
+            1,
+            326400
+          ]
+        }
+      ]
+    }
+  ],
+  "provider_gate": {
+    "kernel_events": 1090,
+    "passed": true,
+    "unexpected": []
+  }
+}

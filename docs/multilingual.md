@@ -72,6 +72,25 @@ Separate instrumented profiles of the default native decoder attribute 52.04% of
 
 The native depthwise kernels accumulate seven taps directly; Snake uses vector sine, and adjacent depthwise/Snake operations are fused. Dense matrix multiplication is therefore the main remaining AMD target. The existing optional AMD packing is a separate layout optimization with a memory cost, not lower-precision compression. Further matrix or epilogue changes need the same waveform and per-clip timing gates before becoming defaults. This campaign does not establish a further speedup from a proposed kernel.
 
+Intel's [separate 6.8-second technical profile](../benchmarks/intel-profile.json), using two threads and three profiled calls, identifies the following costs. It uses an earlier English clip, separate from the ten multilingual timing clips.
+
+| Native Intel operation | Share of profiled operator time |
+|---|---:|
+| Matrix multiplication | 56.52% |
+| Standalone Snake | 15.42% |
+| Fused depthwise + Snake | 14.13% |
+| Bias and residual additions | 10.13% |
+| Phase finishing | 1.84% |
+| Other operations | 1.96% |
+
+Six matrix products in the first three upsampling stages account for 24.71% of this profile. Five later 256-channel products add another 10.11%. The next optimization experiments should target:
+
+1. **Matrix outputs and their following additions.** Keep the selective MKL result as the measured reference, and test fusing bias/residual passes after the complete FP32 matrix reduction. Preserve the original addition order. Reduce the prototype's duplicated weight storage before considering a packaged option. Blanket MKL replacement and packed-A did not justify selection; the late narrow matrices should retain MLAS until an alternative wins.
+2. **Snake inside SIMD registers.** The current [x86 kernel](../native/x86/native_kernels.c) still writes a local sine tile and runs separate scale, sine and finish passes. Fused depthwise/Snake also writes a local depthwise tile. A direct register implementation could remove those intermediate loads and stores while keeping the same SLEEF u10 sine and ordered FP32 arithmetic. This is a proposed optimization, not a measured gain.
+3. **Guarded wider vectors after the direct-loop work.** Custom activations and depthwise kernels currently use AVX2/SSE2. An AVX512 variant needs CPU/OS guards and matched tests; wider vectors alone do not guarantee improvement. MLAS and MKL already have optimized ISA dispatch, so the existing matrix baseline is not scalar.
+
+The two-vCPU VM already uses two workers; a four-thread technical screen was 3.47% slower. Matching Mimi would require 49.91% less time than the default native decoder, or 45.71% less than the MKL prototype. No tested change closes that remaining gap. New kernels must pass the unchanged waveform, causal-prefix, changing-length and concurrency checks, then improve the fixed per-clip timing comparison before promotion. The evidence above was inspected without running new benchmarks.
+
 ## Inspect or repeat the measurements
 
 The [CPU record](../benchmarks/multilingual/cpu-results.json) contains individual timing repetitions, model and library hashes, provider checks, host counters and separate profiles. Numerical gates are stored in [validation.jsonl](../benchmarks/multilingual/validation.jsonl). The [corpus manifest](../benchmarks/multilingual/manifest.json), [quality summary](../benchmarks/multilingual/quality-summary.json) and [per-clip quality records](../benchmarks/multilingual/quality-per-clip.jsonl) keep the sample and scoring provenance explicit. No model weights or recordings are redistributed here.
