@@ -14,7 +14,8 @@ extern "C" {
 #endif
 
 enum ncc_backend {
-    NCC_AUTO = 0, NCC_SCALAR = 1, NCC_NEON = 2, NCC_SSE2 = 3, NCC_AVX2 = 4
+    NCC_AUTO = 0, NCC_SCALAR = 1, NCC_NEON = 2, NCC_SSE2 = 3, NCC_AVX2 = 4,
+    NCC_AVX512 = 5 /* Explicit experiment only; AUTO retains its AVX2 policy. */
 };
 enum ncc_status {
     NCC_OK = 0, NCC_INVALID_ARGUMENT = 1, NCC_UNSUPPORTED_BACKEND = 2,
@@ -24,7 +25,7 @@ enum ncc_status {
 enum ncc_capability {
     NCC_CAP_SCALAR = 1, NCC_CAP_NEON = 2, NCC_CAP_SSE2 = 4,
     NCC_CAP_AVX2 = 8, NCC_CAP_OPENMP = 16, NCC_CAP_VFORCE = 32,
-    NCC_CAP_SLEEF_U10 = 64, NCC_CAP_FMA = 128
+    NCC_CAP_SLEEF_U10 = 64, NCC_CAP_FMA = 128, NCC_CAP_AVX512 = 256
 };
 
 NCC_API uint32_t ncc_abi_version(void); /* Currently 1. */
@@ -78,6 +79,28 @@ NCC_API int32_t ncc_dw7_snake_f32(
  */
 NCC_API int32_t ncc_snake_f32(
     const float *x, const float *alpha, const float *reciprocal, float *y,
+    int64_t B, int64_t C, int64_t T, int32_t backend, int32_t threads);
+
+/* Pre-Snake -> causal DW7+bias -> post-Snake. Dilation is 1, 3, or 9.
+ * All seven read arrays are required for nonempty tensors; coefficients are
+ * [C], weights [C,7]. Scratch/history are bounded and local to this call.
+ * The original x is preserved for its separate residual/skip consumer.
+ * Padding is positive zero in pre-Snake space. Other buffer/shape rules match
+ * ncc_dw7_f32. No input may overlap y; read-only inputs may alias each other.
+ */
+NCC_API int32_t ncc_snake_dw7_snake_f32(
+    const float *x, const float *weights, const float *bias,
+    const float *alpha_pre, const float *reciprocal_pre,
+    const float *alpha_post, const float *reciprocal_post, float *y,
+    int64_t B, int64_t C, int64_t T, int32_t dilation,
+    int32_t backend, int32_t threads);
+
+/* product/skip/y: [B,C,T], required fixed bias: [C]. Evaluates
+ * skip + (product + bias), with two separately rounded FP32 additions.
+ * No input may overlap y; product and skip may alias each other.
+ */
+NCC_API int32_t ncc_bias_residual_f32(
+    const float *product, const float *bias, const float *skip, float *y,
     int64_t B, int64_t C, int64_t T, int32_t backend, int32_t threads);
 
 #ifdef __cplusplus

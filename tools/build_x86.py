@@ -30,6 +30,7 @@ HEADERS = {
 }
 COMMON_FLAGS = ['-O3', '-fPIC', '-fno-fast-math', '-ffp-contract=off', '-fvisibility=hidden',
                 '-Wall', '-Wextra', '-march=x86-64', '-mtune=generic']
+SLEEF_SYMBOLS = ('Sleef_sinf4_u10sse2', 'Sleef_sinf8_u10avx2', 'Sleef_sinf16_u10avx512f')
 
 
 def sha256(path):
@@ -88,11 +89,16 @@ def probe(record):
     answer['capabilities'] = int(lib.ncc_capabilities())
     lib.ncc_snake_math_name.argtypes = [ctypes.c_int32]; lib.ncc_snake_math_name.restype = ctypes.c_char_p
     answer['sine_math'] = lib.ncc_snake_math_name(0).decode()
+    lib.ncc_backend_available.argtypes = [ctypes.c_int32]
+    lib.ncc_backend_available.restype = ctypes.c_int32
+    answer['explicit_avx512_available'] = bool(lib.ncc_backend_available(5))
+    answer['explicit_avx512_math'] = lib.ncc_snake_math_name(5).decode()
     lib.ncc_portable_build_id.argtypes = []; lib.ncc_portable_build_id.restype = ctypes.c_char_p
     answer['build_id'] = lib.ncc_portable_build_id().decode()
     if (answer['ncc_compiled_tile'] != 256 or answer['ncc_abi_version'] != 1
             or answer['ncc_phase_finish_abi'] != 1 or answer['build_id'] != record['build_id']
-            or not answer['capabilities'] & 64 or answer['capabilities'] & 16):
+            or not answer['capabilities'] & 64 or answer['capabilities'] & 16
+            or answer['ncc_selected_backend'] == 5):
         raise RuntimeError('Native ABI, tile, SLEEF or OpenMP metadata probe failed')
     return answer
 
@@ -108,6 +114,13 @@ def build(sleef_prefix=None, ort_include=None, cc=None, cxx=None, sleef_archive=
     if not header.is_file() or len(archives) != 1:
         raise RuntimeError('Expected include/sleef.h and one PIC static lib/libsleef.a or lib64/libsleef.a')
     archive = archives[0]
+    nm = shutil.which('nm')
+    if not nm:
+        raise RuntimeError('nm is required to verify the pinned SLEEF vector symbols')
+    symbols = run([nm, '-g', '--defined-only', str(archive)])['stdout'].split()
+    missing = [name for name in SLEEF_SYMBOLS if name not in symbols]
+    if missing:
+        raise RuntimeError('SLEEF static archive lacks required CPU vector symbols: ' + ', '.join(missing))
     if sleef_archive and sha256(sleef_archive) != SLEEF['archive_sha256']:
         raise RuntimeError('SLEEF source archive checksum mismatch')
     for line in ('#define SLEEF_VERSION_MAJOR 3', '#define SLEEF_VERSION_MINOR 9', '#define SLEEF_VERSION_PATCHLEVEL 0'):
@@ -121,7 +134,9 @@ def build(sleef_prefix=None, ort_include=None, cc=None, cxx=None, sleef_archive=
                    'header_sha256': HEADERS, 'sleef': SLEEF,
                    'sleef_header_sha256': sha256(header), 'sleef_library_sha256': sha256(archive),
                    'compilers': versions, 'domain': DOMAIN, 'native_abi': 1, 'ort_api_version': 29,
-                   'common_flags': COMMON_FLAGS, 'c_novec_flags': novec, 'openmp': False, 'tile': 256}
+                   'common_flags': COMMON_FLAGS, 'c_novec_flags': novec, 'openmp': False, 'tile': 256,
+                   'required_sleef_symbols': SLEEF_SYMBOLS, 'explicit_avx512_backend': 5,
+                   'auto_backend_policy': 'AVX2 then SSE2; AVX512 remains opt-in'}
     build_id = hashlib.sha256(json.dumps(fingerprint, sort_keys=True).encode()).hexdigest()
     out = ROOT/'.build/x86'; out.mkdir(parents=True, exist_ok=True)
     with (out/'.build.lock').open('a') as lock:
@@ -157,9 +172,10 @@ def build(sleef_prefix=None, ort_include=None, cc=None, cxx=None, sleef_archive=
         result = {'build_id': build_id, 'library': str(library), 'library_sha256': sha256(library),
                   'build_manifest': str(manifest), 'fingerprint': fingerprint, 'commands': commands, 'logs': logs,
                   'domain': DOMAIN, 'native_abi': 1, 'ort_api_version': 29, 'tile': 256, 'openmp': False,
-                  'sine': 'SLEEF u10; AVX2+FMA guarded, SSE2 fallback',
+                  'sine': 'SLEEF u10; guarded explicit AVX512F, AVX2+FMA, SSE2 fallback',
                   'sleef_source_archive_verified': bool(sleef_archive), 'cache_hit': False,
                   'operators': ['SnakeF32', 'CausalDW7F32', 'CausalDW7SnakeF32',
+                                'SnakeDW7SnakeF32', 'BiasResidualF32',
                                 'PhaseSumBiasInterleaveF32', 'CombinedPhaseSumBiasInterleaveF32'],
                   'scope': 'CPU-only library build and metadata probe; no model execution or timing'}
         result['probe'] = probe(result)

@@ -5,6 +5,7 @@
 #include <limits.h>
 #include <math.h>
 #include <stdatomic.h>
+#include <string.h>
 
 #if defined(__FAST_MATH__)
 #error "These kernels require fast math to be disabled."
@@ -26,6 +27,9 @@
 #include <cpuid.h>
 #define NCC_SSE_TARGET __attribute__((target("sse2")))
 #define NCC_AVX_TARGET __attribute__((target("avx2,no-fma")))
+/* Clang models AVX512F as requiring FMA availability. Contraction remains
+ * disabled globally and these network kernels use explicit mul then add. */
+#define NCC_AVX512_TARGET __attribute__((target("avx512f,avx512dq,avx512bw,avx512vl,avx2,fma")))
 #else
 #define NCC_HAVE_X86 0
 #endif
@@ -47,8 +51,9 @@
 /* The AVX prototype may be hidden by sleef.h in a baseline-ISA translation
  * unit. These are the public SLEEF vector ABI declarations; calls are confined
  * to matching target-attributed functions and guarded at runtime. */
-extern __m128 Sleef_sinf4_u10sse2(__m128);
-extern __m256 Sleef_sinf8_u10avx2(__m256);
+NCC_SSE_TARGET extern __m128 Sleef_sinf4_u10sse2(__m128);
+NCC_AVX_TARGET extern __m256 Sleef_sinf8_u10avx2(__m256);
+NCC_AVX512_TARGET extern __m512 Sleef_sinf16_u10avx512f(__m512);
 #else
 #define NCC_HAVE_SLEEF 0
 #endif
@@ -86,6 +91,11 @@ uint64_t ncc_capabilities(void) {
             if ((xcr_low & 6u) == 6u) {
                 __cpuid_count(7, 0, a, b, c, d);
                 if (b & (1u << 5)) flags |= NCC_CAP_AVX2;
+                const unsigned int avx512_required = (1u << 5) | (1u << 16)
+                    | (1u << 17) | (1u << 30) | (1u << 31);
+                if ((xcr_low & 0xe6u) == 0xe6u && (flags & NCC_CAP_FMA)
+                    && (b & avx512_required) == avx512_required)
+                    flags |= NCC_CAP_AVX512;
             }
         }
     }
@@ -119,6 +129,7 @@ int32_t ncc_backend_available(int32_t backend) {
         case NCC_NEON: return !!(c & NCC_CAP_NEON);
         case NCC_SSE2: return !!(c & NCC_CAP_SSE2);
         case NCC_AVX2: return !!(c & NCC_CAP_AVX2);
+        case NCC_AVX512: return !!(c & NCC_CAP_AVX512);
         default: return 0;
     }
 }
@@ -129,6 +140,7 @@ const char *ncc_backend_name(int32_t backend) {
         case NCC_NEON: return "neon";
         case NCC_SSE2: return "sse2";
         case NCC_AVX2: return "avx2";
+        case NCC_AVX512: return "avx512";
         default: return "invalid";
     }
 }
@@ -159,7 +171,8 @@ int32_t ncc_vector_sine_available(int32_t backend) {
     if (backend == NCC_AUTO) backend = ncc_selected_backend();
     if (backend == NCC_SCALAR) return 0;
 #if NCC_HAVE_SLEEF
-    if ((backend == NCC_SSE2 || backend == NCC_AVX2) && ncc_backend_available(NCC_SSE2)) return 1;
+    if ((backend == NCC_SSE2 || backend == NCC_AVX2 || backend == NCC_AVX512)
+        && ncc_backend_available(NCC_SSE2)) return 1;
 #endif
 #if NCC_HAVE_VFORCE
     return 1;
@@ -174,6 +187,7 @@ const char *ncc_snake_math_name(int32_t backend) {
     if (backend != NCC_SCALAR) return "apple-vforce";
 #endif
 #if NCC_HAVE_SLEEF
+    if (backend == NCC_AVX512) return "sleef-u10-avx512f-fma";
     if (sine_uses_avx2(backend)) return "sleef-u10-avx2-fma";
     if (ncc_vector_sine_available(backend)) return "sleef-u10-sse2";
 #endif
@@ -278,42 +292,100 @@ static void dw_neon(const float *x, const float *history, const float *w,
 #if NCC_HAVE_X86
 NCC_SSE_TARGET
 static void dw_sse2(const float *x, const float *history, const float *w,
-                    const float *bias, float *y, int64_t start,
+                    const float *bias, float * restrict y, int64_t start,
                     int64_t count, int64_t dilation) {
     int64_t i = 0, halo = 6 * dilation;
     for (; i < count && start + i < halo; ++i)
         y[i] = dw_one(x, history, w, bias, start + i, dilation);
+    /* The checked entry point proves y cannot alias any read buffer. Hoist
+     * coefficients once per range; keep the original seven-tap addition order. */
+    const __m128 w0 = _mm_set1_ps(w[0]);
+    const __m128 w1 = _mm_set1_ps(w[1]);
+    const __m128 w2 = _mm_set1_ps(w[2]);
+    const __m128 w3 = _mm_set1_ps(w[3]);
+    const __m128 w4 = _mm_set1_ps(w[4]);
+    const __m128 w5 = _mm_set1_ps(w[5]);
+    const __m128 w6 = _mm_set1_ps(w[6]);
+    const __m128 bv = _mm_set1_ps(bias ? *bias : 0.0f);
     for (; i <= count - 4; i += 4) {
         const float *p = x + start + i - halo;
-        __m128 acc = _mm_mul_ps(_mm_loadu_ps(p), _mm_set1_ps(w[0]));
-        for (int k = 1; k < 7; ++k) {
-            __m128 product = _mm_mul_ps(_mm_loadu_ps(p + k * dilation), _mm_set1_ps(w[k]));
-            acc = _mm_add_ps(acc, product);
-        }
-        if (bias) acc = _mm_add_ps(acc, _mm_set1_ps(*bias));
+        __m128 acc = _mm_mul_ps(_mm_loadu_ps(p), w0);
+        acc = _mm_add_ps(acc, _mm_mul_ps(_mm_loadu_ps(p + 1 * dilation), w1));
+        acc = _mm_add_ps(acc, _mm_mul_ps(_mm_loadu_ps(p + 2 * dilation), w2));
+        acc = _mm_add_ps(acc, _mm_mul_ps(_mm_loadu_ps(p + 3 * dilation), w3));
+        acc = _mm_add_ps(acc, _mm_mul_ps(_mm_loadu_ps(p + 4 * dilation), w4));
+        acc = _mm_add_ps(acc, _mm_mul_ps(_mm_loadu_ps(p + 5 * dilation), w5));
+        acc = _mm_add_ps(acc, _mm_mul_ps(_mm_loadu_ps(p + 6 * dilation), w6));
+        if (bias) acc = _mm_add_ps(acc, bv);
         _mm_storeu_ps(y + i, acc);
     }
     for (; i < count; ++i) y[i] = dw_one(x, history, w, bias, start + i, dilation);
 }
+
 NCC_AVX_TARGET
 static void dw_avx2(const float *x, const float *history, const float *w,
-                    const float *bias, float *y, int64_t start,
+                    const float *bias, float * restrict y, int64_t start,
                     int64_t count, int64_t dilation) {
     int64_t i = 0, halo = 6 * dilation;
     for (; i < count && start + i < halo; ++i)
         y[i] = dw_one(x, history, w, bias, start + i, dilation);
+    /* The checked entry point proves y cannot alias any read buffer. Hoist
+     * coefficients once per range; keep the original seven-tap addition order. */
+    const __m256 w0 = _mm256_set1_ps(w[0]);
+    const __m256 w1 = _mm256_set1_ps(w[1]);
+    const __m256 w2 = _mm256_set1_ps(w[2]);
+    const __m256 w3 = _mm256_set1_ps(w[3]);
+    const __m256 w4 = _mm256_set1_ps(w[4]);
+    const __m256 w5 = _mm256_set1_ps(w[5]);
+    const __m256 w6 = _mm256_set1_ps(w[6]);
+    const __m256 bv = _mm256_set1_ps(bias ? *bias : 0.0f);
     for (; i <= count - 8; i += 8) {
         const float *p = x + start + i - halo;
-        __m256 acc = _mm256_mul_ps(_mm256_loadu_ps(p), _mm256_set1_ps(w[0]));
-        for (int k = 1; k < 7; ++k) {
-            __m256 product = _mm256_mul_ps(_mm256_loadu_ps(p + k * dilation), _mm256_set1_ps(w[k]));
-            acc = _mm256_add_ps(acc, product);
-        }
-        if (bias) acc = _mm256_add_ps(acc, _mm256_set1_ps(*bias));
+        __m256 acc = _mm256_mul_ps(_mm256_loadu_ps(p), w0);
+        acc = _mm256_add_ps(acc, _mm256_mul_ps(_mm256_loadu_ps(p + 1 * dilation), w1));
+        acc = _mm256_add_ps(acc, _mm256_mul_ps(_mm256_loadu_ps(p + 2 * dilation), w2));
+        acc = _mm256_add_ps(acc, _mm256_mul_ps(_mm256_loadu_ps(p + 3 * dilation), w3));
+        acc = _mm256_add_ps(acc, _mm256_mul_ps(_mm256_loadu_ps(p + 4 * dilation), w4));
+        acc = _mm256_add_ps(acc, _mm256_mul_ps(_mm256_loadu_ps(p + 5 * dilation), w5));
+        acc = _mm256_add_ps(acc, _mm256_mul_ps(_mm256_loadu_ps(p + 6 * dilation), w6));
+        if (bias) acc = _mm256_add_ps(acc, bv);
         _mm256_storeu_ps(y + i, acc);
     }
     for (; i < count; ++i) y[i] = dw_one(x, history, w, bias, start + i, dilation);
 }
+
+NCC_AVX512_TARGET
+static void dw_avx512(const float *x, const float *history, const float *w,
+                    const float *bias, float * restrict y, int64_t start,
+                    int64_t count, int64_t dilation) {
+    int64_t i = 0, halo = 6 * dilation;
+    for (; i < count && start + i < halo; ++i)
+        y[i] = dw_one(x, history, w, bias, start + i, dilation);
+    /* The checked entry point proves y cannot alias any read buffer. Hoist
+     * coefficients once per range; keep the original seven-tap addition order. */
+    const __m512 w0 = _mm512_set1_ps(w[0]);
+    const __m512 w1 = _mm512_set1_ps(w[1]);
+    const __m512 w2 = _mm512_set1_ps(w[2]);
+    const __m512 w3 = _mm512_set1_ps(w[3]);
+    const __m512 w4 = _mm512_set1_ps(w[4]);
+    const __m512 w5 = _mm512_set1_ps(w[5]);
+    const __m512 w6 = _mm512_set1_ps(w[6]);
+    const __m512 bv = _mm512_set1_ps(bias ? *bias : 0.0f);
+    for (; i <= count - 16; i += 16) {
+        const float *p = x + start + i - halo;
+        __m512 acc = _mm512_mul_ps(_mm512_loadu_ps(p), w0);
+        acc = _mm512_add_ps(acc, _mm512_mul_ps(_mm512_loadu_ps(p + 1 * dilation), w1));
+        acc = _mm512_add_ps(acc, _mm512_mul_ps(_mm512_loadu_ps(p + 2 * dilation), w2));
+        acc = _mm512_add_ps(acc, _mm512_mul_ps(_mm512_loadu_ps(p + 3 * dilation), w3));
+        acc = _mm512_add_ps(acc, _mm512_mul_ps(_mm512_loadu_ps(p + 4 * dilation), w4));
+        acc = _mm512_add_ps(acc, _mm512_mul_ps(_mm512_loadu_ps(p + 5 * dilation), w5));
+        acc = _mm512_add_ps(acc, _mm512_mul_ps(_mm512_loadu_ps(p + 6 * dilation), w6));
+        if (bias) acc = _mm512_add_ps(acc, bv);
+        _mm512_storeu_ps(y + i, acc);
+    }
+    for (; i < count; ++i) y[i] = dw_one(x, history, w, bias, start + i, dilation);
+}
+
 #endif
 
 static dw_range_fn choose_dw(int32_t backend) {
@@ -321,6 +393,7 @@ static dw_range_fn choose_dw(int32_t backend) {
     if (backend == NCC_NEON) return dw_neon;
 #endif
 #if NCC_HAVE_X86
+    if (backend == NCC_AVX512) return dw_avx512;
     if (backend == NCC_AVX2) return dw_avx2;
     if (backend == NCC_SSE2) return dw_sse2;
 #endif
@@ -394,6 +467,24 @@ static void finish_avx2(const float *x, const float *s, float *y, float r, int n
     }
     finish_scalar(x+i,s+i,y+i,r,n-i);
 }
+NCC_AVX512_TARGET
+static void scale_avx512(const float *x, float *s, float a, int n) {
+    int i = 0; const __m512 av = _mm512_set1_ps(a);
+    for (; i <= n-16; i+=16) _mm512_storeu_ps(s+i, _mm512_mul_ps(av, _mm512_loadu_ps(x+i)));
+    scale_avx2(x+i,s+i,a,n-i);
+}
+NCC_AVX512_TARGET
+static void finish_avx512(const float *x, const float *s, float *y, float r, int n) {
+    int i = 0; const __m512 rv = _mm512_set1_ps(r);
+    for (; i <= n-16; i+=16) {
+        const __m512 sv = _mm512_loadu_ps(s+i);
+        const __m512 square = _mm512_mul_ps(sv,sv);
+        const __m512 correction = _mm512_mul_ps(rv,square);
+        _mm512_storeu_ps(y+i,_mm512_add_ps(_mm512_loadu_ps(x+i),correction));
+    }
+    finish_avx2(x+i,s+i,y+i,r,n-i);
+}
+
 #endif
 static void choose_snake(int backend, scale_fn *scale, finish_fn *finish) {
     *scale = scale_scalar; *finish = finish_scalar;
@@ -403,6 +494,7 @@ static void choose_snake(int backend, scale_fn *scale, finish_fn *finish) {
 #if NCC_HAVE_X86
     if (backend == NCC_SSE2) { *scale = scale_sse2; *finish = finish_sse2; }
     if (backend == NCC_AVX2) { *scale = scale_avx2; *finish = finish_avx2; }
+    if (backend == NCC_AVX512) { *scale = scale_avx512; *finish = finish_avx512; }
 #endif
 }
 
@@ -427,10 +519,21 @@ static void sine_sleef_avx2(const float *x, float *y, int64_t n) {
     /* The u10 vector path is used for tails as well, not a scalar approximation. */
     sine_sleef_sse2(x+i, y+i, n-i);
 }
+NCC_AVX512_TARGET
+static void sine_sleef_avx512(const float *x, float *y, int64_t n) {
+    int64_t i = 0;
+    for (; i <= n - 16; i += 16)
+        _mm512_storeu_ps(y+i, Sleef_sinf16_u10avx512f(_mm512_loadu_ps(x+i)));
+    /* Preserve the accurate vector policy for every tail. */
+    sine_sleef_avx2(x+i,y+i,n-i);
+}
+
 #endif
 
 static void sine_unchecked(const float *x, float *y, int64_t n, int backend) {
+    (void)backend;
 #if NCC_HAVE_SLEEF
+    if (backend == NCC_AVX512) { sine_sleef_avx512(x,y,n); return; }
     if (sine_uses_avx2(backend)) { sine_sleef_avx2(x,y,n); return; }
     if (ncc_vector_sine_available(backend)) { sine_sleef_sse2(x,y,n); return; }
 #endif
@@ -561,5 +664,133 @@ int32_t ncc_snake_f32(const float *x, const float *alpha, const float *reciproca
             snake_tile(x+row*T+t,y+row*T+t,alpha[c],reciprocal[c],n,backend,scale,finish);
         }
     }
+    return NCC_OK;
+}
+
+int32_t ncc_snake_dw7_snake_f32(
+    const float *x, const float *weights, const float *bias,
+    const float *alpha_pre, const float *reciprocal_pre,
+    const float *alpha_post, const float *reciprocal_post, float *y,
+    int64_t B, int64_t C, int64_t T, int32_t dilation,
+    int32_t backend, int32_t threads) {
+    if (dilation != 1 && dilation != 3 && dilation != 9) return NCC_INVALID_ARGUMENT;
+    uint64_t rows, weight_count;
+    size_t data_bytes, channel_bytes, weight_bytes;
+    int status = validate_dimensions(B,C,T,backend,threads,&rows,&data_bytes,&channel_bytes);
+    if (status || !rows) return status;
+    if ((status=valid_pointer(y,data_bytes))) return status;
+    if ((status=multiply((uint64_t)C,7,&weight_count))) return status;
+    if ((status=checked_bytes(weight_count,&weight_bytes))) return status;
+    if ((status=check_read(x,data_bytes,y,data_bytes))) return status;
+    if ((status=check_read(weights,weight_bytes,y,data_bytes))) return status;
+    const float *coefficients[5] = {bias,alpha_pre,reciprocal_pre,alpha_post,reciprocal_post};
+    for (int i=0;i<5;++i)
+        if ((status=check_read(coefficients[i],channel_bytes,y,data_bytes))) return status;
+    if (backend == NCC_AUTO) backend = ncc_selected_backend();
+    dw_range_fn dw = choose_dw(backend);
+    scale_fn scale; finish_fn finish;
+    choose_snake(backend,&scale,&finish);
+    const int halo = 6*dilation;
+#ifdef _OPENMP
+#pragma omp parallel for schedule(static) num_threads(threads) if(threads > 1)
+#endif
+    for (int64_t row=0;row<(int64_t)rows;++row) {
+        const int64_t c=row%C;
+        /* A contiguous transformed history prevents repeated scalar boundary
+         * handling at internal tile boundaries. No history escapes this row. */
+        float transformed[54+NCC_TILE] = {0.0f};
+        float depthwise[NCC_TILE];
+        for (int64_t t=0;t<T;t+=NCC_TILE) {
+            const int n=(T-t<NCC_TILE)?(int)(T-t):NCC_TILE;
+            snake_tile(x+row*T+t,transformed+halo,alpha_pre[c],reciprocal_pre[c],n,
+                       backend,scale,finish);
+            dw(transformed,NULL,weights+c*7,bias+c,depthwise,halo,n,dilation);
+            snake_tile(depthwise,y+row*T+t,alpha_post[c],reciprocal_post[c],n,
+                       backend,scale,finish);
+            /* n may be smaller than halo. memmove preserves chronological
+             * history in that overlapping case as well. */
+            memmove(transformed,transformed+n,(size_t)halo*sizeof(float));
+        }
+    }
+    return NCC_OK;
+}
+
+typedef void (*bias_residual_fn)(const float *,const float *,float *,float,int64_t);
+static void bias_residual_scalar(const float *product,const float *skip,
+                                 float * restrict y,float bias,int64_t n) {
+    for (int64_t i=0;i<n;++i) {
+        const float biased=product[i]+bias;
+        y[i]=skip[i]+biased;
+    }
+}
+#if NCC_HAVE_NEON
+static void bias_residual_neon(const float *product,const float *skip,
+                               float * restrict y,float bias,int64_t n) {
+    int64_t i=0; const float32x4_t bv=vdupq_n_f32(bias);
+    for (;i<=n-4;i+=4) {
+        const float32x4_t biased=vaddq_f32(vld1q_f32(product+i),bv);
+        vst1q_f32(y+i,vaddq_f32(vld1q_f32(skip+i),biased));
+    }
+    bias_residual_scalar(product+i,skip+i,y+i,bias,n-i);
+}
+#endif
+#if NCC_HAVE_X86
+NCC_SSE_TARGET
+static void bias_residual_sse2(const float *product,const float *skip,
+                               float * restrict y,float bias,int64_t n) {
+    int64_t i=0; const __m128 bv=_mm_set1_ps(bias);
+    for (;i<=n-4;i+=4) {
+        const __m128 biased=_mm_add_ps(_mm_loadu_ps(product+i),bv);
+        _mm_storeu_ps(y+i,_mm_add_ps(_mm_loadu_ps(skip+i),biased));
+    }
+    bias_residual_scalar(product+i,skip+i,y+i,bias,n-i);
+}
+NCC_AVX_TARGET
+static void bias_residual_avx2(const float *product,const float *skip,
+                               float * restrict y,float bias,int64_t n) {
+    int64_t i=0; const __m256 bv=_mm256_set1_ps(bias);
+    for (;i<=n-8;i+=8) {
+        const __m256 biased=_mm256_add_ps(_mm256_loadu_ps(product+i),bv);
+        _mm256_storeu_ps(y+i,_mm256_add_ps(_mm256_loadu_ps(skip+i),biased));
+    }
+    bias_residual_sse2(product+i,skip+i,y+i,bias,n-i);
+}
+NCC_AVX512_TARGET
+static void bias_residual_avx512(const float *product,const float *skip,
+                                 float * restrict y,float bias,int64_t n) {
+    int64_t i=0; const __m512 bv=_mm512_set1_ps(bias);
+    for (;i<=n-16;i+=16) {
+        const __m512 biased=_mm512_add_ps(_mm512_loadu_ps(product+i),bv);
+        _mm512_storeu_ps(y+i,_mm512_add_ps(_mm512_loadu_ps(skip+i),biased));
+    }
+    bias_residual_avx2(product+i,skip+i,y+i,bias,n-i);
+}
+#endif
+int32_t ncc_bias_residual_f32(
+    const float *product,const float *bias,const float *skip,float *y,
+    int64_t B,int64_t C,int64_t T,int32_t backend,int32_t threads) {
+    uint64_t rows;
+    size_t data_bytes,channel_bytes;
+    int status=validate_dimensions(B,C,T,backend,threads,&rows,&data_bytes,&channel_bytes);
+    if (status || !rows) return status;
+    if ((status=valid_pointer(y,data_bytes))) return status;
+    if ((status=check_read(product,data_bytes,y,data_bytes))) return status;
+    if ((status=check_read(skip,data_bytes,y,data_bytes))) return status;
+    if ((status=check_read(bias,channel_bytes,y,data_bytes))) return status;
+    if (backend==NCC_AUTO) backend=ncc_selected_backend();
+    bias_residual_fn fn=bias_residual_scalar;
+#if NCC_HAVE_NEON
+    if (backend==NCC_NEON) fn=bias_residual_neon;
+#endif
+#if NCC_HAVE_X86
+    if (backend==NCC_SSE2) fn=bias_residual_sse2;
+    if (backend==NCC_AVX2) fn=bias_residual_avx2;
+    if (backend==NCC_AVX512) fn=bias_residual_avx512;
+#endif
+#ifdef _OPENMP
+#pragma omp parallel for schedule(static) num_threads(threads) if(threads > 1)
+#endif
+    for (int64_t row=0;row<(int64_t)rows;++row)
+        fn(product+row*T,skip+row*T,y+row*T,bias[row%C],T);
     return NCC_OK;
 }

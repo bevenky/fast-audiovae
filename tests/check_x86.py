@@ -45,7 +45,7 @@ def validate(library,output):
     lib.ncc_sine_f32.restype=ctypes.c_int32
     lib.ncc_backend_available.argtypes=[ctypes.c_int32];lib.ncc_backend_available.restype=ctypes.c_int32
     lib.ncc_snake_math_name.argtypes=[ctypes.c_int32];lib.ncc_snake_math_name.restype=ctypes.c_char_p
-    backends=[b for b in (3,4) if lib.ncc_backend_available(b)]
+    backends=[b for b in (3,4,5) if lib.ncc_backend_available(b)]
     if not backends:raise RuntimeError('Expected SSE2 or AVX2 CPU')
     numerical=[]
     # Exact FP32 inputs spanning normal/subnormal signs and magnitudes. Compare

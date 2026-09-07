@@ -32,7 +32,7 @@
 
 namespace {
 constexpr const char* kDomain = "venky.audio.cpu.portable";
-enum class Mode { Snake, DW7, DW7Snake };
+enum class Mode { Snake, DW7, DW7Snake, SnakeDW7Snake };
 
 void Require(bool condition, const char* message) {
   if (!condition) throw std::invalid_argument(message);
@@ -76,7 +76,7 @@ struct Kernel {
   int32_t dilation;
   int32_t backend;
   size_t row_batches;
-  std::vector<float> weights, bias, alpha, reciprocal;
+  std::vector<float> weights, bias, alpha, reciprocal, alpha_post, reciprocal_post;
 
   Kernel(const OrtApi& api_, const OrtKernelInfo* raw_info, Mode mode_) : api(api_), mode(mode_) {
     Ort::ConstKernelInfo info(raw_info);
@@ -85,7 +85,7 @@ struct Kernel {
     channels = info.GetAttribute<int64_t>("channels");
     Require(channels > 0 && channels <= std::numeric_limits<int32_t>::max(), "Invalid channel count");
     auto backend_value = info.GetAttribute<int64_t>("backend");
-    Require(backend_value >= NCC_AUTO && backend_value <= NCC_AVX2, "Invalid backend");
+    Require(backend_value >= NCC_AUTO && backend_value <= NCC_AVX512, "Invalid backend");
     backend = static_cast<int32_t>(backend_value);
     Require(backend == NCC_AUTO || ncc_backend_available(backend), "Requested CPU ISA unavailable");
     if (backend == NCC_AUTO) backend = ncc_selected_backend();
@@ -97,6 +97,9 @@ struct Kernel {
       const auto d = info.GetAttribute<int64_t>("dilation");
       Require(d > 0 && d <= std::numeric_limits<int32_t>::max() / 6, "Invalid causal DW7 dilation");
       dilation = static_cast<int32_t>(d);
+      if (mode == Mode::SnakeDW7Snake)
+        Require(dilation == 1 || dilation == 3 || dilation == 9,
+                "SnakeDW7Snake requires dilation 1, 3, or 9");
       weights = Constant(info, 1, {channels, 1, 7});
       bias = Constant(info, 2, {channels});
     }
@@ -110,6 +113,10 @@ struct Kernel {
       const size_t start = mode == Mode::Snake ? 1 : 3;
       alpha = Constant(info, start, {channels});
       reciprocal = Constant(info, start + 1, {channels});
+      if (mode == Mode::SnakeDW7Snake) {
+        alpha_post = Constant(info, 5, {channels});
+        reciprocal_post = Constant(info, 6, {channels});
+      }
     }
   }
 
@@ -131,6 +138,11 @@ struct Kernel {
       result = ncc_snake_f32(work.x + offset, k.alpha.data() + c,
                              k.reciprocal.data() + c, work.y + offset,
                              1, 1, work.time, k.backend, 1);
+    } else if (k.mode == Mode::SnakeDW7Snake) {
+      result = ncc_snake_dw7_snake_f32(work.x + offset, k.weights.data() + 7*c,
+          k.bias.data() + c, k.alpha.data() + c, k.reciprocal.data() + c,
+          k.alpha_post.data() + c, k.reciprocal_post.data() + c, work.y + offset,
+          1, 1, work.time, k.dilation, k.backend, 1);
     } else {
       result = ncc_dw7_f32_ex(work.x + offset, k.weights.data() + 7 * c,
                               k.bias.data() + c, nullptr,
@@ -169,10 +181,13 @@ template <Mode mode>
 struct Op : Ort::CustomOpBase<Op<mode>, Kernel, true> {
   Op() { this->start_ver_ = 1; this->end_ver_ = 1; }
   const char* GetName() const {
-    return mode == Mode::Snake ? "SnakeF32" : mode == Mode::DW7 ? "CausalDW7F32" : "CausalDW7SnakeF32";
+    return mode == Mode::Snake ? "SnakeF32" : mode == Mode::DW7 ? "CausalDW7F32"
+        : mode == Mode::DW7Snake ? "CausalDW7SnakeF32" : "SnakeDW7SnakeF32";
   }
   const char* GetExecutionProviderType() const { return "CPUExecutionProvider"; }
-  size_t GetInputTypeCount() const { return mode == Mode::DW7Snake ? 5 : 3; }
+  size_t GetInputTypeCount() const {
+    return mode == Mode::SnakeDW7Snake ? 7 : mode == Mode::DW7Snake ? 5 : 3;
+  }
   ONNXTensorElementDataType GetInputType(size_t) const { return ONNX_TENSOR_ELEMENT_DATA_TYPE_FLOAT; }
   size_t GetOutputTypeCount() const { return 1; }
   ONNXTensorElementDataType GetOutputType(size_t) const { return ONNX_TENSOR_ELEMENT_DATA_TYPE_FLOAT; }
@@ -187,6 +202,92 @@ struct Op : Ort::CustomOpBase<Op<mode>, Kernel, true> {
       Require(shape.size() == 3, "Native codec custom op requires rank three");
       return context.SetOutputShape(0, shape).release();
     } catch (...) { return Error(Ort::GetApi()); }
+  }
+};
+
+// Ordered pointwise bias plus residual; ORT owns all worker scheduling.
+struct BiasResidualKernel {
+  const OrtApi& api;
+  int64_t channels;
+  int32_t backend;
+  size_t row_batches;
+  std::vector<float> bias;
+  BiasResidualKernel(const OrtApi& a,const OrtKernelInfo* raw):api(a) {
+    Ort::ConstKernelInfo info(raw);
+    Require(ncc_abi_version()==1 && info.GetAttribute<int64_t>("native_abi")==1,
+            "BiasResidual native ABI mismatch");
+    channels=info.GetAttribute<int64_t>("channels");
+    Require(channels>0 && channels<=std::numeric_limits<int32_t>::max(),"Invalid channel count");
+    const auto value=info.GetAttribute<int64_t>("backend");
+    Require(value>=NCC_AUTO && value<=NCC_AVX512,"Invalid backend");
+    backend=static_cast<int32_t>(value);
+    Require(ncc_backend_available(backend),"Requested CPU ISA unavailable");
+    if (backend==NCC_AUTO) backend=ncc_selected_backend();
+    const auto batches=info.GetAttribute<int64_t>("row_batches");
+    Require(batches>=0,"row_batches must be nonnegative");
+    row_batches=static_cast<size_t>(batches);
+    bias=Constant(info,1,{channels});
+  }
+  struct Work {
+    const BiasResidualKernel* self;
+    const float* product;
+    const float* skip;
+    float* output;
+    int64_t time;
+    std::atomic<int32_t> error{NCC_OK};
+  };
+  static void Row(void* opaque,size_t row) noexcept {
+    auto& w=*static_cast<Work*>(opaque);const auto& k=*w.self;
+    const auto offset=row*static_cast<size_t>(w.time);
+    const auto channel=row%static_cast<size_t>(k.channels);
+    const auto status=ncc_bias_residual_f32(w.product+offset,k.bias.data()+channel,
+        w.skip+offset,w.output+offset,1,1,w.time,k.backend,1);
+    if (status!=NCC_OK) w.error.store(status,std::memory_order_relaxed);
+  }
+  OrtStatus* ComputeV2(OrtKernelContext* raw) noexcept {
+    try {
+      Ort::KernelContext context(raw);
+      auto product=context.GetInput(0);auto skip=context.GetInput(2);
+      const auto dims=FloatShape(product);
+      Require(dims.size()==3 && dims[0]>=0 && dims[1]==channels && dims[2]>=0,
+              "Expected FP32 product [batch,channels,time]");
+      Require(FloatShape(skip)==dims,"Residual shape must equal product shape");
+      Require(static_cast<uint64_t>(dims[0])<=std::numeric_limits<size_t>::max()/channels,
+              "Row count overflow");
+      const auto rows=static_cast<size_t>(dims[0])*static_cast<size_t>(channels);
+      Require(!rows || static_cast<uint64_t>(dims[2])<=std::numeric_limits<size_t>::max()/sizeof(float)/rows,
+              "BiasResidual tensor byte count overflow");
+      auto output=context.GetOutput(0,dims);
+      if (!rows || !dims[2]) return nullptr;
+      Work work{this,product.GetTensorData<float>(),skip.GetTensorData<float>(),
+                output.GetTensorMutableData<float>(),dims[2]};
+      if (rows==1) Row(&work,0);
+      else context.ParallelFor(Row,rows,row_batches,&work);
+      const auto status=work.error.load(std::memory_order_relaxed);
+      if (status!=NCC_OK) return api.CreateStatus(ORT_FAIL,ncc_status_string(status));
+      return nullptr;
+    } catch (...) { return Error(api); }
+  }
+};
+struct BiasResidualOp:Ort::CustomOpBase<BiasResidualOp,BiasResidualKernel,true> {
+  BiasResidualOp(){start_ver_=1;end_ver_=1;}
+  const char* GetName()const{return "BiasResidualF32";}
+  const char* GetExecutionProviderType()const{return "CPUExecutionProvider";}
+  size_t GetInputTypeCount()const{return 3;}
+  size_t GetOutputTypeCount()const{return 1;}
+  ONNXTensorElementDataType GetInputType(size_t)const{return ONNX_TENSOR_ELEMENT_DATA_TYPE_FLOAT;}
+  ONNXTensorElementDataType GetOutputType(size_t)const{return ONNX_TENSOR_ELEMENT_DATA_TYPE_FLOAT;}
+  OrtStatus* CreateKernelV2(const OrtApi& a,const OrtKernelInfo* i,void** out)const noexcept {
+    *out=nullptr;
+    try{*out=new BiasResidualKernel(a,i);return nullptr;}
+    catch(...){return Error(a);}
+  }
+  static OrtStatus* InferOutputShape(Ort::ShapeInferContext& context)noexcept {
+    try {
+      const auto& dims=context.GetInputShape(0);
+      Require(dims.size()==3,"BiasResidual requires rank three");
+      return context.SetOutputShape(0,dims).release();
+    }catch(...){return Error(Ort::GetApi());}
   }
 };
 
@@ -435,6 +536,8 @@ const OrtApi* registered_api = nullptr;
 Op<Mode::Snake> snake_op;
 Op<Mode::DW7> dw_op;
 Op<Mode::DW7Snake> fused_op;
+Op<Mode::SnakeDW7Snake> triple_op;
+BiasResidualOp bias_residual_op;
 PhaseOp<false> phase_op;
 PhaseOp<true> combined_phase_op;
 std::unique_ptr<Ort::CustomOpDomain> domain;
@@ -452,6 +555,7 @@ extern "C" NCC_API OrtStatus* ORT_API_CALL RegisterCustomOps(OrtSessionOptions* 
       Ort::InitApi(api);
       auto fresh = std::make_unique<Ort::CustomOpDomain>(kDomain);
       fresh->Add(&snake_op); fresh->Add(&dw_op); fresh->Add(&fused_op);
+      fresh->Add(&triple_op); fresh->Add(&bias_residual_op);
       fresh->Add(&phase_op); fresh->Add(&combined_phase_op);
       domain = std::move(fresh);
       registered_api = api;
