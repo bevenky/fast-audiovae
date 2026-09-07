@@ -1,0 +1,105 @@
+{
+  "onnx": "1.22.0",
+  "python": "3.13.15 (main, Aug  5 2026, 12:25:43) [Clang 21.0.0 (clang-2100.1.1.101)]",
+  "scope": "Static graph parsing, checker, serialization and identical recipe preparation. No inference or benchmarks.",
+  "environment": {
+    "numpy": "2.2.6",
+    "protobuf": "6.33.5",
+    "ml_dtypes": "0.5.4",
+    "typing_extensions": "4.15.0",
+    "onnxruntime": "1.29.0"
+  },
+  "checks": [
+    {
+      "name": "stock_audio",
+      "source_sha256": "fdd20e200675ab9649bf33f16bc5974101ba5cf47ab89fbfe29f3d36ff6c3c84",
+      "load_serialize_byte_identical": true,
+      "ir_version": 10,
+      "opsets": {
+        "": 20
+      },
+      "node_count": 402,
+      "initializer_count": 216
+    },
+    {
+      "name": "native_audio",
+      "source_sha256": "fa7992825e807cac7ab1be405912ae3735031fb941a18dd81006005dc597bde3",
+      "load_serialize_byte_identical": true,
+      "ir_version": 10,
+      "opsets": {
+        "": 20,
+        "venky.audio.cpu": 1
+      },
+      "node_count": 219,
+      "initializer_count": 215
+    },
+    {
+      "name": "fallback_audio",
+      "source_sha256": "c050ab1189c5ce08eae21b9cfec01bb0a49d52489a0ec35d50090a95a05a295a",
+      "load_serialize_byte_identical": true,
+      "ir_version": 10,
+      "opsets": {
+        "": 20
+      },
+      "node_count": 444,
+      "initializer_count": 258
+    },
+    {
+      "name": "mimi",
+      "source_sha256": "e023777a2cee98a7e4a293f6af7712d4fed6364d1523cfc9a6283f112981e2f1",
+      "load_serialize_byte_identical": true,
+      "ir_version": 8,
+      "opsets": {
+        "": 18
+      },
+      "node_count": 619,
+      "initializer_count": 44
+    },
+    {
+      "name": "meta_dacvae",
+      "source_sha256": "6f89666a46a774e614ae5a4db449927ece49c57b7788823a76398dc1438ccaaf",
+      "load_serialize_byte_identical": true,
+      "ir_version": 8,
+      "opsets": {
+        "": 18
+      },
+      "node_count": 1316,
+      "initializer_count": 163
+    },
+    {
+      "name": "native_audio_recipe_reproduction",
+      "source_sha256": "fa7992825e807cac7ab1be405912ae3735031fb941a18dd81006005dc597bde3",
+      "reproduced_sha256": "fa7992825e807cac7ab1be405912ae3735031fb941a18dd81006005dc597bde3",
+      "file_byte_identical": true,
+      "ir_preserved": true,
+      "opsets_preserved": true,
+      "nodes_byte_identical": true,
+      "initializers_byte_identical": true
+    },
+    {
+      "name": "fallback_audio_recipe_reproduction",
+      "source_sha256": "c050ab1189c5ce08eae21b9cfec01bb0a49d52489a0ec35d50090a95a05a295a",
+      "reproduced_sha256": "c050ab1189c5ce08eae21b9cfec01bb0a49d52489a0ec35d50090a95a05a295a",
+      "file_byte_identical": true,
+      "ir_preserved": true,
+      "opsets_preserved": true,
+      "nodes_byte_identical": true,
+      "initializers_byte_identical": true
+    }
+  ],
+  "original_files_unchanged": true,
+  "verified_original_files": {
+    "audio_vae_decoder.onnx": "fdd20e200675ab9649bf33f16bc5974101ba5cf47ab89fbfe29f3d36ff6c3c84",
+    "decoder_native.onnx": "fa7992825e807cac7ab1be405912ae3735031fb941a18dd81006005dc597bde3",
+    "decoder_portable.onnx": "c050ab1189c5ce08eae21b9cfec01bb0a49d52489a0ec35d50090a95a05a295a",
+    "mimi_decoder_fp32_dynamic.onnx": "e023777a2cee98a7e4a293f6af7712d4fed6364d1523cfc9a6283f112981e2f1",
+    "meta_dacvae_decoder.onnx": "6f89666a46a774e614ae5a4db449927ece49c57b7788823a76398dc1438ccaaf",
+    "audio_vae_decoder.onnx.data": "3b76bd57356e96893655bd24a364989e016c5af2fc8c29195caaefb4eccf5143"
+  },
+  "passed": true,
+  "tooling_note": "ONNX 1.22.0 edits and checks model files. Inference remains ONNX Runtime 1.29.0. Historical benchmark records retain their original tooling version.",
+  "unit_tests": {
+    "passed": 65,
+    "scope": "Existing static and mocked tests; no inference or benchmarks."
+  }
+}

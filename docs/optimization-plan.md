@@ -4,6 +4,8 @@ The next useful change is a fused residual-stage implementation that keeps inter
 
 This analysis used saved CPU profiles, source, assembly and static graph shapes. **No new benchmarks were run. All further speedups discussed here are unmeasured.** The [audit data](../benchmarks/cpu-optimization-audit.json) includes stage totals, matrix shapes, historical comparison extracts and source hashes.
 
+Inference remains pinned to **ONNX Runtime 1.29.0**. The separate ONNX model-editing package is now 1.22.0; [static compatibility checks](../benchmarks/onnx-tooling-compatibility.json) reproduced the accepted native and fallback graphs byte-for-byte. This tooling update does not change the model operations or the recorded benchmark results.
+
 ## The target
 
 | CPU | Fast AudioVAE2 RTF | Mimi RTF | Reduction in AudioVAE2 time needed to match Mimi |
