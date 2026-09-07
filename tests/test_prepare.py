@@ -151,6 +151,7 @@ class PreparationTests(unittest.TestCase):
         self.assertEqual(result["native"], {})
         self.assertEqual(result["providers"], ["CPUExecutionProvider"])
         self.assertEqual(result["block_fusion"], "none")
+        self.assertEqual(result["native_backend"], "auto")
         self.assertTrue((self.output / "bundle.json").is_file())
 
     def test_invalid_block_fusion_is_rejected_before_output_or_model_access(self):
@@ -246,12 +247,82 @@ class PreparationTests(unittest.TestCase):
 
     def test_cli_passes_explicit_fusion_and_default_none(self):
         from fast_audiovae import cli
-        for flags, variant in (([], "none"), (["--block-fusion", "both"], "both")):
+        for flags, variant, backend in (([], "none", "auto"), (["--block-fusion", "both"], "both", "auto"),
+                (["--block-fusion", "both", "--native-backend", "avx512"], "both", "avx512")):
             with patch("sys.argv", ["fast-audiovae", "prepare", *flags]), \
                  patch.object(prepare, "prepare", return_value={}) as selected, patch("builtins.print"):
                 cli.main()
             selected.assert_called_once_with("artifacts", source=None, native_build=None,
-                                             amd_build=None, block_fusion=variant)
+                                             amd_build=None, block_fusion=variant, native_backend=backend)
+
+    def test_invalid_native_backend_fails_before_output_or_model_access(self):
+        for backend in ("AVX512", "avx", None, True, []):
+            with self.subTest(backend=backend), self.assertRaisesRegex(ValueError, "native_backend must"):
+                prepare.prepare(self.output, source=self.source, native_backend=backend)
+            self.assert_preflight_untouched()
+
+    def test_explicit_native_backend_requires_linux_x86_and_native_build(self):
+        with patch.object(prepare.Path, "is_file", return_value=False):
+            for backend in ("avx2", "avx512"):
+                with self.subTest(backend=backend), self.assertRaisesRegex(ValueError, "requires a compatible native build"):
+                    prepare.prepare(self.output, source=self.source, native_backend=backend)
+                self.assert_preflight_untouched()
+        self.system.return_value, self.machine.return_value = "Darwin", "arm64"
+        build = self.build_record(domain="venky.audio.cpu")
+        with self.assertRaisesRegex(ValueError, "require Linux x86"):
+            prepare.prepare(self.output, source=self.source, native_build=build, native_backend="avx512")
+        self.assert_preflight_untouched()
+
+    def test_explicit_avx512_requires_new_build_fingerprint(self):
+        for fingerprint in (None, {}, {"explicit_avx512_backend": 4}, {"explicit_avx512_backend": True},
+                            {"explicit_avx512_backend": "5"}, {"explicit_avx512_backend": 5.0}):
+            build = self.build_record(fingerprint=fingerprint)
+            with self.subTest(fingerprint=fingerprint), self.assertRaisesRegex(ValueError, "explicit_avx512_backend"):
+                prepare.prepare(self.output, source=self.source, native_build=build, native_backend="avx512")
+            self.assert_preflight_untouched()
+
+    def test_forced_backend_uses_checked_rewrite_even_without_fusion(self):
+        for backend, number, variant in (("avx2", 4, "none"), ("avx512", 5, "none"), ("avx512", 5, "both")):
+            with self.subTest(backend=backend, variant=variant):
+                output = self.root / (backend + "_" + variant)
+                fields = {"fingerprint": {"explicit_avx512_backend": 5}} if number == 5 else {}
+                if variant != "none": fields["operators"] = sorted(prepare._fusion_operators(variant))
+                build = self.build_record(**fields)
+                with self.native_pipeline() as (rewrite, convert, packed):
+                    result = prepare.prepare(output, source=self.source, native_build=build,
+                                             block_fusion=variant, native_backend=backend)
+                self.assertEqual(rewrite.call_args.kwargs, {"variant": variant, "backend": number,
+                    "expected_chains": 18 if variant == "both" else 0,
+                    "expected_adds": 18 if variant == "both" else 0})
+                entry = result["native"]["Linux/x86_64"]
+                self.assertEqual(result["native_backend"], backend)
+                self.assertEqual(entry["required_backend"], number)
+                self.assertEqual(entry["native_rewrite"]["backend_override"], number)
+                self.assertEqual(entry["native_rewrite"]["model_sha256"], entry["model_sha256"])
+                self.assertEqual(entry["native_rewrite"]["audit_sha256"],
+                                 prepare.sha256(output / entry["native_rewrite"]["audit_file"]))
+                if variant == "none": self.assertNotIn("block_fusion", entry)
+                else: self.assertEqual(entry["block_fusion"]["backend_override"], number)
+                packed.assert_not_called()
+
+    def test_forced_avx2_rejects_conflicting_amd_packing_preflight(self):
+        build = self.build_record()
+        amd = self.build_record("amd", domain="venky.audio.cpu.aocl.rows")
+        with self.assertRaisesRegex(ValueError, "AVX2 cannot be combined with AMD packing"):
+            prepare.prepare(self.output, source=self.source, native_build=build, amd_build=amd, native_backend="avx2")
+        self.assert_preflight_untouched()
+
+    def test_explicit_avx512_keeps_amd_packing_opt_in_and_backend_requirement(self):
+        build = self.build_record(fingerprint={"explicit_avx512_backend": 5})
+        amd = self.build_record("amd", domain="venky.audio.cpu.aocl.rows")
+        with self.native_pipeline() as (rewrite, convert, packed):
+            result = prepare.prepare(self.output, source=self.source, native_build=build,
+                                     amd_build=amd, native_backend="avx512")
+        entry = result["native"]["Linux/x86_64"]["packed"]
+        self.assertFalse(entry["default"])
+        self.assertEqual(entry["validated_threads"], [1, 4])
+        self.assertEqual(entry["required_backend"], 5)
+        self.assertEqual(packed.call_args.args[0], self.output / "decoder_native.onnx")
 
 
 if __name__ == "__main__":

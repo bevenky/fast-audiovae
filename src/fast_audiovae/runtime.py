@@ -43,6 +43,14 @@ def load_decoder(model_dir="artifacts", *, threads=None, prefer_custom=True, pre
     options.add_session_config_entry('session.intra_op.allow_spinning','0')
     options.add_session_config_entry('session.inter_op.allow_spinning','0')
     native=manifest['native'].get(key) if prefer_custom else None
+    required_backend=native.get('required_backend') if native else None
+    if required_backend is not None:
+        if type(required_backend) is not int or required_backend not in (4,5):
+            raise RuntimeError('Invalid required native backend in bundle')
+        info['required_backend']=required_backend
+        if key!='Linux/x86_64' or native.get('math')!='sleef_u10':
+            native=None
+            info['reason']='Requested x86 native backend is incompatible with this platform; using standard ONNX'
     if native and ort.__version__!=manifest['onnxruntime']:
         native=None
         info['reason']='Native package requires the tested ORT version; using standard ONNX'
@@ -57,11 +65,26 @@ def load_decoder(model_dir="artifacts", *, threads=None, prefer_custom=True, pre
             library.ncc_capabilities.argtypes=[];library.ncc_capabilities.restype=ctypes.c_uint64
             library.ncc_snake_math_name.argtypes=[ctypes.c_int32];library.ncc_snake_math_name.restype=ctypes.c_char_p
             if library.ncc_abi_version()!=1:raise RuntimeError('Native library ABI mismatch')
-            backend=library.ncc_selected_backend();caps=library.ncc_capabilities()
+            backend=required_backend if required_backend is not None else library.ncc_selected_backend()
+            caps=library.ncc_capabilities();backend_available=True
+            if required_backend is not None:
+                try:
+                    library.ncc_backend_available.argtypes=[ctypes.c_int32]
+                    library.ncc_backend_available.restype=ctypes.c_int32
+                    backend_available=bool(library.ncc_backend_available(required_backend))
+                except AttributeError:
+                    backend_available=False
+                if not backend_available:
+                    info['reason']='Requested native backend '+str(required_backend)+' is unavailable; using standard ONNX'
             if native['math']=='sleef_u10':
-                library.ncc_vector_sine_available.argtypes=[ctypes.c_int32]
-                library.ncc_vector_sine_available.restype=ctypes.c_int32
-                eligible=bool(caps & 64) and bool(library.ncc_vector_sine_available(backend))
+                eligible=False
+                if backend_available and bool(caps & 64):
+                    try:
+                        library.ncc_vector_sine_available.argtypes=[ctypes.c_int32]
+                        library.ncc_vector_sine_available.restype=ctypes.c_int32
+                        eligible=bool(library.ncc_vector_sine_available(backend))
+                    except AttributeError:
+                        eligible=False
             elif native['math']=='vforce':eligible=bool(caps & 32) and backend!=1
             else:raise RuntimeError('Unknown native math contract')
             if eligible:
@@ -69,8 +92,14 @@ def load_decoder(model_dir="artifacts", *, threads=None, prefer_custom=True, pre
                 selected=native['model'];info.update(selected='native',reason='Compatible CPU vector-math backend',
                     backend=backend,sine_math=library.ncc_snake_math_name(backend).decode(),
                     experiment=native['experiment'],tested_cpu=native['tested_cpu'])
-            else:info['reason']='Required vector sine unavailable; using standard ONNX'
+            elif backend_available:info['reason']='Required vector sine unavailable; using standard ONNX'
     packed=native.get('packed') if native and prefer_packed and info['selected']=='native' else None
+    if packed and required_backend==4:
+        packed=None
+        info['packed_reason']='Explicit AVX2 conflicts with AVX512-only AMD packing; using base native model'
+    elif packed and packed.get('required_backend',required_backend)!=required_backend:
+        packed=None
+        info['packed_reason']='Packed model backend requirement differs from base native model; using base native model'
     if packed:
         if threads not in packed['validated_threads']:
             info['packed_reason']='Thread count not validated for this optional package'

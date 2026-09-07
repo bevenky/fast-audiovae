@@ -13,6 +13,7 @@ from .graph import block_fusion as block_fusion_graph
 
 
 BLOCK_FUSIONS = ("none", "adds", "chain", "both")
+NATIVE_BACKENDS = {"auto": None, "avx2": 4, "avx512": 5}
 
 
 def _fusion_operators(variant):
@@ -29,7 +30,7 @@ def _save(model, destination):
     onnx.save_model(model, destination)
 
 
-def _verified_build(record_path, expected_domain, *, required_operators=()):
+def _verified_build(record_path, expected_domain, *, required_operators=(), required_backend=None):
     build = json.loads(Path(record_path).read_text())
     if (not isinstance(build, dict)
             or type(build.get("native_abi")) is not int or build["native_abi"] != 1
@@ -44,6 +45,12 @@ def _verified_build(record_path, expected_domain, *, required_operators=()):
         missing = set(required_operators) - set(operators)
         if missing:
             raise ValueError("Native build lacks required block-fusion operators: " + ", ".join(sorted(missing)))
+    if required_backend == 5:
+        fingerprint = build.get("fingerprint")
+        if (not isinstance(fingerprint, dict)
+                or type(fingerprint.get("explicit_avx512_backend")) is not int
+                or fingerprint["explicit_avx512_backend"] != 5):
+            raise ValueError("AVX512 requires a new native build with fingerprint.explicit_avx512_backend == 5")
     if not isinstance(build.get("library"), str) or not build["library"]:
         raise ValueError("Build record must identify its native library")
     library = Path(build["library"]).resolve()
@@ -52,9 +59,13 @@ def _verified_build(record_path, expected_domain, *, required_operators=()):
     return library
 
 
-def prepare(output="artifacts", *, source=None, native_build=None, amd_build=None, block_fusion="none"):
+def prepare(output="artifacts", *, source=None, native_build=None, amd_build=None,
+            block_fusion="none", native_backend="auto"):
     if not isinstance(block_fusion, str) or block_fusion not in BLOCK_FUSIONS:
         raise ValueError("block_fusion must be none, adds, chain or both")
+    if not isinstance(native_backend, str) or native_backend not in NATIVE_BACKENDS:
+        raise ValueError("native_backend must be auto, avx2 or avx512")
+    required_backend = NATIVE_BACKENDS[native_backend]
     output = Path(output).resolve()
     if output.exists() and (not output.is_dir() or any(output.iterdir())):
         raise ValueError("Output must be an empty or nonexistent directory")
@@ -73,6 +84,14 @@ def prepare(output="artifacts", *, source=None, native_build=None, amd_build=Non
     # the destination. Failed preflight cannot leave a partial model bundle.
     library = packed_library = None
     required_operators = _fusion_operators(block_fusion) if block_fusion != "none" else set()
+    rewrite_requested = bool(required_operators) or required_backend is not None
+    if required_backend is not None:
+        if target != "x86":
+            raise ValueError("Explicit AVX2/AVX512 native backends require Linux x86")
+        if not native_build:
+            raise ValueError("An explicit native backend requires a compatible native build")
+        if required_backend == 4 and amd_build:
+            raise ValueError("Explicit AVX2 cannot be combined with AMD packing, which requires AVX512")
     if required_operators and not native_build:
         raise ValueError("Block fusion requires a compatible native build; build the local native library first")
     if amd_build and target != "x86":
@@ -81,7 +100,8 @@ def prepare(output="artifacts", *, source=None, native_build=None, amd_build=Non
         if target is None:
             raise ValueError("No native preparation recipe is available for this platform")
         expected_domain = "venky.audio.cpu" if target == "apple" else "venky.audio.cpu.portable"
-        library = _verified_build(native_build, expected_domain, required_operators=required_operators)
+        library = _verified_build(native_build, expected_domain, required_operators=required_operators,
+                                  required_backend=required_backend)
     if amd_build:
         if library is None:
             raise ValueError("AMD packing also requires a base native build")
@@ -96,7 +116,7 @@ def prepare(output="artifacts", *, source=None, native_build=None, amd_build=Non
     manifest = {"onnxruntime": "1.29.0", "fallback": "decoder_portable.onnx", "native": {},
                 "interface": "FP32 [1,64,L] to [1,1,1920*L] at 48000 Hz; fresh causal calls",
                 "source_sha256": sha256(source), "precision": "FP32", "providers": ["CPUExecutionProvider"],
-                "block_fusion": block_fusion}
+                "block_fusion": block_fusion, "native_backend": native_backend}
     if native_build:
         (output / "runtime").mkdir(exist_ok=True)
         shutil.copy2(library, output / "runtime" / library.name)
@@ -109,15 +129,15 @@ def prepare(output="artifacts", *, source=None, native_build=None, amd_build=Non
             _save(up, temporary / "up.onnx")
             pointwise.rewrite(temporary / "up.onnx", temporary / "pointwise.onnx", "bct")
             phase.rewrite(temporary / "pointwise.onnx", temporary / "native.onnx")
-            destination = temporary / "native-platform.onnx" if required_operators else output / "decoder_native.onnx"
+            destination = temporary / "native-platform.onnx" if rewrite_requested else output / "decoder_native.onnx"
             if target == "x86":
                 from .graph.portable import convert
                 convert(temporary / "native.onnx", destination, library)
             else:
                 shutil.copy2(temporary / "native.onnx", destination)
-            if required_operators:
+            if rewrite_requested:
                 fusion_audit = block_fusion_graph.rewrite(
-                    destination, output / "decoder_native.onnx", variant=block_fusion, backend=None,
+                    destination, output / "decoder_native.onnx", variant=block_fusion, backend=required_backend,
                     expected_chains=18 if block_fusion in ("chain", "both") else 0,
                     expected_adds=18 if block_fusion in ("adds", "both") else 0)
         entry = {"library": "runtime/" + library.name, "model": "decoder_native.onnx",
@@ -125,20 +145,27 @@ def prepare(output="artifacts", *, source=None, native_build=None, amd_build=Non
                  "experiment": "phase_finish_fused" if target == "apple" else "phase_fused",
                  "tested_cpu": "Apple M5 Max" if target == "apple" else "AMD EPYC 9654",
                  "library_sha256": sha256(library), "model_sha256": sha256(output / "decoder_native.onnx")}
-        if required_operators:
+        if required_backend is not None:
+            entry["required_backend"] = required_backend
+        if rewrite_requested:
             audit_path = output / "decoder_native.block-fusion.json"
-            entry["block_fusion"] = {
+            rewrite_record = {
                 "variant": block_fusion, "counts": fusion_audit["counts"],
-                "backend_override": None, "required_operators": sorted(required_operators),
+                "backend_override": required_backend, "required_operators": sorted(_fusion_operators(block_fusion)),
                 "audit_file": audit_path.name, "audit_sha256": sha256(audit_path),
                 "source_model_sha256": fusion_audit["source_sha256"],
                 "model_sha256": fusion_audit["output_sha256"],
                 "native_build_record_sha256": sha256(Path(native_build)),
                 "validation": "Preparation performs checked graph rewriting only; it runs no numerical, quality or timing validation"}
+            entry["native_rewrite"] = rewrite_record
+            if required_operators:
+                entry["block_fusion"] = rewrite_record
             entry["baseline_experiment"] = entry["experiment"]
             entry["baseline_tested_cpu"] = entry["tested_cpu"]
-            entry["experiment"] = "block_fusion_" + block_fusion
-            entry["tested_cpu"] = "Not recorded for this prepared fusion variant"
+            entry["experiment"] = ("block_fusion_" + block_fusion if required_operators else "native")
+            if required_backend is not None:
+                entry["experiment"] += "_" + native_backend
+            entry["tested_cpu"] = "Not recorded for this prepared native variant"
         manifest["native"][key] = entry
         if amd_build:
             from .graph.packed import rewrite, SELECTED_NODES
@@ -147,12 +174,14 @@ def prepare(output="artifacts", *, source=None, native_build=None, amd_build=Non
             entry["packed"] = {"library": "runtime/" + packed_library.name, "model": "decoder_amd.onnx",
                                "experiment": "phase_aocl_rows", "tested_cpu": "AMD EPYC 9654",
                                "validated_threads": [1, 4], "default": False}
-            if required_operators:
+            if rewrite_requested:
                 entry["packed"].update(block_fusion=block_fusion,
                     baseline_experiment="phase_aocl_rows", baseline_tested_cpu="AMD EPYC 9654",
-                    experiment="phase_aocl_rows_block_fusion_" + block_fusion,
-                    tested_cpu="Not recorded for this prepared fusion variant with AMD packing",
-                    thread_gate_origin="Existing AMD packing policy; prepare does not validate the fusion combination")
+                    experiment="phase_aocl_rows_" + entry["experiment"],
+                    tested_cpu="Not recorded for this prepared native variant with AMD packing",
+                    thread_gate_origin="Existing AMD packing policy; prepare does not validate the modified native graph")
+            if required_backend is not None:
+                entry["packed"]["required_backend"] = required_backend
     manifest["fallback_sha256"] = sha256(output / manifest["fallback"])
     (output / "bundle.json").write_text(json.dumps(manifest, indent=2) + "\n")
     return manifest

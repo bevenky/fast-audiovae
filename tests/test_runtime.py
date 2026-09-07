@@ -119,6 +119,7 @@ class RuntimeTests(unittest.TestCase):
         return SimpleNamespace(ncc_abi_version=Mock(return_value=1),
             ncc_selected_backend=Mock(return_value=3), ncc_capabilities=Mock(return_value=64),
             ncc_snake_math_name=Mock(return_value=b'sleef_u10'),
+            ncc_backend_available=Mock(return_value=1),
             ncc_vector_sine_available=Mock(return_value=int(vector_sine)))
 
     def test_x86_selects_native_only_with_accurate_vector_sine(self):
@@ -168,6 +169,119 @@ class RuntimeTests(unittest.TestCase):
              patch.object(FakeSession, 'get_providers', return_value=['CUDAExecutionProvider']):
             with self.assertRaisesRegex(RuntimeError, 'CPU-only'):
                 runtime.load_decoder(self.root)
+
+    def test_explicit_backend_reports_graph_backend_not_library_default(self):
+        for required in (4, 5):
+            self.manifest['native']['Linux/x86_64']['required_backend'] = required
+            self.write_manifest()
+            library = self.native_library()
+            with self.subTest(required=required), \
+                 patch.object(runtime.platform, 'system', return_value='Linux'), \
+                 patch.object(runtime.platform, 'machine', return_value='x86_64'), \
+                 patch.object(runtime.ctypes, 'CDLL', return_value=library):
+                session, info = runtime.load_decoder(self.root)
+            self.assertEqual(info['selected'], 'native')
+            self.assertEqual(info['backend'], required)
+            self.assertEqual(info['required_backend'], required)
+            library.ncc_backend_available.assert_called_once_with(required)
+            library.ncc_vector_sine_available.assert_called_once_with(required)
+            library.ncc_snake_math_name.assert_called_once_with(required)
+            library.ncc_selected_backend.assert_not_called()
+            self.assertEqual(len(session.options.libraries), 1)
+
+    def test_unsupported_forced_backend_falls_back_before_custom_registration(self):
+        self.manifest['native']['Linux/x86_64']['required_backend'] = 5
+        self.manifest['native']['Linux/x86_64']['packed'] = {
+            'library': 'packed.so', 'model': 'packed.onnx', 'validated_threads': [1, 4]}
+        self.write_manifest()
+        for available, sine in ((False, True), (True, False)):
+            library = self.native_library(sine)
+            library.ncc_backend_available.return_value = int(available)
+            with self.subTest(available=available, sine=sine), \
+                 patch.object(runtime.platform, 'system', return_value='Linux'), \
+                 patch.object(runtime.platform, 'machine', return_value='x86_64'), \
+                 patch.object(runtime.ctypes, 'CDLL', return_value=library) as load:
+                session, info = runtime.load_decoder(self.root, threads=4, prefer_packed=True)
+            self.assertEqual(info['selected'], 'portable_onnx')
+            self.assertEqual(Path(session.path).name, 'decoder.onnx')
+            self.assertEqual(session.options.libraries, [])
+            self.assertEqual(session.providers, ['CPUExecutionProvider'])
+            self.assertEqual(info['required_backend'], 5)
+            load.assert_called_once()
+            library.ncc_snake_math_name.assert_not_called()
+            if not available: library.ncc_vector_sine_available.assert_not_called()
+
+    def test_missing_forced_backend_or_sine_capability_query_falls_back(self):
+        self.manifest['native']['Linux/x86_64']['required_backend'] = 5
+        self.write_manifest()
+        for missing in ('ncc_backend_available', 'ncc_vector_sine_available'):
+            library = self.native_library()
+            delattr(library, missing)
+            with self.subTest(missing=missing), \
+                 patch.object(runtime.platform, 'system', return_value='Linux'), \
+                 patch.object(runtime.platform, 'machine', return_value='x86_64'), \
+                 patch.object(runtime.ctypes, 'CDLL', return_value=library):
+                session, info = runtime.load_decoder(self.root)
+            self.assertEqual(info['selected'], 'portable_onnx')
+            self.assertEqual(session.options.libraries, [])
+
+    def test_invalid_backend_requirement_is_rejected_without_loading_library(self):
+        for required in (True, 0, 3, 6, '5', 5.0):
+            self.manifest['native']['Linux/x86_64']['required_backend'] = required
+            self.write_manifest()
+            with self.subTest(required=required), \
+                 patch.object(runtime.platform, 'system', return_value='Linux'), \
+                 patch.object(runtime.platform, 'machine', return_value='x86_64'), \
+                 patch.object(runtime.ctypes, 'CDLL') as load:
+                with self.assertRaisesRegex(RuntimeError, 'Invalid required native backend'):
+                    runtime.load_decoder(self.root)
+            load.assert_not_called()
+
+    def test_x86_backend_requirement_on_apple_uses_portable_without_loading(self):
+        self.manifest['native']['Darwin/arm64'] = {
+            'library': 'apple.dylib', 'model': 'apple.onnx', 'math': 'vforce', 'required_backend': 5}
+        self.write_manifest()
+        with patch.object(runtime.platform, 'system', return_value='Darwin'), \
+             patch.object(runtime.platform, 'machine', return_value='arm64'), \
+             patch.object(runtime.ctypes, 'CDLL') as load:
+            session, info = runtime.load_decoder(self.root)
+        load.assert_not_called()
+        self.assertEqual(info['selected'], 'portable_onnx')
+        self.assertEqual(session.providers, ['CPUExecutionProvider'])
+
+    def test_conflicting_packed_backend_keeps_native_base_without_loading_packed(self):
+        for base, packed_required in ((4, 4), (5, 4), (None, 5)):
+            entry = self.manifest['native']['Linux/x86_64']
+            entry['required_backend'] = base
+            entry['packed'] = {'library': 'packed.so', 'model': 'packed.onnx',
+                              'validated_threads': [1, 4], 'required_backend': packed_required}
+            self.write_manifest()
+            with self.subTest(base=base, packed_required=packed_required), \
+                 patch.object(runtime.platform, 'system', return_value='Linux'), \
+                 patch.object(runtime.platform, 'machine', return_value='x86_64'), \
+                 patch.object(runtime.ctypes, 'CDLL', return_value=self.native_library()) as load:
+                session, info = runtime.load_decoder(self.root, threads=4, prefer_packed=True)
+            load.assert_called_once()
+            self.assertEqual(info['selected'], 'native')
+            self.assertEqual(Path(session.path).name, 'native.onnx')
+            self.assertIn('packed_reason', info)
+
+    def test_explicit_avx512_allows_compatible_opt_in_amd_packing(self):
+        entry = self.manifest['native']['Linux/x86_64']
+        entry['required_backend'] = 5
+        entry['packed'] = {'library': 'packed.so', 'model': 'packed.onnx', 'required_backend': 5,
+                          'validated_threads': [1, 4], 'experiment': 'packed_avx512', 'tested_cpu': 'AMD'}
+        self.write_manifest()
+        packed = SimpleNamespace(ncc_aocl_cpu_supported=Mock(return_value=1), ncc_aocl_adapter_abi=Mock(return_value=1))
+        library = self.native_library()
+        with patch.object(runtime.platform, 'system', return_value='Linux'), \
+             patch.object(runtime.platform, 'machine', return_value='x86_64'), \
+             patch.object(runtime.ctypes, 'CDLL', side_effect=[library, packed]):
+            session, info = runtime.load_decoder(self.root, threads=4, prefer_packed=True)
+        self.assertEqual(Path(session.path).name, 'packed.onnx')
+        self.assertEqual(info['backend'], 5)
+        self.assertTrue(info['packed_weights'])
+        self.assertEqual(len(session.options.libraries), 2)
 
 
 if __name__ == "__main__":

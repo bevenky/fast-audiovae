@@ -13,6 +13,8 @@ def main():
     prepare.add_argument("--amd-build", help="Optional AMD packed-matrix build.json")
     prepare.add_argument("--block-fusion", choices=("none", "adds", "chain", "both"), default="none",
                          help="Explicit experimental residual-block fusion; requires a matching new native build")
+    prepare.add_argument("--native-backend", choices=("auto", "avx2", "avx512"), default="auto",
+                         help="Explicit Linux x86 custom-kernel backend; unsupported CPUs use standard ONNX at load time")
     inspect = commands.add_parser("inspect", help="Show the backend selected for a model bundle")
     inspect.add_argument("model_dir")
     inspect.add_argument("--threads", type=int, help="CPU workers; default is up to four visible CPUs")
@@ -21,7 +23,8 @@ def main():
     if args.command == "prepare":
         from .prepare import prepare as prepare_bundle
         selected = prepare_bundle(args.output, source=args.source, native_build=args.native_build,
-                                  amd_build=args.amd_build, block_fusion=args.block_fusion)
+                                  amd_build=args.amd_build, block_fusion=args.block_fusion,
+                                  native_backend=args.native_backend)
     else:
         from .runtime import load_decoder
         _, selected = load_decoder(args.model_dir, threads=args.threads, prefer_packed=args.amd_packed)
