@@ -1,0 +1,231 @@
+{
+  "scope": "Apple stage correctness experiment; no whole-decoder timing or waveform gate.",
+  "default_runtime_integration": false,
+  "gpu_used": false,
+  "timing_benchmark": false,
+  "full_decoder_waveform_gate": false,
+  "environment": {
+    "architecture": "arm64",
+    "compiler": "Apple Clang 17.0.0",
+    "python": "3.13.15",
+    "numpy": "2.2.6",
+    "onnx": "1.22.0",
+    "onnxruntime": "1.29.0",
+    "provider": "CPUExecutionProvider",
+    "threads": 2,
+    "backend": 2,
+    "matrix_isa": 128,
+    "matrix_mode": 0
+  },
+  "artifact_sha256": {
+    "source_graph": "fa7992825e807cac7ab1be405912ae3735031fb941a18dd81006005dc597bde3",
+    "candidate_graph": "1766214dd142888f0bd15303b19b927678b2d5a362417658daeca853a96bd22f",
+    "native_library": "4981d22585ef00f1e441d39f9a57b300addb43944b03a21781d9fbf32053d2d0",
+    "tested_stage_library": "ccab97952864f640ebd6fca56e253e3ab868f96525e11542f6faf31296f3c976",
+    "native_header": "60783218490c3a257662cecf9e93814d52831ee357d0984aaba146942b55e9ec",
+    "native_build_manifest": "a4f841450ed3468d901e3dc5c1fac4579f3bdff7e48b66074ec8efe1915d7550",
+    "focused_report": "ceb1fb1ca8534a327718c43dbda4e98b6c68b163e598d7f26f68fca7670f891c",
+    "captured_report": "36cfc152b0f7685755ea3600b681ec65bae59c7d40340dc84aa25532b260dc10"
+  },
+  "build_note": "Correctness records identify the original prototype binary. The packaged builder preserves native source bytes and additionally inherits the linked native deployment target; rebuilds have their own generated build manifest.",
+  "focused": {
+    "comparison_records": 270,
+    "reference_bitwise_equal": 270,
+    "segmentation_bitwise_equal": 270,
+    "max_abs": 0.0,
+    "channels": [
+      32,
+      256
+    ],
+    "tiles": [
+      64,
+      128,
+      256
+    ],
+    "malformed_cases_rejected": 24,
+    "additional_checks": [
+      "Zero batch and time",
+      "Tiny inputs and tile tails",
+      "Production versus debug output",
+      "Input preservation",
+      "Causal prefix independence",
+      "Repeated and concurrent calls"
+    ]
+  },
+  "captured": {
+    "comparison_records": 12,
+    "bitwise_equal": 12,
+    "max_abs": 0.0,
+    "case_uid": "hi_in_00099_1919",
+    "case_archive_sha256": "9b709b787c040591de57e094a5ba5a4515cc74e256e8014530ff8c7bb54d2d24",
+    "original_latent_shape": [
+      1,
+      64,
+      255
+    ],
+    "original_latent_sha256": "9041c599cd403cde426a80feb0ae349de6464c1d4523383ba129b76240875f05",
+    "explicit_latent_prefix_frames": 170,
+    "prefix_latent_sha256": "6cd256bfb5fc251d3428e90c362bbae52c3c76f0538c466d8ff163b2868d23f9",
+    "scope": "Three intermediate outputs per stage, using the exact captured original stage input and weights. This does not execute a whole candidate decoder waveform gate.",
+    "checks": [
+      {
+        "channels": 256,
+        "time": 40800,
+        "tile_time": 256,
+        "segments": 2,
+        "unit": 0,
+        "captured_input_sha256": "be42751dea7c44e3ad16c834bdea19ee497e69e08d724d0c81a6221627b723f1",
+        "captured_output_sha256": "65497134c5100c248c5bcd25535a1d7878708a0a5db31c11f2cbfde611f46949",
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "bitwise_equal": true
+      },
+      {
+        "channels": 256,
+        "time": 40800,
+        "tile_time": 256,
+        "segments": 2,
+        "unit": 1,
+        "captured_input_sha256": "be42751dea7c44e3ad16c834bdea19ee497e69e08d724d0c81a6221627b723f1",
+        "captured_output_sha256": "71cdfece842956dd47daab7dd9cce0bcdff26091389a2c1808af12d70e62c33e",
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "bitwise_equal": true
+      },
+      {
+        "channels": 256,
+        "time": 40800,
+        "tile_time": 256,
+        "segments": 2,
+        "unit": 2,
+        "captured_input_sha256": "be42751dea7c44e3ad16c834bdea19ee497e69e08d724d0c81a6221627b723f1",
+        "captured_output_sha256": "2266dce9a4914c13824edadff055ee022000fec7c53257e02296d289db972bd2",
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "bitwise_equal": true
+      },
+      {
+        "channels": 128,
+        "time": 81600,
+        "tile_time": 128,
+        "segments": 2,
+        "unit": 0,
+        "captured_input_sha256": "f483a0aaa1674e402188eb2612cbe208d38adaf1208748418e6861d401d6d4fa",
+        "captured_output_sha256": "aba5abc03bb1c0a095536ba6aadaa434a8d21cccbfa1132aa92aed825a37cb62",
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "bitwise_equal": true
+      },
+      {
+        "channels": 128,
+        "time": 81600,
+        "tile_time": 128,
+        "segments": 2,
+        "unit": 1,
+        "captured_input_sha256": "f483a0aaa1674e402188eb2612cbe208d38adaf1208748418e6861d401d6d4fa",
+        "captured_output_sha256": "4439d90f90acc8f332dda55e49770360c7a734ba9e603584ed015a7273c049d3",
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "bitwise_equal": true
+      },
+      {
+        "channels": 128,
+        "time": 81600,
+        "tile_time": 128,
+        "segments": 2,
+        "unit": 2,
+        "captured_input_sha256": "f483a0aaa1674e402188eb2612cbe208d38adaf1208748418e6861d401d6d4fa",
+        "captured_output_sha256": "c22992b869d4fc79850f8eab78fed6e0f3c5b584ac979816206a7b26e1329277",
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "bitwise_equal": true
+      },
+      {
+        "channels": 64,
+        "time": 163200,
+        "tile_time": 256,
+        "segments": 2,
+        "unit": 0,
+        "captured_input_sha256": "dc67c33169275bf6e6eb2c1630e0c0b0b44113ae25cc139c7315a25535b2be02",
+        "captured_output_sha256": "314e7c709a899d557c4bcb3caaec547a4959dc34a04f49219f64b68b06a4614e",
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "bitwise_equal": true
+      },
+      {
+        "channels": 64,
+        "time": 163200,
+        "tile_time": 256,
+        "segments": 2,
+        "unit": 1,
+        "captured_input_sha256": "dc67c33169275bf6e6eb2c1630e0c0b0b44113ae25cc139c7315a25535b2be02",
+        "captured_output_sha256": "c6bc2202b2d3b4756c2f01b681886fa7ad5e251fdd6bdd884b2cf2f2deec7cd1",
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "bitwise_equal": true
+      },
+      {
+        "channels": 64,
+        "time": 163200,
+        "tile_time": 256,
+        "segments": 2,
+        "unit": 2,
+        "captured_input_sha256": "dc67c33169275bf6e6eb2c1630e0c0b0b44113ae25cc139c7315a25535b2be02",
+        "captured_output_sha256": "92d0e1cd3c4e4a041a1b81775484a1ec95b6451d9f0f7ce3b552f1a3d2cf6fc9",
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "bitwise_equal": true
+      },
+      {
+        "channels": 32,
+        "time": 326400,
+        "tile_time": 256,
+        "segments": 2,
+        "unit": 0,
+        "captured_input_sha256": "31e3df007f8f4b247c297d6681a0d29d015c8153bc7406378253d86ad5fb1eb9",
+        "captured_output_sha256": "07b94b9a47ce96f9e8b52eb41bcaf901f9e18106d9d0f19fc2bf3a39f10a77a1",
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "bitwise_equal": true
+      },
+      {
+        "channels": 32,
+        "time": 326400,
+        "tile_time": 256,
+        "segments": 2,
+        "unit": 1,
+        "captured_input_sha256": "31e3df007f8f4b247c297d6681a0d29d015c8153bc7406378253d86ad5fb1eb9",
+        "captured_output_sha256": "78de3612e2800ba8e377a541028b23e11e613c7c6f3a21c98a41baf3f4b33e05",
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "bitwise_equal": true
+      },
+      {
+        "channels": 32,
+        "time": 326400,
+        "tile_time": 256,
+        "segments": 2,
+        "unit": 2,
+        "captured_input_sha256": "31e3df007f8f4b247c297d6681a0d29d015c8153bc7406378253d86ad5fb1eb9",
+        "captured_output_sha256": "6d2f9987b381db043158fd9b3010c06eab8b72fc11087b5d65bd2f75844db281",
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "bitwise_equal": true
+      }
+    ]
+  },
+  "offline_checks": {
+    "rewrite_safety_tests": 8,
+    "causal_schedule_test_methods": 2,
+    "causal_schedule_combinations": 315,
+    "packaged_apple_test_methods_passed": 14
+  },
+  "packaged_build": {
+    "compiled": true,
+    "kernel_or_model_execution": false,
+    "deployment_target": "26.2",
+    "stage_library_sha256": "b18baa426ecffc93a6e9ae9685bc00612dd9dc74da72013096501303c5c4acc3",
+    "builder_sha256": "a454f516e5fe009bafabae6e325ba55a39b46651ed4c37f6bb1e6acb962b5983",
+    "note": "Compile-only packaging validation. Numerical comparisons above identify the separately hashed original prototype binary."
+  }
+}
