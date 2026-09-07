@@ -1,0 +1,4982 @@
+{
+  "schema_version": 1,
+  "scope": "CPU FP32 decoder throughput and separately scored common-bandwidth reconstruction quality",
+  "corpus": "manifest.json",
+  "timing": {
+    "selection": "First selected UID per language in frozen manifest order",
+    "clips": 10,
+    "uids": [
+      "hi_in_00099_1919",
+      "bn_in_00633_1820",
+      "gu_in_00926_1827",
+      "ta_in_00494_1946",
+      "te_in_00114_1911",
+      "kn_in_00584_1904",
+      "en_us_00103_1779",
+      "es_419_00646_1781",
+      "fr_fr_00129_1717",
+      "pt_br_00672_1745"
+    ],
+    "source_duration_s": 94.02,
+    "repeats": 3,
+    "warmups_per_clip": 1,
+    "denominator": "Actual full decoded duration, including right hop padding",
+    "call_type": "Fresh full-clip decoder calls, not cached streaming or whole TTS",
+    "excludes": [
+      "encoding",
+      "loading",
+      "file I/O",
+      "scoring",
+      "profiling"
+    ]
+  },
+  "experimental_routes": {
+    "declared_names": [
+      "fast_mkl"
+    ],
+    "scope": "Optional host-specific audio routes. Each retains its own graph/library hashes; a shared route name does not imply the same binary across CPUs."
+  },
+  "campaigns": [
+    {
+      "cpu": "Apple M5 Max, four threads",
+      "source_record_sha256": "c7879c8c44b00fd902775da0ea42c36d851db065dc1c83476135dcca4fea3489",
+      "started": "2026-09-07T16:30:36Z",
+      "finished": "2026-09-07T16:41:56Z",
+      "onnxruntime": "1.29.0",
+      "ort_build": "ORT Build Info: git-branch=HEAD, git-commit-id=2e2543fbe9, fp8-kv-cache=1, build type=Release",
+      "numpy": "2.2.6",
+      "machine": "arm64",
+      "harness_sha256": "cbd847dd70398c811cec1b9a6e412b3486fb14f7df678879817742f891ec3922",
+      "config_sha256": "bdcc25946ba4a5b9c379d8fdfeea8bbf18f4f8026b8d7be73f1841aed74a15be",
+      "cpu_only_visibility_environment": {
+        "CUDA_VISIBLE_DEVICES": "-1",
+        "NVIDIA_VISIBLE_DEVICES": "void",
+        "ROCR_VISIBLE_DEVICES": "-1",
+        "HIP_VISIBLE_DEVICES": "-1"
+      },
+      "effective_affinity_by_threads": {
+        "4": {
+          "cpus": null,
+          "applied_before_session_creation": true,
+          "scope": "Calling thread mask inherited by subsequently created ORT workers; no GPU API called."
+        }
+      },
+      "summary": {
+        "audio_stock": {
+          "4": {
+            "decoder_rtf": 0.113505562357227,
+            "repeat_rtfs": [
+              0.10952674896865339,
+              0.1265087766640346,
+              0.10448116143899305
+            ],
+            "observations": 30
+          }
+        },
+        "fast_default": {
+          "4": {
+            "decoder_rtf": 0.027061471175531752,
+            "repeat_rtfs": [
+              0.026354277385699683,
+              0.029551191814758557,
+              0.02527894432613702
+            ],
+            "observations": 30
+          }
+        },
+        "mimi": {
+          "4": {
+            "decoder_rtf": 0.03284811090903823,
+            "repeat_rtfs": [
+              0.03241906568365715,
+              0.03636002094939063,
+              0.02976524609406692
+            ],
+            "observations": 30
+          }
+        },
+        "meta_dacvae": {
+          "4": {
+            "decoder_rtf": 0.5414566738429228,
+            "repeat_rtfs": [
+              0.5373970202656763,
+              0.5779490916341145,
+              0.5090239096289781
+            ],
+            "observations": 30
+          }
+        }
+      },
+      "case_hashes": {
+        "mimi": "af2d68663daf71db954488721e8fffc5888437100772a309b13c62391df0d9c7",
+        "meta": "8a0ad7602ccecfef710689c7f12b35c5ee549359c9497e9396ab7beb9dc7ba53",
+        "audio": "9b709b787c040591de57e094a5ba5a4515cc74e256e8014530ff8c7bb54d2d24"
+      },
+      "models": [
+        {
+          "name": "audio_stock",
+          "kind": "audio",
+          "sha256": "fdd20e200675ab9649bf33f16bc5974101ba5cf47ab89fbfe29f3d36ff6c3c84",
+          "model_library_sha256": null,
+          "external_weight_sha256": "3b76bd57356e96893655bd24a364989e016c5af2fc8c29195caaefb4eccf5143",
+          "comparison_role": "common"
+        },
+        {
+          "name": "fast_default",
+          "kind": "audio",
+          "sha256": "fa7992825e807cac7ab1be405912ae3735031fb941a18dd81006005dc597bde3",
+          "model_library_sha256": "c4797f745ee755bc66b63f13a9c2c626766f834cca566d13eb9eeee23abdc887",
+          "external_weight_sha256": null,
+          "comparison_role": "common"
+        },
+        {
+          "name": "mimi",
+          "kind": "mimi",
+          "sha256": "e023777a2cee98a7e4a293f6af7712d4fed6364d1523cfc9a6283f112981e2f1",
+          "model_library_sha256": null,
+          "external_weight_sha256": null,
+          "comparison_role": "common"
+        },
+        {
+          "name": "meta_dacvae",
+          "kind": "meta",
+          "causal": false,
+          "sha256": "6f89666a46a774e614ae5a4db449927ece49c57b7788823a76398dc1438ccaaf",
+          "model_library_sha256": null,
+          "external_weight_sha256": null,
+          "comparison_role": "common"
+        }
+      ],
+      "protocol": {
+        "threads": "4",
+        "precision": "FP32",
+        "batch": 1,
+        "provider": "CPUExecutionProvider",
+        "inter_op_threads": 1,
+        "execution": "sequential",
+        "graph_optimization": "all",
+        "spinning": false,
+        "warmups_per_timed_shape": 1,
+        "warmup_method": "separate calls after full validation",
+        "repeats": 3,
+        "validation_scope": "all",
+        "timing_scope": "frozen_config_override",
+        "timing_ids": {
+          "mimi": [
+            "hi_in_00099_1919",
+            "bn_in_00633_1820",
+            "gu_in_00926_1827",
+            "ta_in_00494_1946",
+            "te_in_00114_1911",
+            "kn_in_00584_1904",
+            "en_us_00103_1779",
+            "es_419_00646_1781",
+            "fr_fr_00129_1717",
+            "pt_br_00672_1745"
+          ],
+          "meta": [
+            "hi_in_00099_1919",
+            "bn_in_00633_1820",
+            "gu_in_00926_1827",
+            "ta_in_00494_1946",
+            "te_in_00114_1911",
+            "kn_in_00584_1904",
+            "en_us_00103_1779",
+            "es_419_00646_1781",
+            "fr_fr_00129_1717",
+            "pt_br_00672_1745"
+          ],
+          "audio": [
+            "hi_in_00099_1919",
+            "bn_in_00633_1820",
+            "gu_in_00926_1827",
+            "ta_in_00494_1946",
+            "te_in_00114_1911",
+            "kn_in_00584_1904",
+            "en_us_00103_1779",
+            "es_419_00646_1781",
+            "fr_fr_00129_1717",
+            "pt_br_00672_1745"
+          ]
+        },
+        "stock_full_output_reused_for_validation": true,
+        "timing": "Python s.run wrapper including outputs/shape checks; disk I/O, encoding, setup, validation, warmup and profiling excluded",
+        "denominator": "Complete generated audio duration including hop padding; decoder-only fresh full calls, not cached streams",
+        "gate": "atol1e-5 rtol1e-4 vs original saved waveform; AudioVAE2 also vs stock ONNX. Exact repeated-call gates for all; future-prefix gates only for codecs declaring a causal contract."
+      },
+      "kind_contracts": {
+        "audio": {
+          "sample_rate": 48000,
+          "hop": 1920
+        },
+        "mimi": {
+          "sample_rate": 24000,
+          "hop": 1920
+        },
+        "meta": {
+          "sample_rate": 48000,
+          "hop": 1920
+        }
+      },
+      "fixed_auxiliary_inputs": {
+        "audio_stock": {},
+        "fast_default": {},
+        "mimi": {},
+        "meta_dacvae": {
+          "watermark_message": {
+            "shape": [
+              1,
+              16
+            ],
+            "dtype": "float32",
+            "sha256": "35cc4b7170f8143723f2cbdbef26e18dbf31ac23898bf985eebe14185de31c4c"
+          }
+        }
+      },
+      "session_provider_checks": [
+        {
+          "model": "audio_stock",
+          "threads": 4,
+          "profile": false,
+          "providers": [
+            "CPUExecutionProvider"
+          ],
+          "custom_libraries": []
+        },
+        {
+          "model": "fast_default",
+          "threads": 4,
+          "profile": false,
+          "providers": [
+            "CPUExecutionProvider"
+          ],
+          "custom_libraries": [
+            {
+              "filename": "libfast_audiovae_apple_880f8ca68b61.dylib",
+              "sha256": "c4797f745ee755bc66b63f13a9c2c626766f834cca566d13eb9eeee23abdc887"
+            }
+          ]
+        },
+        {
+          "model": "mimi",
+          "threads": 4,
+          "profile": false,
+          "providers": [
+            "CPUExecutionProvider"
+          ],
+          "custom_libraries": []
+        },
+        {
+          "model": "meta_dacvae",
+          "threads": 4,
+          "profile": false,
+          "providers": [
+            "CPUExecutionProvider"
+          ],
+          "custom_libraries": []
+        },
+        {
+          "model": "fast_default",
+          "threads": 4,
+          "profile": true,
+          "providers": [
+            "CPUExecutionProvider"
+          ],
+          "custom_libraries": [
+            {
+              "filename": "libfast_audiovae_apple_880f8ca68b61.dylib",
+              "sha256": "c4797f745ee755bc66b63f13a9c2c626766f834cca566d13eb9eeee23abdc887"
+            }
+          ]
+        }
+      ],
+      "profile_provider_checks": [
+        {
+          "model": "fast_default",
+          "threads": 4,
+          "kernel_events": 1090,
+          "passed": true,
+          "unexpected": []
+        }
+      ],
+      "validation_count": 260,
+      "failed_count": 0,
+      "validation_tolerances": {
+        "atol": 1e-05,
+        "rtol": 0.0001
+      },
+      "measurements": [
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "fr_fr_00129_1717",
+          "seconds": 0.9032418329734355,
+          "audio_s": 8.84,
+          "samples": 424320
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "te_in_00114_1911",
+          "seconds": 0.2731548750307411,
+          "audio_s": 10.68,
+          "samples": 512640
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "ta_in_00494_1946",
+          "seconds": 0.32666450017131865,
+          "audio_s": 9.84,
+          "samples": 236160
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "hi_in_00099_1919",
+          "seconds": 1.108001041924581,
+          "audio_s": 10.2,
+          "samples": 489600
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "gu_in_00926_1827",
+          "seconds": 4.073492750059813,
+          "audio_s": 7.88,
+          "samples": 378240
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "en_us_00103_1779",
+          "seconds": 1.1018620419781655,
+          "audio_s": 10.8,
+          "samples": 518400
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "fr_fr_00129_1717",
+          "seconds": 0.2130402501206845,
+          "audio_s": 8.84,
+          "samples": 424320
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "gu_in_00926_1827",
+          "seconds": 0.822858750121668,
+          "audio_s": 7.88,
+          "samples": 378240
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "pt_br_00672_1745",
+          "seconds": 0.9851389999967068,
+          "audio_s": 9.36,
+          "samples": 449280
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "bn_in_00633_1820",
+          "seconds": 4.301575499819592,
+          "audio_s": 7.68,
+          "samples": 368640
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "es_419_00646_1781",
+          "seconds": 4.14592866692692,
+          "audio_s": 8.24,
+          "samples": 395520
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "hi_in_00099_1919",
+          "seconds": 0.2907542500179261,
+          "audio_s": 10.24,
+          "samples": 245760
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "es_419_00646_1781",
+          "seconds": 0.20118645788170397,
+          "audio_s": 8.24,
+          "samples": 395520
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "en_us_00103_1779",
+          "seconds": 0.3249123329296708,
+          "audio_s": 10.8,
+          "samples": 259200
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "en_us_00103_1779",
+          "seconds": 5.557797624962404,
+          "audio_s": 10.8,
+          "samples": 518400
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "ta_in_00494_1946",
+          "seconds": 0.2585372501052916,
+          "audio_s": 9.84,
+          "samples": 472320
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "fr_fr_00129_1717",
+          "seconds": 5.1384300829377025,
+          "audio_s": 8.84,
+          "samples": 424320
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "bn_in_00633_1820",
+          "seconds": 0.223373708082363,
+          "audio_s": 7.68,
+          "samples": 368640
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "bn_in_00633_1820",
+          "seconds": 0.9886215841397643,
+          "audio_s": 7.68,
+          "samples": 368640
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "ta_in_00494_1946",
+          "seconds": 5.296311374986544,
+          "audio_s": 9.84,
+          "samples": 472320
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "te_in_00114_1911",
+          "seconds": 1.1365245829802006,
+          "audio_s": 10.68,
+          "samples": 512640
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "es_419_00646_1781",
+          "seconds": 0.8954256249126047,
+          "audio_s": 8.24,
+          "samples": 395520
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "pt_br_00672_1745",
+          "seconds": 0.288773583015427,
+          "audio_s": 9.36,
+          "samples": 224640
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "ta_in_00494_1946",
+          "seconds": 1.1583035418298095,
+          "audio_s": 9.84,
+          "samples": 472320
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "gu_in_00926_1827",
+          "seconds": 0.2108761251438409,
+          "audio_s": 7.88,
+          "samples": 378240
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "fr_fr_00129_1717",
+          "seconds": 0.2970088750589639,
+          "audio_s": 8.88,
+          "samples": 213120
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "kn_in_00584_1904",
+          "seconds": 0.35630124993622303,
+          "audio_s": 10.56,
+          "samples": 253440
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "hi_in_00099_1919",
+          "seconds": 0.291045333025977,
+          "audio_s": 10.2,
+          "samples": 489600
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "es_419_00646_1781",
+          "seconds": 0.29814145783893764,
+          "audio_s": 8.24,
+          "samples": 197760
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "pt_br_00672_1745",
+          "seconds": 5.183366707991809,
+          "audio_s": 9.36,
+          "samples": 449280
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "en_us_00103_1779",
+          "seconds": 0.28052466711960733,
+          "audio_s": 10.8,
+          "samples": 518400
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "bn_in_00633_1820",
+          "seconds": 0.2523852090816945,
+          "audio_s": 7.68,
+          "samples": 184320
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "hi_in_00099_1919",
+          "seconds": 5.457142458995804,
+          "audio_s": 10.2,
+          "samples": 489600
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "te_in_00114_1911",
+          "seconds": 0.36149358400143683,
+          "audio_s": 10.72,
+          "samples": 257280
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "pt_br_00672_1745",
+          "seconds": 0.2500106249935925,
+          "audio_s": 9.36,
+          "samples": 449280
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "gu_in_00926_1827",
+          "seconds": 0.25873770797625184,
+          "audio_s": 7.92,
+          "samples": 190080
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "kn_in_00584_1904",
+          "seconds": 5.675626042066142,
+          "audio_s": 10.56,
+          "samples": 506880
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "te_in_00114_1911",
+          "seconds": 5.728640457848087,
+          "audio_s": 10.68,
+          "samples": 512640
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "kn_in_00584_1904",
+          "seconds": 1.2042985421139747,
+          "audio_s": 10.56,
+          "samples": 506880
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "kn_in_00584_1904",
+          "seconds": 0.27766112494282424,
+          "audio_s": 10.56,
+          "samples": 506880
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "bn_in_00633_1820",
+          "seconds": 0.26842266600579023,
+          "audio_s": 7.68,
+          "samples": 184320
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "gu_in_00926_1827",
+          "seconds": 0.9806774579919875,
+          "audio_s": 7.88,
+          "samples": 378240
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "hi_in_00099_1919",
+          "seconds": 0.3761917920783162,
+          "audio_s": 10.24,
+          "samples": 245760
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "pt_br_00672_1745",
+          "seconds": 1.2526128750760108,
+          "audio_s": 9.36,
+          "samples": 449280
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "fr_fr_00129_1717",
+          "seconds": 0.2605923342052847,
+          "audio_s": 8.84,
+          "samples": 424320
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "en_us_00103_1779",
+          "seconds": 0.33973812498152256,
+          "audio_s": 10.8,
+          "samples": 518400
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "hi_in_00099_1919",
+          "seconds": 6.1249175001867115,
+          "audio_s": 10.2,
+          "samples": 489600
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "en_us_00103_1779",
+          "seconds": 0.370182084152475,
+          "audio_s": 10.8,
+          "samples": 259200
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "te_in_00114_1911",
+          "seconds": 5.97949408297427,
+          "audio_s": 10.68,
+          "samples": 512640
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "bn_in_00633_1820",
+          "seconds": 0.9331015839707106,
+          "audio_s": 7.68,
+          "samples": 368640
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "es_419_00646_1781",
+          "seconds": 0.2264889997895807,
+          "audio_s": 8.24,
+          "samples": 395520
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "en_us_00103_1779",
+          "seconds": 1.3133507079910487,
+          "audio_s": 10.8,
+          "samples": 518400
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "es_419_00646_1781",
+          "seconds": 4.940988166956231,
+          "audio_s": 8.24,
+          "samples": 395520
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "en_us_00103_1779",
+          "seconds": 6.130610249936581,
+          "audio_s": 10.8,
+          "samples": 518400
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "te_in_00114_1911",
+          "seconds": 1.2859523331280798,
+          "audio_s": 10.68,
+          "samples": 512640
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "kn_in_00584_1904",
+          "seconds": 1.3258450001012534,
+          "audio_s": 10.56,
+          "samples": 506880
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "kn_in_00584_1904",
+          "seconds": 0.37455291603691876,
+          "audio_s": 10.56,
+          "samples": 253440
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "pt_br_00672_1745",
+          "seconds": 0.3435897908639163,
+          "audio_s": 9.36,
+          "samples": 224640
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "kn_in_00584_1904",
+          "seconds": 5.9645533338189125,
+          "audio_s": 10.56,
+          "samples": 506880
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "pt_br_00672_1745",
+          "seconds": 5.127522999886423,
+          "audio_s": 9.36,
+          "samples": 449280
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "fr_fr_00129_1717",
+          "seconds": 1.126020458061248,
+          "audio_s": 8.84,
+          "samples": 424320
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "gu_in_00926_1827",
+          "seconds": 0.2633114580530673,
+          "audio_s": 7.92,
+          "samples": 190080
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "fr_fr_00129_1717",
+          "seconds": 5.134523791028187,
+          "audio_s": 8.84,
+          "samples": 424320
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "kn_in_00584_1904",
+          "seconds": 0.3228941250126809,
+          "audio_s": 10.56,
+          "samples": 506880
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "fr_fr_00129_1717",
+          "seconds": 0.34344258392229676,
+          "audio_s": 8.88,
+          "samples": 213120
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "gu_in_00926_1827",
+          "seconds": 5.051713916007429,
+          "audio_s": 7.88,
+          "samples": 378240
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "bn_in_00633_1820",
+          "seconds": 0.24806258385069668,
+          "audio_s": 7.68,
+          "samples": 368640
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "ta_in_00494_1946",
+          "seconds": 0.393391041085124,
+          "audio_s": 9.84,
+          "samples": 236160
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "ta_in_00494_1946",
+          "seconds": 1.381578375119716,
+          "audio_s": 9.84,
+          "samples": 472320
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "ta_in_00494_1946",
+          "seconds": 0.2955250411760062,
+          "audio_s": 9.84,
+          "samples": 472320
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "te_in_00114_1911",
+          "seconds": 0.3243597079999745,
+          "audio_s": 10.68,
+          "samples": 512640
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "es_419_00646_1781",
+          "seconds": 0.30280962493270636,
+          "audio_s": 8.24,
+          "samples": 197760
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "bn_in_00633_1820",
+          "seconds": 4.5373989581130445,
+          "audio_s": 7.68,
+          "samples": 368640
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "gu_in_00926_1827",
+          "seconds": 0.2229426249396056,
+          "audio_s": 7.88,
+          "samples": 378240
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "hi_in_00099_1919",
+          "seconds": 0.2925570420920849,
+          "audio_s": 10.2,
+          "samples": 489600
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "te_in_00114_1911",
+          "seconds": 0.3906744171399623,
+          "audio_s": 10.72,
+          "samples": 257280
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "es_419_00646_1781",
+          "seconds": 1.0634191671852022,
+          "audio_s": 8.24,
+          "samples": 395520
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "ta_in_00494_1946",
+          "seconds": 5.381727542029694,
+          "audio_s": 9.84,
+          "samples": 472320
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "hi_in_00099_1919",
+          "seconds": 1.2393877499271184,
+          "audio_s": 10.2,
+          "samples": 489600
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "pt_br_00672_1745",
+          "seconds": 0.24701554188504815,
+          "audio_s": 9.36,
+          "samples": 449280
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "fr_fr_00129_1717",
+          "seconds": 1.0724573750048876,
+          "audio_s": 8.84,
+          "samples": 424320
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "kn_in_00584_1904",
+          "seconds": 0.32970050000585616,
+          "audio_s": 10.56,
+          "samples": 253440
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "en_us_00103_1779",
+          "seconds": 5.815663332818076,
+          "audio_s": 10.8,
+          "samples": 518400
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "ta_in_00494_1946",
+          "seconds": 0.28450429206714034,
+          "audio_s": 9.84,
+          "samples": 236160
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "te_in_00114_1911",
+          "seconds": 0.3053163751028478,
+          "audio_s": 10.72,
+          "samples": 257280
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "gu_in_00926_1827",
+          "seconds": 0.21621412504464388,
+          "audio_s": 7.92,
+          "samples": 190080
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "pt_br_00672_1745",
+          "seconds": 0.9415496250148863,
+          "audio_s": 9.36,
+          "samples": 449280
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "es_419_00646_1781",
+          "seconds": 4.291862166952342,
+          "audio_s": 8.24,
+          "samples": 395520
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "es_419_00646_1781",
+          "seconds": 0.2781537501141429,
+          "audio_s": 8.24,
+          "samples": 197760
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "hi_in_00099_1919",
+          "seconds": 1.119010458001867,
+          "audio_s": 10.2,
+          "samples": 489600
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "gu_in_00926_1827",
+          "seconds": 3.8305455420631915,
+          "audio_s": 7.88,
+          "samples": 378240
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "bn_in_00633_1820",
+          "seconds": 0.207268875092268,
+          "audio_s": 7.68,
+          "samples": 184320
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "pt_br_00672_1745",
+          "seconds": 0.23021079087629914,
+          "audio_s": 9.36,
+          "samples": 449280
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "fr_fr_00129_1717",
+          "seconds": 0.2667104168795049,
+          "audio_s": 8.88,
+          "samples": 213120
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "kn_in_00584_1904",
+          "seconds": 5.059316124999896,
+          "audio_s": 10.56,
+          "samples": 506880
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "bn_in_00633_1820",
+          "seconds": 0.7642110839951783,
+          "audio_s": 7.68,
+          "samples": 368640
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "es_419_00646_1781",
+          "seconds": 0.7909691669046879,
+          "audio_s": 8.24,
+          "samples": 395520
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "en_us_00103_1779",
+          "seconds": 0.2986710409168154,
+          "audio_s": 10.8,
+          "samples": 259200
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "te_in_00114_1911",
+          "seconds": 0.2772217080928385,
+          "audio_s": 10.68,
+          "samples": 512640
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "bn_in_00633_1820",
+          "seconds": 4.406326958909631,
+          "audio_s": 7.68,
+          "samples": 368640
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "pt_br_00672_1745",
+          "seconds": 4.239144875202328,
+          "audio_s": 9.36,
+          "samples": 449280
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "bn_in_00633_1820",
+          "seconds": 0.18591804197058082,
+          "audio_s": 7.68,
+          "samples": 368640
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "kn_in_00584_1904",
+          "seconds": 1.1140877089928836,
+          "audio_s": 10.56,
+          "samples": 506880
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "en_us_00103_1779",
+          "seconds": 1.0605305421631783,
+          "audio_s": 10.8,
+          "samples": 518400
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "te_in_00114_1911",
+          "seconds": 1.0504528330639005,
+          "audio_s": 10.68,
+          "samples": 512640
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "hi_in_00099_1919",
+          "seconds": 0.24868262512609363,
+          "audio_s": 10.2,
+          "samples": 489600
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "ta_in_00494_1946",
+          "seconds": 4.709933666978031,
+          "audio_s": 9.84,
+          "samples": 472320
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "es_419_00646_1781",
+          "seconds": 0.2007058330345899,
+          "audio_s": 8.24,
+          "samples": 395520
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "en_us_00103_1779",
+          "seconds": 0.27253929199650884,
+          "audio_s": 10.8,
+          "samples": 518400
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "ta_in_00494_1946",
+          "seconds": 0.25515283294953406,
+          "audio_s": 9.84,
+          "samples": 472320
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "fr_fr_00129_1717",
+          "seconds": 0.23539987509138882,
+          "audio_s": 8.84,
+          "samples": 424320
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "te_in_00114_1911",
+          "seconds": 5.806741958018392,
+          "audio_s": 10.68,
+          "samples": 512640
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "ta_in_00494_1946",
+          "seconds": 1.0276463748887181,
+          "audio_s": 9.84,
+          "samples": 472320
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "pt_br_00672_1745",
+          "seconds": 0.28791420883499086,
+          "audio_s": 9.36,
+          "samples": 224640
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "hi_in_00099_1919",
+          "seconds": 5.211498999968171,
+          "audio_s": 10.2,
+          "samples": 489600
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "gu_in_00926_1827",
+          "seconds": 0.20066204108297825,
+          "audio_s": 7.88,
+          "samples": 378240
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "hi_in_00099_1919",
+          "seconds": 0.33062320784665644,
+          "audio_s": 10.24,
+          "samples": 245760
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "fr_fr_00129_1717",
+          "seconds": 4.5179357919842005,
+          "audio_s": 8.84,
+          "samples": 424320
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "kn_in_00584_1904",
+          "seconds": 0.271750041982159,
+          "audio_s": 10.56,
+          "samples": 506880
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "gu_in_00926_1827",
+          "seconds": 0.8886725001502782,
+          "audio_s": 7.88,
+          "samples": 378240
+        }
+      ],
+      "profiles": [
+        {
+          "model": "fast_default",
+          "threads": 4,
+          "scope": "Separate instrumented representative shapes, excluded from decoder timing",
+          "operator_time_percent": {
+            "MatMul": 52.041490527309975,
+            "CausalDW7SnakeF32": 20.32232207767461,
+            "SnakeF32": 16.15297146490641,
+            "Add": 6.855298886309079,
+            "FusedConv": 2.028959692134985,
+            "PhaseSumBiasInterleaveF32": 1.6000115987895835,
+            "Mul": 0.6901279802157789,
+            "Reshape": 0.26946473657284764,
+            "Concat": 0.017191063132625944,
+            "CausalDW7F32": 0.013877123251637811,
+            "Shape": 0.0057993947917292345,
+            "Squeeze": 0.0024854549107411004
+          }
+        }
+      ],
+      "host_counters": {
+        "4": {
+          "host_timing_delta": {
+            "steal_percent": null,
+            "iowait_percent": null,
+            "scope": "Linux CPU counters unavailable on this platform"
+          },
+          "cgroup_counter_deltas": [],
+          "counter_scope": "Cgroup-wide counters include other processes and inter-call orchestration. No counters are read inside inference timers.",
+          "memory_before": {
+            "available": false,
+            "units": "KiB",
+            "values": {}
+          },
+          "memory_after": {
+            "available": false,
+            "units": "KiB",
+            "values": {}
+          }
+        }
+      },
+      "validation_file": "validation.jsonl"
+    },
+    {
+      "cpu": "AMD EPYC 9654, four threads",
+      "source_record_sha256": "d8be8401ba199d76cf20b9cb5d9f160020392d934e45c29b68d8ce7d1ccc3152",
+      "started": "2026-09-07T16:15:11Z",
+      "finished": "2026-09-07T16:31:03Z",
+      "onnxruntime": "1.29.0",
+      "ort_build": "ORT Build Info: git-branch=HEAD, git-commit-id=2e2543fbe9, fp8-kv-cache=1, build type=Release",
+      "numpy": "2.2.6",
+      "machine": "x86_64",
+      "harness_sha256": "cbd847dd70398c811cec1b9a6e412b3486fb14f7df678879817742f891ec3922",
+      "config_sha256": "9e6c8573cf217387da9b7ef7541ed78d5346e76f63f7bf6ceb75d308990df25c",
+      "cpu_only_visibility_environment": {
+        "CUDA_VISIBLE_DEVICES": "-1",
+        "NVIDIA_VISIBLE_DEVICES": "void",
+        "ROCR_VISIBLE_DEVICES": "-1",
+        "HIP_VISIBLE_DEVICES": "-1"
+      },
+      "effective_affinity_by_threads": {
+        "4": {
+          "cpus": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "applied_before_session_creation": true,
+          "scope": "Calling thread mask inherited by subsequently created ORT workers; no GPU API called."
+        }
+      },
+      "summary": {
+        "audio_stock": {
+          "4": {
+            "decoder_rtf": 0.26078393723490456,
+            "repeat_rtfs": [
+              0.2588866997611563,
+              0.2578781930362286,
+              0.2655869189073287
+            ],
+            "observations": 30
+          }
+        },
+        "fast_default": {
+          "4": {
+            "decoder_rtf": 0.07629115189913482,
+            "repeat_rtfs": [
+              0.07296632674402323,
+              0.07314569741284767,
+              0.0827614315405336
+            ],
+            "observations": 30
+          }
+        },
+        "mimi": {
+          "4": {
+            "decoder_rtf": 0.05400183254322664,
+            "repeat_rtfs": [
+              0.05271163688425499,
+              0.05227699006175549,
+              0.05701687068366943
+            ],
+            "observations": 30
+          }
+        },
+        "meta_dacvae": {
+          "4": {
+            "decoder_rtf": 0.6606472933838089,
+            "repeat_rtfs": [
+              0.6395874098323437,
+              0.6422430865282864,
+              0.7001113837907965
+            ],
+            "observations": 30
+          }
+        }
+      },
+      "case_hashes": {
+        "audio": "9b709b787c040591de57e094a5ba5a4515cc74e256e8014530ff8c7bb54d2d24",
+        "mimi": "af2d68663daf71db954488721e8fffc5888437100772a309b13c62391df0d9c7",
+        "meta": "8a0ad7602ccecfef710689c7f12b35c5ee549359c9497e9396ab7beb9dc7ba53"
+      },
+      "models": [
+        {
+          "name": "audio_stock",
+          "kind": "audio",
+          "sha256": "fdd20e200675ab9649bf33f16bc5974101ba5cf47ab89fbfe29f3d36ff6c3c84",
+          "model_library_sha256": null,
+          "external_weight_sha256": "3b76bd57356e96893655bd24a364989e016c5af2fc8c29195caaefb4eccf5143",
+          "comparison_role": "common"
+        },
+        {
+          "name": "fast_default",
+          "kind": "audio",
+          "sha256": "34ccdc4b835d04c6a240c7cd2c8025995d22b4c9f3877e61e0b9ee7524d5de66",
+          "model_library_sha256": "0771a69ff434236333be6e02eb34b6e86c1f3dc4ab93e2e091e89b268d6a08c7",
+          "external_weight_sha256": null,
+          "comparison_role": "common"
+        },
+        {
+          "name": "mimi",
+          "kind": "mimi",
+          "sha256": "e023777a2cee98a7e4a293f6af7712d4fed6364d1523cfc9a6283f112981e2f1",
+          "model_library_sha256": null,
+          "external_weight_sha256": null,
+          "comparison_role": "common"
+        },
+        {
+          "name": "meta_dacvae",
+          "kind": "meta",
+          "causal": false,
+          "sha256": "6f89666a46a774e614ae5a4db449927ece49c57b7788823a76398dc1438ccaaf",
+          "model_library_sha256": null,
+          "external_weight_sha256": null,
+          "comparison_role": "common"
+        }
+      ],
+      "protocol": {
+        "threads": "4",
+        "precision": "FP32",
+        "batch": 1,
+        "provider": "CPUExecutionProvider",
+        "inter_op_threads": 1,
+        "execution": "sequential",
+        "graph_optimization": "all",
+        "spinning": false,
+        "warmups_per_timed_shape": 1,
+        "warmup_method": "separate calls after full validation",
+        "repeats": 3,
+        "validation_scope": "all",
+        "timing_scope": "frozen_config_override",
+        "timing_ids": {
+          "audio": [
+            "hi_in_00099_1919",
+            "bn_in_00633_1820",
+            "gu_in_00926_1827",
+            "ta_in_00494_1946",
+            "te_in_00114_1911",
+            "kn_in_00584_1904",
+            "en_us_00103_1779",
+            "es_419_00646_1781",
+            "fr_fr_00129_1717",
+            "pt_br_00672_1745"
+          ],
+          "mimi": [
+            "hi_in_00099_1919",
+            "bn_in_00633_1820",
+            "gu_in_00926_1827",
+            "ta_in_00494_1946",
+            "te_in_00114_1911",
+            "kn_in_00584_1904",
+            "en_us_00103_1779",
+            "es_419_00646_1781",
+            "fr_fr_00129_1717",
+            "pt_br_00672_1745"
+          ],
+          "meta": [
+            "hi_in_00099_1919",
+            "bn_in_00633_1820",
+            "gu_in_00926_1827",
+            "ta_in_00494_1946",
+            "te_in_00114_1911",
+            "kn_in_00584_1904",
+            "en_us_00103_1779",
+            "es_419_00646_1781",
+            "fr_fr_00129_1717",
+            "pt_br_00672_1745"
+          ]
+        },
+        "stock_full_output_reused_for_validation": true,
+        "timing": "Python s.run wrapper including outputs/shape checks; disk I/O, encoding, setup, validation, warmup and profiling excluded",
+        "denominator": "Complete generated audio duration including hop padding; decoder-only fresh full calls, not cached streams",
+        "gate": "atol1e-5 rtol1e-4 vs original saved waveform; AudioVAE2 also vs stock ONNX. Exact repeated-call gates for all; future-prefix gates only for codecs declaring a causal contract."
+      },
+      "kind_contracts": {
+        "audio": {
+          "sample_rate": 48000,
+          "hop": 1920
+        },
+        "mimi": {
+          "sample_rate": 24000,
+          "hop": 1920
+        },
+        "meta": {
+          "sample_rate": 48000,
+          "hop": 1920
+        }
+      },
+      "fixed_auxiliary_inputs": {
+        "audio_stock": {},
+        "fast_default": {},
+        "mimi": {},
+        "meta_dacvae": {
+          "watermark_message": {
+            "shape": [
+              1,
+              16
+            ],
+            "dtype": "float32",
+            "sha256": "35cc4b7170f8143723f2cbdbef26e18dbf31ac23898bf985eebe14185de31c4c"
+          }
+        }
+      },
+      "session_provider_checks": [
+        {
+          "model": "audio_stock",
+          "threads": 4,
+          "profile": false,
+          "providers": [
+            "CPUExecutionProvider"
+          ],
+          "custom_libraries": []
+        },
+        {
+          "model": "fast_default",
+          "threads": 4,
+          "profile": false,
+          "providers": [
+            "CPUExecutionProvider"
+          ],
+          "custom_libraries": [
+            {
+              "filename": "libfast_audiovae_x86_be3d6126e005.so",
+              "sha256": "0771a69ff434236333be6e02eb34b6e86c1f3dc4ab93e2e091e89b268d6a08c7"
+            }
+          ]
+        },
+        {
+          "model": "mimi",
+          "threads": 4,
+          "profile": false,
+          "providers": [
+            "CPUExecutionProvider"
+          ],
+          "custom_libraries": []
+        },
+        {
+          "model": "meta_dacvae",
+          "threads": 4,
+          "profile": false,
+          "providers": [
+            "CPUExecutionProvider"
+          ],
+          "custom_libraries": []
+        },
+        {
+          "model": "fast_default",
+          "threads": 4,
+          "profile": true,
+          "providers": [
+            "CPUExecutionProvider"
+          ],
+          "custom_libraries": [
+            {
+              "filename": "libfast_audiovae_x86_be3d6126e005.so",
+              "sha256": "0771a69ff434236333be6e02eb34b6e86c1f3dc4ab93e2e091e89b268d6a08c7"
+            }
+          ]
+        }
+      ],
+      "profile_provider_checks": [
+        {
+          "model": "fast_default",
+          "threads": 4,
+          "kernel_events": 1090,
+          "passed": true,
+          "unexpected": []
+        }
+      ],
+      "validation_count": 260,
+      "failed_count": 0,
+      "validation_tolerances": {
+        "atol": 1e-05,
+        "rtol": 0.0001
+      },
+      "measurements": [
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "fr_fr_00129_1717",
+          "seconds": 2.351024053990841,
+          "audio_s": 8.84,
+          "samples": 424320
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "te_in_00114_1911",
+          "seconds": 0.7962222620844841,
+          "audio_s": 10.68,
+          "samples": 512640
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "ta_in_00494_1946",
+          "seconds": 0.5412527471780777,
+          "audio_s": 9.84,
+          "samples": 236160
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "hi_in_00099_1919",
+          "seconds": 2.620212934911251,
+          "audio_s": 10.2,
+          "samples": 489600
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "gu_in_00926_1827",
+          "seconds": 5.013764746487141,
+          "audio_s": 7.88,
+          "samples": 378240
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "en_us_00103_1779",
+          "seconds": 2.7600619047880173,
+          "audio_s": 10.8,
+          "samples": 518400
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "fr_fr_00129_1717",
+          "seconds": 0.6360279321670532,
+          "audio_s": 8.84,
+          "samples": 424320
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "gu_in_00926_1827",
+          "seconds": 2.0126813873648643,
+          "audio_s": 7.88,
+          "samples": 378240
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "pt_br_00672_1745",
+          "seconds": 2.4054340943694115,
+          "audio_s": 9.36,
+          "samples": 449280
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "bn_in_00633_1820",
+          "seconds": 4.91596532613039,
+          "audio_s": 7.68,
+          "samples": 368640
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "es_419_00646_1781",
+          "seconds": 5.282017149031162,
+          "audio_s": 8.24,
+          "samples": 395520
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "hi_in_00099_1919",
+          "seconds": 0.5384076461195946,
+          "audio_s": 10.24,
+          "samples": 245760
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "es_419_00646_1781",
+          "seconds": 0.5977832674980164,
+          "audio_s": 8.24,
+          "samples": 395520
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "en_us_00103_1779",
+          "seconds": 0.5674483180046082,
+          "audio_s": 10.8,
+          "samples": 259200
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "en_us_00103_1779",
+          "seconds": 6.8676637932658195,
+          "audio_s": 10.8,
+          "samples": 518400
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "ta_in_00494_1946",
+          "seconds": 0.7207194492220879,
+          "audio_s": 9.84,
+          "samples": 472320
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "fr_fr_00129_1717",
+          "seconds": 5.673257753252983,
+          "audio_s": 8.84,
+          "samples": 424320
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "bn_in_00633_1820",
+          "seconds": 0.5521852076053619,
+          "audio_s": 7.68,
+          "samples": 368640
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "bn_in_00633_1820",
+          "seconds": 1.9765797853469849,
+          "audio_s": 7.68,
+          "samples": 368640
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "ta_in_00494_1946",
+          "seconds": 6.368621155619621,
+          "audio_s": 9.84,
+          "samples": 472320
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "te_in_00114_1911",
+          "seconds": 2.763729527592659,
+          "audio_s": 10.68,
+          "samples": 512640
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "es_419_00646_1781",
+          "seconds": 2.135430283844471,
+          "audio_s": 8.24,
+          "samples": 395520
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "pt_br_00672_1745",
+          "seconds": 0.5147241950035095,
+          "audio_s": 9.36,
+          "samples": 224640
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "ta_in_00494_1946",
+          "seconds": 2.543255180120468,
+          "audio_s": 9.84,
+          "samples": 472320
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "gu_in_00926_1827",
+          "seconds": 0.571177065372467,
+          "audio_s": 7.88,
+          "samples": 378240
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "fr_fr_00129_1717",
+          "seconds": 0.4533359333872795,
+          "audio_s": 8.88,
+          "samples": 213120
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "kn_in_00584_1904",
+          "seconds": 0.5773298814892769,
+          "audio_s": 10.56,
+          "samples": 253440
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "hi_in_00099_1919",
+          "seconds": 0.7421587258577347,
+          "audio_s": 10.2,
+          "samples": 489600
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "es_419_00646_1781",
+          "seconds": 0.40838124603033066,
+          "audio_s": 8.24,
+          "samples": 197760
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "pt_br_00672_1745",
+          "seconds": 5.984780251979828,
+          "audio_s": 9.36,
+          "samples": 449280
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "en_us_00103_1779",
+          "seconds": 0.7902442216873169,
+          "audio_s": 10.8,
+          "samples": 518400
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "bn_in_00633_1820",
+          "seconds": 0.3968784287571907,
+          "audio_s": 7.68,
+          "samples": 184320
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "hi_in_00099_1919",
+          "seconds": 6.553273655474186,
+          "audio_s": 10.2,
+          "samples": 489600
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "te_in_00114_1911",
+          "seconds": 0.5780898407101631,
+          "audio_s": 10.72,
+          "samples": 257280
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "pt_br_00672_1745",
+          "seconds": 0.6891020387411118,
+          "audio_s": 9.36,
+          "samples": 449280
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "gu_in_00926_1827",
+          "seconds": 0.39169642329216003,
+          "audio_s": 7.92,
+          "samples": 190080
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "kn_in_00584_1904",
+          "seconds": 6.7073169350624084,
+          "audio_s": 10.56,
+          "samples": 506880
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "te_in_00114_1911",
+          "seconds": 6.805722750723362,
+          "audio_s": 10.68,
+          "samples": 512640
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "kn_in_00584_1904",
+          "seconds": 2.7876515612006187,
+          "audio_s": 10.56,
+          "samples": 506880
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 0,
+          "uid": "kn_in_00584_1904",
+          "seconds": 0.7690518498420715,
+          "audio_s": 10.56,
+          "samples": 506880
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "bn_in_00633_1820",
+          "seconds": 0.3772449269890785,
+          "audio_s": 7.68,
+          "samples": 184320
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "gu_in_00926_1827",
+          "seconds": 2.014604076743126,
+          "audio_s": 7.88,
+          "samples": 378240
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "hi_in_00099_1919",
+          "seconds": 0.561762198805809,
+          "audio_s": 10.24,
+          "samples": 245760
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "pt_br_00672_1745",
+          "seconds": 2.390355721116066,
+          "audio_s": 9.36,
+          "samples": 449280
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "fr_fr_00129_1717",
+          "seconds": 0.6668246388435364,
+          "audio_s": 8.84,
+          "samples": 424320
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "en_us_00103_1779",
+          "seconds": 0.815242737531662,
+          "audio_s": 10.8,
+          "samples": 518400
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "hi_in_00099_1919",
+          "seconds": 6.679653033614159,
+          "audio_s": 10.2,
+          "samples": 489600
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "en_us_00103_1779",
+          "seconds": 0.556312195956707,
+          "audio_s": 10.8,
+          "samples": 259200
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "te_in_00114_1911",
+          "seconds": 6.8434379026293755,
+          "audio_s": 10.68,
+          "samples": 512640
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "bn_in_00633_1820",
+          "seconds": 1.9665462225675583,
+          "audio_s": 7.68,
+          "samples": 368640
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "es_419_00646_1781",
+          "seconds": 0.5951803773641586,
+          "audio_s": 8.24,
+          "samples": 395520
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "en_us_00103_1779",
+          "seconds": 2.7618881911039352,
+          "audio_s": 10.8,
+          "samples": 518400
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "es_419_00646_1781",
+          "seconds": 5.251963332295418,
+          "audio_s": 8.24,
+          "samples": 395520
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "en_us_00103_1779",
+          "seconds": 6.8917075246572495,
+          "audio_s": 10.8,
+          "samples": 518400
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "te_in_00114_1911",
+          "seconds": 2.742969013750553,
+          "audio_s": 10.68,
+          "samples": 512640
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "kn_in_00584_1904",
+          "seconds": 2.7335092574357986,
+          "audio_s": 10.56,
+          "samples": 506880
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "kn_in_00584_1904",
+          "seconds": 0.5964072644710541,
+          "audio_s": 10.56,
+          "samples": 253440
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "pt_br_00672_1745",
+          "seconds": 0.476558081805706,
+          "audio_s": 9.36,
+          "samples": 224640
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "kn_in_00584_1904",
+          "seconds": 6.7315047308802605,
+          "audio_s": 10.56,
+          "samples": 506880
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "pt_br_00672_1745",
+          "seconds": 6.0056048557162285,
+          "audio_s": 9.36,
+          "samples": 449280
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "fr_fr_00129_1717",
+          "seconds": 2.3873161226511,
+          "audio_s": 8.84,
+          "samples": 424320
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "gu_in_00926_1827",
+          "seconds": 0.4348389655351639,
+          "audio_s": 7.92,
+          "samples": 190080
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "fr_fr_00129_1717",
+          "seconds": 5.628365240991116,
+          "audio_s": 8.84,
+          "samples": 424320
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "kn_in_00584_1904",
+          "seconds": 0.7829990163445473,
+          "audio_s": 10.56,
+          "samples": 506880
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "fr_fr_00129_1717",
+          "seconds": 0.45244067907333374,
+          "audio_s": 8.88,
+          "samples": 213120
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "gu_in_00926_1827",
+          "seconds": 5.046365633606911,
+          "audio_s": 7.88,
+          "samples": 378240
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "bn_in_00633_1820",
+          "seconds": 0.5472967997193336,
+          "audio_s": 7.68,
+          "samples": 368640
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "ta_in_00494_1946",
+          "seconds": 0.5056866705417633,
+          "audio_s": 9.84,
+          "samples": 236160
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "ta_in_00494_1946",
+          "seconds": 2.5301802158355713,
+          "audio_s": 9.84,
+          "samples": 472320
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "ta_in_00494_1946",
+          "seconds": 0.7129012569785118,
+          "audio_s": 9.84,
+          "samples": 472320
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "te_in_00114_1911",
+          "seconds": 0.7758577167987823,
+          "audio_s": 10.68,
+          "samples": 512640
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "es_419_00646_1781",
+          "seconds": 0.4081322103738785,
+          "audio_s": 8.24,
+          "samples": 197760
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "bn_in_00633_1820",
+          "seconds": 4.961749762296677,
+          "audio_s": 7.68,
+          "samples": 368640
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "gu_in_00926_1827",
+          "seconds": 0.5678143575787544,
+          "audio_s": 7.88,
+          "samples": 378240
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "hi_in_00099_1919",
+          "seconds": 0.7416047006845474,
+          "audio_s": 10.2,
+          "samples": 489600
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "te_in_00114_1911",
+          "seconds": 0.5572003498673439,
+          "audio_s": 10.72,
+          "samples": 257280
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "es_419_00646_1781",
+          "seconds": 2.107058823108673,
+          "audio_s": 8.24,
+          "samples": 395520
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "ta_in_00494_1946",
+          "seconds": 6.381877563893795,
+          "audio_s": 9.84,
+          "samples": 472320
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "hi_in_00099_1919",
+          "seconds": 2.626752756536007,
+          "audio_s": 10.2,
+          "samples": 489600
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 1,
+          "uid": "pt_br_00672_1745",
+          "seconds": 0.6758256107568741,
+          "audio_s": 9.36,
+          "samples": 449280
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "fr_fr_00129_1717",
+          "seconds": 2.2728471904993057,
+          "audio_s": 8.84,
+          "samples": 424320
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "kn_in_00584_1904",
+          "seconds": 0.5925037488341331,
+          "audio_s": 10.56,
+          "samples": 253440
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "en_us_00103_1779",
+          "seconds": 6.866948217153549,
+          "audio_s": 10.8,
+          "samples": 518400
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "ta_in_00494_1946",
+          "seconds": 0.5044060796499252,
+          "audio_s": 9.84,
+          "samples": 236160
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "te_in_00114_1911",
+          "seconds": 0.5533640310168266,
+          "audio_s": 10.72,
+          "samples": 257280
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "gu_in_00926_1827",
+          "seconds": 0.40224456042051315,
+          "audio_s": 7.92,
+          "samples": 190080
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "pt_br_00672_1745",
+          "seconds": 2.409245826303959,
+          "audio_s": 9.36,
+          "samples": 449280
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "es_419_00646_1781",
+          "seconds": 5.266547478735447,
+          "audio_s": 8.24,
+          "samples": 395520
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "es_419_00646_1781",
+          "seconds": 0.41227200627326965,
+          "audio_s": 8.24,
+          "samples": 197760
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "hi_in_00099_1919",
+          "seconds": 2.702734522521496,
+          "audio_s": 10.2,
+          "samples": 489600
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "gu_in_00926_1827",
+          "seconds": 5.0392672792077065,
+          "audio_s": 7.88,
+          "samples": 378240
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "bn_in_00633_1820",
+          "seconds": 0.39907578378915787,
+          "audio_s": 7.68,
+          "samples": 184320
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "pt_br_00672_1745",
+          "seconds": 0.6936911717057228,
+          "audio_s": 9.36,
+          "samples": 449280
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "fr_fr_00129_1717",
+          "seconds": 0.4507879316806793,
+          "audio_s": 8.88,
+          "samples": 213120
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "kn_in_00584_1904",
+          "seconds": 6.726346351206303,
+          "audio_s": 10.56,
+          "samples": 506880
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "bn_in_00633_1820",
+          "seconds": 1.9915086850523949,
+          "audio_s": 7.68,
+          "samples": 368640
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "es_419_00646_1781",
+          "seconds": 2.146122857928276,
+          "audio_s": 8.24,
+          "samples": 395520
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "en_us_00103_1779",
+          "seconds": 0.6054309979081154,
+          "audio_s": 10.8,
+          "samples": 259200
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "te_in_00114_1911",
+          "seconds": 0.7983089834451675,
+          "audio_s": 10.68,
+          "samples": 512640
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "bn_in_00633_1820",
+          "seconds": 4.990591920912266,
+          "audio_s": 7.68,
+          "samples": 368640
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "pt_br_00672_1745",
+          "seconds": 6.051281720399857,
+          "audio_s": 9.36,
+          "samples": 449280
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "bn_in_00633_1820",
+          "seconds": 0.5563837587833405,
+          "audio_s": 7.68,
+          "samples": 368640
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "kn_in_00584_1904",
+          "seconds": 2.701914958655834,
+          "audio_s": 10.56,
+          "samples": 506880
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "en_us_00103_1779",
+          "seconds": 2.771009810268879,
+          "audio_s": 10.8,
+          "samples": 518400
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "te_in_00114_1911",
+          "seconds": 2.7437399551272392,
+          "audio_s": 10.68,
+          "samples": 512640
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "hi_in_00099_1919",
+          "seconds": 0.7429583296179771,
+          "audio_s": 10.2,
+          "samples": 489600
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "ta_in_00494_1946",
+          "seconds": 6.282555095851421,
+          "audio_s": 9.84,
+          "samples": 472320
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "es_419_00646_1781",
+          "seconds": 0.5918908417224884,
+          "audio_s": 8.24,
+          "samples": 395520
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "en_us_00103_1779",
+          "seconds": 0.7838603779673576,
+          "audio_s": 10.8,
+          "samples": 518400
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "ta_in_00494_1946",
+          "seconds": 0.7112979665398598,
+          "audio_s": 9.84,
+          "samples": 472320
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "fr_fr_00129_1717",
+          "seconds": 0.650836706161499,
+          "audio_s": 8.84,
+          "samples": 424320
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "te_in_00114_1911",
+          "seconds": 7.0305532068014145,
+          "audio_s": 10.68,
+          "samples": 512640
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "ta_in_00494_1946",
+          "seconds": 2.9050434976816177,
+          "audio_s": 9.84,
+          "samples": 472320
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "pt_br_00672_1745",
+          "seconds": 0.7116679325699806,
+          "audio_s": 9.36,
+          "samples": 224640
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "hi_in_00099_1919",
+          "seconds": 9.420602463185787,
+          "audio_s": 10.2,
+          "samples": 489600
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "gu_in_00926_1827",
+          "seconds": 0.9733896851539612,
+          "audio_s": 7.88,
+          "samples": 378240
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "hi_in_00099_1919",
+          "seconds": 0.7415168210864067,
+          "audio_s": 10.24,
+          "samples": 245760
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "fr_fr_00129_1717",
+          "seconds": 8.191785253584385,
+          "audio_s": 8.84,
+          "samples": 424320
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "kn_in_00584_1904",
+          "seconds": 1.2835776582360268,
+          "audio_s": 10.56,
+          "samples": 506880
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 4,
+          "repeat": 2,
+          "uid": "gu_in_00926_1827",
+          "seconds": 2.3422500267624855,
+          "audio_s": 7.88,
+          "samples": 378240
+        }
+      ],
+      "profiles": [
+        {
+          "model": "fast_default",
+          "threads": 4,
+          "scope": "Separate instrumented representative shapes, excluded from decoder timing",
+          "operator_time_percent": {
+            "MatMul": 73.07749748925312,
+            "SnakeF32": 8.996479812909573,
+            "CausalDW7SnakeF32": 8.913579872109825,
+            "Add": 6.33237049271357,
+            "PhaseSumBiasInterleaveF32": 1.3345764243928546,
+            "FusedConv": 0.7307240499436642,
+            "Mul": 0.5334878056782297,
+            "Reshape": 0.07168665878962169,
+            "Concat": 0.004749730807782311,
+            "CausalDW7F32": 0.002986944116234237,
+            "Shape": 0.0011751911276987163,
+            "Squeeze": 0.0006855281578242512
+          }
+        }
+      ],
+      "host_counters": {
+        "4": {
+          "host_timing_delta": {
+            "ticks": [
+              257145,
+              0,
+              117559,
+              5319403,
+              50,
+              0,
+              160,
+              0
+            ],
+            "total_ticks": 5694317,
+            "steal_percent": 0.0,
+            "iowait_percent": 0.000878068432087641,
+            "scope": "Whole-VM /proc/stat counters around timing, outside inference timers"
+          },
+          "cgroup_counter_deltas": [
+            {
+              "burst_time": 0,
+              "nr_bursts": 0,
+              "nr_periods": 2969,
+              "nr_throttled": 0,
+              "throttled_time": 0
+            }
+          ],
+          "counter_scope": "Cgroup-wide counters include other processes and inter-call orchestration. No counters are read inside inference timers.",
+          "memory_before": {
+            "available": true,
+            "units": "KiB",
+            "values": {
+              "MemTotal": 1584766536,
+              "MemAvailable": 1513803744,
+              "SwapTotal": 0,
+              "SwapFree": 0
+            }
+          },
+          "memory_after": {
+            "available": true,
+            "units": "KiB",
+            "values": {
+              "MemTotal": 1584766536,
+              "MemAvailable": 1514760796,
+              "SwapTotal": 0,
+              "SwapFree": 0
+            }
+          }
+        }
+      },
+      "validation_file": "validation.jsonl"
+    },
+    {
+      "cpu": "Intel Xeon Platinum 8280 VM, two threads",
+      "source_record_sha256": "f60f0eb1c6f632ebc13b61bc0b40777ad3e88c51962b618d8f25dc5b8159e432",
+      "started": "2026-09-07T16:08:43Z",
+      "finished": "2026-09-07T17:03:45Z",
+      "onnxruntime": "1.29.0",
+      "ort_build": "ORT Build Info: git-branch=HEAD, git-commit-id=2e2543fbe9, fp8-kv-cache=1, build type=Release",
+      "numpy": "2.2.6",
+      "machine": "x86_64",
+      "harness_sha256": "09d3c54388153648d5dddbdf6cafe797fa860b2a7c6686039e1985b47c55dee0",
+      "config_sha256": "b32284abcee165734b8ed622d8e23664b68cf2c80449d5d33ab2eb29ecc34e4c",
+      "cpu_only_visibility_environment": {
+        "CUDA_VISIBLE_DEVICES": "-1",
+        "NVIDIA_VISIBLE_DEVICES": "void",
+        "ROCR_VISIBLE_DEVICES": "-1",
+        "HIP_VISIBLE_DEVICES": "-1"
+      },
+      "effective_affinity_by_threads": {
+        "2": {
+          "cpus": [
+            0,
+            1
+          ],
+          "applied_before_session_creation": true,
+          "scope": "Calling thread mask inherited by subsequently created ORT workers; no GPU API called."
+        }
+      },
+      "summary": {
+        "audio_stock": {
+          "2": {
+            "decoder_rtf": 0.6796765084037358,
+            "repeat_rtfs": [
+              0.6753761362091188,
+              0.6783953982684128,
+              0.685257990733676
+            ],
+            "observations": 30
+          }
+        },
+        "fast_default": {
+          "2": {
+            "decoder_rtf": 0.3535473328680349,
+            "repeat_rtfs": [
+              0.3496443024214015,
+              0.35546160319687004,
+              0.3555360929858332
+            ],
+            "observations": 30
+          }
+        },
+        "fast_mkl": {
+          "2": {
+            "decoder_rtf": 0.3262094504402131,
+            "repeat_rtfs": [
+              0.32366387253836254,
+              0.3239594642856938,
+              0.33100501449658304
+            ],
+            "observations": 30
+          }
+        },
+        "mimi": {
+          "2": {
+            "decoder_rtf": 0.17708797321007091,
+            "repeat_rtfs": [
+              0.17697567122961522,
+              0.17704412934855762,
+              0.17724411905203993
+            ],
+            "observations": 30
+          }
+        },
+        "meta_dacvae": {
+          "2": {
+            "decoder_rtf": 2.0688545502167375,
+            "repeat_rtfs": [
+              2.0586485181757737,
+              2.062136147050092,
+              2.0857789854243474
+            ],
+            "observations": 30
+          }
+        }
+      },
+      "case_hashes": {
+        "mimi": "af2d68663daf71db954488721e8fffc5888437100772a309b13c62391df0d9c7",
+        "meta": "8a0ad7602ccecfef710689c7f12b35c5ee549359c9497e9396ab7beb9dc7ba53",
+        "audio": "9b709b787c040591de57e094a5ba5a4515cc74e256e8014530ff8c7bb54d2d24"
+      },
+      "models": [
+        {
+          "name": "audio_stock",
+          "kind": "audio",
+          "sha256": "fdd20e200675ab9649bf33f16bc5974101ba5cf47ab89fbfe29f3d36ff6c3c84",
+          "model_library_sha256": null,
+          "external_weight_sha256": "3b76bd57356e96893655bd24a364989e016c5af2fc8c29195caaefb4eccf5143",
+          "comparison_role": "common"
+        },
+        {
+          "name": "fast_default",
+          "kind": "audio",
+          "sha256": "34ccdc4b835d04c6a240c7cd2c8025995d22b4c9f3877e61e0b9ee7524d5de66",
+          "model_library_sha256": "0ccd045a479bdbdd5ae409d59ad00e9f7301ed7470b00f7c0449b8b570f72d0c",
+          "external_weight_sha256": null,
+          "comparison_role": "common"
+        },
+        {
+          "name": "fast_mkl",
+          "kind": "audio",
+          "sha256": "c43a890e91152705ce94174e26231bb3933c27966ae48c9c7053a84f1c26e533",
+          "model_library_sha256": null,
+          "external_weight_sha256": null,
+          "comparison_role": "experimental"
+        },
+        {
+          "name": "mimi",
+          "kind": "mimi",
+          "sha256": "e023777a2cee98a7e4a293f6af7712d4fed6364d1523cfc9a6283f112981e2f1",
+          "model_library_sha256": null,
+          "external_weight_sha256": null,
+          "comparison_role": "common"
+        },
+        {
+          "name": "meta_dacvae",
+          "kind": "meta",
+          "causal": false,
+          "sha256": "6f89666a46a774e614ae5a4db449927ece49c57b7788823a76398dc1438ccaaf",
+          "model_library_sha256": null,
+          "external_weight_sha256": null,
+          "comparison_role": "common"
+        }
+      ],
+      "protocol": {
+        "threads": "2",
+        "precision": "FP32",
+        "batch": 1,
+        "provider": "CPUExecutionProvider",
+        "inter_op_threads": 1,
+        "execution": "sequential",
+        "graph_optimization": "all",
+        "spinning": false,
+        "warmups_per_timed_shape": 1,
+        "warmup_method": "separate calls after full validation",
+        "repeats": 3,
+        "validation_scope": "all",
+        "timing_scope": "frozen_config_override",
+        "timing_ids": {
+          "mimi": [
+            "hi_in_00099_1919",
+            "bn_in_00633_1820",
+            "gu_in_00926_1827",
+            "ta_in_00494_1946",
+            "te_in_00114_1911",
+            "kn_in_00584_1904",
+            "en_us_00103_1779",
+            "es_419_00646_1781",
+            "fr_fr_00129_1717",
+            "pt_br_00672_1745"
+          ],
+          "meta": [
+            "hi_in_00099_1919",
+            "bn_in_00633_1820",
+            "gu_in_00926_1827",
+            "ta_in_00494_1946",
+            "te_in_00114_1911",
+            "kn_in_00584_1904",
+            "en_us_00103_1779",
+            "es_419_00646_1781",
+            "fr_fr_00129_1717",
+            "pt_br_00672_1745"
+          ],
+          "audio": [
+            "hi_in_00099_1919",
+            "bn_in_00633_1820",
+            "gu_in_00926_1827",
+            "ta_in_00494_1946",
+            "te_in_00114_1911",
+            "kn_in_00584_1904",
+            "en_us_00103_1779",
+            "es_419_00646_1781",
+            "fr_fr_00129_1717",
+            "pt_br_00672_1745"
+          ]
+        },
+        "stock_full_output_reused_for_validation": true,
+        "timing": "Python s.run wrapper including outputs/shape checks; disk I/O, encoding, setup, validation, warmup and profiling excluded",
+        "denominator": "Complete generated audio duration including hop padding; decoder-only fresh full calls, not cached streams",
+        "gate": "atol1e-5 rtol1e-4 vs original saved waveform; AudioVAE2 also vs stock ONNX. Exact repeated-call gates for all; future-prefix gates only for codecs declaring a causal contract."
+      },
+      "kind_contracts": {
+        "audio": {
+          "sample_rate": 48000,
+          "hop": 1920
+        },
+        "mimi": {
+          "sample_rate": 24000,
+          "hop": 1920
+        },
+        "meta": {
+          "sample_rate": 48000,
+          "hop": 1920
+        }
+      },
+      "fixed_auxiliary_inputs": {
+        "audio_stock": {},
+        "fast_default": {},
+        "fast_mkl": {},
+        "mimi": {},
+        "meta_dacvae": {
+          "watermark_message": {
+            "shape": [
+              1,
+              16
+            ],
+            "dtype": "float32",
+            "sha256": "35cc4b7170f8143723f2cbdbef26e18dbf31ac23898bf985eebe14185de31c4c"
+          }
+        }
+      },
+      "session_provider_checks": [
+        {
+          "model": "audio_stock",
+          "threads": 2,
+          "profile": false,
+          "providers": [
+            "CPUExecutionProvider"
+          ],
+          "custom_libraries": []
+        },
+        {
+          "model": "fast_default",
+          "threads": 2,
+          "profile": false,
+          "providers": [
+            "CPUExecutionProvider"
+          ],
+          "custom_libraries": [
+            {
+              "filename": "libfast_audiovae_x86_eae0be35f1e9.so",
+              "sha256": "0ccd045a479bdbdd5ae409d59ad00e9f7301ed7470b00f7c0449b8b570f72d0c"
+            }
+          ]
+        },
+        {
+          "model": "fast_mkl",
+          "threads": 2,
+          "profile": false,
+          "providers": [
+            "CPUExecutionProvider"
+          ],
+          "custom_libraries": [
+            {
+              "filename": "libfast_audiovae_x86_eae0be35f1e9.so",
+              "sha256": "0ccd045a479bdbdd5ae409d59ad00e9f7301ed7470b00f7c0449b8b570f72d0c"
+            },
+            {
+              "filename": "libintel_decoder.so",
+              "sha256": "879d4a78b4412f7cefa887be6b2e3421872d09525e61d9cf760f2c30656b60ba"
+            }
+          ]
+        },
+        {
+          "model": "mimi",
+          "threads": 2,
+          "profile": false,
+          "providers": [
+            "CPUExecutionProvider"
+          ],
+          "custom_libraries": []
+        },
+        {
+          "model": "meta_dacvae",
+          "threads": 2,
+          "profile": false,
+          "providers": [
+            "CPUExecutionProvider"
+          ],
+          "custom_libraries": []
+        }
+      ],
+      "profile_provider_checks": [],
+      "validation_count": 327,
+      "failed_count": 0,
+      "validation_tolerances": {
+        "atol": 1e-05,
+        "rtol": 0.0001
+      },
+      "measurements": [
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "es_419_00646_1781",
+          "seconds": 16.840031238272786,
+          "audio_s": 8.24,
+          "samples": 395520
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "pt_br_00672_1745",
+          "seconds": 19.17500687018037,
+          "audio_s": 9.36,
+          "samples": 449280
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "bn_in_00633_1820",
+          "seconds": 1.2957665976136923,
+          "audio_s": 7.68,
+          "samples": 184320
+        },
+        {
+          "model": "fast_mkl",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "bn_in_00633_1820",
+          "seconds": 2.5303619503974915,
+          "audio_s": 7.68,
+          "samples": 368640
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "ta_in_00494_1946",
+          "seconds": 20.168452095240355,
+          "audio_s": 9.84,
+          "samples": 472320
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "ta_in_00494_1946",
+          "seconds": 6.709079056978226,
+          "audio_s": 9.84,
+          "samples": 472320
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "gu_in_00926_1827",
+          "seconds": 1.3271239195019007,
+          "audio_s": 7.92,
+          "samples": 190080
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "te_in_00114_1911",
+          "seconds": 22.424923177808523,
+          "audio_s": 10.68,
+          "samples": 512640
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "hi_in_00099_1919",
+          "seconds": 3.5470584742724895,
+          "audio_s": 10.2,
+          "samples": 489600
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "kn_in_00584_1904",
+          "seconds": 7.1502279452979565,
+          "audio_s": 10.56,
+          "samples": 506880
+        },
+        {
+          "model": "fast_mkl",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "pt_br_00672_1745",
+          "seconds": 3.0272686295211315,
+          "audio_s": 9.36,
+          "samples": 449280
+        },
+        {
+          "model": "fast_mkl",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "es_419_00646_1781",
+          "seconds": 2.6747704315930605,
+          "audio_s": 8.24,
+          "samples": 395520
+        },
+        {
+          "model": "fast_mkl",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "kn_in_00584_1904",
+          "seconds": 3.4011699687689543,
+          "audio_s": 10.56,
+          "samples": 506880
+        },
+        {
+          "model": "fast_mkl",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "te_in_00114_1911",
+          "seconds": 3.452025206759572,
+          "audio_s": 10.68,
+          "samples": 512640
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "hi_in_00099_1919",
+          "seconds": 1.8884549047797918,
+          "audio_s": 10.24,
+          "samples": 245760
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "es_419_00646_1781",
+          "seconds": 2.8782194890081882,
+          "audio_s": 8.24,
+          "samples": 395520
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "fr_fr_00129_1717",
+          "seconds": 3.062952781096101,
+          "audio_s": 8.84,
+          "samples": 424320
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "te_in_00114_1911",
+          "seconds": 7.176629181951284,
+          "audio_s": 10.68,
+          "samples": 512640
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "es_419_00646_1781",
+          "seconds": 5.506345558911562,
+          "audio_s": 8.24,
+          "samples": 395520
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "gu_in_00926_1827",
+          "seconds": 16.182005539536476,
+          "audio_s": 7.88,
+          "samples": 378240
+        },
+        {
+          "model": "fast_mkl",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "hi_in_00099_1919",
+          "seconds": 3.299728650599718,
+          "audio_s": 10.2,
+          "samples": 489600
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "gu_in_00926_1827",
+          "seconds": 2.761671995744109,
+          "audio_s": 7.88,
+          "samples": 378240
+        },
+        {
+          "model": "fast_mkl",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "ta_in_00494_1946",
+          "seconds": 3.152770070359111,
+          "audio_s": 9.84,
+          "samples": 472320
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "bn_in_00633_1820",
+          "seconds": 15.857491733506322,
+          "audio_s": 7.68,
+          "samples": 368640
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "kn_in_00584_1904",
+          "seconds": 21.813612692058086,
+          "audio_s": 10.56,
+          "samples": 506880
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "ta_in_00494_1946",
+          "seconds": 1.7583838924765587,
+          "audio_s": 9.84,
+          "samples": 236160
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "fr_fr_00129_1717",
+          "seconds": 1.5344758685678244,
+          "audio_s": 8.88,
+          "samples": 213120
+        },
+        {
+          "model": "fast_mkl",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "en_us_00103_1779",
+          "seconds": 3.4742327108979225,
+          "audio_s": 10.8,
+          "samples": 518400
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "te_in_00114_1911",
+          "seconds": 1.9545304477214813,
+          "audio_s": 10.72,
+          "samples": 257280
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "pt_br_00672_1745",
+          "seconds": 3.249813472852111,
+          "audio_s": 9.36,
+          "samples": 449280
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "gu_in_00926_1827",
+          "seconds": 5.3336366433650255,
+          "audio_s": 7.88,
+          "samples": 378240
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "fr_fr_00129_1717",
+          "seconds": 5.976127987727523,
+          "audio_s": 8.84,
+          "samples": 424320
+        },
+        {
+          "model": "fast_mkl",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "gu_in_00926_1827",
+          "seconds": 2.5635408218950033,
+          "audio_s": 7.88,
+          "samples": 378240
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "bn_in_00633_1820",
+          "seconds": 2.730314664542675,
+          "audio_s": 7.68,
+          "samples": 368640
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "bn_in_00633_1820",
+          "seconds": 5.223028691485524,
+          "audio_s": 7.68,
+          "samples": 368640
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "ta_in_00494_1946",
+          "seconds": 3.439672902226448,
+          "audio_s": 9.84,
+          "samples": 472320
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "te_in_00114_1911",
+          "seconds": 3.7484532445669174,
+          "audio_s": 10.68,
+          "samples": 512640
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "en_us_00103_1779",
+          "seconds": 3.7670940533280373,
+          "audio_s": 10.8,
+          "samples": 518400
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "pt_br_00672_1745",
+          "seconds": 6.282448556274176,
+          "audio_s": 9.36,
+          "samples": 449280
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "en_us_00103_1779",
+          "seconds": 1.9589816275984049,
+          "audio_s": 10.8,
+          "samples": 259200
+        },
+        {
+          "model": "fast_mkl",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "fr_fr_00129_1717",
+          "seconds": 2.8744286876171827,
+          "audio_s": 8.84,
+          "samples": 424320
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "hi_in_00099_1919",
+          "seconds": 6.870472423732281,
+          "audio_s": 10.2,
+          "samples": 489600
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "kn_in_00584_1904",
+          "seconds": 1.9106862004846334,
+          "audio_s": 10.56,
+          "samples": 253440
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "es_419_00646_1781",
+          "seconds": 1.4012607913464308,
+          "audio_s": 8.24,
+          "samples": 197760
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "pt_br_00672_1745",
+          "seconds": 1.6485230065882206,
+          "audio_s": 9.36,
+          "samples": 224640
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "hi_in_00099_1919",
+          "seconds": 20.94302761554718,
+          "audio_s": 10.2,
+          "samples": 489600
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "fr_fr_00129_1717",
+          "seconds": 18.12723621726036,
+          "audio_s": 8.84,
+          "samples": 424320
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "kn_in_00584_1904",
+          "seconds": 3.709284894168377,
+          "audio_s": 10.56,
+          "samples": 506880
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "en_us_00103_1779",
+          "seconds": 7.311390848830342,
+          "audio_s": 10.8,
+          "samples": 518400
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 0,
+          "uid": "en_us_00103_1779",
+          "seconds": 22.14586541056633,
+          "audio_s": 10.8,
+          "samples": 518400
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "kn_in_00584_1904",
+          "seconds": 3.7047331798821688,
+          "audio_s": 10.56,
+          "samples": 506880
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "ta_in_00494_1946",
+          "seconds": 20.11670428700745,
+          "audio_s": 9.84,
+          "samples": 472320
+        },
+        {
+          "model": "fast_mkl",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "pt_br_00672_1745",
+          "seconds": 3.0103386361151934,
+          "audio_s": 9.36,
+          "samples": 449280
+        },
+        {
+          "model": "fast_mkl",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "gu_in_00926_1827",
+          "seconds": 2.5551609974354506,
+          "audio_s": 7.88,
+          "samples": 378240
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "bn_in_00633_1820",
+          "seconds": 5.184604439884424,
+          "audio_s": 7.68,
+          "samples": 368640
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "es_419_00646_1781",
+          "seconds": 2.880711855366826,
+          "audio_s": 8.24,
+          "samples": 395520
+        },
+        {
+          "model": "fast_mkl",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "es_419_00646_1781",
+          "seconds": 2.6716362051665783,
+          "audio_s": 8.24,
+          "samples": 395520
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "te_in_00114_1911",
+          "seconds": 3.7582763787359,
+          "audio_s": 10.68,
+          "samples": 512640
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "es_419_00646_1781",
+          "seconds": 16.88815607689321,
+          "audio_s": 8.24,
+          "samples": 395520
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "kn_in_00584_1904",
+          "seconds": 1.908981928601861,
+          "audio_s": 10.56,
+          "samples": 253440
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "hi_in_00099_1919",
+          "seconds": 1.8858049735426903,
+          "audio_s": 10.24,
+          "samples": 245760
+        },
+        {
+          "model": "fast_mkl",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "en_us_00103_1779",
+          "seconds": 3.490249617025256,
+          "audio_s": 10.8,
+          "samples": 518400
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "fr_fr_00129_1717",
+          "seconds": 3.089222066104412,
+          "audio_s": 8.84,
+          "samples": 424320
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "kn_in_00584_1904",
+          "seconds": 21.75376216135919,
+          "audio_s": 10.56,
+          "samples": 506880
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "gu_in_00926_1827",
+          "seconds": 5.310833008959889,
+          "audio_s": 7.88,
+          "samples": 378240
+        },
+        {
+          "model": "fast_mkl",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "kn_in_00584_1904",
+          "seconds": 3.4028873555362225,
+          "audio_s": 10.56,
+          "samples": 506880
+        },
+        {
+          "model": "fast_mkl",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "bn_in_00633_1820",
+          "seconds": 2.522523820400238,
+          "audio_s": 7.68,
+          "samples": 368640
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "fr_fr_00129_1717",
+          "seconds": 5.923015262931585,
+          "audio_s": 8.84,
+          "samples": 424320
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "es_419_00646_1781",
+          "seconds": 1.405809784308076,
+          "audio_s": 8.24,
+          "samples": 197760
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "kn_in_00584_1904",
+          "seconds": 7.427176082506776,
+          "audio_s": 10.56,
+          "samples": 506880
+        },
+        {
+          "model": "fast_mkl",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "ta_in_00494_1946",
+          "seconds": 3.176054961979389,
+          "audio_s": 9.84,
+          "samples": 472320
+        },
+        {
+          "model": "fast_mkl",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "te_in_00114_1911",
+          "seconds": 3.4602331798523664,
+          "audio_s": 10.68,
+          "samples": 512640
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "hi_in_00099_1919",
+          "seconds": 20.85491994768381,
+          "audio_s": 10.2,
+          "samples": 489600
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "en_us_00103_1779",
+          "seconds": 22.101883564144373,
+          "audio_s": 10.8,
+          "samples": 518400
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "bn_in_00633_1820",
+          "seconds": 2.7623921148478985,
+          "audio_s": 7.68,
+          "samples": 368640
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "en_us_00103_1779",
+          "seconds": 3.769111732020974,
+          "audio_s": 10.8,
+          "samples": 518400
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "pt_br_00672_1745",
+          "seconds": 6.3361730594187975,
+          "audio_s": 9.36,
+          "samples": 449280
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "pt_br_00672_1745",
+          "seconds": 19.262181229889393,
+          "audio_s": 9.36,
+          "samples": 449280
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "en_us_00103_1779",
+          "seconds": 7.3141768127679825,
+          "audio_s": 10.8,
+          "samples": 518400
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "en_us_00103_1779",
+          "seconds": 1.9538961239159107,
+          "audio_s": 10.8,
+          "samples": 259200
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "gu_in_00926_1827",
+          "seconds": 2.761435305699706,
+          "audio_s": 7.88,
+          "samples": 378240
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "fr_fr_00129_1717",
+          "seconds": 1.5235437713563442,
+          "audio_s": 8.88,
+          "samples": 213120
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "gu_in_00926_1827",
+          "seconds": 1.318237692117691,
+          "audio_s": 7.92,
+          "samples": 190080
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "ta_in_00494_1946",
+          "seconds": 6.647343946620822,
+          "audio_s": 9.84,
+          "samples": 472320
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "bn_in_00633_1820",
+          "seconds": 1.2858571112155914,
+          "audio_s": 7.68,
+          "samples": 184320
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "gu_in_00926_1827",
+          "seconds": 16.562732784077525,
+          "audio_s": 7.88,
+          "samples": 378240
+        },
+        {
+          "model": "fast_mkl",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "fr_fr_00129_1717",
+          "seconds": 2.8698176071047783,
+          "audio_s": 8.84,
+          "samples": 424320
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "hi_in_00099_1919",
+          "seconds": 6.857788607478142,
+          "audio_s": 10.2,
+          "samples": 489600
+        },
+        {
+          "model": "fast_mkl",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "hi_in_00099_1919",
+          "seconds": 3.319204019382596,
+          "audio_s": 10.2,
+          "samples": 489600
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "es_419_00646_1781",
+          "seconds": 5.566981269046664,
+          "audio_s": 8.24,
+          "samples": 395520
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "te_in_00114_1911",
+          "seconds": 1.9487815350294113,
+          "audio_s": 10.72,
+          "samples": 257280
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "ta_in_00494_1946",
+          "seconds": 3.4512478932738304,
+          "audio_s": 9.84,
+          "samples": 472320
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "te_in_00114_1911",
+          "seconds": 7.255346579477191,
+          "audio_s": 10.68,
+          "samples": 512640
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "te_in_00114_1911",
+          "seconds": 22.037050487473607,
+          "audio_s": 10.68,
+          "samples": 512640
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "bn_in_00633_1820",
+          "seconds": 16.282063335180283,
+          "audio_s": 7.68,
+          "samples": 368640
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "ta_in_00494_1946",
+          "seconds": 1.7520061451941729,
+          "audio_s": 9.84,
+          "samples": 236160
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "hi_in_00099_1919",
+          "seconds": 3.5708545316010714,
+          "audio_s": 10.2,
+          "samples": 489600
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "pt_br_00672_1745",
+          "seconds": 1.7017196845263243,
+          "audio_s": 9.36,
+          "samples": 224640
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "pt_br_00672_1745",
+          "seconds": 3.6938425712287426,
+          "audio_s": 9.36,
+          "samples": 449280
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 1,
+          "uid": "fr_fr_00129_1717",
+          "seconds": 18.146314840763807,
+          "audio_s": 8.84,
+          "samples": 424320
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "gu_in_00926_1827",
+          "seconds": 1.3270672000944614,
+          "audio_s": 7.92,
+          "samples": 190080
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "es_419_00646_1781",
+          "seconds": 1.3960535675287247,
+          "audio_s": 8.24,
+          "samples": 197760
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "hi_in_00099_1919",
+          "seconds": 3.5727195162326097,
+          "audio_s": 10.2,
+          "samples": 489600
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "pt_br_00672_1745",
+          "seconds": 19.197478653863072,
+          "audio_s": 9.36,
+          "samples": 449280
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "en_us_00103_1779",
+          "seconds": 1.96439697034657,
+          "audio_s": 10.8,
+          "samples": 259200
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "fr_fr_00129_1717",
+          "seconds": 5.989344295114279,
+          "audio_s": 8.84,
+          "samples": 424320
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "es_419_00646_1781",
+          "seconds": 2.900174580514431,
+          "audio_s": 8.24,
+          "samples": 395520
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "en_us_00103_1779",
+          "seconds": 3.8175381049513817,
+          "audio_s": 10.8,
+          "samples": 518400
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "fr_fr_00129_1717",
+          "seconds": 3.1298941411077976,
+          "audio_s": 8.84,
+          "samples": 424320
+        },
+        {
+          "model": "fast_mkl",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "fr_fr_00129_1717",
+          "seconds": 2.9256601314991713,
+          "audio_s": 8.84,
+          "samples": 424320
+        },
+        {
+          "model": "fast_mkl",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "en_us_00103_1779",
+          "seconds": 3.56267973408103,
+          "audio_s": 10.8,
+          "samples": 518400
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "hi_in_00099_1919",
+          "seconds": 7.071261258795857,
+          "audio_s": 10.2,
+          "samples": 489600
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "kn_in_00584_1904",
+          "seconds": 22.435941154137254,
+          "audio_s": 10.56,
+          "samples": 506880
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "gu_in_00926_1827",
+          "seconds": 5.487452007830143,
+          "audio_s": 7.88,
+          "samples": 378240
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "ta_in_00494_1946",
+          "seconds": 6.774597296491265,
+          "audio_s": 9.84,
+          "samples": 472320
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "te_in_00114_1911",
+          "seconds": 22.365806797519326,
+          "audio_s": 10.68,
+          "samples": 512640
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "fr_fr_00129_1717",
+          "seconds": 18.545472836121917,
+          "audio_s": 8.84,
+          "samples": 424320
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "te_in_00114_1911",
+          "seconds": 3.9342131838202477,
+          "audio_s": 10.68,
+          "samples": 512640
+        },
+        {
+          "model": "fast_mkl",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "ta_in_00494_1946",
+          "seconds": 3.2217306345701218,
+          "audio_s": 9.84,
+          "samples": 472320
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "pt_br_00672_1745",
+          "seconds": 6.432436345145106,
+          "audio_s": 9.36,
+          "samples": 449280
+        },
+        {
+          "model": "fast_mkl",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "hi_in_00099_1919",
+          "seconds": 3.668150570243597,
+          "audio_s": 10.2,
+          "samples": 489600
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "ta_in_00494_1946",
+          "seconds": 3.5215018335729837,
+          "audio_s": 9.84,
+          "samples": 472320
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "es_419_00646_1781",
+          "seconds": 17.072310008108616,
+          "audio_s": 8.24,
+          "samples": 395520
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "bn_in_00633_1820",
+          "seconds": 16.117363357916474,
+          "audio_s": 7.68,
+          "samples": 368640
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "bn_in_00633_1820",
+          "seconds": 2.7771935556083918,
+          "audio_s": 7.68,
+          "samples": 368640
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "bn_in_00633_1820",
+          "seconds": 5.2475815787911415,
+          "audio_s": 7.68,
+          "samples": 368640
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "gu_in_00926_1827",
+          "seconds": 2.792794430628419,
+          "audio_s": 7.88,
+          "samples": 378240
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "te_in_00114_1911",
+          "seconds": 7.286421522498131,
+          "audio_s": 10.68,
+          "samples": 512640
+        },
+        {
+          "model": "fast_mkl",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "pt_br_00672_1745",
+          "seconds": 3.026644678786397,
+          "audio_s": 9.36,
+          "samples": 449280
+        },
+        {
+          "model": "fast_mkl",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "es_419_00646_1781",
+          "seconds": 2.682978408411145,
+          "audio_s": 8.24,
+          "samples": 395520
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "es_419_00646_1781",
+          "seconds": 5.582955993711948,
+          "audio_s": 8.24,
+          "samples": 395520
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "bn_in_00633_1820",
+          "seconds": 1.2916865460574627,
+          "audio_s": 7.68,
+          "samples": 184320
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "en_us_00103_1779",
+          "seconds": 7.354500895366073,
+          "audio_s": 10.8,
+          "samples": 518400
+        },
+        {
+          "model": "fast_mkl",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "kn_in_00584_1904",
+          "seconds": 3.45864512398839,
+          "audio_s": 10.56,
+          "samples": 506880
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "en_us_00103_1779",
+          "seconds": 22.521950082853436,
+          "audio_s": 10.8,
+          "samples": 518400
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "fr_fr_00129_1717",
+          "seconds": 1.5257881954312325,
+          "audio_s": 8.88,
+          "samples": 213120
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "pt_br_00672_1745",
+          "seconds": 1.6552513595670462,
+          "audio_s": 9.36,
+          "samples": 224640
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "ta_in_00494_1946",
+          "seconds": 1.7618646770715714,
+          "audio_s": 9.84,
+          "samples": 236160
+        },
+        {
+          "model": "fast_mkl",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "bn_in_00633_1820",
+          "seconds": 2.528457460924983,
+          "audio_s": 7.68,
+          "samples": 368640
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "hi_in_00099_1919",
+          "seconds": 1.899903766810894,
+          "audio_s": 10.24,
+          "samples": 245760
+        },
+        {
+          "model": "fast_mkl",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "te_in_00114_1911",
+          "seconds": 3.495598306879401,
+          "audio_s": 10.68,
+          "samples": 512640
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "pt_br_00672_1745",
+          "seconds": 3.279369119554758,
+          "audio_s": 9.36,
+          "samples": 449280
+        },
+        {
+          "model": "fast_mkl",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "gu_in_00926_1827",
+          "seconds": 2.5704067144542933,
+          "audio_s": 7.88,
+          "samples": 378240
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "kn_in_00584_1904",
+          "seconds": 1.9184463918209076,
+          "audio_s": 10.56,
+          "samples": 253440
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "gu_in_00926_1827",
+          "seconds": 16.27669437788427,
+          "audio_s": 7.88,
+          "samples": 378240
+        },
+        {
+          "model": "mimi",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "te_in_00114_1911",
+          "seconds": 1.9630271047353745,
+          "audio_s": 10.72,
+          "samples": 257280
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "ta_in_00494_1946",
+          "seconds": 20.58509260416031,
+          "audio_s": 9.84,
+          "samples": 472320
+        },
+        {
+          "model": "audio_stock",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "kn_in_00584_1904",
+          "seconds": 7.242520574480295,
+          "audio_s": 10.56,
+          "samples": 506880
+        },
+        {
+          "model": "fast_default",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "kn_in_00584_1904",
+          "seconds": 3.72343716211617,
+          "audio_s": 10.56,
+          "samples": 506880
+        },
+        {
+          "model": "meta_dacvae",
+          "backend": "ort",
+          "threads": 2,
+          "repeat": 2,
+          "uid": "hi_in_00099_1919",
+          "seconds": 21.111977076157928,
+          "audio_s": 10.2,
+          "samples": 489600
+        }
+      ],
+      "profiles": [],
+      "host_counters": {
+        "2": {
+          "host_timing_delta": {
+            "ticks": [
+              180721,
+              0,
+              924,
+              21436,
+              13,
+              0,
+              34,
+              19
+            ],
+            "total_ticks": 203147,
+            "steal_percent": 0.009352833170068965,
+            "iowait_percent": 0.0063993069058366605,
+            "scope": "Whole-VM /proc/stat counters around timing, outside inference timers"
+          },
+          "cgroup_counter_deltas": [
+            {
+              "burst_usec": 0,
+              "core_sched.force_idle_usec": 0,
+              "nr_bursts": 0,
+              "nr_periods": 0,
+              "nr_throttled": 0,
+              "system_usec": 9587785,
+              "throttled_usec": 0,
+              "usage_usec": 1816987667,
+              "user_usec": 1807208474
+            },
+            {
+              "burst_usec": 0,
+              "core_sched.force_idle_usec": 0,
+              "nr_bursts": 0,
+              "nr_periods": 0,
+              "nr_throttled": 0,
+              "system_usec": 0,
+              "throttled_usec": 0,
+              "usage_usec": 1811479211,
+              "user_usec": 1811479211
+            },
+            {
+              "burst_usec": 0,
+              "core_sched.force_idle_usec": 0,
+              "nr_bursts": 0,
+              "nr_periods": 0,
+              "nr_throttled": 0,
+              "system_usec": 0,
+              "throttled_usec": 0,
+              "usage_usec": 1811478478,
+              "user_usec": 1811478479
+            },
+            {
+              "burst_usec": 0,
+              "core_sched.force_idle_usec": 0,
+              "nr_bursts": 0,
+              "nr_periods": 0,
+              "nr_throttled": 0,
+              "system_usec": 4121691,
+              "throttled_usec": 0,
+              "usage_usec": 1791351037,
+              "user_usec": 1787229347
+            }
+          ],
+          "counter_scope": "Cgroup-wide counters include other processes and inter-call orchestration. No counters are read inside inference timers.",
+          "memory_before": {
+            "available": true,
+            "units": "KiB",
+            "values": {
+              "MemTotal": 8132608,
+              "MemAvailable": 318580,
+              "SwapTotal": 0,
+              "SwapFree": 0
+            }
+          },
+          "memory_after": {
+            "available": true,
+            "units": "KiB",
+            "values": {
+              "MemTotal": 8132608,
+              "MemAvailable": 286000,
+              "SwapTotal": 0,
+              "SwapFree": 0
+            }
+          }
+        }
+      },
+      "validation_file": "validation.jsonl"
+    }
+  ]
+}
