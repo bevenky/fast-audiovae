@@ -1,13 +1,18 @@
 [build-system]
-requires = ["setuptools>=68"]
+requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "fast-audiovae"
 version = "0.1.0"
 description = "CPU inference optimizations for AudioVAE2"
+readme = "README.md"
+license = "Apache-2.0"
 requires-python = ">=3.10"
 dependencies = ["numpy>=1.26", "onnxruntime==1.29.0", "onnx==1.19.1"]
+
+[project.urls]
+Repository = "https://github.com/bevenky/fast-audiovae"
 
 [project.optional-dependencies]
 encoder = ["torch>=2.8"]

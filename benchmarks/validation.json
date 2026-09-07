@@ -1,0 +1,139 @@
+{
+  "date": "2026-09-07",
+  "scope": "Numerical and operator validation of reorganized sources, no new performance campaign",
+  "runtime": "ONNX Runtime 1.29.0 CPUExecutionProvider",
+  "precision": "FP32",
+  "apple_decoder": {
+    "comparisons": 40,
+    "passed": true,
+    "max_abs": 1.4603137969970703e-06,
+    "atol": 1e-05,
+    "rtol": 0.0001,
+    "model_sha256": "fa7992825e807cac7ab1be405912ae3735031fb941a18dd81006005dc597bde3"
+  },
+  "apple_encoder": {
+    "accepted": true,
+    "test_counts": {
+      "full_latent": 40,
+      "probe_latent": 36,
+      "future_prefix": 6,
+      "shorter_prefix": 6,
+      "repeat_after_short": 6
+    },
+    "total_gates": 94,
+    "passed_gates": 94,
+    "failed_gates": 0,
+    "latent_max_abs": 0.0,
+    "folded_layers": [
+      "fc_mu",
+      "fc_logvar",
+      "block.0",
+      "block.1.block.0.block.1",
+      "block.1.block.0.block.3",
+      "block.1.block.1.block.1",
+      "block.1.block.1.block.3",
+      "block.1.block.2.block.1",
+      "block.1.block.2.block.3",
+      "block.1.block.4",
+      "block.2.block.0.block.1",
+      "block.2.block.0.block.3",
+      "block.2.block.1.block.1",
+      "block.2.block.1.block.3",
+      "block.2.block.2.block.1",
+      "block.2.block.2.block.3",
+      "block.2.block.4",
+      "block.3.block.0.block.1",
+      "block.3.block.0.block.3",
+      "block.3.block.1.block.1",
+      "block.3.block.1.block.3",
+      "block.3.block.2.block.1",
+      "block.3.block.2.block.3",
+      "block.3.block.4",
+      "block.4.block.0.block.1",
+      "block.4.block.0.block.3",
+      "block.4.block.1.block.1",
+      "block.4.block.1.block.3",
+      "block.4.block.2.block.1",
+      "block.4.block.2.block.3",
+      "block.4.block.4"
+    ],
+    "pointwise_layers": [
+      "block.1.block.0.block.3",
+      "block.1.block.1.block.3",
+      "block.1.block.2.block.3",
+      "block.2.block.0.block.3",
+      "block.2.block.1.block.3",
+      "block.2.block.2.block.3",
+      "block.3.block.0.block.3",
+      "block.3.block.1.block.3",
+      "block.3.block.2.block.3",
+      "block.4.block.0.block.3",
+      "block.4.block.1.block.3",
+      "block.4.block.2.block.3"
+    ],
+    "original_snake_and_depthwise_forwards_untouched": true
+  },
+  "amd_packed_decoder": {
+    "comparisons": 40,
+    "passed": true,
+    "max_abs": 1.0728836059570312e-06,
+    "max_rmse": 5.1249582202139514e-08,
+    "atol": 1e-05,
+    "rtol": 0.0001,
+    "default_model_sha256": "34ccdc4b835d04c6a240c7cd2c8025995d22b4c9f3877e61e0b9ee7524d5de66",
+    "packed_model_sha256": "89ade8786920fda8f719d3ab89c6067e8aace1c83049cc0e5c62d876ce45f8de",
+    "both_graphs_identical_to_accepted": true,
+    "all_comparisons_native_and_packed": true
+  },
+  "apple_operators": {
+    "passed": true,
+    "baseline_operator_comparisons": 510,
+    "elementwise_baseline_comparisons": 270,
+    "phase_bitwise_comparisons": 240,
+    "library_sha256": "c4797f745ee755bc66b63f13a9c2c626766f834cca566d13eb9eeee23abdc887",
+    "native_abi": 1,
+    "ort_api_version": 29,
+    "cpu_execution_provider_only": true
+  },
+  "x86_operators": {
+    "all_passed": true,
+    "native_checks": 420,
+    "phase_checks": 720,
+    "phase_bitwise": true,
+    "native_max_abs_error": 2.384185791015625e-07,
+    "library_sha256": "0771a69ff434236333be6e02eb34b6e86c1f3dc4ab93e2e091e89b268d6a08c7",
+    "sine": [
+      {
+        "backend": 3,
+        "math": "sleef-u10-sse2",
+        "samples": 19935,
+        "max_ulp_vs_rounded_binary64_libm": 1,
+        "max_abs_error": 5.960464477539063e-08
+      },
+      {
+        "backend": 4,
+        "math": "sleef-u10-avx2-fma",
+        "samples": 19935,
+        "max_ulp_vs_rounded_binary64_libm": 1,
+        "max_abs_error": 5.960464477539063e-08
+      }
+    ]
+  },
+  "amd_matrix_operators": {
+    "all_passed": true,
+    "checks": 216,
+    "concurrent_checks": 144,
+    "max_abs_error": 1.6093254089355469e-06,
+    "sha256": "d20d7f08248fb8c5a043f6d45375cc9fc6e694d392228b8ba713a01de5e02242",
+    "tolerance": {
+      "atol": 1e-05,
+      "rtol": 0.0001
+    }
+  },
+  "unit_methods": {
+    "standard_passed": 44,
+    "encoder_passed_separately": 6,
+    "failures": 0,
+    "note": "Encoder extra absent in standard test environment; its six methods passed separately with CPU Torch."
+  }
+}

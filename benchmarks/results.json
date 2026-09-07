@@ -1,0 +1,171 @@
+{
+  "date": "2026-09-07",
+  "runtime": "ONNX Runtime 1.29.0 CPUExecutionProvider",
+  "precision": "FP32",
+  "clips": 20,
+  "repeats": 3,
+  "input_audio_seconds": 163.68,
+  "method": "Aggregate decoder wall time divided by actual generated audio duration. Loading, encoding, warmup and profiling excluded. Fresh full calls, no cached streaming state.",
+  "models": {
+    "AudioVAE2": {
+      "sample_rate": 48000,
+      "latent_channels": 64,
+      "latent_rate": 25,
+      "export_revision": "ecb511b96675f041424b42f148bf72e301262586",
+      "stock_onnx_sha256": "fdd20e200675ab9649bf33f16bc5974101ba5cf47ab89fbfe29f3d36ff6c3c84",
+      "weights_sha256": "3b76bd57356e96893655bd24a364989e016c5af2fc8c29195caaefb4eccf5143"
+    },
+    "Pocket continuous Mimi": {
+      "sample_rate": 24000,
+      "latent_channels": 32,
+      "latent_rate": 12.5,
+      "decoder_onnx_sha256": "e023777a2cee98a7e4a293f6af7712d4fed6364d1523cfc9a6283f112981e2f1"
+    }
+  },
+  "results": {
+    "Apple M5 Max": {
+      "audio_stock": {
+        "1": {
+          "decoder_rtf": 0.1252304786100869,
+          "repeat_rtfs": [
+            0.11894753428295615,
+            0.12366915197854543,
+            0.13307474956875914
+          ],
+          "observations": 60
+        },
+        "4": {
+          "decoder_rtf": 0.12102396731336419,
+          "repeat_rtfs": [
+            0.12488093878897687,
+            0.11852274453266319,
+            0.11966821861845252
+          ],
+          "observations": 60
+        }
+      },
+      "phase_finish_fused": {
+        "1": {
+          "decoder_rtf": 0.05591898484627373,
+          "repeat_rtfs": [
+            0.05349403375018436,
+            0.053221080727827046,
+            0.061041840060809774
+          ],
+          "observations": 60
+        },
+        "4": {
+          "decoder_rtf": 0.030146770839024825,
+          "repeat_rtfs": [
+            0.030168686689211573,
+            0.030789144989523617,
+            0.02948248083833928
+          ],
+          "observations": 60
+        }
+      },
+      "mimi": {
+        "1": {
+          "decoder_rtf": 0.04642213799362498,
+          "repeat_rtfs": [
+            0.04506452700797526,
+            0.043466391158517026,
+            0.05073549581438264
+          ],
+          "observations": 60
+        },
+        "4": {
+          "decoder_rtf": 0.03577096398026453,
+          "repeat_rtfs": [
+            0.03658573201051616,
+            0.037015219083730865,
+            0.03371194084654655
+          ],
+          "observations": 60
+        }
+      }
+    },
+    "AMD EPYC 9654": {
+      "audio_stock": {
+        "1": {
+          "decoder_rtf": 0.4043195110089309,
+          "repeat_rtfs": [
+            0.4035573825512917,
+            0.4032198652945148,
+            0.4061812851809862
+          ],
+          "observations": 60
+        },
+        "4": {
+          "decoder_rtf": 0.2563580136239097,
+          "repeat_rtfs": [
+            0.2566152793956088,
+            0.25636849664415357,
+            0.25609026483196673
+          ],
+          "observations": 60
+        }
+      },
+      "phase_fused": {
+        "1": {
+          "decoder_rtf": 0.2557956658988117,
+          "repeat_rtfs": [
+            0.25510130018679605,
+            0.256108801720097,
+            0.256176895789542
+          ],
+          "observations": 60
+        },
+        "4": {
+          "decoder_rtf": 0.07246009370195557,
+          "repeat_rtfs": [
+            0.07255160210443642,
+            0.07243861401331317,
+            0.07239006498811709
+          ],
+          "observations": 60
+        }
+      },
+      "phase_aocl_rows": {
+        "1": {
+          "decoder_rtf": 0.2467898982629688,
+          "repeat_rtfs": [
+            0.24644877090559142,
+            0.24657850534502168,
+            0.2473424185382933
+          ],
+          "observations": 60
+        },
+        "4": {
+          "decoder_rtf": 0.07083853287694317,
+          "repeat_rtfs": [
+            0.07100319564851691,
+            0.07078128532466291,
+            0.07073111765764968
+          ],
+          "observations": 60
+        }
+      },
+      "mimi": {
+        "1": {
+          "decoder_rtf": 0.12194884403872305,
+          "repeat_rtfs": [
+            0.12190899490961724,
+            0.12181343277576082,
+            0.12212410443079105
+          ],
+          "observations": 60
+        },
+        "4": {
+          "decoder_rtf": 0.05125176165459179,
+          "repeat_rtfs": [
+            0.05076046900608687,
+            0.051719403004158546,
+            0.05127541295352994
+          ],
+          "observations": 60
+        }
+      }
+    }
+  }
+}
