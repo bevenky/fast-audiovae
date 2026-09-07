@@ -3,7 +3,8 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
-from unittest.mock import patch
+from unittest.mock import Mock, patch
+from types import SimpleNamespace
 
 from fast_audiovae import runtime
 
@@ -84,6 +85,60 @@ class RuntimeTests(unittest.TestCase):
         for value in (0, -1, True, 1.5):
             with self.subTest(value=value), self.assertRaises(ValueError):
                 runtime.load_decoder(self.root, threads=value)
+
+    def native_library(self, vector_sine=True):
+        return SimpleNamespace(ncc_abi_version=Mock(return_value=1),
+            ncc_selected_backend=Mock(return_value=3), ncc_capabilities=Mock(return_value=64),
+            ncc_snake_math_name=Mock(return_value=b'sleef_u10'),
+            ncc_vector_sine_available=Mock(return_value=int(vector_sine)))
+
+    def test_x86_selects_native_only_with_accurate_vector_sine(self):
+        for eligible in (False, True):
+            with self.subTest(eligible=eligible), \
+                 patch.object(runtime.platform, 'system', return_value='Linux'), \
+                 patch.object(runtime.platform, 'machine', return_value='AMD64'), \
+                 patch.object(runtime.ctypes, 'CDLL', return_value=self.native_library(eligible)):
+                session, info = runtime.load_decoder(self.root)
+            self.assertEqual(info['selected'], 'native' if eligible else 'portable_onnx')
+            self.assertEqual(len(session.options.libraries), int(eligible))
+            self.assertEqual(session.providers, ['CPUExecutionProvider'])
+
+    def test_amd_requires_opt_in_supported_cpu_and_validated_threads(self):
+        self.manifest['native']['Linux/x86_64']['packed'] = {
+            'library': 'packed.so', 'model': 'packed.onnx', 'validated_threads': [1, 4],
+            'experiment': 'phase_aocl_rows', 'tested_cpu': 'AMD EPYC 9654'}
+        self.write_manifest()
+        for requested, supported, threads in ((False, True, 4), (True, False, 4),
+                                               (True, True, 2), (True, True, 4)):
+            packed = SimpleNamespace(ncc_aocl_cpu_supported=Mock(return_value=int(supported)),
+                                     ncc_aocl_adapter_abi=Mock(return_value=1))
+            with self.subTest(requested=requested, supported=supported, threads=threads), \
+                 patch.object(runtime.platform, 'system', return_value='Linux'), \
+                 patch.object(runtime.platform, 'machine', return_value='x86_64'), \
+                 patch.object(runtime.ctypes, 'CDLL', side_effect=[self.native_library(), packed]) as load:
+                session, info = runtime.load_decoder(self.root, threads=threads, prefer_packed=requested)
+            expected = requested and supported and threads in (1, 4)
+            self.assertEqual(info.get('packed_weights', False), expected)
+            self.assertEqual(Path(session.path).name, 'packed.onnx' if expected else 'native.onnx')
+            self.assertEqual(load.call_count, 2 if requested and threads in (1, 4) else 1)
+
+    def test_native_abi_mismatch_fails_before_session_creation(self):
+        library = self.native_library()
+        library.ncc_abi_version.return_value = 2
+        with patch.object(runtime.platform, 'system', return_value='Linux'), \
+             patch.object(runtime.platform, 'machine', return_value='x86_64'), \
+             patch.object(runtime.ctypes, 'CDLL', return_value=library), \
+             patch.object(runtime.ort, 'InferenceSession') as create:
+            with self.assertRaisesRegex(RuntimeError, 'ABI mismatch'):
+                runtime.load_decoder(self.root)
+        create.assert_not_called()
+
+    def test_non_cpu_provider_is_rejected(self):
+        with patch.object(runtime.platform, 'system', return_value='Windows'), \
+             patch.object(runtime.platform, 'machine', return_value='AMD64'), \
+             patch.object(FakeSession, 'get_providers', return_value=['CUDAExecutionProvider']):
+            with self.assertRaisesRegex(RuntimeError, 'CPU-only'):
+                runtime.load_decoder(self.root)
 
 
 if __name__ == "__main__":
