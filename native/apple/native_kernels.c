@@ -5,6 +5,7 @@
 #include <limits.h>
 #include <math.h>
 #include <stdatomic.h>
+#include <string.h>
 
 #if defined(__FAST_MATH__)
 #error "These kernels require fast math to be disabled."
@@ -473,6 +474,88 @@ int32_t ncc_snake_f32(const float *x, const float *alpha, const float *reciproca
         for (int64_t t=0; t<T; t+=NCC_TILE) {
             int n = (T-t < NCC_TILE) ? (int)(T-t) : NCC_TILE;
             snake_tile(x+row*T+t,y+row*T+t,alpha[c],reciprocal[c],n,backend,scale,finish);
+        }
+    }
+    return NCC_OK;
+}
+
+
+int32_t ncc_snake_dw7_snake_f32(
+    const float *x, const float *weights, const float *bias,
+    const float *alpha_pre, const float *reciprocal_pre,
+    const float *alpha_post, const float *reciprocal_post, float *y,
+    int64_t B, int64_t C, int64_t T, int32_t dilation,
+    int32_t backend, int32_t threads) {
+    if (dilation != 1 && dilation != 3 && dilation != 9) return NCC_INVALID_ARGUMENT;
+    uint64_t rows, weight_count;
+    size_t data_bytes, channel_bytes, weight_bytes;
+    int status = validate_dimensions(B,C,T,backend,threads,&rows,&data_bytes,&channel_bytes);
+    if (status || !rows) return status;
+    if ((status=valid_pointer(y,data_bytes))) return status;
+    if ((status=multiply((uint64_t)C,7,&weight_count))) return status;
+    if ((status=checked_bytes(weight_count,&weight_bytes))) return status;
+    if ((status=check_read(x,data_bytes,y,data_bytes))) return status;
+    if ((status=check_read(weights,weight_bytes,y,data_bytes))) return status;
+    const float *coefficients[] = {bias, alpha_pre, reciprocal_pre, alpha_post, reciprocal_post};
+    for (size_t i=0; i<5; ++i)
+        if ((status=check_read(coefficients[i],channel_bytes,y,data_bytes))) return status;
+    if (backend == NCC_AUTO) backend = ncc_selected_backend();
+    dw_range_fn dw = choose_dw(backend);
+    scale_fn scale; finish_fn finish;
+    choose_snake(backend,&scale,&finish);
+    const int halo = 6*dilation;
+#ifdef _OPENMP
+#pragma omp parallel for schedule(static) num_threads(threads) if(threads > 1)
+#endif
+    for (int64_t row=0; row<(int64_t)rows; ++row) {
+        const int64_t c = row%C;
+        float transformed[54+NCC_TILE], dw_values[NCC_TILE];
+        for (int i=0; i<halo; ++i) transformed[i] = 0.0f;
+        for (int64_t t=0; t<T; t+=NCC_TILE) {
+            const int n = T-t < NCC_TILE ? (int)(T-t) : NCC_TILE;
+            snake_tile(x+row*T+t,transformed+halo,alpha_pre[c],reciprocal_pre[c],n,backend,scale,finish);
+            // Contiguous positive-zero/history halo lets the interior SIMD
+            // path start immediately, including at every later tile boundary.
+            dw(transformed,NULL,weights+7*c,bias+c,dw_values,halo,n,dilation);
+            snake_tile(dw_values,y+row*T+t,alpha_post[c],reciprocal_post[c],n,backend,scale,finish);
+            memmove(transformed,transformed+n,(size_t)halo*sizeof(float));
+        }
+    }
+    return NCC_OK;
+}
+
+int32_t ncc_bias_residual_f32(
+    const float *product, const float *bias, const float *skip, float *y,
+    int64_t B, int64_t C, int64_t T, int32_t backend, int32_t threads) {
+    uint64_t rows;
+    size_t data_bytes, channel_bytes;
+    int status = validate_dimensions(B,C,T,backend,threads,&rows,&data_bytes,&channel_bytes);
+    if (status || !rows) return status;
+    if ((status=valid_pointer(y,data_bytes))) return status;
+    if ((status=check_read(product,data_bytes,y,data_bytes))) return status;
+    if ((status=check_read(skip,data_bytes,y,data_bytes))) return status;
+    if ((status=check_read(bias,channel_bytes,y,data_bytes))) return status;
+    if (backend == NCC_AUTO) backend = ncc_selected_backend();
+#ifdef _OPENMP
+#pragma omp parallel for schedule(static) num_threads(threads) if(threads > 1)
+#endif
+    for (int64_t row=0; row<(int64_t)rows; ++row) {
+        const float b = bias[row%C];
+        const float *p = product+row*T, *s = skip+row*T;
+        float *out = y+row*T;
+        int64_t t=0;
+#if NCC_HAVE_NEON
+        if (backend == NCC_NEON) {
+            const float32x4_t bv = vdupq_n_f32(b);
+            for (; t<=T-4; t+=4) {
+                const float32x4_t biased = vaddq_f32(vld1q_f32(p+t),bv);
+                vst1q_f32(out+t,vaddq_f32(vld1q_f32(s+t),biased));
+            }
+        }
+#endif
+        for (; t<T; ++t) {
+            const float biased = p[t]+b;
+            out[t] = s[t]+biased;
         }
     }
     return NCC_OK;

@@ -130,7 +130,8 @@ def build():
             "domain": DOMAIN, "native_abi": NATIVE_ABI, "ort_api_version": ORT_API_VERSION,
             "build_id": build_id, "fingerprint": fingerprint, "commands": commands, "logs": logs,
             "cache_hit": False, "openmp": False, "accelerate": True, "tile": 256,
-            "operators": ["SnakeF32", "CausalDW7F32", "CausalDW7SnakeF32", "PhaseSumBiasInterleaveF32"],
+            "operators": ["SnakeF32", "CausalDW7F32", "CausalDW7SnakeF32", "PhaseSumBiasInterleaveF32",
+                          "SnakeDW7SnakeF32", "BiasResidualF32"],
             "phase_simd": "NEON four-time transpose/interleave with scalar tails",
             "scope": "CPU-only library build; no model execution or timing",
         }

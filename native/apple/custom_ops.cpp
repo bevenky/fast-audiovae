@@ -22,7 +22,7 @@
 
 namespace {
 constexpr const char* kDomain = "venky.audio.cpu";
-enum class Mode { Snake, DW7, DW7Snake };
+enum class Mode { Snake, DW7, DW7Snake, SnakeDW7Snake };
 
 void Require(bool condition, const char* message) {
   if (!condition) throw std::invalid_argument(message);
@@ -66,7 +66,7 @@ struct Kernel {
   int32_t dilation;
   int32_t backend;
   size_t row_batches;
-  std::vector<float> weights, bias, alpha, reciprocal;
+  std::vector<float> weights, bias, alpha, reciprocal, alpha_pre, reciprocal_pre;
 
   Kernel(const OrtApi& api_, const OrtKernelInfo* raw_info, Mode mode_) : api(api_), mode(mode_) {
     Ort::ConstKernelInfo info(raw_info);
@@ -87,6 +87,7 @@ struct Kernel {
       const auto d = info.GetAttribute<int64_t>("dilation");
       Require(d > 0 && d <= std::numeric_limits<int32_t>::max() / 6, "Invalid causal DW7 dilation");
       dilation = static_cast<int32_t>(d);
+      if (mode == Mode::SnakeDW7Snake) Require(d == 1 || d == 3 || d == 9, "Triple fusion dilation must be 1, 3 or 9");
       weights = Constant(info, 1, {channels, 1, 7});
       bias = Constant(info, 2, {channels});
     }
@@ -97,7 +98,11 @@ struct Kernel {
               "This custom Snake implementation requires explicit vForce policy");
       Require((ncc_capabilities() & NCC_CAP_VFORCE) && backend != NCC_SCALAR,
               "Fast vForce sine unavailable: use the original graph or DW-only variant");
-      const size_t start = mode == Mode::Snake ? 1 : 3;
+      if (mode == Mode::SnakeDW7Snake) {
+        alpha_pre = Constant(info, 3, {channels});
+        reciprocal_pre = Constant(info, 4, {channels});
+      }
+      const size_t start = mode == Mode::Snake ? 1 : mode == Mode::SnakeDW7Snake ? 5 : 3;
       alpha = Constant(info, start, {channels});
       reciprocal = Constant(info, start + 1, {channels});
     }
@@ -121,6 +126,11 @@ struct Kernel {
       result = ncc_snake_f32(work.x + offset, k.alpha.data() + c,
                              k.reciprocal.data() + c, work.y + offset,
                              1, 1, work.time, k.backend, 1);
+    } else if (k.mode == Mode::SnakeDW7Snake) {
+      result = ncc_snake_dw7_snake_f32(work.x + offset, k.weights.data() + 7*c,
+          k.bias.data()+c, k.alpha_pre.data()+c, k.reciprocal_pre.data()+c,
+          k.alpha.data()+c, k.reciprocal.data()+c, work.y+offset,
+          1, 1, work.time, k.dilation, k.backend, 1);
     } else {
       result = ncc_dw7_f32_ex(work.x + offset, k.weights.data() + 7 * c,
                               k.bias.data() + c, nullptr,
@@ -159,10 +169,11 @@ template <Mode mode>
 struct Op : Ort::CustomOpBase<Op<mode>, Kernel, true> {
   Op() { this->start_ver_ = 1; this->end_ver_ = 1; }
   const char* GetName() const {
-    return mode == Mode::Snake ? "SnakeF32" : mode == Mode::DW7 ? "CausalDW7F32" : "CausalDW7SnakeF32";
+    return mode == Mode::Snake ? "SnakeF32" : mode == Mode::DW7 ? "CausalDW7F32" :
+           mode == Mode::SnakeDW7Snake ? "SnakeDW7SnakeF32" : "CausalDW7SnakeF32";
   }
   const char* GetExecutionProviderType() const { return "CPUExecutionProvider"; }
-  size_t GetInputTypeCount() const { return mode == Mode::DW7Snake ? 5 : 3; }
+  size_t GetInputTypeCount() const { return mode == Mode::SnakeDW7Snake ? 7 : mode == Mode::DW7Snake ? 5 : 3; }
   ONNXTensorElementDataType GetInputType(size_t) const { return ONNX_TENSOR_ELEMENT_DATA_TYPE_FLOAT; }
   size_t GetOutputTypeCount() const { return 1; }
   ONNXTensorElementDataType GetOutputType(size_t) const { return ONNX_TENSOR_ELEMENT_DATA_TYPE_FLOAT; }
@@ -180,9 +191,93 @@ struct Op : Ort::CustomOpBase<Op<mode>, Kernel, true> {
   }
 };
 
-// The original Snake/DW kernel and Op definitions above are copied unchanged.
-// Phase finishing is a separate memory pass fusion, not a new accumulation
-// order: sum=current+previous(t-1), then output=sum+bias.
+struct BiasResidualKernel {
+  const OrtApi& api;
+  int64_t channels;
+  int32_t backend;
+  size_t row_batches;
+  std::vector<float> bias;
+
+  BiasResidualKernel(const OrtApi& a, const OrtKernelInfo* raw_info) : api(a) {
+    Ort::ConstKernelInfo info(raw_info);
+    Require(ncc_abi_version() == 1 && info.GetAttribute<int64_t>("native_abi") == 1,
+            "Bias/residual graph/native ABI mismatch");
+    channels = info.GetAttribute<int64_t>("channels");
+    Require(channels > 0 && channels <= std::numeric_limits<int32_t>::max(), "Invalid bias channel count");
+    auto b = info.GetAttribute<int64_t>("backend");
+    Require(b >= NCC_AUTO && b <= NCC_AVX2 && ncc_backend_available(static_cast<int32_t>(b)),
+            "Requested bias/residual CPU ISA unavailable");
+    backend = b == NCC_AUTO ? ncc_selected_backend() : static_cast<int32_t>(b);
+    auto batches = info.GetAttribute<int64_t>("row_batches");
+    Require(batches >= 0, "row_batches must be nonnegative");
+    row_batches = static_cast<size_t>(batches);
+    bias = Constant(info, 1, {channels});
+  }
+  struct Work {
+    const BiasResidualKernel* self;
+    const float* product;
+    const float* skip;
+    float* output;
+    int64_t time;
+    std::atomic<int32_t> error{NCC_OK};
+  };
+  static void Row(void* opaque, size_t row) noexcept {
+    auto& w = *static_cast<Work*>(opaque);
+    const auto& k = *w.self;
+    const auto offset = row * static_cast<size_t>(w.time);
+    const auto status = ncc_bias_residual_f32(w.product+offset,
+        k.bias.data()+row%static_cast<size_t>(k.channels), w.skip+offset,
+        w.output+offset, 1, 1, w.time, k.backend, 1);
+    if (status != NCC_OK) w.error.store(status, std::memory_order_relaxed);
+  }
+  OrtStatus* ComputeV2(OrtKernelContext* raw_context) noexcept {
+    try {
+      Ort::KernelContext context(raw_context);
+      auto product = context.GetInput(0), skip = context.GetInput(2);
+      auto shape = FloatShape(product);
+      Require(shape.size() == 3 && shape[0] >= 0 && shape[1] == channels && shape[2] >= 0,
+              "Expected contiguous FP32 [batch, channels, time] product");
+      Require(FloatShape(skip) == shape, "Bias/residual skip shape must exactly match product");
+      Require(static_cast<uint64_t>(shape[0]) <= std::numeric_limits<size_t>::max()/channels,
+              "Bias/residual row count overflow");
+      auto output = context.GetOutput(0, shape);
+      if (!shape[0] || !shape[2]) return nullptr;
+      Work work{this, product.GetTensorData<float>(), skip.GetTensorData<float>(),
+                output.GetTensorMutableData<float>(), shape[2]};
+      const auto rows = static_cast<size_t>(shape[0])*static_cast<size_t>(channels);
+      if (rows == 1) Row(&work, 0);
+      else context.ParallelFor(Row, rows, row_batches, &work);
+      const auto status = work.error.load(std::memory_order_relaxed);
+      if (status != NCC_OK) return api.CreateStatus(ORT_FAIL, ncc_status_string(status));
+      return nullptr;
+    } catch (...) { return Error(api); }
+  }
+};
+
+struct BiasResidualOp : Ort::CustomOpBase<BiasResidualOp, BiasResidualKernel, true> {
+  BiasResidualOp() { this->start_ver_ = 1; this->end_ver_ = 1; }
+  const char* GetName() const { return "BiasResidualF32"; }
+  const char* GetExecutionProviderType() const { return "CPUExecutionProvider"; }
+  size_t GetInputTypeCount() const { return 3; }
+  ONNXTensorElementDataType GetInputType(size_t) const { return ONNX_TENSOR_ELEMENT_DATA_TYPE_FLOAT; }
+  size_t GetOutputTypeCount() const { return 1; }
+  ONNXTensorElementDataType GetOutputType(size_t) const { return ONNX_TENSOR_ELEMENT_DATA_TYPE_FLOAT; }
+  OrtStatus* CreateKernelV2(const OrtApi& api, const OrtKernelInfo* info, void** result) const noexcept {
+    *result = nullptr;
+    try { *result = new BiasResidualKernel(api, info); return nullptr; }
+    catch (...) { return Error(api); }
+  }
+  static OrtStatus* InferOutputShape(Ort::ShapeInferContext& context) noexcept {
+    try {
+      const auto& shape = context.GetInputShape(0);
+      Require(shape.size() == 3 && context.GetInputShape(2).size() == 3,
+              "Bias/residual inputs require rank three");
+      return context.SetOutputShape(0, shape).release();
+    } catch (...) { return Error(Ort::GetApi()); }
+  }
+};
+
+// Phase order remains sum=current+previous(t-1), then output=sum+bias.
 struct PhaseKernel {
   const OrtApi& api;
   int64_t channels;
@@ -373,6 +468,8 @@ const OrtApi* registered_api = nullptr;
 Op<Mode::Snake> snake_op;
 Op<Mode::DW7> dw_op;
 Op<Mode::DW7Snake> fused_op;
+Op<Mode::SnakeDW7Snake> chain_op;
+BiasResidualOp bias_residual_op;
 PhaseOp phase_op;
 std::unique_ptr<Ort::CustomOpDomain> domain;
 }  // namespace
@@ -389,7 +486,7 @@ extern "C" NCC_API OrtStatus* ORT_API_CALL RegisterCustomOps(OrtSessionOptions* 
       Ort::InitApi(api);
       auto fresh = std::make_unique<Ort::CustomOpDomain>(kDomain);
       fresh->Add(&snake_op); fresh->Add(&dw_op); fresh->Add(&fused_op);
-      fresh->Add(&phase_op);
+      fresh->Add(&phase_op); fresh->Add(&chain_op); fresh->Add(&bias_residual_op);
       domain = std::move(fresh);
       registered_api = api;
     }

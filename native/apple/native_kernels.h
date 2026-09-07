@@ -76,6 +76,25 @@ NCC_API int32_t ncc_snake_f32(
     const float *x, const float *alpha, const float *reciprocal, float *y,
     int64_t B, int64_t C, int64_t T, int32_t backend, int32_t threads);
 
+/* Local-history pre-Snake -> DW7 -> post-Snake, dilations 1, 3 or 9.
+ * Coefficients are mandatory [C]; weights [C,7], x/y [B,C,T]. No read
+ * buffer may overlap y. Zero-sized calls allow NULL pointers, but still
+ * validate dilation/backend/threads. History is private to this call.
+ */
+NCC_API int32_t ncc_snake_dw7_snake_f32(
+    const float *x, const float *weights, const float *bias,
+    const float *alpha_pre, const float *reciprocal_pre,
+    const float *alpha_post, const float *reciprocal_post, float *y,
+    int64_t B, int64_t C, int64_t T, int32_t dilation,
+    int32_t backend, int32_t threads);
+
+/* Exactly skip + (product + bias), with no reassociation. Same pointer,
+ * shape and threading requirements as ncc_snake_f32; read inputs may alias.
+ */
+NCC_API int32_t ncc_bias_residual_f32(
+    const float *product, const float *bias, const float *skip, float *y,
+    int64_t B, int64_t C, int64_t T, int32_t backend, int32_t threads);
+
 #ifdef __cplusplus
 }
 #endif
