@@ -1,0 +1,111 @@
+{
+  "status": "complete",
+  "scope": "Independent read-only source, native-check and region evidence audit; no inference or new timing",
+  "source_model_sha256": "e188d0609795d256627b4e39b632d5c5ca064256d410899ecb05ac4eb6301bc2",
+  "verified_local_source_files": [
+    {
+      "path": "work/fast-audiovae/experiments/cpu-stage/upsample/build.py",
+      "sha256": "54103fef9fbe59151a97e6ac5e9537f866c92a127719eda97f578d382fa9921b"
+    },
+    {
+      "path": "work/fast-audiovae/experiments/cpu-stage/upsample/projection.c",
+      "sha256": "d7260800a6986517cfcde40a7c4d453dcd6a322bc7f476ada8f43abf86b22ba7"
+    },
+    {
+      "path": "work/fast-audiovae/experiments/cpu-stage/upsample/projection.h",
+      "sha256": "6451922cf4316e07021642ca863b63d903baa95429183fd6296cdca0fff67fd2"
+    },
+    {
+      "path": "work/fast-audiovae/experiments/cpu-stage/upsample/custom_op.cpp",
+      "sha256": "bf9f71feb15d94c990fc890b2dfedddad631d21c7d0a133d363a3aacbe1ed77f"
+    },
+    {
+      "path": "work/fast-audiovae/experiments/cpu-stage/matrix/fused_pointwise.c",
+      "sha256": "8e6dc221fb88aaa24a1b4e93b276e8043010084c95027f95f39f2b8e23525522"
+    },
+    {
+      "path": "work/fast-audiovae/experiments/cpu-stage/matrix/fused_pointwise.h",
+      "sha256": "68ca5b4acf978b779cf1c53874fba0e970d954ba665a1494b2efdc47ee44a6dc"
+    },
+    {
+      "path": "work/fast-audiovae/experiments/cpu-stage/stage/stage_dw.h",
+      "sha256": "4586053d717c485a3157f75162299ff8835c5be3405b03db3cd97c52ed75e32a"
+    },
+    {
+      "path": "work/fast-audiovae/native/x86/native_kernels.h",
+      "sha256": "046c463260fe9cd91940e2a020d3bd17bf5c869437947473ed7d31eb226dd8c4"
+    }
+  ],
+  "native_evidence": [
+    {
+      "file": "mode-0-r1.json",
+      "sha256": "304f3a2064cd8ef1956012aa1234476ea98f4291c6326fb3c7992d83707fc92e",
+      "records": 288,
+      "additional_checks": 204,
+      "malformed_rejections": 30,
+      "max_recorded_absolute_error": 5.997717380523682e-07,
+      "exact_checks_reinspected": 420,
+      "all_required_exact_checks_passed": true,
+      "status": "complete"
+    },
+    {
+      "file": "edges-0-r1.json",
+      "sha256": "171846420316c2af3e87e270fe617d8aa7dbde34959565edf6106581da63c59b",
+      "records": 171,
+      "additional_checks": 0,
+      "malformed_rejections": 23,
+      "max_recorded_absolute_error": 2.980232238769531e-07,
+      "exact_checks_reinspected": 1944,
+      "all_required_exact_checks_passed": true,
+      "status": "complete"
+    },
+    {
+      "file": "mode-1-r1.json",
+      "sha256": "4c3d57455d5e0b9e8feed9691633643f623c0efd355ff9630ebc8756f74ce8c3",
+      "records": 288,
+      "additional_checks": 204,
+      "malformed_rejections": 30,
+      "max_recorded_absolute_error": 5.997717380523682e-07,
+      "exact_checks_reinspected": 420,
+      "all_required_exact_checks_passed": true,
+      "status": "complete"
+    },
+    {
+      "file": "edges-1-r1.json",
+      "sha256": "1942012ae7d1c16745336d0db21cc2845e96465b453cee4f76fcd72c0704f393",
+      "records": 171,
+      "additional_checks": 0,
+      "malformed_rejections": 23,
+      "max_recorded_absolute_error": 2.980232238769531e-07,
+      "exact_checks_reinspected": 1944,
+      "all_required_exact_checks_passed": true,
+      "status": "complete"
+    }
+  ],
+  "region": {
+    "source_config_sha256": "89d7c5d2135e09079c4be66d802b9ee91b04b919ef8e2aaecd65ddf259bc36a3",
+    "selected": "p1_q128",
+    "median_ms": 267.187848,
+    "reference_median_ms": 301.248584,
+    "time_reduction_percent": 11.306521527085422,
+    "predeclared_threshold_percent": 5,
+    "selection_rule": "largest qualifying median reduction",
+    "repeated_observations": 49,
+    "debug_outputs_passed": 36,
+    "production_warmup_outputs_passed": 14
+  },
+  "selected_full_graph_sha256": "1ddb6dcc2b0c3ccea90d309f6ebec10eb12e844fb6320cd2d525dbfd01d4cf29",
+  "selected_configuration": {
+    "channels": 128,
+    "stride": 2,
+    "tile_time": 128,
+    "segments": 2,
+    "projection_mode": 1,
+    "projection_isa": 0,
+    "matrix_mode": 0,
+    "matrix_isa": 512,
+    "backend": 5
+  },
+  "full_decoder_acceptance": "pending final results; region and native checks alone do not establish full-model quality or speed",
+  "no_blockers_in_reviewed_evidence": true
+}

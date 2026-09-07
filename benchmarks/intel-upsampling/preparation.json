@@ -1,0 +1,60 @@
+{
+  "status": "complete",
+  "configs": {
+    "screen.json": "4eb61277bd2324588006603ca333b189870d1c950cfc046ad20c2b477651152c",
+    "final.json": "a8450315c0f3a75c9544bcd9c765c0446e1a4f778636f0d8b5bfc5829b027669"
+  },
+  "model_order": [
+    "audio_stock",
+    "stage_mkl",
+    "upsample_stage4",
+    "mimi"
+  ],
+  "expected_case_count": 60,
+  "screen_timing_uids": [
+    "hi_in_00099_1919",
+    "en_us_00103_1779",
+    "pt_br_00672_1745"
+  ],
+  "final_timing_uids": [
+    "hi_in_00099_1919",
+    "bn_in_00633_1820",
+    "gu_in_00926_1827",
+    "ta_in_00494_1946",
+    "te_in_00114_1911",
+    "kn_in_00584_1904",
+    "en_us_00103_1779",
+    "es_419_00646_1781",
+    "fr_fr_00129_1717",
+    "pt_br_00672_1745"
+  ],
+  "screen_validation": "--validation timed checks all sixty metadata clips for this corpus",
+  "final_validation": "--validation all checks all sixty clips",
+  "metadata_timed_id_counts": {
+    "audio": 60,
+    "mimi": 60
+  },
+  "current_execution_plan": "Skip redundant screen; final validation of sixty clips and timing of ten original clips",
+  "source_artifact_count": 14,
+  "generated_artifact_count": 16,
+  "provenance": {
+    "source_config": "../../fast-audiovae-fusion-20260907/combined/final.json",
+    "source_config_sha256": "89d7c5d2135e09079c4be66d802b9ee91b04b919ef8e2aaecd65ddf259bc36a3",
+    "source_stage_mkl_sha256": "e188d0609795d256627b4e39b632d5c5ca064256d410899ecb05ac4eb6301bc2",
+    "selected_graph_sha256": "1ddb6dcc2b0c3ccea90d309f6ebec10eb12e844fb6320cd2d525dbfd01d4cf29",
+    "selected_library_sha256": "16e5b9ae57682cda8060a148b75efb91904aa8c0c53722db6c55de5581a2eed9",
+    "preparation_script_sha256": "c558ebc387334fe53784a7fa67067bf76f6a5e1ac39ce1a0a7645bf1eec235a3",
+    "harness_sha256": "593dc1df8b7ac7334add9211da869eac931aaf61d360656b15a3196467cecf01",
+    "original_corpus_and_artifact_hashes_preserved": true,
+    "metadata_timed_ids_match_all_expected_uids": true,
+    "metadata_timed_id_counts": {
+      "audio": 60,
+      "mimi": 60
+    },
+    "model_execution": false,
+    "timing_execution": false,
+    "gpu_used": false
+  },
+  "inference_executed": false,
+  "default_promoted": false
+}

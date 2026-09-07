@@ -1,0 +1,61 @@
+{
+  "scope": "Intel-only optimization and CPU benchmarking. No AMD host execution or AMD/Apple performance tuning. Local static checks and compiler checks may run on the development machine.",
+  "checkpoint": "ec4cd8bd46d419c62452ce4c2a5390630c833358",
+  "source_graph_sha256": "e188d0609795d256627b4e39b632d5c5ca064256d410899ecb05ac4eb6301bc2",
+  "precision": "FP32",
+  "runtime": "1.29.0",
+  "threads": 2,
+  "affinity": [
+    0,
+    1
+  ],
+  "stage4_region": {
+    "tiles": [
+      64,
+      128,
+      256
+    ],
+    "projection_modes": [
+      "direct AVX512",
+      "LIBXSMM"
+    ],
+    "segments": 2,
+    "uid": "hi_in_00099_1919",
+    "latent_frames": 170,
+    "timing_repeats": 7,
+    "warmups": 2,
+    "selection": "Largest median reduction after all numerical gates; at least 5 percent region reduction before advancing."
+  },
+  "decoder_screen": {
+    "validation": "ten original representative multilingual clips",
+    "timing_uids": [
+      "hi_in_00099_1919",
+      "en_us_00103_1779",
+      "pt_br_00672_1745"
+    ],
+    "repeats": 3,
+    "warmups": 2,
+    "selection": "Require all gates, all timed clip means improving, and at least 2 percent aggregate reduction against the accepted stage_mkl candidate before a full campaign.",
+    "status": "Not run; replaced by the complete final campaign before decoder timing."
+  },
+  "final": {
+    "validation_clips": 60,
+    "timing_clips": 10,
+    "repeats": 5,
+    "warmups": 2,
+    "gate": "Original atol1e-5 rtol1e-4, stock comparison, exact repeat and applicable causal-prefix checks. Do not loosen tolerances or drop clips.",
+    "models": [
+      "audio_stock",
+      "stage_mkl",
+      "upsample_stage4",
+      "mimi"
+    ],
+    "acceptance": "All numerical gates pass, all10timedclipmeans improve and aggregate decoding time improves by at least2percent vs accepted stage_mkl. Record every repeat and any regressions."
+  },
+  "timing_scope": "Fresh complete decoder calls, CPU-only. No cached streaming or encoder timing.",
+  "default_promotion": false,
+  "plan_revision": {
+    "previous_sha256": "d97aa7eb124f72cdd0f64b46a9d5bee1308c86fbeb2baf5577abe5a3a34cf182",
+    "reason": "Frozen companion metadata lists all60clips, so harness --validation timed also validates60. This was discovered during configuration preparation, before any complete-decoder timing. Skip a redundant screening campaign and run one final campaign with all60 validation,10timedclips and5repetitions. Source metadata, corpus and numerical gates stay unchanged."
+  }
+}
