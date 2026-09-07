@@ -4,6 +4,17 @@ CPU inference optimizations for the AudioVAE2 decoder used by VoxCPM2. The train
 
 The package combines ONNX graph rewrites with native Snake, causal depthwise and phase-interleave operators. Every session uses ONNX Runtime's CPU execution provider. Backend selection checks platform and available CPU instructions; it does not benchmark or autotune your machine.
 
+## Benchmarks
+
+CPU-only decoding, FP32, four threads, 20 speech clips. Lower RTF is better.
+
+| CPU | Stock RTF | Optimized RTF | Speedup |
+|---|---:|---:|---:|
+| Apple M5 Max (ARM) | 0.12102 | 0.03015 | 4.01× |
+| AMD EPYC 9654 (x86) | 0.25636 | 0.07246 | 3.54× |
+
+Stock is the original ONNX export. Optimized uses the default native backend, without optional AMD packing.
+
 ## Setup
 
 Python 3.11 to 3.13 is recommended in a virtual environment. Decoder tests used Python 3.13 on macOS and 3.12 on Linux. Native builds require Apple Command Line Tools on Apple ARM, or a C/C++ toolchain, CMake and Make on Linux x86.
@@ -39,7 +50,7 @@ Use `prefer_custom=False` to request the ONNX fallback. See [performance and val
 
 ## Optional AMD matrix packing
 
-On a compatible AMD Linux machine:
+On AMD Zen 4 or newer running Linux, with AVX-512 enabled:
 
 ```sh
 python tools/build.py --amd-packed
