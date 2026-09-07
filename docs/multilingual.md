@@ -70,7 +70,7 @@ The prototype is not a shipped backend or an automatic loader choice. A separate
 
 Separate instrumented profiles of the default native decoder attribute 52.04% of Apple operator time and 73.08% of AMD operator time to MatMul. Fused depthwise/Snake plus standalone Snake account for 36.48% and 17.91%, respectively. These profiles cover one representative shape per host and were excluded from the RTF measurements; their percentages do not decompose every timed recording.
 
-The native depthwise kernels accumulate seven taps directly; Snake uses vector sine, and adjacent depthwise/Snake operations are fused. Dense matrix multiplication is therefore the main remaining AMD target. The existing optional AMD packing is a separate layout optimization with a memory cost, not lower-precision compression. Further matrix or epilogue changes need the same waveform and per-clip timing gates before becoming defaults. This campaign does not establish a further speedup from a proposed kernel.
+The native depthwise kernels accumulate seven taps directly; Snake uses vector sine, and adjacent depthwise/Snake operations are fused. Dense matrix multiplication is the largest family in that profile, but the same-clip audit also finds substantial activation and residual-addition costs relative to Mimi. The existing optional AMD packing is a separate layout optimization with a memory cost, not lower-precision compression. Further matrix or epilogue changes need the same waveform and per-clip timing gates before becoming defaults. This campaign does not establish a further speedup from a proposed kernel.
 
 Intel's [separate 6.8-second technical profile](../benchmarks/intel-profile.json), using two threads and three profiled calls, identifies the following costs. It uses an earlier English clip, separate from the ten multilingual timing clips.
 
@@ -83,13 +83,9 @@ Intel's [separate 6.8-second technical profile](../benchmarks/intel-profile.json
 | Phase finishing | 1.84% |
 | Other operations | 1.96% |
 
-Six matrix products in the first three upsampling stages account for 24.71% of this profile. Five later 256-channel products add another 10.11%. The next optimization experiments should target:
+The deeper [CPU optimization plan](optimization-plan.md) maps those costs to exact matrix shapes, tensor sizes and native instructions. It prioritizes pre-Snake/DW/post-Snake fusion, ordered residual additions, and local time tiles across complete residual stages, with an additional guarded AVX512 path for Intel. These are proposed changes, not newly measured speedups. The plan also distinguishes the existing matrix-library experiments from new work that removes full intermediate tensors.
 
-1. **Matrix outputs and their following additions.** Keep the selective MKL result as the measured reference, and test fusing bias/residual passes after the complete FP32 matrix reduction. Preserve the original addition order. Reduce the prototype's duplicated weight storage before considering a packaged option. Blanket MKL replacement and packed-A did not justify selection; the late narrow matrices should retain MLAS until an alternative wins.
-2. **Snake inside SIMD registers.** The current [x86 kernel](../native/x86/native_kernels.c) still writes a local sine tile and runs separate scale, sine and finish passes. Fused depthwise/Snake also writes a local depthwise tile. A direct register implementation could remove those intermediate loads and stores while keeping the same SLEEF u10 sine and ordered FP32 arithmetic. This is a proposed optimization, not a measured gain.
-3. **Guarded wider vectors after the direct-loop work.** Custom activations and depthwise kernels currently use AVX2/SSE2. An AVX512 variant needs CPU/OS guards and matched tests; wider vectors alone do not guarantee improvement. MLAS and MKL already have optimized ISA dispatch, so the existing matrix baseline is not scalar.
-
-The two-vCPU VM already uses two workers; a four-thread technical screen was 3.47% slower. Matching Mimi would require 49.91% less time than the default native decoder, or 45.71% less than the MKL prototype. No tested change closes that remaining gap. New kernels must pass the unchanged waveform, causal-prefix, changing-length and concurrency checks, then improve the fixed per-clip timing comparison before promotion. The evidence above was inspected without running new benchmarks.
+The two-vCPU VM already uses two workers; a four-thread technical screen was 3.47% slower. Matching Mimi would require 49.91% less time than the default native decoder, or 45.71% less than the MKL prototype. No tested change closes that remaining gap. New kernels must pass the unchanged waveform, causal-prefix, changing-length and concurrency checks, then improve the fixed per-clip timing comparison before promotion.
 
 ## Inspect or repeat the measurements
 

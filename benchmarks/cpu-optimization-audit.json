@@ -1,0 +1,2210 @@
+{
+  "schema_version": 1,
+  "scope": "Static graph arithmetic and reaggregation of existing profiles; no new inference or timing. Logical activation bytes are not measured DRAM traffic.",
+  "stage_definition": "Output temporal-rate domain; charge upsampling matrices and phase finish to the destination stage.",
+  "inputs_sha256": {
+    "work/multilingual-benchmark/apple/campaign.json": "c7879c8c44b00fd902775da0ea42c36d851db065dc1c83476135dcca4fea3489",
+    "work/multilingual-benchmark/amd/campaign.json": "d8be8401ba199d76cf20b9cb5d9f160020392d934e45c29b68d8ce7d1ccc3152",
+    "work/intel-benchmark/technical_screen.json": "55b0c9f32ece22971e698457f460e8e3cb7efaf1f079c38dc4829cbd79f5e611",
+    "work/native_codec_cpu/ort_experiments/acceptance_results.json": "be117d4e18d8768cf6b120483d8218692ec53a34ed685e3b50e6acb2e8343a2b",
+    "work/native_codec_cpu/ort_experiments/remote_cpu/acceptance_results.json": "7c0a89426df5dfc4b2055cf7355323b7715bb6370d9aa2b8ebe1a4a86e889615",
+    "work/native_codec_cpu/measurements/latest_onnx_decoders.json": "6e4d162d319f279512ff7ed442feececd9c390dda87ee8abbefc29c5e8ca9e28",
+    "work/fast-audiovae/.build/check_bundle/decoder_native.onnx": "fa7992825e807cac7ab1be405912ae3735031fb941a18dd81006005dc597bde3",
+    "work/native_codec_cpu/mimi_onnx/mimi_decoder_fp32_dynamic.onnx": "e023777a2cee98a7e4a293f6af7712d4fed6364d1523cfc9a6283f112981e2f1"
+  },
+  "arithmetic": {
+    "audio_independent_formula_mac_per_second": 8991243200,
+    "audio_stages": [
+      {
+        "stride": 8,
+        "channels": 1024,
+        "rate": 200,
+        "upsample_mac_per_second": 838860800,
+        "residual_pointwise_mac_per_second": 629145600,
+        "depthwise_mac_per_second": 4300800
+      },
+      {
+        "stride": 6,
+        "channels": 512,
+        "rate": 1200,
+        "upsample_mac_per_second": 1258291200,
+        "residual_pointwise_mac_per_second": 943718400,
+        "depthwise_mac_per_second": 12902400
+      },
+      {
+        "stride": 5,
+        "channels": 256,
+        "rate": 6000,
+        "upsample_mac_per_second": 1572864000,
+        "residual_pointwise_mac_per_second": 1179648000,
+        "depthwise_mac_per_second": 32256000
+      },
+      {
+        "stride": 2,
+        "channels": 128,
+        "rate": 12000,
+        "upsample_mac_per_second": 786432000,
+        "residual_pointwise_mac_per_second": 589824000,
+        "depthwise_mac_per_second": 32256000
+      },
+      {
+        "stride": 2,
+        "channels": 64,
+        "rate": 24000,
+        "upsample_mac_per_second": 393216000,
+        "residual_pointwise_mac_per_second": 294912000,
+        "depthwise_mac_per_second": 32256000
+      },
+      {
+        "stride": 2,
+        "channels": 32,
+        "rate": 48000,
+        "upsample_mac_per_second": 196608000,
+        "residual_pointwise_mac_per_second": 147456000,
+        "depthwise_mac_per_second": 32256000
+      }
+    ],
+    "mimi_full_call_mac": 26104340480,
+    "mimi_projection_mac": 8556380160,
+    "mimi_dense_attention_mac": 3787980800,
+    "mimi_convolution_mac": 13759979520,
+    "mimi_mac_per_second": 3838873600.0,
+    "projection_mapping_proof": [
+      {
+        "source_name": "/transformer_layers.0/self_attn/in_proj/MatMul",
+        "source_op": "MatMul",
+        "source_attributes": [],
+        "weight_name": "onnx::MatMul_766",
+        "weight_shape": [
+          512,
+          1536
+        ],
+        "source_dense_mac": 1069547520,
+        "optimized_profile_name": "/transformer_layers.0/self_attn/in_proj/MatMul_kernel_time"
+      },
+      {
+        "source_name": "/transformer_layers.0/self_attn/out_proj/MatMul",
+        "source_op": "MatMul",
+        "source_attributes": [],
+        "weight_name": "onnx::MatMul_772",
+        "weight_shape": [
+          512,
+          512
+        ],
+        "source_dense_mac": 356515840,
+        "optimized_profile_name": "/transformer_layers.0/self_attn/out_proj/MatMul_kernel_time"
+      },
+      {
+        "source_name": "/transformer_layers.0/linear1/MatMul",
+        "source_op": "MatMul",
+        "source_attributes": [],
+        "weight_name": "onnx::MatMul_773",
+        "weight_shape": [
+          512,
+          2048
+        ],
+        "source_dense_mac": 1426063360,
+        "optimized_profile_name": "/transformer_layers.0/linear1/MatMul_kernel_time"
+      },
+      {
+        "source_name": "/transformer_layers.0/linear2/MatMul",
+        "source_op": "MatMul",
+        "source_attributes": [],
+        "weight_name": "onnx::MatMul_774",
+        "weight_shape": [
+          2048,
+          512
+        ],
+        "source_dense_mac": 1426063360,
+        "optimized_profile_name": "/transformer_layers.0/linear2/MatMul/MatMulScaleFusion/_kernel_time"
+      },
+      {
+        "source_name": "/transformer_layers.1/self_attn/in_proj/MatMul",
+        "source_op": "MatMul",
+        "source_attributes": [],
+        "weight_name": "onnx::MatMul_775",
+        "weight_shape": [
+          512,
+          1536
+        ],
+        "source_dense_mac": 1069547520,
+        "optimized_profile_name": "/transformer_layers.1/self_attn/in_proj/MatMul_kernel_time"
+      },
+      {
+        "source_name": "/transformer_layers.1/self_attn/out_proj/MatMul",
+        "source_op": "MatMul",
+        "source_attributes": [],
+        "weight_name": "onnx::MatMul_781",
+        "weight_shape": [
+          512,
+          512
+        ],
+        "source_dense_mac": 356515840,
+        "optimized_profile_name": "/transformer_layers.1/self_attn/out_proj/MatMul_kernel_time"
+      },
+      {
+        "source_name": "/transformer_layers.1/linear1/MatMul",
+        "source_op": "MatMul",
+        "source_attributes": [],
+        "weight_name": "onnx::MatMul_782",
+        "weight_shape": [
+          512,
+          2048
+        ],
+        "source_dense_mac": 1426063360,
+        "optimized_profile_name": "/transformer_layers.1/linear1/MatMul_kernel_time"
+      },
+      {
+        "source_name": "/transformer_layers.1/linear2/MatMul",
+        "source_op": "MatMul",
+        "source_attributes": [],
+        "weight_name": "onnx::MatMul_783",
+        "weight_shape": [
+          2048,
+          512
+        ],
+        "source_dense_mac": 1426063360,
+        "optimized_profile_name": "/transformer_layers.1/linear2/MatMul/MatMulScaleFusion/_kernel_time"
+      }
+    ],
+    "fused_matmul_note": "The two optimized FusedMatMul records are source linear2 MatMul -> layer_scale_2 Mul. Source ops have no transpose attributes, original weights are [2048,512], profile input [1,1360,2048] and output [1,1360,512]. Their required source contraction is unambiguously K=2048. Saved trace does not serialize optimized FusedMatMul transA/transB flags and no optimized Mimi graph is present; those flags have not been directly inspected. Counts are for source mathematical products and do not assume optimized physical transpose flags.",
+    "caveats": [
+      "Dense MAC estimate, not measured instructions or CPU performance.",
+      "Bias, activations including Snake, ELU, GELU/tanh, softmax, normalization, masks, resampling, scalar scales, copying and layout work excluded.",
+      "Mimi attention is full dense T-by-T in this exported whole-call graph; source masks do not reduce the counted multiplication.",
+      "ConvTranspose counts input elements times full stored kernel and output channels per group; includes boundary work whose output is subsequently sliced.",
+      "Padded ordinary/depthwise convolution counts zero-valued boundary taps conventionally; a boundary-specialized kernel may skip them.",
+      "The 2.342x ratio applies at 6.8 seconds; Mimi attention makes it duration-dependent and unsuitable as a fixed streaming ratio."
+    ]
+  },
+  "audio_profiles": {
+    "apple4": {
+      "source": "work/multilingual-benchmark/apple/campaign.json",
+      "latent_frames": 141,
+      "audio_s": 5.64,
+      "profile_mean_s": 0.16093633333333335,
+      "stages": {
+        "-1": {
+          "mean_us": 83.33333333333334,
+          "percent_profile": 0.0517803106404396,
+          "mac": 0.0,
+          "weight_bytes": 0.0,
+          "logical_activation_io_bytes": 0.0,
+          "snake_elements": 0.0,
+          "max_output_bytes": 0.0,
+          "us_Shape": 9.333333333333334,
+          "us_Squeeze": 4.0,
+          "us_Mul": 23.0,
+          "us_Reshape": 19.333333333333336,
+          "us_Concat": 27.666666666666668
+        },
+        "0": {
+          "mean_us": 368.6666666666667,
+          "percent_profile": 0.22907609427330478,
+          "mac": 18544320.0,
+          "weight_bytes": 526080.0,
+          "logical_activation_io_bytes": 10503936.0,
+          "snake_elements": 288768.0,
+          "max_output_bytes": 1155072,
+          "us_CausalDW7F32": 22.333333333333332,
+          "us_MatMul": 81.66666666666667,
+          "us_Add": 74.66666666666666,
+          "us_Mul": 37.333333333333336,
+          "us_Reshape": 4.333333333333333,
+          "us_SnakeF32": 148.33333333333334
+        },
+        "1": {
+          "mean_us": 19972.000000000004,
+          "percent_profile": 12.409876369330314,
+          "mac": 8303812608.0,
+          "weight_bytes": 146886656.0,
+          "logical_activation_io_bytes": 205602816.0,
+          "snake_elements": 8085504.0,
+          "max_output_bytes": 4620288,
+          "us_MatMul": 17028.666666666668,
+          "upsample_us": 12860.666666666668,
+          "upsample_mac": 4731174912.0,
+          "upsample_weight_bytes": 134217728.0,
+          "us_PhaseSumBiasInterleaveF32": 174.33333333333334,
+          "us_Reshape": 55.33333333333333,
+          "us_SnakeF32": 1014.0,
+          "us_CausalDW7SnakeF32": 1174.6666666666665,
+          "residual_pointwise_us": 4168.0,
+          "residual_pointwise_mac": 3548381184.0,
+          "us_Add": 455.99999999999994,
+          "us_Mul": 69.0
+        },
+        "2": {
+          "mean_us": 21359.33333333333,
+          "percent_profile": 13.27191498087236,
+          "mac": 12492103680.0,
+          "weight_bytes": 28354560.0,
+          "logical_activation_io_bytes": 619118592.0,
+          "snake_elements": 24256512.0,
+          "max_output_bytes": 13860864,
+          "us_MatMul": 14530.666666666666,
+          "upsample_us": 8066.0,
+          "upsample_mac": 7096762368.0,
+          "upsample_weight_bytes": 25165824.0,
+          "us_PhaseSumBiasInterleaveF32": 325.6666666666667,
+          "us_Reshape": 58.66666666666667,
+          "us_SnakeF32": 2345.6666666666665,
+          "us_CausalDW7SnakeF32": 2938.6666666666665,
+          "residual_pointwise_us": 6464.666666666666,
+          "residual_pointwise_mac": 5322571776.0,
+          "us_Add": 1040.0,
+          "us_Mul": 120.0
+        },
+        "3": {
+          "mean_us": 36305.33333333333,
+          "percent_profile": 22.558817254856486,
+          "mac": 15706091520.0,
+          "weight_bytes": 6050816.0,
+          "logical_activation_io_bytes": 1552416768.0,
+          "snake_elements": 60641280.0,
+          "max_output_bytes": 34652160,
+          "us_MatMul": 20075.666666666668,
+          "upsample_us": 9785.333333333332,
+          "upsample_mac": 8870952960.0,
+          "upsample_weight_bytes": 5242880.0,
+          "us_PhaseSumBiasInterleaveF32": 604.6666666666666,
+          "us_Reshape": 71.66666666666667,
+          "us_SnakeF32": 5614.333333333334,
+          "us_CausalDW7SnakeF32": 7118.0,
+          "residual_pointwise_us": 10290.333333333332,
+          "residual_pointwise_mac": 6653214720.0,
+          "us_Add": 2552.3333333333335,
+          "us_Mul": 268.6666666666667
+        },
+        "4": {
+          "mean_us": 29652.33333333333,
+          "percent_profile": 18.424884374566343,
+          "mac": 7944007680.0,
+          "weight_bytes": 731648.0,
+          "logical_activation_io_bytes": 1593999360.0,
+          "snake_elements": 60641280.0,
+          "max_output_bytes": 34652160,
+          "us_MatMul": 13659.333333333334,
+          "upsample_us": 6594.333333333334,
+          "upsample_mac": 4435476480.0,
+          "upsample_weight_bytes": 524288.0,
+          "us_PhaseSumBiasInterleaveF32": 500.3333333333333,
+          "us_Reshape": 75.33333333333334,
+          "us_SnakeF32": 5549.999999999999,
+          "us_CausalDW7SnakeF32": 7047.333333333334,
+          "residual_pointwise_us": 7065.0,
+          "residual_pointwise_mac": 3326607360.0,
+          "us_Add": 2500.666666666667,
+          "us_Mul": 319.3333333333333
+        },
+        "5": {
+          "mean_us": 25954.666666666664,
+          "percent_profile": 16.127288430828752,
+          "mac": 4062965760.0,
+          "weight_bytes": 185600.0,
+          "logical_activation_io_bytes": 1593999360.0,
+          "snake_elements": 60641280.0,
+          "max_output_bytes": 34652160,
+          "us_MatMul": 9964.0,
+          "upsample_us": 4514.0,
+          "upsample_mac": 2217738240.0,
+          "upsample_weight_bytes": 131072.0,
+          "us_PhaseSumBiasInterleaveF32": 490.3333333333333,
+          "us_Reshape": 73.0,
+          "us_SnakeF32": 5645.666666666667,
+          "us_CausalDW7SnakeF32": 7138.0,
+          "residual_pointwise_us": 5450.0,
+          "residual_pointwise_mac": 1663303680.0,
+          "us_Add": 2370.3333333333335,
+          "us_Mul": 273.3333333333333
+        },
+        "6": {
+          "mean_us": 27240.666666666668,
+          "percent_profile": 16.92636218463202,
+          "mac": 2183086080.0,
+          "weight_bytes": 48640.0,
+          "logical_activation_io_bytes": 1491125760.0,
+          "snake_elements": 60641280.0,
+          "max_output_bytes": 34652160,
+          "us_MatMul": 8413.666666666666,
+          "upsample_us": 3705.666666666667,
+          "upsample_mac": 1108869120.0,
+          "upsample_weight_bytes": 32768.0,
+          "us_PhaseSumBiasInterleaveF32": 479.6666666666667,
+          "us_Reshape": 76.00000000000001,
+          "us_SnakeF32": 5678.0,
+          "us_CausalDW7SnakeF32": 7289.333333333334,
+          "residual_pointwise_us": 4708.0,
+          "residual_pointwise_mac": 831651840.0,
+          "us_Add": 2038.6666666666665,
+          "us_FusedConv": 3265.3333333333335
+        }
+      },
+      "mac_per_generated_second": 8991243200.0,
+      "logical_activation_io_bytes_per_second": 1252972800.0,
+      "snake_elements_per_second": 48793600.0
+    },
+    "amd4": {
+      "source": "work/multilingual-benchmark/amd/campaign.json",
+      "latent_frames": 141,
+      "audio_s": 5.64,
+      "profile_mean_s": 0.6807403333333334,
+      "stages": {
+        "-1": {
+          "mean_us": 94.33333333333333,
+          "percent_profile": 0.01385746204744736,
+          "mac": 0.0,
+          "weight_bytes": 0.0,
+          "logical_activation_io_bytes": 0.0,
+          "snake_elements": 0.0,
+          "max_output_bytes": 0.0,
+          "us_Shape": 8.0,
+          "us_Squeeze": 4.666666666666667,
+          "us_Mul": 26.0,
+          "us_Reshape": 23.333333333333332,
+          "us_Concat": 32.33333333333333
+        },
+        "0": {
+          "mean_us": 566.0,
+          "percent_profile": 0.08314477228468417,
+          "mac": 18544320.0,
+          "weight_bytes": 526080.0,
+          "logical_activation_io_bytes": 10503936.0,
+          "snake_elements": 288768.0,
+          "max_output_bytes": 1155072,
+          "us_CausalDW7F32": 20.333333333333332,
+          "us_MatMul": 221.66666666666666,
+          "us_Add": 83.0,
+          "us_Mul": 43.666666666666664,
+          "us_Reshape": 5.333333333333333,
+          "us_SnakeF32": 192.0
+        },
+        "1": {
+          "mean_us": 92176.99999999997,
+          "percent_profile": 13.54069907223557,
+          "mac": 8303812608.0,
+          "weight_bytes": 146886656.0,
+          "logical_activation_io_bytes": 205602816.0,
+          "snake_elements": 8085504.0,
+          "max_output_bytes": 4620288,
+          "us_MatMul": 87402.33333333333,
+          "upsample_us": 52448.33333333333,
+          "upsample_mac": 4731174912.0,
+          "upsample_weight_bytes": 134217728.0,
+          "us_PhaseSumBiasInterleaveF32": 396.3333333333333,
+          "us_Reshape": 61.66666666666667,
+          "us_SnakeF32": 1845.6666666666667,
+          "us_CausalDW7SnakeF32": 1888.6666666666665,
+          "residual_pointwise_us": 34954.0,
+          "residual_pointwise_mac": 3548381184.0,
+          "us_Add": 522.3333333333334,
+          "us_Mul": 60.0
+        },
+        "2": {
+          "mean_us": 133918.99999999997,
+          "percent_profile": 19.672552578785545,
+          "mac": 12492103680.0,
+          "weight_bytes": 28354560.0,
+          "logical_activation_io_bytes": 619118592.0,
+          "snake_elements": 24256512.0,
+          "max_output_bytes": 13860864,
+          "us_MatMul": 119951.33333333331,
+          "upsample_us": 71380.33333333333,
+          "upsample_mac": 7096762368.0,
+          "upsample_weight_bytes": 25165824.0,
+          "us_PhaseSumBiasInterleaveF32": 805.0,
+          "us_Reshape": 69.66666666666667,
+          "us_SnakeF32": 5368.0,
+          "us_CausalDW7SnakeF32": 5369.666666666667,
+          "residual_pointwise_us": 48571.0,
+          "residual_pointwise_mac": 5322571776.0,
+          "us_Add": 2145.333333333333,
+          "us_Mul": 210.0
+        },
+        "3": {
+          "mean_us": 183487.0,
+          "percent_profile": 26.95403680600679,
+          "mac": 15706091520.0,
+          "weight_bytes": 6050816.0,
+          "logical_activation_io_bytes": 1552416768.0,
+          "snake_elements": 60641280.0,
+          "max_output_bytes": 34652160,
+          "us_MatMul": 143121.3333333333,
+          "upsample_us": 79568.66666666666,
+          "upsample_mac": 8870952960.0,
+          "upsample_weight_bytes": 5242880.0,
+          "us_PhaseSumBiasInterleaveF32": 2180.3333333333335,
+          "us_Reshape": 78.33333333333333,
+          "us_SnakeF32": 13480.0,
+          "us_CausalDW7SnakeF32": 13201.0,
+          "residual_pointwise_us": 63552.66666666667,
+          "residual_pointwise_mac": 6653214720.0,
+          "us_Add": 10331.0,
+          "us_Mul": 1095.0
+        },
+        "4": {
+          "mean_us": 117067.00000000001,
+          "percent_profile": 17.197012468288204,
+          "mac": 7944007680.0,
+          "weight_bytes": 731648.0,
+          "logical_activation_io_bytes": 1593999360.0,
+          "snake_elements": 60641280.0,
+          "max_output_bytes": 34652160,
+          "us_MatMul": 77023.33333333334,
+          "upsample_us": 42357.0,
+          "upsample_mac": 4435476480.0,
+          "upsample_weight_bytes": 524288.0,
+          "us_PhaseSumBiasInterleaveF32": 1912.3333333333333,
+          "us_Reshape": 78.33333333333334,
+          "us_SnakeF32": 13403.333333333334,
+          "us_CausalDW7SnakeF32": 13209.0,
+          "residual_pointwise_us": 34666.333333333336,
+          "residual_pointwise_mac": 3326607360.0,
+          "us_Add": 10340.666666666668,
+          "us_Mul": 1100.0
+        },
+        "5": {
+          "mean_us": 83968.66666666666,
+          "percent_profile": 12.3349040089197,
+          "mac": 4062965760.0,
+          "weight_bytes": 185600.0,
+          "logical_activation_io_bytes": 1593999360.0,
+          "snake_elements": 60641280.0,
+          "max_output_bytes": 34652160,
+          "us_MatMul": 43754.00000000001,
+          "upsample_us": 23022.333333333336,
+          "upsample_mac": 2217738240.0,
+          "upsample_weight_bytes": 131072.0,
+          "us_PhaseSumBiasInterleaveF32": 1903.0,
+          "us_Reshape": 84.0,
+          "us_SnakeF32": 13468.666666666666,
+          "us_CausalDW7SnakeF32": 13308.0,
+          "residual_pointwise_us": 20731.666666666664,
+          "residual_pointwise_mac": 1663303680.0,
+          "us_Add": 10354.0,
+          "us_Mul": 1097.0
+        },
+        "6": {
+          "mean_us": 69461.33333333333,
+          "percent_profile": 10.20379283143205,
+          "mac": 2183086080.0,
+          "weight_bytes": 48640.0,
+          "logical_activation_io_bytes": 1491125760.0,
+          "snake_elements": 60641280.0,
+          "max_output_bytes": 34652160,
+          "us_MatMul": 25994.0,
+          "upsample_us": 13625.0,
+          "upsample_mac": 1108869120.0,
+          "upsample_weight_bytes": 32768.0,
+          "us_PhaseSumBiasInterleaveF32": 1888.0,
+          "us_Reshape": 87.33333333333333,
+          "us_SnakeF32": 13485.0,
+          "us_CausalDW7SnakeF32": 13702.0,
+          "residual_pointwise_us": 12369.0,
+          "residual_pointwise_mac": 831651840.0,
+          "us_Add": 9330.666666666668,
+          "us_FusedConv": 4974.333333333333
+        }
+      },
+      "mac_per_generated_second": 8991243200.0,
+      "logical_activation_io_bytes_per_second": 1252972800.0,
+      "snake_elements_per_second": 48793600.0
+    },
+    "intel2": {
+      "source": "work/intel-benchmark/technical_screen.json",
+      "latent_frames": 170,
+      "audio_s": 6.8,
+      "profile_mean_s": 2.4176356666666665,
+      "stages": {
+        "-1": {
+          "mean_us": 159.99999999999997,
+          "percent_profile": 0.006618036050924134,
+          "mac": 0.0,
+          "weight_bytes": 0.0,
+          "logical_activation_io_bytes": 0.0,
+          "snake_elements": 0.0,
+          "max_output_bytes": 0.0,
+          "us_Shape": 21.666666666666668,
+          "us_Squeeze": 10.0,
+          "us_Mul": 42.33333333333333,
+          "us_Reshape": 36.66666666666667,
+          "us_Concat": 49.33333333333333
+        },
+        "0": {
+          "mean_us": 2113.3333333333335,
+          "percent_profile": 0.08741322617262293,
+          "mac": 22358400.0,
+          "weight_bytes": 526080.0,
+          "logical_activation_io_bytes": 12664320.0,
+          "snake_elements": 348160.0,
+          "max_output_bytes": 1392640,
+          "us_CausalDW7F32": 64.0,
+          "us_MatMul": 555.6666666666666,
+          "us_Add": 424.33333333333337,
+          "us_Mul": 171.66666666666666,
+          "us_Reshape": 18.333333333333332,
+          "us_SnakeF32": 879.3333333333334
+        },
+        "1": {
+          "mean_us": 309738.0,
+          "percent_profile": 12.811607814632119,
+          "mac": 10011688960.0,
+          "weight_bytes": 146886656.0,
+          "logical_activation_io_bytes": 247889920.0,
+          "snake_elements": 9748480.0,
+          "max_output_bytes": 5570560,
+          "us_MatMul": 279619.6666666666,
+          "upsample_us": 179559.3333333333,
+          "upsample_mac": 5704253440.0,
+          "upsample_weight_bytes": 134217728.0,
+          "us_PhaseSumBiasInterleaveF32": 1357.6666666666667,
+          "us_Reshape": 201.66666666666669,
+          "us_SnakeF32": 10816.666666666666,
+          "us_CausalDW7SnakeF32": 10867.333333333334,
+          "residual_pointwise_us": 100060.33333333334,
+          "residual_pointwise_mac": 4278190080.0,
+          "us_Add": 6319.333333333333,
+          "us_Mul": 555.6666666666666
+        },
+        "2": {
+          "mean_us": 433760.0000000001,
+          "percent_profile": 17.94149573405533,
+          "mac": 15061401600.0,
+          "weight_bytes": 28354560.0,
+          "logical_activation_io_bytes": 746455040.0,
+          "snake_elements": 29245440.0,
+          "max_output_bytes": 16711680,
+          "us_MatMul": 343039.6666666667,
+          "upsample_us": 224198.3333333333,
+          "upsample_mac": 8556380160.0,
+          "upsample_weight_bytes": 25165824.0,
+          "us_PhaseSumBiasInterleaveF32": 3954.0,
+          "us_Reshape": 226.00000000000003,
+          "us_SnakeF32": 33157.0,
+          "us_CausalDW7SnakeF32": 30609.666666666664,
+          "residual_pointwise_us": 118841.33333333333,
+          "residual_pointwise_mac": 6417285120.0,
+          "us_Add": 20466.666666666668,
+          "us_Mul": 2307.0
+        },
+        "3": {
+          "mean_us": 570001.0000000001,
+          "percent_profile": 23.576794794142543,
+          "mac": 18936422400.0,
+          "weight_bytes": 6050816.0,
+          "logical_activation_io_bytes": 1871708160.0,
+          "snake_elements": 73113600.0,
+          "max_output_bytes": 41779200,
+          "us_MatMul": 340543.3333333334,
+          "upsample_us": 193532.6666666667,
+          "upsample_mac": 10695475200.0,
+          "upsample_weight_bytes": 5242880.0,
+          "us_PhaseSumBiasInterleaveF32": 10161.333333333334,
+          "us_Reshape": 259.0,
+          "us_SnakeF32": 81831.00000000001,
+          "us_CausalDW7SnakeF32": 75087.0,
+          "residual_pointwise_us": 147010.66666666666,
+          "residual_pointwise_mac": 8021606400.0,
+          "us_Add": 55603.66666666667,
+          "us_Mul": 6515.666666666667
+        },
+        "4": {
+          "mean_us": 417144.99999999994,
+          "percent_profile": 17.25425405289217,
+          "mac": 9577881600.0,
+          "weight_bytes": 731648.0,
+          "logical_activation_io_bytes": 1921843200.0,
+          "snake_elements": 73113600.0,
+          "max_output_bytes": 41779200,
+          "us_MatMul": 188044.0,
+          "upsample_us": 97404.0,
+          "upsample_mac": 5347737600.0,
+          "upsample_weight_bytes": 524288.0,
+          "us_PhaseSumBiasInterleaveF32": 9638.666666666666,
+          "us_Reshape": 245.33333333333334,
+          "us_SnakeF32": 81948.33333333333,
+          "us_CausalDW7SnakeF32": 74360.0,
+          "residual_pointwise_us": 90640.0,
+          "residual_pointwise_mac": 4010803200.0,
+          "us_Add": 56258.666666666664,
+          "us_Mul": 6650.0
+        },
+        "5": {
+          "mean_us": 354782.33333333326,
+          "percent_profile": 14.674764201443638,
+          "mac": 4898611200.0,
+          "weight_bytes": 185600.0,
+          "logical_activation_io_bytes": 1921843200.0,
+          "snake_elements": 73113600.0,
+          "max_output_bytes": 41779200,
+          "us_MatMul": 122478.33333333333,
+          "upsample_us": 60228.33333333333,
+          "upsample_mac": 2673868800.0,
+          "upsample_weight_bytes": 131072.0,
+          "us_PhaseSumBiasInterleaveF32": 9735.333333333334,
+          "us_Reshape": 262.3333333333333,
+          "us_SnakeF32": 82863.0,
+          "us_CausalDW7SnakeF32": 75899.0,
+          "residual_pointwise_us": 62250.0,
+          "residual_pointwise_mac": 2005401600.0,
+          "us_Add": 56704.666666666664,
+          "us_Mul": 6839.666666666667
+        },
+        "6": {
+          "mean_us": 329936.00000000006,
+          "percent_profile": 13.647052140610654,
+          "mac": 2632089600.0,
+          "weight_bytes": 48640.0,
+          "logical_activation_io_bytes": 1797811200.0,
+          "snake_elements": 73113600.0,
+          "max_output_bytes": 41779200,
+          "us_MatMul": 92167.0,
+          "upsample_us": 41481.0,
+          "upsample_mac": 1336934400.0,
+          "upsample_weight_bytes": 32768.0,
+          "us_PhaseSumBiasInterleaveF32": 9645.0,
+          "us_Reshape": 259.6666666666667,
+          "us_SnakeF32": 81397.66666666667,
+          "us_CausalDW7SnakeF32": 74861.0,
+          "residual_pointwise_us": 50686.0,
+          "residual_pointwise_mac": 1002700800.0,
+          "us_Add": 49026.99999999999,
+          "us_FusedConv": 22578.666666666668
+        }
+      },
+      "mac_per_generated_second": 8991243200.0,
+      "logical_activation_io_bytes_per_second": 1252972800.0,
+      "snake_elements_per_second": 48793600.0,
+      "matrix_nodes": [
+        {
+          "stage": 0,
+          "name": "node_conv1d_1__bct_mm_kernel_time",
+          "op": "MatMul",
+          "input": [
+            {
+              "float": [
+                2048,
+                64
+              ]
+            },
+            {
+              "float": [
+                1,
+                64,
+                170
+              ]
+            }
+          ],
+          "output": [
+            {
+              "float": [
+                1,
+                2048,
+                170
+              ]
+            }
+          ],
+          "mean_us": 555.6666666666666,
+          "percent_profile": 0.02298388770185527,
+          "mac": 22282240,
+          "weight_bytes": 524288,
+          "kind": "other matrices",
+          "logical_activation_io_bytes": 1436160,
+          "max_output_bytes": 1392640,
+          "snake_elements": 0,
+          "effective_gflops": 80.20002399520098
+        },
+        {
+          "stage": 1,
+          "name": "ncc_up_1_split_matmul_previous_unshifted_node_kernel_time",
+          "op": "MatMul",
+          "input": [
+            {
+              "float": [
+                8192,
+                2048
+              ]
+            },
+            {
+              "float": [
+                1,
+                2048,
+                170
+              ]
+            }
+          ],
+          "output": [
+            {
+              "float": [
+                1,
+                8192,
+                170
+              ]
+            }
+          ],
+          "mean_us": 88275.0,
+          "percent_profile": 3.651294577470799,
+          "mac": 2852126720,
+          "weight_bytes": 67108864,
+          "kind": "upsampling matrices",
+          "logical_activation_io_bytes": 6963200,
+          "max_output_bytes": 5570560,
+          "snake_elements": 0,
+          "effective_gflops": 64.61912704616256
+        },
+        {
+          "stage": 1,
+          "name": "ncc_up_1_split_matmul_current_node_kernel_time",
+          "op": "MatMul",
+          "input": [
+            {
+              "float": [
+                8192,
+                2048
+              ]
+            },
+            {
+              "float": [
+                1,
+                2048,
+                170
+              ]
+            }
+          ],
+          "output": [
+            {
+              "float": [
+                1,
+                8192,
+                170
+              ]
+            }
+          ],
+          "mean_us": 91284.33333333333,
+          "percent_profile": 3.775768805528597,
+          "mac": 2852126720,
+          "weight_bytes": 67108864,
+          "kind": "upsampling matrices",
+          "logical_activation_io_bytes": 6963200,
+          "max_output_bytes": 5570560,
+          "snake_elements": 0,
+          "effective_gflops": 62.48885467750947
+        },
+        {
+          "stage": 1,
+          "name": "node_conv1d_3__bct_mm_kernel_time",
+          "op": "MatMul",
+          "input": [
+            {
+              "float": [
+                1024,
+                1024
+              ]
+            },
+            {
+              "float": [
+                1,
+                1024,
+                1360
+              ]
+            }
+          ],
+          "output": [
+            {
+              "float": [
+                1,
+                1024,
+                1360
+              ]
+            }
+          ],
+          "mean_us": 32617.666666666668,
+          "percent_profile": 1.349155586856415,
+          "mac": 1426063360,
+          "weight_bytes": 4194304,
+          "kind": "residual pointwise",
+          "logical_activation_io_bytes": 11141120,
+          "max_output_bytes": 5570560,
+          "snake_elements": 0,
+          "effective_gflops": 87.44116337771965
+        },
+        {
+          "stage": 1,
+          "name": "node_conv1d_5__bct_mm_kernel_time",
+          "op": "MatMul",
+          "input": [
+            {
+              "float": [
+                1024,
+                1024
+              ]
+            },
+            {
+              "float": [
+                1,
+                1024,
+                1360
+              ]
+            }
+          ],
+          "output": [
+            {
+              "float": [
+                1,
+                1024,
+                1360
+              ]
+            }
+          ],
+          "mean_us": 33363.0,
+          "percent_profile": 1.3799846047936366,
+          "mac": 1426063360,
+          "weight_bytes": 4194304,
+          "kind": "residual pointwise",
+          "logical_activation_io_bytes": 11141120,
+          "max_output_bytes": 5570560,
+          "snake_elements": 0,
+          "effective_gflops": 85.48771753139705
+        },
+        {
+          "stage": 1,
+          "name": "node_conv1d_7__bct_mm_kernel_time",
+          "op": "MatMul",
+          "input": [
+            {
+              "float": [
+                1024,
+                1024
+              ]
+            },
+            {
+              "float": [
+                1,
+                1024,
+                1360
+              ]
+            }
+          ],
+          "output": [
+            {
+              "float": [
+                1,
+                1024,
+                1360
+              ]
+            }
+          ],
+          "mean_us": 34079.666666666664,
+          "percent_profile": 1.4096278912717344,
+          "mac": 1426063360,
+          "weight_bytes": 4194304,
+          "kind": "residual pointwise",
+          "logical_activation_io_bytes": 11141120,
+          "max_output_bytes": 5570560,
+          "snake_elements": 0,
+          "effective_gflops": 83.68998288324417
+        },
+        {
+          "stage": 2,
+          "name": "ncc_up_2_split_matmul_previous_unshifted_node_kernel_time",
+          "op": "MatMul",
+          "input": [
+            {
+              "float": [
+                3072,
+                1024
+              ]
+            },
+            {
+              "float": [
+                1,
+                1024,
+                1360
+              ]
+            }
+          ],
+          "output": [
+            {
+              "float": [
+                1,
+                3072,
+                1360
+              ]
+            }
+          ],
+          "mean_us": 117046.33333333333,
+          "percent_profile": 4.841355335178019,
+          "mac": 4278190080,
+          "weight_bytes": 12582912,
+          "kind": "upsampling matrices",
+          "logical_activation_io_bytes": 22282240,
+          "max_output_bytes": 16711680,
+          "snake_elements": 0,
+          "effective_gflops": 73.10250493394354
+        },
+        {
+          "stage": 2,
+          "name": "ncc_up_2_split_matmul_current_node_kernel_time",
+          "op": "MatMul",
+          "input": [
+            {
+              "float": [
+                3072,
+                1024
+              ]
+            },
+            {
+              "float": [
+                1,
+                1024,
+                1360
+              ]
+            }
+          ],
+          "output": [
+            {
+              "float": [
+                1,
+                3072,
+                1360
+              ]
+            }
+          ],
+          "mean_us": 107152.0,
+          "percent_profile": 4.432098743303891,
+          "mac": 4278190080,
+          "weight_bytes": 12582912,
+          "kind": "upsampling matrices",
+          "logical_activation_io_bytes": 22282240,
+          "max_output_bytes": 16711680,
+          "snake_elements": 0,
+          "effective_gflops": 79.85273406002688
+        },
+        {
+          "stage": 2,
+          "name": "node_conv1d_9__bct_mm_kernel_time",
+          "op": "MatMul",
+          "input": [
+            {
+              "float": [
+                512,
+                512
+              ]
+            },
+            {
+              "float": [
+                1,
+                512,
+                8160
+              ]
+            }
+          ],
+          "output": [
+            {
+              "float": [
+                1,
+                512,
+                8160
+              ]
+            }
+          ],
+          "mean_us": 39945.666666666664,
+          "percent_profile": 1.6522616379887403,
+          "mac": 2139095040,
+          "weight_bytes": 1048576,
+          "kind": "residual pointwise",
+          "logical_activation_io_bytes": 33423360,
+          "max_output_bytes": 16711680,
+          "snake_elements": 0,
+          "effective_gflops": 107.10022981216153
+        },
+        {
+          "stage": 2,
+          "name": "node_conv1d_11__bct_mm_kernel_time",
+          "op": "MatMul",
+          "input": [
+            {
+              "float": [
+                512,
+                512
+              ]
+            },
+            {
+              "float": [
+                1,
+                512,
+                8160
+              ]
+            }
+          ],
+          "output": [
+            {
+              "float": [
+                1,
+                512,
+                8160
+              ]
+            }
+          ],
+          "mean_us": 39487.666666666664,
+          "percent_profile": 1.6333175097929697,
+          "mac": 2139095040,
+          "weight_bytes": 1048576,
+          "kind": "residual pointwise",
+          "logical_activation_io_bytes": 33423360,
+          "max_output_bytes": 16711680,
+          "snake_elements": 0,
+          "effective_gflops": 108.34243806082912
+        },
+        {
+          "stage": 2,
+          "name": "node_conv1d_13__bct_mm_kernel_time",
+          "op": "MatMul",
+          "input": [
+            {
+              "float": [
+                512,
+                512
+              ]
+            },
+            {
+              "float": [
+                1,
+                512,
+                8160
+              ]
+            }
+          ],
+          "output": [
+            {
+              "float": [
+                1,
+                512,
+                8160
+              ]
+            }
+          ],
+          "mean_us": 39408.0,
+          "percent_profile": 1.630022279342614,
+          "mac": 2139095040,
+          "weight_bytes": 1048576,
+          "kind": "residual pointwise",
+          "logical_activation_io_bytes": 33423360,
+          "max_output_bytes": 16711680,
+          "snake_elements": 0,
+          "effective_gflops": 108.5614616321559
+        },
+        {
+          "stage": 3,
+          "name": "ncc_up_3_split_matmul_previous_unshifted_node_kernel_time",
+          "op": "MatMul",
+          "input": [
+            {
+              "float": [
+                1280,
+                512
+              ]
+            },
+            {
+              "float": [
+                1,
+                512,
+                8160
+              ]
+            }
+          ],
+          "output": [
+            {
+              "float": [
+                1,
+                1280,
+                8160
+              ]
+            }
+          ],
+          "mean_us": 96048.66666666667,
+          "percent_profile": 3.972834616519969,
+          "mac": 5347737600,
+          "weight_bytes": 2621440,
+          "kind": "upsampling matrices",
+          "logical_activation_io_bytes": 58490880,
+          "max_output_bytes": 41779200,
+          "snake_elements": 0,
+          "effective_gflops": 111.35474932846542
+        },
+        {
+          "stage": 3,
+          "name": "ncc_up_3_split_matmul_current_node_kernel_time",
+          "op": "MatMul",
+          "input": [
+            {
+              "float": [
+                1280,
+                512
+              ]
+            },
+            {
+              "float": [
+                1,
+                512,
+                8160
+              ]
+            }
+          ],
+          "output": [
+            {
+              "float": [
+                1,
+                1280,
+                8160
+              ]
+            }
+          ],
+          "mean_us": 97484.0,
+          "percent_profile": 4.032203914926801,
+          "mac": 5347737600,
+          "weight_bytes": 2621440,
+          "kind": "upsampling matrices",
+          "logical_activation_io_bytes": 58490880,
+          "max_output_bytes": 41779200,
+          "snake_elements": 0,
+          "effective_gflops": 109.71518608181856
+        },
+        {
+          "stage": 3,
+          "name": "node_conv1d_15__bct_mm_kernel_time",
+          "op": "MatMul",
+          "input": [
+            {
+              "float": [
+                256,
+                256
+              ]
+            },
+            {
+              "float": [
+                1,
+                256,
+                40800
+              ]
+            }
+          ],
+          "output": [
+            {
+              "float": [
+                1,
+                256,
+                40800
+              ]
+            }
+          ],
+          "mean_us": 49203.0,
+          "percent_profile": 2.0351701738351258,
+          "mac": 2673868800,
+          "weight_bytes": 262144,
+          "kind": "residual pointwise",
+          "logical_activation_io_bytes": 83558400,
+          "max_output_bytes": 41779200,
+          "snake_elements": 0,
+          "effective_gflops": 108.68722638863484
+        },
+        {
+          "stage": 3,
+          "name": "node_conv1d_17__bct_mm_kernel_time",
+          "op": "MatMul",
+          "input": [
+            {
+              "float": [
+                256,
+                256
+              ]
+            },
+            {
+              "float": [
+                1,
+                256,
+                40800
+              ]
+            }
+          ],
+          "output": [
+            {
+              "float": [
+                1,
+                256,
+                40800
+              ]
+            }
+          ],
+          "mean_us": 49023.666666666664,
+          "percent_profile": 2.0277524584280484,
+          "mac": 2673868800,
+          "weight_bytes": 262144,
+          "kind": "residual pointwise",
+          "logical_activation_io_bytes": 83558400,
+          "max_output_bytes": 41779200,
+          "snake_elements": 0,
+          "effective_gflops": 109.08481481733313
+        },
+        {
+          "stage": 3,
+          "name": "node_conv1d_19__bct_mm_kernel_time",
+          "op": "MatMul",
+          "input": [
+            {
+              "float": [
+                256,
+                256
+              ]
+            },
+            {
+              "float": [
+                1,
+                256,
+                40800
+              ]
+            }
+          ],
+          "output": [
+            {
+              "float": [
+                1,
+                256,
+                40800
+              ]
+            }
+          ],
+          "mean_us": 48784.0,
+          "percent_profile": 2.017839191926768,
+          "mac": 2673868800,
+          "weight_bytes": 262144,
+          "kind": "residual pointwise",
+          "logical_activation_io_bytes": 83558400,
+          "max_output_bytes": 41779200,
+          "snake_elements": 0,
+          "effective_gflops": 109.62072810757626
+        },
+        {
+          "stage": 4,
+          "name": "ncc_up_4_split_matmul_previous_unshifted_node_kernel_time",
+          "op": "MatMul",
+          "input": [
+            {
+              "float": [
+                256,
+                256
+              ]
+            },
+            {
+              "float": [
+                1,
+                256,
+                40800
+              ]
+            }
+          ],
+          "output": [
+            {
+              "float": [
+                1,
+                256,
+                40800
+              ]
+            }
+          ],
+          "mean_us": 48640.666666666664,
+          "percent_profile": 2.0119105346311486,
+          "mac": 2673868800,
+          "weight_bytes": 262144,
+          "kind": "upsampling matrices",
+          "logical_activation_io_bytes": 83558400,
+          "max_output_bytes": 41779200,
+          "snake_elements": 0,
+          "effective_gflops": 109.94375625334084
+        },
+        {
+          "stage": 4,
+          "name": "ncc_up_4_split_matmul_current_node_kernel_time",
+          "op": "MatMul",
+          "input": [
+            {
+              "float": [
+                256,
+                256
+              ]
+            },
+            {
+              "float": [
+                1,
+                256,
+                40800
+              ]
+            }
+          ],
+          "output": [
+            {
+              "float": [
+                1,
+                256,
+                40800
+              ]
+            }
+          ],
+          "mean_us": 48763.333333333336,
+          "percent_profile": 2.01698436227019,
+          "mac": 2673868800,
+          "weight_bytes": 262144,
+          "kind": "upsampling matrices",
+          "logical_activation_io_bytes": 83558400,
+          "max_output_bytes": 41779200,
+          "snake_elements": 0,
+          "effective_gflops": 109.6671870941281
+        },
+        {
+          "stage": 4,
+          "name": "node_conv1d_21__bct_mm_kernel_time",
+          "op": "MatMul",
+          "input": [
+            {
+              "float": [
+                128,
+                128
+              ]
+            },
+            {
+              "float": [
+                1,
+                128,
+                81600
+              ]
+            }
+          ],
+          "output": [
+            {
+              "float": [
+                1,
+                128,
+                81600
+              ]
+            }
+          ],
+          "mean_us": 30319.0,
+          "percent_profile": 1.254076468924805,
+          "mac": 1336934400,
+          "weight_bytes": 65536,
+          "kind": "residual pointwise",
+          "logical_activation_io_bytes": 83558400,
+          "max_output_bytes": 41779200,
+          "snake_elements": 0,
+          "effective_gflops": 88.19119364095121
+        },
+        {
+          "stage": 4,
+          "name": "node_conv1d_23__bct_mm_kernel_time",
+          "op": "MatMul",
+          "input": [
+            {
+              "float": [
+                128,
+                128
+              ]
+            },
+            {
+              "float": [
+                1,
+                128,
+                81600
+              ]
+            }
+          ],
+          "output": [
+            {
+              "float": [
+                1,
+                128,
+                81600
+              ]
+            }
+          ],
+          "mean_us": 30146.666666666668,
+          "percent_profile": 1.2469482925949553,
+          "mac": 1336934400,
+          "weight_bytes": 65536,
+          "kind": "residual pointwise",
+          "logical_activation_io_bytes": 83558400,
+          "max_output_bytes": 41779200,
+          "snake_elements": 0,
+          "effective_gflops": 88.69533834586466
+        },
+        {
+          "stage": 4,
+          "name": "node_conv1d_25__bct_mm_kernel_time",
+          "op": "MatMul",
+          "input": [
+            {
+              "float": [
+                128,
+                128
+              ]
+            },
+            {
+              "float": [
+                1,
+                128,
+                81600
+              ]
+            }
+          ],
+          "output": [
+            {
+              "float": [
+                1,
+                128,
+                81600
+              ]
+            }
+          ],
+          "mean_us": 30174.333333333332,
+          "percent_profile": 1.248092661328761,
+          "mac": 1336934400,
+          "weight_bytes": 65536,
+          "kind": "residual pointwise",
+          "logical_activation_io_bytes": 83558400,
+          "max_output_bytes": 41779200,
+          "snake_elements": 0,
+          "effective_gflops": 88.61401411795897
+        },
+        {
+          "stage": 5,
+          "name": "ncc_up_5_split_matmul_previous_unshifted_node_kernel_time",
+          "op": "MatMul",
+          "input": [
+            {
+              "float": [
+                128,
+                128
+              ]
+            },
+            {
+              "float": [
+                1,
+                128,
+                81600
+              ]
+            }
+          ],
+          "output": [
+            {
+              "float": [
+                1,
+                128,
+                81600
+              ]
+            }
+          ],
+          "mean_us": 29818.333333333332,
+          "percent_profile": 1.2333675311154548,
+          "mac": 1336934400,
+          "weight_bytes": 65536,
+          "kind": "upsampling matrices",
+          "logical_activation_io_bytes": 83558400,
+          "max_output_bytes": 41779200,
+          "snake_elements": 0,
+          "effective_gflops": 89.67197361802023
+        },
+        {
+          "stage": 5,
+          "name": "ncc_up_5_split_matmul_current_node_kernel_time",
+          "op": "MatMul",
+          "input": [
+            {
+              "float": [
+                128,
+                128
+              ]
+            },
+            {
+              "float": [
+                1,
+                128,
+                81600
+              ]
+            }
+          ],
+          "output": [
+            {
+              "float": [
+                1,
+                128,
+                81600
+              ]
+            }
+          ],
+          "mean_us": 30410.0,
+          "percent_profile": 1.257840476928768,
+          "mac": 1336934400,
+          "weight_bytes": 65536,
+          "kind": "upsampling matrices",
+          "logical_activation_io_bytes": 83558400,
+          "max_output_bytes": 41779200,
+          "snake_elements": 0,
+          "effective_gflops": 87.92728707661952
+        },
+        {
+          "stage": 5,
+          "name": "node_conv1d_27__bct_mm_kernel_time",
+          "op": "MatMul",
+          "input": [
+            {
+              "float": [
+                64,
+                64
+              ]
+            },
+            {
+              "float": [
+                1,
+                64,
+                163200
+              ]
+            }
+          ],
+          "output": [
+            {
+              "float": [
+                1,
+                64,
+                163200
+              ]
+            }
+          ],
+          "mean_us": 20657.0,
+          "percent_profile": 0.8544298168996237,
+          "mac": 668467200,
+          "weight_bytes": 16384,
+          "kind": "residual pointwise",
+          "logical_activation_io_bytes": 83558400,
+          "max_output_bytes": 41779200,
+          "snake_elements": 0,
+          "effective_gflops": 64.72064675412693
+        },
+        {
+          "stage": 5,
+          "name": "node_conv1d_29__bct_mm_kernel_time",
+          "op": "MatMul",
+          "input": [
+            {
+              "float": [
+                64,
+                64
+              ]
+            },
+            {
+              "float": [
+                1,
+                64,
+                163200
+              ]
+            }
+          ],
+          "output": [
+            {
+              "float": [
+                1,
+                64,
+                163200
+              ]
+            }
+          ],
+          "mean_us": 20761.0,
+          "percent_profile": 0.8587315403327245,
+          "mac": 668467200,
+          "weight_bytes": 16384,
+          "kind": "residual pointwise",
+          "logical_activation_io_bytes": 83558400,
+          "max_output_bytes": 41779200,
+          "snake_elements": 0,
+          "effective_gflops": 64.39643562448822
+        },
+        {
+          "stage": 5,
+          "name": "node_conv1d_31__bct_mm_kernel_time",
+          "op": "MatMul",
+          "input": [
+            {
+              "float": [
+                64,
+                64
+              ]
+            },
+            {
+              "float": [
+                1,
+                64,
+                163200
+              ]
+            }
+          ],
+          "output": [
+            {
+              "float": [
+                1,
+                64,
+                163200
+              ]
+            }
+          ],
+          "mean_us": 20832.0,
+          "percent_profile": 0.8616682938303221,
+          "mac": 668467200,
+          "weight_bytes": 16384,
+          "kind": "residual pointwise",
+          "logical_activation_io_bytes": 83558400,
+          "max_output_bytes": 41779200,
+          "snake_elements": 0,
+          "effective_gflops": 64.17695852534563
+        },
+        {
+          "stage": 6,
+          "name": "ncc_up_6_split_matmul_previous_unshifted_node_kernel_time",
+          "op": "MatMul",
+          "input": [
+            {
+              "float": [
+                64,
+                64
+              ]
+            },
+            {
+              "float": [
+                1,
+                64,
+                163200
+              ]
+            }
+          ],
+          "output": [
+            {
+              "float": [
+                1,
+                64,
+                163200
+              ]
+            }
+          ],
+          "mean_us": 20822.0,
+          "percent_profile": 0.8612546665771393,
+          "mac": 668467200,
+          "weight_bytes": 16384,
+          "kind": "upsampling matrices",
+          "logical_activation_io_bytes": 83558400,
+          "max_output_bytes": 41779200,
+          "snake_elements": 0,
+          "effective_gflops": 64.20778023244645
+        },
+        {
+          "stage": 6,
+          "name": "ncc_up_6_split_matmul_current_node_kernel_time",
+          "op": "MatMul",
+          "input": [
+            {
+              "float": [
+                64,
+                64
+              ]
+            },
+            {
+              "float": [
+                1,
+                64,
+                163200
+              ]
+            }
+          ],
+          "output": [
+            {
+              "float": [
+                1,
+                64,
+                163200
+              ]
+            }
+          ],
+          "mean_us": 20659.0,
+          "percent_profile": 0.8545125423502603,
+          "mac": 668467200,
+          "weight_bytes": 16384,
+          "kind": "upsampling matrices",
+          "logical_activation_io_bytes": 83558400,
+          "max_output_bytes": 41779200,
+          "snake_elements": 0,
+          "effective_gflops": 64.71438114139116
+        },
+        {
+          "stage": 6,
+          "name": "node_conv1d_33__bct_mm_kernel_time",
+          "op": "MatMul",
+          "input": [
+            {
+              "float": [
+                32,
+                32
+              ]
+            },
+            {
+              "float": [
+                1,
+                32,
+                326400
+              ]
+            }
+          ],
+          "output": [
+            {
+              "float": [
+                1,
+                32,
+                326400
+              ]
+            }
+          ],
+          "mean_us": 16903.0,
+          "percent_profile": 0.6991541460548163,
+          "mac": 334233600,
+          "weight_bytes": 4096,
+          "kind": "residual pointwise",
+          "logical_activation_io_bytes": 83558400,
+          "max_output_bytes": 41779200,
+          "snake_elements": 0,
+          "effective_gflops": 39.547251967106426
+        },
+        {
+          "stage": 6,
+          "name": "node_conv1d_35__bct_mm_kernel_time",
+          "op": "MatMul",
+          "input": [
+            {
+              "float": [
+                32,
+                32
+              ]
+            },
+            {
+              "float": [
+                1,
+                32,
+                326400
+              ]
+            }
+          ],
+          "output": [
+            {
+              "float": [
+                1,
+                32,
+                326400
+              ]
+            }
+          ],
+          "mean_us": 16929.0,
+          "percent_profile": 0.7002295769130915,
+          "mac": 334233600,
+          "weight_bytes": 4096,
+          "kind": "residual pointwise",
+          "logical_activation_io_bytes": 83558400,
+          "max_output_bytes": 41779200,
+          "snake_elements": 0,
+          "effective_gflops": 39.486514265461636
+        },
+        {
+          "stage": 6,
+          "name": "node_conv1d_37__bct_mm_kernel_time",
+          "op": "MatMul",
+          "input": [
+            {
+              "float": [
+                32,
+                32
+              ]
+            },
+            {
+              "float": [
+                1,
+                32,
+                326400
+              ]
+            }
+          ],
+          "output": [
+            {
+              "float": [
+                1,
+                32,
+                326400
+              ]
+            }
+          ],
+          "mean_us": 16854.0,
+          "percent_profile": 0.6971273725142209,
+          "mac": 334233600,
+          "weight_bytes": 4096,
+          "kind": "residual pointwise",
+          "logical_activation_io_bytes": 83558400,
+          "max_output_bytes": 41779200,
+          "snake_elements": 0,
+          "effective_gflops": 39.662228551085796
+        }
+      ]
+    },
+    "amd_legacy4": {
+      "source": "work/native_codec_cpu/ort_experiments/remote_cpu/acceptance_results.json",
+      "latent_frames": 170,
+      "audio_s": 6.8,
+      "profile_mean_s": 0.4905353333333333,
+      "stages": {
+        "-1": {
+          "mean_us": 98.33333333333333,
+          "percent_profile": 0.020046126476787943,
+          "mac": 0.0,
+          "weight_bytes": 0.0,
+          "logical_activation_io_bytes": 0.0,
+          "snake_elements": 0.0,
+          "max_output_bytes": 0.0,
+          "us_Shape": 8.333333333333334,
+          "us_Squeeze": 5.0,
+          "us_Mul": 26.333333333333332,
+          "us_Reshape": 26.666666666666664,
+          "us_Concat": 32.0
+        },
+        "0": {
+          "mean_us": 436.0,
+          "percent_profile": 0.08888248620894451,
+          "mac": 22358400.0,
+          "weight_bytes": 526080.0,
+          "logical_activation_io_bytes": 12664320.0,
+          "snake_elements": 348160.0,
+          "max_output_bytes": 1392640,
+          "us_CausalDW7F32": 20.333333333333332,
+          "us_MatMul": 147.33333333333334,
+          "us_Add": 81.66666666666666,
+          "us_Mul": 39.0,
+          "us_Reshape": 5.333333333333333,
+          "us_SnakeF32": 142.33333333333334
+        },
+        "1": {
+          "mean_us": 60157.33333333335,
+          "percent_profile": 12.263608601758893,
+          "mac": 10011688960.0,
+          "weight_bytes": 146886656.0,
+          "logical_activation_io_bytes": 247889920.0,
+          "snake_elements": 9748480.0,
+          "max_output_bytes": 5570560,
+          "us_MatMul": 55911.33333333333,
+          "upsample_us": 33755.33333333333,
+          "upsample_mac": 5704253440.0,
+          "upsample_weight_bytes": 134217728.0,
+          "us_PhaseSumBiasInterleaveF32": 388.3333333333333,
+          "us_Reshape": 56.0,
+          "us_SnakeF32": 1616.3333333333333,
+          "us_CausalDW7SnakeF32": 1649.3333333333335,
+          "residual_pointwise_us": 22156.0,
+          "residual_pointwise_mac": 4278190080.0,
+          "us_Add": 478.33333333333326,
+          "us_Mul": 57.666666666666664
+        },
+        "2": {
+          "mean_us": 87228.66666666664,
+          "percent_profile": 17.78234119730417,
+          "mac": 15061401600.0,
+          "weight_bytes": 28354560.0,
+          "logical_activation_io_bytes": 746455040.0,
+          "snake_elements": 29245440.0,
+          "max_output_bytes": 16711680,
+          "us_MatMul": 73212.33333333333,
+          "upsample_us": 43722.33333333333,
+          "upsample_mac": 8556380160.0,
+          "upsample_weight_bytes": 25165824.0,
+          "us_PhaseSumBiasInterleaveF32": 1017.3333333333334,
+          "us_Reshape": 76.66666666666666,
+          "us_SnakeF32": 4843.0,
+          "us_CausalDW7SnakeF32": 4842.0,
+          "residual_pointwise_us": 29490.0,
+          "residual_pointwise_mac": 6417285120.0,
+          "us_Add": 2976.3333333333335,
+          "us_Mul": 261.0
+        },
+        "3": {
+          "mean_us": 128713.66666666669,
+          "percent_profile": 26.239428216519915,
+          "mac": 18936422400.0,
+          "weight_bytes": 6050816.0,
+          "logical_activation_io_bytes": 1871708160.0,
+          "snake_elements": 73113600.0,
+          "max_output_bytes": 41779200,
+          "us_MatMul": 87666.66666666667,
+          "upsample_us": 48998.0,
+          "upsample_mac": 10695475200.0,
+          "upsample_weight_bytes": 5242880.0,
+          "us_PhaseSumBiasInterleaveF32": 2574.3333333333335,
+          "us_Reshape": 79.66666666666666,
+          "us_SnakeF32": 12097.333333333332,
+          "us_CausalDW7SnakeF32": 11989.0,
+          "residual_pointwise_us": 38668.666666666664,
+          "residual_pointwise_mac": 8021606400.0,
+          "us_Add": 12905.666666666666,
+          "us_Mul": 1401.0
+        },
+        "4": {
+          "mean_us": 87903.33333333333,
+          "percent_profile": 17.919878010826256,
+          "mac": 9577881600.0,
+          "weight_bytes": 731648.0,
+          "logical_activation_io_bytes": 1921843200.0,
+          "snake_elements": 73113600.0,
+          "max_output_bytes": 41779200,
+          "us_MatMul": 46911.0,
+          "upsample_us": 25765.0,
+          "upsample_mac": 5347737600.0,
+          "upsample_weight_bytes": 524288.0,
+          "us_PhaseSumBiasInterleaveF32": 2384.6666666666665,
+          "us_Reshape": 76.33333333333333,
+          "us_SnakeF32": 12123.0,
+          "us_CausalDW7SnakeF32": 12036.333333333334,
+          "residual_pointwise_us": 21146.0,
+          "residual_pointwise_mac": 4010803200.0,
+          "us_Add": 12965.666666666666,
+          "us_Mul": 1406.3333333333333
+        },
+        "5": {
+          "mean_us": 68287.66666666667,
+          "percent_profile": 13.921049520048163,
+          "mac": 4898611200.0,
+          "weight_bytes": 185600.0,
+          "logical_activation_io_bytes": 1921843200.0,
+          "snake_elements": 73113600.0,
+          "max_output_bytes": 41779200,
+          "us_MatMul": 26708.666666666664,
+          "upsample_us": 14059.333333333332,
+          "upsample_mac": 2673868800.0,
+          "upsample_weight_bytes": 131072.0,
+          "us_PhaseSumBiasInterleaveF32": 2395.0,
+          "us_Reshape": 83.00000000000001,
+          "us_SnakeF32": 12393.0,
+          "us_CausalDW7SnakeF32": 12323.666666666668,
+          "residual_pointwise_us": 12649.333333333332,
+          "residual_pointwise_mac": 2005401600.0,
+          "us_Add": 12997.333333333334,
+          "us_Mul": 1387.0
+        },
+        "6": {
+          "mean_us": 57710.333333333336,
+          "percent_profile": 11.764765840856862,
+          "mac": 2632089600.0,
+          "weight_bytes": 48640.0,
+          "logical_activation_io_bytes": 1797811200.0,
+          "snake_elements": 73113600.0,
+          "max_output_bytes": 41779200,
+          "us_MatMul": 16137.999999999998,
+          "upsample_us": 8346.333333333332,
+          "upsample_mac": 1336934400.0,
+          "upsample_weight_bytes": 32768.0,
+          "us_PhaseSumBiasInterleaveF32": 2392.0,
+          "us_Reshape": 81.66666666666667,
+          "us_SnakeF32": 12238.333333333332,
+          "us_CausalDW7SnakeF32": 12174.666666666668,
+          "residual_pointwise_us": 7791.666666666666,
+          "residual_pointwise_mac": 1002700800.0,
+          "us_Add": 11617.333333333334,
+          "us_FusedConv": 3068.3333333333335
+        }
+      },
+      "mac_per_generated_second": 8991243200.0,
+      "logical_activation_io_bytes_per_second": 1252972800.0,
+      "snake_elements_per_second": 48793600.0
+    }
+  },
+  "historical_mimi_profiles": {
+    "amd_legacy4": {
+      "source": "work/native_codec_cpu/ort_experiments/remote_cpu/acceptance_results.json",
+      "audio_s": 6.8,
+      "latent_frames": 85,
+      "operators": {
+        "Conv": {
+          "mean_us": 39840.333333333336,
+          "percent_profile": 11.76495486299435,
+          "mac": 6271754240.0
+        },
+        "ConvTranspose": {
+          "mean_us": 164049.0,
+          "percent_profile": 48.444099705977024,
+          "mac": 7488225280.0
+        },
+        "Slice": {
+          "mean_us": 4319.333333333334,
+          "percent_profile": 1.2755104551893037,
+          "mac": 0.0
+        },
+        "Transpose": {
+          "mean_us": 1222.0000000000002,
+          "percent_profile": 0.36085980311189897,
+          "mac": 0.0
+        },
+        "Shape": {
+          "mean_us": 31.666666666666664,
+          "percent_profile": 0.009351249671475834,
+          "mac": 0.0
+        },
+        "Gather": {
+          "mean_us": 2819.0,
+          "percent_profile": 0.8324580891754856,
+          "mac": 0.0
+        },
+        "Range": {
+          "mean_us": 31.333333333333336,
+          "percent_profile": 0.009252815464407668,
+          "mac": 0.0
+        },
+        "Unsqueeze": {
+          "mean_us": 109.33333333333331,
+          "percent_profile": 0.032286419918358664,
+          "mac": 0.0
+        },
+        "Sub": {
+          "mean_us": 435.3333333333333,
+          "percent_profile": 0.12855507443102568,
+          "mac": 0.0
+        },
+        "Less": {
+          "mean_us": 288.6666666666667,
+          "percent_profile": 0.08524402332103234,
+          "mac": 0.0
+        },
+        "GreaterOrEqual": {
+          "mean_us": 259.0,
+          "percent_profile": 0.0764833788919655,
+          "mac": 0.0
+        },
+        "And": {
+          "mean_us": 79.0,
+          "percent_profile": 0.023328907075155503,
+          "mac": 0.0
+        },
+        "Where": {
+          "mean_us": 1024.3333333333333,
+          "percent_profile": 0.3024883183204762,
+          "mac": 0.0
+        },
+        "LayerNormalization": {
+          "mean_us": 4638.666666666667,
+          "percent_profile": 1.3698104255606074,
+          "mac": 0.0
+        },
+        "MatMul": {
+          "mean_us": 48709.0,
+          "percent_profile": 14.383895376249992,
+          "mac": 9492234240.0
+        },
+        "Reshape": {
+          "mean_us": 78.66666666666667,
+          "percent_profile": 0.023230472868087333,
+          "mac": 0.0
+        },
+        "Split": {
+          "mean_us": 646.0,
+          "percent_profile": 0.19076549329810702,
+          "mac": 0.0
+        },
+        "Squeeze": {
+          "mean_us": 62.33333333333334,
+          "percent_profile": 0.018407196721747166,
+          "mac": 0.0
+        },
+        "Concat": {
+          "mean_us": 377.6666666666667,
+          "percent_profile": 0.11152595660823282,
+          "mac": 0.0
+        },
+        "Cast": {
+          "mean_us": 31.666666666666668,
+          "percent_profile": 0.009351249671475834,
+          "mac": 0.0
+        },
+        "Reciprocal": {
+          "mean_us": 8.333333333333332,
+          "percent_profile": 0.0024608551767041666,
+          "mac": 0.0
+        },
+        "Mul": {
+          "mean_us": 4186.666666666667,
+          "percent_profile": 1.2363336407761731,
+          "mac": 0.0
+        },
+        "Div": {
+          "mean_us": 20.333333333333332,
+          "percent_profile": 0.006004486631158167,
+          "mac": 0.0
+        },
+        "Exp": {
+          "mean_us": 9.333333333333334,
+          "percent_profile": 0.002756157797908667,
+          "mac": 0.0
+        },
+        "Cos": {
+          "mean_us": 170.0,
+          "percent_profile": 0.050201445604765,
+          "mac": 0.0
+        },
+        "Sin": {
+          "mean_us": 169.0,
+          "percent_profile": 0.0499061429835605,
+          "mac": 0.0
+        },
+        "Add": {
+          "mean_us": 10858.000000000002,
+          "percent_profile": 3.2063958610384606,
+          "mac": 0.0
+        },
+        "Sqrt": {
+          "mean_us": 13.666666666666666,
+          "percent_profile": 0.004035802489794834,
+          "mac": 0.0
+        },
+        "Softmax": {
+          "mean_us": 4891.333333333334,
+          "percent_profile": 1.4444235545182778,
+          "mac": 0.0
+        },
+        "Tanh": {
+          "mean_us": 396.0,
+          "percent_profile": 0.116939837996982,
+          "mac": 0.0
+        },
+        "FusedMatMul": {
+          "mean_us": 13827.666666666668,
+          "percent_profile": 4.083346211808758,
+          "mac": 2852126720.0
+        },
+        "Pad": {
+          "mean_us": 8979.0,
+          "percent_profile": 2.6515222357952055,
+          "mac": 0.0
+        },
+        "Elu": {
+          "mean_us": 26054.0,
+          "percent_profile": 7.693814492862044,
+          "mac": 0.0
+        }
+      },
+      "mac_per_generated_second": 3838873600.0,
+      "float_initializer_bytes": 41221252,
+      "profile_mean_s": 0.33863566666666667
+    }
+  },
+  "fusion_estimates": {
+    "pre_snake_dw_post_snake_sites": 18,
+    "pre_snake_logical_bytes_removed_per_audio_second": 167116800,
+    "ordered_bias_residual_adds_logical_bytes_removed_per_audio_second": 167116800,
+    "complete_matmul_bias_residual_epilogue_logical_bytes_removed_per_audio_second": 334233600,
+    "overlap_note": "The complete matmul epilogue includes the ordered Add fusion saving; full-stage tiling overlaps both. These are logical read/write counts, not RTF forecasts."
+  }
+}
