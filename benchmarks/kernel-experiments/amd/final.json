@@ -1,0 +1,149 @@
+{
+  "expected_case_count": 60,
+  "expected_uids": [
+    "hi_in_00099_1919",
+    "hi_in_00159_1941",
+    "hi_in_00281_1748",
+    "hi_in_00190_1885",
+    "hi_in_00292_1691",
+    "hi_in_00211_1943",
+    "bn_in_00633_1820",
+    "bn_in_00582_1926",
+    "bn_in_00735_1676",
+    "bn_in_00208_1709",
+    "bn_in_00221_1754",
+    "bn_in_00151_1818",
+    "gu_in_00926_1827",
+    "gu_in_00420_1858",
+    "gu_in_00713_1781",
+    "gu_in_00478_1731",
+    "gu_in_00337_1978",
+    "gu_in_00528_1697",
+    "ta_in_00494_1946",
+    "ta_in_00394_2003",
+    "ta_in_00447_1742",
+    "ta_in_00201_1938",
+    "ta_in_00077_1834",
+    "ta_in_00012_1740",
+    "te_in_00114_1911",
+    "te_in_00185_1914",
+    "te_in_00471_1768",
+    "te_in_00267_1838",
+    "te_in_00228_1918",
+    "te_in_00016_1969",
+    "kn_in_00584_1904",
+    "kn_in_00073_1705",
+    "kn_in_00788_1926",
+    "kn_in_00793_1839",
+    "kn_in_00227_1844",
+    "kn_in_00542_1781",
+    "en_us_00103_1779",
+    "en_us_00344_1948",
+    "en_us_00133_1765",
+    "en_us_00287_1786",
+    "en_us_00557_1707",
+    "en_us_00565_1837",
+    "es_419_00646_1781",
+    "es_419_00706_1731",
+    "es_419_00172_1698",
+    "es_419_00060_1994",
+    "es_419_00787_1941",
+    "es_419_00899_1738",
+    "fr_fr_00129_1717",
+    "fr_fr_00374_1935",
+    "fr_fr_00257_1874",
+    "fr_fr_00045_1736",
+    "fr_fr_00644_1660",
+    "fr_fr_00041_1714",
+    "pt_br_00672_1745",
+    "pt_br_00499_1674",
+    "pt_br_00046_2003",
+    "pt_br_00031_1676",
+    "pt_br_00677_1747",
+    "pt_br_00325_1975"
+  ],
+  "timing_uids": [
+    "hi_in_00099_1919",
+    "bn_in_00633_1820",
+    "gu_in_00926_1827",
+    "ta_in_00494_1946",
+    "te_in_00114_1911",
+    "kn_in_00584_1904",
+    "en_us_00103_1779",
+    "es_419_00646_1781",
+    "fr_fr_00129_1717",
+    "pt_br_00672_1745"
+  ],
+  "scope": "Full original corpus validation with the unchanged original timing UID selection. CPU decoder only.",
+  "candidate_manifest_sha256": "e11e96249b8e46445a08bfb2a2504c62f7d5e2f19d13c49fca37a1da37d315ed",
+  "kind_contracts": {
+    "audio": {
+      "sample_rate": 48000,
+      "hop": 1920,
+      "latent_channels": 64
+    },
+    "mimi": {
+      "sample_rate": 24000,
+      "hop": 1920,
+      "latent_channels": 32
+    }
+  },
+  "models": [
+    {
+      "name": "audio_stock",
+      "kind": "audio",
+      "path": "../../audiovae2-cpu-20260907/work/audiovae2_onnx/audio_vae_decoder.onnx",
+      "causal": true,
+      "external_data": [
+        "../../audiovae2-cpu-20260907/work/audiovae2_onnx/audio_vae_decoder.onnx.data"
+      ]
+    },
+    {
+      "name": "fast_default",
+      "kind": "audio",
+      "path": "../../fast-audiovae-native-check/.build/model_check/decoder_native.onnx",
+      "custom_library": "../../fast-audiovae-native-check/.build/x86/libfast_audiovae_x86_be3d6126e005.so",
+      "causal": true
+    },
+    {
+      "name": "avx512_both",
+      "kind": "audio",
+      "causal": true,
+      "path": "../experiments-r2/graphs/avx512_both.onnx",
+      "custom_library": "../repo/.build/x86/libfast_audiovae_x86_728052551e0b.so"
+    },
+    {
+      "name": "stage_late3",
+      "kind": "audio",
+      "causal": true,
+      "path": "stage_late3.onnx",
+      "custom_libraries": [
+        "../repo/.build/x86/libfast_audiovae_x86_728052551e0b.so",
+        "native/libstage_pipeline.so"
+      ]
+    },
+    {
+      "name": "mimi",
+      "kind": "mimi",
+      "path": "../../audiovae2-cpu-20260907/work/native_codec_cpu/mimi_onnx/mimi_decoder_fp32_dynamic.onnx",
+      "causal": true
+    }
+  ],
+  "artifact_sha256": {
+    "../../audiovae2-cpu-20260907/work/audiovae2_onnx/audio_vae_decoder.onnx": "fdd20e200675ab9649bf33f16bc5974101ba5cf47ab89fbfe29f3d36ff6c3c84",
+    "../../audiovae2-cpu-20260907/work/audiovae2_onnx/audio_vae_decoder.onnx.data": "3b76bd57356e96893655bd24a364989e016c5af2fc8c29195caaefb4eccf5143",
+    "../../fast-audiovae-native-check/.build/model_check/decoder_native.onnx": "34ccdc4b835d04c6a240c7cd2c8025995d22b4c9f3877e61e0b9ee7524d5de66",
+    "../../fast-audiovae-native-check/.build/x86/libfast_audiovae_x86_be3d6126e005.so": "0771a69ff434236333be6e02eb34b6e86c1f3dc4ab93e2e091e89b268d6a08c7",
+    "../experiments-r2/graphs/avx512_both.onnx": "d7bedc899d6374c8a7599ab1f3834ca4e97e23c563c92fac4ce882e97132ed91",
+    "../repo/.build/x86/libfast_audiovae_x86_728052551e0b.so": "eb0160215fcabbc4b9202cdb323fee13d23117e052b6fec501ed79e621c45199",
+    "stage_late3.onnx": "749baee66c8a2d20f820eb30c27e52bc53da3ed86e5731202acd409e19242920",
+    "native/libstage_pipeline.so": "567a35bcb24b7ada9c8536dae0bfe192e06938023cff23affd2196c25a13706d",
+    "../../audiovae2-cpu-20260907/work/native_codec_cpu/mimi_onnx/mimi_decoder_fp32_dynamic.onnx": "e023777a2cee98a7e4a293f6af7712d4fed6364d1523cfc9a6283f112981e2f1",
+    "../../fast-audiovae-multilingual-20260907/fast_audiovae2.npz": "9b709b787c040591de57e094a5ba5a4515cc74e256e8014530ff8c7bb54d2d24",
+    "../../fast-audiovae-multilingual-20260907/fast_audiovae2.json": "398552d56b72077771cb53ce2ea9613a73bddd71c7031cf33aa9371094998a9f",
+    "../../fast-audiovae-multilingual-20260907/mimi_vae.npz": "af2d68663daf71db954488721e8fffc5888437100772a309b13c62391df0d9c7",
+    "../../fast-audiovae-multilingual-20260907/mimi_vae.json": "8df0ca5b8128c7a5b1a10dcb7dfe9e20bf4e1a5eeceaf7fe297c87f98334c0f4"
+  },
+  "audio_cases": "../../fast-audiovae-multilingual-20260907/fast_audiovae2.npz",
+  "mimi_cases": "../../fast-audiovae-multilingual-20260907/mimi_vae.npz"
+}

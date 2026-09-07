@@ -6,7 +6,7 @@ The package combines ONNX graph rewrites with native Snake, causal depthwise and
 
 ## Benchmarks
 
-CPU-only decoder inference, FP32, ONNX Runtime 1.29.0. Ten fixed multilingual clips, three repetitions. Lower RTF is better.
+Original multilingual baseline using the previous native build. CPU-only decoder inference, FP32, ONNX Runtime 1.29.0. Ten fixed clips, three repetitions. Lower RTF is better.
 
 | CPU | Threads | Stock AudioVAE2 | Fast AudioVAE2 | Mimi | Meta DAC-VAE |
 |---|---:|---:|---:|---:|---:|
@@ -14,9 +14,18 @@ CPU-only decoder inference, FP32, ONNX Runtime 1.29.0. Ten fixed multilingual cl
 | AMD EPYC 9654 | 4 | 0.26078 | 0.07629 | 0.05400 | 0.66065 |
 | Intel Xeon Platinum 8280 VM | 2 | 0.67968 | 0.35355 | 0.17709 | 2.06885 |
 
-Stock is the original ONNX export. Fast uses the default native backend: 4.19x faster on Apple, 3.42x on AMD and 1.92x on Intel. These are full-clip decoder calls; loading, encoding and TTS generation are excluded.
+Stock is the original ONNX export. Fast used the then-current default native backend: 4.19x faster on Apple, 3.42x on AMD and 1.92x on Intel. These are full-clip decoder calls; loading, encoding and TTS generation are excluded.
 
-Reconstruction quality on 60 FLEURS recordings across ten languages, measured in the common 16 kHz source bandwidth. Higher scores are better.
+Latest kernel experiments use the same ten timed clips, five repetitions and full 60-clip validation:
+
+| CPU | Previous fast | Fused AVX512 option | Stage experiment | Mimi |
+|---|---:|---:|---:|---:|
+| AMD EPYC 9654, 4 threads | 0.07342 | 0.06501 | **0.06104** | 0.05173 |
+| Intel Xeon Platinum 8280 VM, 2 threads | 0.34654 | 0.29286 | **0.25510** | 0.17169 |
+
+The stage experiments reduce time by 16.9% on AMD and 26.4% on Intel. All ten clip averages improve, with 331 validation checks passing on each host. The fused option is available through `prepare`; the larger stage experiments remain separate. Apple correctness passed, but unstable timing prevents a new performance claim. See [kernel results](docs/cpu-kernel-results.md).
+
+Reconstruction quality from the original 60-recording FLEURS comparison across ten languages, measured in the common 16 kHz source bandwidth. Higher scores are better. New kernels passed numerical checks; these quality metrics were not rerun.
 
 | Codec | PESQ | STOI | UTMOS22 | DNSMOS P.835 overall | DNSMOS P.808 |
 |---|---:|---:|---:|---:|---:|
@@ -26,7 +35,7 @@ Reconstruction quality on 60 FLEURS recordings across ten languages, measured in
 
 Stock and fast AudioVAE2 agree at this precision. UTMOS and DNSMOS are learned predictions, not listening-panel ratings. AudioVAE2 and Pocket continuous Mimi are causal and output 48 kHz and 24 kHz respectively. The tested Meta DAC-VAE outputs 48 kHz, is noncausal and retains its full watermark.
 
-All 847 decoder validation checks passed. [Full results and methodology](docs/multilingual.md) include per-clip data, the MOS audit and the experimental Intel MKL result (0.32621 RTF, with additional memory cost).
+The original comparison passed all 847 decoder validation checks. [Full results and methodology](docs/multilingual.md) include per-clip data and the MOS audit.
 
 ## Setup
 
@@ -58,10 +67,20 @@ The default uses up to four CPUs visible to the process, so a two-vCPU VM uses t
 ## Hardware
 
 - **Apple ARM:** NEON/vForce; validated on M5 Max.
-- **Linux x86:** guarded AVX2/SSE2 and SLEEF; validated on AMD EPYC 9654 and an Intel Xeon Platinum 8280 VM.
+- **Linux x86:** guarded AVX2/SSE2 and optional AVX512 with SLEEF; validated on AMD EPYC 9654 and an Intel Xeon Platinum 8280 VM.
 - **Other platforms, including generic ARM:** standard ONNX CPU fallback. Unavailable native dependencies also select the fallback.
 
 Use `prefer_custom=False` to request the ONNX fallback. See [performance and validation](docs/performance.md) for measured results and limits.
+
+## Optional fused decoder
+
+On compatible Linux x86 CPUs, enable AVX512 and fuse adjacent Snake, depthwise and residual operations:
+
+```sh
+fast-audiovae prepare --output artifacts-fused --native-backend avx512 --block-fusion both
+```
+
+Load this directory with `load_decoder("artifacts-fused")`. CPU and OS checks guard the native path; unsupported systems use the bundled standard ONNX fallback. The default preparation recipe stays unchanged. Larger stage and matrix experiments are kept separately in [experiments/cpu-stage](experiments/cpu-stage).
 
 ## Optional AMD matrix packing
 

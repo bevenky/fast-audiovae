@@ -1,0 +1,1201 @@
+{
+  "host": "amd",
+  "source_config_sha256": "9e6c8573cf217387da9b7ef7541ed78d5346e76f63f7bf6ceb75d308990df25c",
+  "source_native_graph_sha256": "34ccdc4b835d04c6a240c7cd2c8025995d22b4c9f3877e61e0b9ee7524d5de66",
+  "build_manifest_sha256": "023e434b7c5e7bacfa6a5ef8ae4264d3b9c3fcfbbe4896bb734cb1d685e1d967",
+  "library_sha256": "eb0160215fcabbc4b9202cdb323fee13d23117e052b6fec501ed79e621c45199",
+  "variants": {
+    "updated_base": {
+      "variant": "none",
+      "mode": "none",
+      "backend_override": 4,
+      "domain": "venky.audio.cpu.portable",
+      "required_operators": [
+        "CausalDW7F32",
+        "CausalDW7SnakeF32",
+        "PhaseSumBiasInterleaveF32",
+        "SnakeF32"
+      ],
+      "required_isa": "AVX2",
+      "counts": {
+        "chain": 0,
+        "adds": 0
+      },
+      "changes": [],
+      "skipped": [],
+      "source_nodes": 219,
+      "output_nodes": 219,
+      "source_sha256": "34ccdc4b835d04c6a240c7cd2c8025995d22b4c9f3877e61e0b9ee7524d5de66",
+      "output_sha256": "edfa258a758e5bb3fd0cb94ee57ab815cc1cf55552a83ca356819ae0a010f06b",
+      "external_files": {},
+      "scope": "Experimental graph only; no inference or default promotion"
+    },
+    "chain": {
+      "variant": "chain",
+      "mode": "chain",
+      "backend_override": 4,
+      "domain": "venky.audio.cpu.portable",
+      "required_operators": [
+        "CausalDW7F32",
+        "PhaseSumBiasInterleaveF32",
+        "SnakeDW7SnakeF32",
+        "SnakeF32"
+      ],
+      "required_isa": "AVX2",
+      "counts": {
+        "chain": 18,
+        "adds": 0
+      },
+      "changes": [
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_18",
+          "pre_snake": "ncc_node_add_69",
+          "depthwise_snake": "ncc_node_add_98",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 1024
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_26",
+          "pre_snake": "ncc_node_add_131",
+          "depthwise_snake": "ncc_node_add_160",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 1024
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_34",
+          "pre_snake": "ncc_node_add_193",
+          "depthwise_snake": "ncc_node_add_222",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 1024
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_53",
+          "pre_snake": "ncc_node_add_291",
+          "depthwise_snake": "ncc_node_add_320",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 512
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_61",
+          "pre_snake": "ncc_node_add_353",
+          "depthwise_snake": "ncc_node_add_382",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 512
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_69",
+          "pre_snake": "ncc_node_add_415",
+          "depthwise_snake": "ncc_node_add_444",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 512
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_88",
+          "pre_snake": "ncc_node_add_513",
+          "depthwise_snake": "ncc_node_add_542",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 256
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_96",
+          "pre_snake": "ncc_node_add_575",
+          "depthwise_snake": "ncc_node_add_604",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 256
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_104",
+          "pre_snake": "ncc_node_add_637",
+          "depthwise_snake": "ncc_node_add_666",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 256
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_123",
+          "pre_snake": "ncc_node_add_735",
+          "depthwise_snake": "ncc_node_add_764",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 128
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_131",
+          "pre_snake": "ncc_node_add_797",
+          "depthwise_snake": "ncc_node_add_826",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 128
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_139",
+          "pre_snake": "ncc_node_add_859",
+          "depthwise_snake": "ncc_node_add_888",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 128
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_158",
+          "pre_snake": "ncc_node_add_957",
+          "depthwise_snake": "ncc_node_add_986",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 64
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_166",
+          "pre_snake": "ncc_node_add_1019",
+          "depthwise_snake": "ncc_node_add_1048",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 64
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_174",
+          "pre_snake": "ncc_node_add_1081",
+          "depthwise_snake": "ncc_node_add_1110",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 64
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_193",
+          "pre_snake": "ncc_node_add_1179",
+          "depthwise_snake": "ncc_node_add_1208",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 32
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_201",
+          "pre_snake": "ncc_node_add_1241",
+          "depthwise_snake": "ncc_node_add_1270",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 32
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_209",
+          "pre_snake": "ncc_node_add_1303",
+          "depthwise_snake": "ncc_node_add_1332",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 32
+        }
+      ],
+      "skipped": [],
+      "source_nodes": 219,
+      "output_nodes": 183,
+      "source_sha256": "34ccdc4b835d04c6a240c7cd2c8025995d22b4c9f3877e61e0b9ee7524d5de66",
+      "output_sha256": "ba293af6f0b28f9a70a20933a0d3f41c2ad939b7f9b2bc4ef3bf539ded64dbe6",
+      "external_files": {},
+      "scope": "Experimental graph only; no inference or default promotion"
+    },
+    "adds": {
+      "variant": "adds",
+      "mode": "adds",
+      "backend_override": 4,
+      "domain": "venky.audio.cpu.portable",
+      "required_operators": [
+        "BiasResidualF32",
+        "CausalDW7F32",
+        "CausalDW7SnakeF32",
+        "PhaseSumBiasInterleaveF32",
+        "SnakeF32"
+      ],
+      "required_isa": "AVX2",
+      "counts": {
+        "chain": 0,
+        "adds": 18
+      },
+      "changes": [
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_22",
+          "bias_add": "node_conv1d_3__bct_mm_add",
+          "residual_add": "node_add_111",
+          "bias_source": "node_conv1d_3__bct_mm_bias",
+          "channels": 1024
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_30",
+          "bias_add": "node_conv1d_5__bct_mm_add",
+          "residual_add": "node_add_173",
+          "bias_source": "node_conv1d_5__bct_mm_bias",
+          "channels": 1024
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_38",
+          "bias_add": "node_conv1d_7__bct_mm_add",
+          "residual_add": "node_add_235",
+          "bias_source": "node_conv1d_7__bct_mm_bias",
+          "channels": 1024
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_57",
+          "bias_add": "node_conv1d_9__bct_mm_add",
+          "residual_add": "node_add_333",
+          "bias_source": "node_conv1d_9__bct_mm_bias",
+          "channels": 512
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_65",
+          "bias_add": "node_conv1d_11__bct_mm_add",
+          "residual_add": "node_add_395",
+          "bias_source": "node_conv1d_11__bct_mm_bias",
+          "channels": 512
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_73",
+          "bias_add": "node_conv1d_13__bct_mm_add",
+          "residual_add": "node_add_457",
+          "bias_source": "node_conv1d_13__bct_mm_bias",
+          "channels": 512
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_92",
+          "bias_add": "node_conv1d_15__bct_mm_add",
+          "residual_add": "node_add_555",
+          "bias_source": "node_conv1d_15__bct_mm_bias",
+          "channels": 256
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_100",
+          "bias_add": "node_conv1d_17__bct_mm_add",
+          "residual_add": "node_add_617",
+          "bias_source": "node_conv1d_17__bct_mm_bias",
+          "channels": 256
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_108",
+          "bias_add": "node_conv1d_19__bct_mm_add",
+          "residual_add": "node_add_679",
+          "bias_source": "node_conv1d_19__bct_mm_bias",
+          "channels": 256
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_127",
+          "bias_add": "node_conv1d_21__bct_mm_add",
+          "residual_add": "node_add_777",
+          "bias_source": "node_conv1d_21__bct_mm_bias",
+          "channels": 128
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_135",
+          "bias_add": "node_conv1d_23__bct_mm_add",
+          "residual_add": "node_add_839",
+          "bias_source": "node_conv1d_23__bct_mm_bias",
+          "channels": 128
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_143",
+          "bias_add": "node_conv1d_25__bct_mm_add",
+          "residual_add": "node_add_901",
+          "bias_source": "node_conv1d_25__bct_mm_bias",
+          "channels": 128
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_162",
+          "bias_add": "node_conv1d_27__bct_mm_add",
+          "residual_add": "node_add_999",
+          "bias_source": "node_conv1d_27__bct_mm_bias",
+          "channels": 64
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_170",
+          "bias_add": "node_conv1d_29__bct_mm_add",
+          "residual_add": "node_add_1061",
+          "bias_source": "node_conv1d_29__bct_mm_bias",
+          "channels": 64
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_178",
+          "bias_add": "node_conv1d_31__bct_mm_add",
+          "residual_add": "node_add_1123",
+          "bias_source": "node_conv1d_31__bct_mm_bias",
+          "channels": 64
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_197",
+          "bias_add": "node_conv1d_33__bct_mm_add",
+          "residual_add": "node_add_1221",
+          "bias_source": "node_conv1d_33__bct_mm_bias",
+          "channels": 32
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_205",
+          "bias_add": "node_conv1d_35__bct_mm_add",
+          "residual_add": "node_add_1283",
+          "bias_source": "node_conv1d_35__bct_mm_bias",
+          "channels": 32
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_213",
+          "bias_add": "node_conv1d_37__bct_mm_add",
+          "residual_add": "node_add_1345",
+          "bias_source": "node_conv1d_37__bct_mm_bias",
+          "channels": 32
+        }
+      ],
+      "skipped": [],
+      "source_nodes": 219,
+      "output_nodes": 201,
+      "source_sha256": "34ccdc4b835d04c6a240c7cd2c8025995d22b4c9f3877e61e0b9ee7524d5de66",
+      "output_sha256": "d6e6a8b3317dd440f24f678eade80300dddc6392cdff0dc3dd2d023a9412508d",
+      "external_files": {},
+      "scope": "Experimental graph only; no inference or default promotion"
+    },
+    "both": {
+      "variant": "both",
+      "mode": "both",
+      "backend_override": 4,
+      "domain": "venky.audio.cpu.portable",
+      "required_operators": [
+        "BiasResidualF32",
+        "CausalDW7F32",
+        "PhaseSumBiasInterleaveF32",
+        "SnakeDW7SnakeF32",
+        "SnakeF32"
+      ],
+      "required_isa": "AVX2",
+      "counts": {
+        "chain": 18,
+        "adds": 18
+      },
+      "changes": [
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_18",
+          "pre_snake": "ncc_node_add_69",
+          "depthwise_snake": "ncc_node_add_98",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 1024
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_26",
+          "pre_snake": "ncc_node_add_131",
+          "depthwise_snake": "ncc_node_add_160",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 1024
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_34",
+          "pre_snake": "ncc_node_add_193",
+          "depthwise_snake": "ncc_node_add_222",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 1024
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_53",
+          "pre_snake": "ncc_node_add_291",
+          "depthwise_snake": "ncc_node_add_320",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 512
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_61",
+          "pre_snake": "ncc_node_add_353",
+          "depthwise_snake": "ncc_node_add_382",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 512
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_69",
+          "pre_snake": "ncc_node_add_415",
+          "depthwise_snake": "ncc_node_add_444",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 512
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_88",
+          "pre_snake": "ncc_node_add_513",
+          "depthwise_snake": "ncc_node_add_542",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 256
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_96",
+          "pre_snake": "ncc_node_add_575",
+          "depthwise_snake": "ncc_node_add_604",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 256
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_104",
+          "pre_snake": "ncc_node_add_637",
+          "depthwise_snake": "ncc_node_add_666",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 256
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_123",
+          "pre_snake": "ncc_node_add_735",
+          "depthwise_snake": "ncc_node_add_764",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 128
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_131",
+          "pre_snake": "ncc_node_add_797",
+          "depthwise_snake": "ncc_node_add_826",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 128
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_139",
+          "pre_snake": "ncc_node_add_859",
+          "depthwise_snake": "ncc_node_add_888",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 128
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_158",
+          "pre_snake": "ncc_node_add_957",
+          "depthwise_snake": "ncc_node_add_986",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 64
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_166",
+          "pre_snake": "ncc_node_add_1019",
+          "depthwise_snake": "ncc_node_add_1048",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 64
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_174",
+          "pre_snake": "ncc_node_add_1081",
+          "depthwise_snake": "ncc_node_add_1110",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 64
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_193",
+          "pre_snake": "ncc_node_add_1179",
+          "depthwise_snake": "ncc_node_add_1208",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 32
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_201",
+          "pre_snake": "ncc_node_add_1241",
+          "depthwise_snake": "ncc_node_add_1270",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 32
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_209",
+          "pre_snake": "ncc_node_add_1303",
+          "depthwise_snake": "ncc_node_add_1332",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 32
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_22",
+          "bias_add": "node_conv1d_3__bct_mm_add",
+          "residual_add": "node_add_111",
+          "bias_source": "node_conv1d_3__bct_mm_bias",
+          "channels": 1024
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_30",
+          "bias_add": "node_conv1d_5__bct_mm_add",
+          "residual_add": "node_add_173",
+          "bias_source": "node_conv1d_5__bct_mm_bias",
+          "channels": 1024
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_38",
+          "bias_add": "node_conv1d_7__bct_mm_add",
+          "residual_add": "node_add_235",
+          "bias_source": "node_conv1d_7__bct_mm_bias",
+          "channels": 1024
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_57",
+          "bias_add": "node_conv1d_9__bct_mm_add",
+          "residual_add": "node_add_333",
+          "bias_source": "node_conv1d_9__bct_mm_bias",
+          "channels": 512
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_65",
+          "bias_add": "node_conv1d_11__bct_mm_add",
+          "residual_add": "node_add_395",
+          "bias_source": "node_conv1d_11__bct_mm_bias",
+          "channels": 512
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_73",
+          "bias_add": "node_conv1d_13__bct_mm_add",
+          "residual_add": "node_add_457",
+          "bias_source": "node_conv1d_13__bct_mm_bias",
+          "channels": 512
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_92",
+          "bias_add": "node_conv1d_15__bct_mm_add",
+          "residual_add": "node_add_555",
+          "bias_source": "node_conv1d_15__bct_mm_bias",
+          "channels": 256
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_100",
+          "bias_add": "node_conv1d_17__bct_mm_add",
+          "residual_add": "node_add_617",
+          "bias_source": "node_conv1d_17__bct_mm_bias",
+          "channels": 256
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_108",
+          "bias_add": "node_conv1d_19__bct_mm_add",
+          "residual_add": "node_add_679",
+          "bias_source": "node_conv1d_19__bct_mm_bias",
+          "channels": 256
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_127",
+          "bias_add": "node_conv1d_21__bct_mm_add",
+          "residual_add": "node_add_777",
+          "bias_source": "node_conv1d_21__bct_mm_bias",
+          "channels": 128
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_135",
+          "bias_add": "node_conv1d_23__bct_mm_add",
+          "residual_add": "node_add_839",
+          "bias_source": "node_conv1d_23__bct_mm_bias",
+          "channels": 128
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_143",
+          "bias_add": "node_conv1d_25__bct_mm_add",
+          "residual_add": "node_add_901",
+          "bias_source": "node_conv1d_25__bct_mm_bias",
+          "channels": 128
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_162",
+          "bias_add": "node_conv1d_27__bct_mm_add",
+          "residual_add": "node_add_999",
+          "bias_source": "node_conv1d_27__bct_mm_bias",
+          "channels": 64
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_170",
+          "bias_add": "node_conv1d_29__bct_mm_add",
+          "residual_add": "node_add_1061",
+          "bias_source": "node_conv1d_29__bct_mm_bias",
+          "channels": 64
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_178",
+          "bias_add": "node_conv1d_31__bct_mm_add",
+          "residual_add": "node_add_1123",
+          "bias_source": "node_conv1d_31__bct_mm_bias",
+          "channels": 64
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_197",
+          "bias_add": "node_conv1d_33__bct_mm_add",
+          "residual_add": "node_add_1221",
+          "bias_source": "node_conv1d_33__bct_mm_bias",
+          "channels": 32
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_205",
+          "bias_add": "node_conv1d_35__bct_mm_add",
+          "residual_add": "node_add_1283",
+          "bias_source": "node_conv1d_35__bct_mm_bias",
+          "channels": 32
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_213",
+          "bias_add": "node_conv1d_37__bct_mm_add",
+          "residual_add": "node_add_1345",
+          "bias_source": "node_conv1d_37__bct_mm_bias",
+          "channels": 32
+        }
+      ],
+      "skipped": [],
+      "source_nodes": 219,
+      "output_nodes": 165,
+      "source_sha256": "34ccdc4b835d04c6a240c7cd2c8025995d22b4c9f3877e61e0b9ee7524d5de66",
+      "output_sha256": "20b626a226201faabdb2b16f963f9aeff23b5c679e8bd59d9f61715f979f6bfc",
+      "external_files": {},
+      "scope": "Experimental graph only; no inference or default promotion"
+    },
+    "avx512_base": {
+      "variant": "none",
+      "mode": "none",
+      "backend_override": 5,
+      "domain": "venky.audio.cpu.portable",
+      "required_operators": [
+        "CausalDW7F32",
+        "CausalDW7SnakeF32",
+        "PhaseSumBiasInterleaveF32",
+        "SnakeF32"
+      ],
+      "required_isa": "AVX512F/DQ/BW/VL, AVX2, FMA and OS vector state",
+      "counts": {
+        "chain": 0,
+        "adds": 0
+      },
+      "changes": [],
+      "skipped": [],
+      "source_nodes": 219,
+      "output_nodes": 219,
+      "source_sha256": "34ccdc4b835d04c6a240c7cd2c8025995d22b4c9f3877e61e0b9ee7524d5de66",
+      "output_sha256": "7a2c65a5bfda042448197366d526a3ea80e4911b9c825036521ea9e11c6a32a0",
+      "external_files": {},
+      "scope": "Experimental graph only; no inference or default promotion"
+    },
+    "avx512_both": {
+      "variant": "both",
+      "mode": "both",
+      "backend_override": 5,
+      "domain": "venky.audio.cpu.portable",
+      "required_operators": [
+        "BiasResidualF32",
+        "CausalDW7F32",
+        "PhaseSumBiasInterleaveF32",
+        "SnakeDW7SnakeF32",
+        "SnakeF32"
+      ],
+      "required_isa": "AVX512F/DQ/BW/VL, AVX2, FMA and OS vector state",
+      "counts": {
+        "chain": 18,
+        "adds": 18
+      },
+      "changes": [
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_18",
+          "pre_snake": "ncc_node_add_69",
+          "depthwise_snake": "ncc_node_add_98",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 1024
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_26",
+          "pre_snake": "ncc_node_add_131",
+          "depthwise_snake": "ncc_node_add_160",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 1024
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_34",
+          "pre_snake": "ncc_node_add_193",
+          "depthwise_snake": "ncc_node_add_222",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 1024
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_53",
+          "pre_snake": "ncc_node_add_291",
+          "depthwise_snake": "ncc_node_add_320",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 512
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_61",
+          "pre_snake": "ncc_node_add_353",
+          "depthwise_snake": "ncc_node_add_382",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 512
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_69",
+          "pre_snake": "ncc_node_add_415",
+          "depthwise_snake": "ncc_node_add_444",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 512
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_88",
+          "pre_snake": "ncc_node_add_513",
+          "depthwise_snake": "ncc_node_add_542",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 256
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_96",
+          "pre_snake": "ncc_node_add_575",
+          "depthwise_snake": "ncc_node_add_604",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 256
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_104",
+          "pre_snake": "ncc_node_add_637",
+          "depthwise_snake": "ncc_node_add_666",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 256
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_123",
+          "pre_snake": "ncc_node_add_735",
+          "depthwise_snake": "ncc_node_add_764",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 128
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_131",
+          "pre_snake": "ncc_node_add_797",
+          "depthwise_snake": "ncc_node_add_826",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 128
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_139",
+          "pre_snake": "ncc_node_add_859",
+          "depthwise_snake": "ncc_node_add_888",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 128
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_158",
+          "pre_snake": "ncc_node_add_957",
+          "depthwise_snake": "ncc_node_add_986",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 64
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_166",
+          "pre_snake": "ncc_node_add_1019",
+          "depthwise_snake": "ncc_node_add_1048",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 64
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_174",
+          "pre_snake": "ncc_node_add_1081",
+          "depthwise_snake": "ncc_node_add_1110",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 64
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_193",
+          "pre_snake": "ncc_node_add_1179",
+          "depthwise_snake": "ncc_node_add_1208",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 32
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_201",
+          "pre_snake": "ncc_node_add_1241",
+          "depthwise_snake": "ncc_node_add_1270",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 32
+        },
+        {
+          "kind": "chain",
+          "node": "ncc_block_chain_209",
+          "pre_snake": "ncc_node_add_1303",
+          "depthwise_snake": "ncc_node_add_1332",
+          "alias_proof": "symbolic shape program equals native activation dimensions",
+          "channels": 32
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_22",
+          "bias_add": "node_conv1d_3__bct_mm_add",
+          "residual_add": "node_add_111",
+          "bias_source": "node_conv1d_3__bct_mm_bias",
+          "channels": 1024
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_30",
+          "bias_add": "node_conv1d_5__bct_mm_add",
+          "residual_add": "node_add_173",
+          "bias_source": "node_conv1d_5__bct_mm_bias",
+          "channels": 1024
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_38",
+          "bias_add": "node_conv1d_7__bct_mm_add",
+          "residual_add": "node_add_235",
+          "bias_source": "node_conv1d_7__bct_mm_bias",
+          "channels": 1024
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_57",
+          "bias_add": "node_conv1d_9__bct_mm_add",
+          "residual_add": "node_add_333",
+          "bias_source": "node_conv1d_9__bct_mm_bias",
+          "channels": 512
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_65",
+          "bias_add": "node_conv1d_11__bct_mm_add",
+          "residual_add": "node_add_395",
+          "bias_source": "node_conv1d_11__bct_mm_bias",
+          "channels": 512
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_73",
+          "bias_add": "node_conv1d_13__bct_mm_add",
+          "residual_add": "node_add_457",
+          "bias_source": "node_conv1d_13__bct_mm_bias",
+          "channels": 512
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_92",
+          "bias_add": "node_conv1d_15__bct_mm_add",
+          "residual_add": "node_add_555",
+          "bias_source": "node_conv1d_15__bct_mm_bias",
+          "channels": 256
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_100",
+          "bias_add": "node_conv1d_17__bct_mm_add",
+          "residual_add": "node_add_617",
+          "bias_source": "node_conv1d_17__bct_mm_bias",
+          "channels": 256
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_108",
+          "bias_add": "node_conv1d_19__bct_mm_add",
+          "residual_add": "node_add_679",
+          "bias_source": "node_conv1d_19__bct_mm_bias",
+          "channels": 256
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_127",
+          "bias_add": "node_conv1d_21__bct_mm_add",
+          "residual_add": "node_add_777",
+          "bias_source": "node_conv1d_21__bct_mm_bias",
+          "channels": 128
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_135",
+          "bias_add": "node_conv1d_23__bct_mm_add",
+          "residual_add": "node_add_839",
+          "bias_source": "node_conv1d_23__bct_mm_bias",
+          "channels": 128
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_143",
+          "bias_add": "node_conv1d_25__bct_mm_add",
+          "residual_add": "node_add_901",
+          "bias_source": "node_conv1d_25__bct_mm_bias",
+          "channels": 128
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_162",
+          "bias_add": "node_conv1d_27__bct_mm_add",
+          "residual_add": "node_add_999",
+          "bias_source": "node_conv1d_27__bct_mm_bias",
+          "channels": 64
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_170",
+          "bias_add": "node_conv1d_29__bct_mm_add",
+          "residual_add": "node_add_1061",
+          "bias_source": "node_conv1d_29__bct_mm_bias",
+          "channels": 64
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_178",
+          "bias_add": "node_conv1d_31__bct_mm_add",
+          "residual_add": "node_add_1123",
+          "bias_source": "node_conv1d_31__bct_mm_bias",
+          "channels": 64
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_197",
+          "bias_add": "node_conv1d_33__bct_mm_add",
+          "residual_add": "node_add_1221",
+          "bias_source": "node_conv1d_33__bct_mm_bias",
+          "channels": 32
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_205",
+          "bias_add": "node_conv1d_35__bct_mm_add",
+          "residual_add": "node_add_1283",
+          "bias_source": "node_conv1d_35__bct_mm_bias",
+          "channels": 32
+        },
+        {
+          "kind": "adds",
+          "node": "ncc_block_adds_213",
+          "bias_add": "node_conv1d_37__bct_mm_add",
+          "residual_add": "node_add_1345",
+          "bias_source": "node_conv1d_37__bct_mm_bias",
+          "channels": 32
+        }
+      ],
+      "skipped": [],
+      "source_nodes": 219,
+      "output_nodes": 165,
+      "source_sha256": "34ccdc4b835d04c6a240c7cd2c8025995d22b4c9f3877e61e0b9ee7524d5de66",
+      "output_sha256": "d7bedc899d6374c8a7599ab1f3834ca4e97e23c563c92fac4ce882e97132ed91",
+      "external_files": {},
+      "scope": "Experimental graph only; no inference or default promotion"
+    },
+    "stage_late3": {
+      "output_sha256": "749baee66c8a2d20f820eb30c27e52bc53da3ed86e5731202acd409e19242920"
+    },
+    "stage_late2": {
+      "output_sha256": "a704ec802df15a75459cc6cb5464dd81f217f2848ad41741241cd80a761ab057"
+    }
+  },
+  "model_definitions": {
+    "audio_stock": {
+      "name": "audio_stock",
+      "kind": "audio",
+      "path": "amd-workspace/audiovae2-cpu-20260907/work/audiovae2_onnx/audio_vae_decoder.onnx",
+      "causal": true,
+      "external_data": [
+        "amd-workspace/audiovae2-cpu-20260907/work/audiovae2_onnx/audio_vae_decoder.onnx.data"
+      ]
+    },
+    "fast_default": {
+      "name": "fast_default",
+      "kind": "audio",
+      "path": "amd-workspace/fast-audiovae-native-check/.build/model_check/decoder_native.onnx",
+      "custom_library": "amd-workspace/fast-audiovae-native-check/.build/x86/libfast_audiovae_x86_be3d6126e005.so",
+      "causal": true
+    },
+    "mimi": {
+      "name": "mimi",
+      "kind": "mimi",
+      "path": "amd-workspace/audiovae2-cpu-20260907/work/native_codec_cpu/mimi_onnx/mimi_decoder_fp32_dynamic.onnx",
+      "causal": true
+    },
+    "updated_base": {
+      "name": "updated_base",
+      "kind": "audio",
+      "causal": true,
+      "path": "amd-workspace/fast-audiovae-fusion-20260907/experiments-r2/graphs/updated_base.onnx",
+      "custom_library": "amd-workspace/fast-audiovae-fusion-20260907/repo/.build/x86/libfast_audiovae_x86_728052551e0b.so"
+    },
+    "chain": {
+      "name": "chain",
+      "kind": "audio",
+      "causal": true,
+      "path": "amd-workspace/fast-audiovae-fusion-20260907/experiments-r2/graphs/chain.onnx",
+      "custom_library": "amd-workspace/fast-audiovae-fusion-20260907/repo/.build/x86/libfast_audiovae_x86_728052551e0b.so"
+    },
+    "adds": {
+      "name": "adds",
+      "kind": "audio",
+      "causal": true,
+      "path": "amd-workspace/fast-audiovae-fusion-20260907/experiments-r2/graphs/adds.onnx",
+      "custom_library": "amd-workspace/fast-audiovae-fusion-20260907/repo/.build/x86/libfast_audiovae_x86_728052551e0b.so"
+    },
+    "both": {
+      "name": "both",
+      "kind": "audio",
+      "causal": true,
+      "path": "amd-workspace/fast-audiovae-fusion-20260907/experiments-r2/graphs/both.onnx",
+      "custom_library": "amd-workspace/fast-audiovae-fusion-20260907/repo/.build/x86/libfast_audiovae_x86_728052551e0b.so"
+    },
+    "avx512_base": {
+      "name": "avx512_base",
+      "kind": "audio",
+      "causal": true,
+      "path": "amd-workspace/fast-audiovae-fusion-20260907/experiments-r2/graphs/avx512_base.onnx",
+      "custom_library": "amd-workspace/fast-audiovae-fusion-20260907/repo/.build/x86/libfast_audiovae_x86_728052551e0b.so"
+    },
+    "avx512_both": {
+      "name": "avx512_both",
+      "kind": "audio",
+      "causal": true,
+      "path": "amd-workspace/fast-audiovae-fusion-20260907/experiments-r2/graphs/avx512_both.onnx",
+      "custom_library": "amd-workspace/fast-audiovae-fusion-20260907/repo/.build/x86/libfast_audiovae_x86_728052551e0b.so"
+    },
+    "stage_late3": {
+      "name": "stage_late3",
+      "kind": "audio",
+      "causal": true,
+      "path": "amd-workspace/fast-audiovae-fusion-20260907/stage-reuse/stage_late3.onnx",
+      "custom_libraries": [
+        "amd-workspace/fast-audiovae-fusion-20260907/repo/.build/x86/libfast_audiovae_x86_728052551e0b.so",
+        "amd-workspace/fast-audiovae-fusion-20260907/stage-reuse/native/libstage_pipeline.so"
+      ]
+    },
+    "stage_late2": {
+      "name": "stage_late2",
+      "kind": "audio",
+      "causal": true,
+      "path": "amd-workspace/fast-audiovae-fusion-20260907/stage-reuse/stage_late2.onnx",
+      "custom_libraries": [
+        "amd-workspace/fast-audiovae-fusion-20260907/repo/.build/x86/libfast_audiovae_x86_728052551e0b.so",
+        "amd-workspace/fast-audiovae-fusion-20260907/stage-reuse/native/libstage_pipeline.so"
+      ]
+    }
+  },
+  "full_case_paths": {
+    "audio": "amd-workspace/fast-audiovae-multilingual-20260907/fast_audiovae2.npz",
+    "mimi": "amd-workspace/fast-audiovae-multilingual-20260907/mimi_vae.npz"
+  },
+  "full_expected_uids": [
+    "hi_in_00099_1919",
+    "hi_in_00159_1941",
+    "hi_in_00281_1748",
+    "hi_in_00190_1885",
+    "hi_in_00292_1691",
+    "hi_in_00211_1943",
+    "bn_in_00633_1820",
+    "bn_in_00582_1926",
+    "bn_in_00735_1676",
+    "bn_in_00208_1709",
+    "bn_in_00221_1754",
+    "bn_in_00151_1818",
+    "gu_in_00926_1827",
+    "gu_in_00420_1858",
+    "gu_in_00713_1781",
+    "gu_in_00478_1731",
+    "gu_in_00337_1978",
+    "gu_in_00528_1697",
+    "ta_in_00494_1946",
+    "ta_in_00394_2003",
+    "ta_in_00447_1742",
+    "ta_in_00201_1938",
+    "ta_in_00077_1834",
+    "ta_in_00012_1740",
+    "te_in_00114_1911",
+    "te_in_00185_1914",
+    "te_in_00471_1768",
+    "te_in_00267_1838",
+    "te_in_00228_1918",
+    "te_in_00016_1969",
+    "kn_in_00584_1904",
+    "kn_in_00073_1705",
+    "kn_in_00788_1926",
+    "kn_in_00793_1839",
+    "kn_in_00227_1844",
+    "kn_in_00542_1781",
+    "en_us_00103_1779",
+    "en_us_00344_1948",
+    "en_us_00133_1765",
+    "en_us_00287_1786",
+    "en_us_00557_1707",
+    "en_us_00565_1837",
+    "es_419_00646_1781",
+    "es_419_00706_1731",
+    "es_419_00172_1698",
+    "es_419_00060_1994",
+    "es_419_00787_1941",
+    "es_419_00899_1738",
+    "fr_fr_00129_1717",
+    "fr_fr_00374_1935",
+    "fr_fr_00257_1874",
+    "fr_fr_00045_1736",
+    "fr_fr_00644_1660",
+    "fr_fr_00041_1714",
+    "pt_br_00672_1745",
+    "pt_br_00499_1674",
+    "pt_br_00046_2003",
+    "pt_br_00031_1676",
+    "pt_br_00677_1747",
+    "pt_br_00325_1975"
+  ],
+  "full_timing_uids": [
+    "hi_in_00099_1919",
+    "bn_in_00633_1820",
+    "gu_in_00926_1827",
+    "ta_in_00494_1946",
+    "te_in_00114_1911",
+    "kn_in_00584_1904",
+    "en_us_00103_1779",
+    "es_419_00646_1781",
+    "fr_fr_00129_1717",
+    "pt_br_00672_1745"
+  ],
+  "parent_manifest_sha256": "e007b4bc1b3c7c80a2d229d0955c079043cceddae155e581ba5e0f9fd330be4b"
+}

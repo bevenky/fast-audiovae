@@ -1,0 +1,598 @@
+{
+  "campaign_path": "stage-reuse/final-results.json",
+  "campaign_sha256": "3e888a921c71c7a80f66301c8df7131605d2ab5ef3d82aec6568c851223c2a03",
+  "status": "complete",
+  "runtime": "1.29.0",
+  "providers": [
+    {
+      "model": "audio_stock",
+      "threads": 4,
+      "profile": false,
+      "providers": [
+        "CPUExecutionProvider"
+      ],
+      "custom_libraries": []
+    },
+    {
+      "model": "fast_default",
+      "threads": 4,
+      "profile": false,
+      "providers": [
+        "CPUExecutionProvider"
+      ],
+      "custom_libraries": [
+        {
+          "path": "amd-workspace/fast-audiovae-native-check/.build/x86/libfast_audiovae_x86_be3d6126e005.so",
+          "sha256": "0771a69ff434236333be6e02eb34b6e86c1f3dc4ab93e2e091e89b268d6a08c7"
+        }
+      ]
+    },
+    {
+      "model": "avx512_both",
+      "threads": 4,
+      "profile": false,
+      "providers": [
+        "CPUExecutionProvider"
+      ],
+      "custom_libraries": [
+        {
+          "path": "amd-workspace/fast-audiovae-fusion-20260907/repo/.build/x86/libfast_audiovae_x86_728052551e0b.so",
+          "sha256": "eb0160215fcabbc4b9202cdb323fee13d23117e052b6fec501ed79e621c45199"
+        }
+      ]
+    },
+    {
+      "model": "stage_late3",
+      "threads": 4,
+      "profile": false,
+      "providers": [
+        "CPUExecutionProvider"
+      ],
+      "custom_libraries": [
+        {
+          "path": "amd-workspace/fast-audiovae-fusion-20260907/repo/.build/x86/libfast_audiovae_x86_728052551e0b.so",
+          "sha256": "eb0160215fcabbc4b9202cdb323fee13d23117e052b6fec501ed79e621c45199"
+        },
+        {
+          "path": "amd-workspace/fast-audiovae-fusion-20260907/stage-reuse/native/libstage_pipeline.so",
+          "sha256": "567a35bcb24b7ada9c8536dae0bfe192e06938023cff23affd2196c25a13706d"
+        }
+      ]
+    },
+    {
+      "model": "mimi",
+      "threads": 4,
+      "profile": false,
+      "providers": [
+        "CPUExecutionProvider"
+      ],
+      "custom_libraries": []
+    }
+  ],
+  "protocol": {
+    "threads": "4",
+    "precision": "FP32",
+    "batch": 1,
+    "provider": "CPUExecutionProvider",
+    "inter_op_threads": 1,
+    "execution": "sequential",
+    "graph_optimization": "all",
+    "spinning": false,
+    "warmups_per_timed_shape": 2,
+    "warmup_method": "separate calls after full validation",
+    "repeats": 5,
+    "validation_scope": "all",
+    "timing_scope": "frozen_config_override",
+    "timing_ids": {
+      "mimi": [
+        "hi_in_00099_1919",
+        "bn_in_00633_1820",
+        "gu_in_00926_1827",
+        "ta_in_00494_1946",
+        "te_in_00114_1911",
+        "kn_in_00584_1904",
+        "en_us_00103_1779",
+        "es_419_00646_1781",
+        "fr_fr_00129_1717",
+        "pt_br_00672_1745"
+      ],
+      "audio": [
+        "hi_in_00099_1919",
+        "bn_in_00633_1820",
+        "gu_in_00926_1827",
+        "ta_in_00494_1946",
+        "te_in_00114_1911",
+        "kn_in_00584_1904",
+        "en_us_00103_1779",
+        "es_419_00646_1781",
+        "fr_fr_00129_1717",
+        "pt_br_00672_1745"
+      ]
+    },
+    "stock_full_output_reused_for_validation": true,
+    "timing": "Python s.run wrapper including outputs/shape checks; disk I/O, encoding, setup, validation, warmup and profiling excluded",
+    "denominator": "Complete generated audio duration including hop padding; decoder-only fresh full calls, not cached streams",
+    "gate": "atol1e-5 rtol1e-4 vs original saved waveform; AudioVAE2 also vs stock ONNX. Exact repeated-call gates for all; future-prefix gates only for codecs declaring a causal contract."
+  },
+  "validation_checks": 331,
+  "validation_failures": [],
+  "max_abs_vs_saved_reference": 1.1801719665527344e-05,
+  "max_abs_vs_stock": 1.1399388313293457e-06,
+  "models": {
+    "stage_late3": {
+      "threads": 4,
+      "rtf": 0.06103780016074984,
+      "saved_vs_default_percent": 16.86318668290472,
+      "repeat_rtfs": [
+        0.060811079167412456,
+        0.06093753447920895,
+        0.0605386769760172,
+        0.06063353740705215,
+        0.06226817277405842
+      ],
+      "per_clip": {
+        "gu_in_00926_1827": {
+          "mean_rtf": 0.06034863176684695,
+          "samples": 5,
+          "sample_min": 0.06010919941712152,
+          "sample_max": 0.06067609783205284,
+          "saved_vs_default_percent": 16.80479117807937
+        },
+        "es_419_00646_1781": {
+          "mean_rtf": 0.060283172043781835,
+          "samples": 5,
+          "sample_min": 0.059920380307922086,
+          "sample_max": 0.06128938561214984,
+          "saved_vs_default_percent": 16.7347274074382
+        },
+        "en_us_00103_1779": {
+          "mean_rtf": 0.0610751184048476,
+          "samples": 5,
+          "sample_min": 0.060258693303223004,
+          "sample_max": 0.0617158005910891,
+          "saved_vs_default_percent": 17.731139918755535
+        },
+        "bn_in_00633_1820": {
+          "mean_rtf": 0.06050002625367294,
+          "samples": 5,
+          "sample_min": 0.059660851062896356,
+          "sample_max": 0.062410125974565744,
+          "saved_vs_default_percent": 16.49210396839713
+        },
+        "fr_fr_00129_1717": {
+          "mean_rtf": 0.06068643384794304,
+          "samples": 5,
+          "sample_min": 0.060125964596800134,
+          "sample_max": 0.06139896371785332,
+          "saved_vs_default_percent": 16.699695316753495
+        },
+        "pt_br_00672_1745": {
+          "mean_rtf": 0.060914788140445694,
+          "samples": 5,
+          "sample_min": 0.06062749725503799,
+          "sample_max": 0.06122455860559757,
+          "saved_vs_default_percent": 17.593806919702537
+        },
+        "ta_in_00494_1946": {
+          "mean_rtf": 0.06233278025941151,
+          "samples": 5,
+          "sample_min": 0.060241211326868556,
+          "sample_max": 0.06897573442599637,
+          "saved_vs_default_percent": 15.726342682595806
+        },
+        "hi_in_00099_1919": {
+          "mean_rtf": 0.06164721750161228,
+          "samples": 5,
+          "sample_min": 0.060023192097159,
+          "sample_max": 0.06764921779726066,
+          "saved_vs_default_percent": 15.955062074679605
+        },
+        "kn_in_00584_1904": {
+          "mean_rtf": 0.06122827402908693,
+          "samples": 5,
+          "sample_min": 0.060597151715421314,
+          "sample_max": 0.062135487061106796,
+          "saved_vs_default_percent": 16.401296349890092
+        },
+        "te_in_00114_1911": {
+          "mean_rtf": 0.06091263675399487,
+          "samples": 5,
+          "sample_min": 0.06037420603666413,
+          "sample_max": 0.0624880145830608,
+          "saved_vs_default_percent": 18.226329403321117
+        }
+      },
+      "clips_faster_than_default": 10
+    },
+    "fast_default": {
+      "threads": 4,
+      "rtf": 0.07341849864745627,
+      "saved_vs_default_percent": 0.0,
+      "repeat_rtfs": [
+        0.0748175867915559,
+        0.07306260569971434,
+        0.0728256291659156,
+        0.07293607396561474,
+        0.07345059761448072
+      ],
+      "per_clip": {
+        "hi_in_00099_1919": {
+          "mean_rtf": 0.07335030404376049,
+          "samples": 5,
+          "sample_min": 0.0728674780796556,
+          "sample_max": 0.07419140023343704,
+          "saved_vs_default_percent": 0.0
+        },
+        "es_419_00646_1781": {
+          "mean_rtf": 0.0723989367557382,
+          "samples": 5,
+          "sample_min": 0.07191157076977989,
+          "sample_max": 0.07403530542132923,
+          "saved_vs_default_percent": 0.0
+        },
+        "en_us_00103_1779": {
+          "mean_rtf": 0.07423844009085938,
+          "samples": 5,
+          "sample_min": 0.07261362616662626,
+          "sample_max": 0.07594032075118134,
+          "saved_vs_default_percent": 0.0
+        },
+        "fr_fr_00129_1717": {
+          "mean_rtf": 0.07285259529206548,
+          "samples": 5,
+          "sample_min": 0.07199122321821445,
+          "sample_max": 0.07504577836974174,
+          "saved_vs_default_percent": 0.0
+        },
+        "te_in_00114_1911": {
+          "mean_rtf": 0.07448930237512018,
+          "samples": 5,
+          "sample_min": 0.072646542881312,
+          "sample_max": 0.0794509704807278,
+          "saved_vs_default_percent": 0.0
+        },
+        "ta_in_00494_1946": {
+          "mean_rtf": 0.07396472663414187,
+          "samples": 5,
+          "sample_min": 0.07224331148029343,
+          "sample_max": 0.0793044902081412,
+          "saved_vs_default_percent": 0.0
+        },
+        "bn_in_00633_1820": {
+          "mean_rtf": 0.07244827031778793,
+          "samples": 5,
+          "sample_min": 0.07135557534638792,
+          "sample_max": 0.07525787805207074,
+          "saved_vs_default_percent": 0.0
+        },
+        "gu_in_00926_1827": {
+          "mean_rtf": 0.07253859040852126,
+          "samples": 5,
+          "sample_min": 0.07208704589133336,
+          "sample_max": 0.07344319244024113,
+          "saved_vs_default_percent": 0.0
+        },
+        "pt_br_00672_1745": {
+          "mean_rtf": 0.07392015801663072,
+          "samples": 5,
+          "sample_min": 0.07225740143758619,
+          "sample_max": 0.07621899692930727,
+          "saved_vs_default_percent": 0.0
+        },
+        "kn_in_00584_1904": {
+          "mean_rtf": 0.07324069794831853,
+          "samples": 5,
+          "sample_min": 0.07263726385479623,
+          "sample_max": 0.07384691711966739,
+          "saved_vs_default_percent": 0.0
+        }
+      },
+      "clips_faster_than_default": 0
+    },
+    "mimi": {
+      "threads": 4,
+      "rtf": 0.051734136948788915,
+      "saved_vs_default_percent": 29.535283475070962,
+      "repeat_rtfs": [
+        0.052438010833208745,
+        0.05154361401278215,
+        0.05140039130589957,
+        0.05134600783889585,
+        0.05194266075315823
+      ],
+      "per_clip": {
+        "pt_br_00672_1745": {
+          "mean_rtf": 0.051614979170581214,
+          "samples": 5,
+          "sample_min": 0.05080222000933101,
+          "sample_max": 0.05323977535988531,
+          "saved_vs_default_percent": 30.174690428869543
+        },
+        "kn_in_00584_1904": {
+          "mean_rtf": 0.05218444984744895,
+          "samples": 5,
+          "sample_min": 0.05139421008414391,
+          "sample_max": 0.05437064577232707,
+          "saved_vs_default_percent": 28.74938209317405
+        },
+        "te_in_00114_1911": {
+          "mean_rtf": 0.05345791828498911,
+          "samples": 5,
+          "sample_min": 0.0518413823542755,
+          "sample_max": 0.05536066201418193,
+          "saved_vs_default_percent": 28.234099957359327
+        },
+        "fr_fr_00129_1717": {
+          "mean_rtf": 0.05123157138088801,
+          "samples": 5,
+          "sample_min": 0.05028583109378814,
+          "sample_max": 0.05305895061643273,
+          "saved_vs_default_percent": 29.677767586039938
+        },
+        "es_419_00646_1781": {
+          "mean_rtf": 0.05012867393568882,
+          "samples": 5,
+          "sample_min": 0.04971322775321099,
+          "sample_max": 0.050368420418026374,
+          "saved_vs_default_percent": 30.76048325845654
+        },
+        "bn_in_00633_1820": {
+          "mean_rtf": 0.05082468657443921,
+          "samples": 5,
+          "sample_min": 0.04934254005396118,
+          "sample_max": 0.052453100215643644,
+          "saved_vs_default_percent": 29.846928917003513
+        },
+        "en_us_00103_1779": {
+          "mean_rtf": 0.05228659883141517,
+          "samples": 5,
+          "sample_min": 0.05162160429689619,
+          "sample_max": 0.05331873893737792,
+          "saved_vs_default_percent": 29.569372999456423
+        },
+        "gu_in_00926_1827": {
+          "mean_rtf": 0.05076391584794931,
+          "samples": 5,
+          "sample_min": 0.04943810177571846,
+          "sample_max": 0.055069413337141576,
+          "saved_vs_default_percent": 30.018055820966204
+        },
+        "ta_in_00494_1946": {
+          "mean_rtf": 0.05157122873072702,
+          "samples": 5,
+          "sample_min": 0.05091328052728157,
+          "sample_max": 0.05280801768952269,
+          "saved_vs_default_percent": 30.275915186142377
+        },
+        "hi_in_00099_1919": {
+          "mean_rtf": 0.05230816357652657,
+          "samples": 5,
+          "sample_min": 0.05177956845727749,
+          "sample_max": 0.05369135833461769,
+          "saved_vs_default_percent": 28.687189155589955
+        }
+      },
+      "clips_faster_than_default": 10
+    },
+    "audio_stock": {
+      "threads": 4,
+      "rtf": 0.25960629988068934,
+      "saved_vs_default_percent": -253.59794147695217,
+      "repeat_rtfs": [
+        0.2613748985241313,
+        0.2583419881146528,
+        0.2575602867089364,
+        0.25907271449789915,
+        0.26168161155782693
+      ],
+      "per_clip": {
+        "fr_fr_00129_1717": {
+          "mean_rtf": 0.26095912265022414,
+          "samples": 5,
+          "sample_min": 0.25707902850338776,
+          "sample_max": 0.2667170085383756,
+          "saved_vs_default_percent": -258.2015460177377
+        },
+        "hi_in_00099_1919": {
+          "mean_rtf": 0.25959418100469256,
+          "samples": 5,
+          "sample_min": 0.25613170263229634,
+          "sample_max": 0.2625139766171867,
+          "saved_vs_default_percent": -253.91016354863334
+        },
+        "gu_in_00926_1827": {
+          "mean_rtf": 0.2603179460325217,
+          "samples": 5,
+          "sample_min": 0.2543104973238737,
+          "sample_max": 0.26739631888224996,
+          "saved_vs_default_percent": -258.86821699521414
+        },
+        "ta_in_00494_1946": {
+          "mean_rtf": 0.25653453604356063,
+          "samples": 5,
+          "sample_min": 0.25523497639753956,
+          "sample_max": 0.2578614794505321,
+          "saved_vs_default_percent": -246.83361612688657
+        },
+        "pt_br_00672_1745": {
+          "mean_rtf": 0.26057188391176045,
+          "samples": 5,
+          "sample_min": 0.25660270649907935,
+          "sample_max": 0.26317242628488785,
+          "saved_vs_default_percent": -252.50450067102994
+        },
+        "bn_in_00633_1820": {
+          "mean_rtf": 0.2586731747336065,
+          "samples": 5,
+          "sample_min": 0.2577779989223927,
+          "sample_max": 0.2598337489568318,
+          "saved_vs_default_percent": -257.0453422820994
+        },
+        "te_in_00114_1911": {
+          "mean_rtf": 0.2588447103841921,
+          "samples": 5,
+          "sample_min": 0.2563667487115896,
+          "sample_max": 0.2621023130885671,
+          "saved_vs_default_percent": -247.4924615090067
+        },
+        "es_419_00646_1781": {
+          "mean_rtf": 0.2604186392018517,
+          "samples": 5,
+          "sample_min": 0.2570567661625089,
+          "sample_max": 0.27106620045830904,
+          "saved_vs_default_percent": -259.6995354786221
+        },
+        "en_us_00103_1779": {
+          "mean_rtf": 0.25911282196089075,
+          "samples": 5,
+          "sample_min": 0.2570658301313718,
+          "sample_max": 0.26311305937943635,
+          "saved_vs_default_percent": -249.02783738958715
+        },
+        "kn_in_00584_1904": {
+          "mean_rtf": 0.26128065969907877,
+          "samples": 5,
+          "sample_min": 0.25789819403805514,
+          "sample_max": 0.2673948980924306,
+          "saved_vs_default_percent": -256.74244923696455
+        }
+      },
+      "clips_faster_than_default": 0
+    },
+    "avx512_both": {
+      "threads": 4,
+      "rtf": 0.06500809372649813,
+      "saved_vs_default_percent": 11.455430274246737,
+      "repeat_rtfs": [
+        0.06594021042783549,
+        0.06442083201060693,
+        0.06438751410388825,
+        0.06422863657060428,
+        0.06606327551955572
+      ],
+      "per_clip": {
+        "fr_fr_00129_1717": {
+          "mean_rtf": 0.06476508546199194,
+          "samples": 5,
+          "sample_min": 0.06396680294927969,
+          "sample_max": 0.06637524863983171,
+          "saved_vs_default_percent": 11.101196597939678
+        },
+        "en_us_00103_1779": {
+          "mean_rtf": 0.06485668197274208,
+          "samples": 5,
+          "sample_min": 0.06435221337057925,
+          "sample_max": 0.06619416453220225,
+          "saved_vs_default_percent": 12.63733196257235
+        },
+        "ta_in_00494_1946": {
+          "mean_rtf": 0.06513503402834986,
+          "samples": 5,
+          "sample_min": 0.06410823907794022,
+          "sample_max": 0.06769955673111164,
+          "saved_vs_default_percent": 11.937707347269855
+        },
+        "hi_in_00099_1919": {
+          "mean_rtf": 0.06569649498252308,
+          "samples": 5,
+          "sample_min": 0.06398684838238884,
+          "sample_max": 0.07101783273266811,
+          "saved_vs_default_percent": 10.434597594402838
+        },
+        "pt_br_00672_1745": {
+          "mean_rtf": 0.0655816619594892,
+          "samples": 5,
+          "sample_min": 0.06384562987547655,
+          "sample_max": 0.06894890187133072,
+          "saved_vs_default_percent": 11.280408863933323
+        },
+        "es_419_00646_1781": {
+          "mean_rtf": 0.06451985681230582,
+          "samples": 5,
+          "sample_min": 0.06382813116589796,
+          "sample_max": 0.06650880937582081,
+          "saved_vs_default_percent": 10.882866926644342
+        },
+        "kn_in_00584_1904": {
+          "mean_rtf": 0.06454280605821898,
+          "samples": 5,
+          "sample_min": 0.06432763484278411,
+          "sample_max": 0.06494814332461718,
+          "saved_vs_default_percent": 11.875763248784333
+        },
+        "bn_in_00633_1820": {
+          "mean_rtf": 0.06385908209873985,
+          "samples": 5,
+          "sample_min": 0.06342205160763115,
+          "sample_max": 0.06442286151771745,
+          "saved_vs_default_percent": 11.85561529816015
+        },
+        "te_in_00114_1911": {
+          "mean_rtf": 0.06632716426353777,
+          "samples": 5,
+          "sample_min": 0.06420374446817105,
+          "sample_max": 0.0733244229345286,
+          "saved_vs_default_percent": 10.957463489829388
+        },
+        "gu_in_00926_1827": {
+          "mean_rtf": 0.06422348736506428,
+          "samples": 5,
+          "sample_min": 0.06358785658772222,
+          "sample_max": 0.0651099837295295,
+          "saved_vs_default_percent": 11.463006100102247
+        }
+      },
+      "clips_faster_than_default": 10
+    }
+  },
+  "host_timing_deltas": {
+    "4": {
+      "ticks": [
+        202607,
+        0,
+        79247,
+        4315410,
+        41,
+        0,
+        190,
+        0
+      ],
+      "total_ticks": 4597495,
+      "steal_percent": 0.0,
+      "iowait_percent": 0.0008917899856334808,
+      "scope": "Whole-VM /proc/stat counters around timing, outside inference timers"
+    }
+  },
+  "cgroup_timing_deltas": {
+    "4": {
+      "elapsed_seconds": 240.39223691821098,
+      "stats": [
+        {
+          "path": "/sys/fs/cgroup/cpu,cpuacct/cpu.stat",
+          "delta": {
+            "burst_time": 0,
+            "nr_bursts": 0,
+            "nr_periods": 2404,
+            "nr_throttled": 0,
+            "throttled_time": 0
+          },
+          "counters_decreased_or_reset": []
+        }
+      ],
+      "units": {
+        "throttled_time": "nanoseconds (cgroup v1)",
+        "throttled_usec": "microseconds (cgroup v2)",
+        "usage_usec": "microseconds",
+        "nr_throttled": "period count",
+        "nr_periods": "period count"
+      },
+      "scope": "Cgroup-wide counters include other processes and inter-call orchestration. No counters are read inside inference timers."
+    }
+  },
+  "gpu_library_mappings": {
+    "available": true,
+    "basenames": [],
+    "scope": "Read /proc/self/maps only; no device query. Mapped libraries alone do not prove GPU execution."
+  },
+  "interpretation": "Matched measurements on this host and fixed clips. Small per-clip differences can include timing noise; no universal speed claim."
+}

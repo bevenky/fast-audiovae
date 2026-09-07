@@ -1,0 +1,45 @@
+{
+  "initial_target": "Stage 4 pair plus phase finish plus sp_stage_c128, if the final combined profile confirms material time in that region.",
+  "input": "view_43 [1,256,40800]",
+  "output": "add_901 [1,128,81600]",
+  "replace_nodes": [
+    "ncc_up_4_split_matmul_current_node",
+    "ncc_up_4_split_matmul_previous_unshifted_node",
+    "ncc_phase_finish_140_op",
+    "sp_stage_c128"
+  ],
+  "reason": "Stride2 matches existing Q64/128/256 high-rate tiles. Both projection dimensions fit the shared small-K matrix family. Stage3 uses stride5 and M1280/K512 and needs a different matrix policy.",
+  "equation": "U[c,s*n+p] = fl(fl(dot_K(Wcurrent[c,p,:],X[:,n]) + (n>0 ? dot_K(Wprevious[c,p,:],X[:,n-1]) : +0.0f)) + bias[c])",
+  "separate_k_reductions": true,
+  "projection_has_no_bias_epilogue": true,
+  "state": "One C*stride previous-projection column, then transformed Snake histories of 6/18/54 high-rate frames per channel. All state remains local to a call/worker.",
+  "segment_start": "Warm from floor(max(0,first_output-78)/stride)*stride. Initialize the previous projection from the real preceding low-rate column if that aligned warm start is nonzero; use explicit positive zero only at global start. Discard warmup output, including extra alignment frames.",
+  "max_high_rate_warmup_frames": 79,
+  "extra_preceding_low_rate_column": 1,
+  "tile_schedule": "For stride2, Qoutput128 means Qinput64. Reuse the current four C*Q stage scratch tiles as phase output, current projection, previous projection and gathered X; the last has K*(Q/2)=C*Q elements. After interleave, preserve only the last previous column and reuse the same scratch for the three residual units.",
+  "example_tile": {
+    "channels_out": 128,
+    "channels_in": 256,
+    "output_frames": 128,
+    "input_frames": 64,
+    "stage_four_tile_bytes": 262144,
+    "snake_history_bytes": 39936,
+    "projection_history_bytes": 1024,
+    "row_temporary_bytes": 1240,
+    "scratch_bytes_total": 304344,
+    "projection_weights_bytes": 524288,
+    "residual_matrix_weights_bytes": 196608
+  },
+  "phased_validation": [
+    "First retain an optional debug phase output and compare both complete-K projections and ordered phase output against the current graph.",
+    "Then compare all three residual outputs, segmented/whole execution, global zero, tails, tiny inputs and causal prefixes.",
+    "Only after the strict full waveform gate passes, compare whole-decoder CPU RTF and peak memory using the unchanged benchmark harness."
+  ],
+  "limits": [
+    "The final profile may rank Stage3 or other work ahead of Stage4. These arithmetic/byte counts are not timing predictions.",
+    "Current matrix epilogue always adds bias, so raw projections need an explicit no-epilogue path; substituting bias0 is not an exact operation-order claim.",
+    "Keep large-K MKL/XSMM policies and single ORT thread ownership; do not nest a second matrix thread pool under segment workers.",
+    "Small projection tiles may reduce GEMM efficiency, reload weights, or exceed private cache together with hot weights. Actual data and code residency require measurement.",
+    "The two complete-K projection reductions must remain distinct. A combined 2K reduction, reassociated overlap sum, approximate Snake or fictitious biased negative-time samples is not this proposal."
+  ]
+}

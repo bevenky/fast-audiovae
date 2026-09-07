@@ -1,0 +1,500 @@
+{
+  "scope": "Read-only source and graph analysis. No kernel implementation, remote execution, inference, or timing.",
+  "latent_frames": 170,
+  "output_samples": 326400,
+  "output_rate_hz": 48000,
+  "audio_seconds": 6.8,
+  "source_sha256": "34ccdc4b835d04c6a240c7cd2c8025995d22b4c9f3877e61e0b9ee7524d5de66",
+  "composition_audit_sha256": "a5f327a074b97b3b2a6cd666b655140b1d05c4bcf6c5cade3c40ae44558a75e3",
+  "current_combined_graph_sha256": "e188d0609795d256627b4e39b632d5c5ca064256d410899ecb05ac4eb6301bc2",
+  "current_combined_graph_reconstructed_byte_exact": true,
+  "inspected_source_sha256": {
+    "work/fast-audiovae/native/x86/custom_ops.cpp": "2e1a60139ff929b7780decf16687121c9e46a654e96f8b22dc5ef72da1798705",
+    "work/fast-audiovae/src/fast_audiovae/graph/phase.py": "da25e60b48e2189df5068c87806c565a4f36fa611d812af9ae0116730b05739d",
+    "work/fast-audiovae/src/fast_audiovae/graph/upsampling.py": "65e63fe73eacfaca2b00a4929e1672c49d0a2eef2681f4521f2547b6bbcfa89e",
+    "work/intel-stage-pipeline/custom_op.cpp": "9376552829133522fd1c5f259e74c0bb0adafe1a9534355ef5c343371746cd77",
+    "work/fast-audiovae/experiments/cpu-stage/matrix/fused_pointwise.c": "8e6dc221fb88aaa24a1b4e93b276e8043010084c95027f95f39f2b8e23525522"
+  },
+  "source_nodes": 219,
+  "current_nodes": 109,
+  "current_operators": {
+    "Shape": 1,
+    "Squeeze": 1,
+    "CausalDW7F32": 1,
+    "MatMul": 7,
+    "Add": 7,
+    "Mul": 12,
+    "Reshape": 31,
+    "SnakeF32": 7,
+    "IntelPlainMatMulF32": 12,
+    "PhaseSumBiasInterleaveF32": 6,
+    "Concat": 6,
+    "SnakeDW7SnakeF32": 6,
+    "BiasResidualF32": 6,
+    "StageStackF32": 4,
+    "Conv": 1,
+    "Tanh": 1
+  },
+  "matrix_nodes": [
+    {
+      "name": "node_conv1d_1__bct_mm",
+      "operator": "MatMul",
+      "M": 2048,
+      "K": 64,
+      "T": 170,
+      "dense_flops": 44564480,
+      "output_bytes": 1392640,
+      "activation_input_bytes": 43520,
+      "weight_bytes": 524288
+    },
+    {
+      "name": "ncc_up_1_split_matmul_current_node",
+      "operator": "IntelPlainMatMulF32",
+      "M": 8192,
+      "K": 2048,
+      "T": 170,
+      "dense_flops": 5704253440,
+      "output_bytes": 5570560,
+      "activation_input_bytes": 1392640,
+      "weight_bytes": 67108864
+    },
+    {
+      "name": "ncc_up_1_split_matmul_previous_unshifted_node",
+      "operator": "IntelPlainMatMulF32",
+      "M": 8192,
+      "K": 2048,
+      "T": 170,
+      "dense_flops": 5704253440,
+      "output_bytes": 5570560,
+      "activation_input_bytes": 1392640,
+      "weight_bytes": 67108864
+    },
+    {
+      "name": "node_conv1d_3__bct_mm",
+      "operator": "IntelPlainMatMulF32",
+      "M": 1024,
+      "K": 1024,
+      "T": 1360,
+      "dense_flops": 2852126720,
+      "output_bytes": 5570560,
+      "activation_input_bytes": 5570560,
+      "weight_bytes": 4194304
+    },
+    {
+      "name": "node_conv1d_5__bct_mm",
+      "operator": "IntelPlainMatMulF32",
+      "M": 1024,
+      "K": 1024,
+      "T": 1360,
+      "dense_flops": 2852126720,
+      "output_bytes": 5570560,
+      "activation_input_bytes": 5570560,
+      "weight_bytes": 4194304
+    },
+    {
+      "name": "node_conv1d_7__bct_mm",
+      "operator": "IntelPlainMatMulF32",
+      "M": 1024,
+      "K": 1024,
+      "T": 1360,
+      "dense_flops": 2852126720,
+      "output_bytes": 5570560,
+      "activation_input_bytes": 5570560,
+      "weight_bytes": 4194304
+    },
+    {
+      "name": "ncc_up_2_split_matmul_current_node",
+      "operator": "IntelPlainMatMulF32",
+      "M": 3072,
+      "K": 1024,
+      "T": 1360,
+      "dense_flops": 8556380160,
+      "output_bytes": 16711680,
+      "activation_input_bytes": 5570560,
+      "weight_bytes": 12582912
+    },
+    {
+      "name": "ncc_up_2_split_matmul_previous_unshifted_node",
+      "operator": "IntelPlainMatMulF32",
+      "M": 3072,
+      "K": 1024,
+      "T": 1360,
+      "dense_flops": 8556380160,
+      "output_bytes": 16711680,
+      "activation_input_bytes": 5570560,
+      "weight_bytes": 12582912
+    },
+    {
+      "name": "node_conv1d_9__bct_mm",
+      "operator": "IntelPlainMatMulF32",
+      "M": 512,
+      "K": 512,
+      "T": 8160,
+      "dense_flops": 4278190080,
+      "output_bytes": 16711680,
+      "activation_input_bytes": 16711680,
+      "weight_bytes": 1048576
+    },
+    {
+      "name": "node_conv1d_11__bct_mm",
+      "operator": "IntelPlainMatMulF32",
+      "M": 512,
+      "K": 512,
+      "T": 8160,
+      "dense_flops": 4278190080,
+      "output_bytes": 16711680,
+      "activation_input_bytes": 16711680,
+      "weight_bytes": 1048576
+    },
+    {
+      "name": "node_conv1d_13__bct_mm",
+      "operator": "IntelPlainMatMulF32",
+      "M": 512,
+      "K": 512,
+      "T": 8160,
+      "dense_flops": 4278190080,
+      "output_bytes": 16711680,
+      "activation_input_bytes": 16711680,
+      "weight_bytes": 1048576
+    },
+    {
+      "name": "ncc_up_3_split_matmul_current_node",
+      "operator": "IntelPlainMatMulF32",
+      "M": 1280,
+      "K": 512,
+      "T": 8160,
+      "dense_flops": 10695475200,
+      "output_bytes": 41779200,
+      "activation_input_bytes": 16711680,
+      "weight_bytes": 2621440
+    },
+    {
+      "name": "ncc_up_3_split_matmul_previous_unshifted_node",
+      "operator": "IntelPlainMatMulF32",
+      "M": 1280,
+      "K": 512,
+      "T": 8160,
+      "dense_flops": 10695475200,
+      "output_bytes": 41779200,
+      "activation_input_bytes": 16711680,
+      "weight_bytes": 2621440
+    },
+    {
+      "name": "ncc_up_4_split_matmul_current_node",
+      "operator": "MatMul",
+      "M": 256,
+      "K": 256,
+      "T": 40800,
+      "dense_flops": 5347737600,
+      "output_bytes": 41779200,
+      "activation_input_bytes": 41779200,
+      "weight_bytes": 262144
+    },
+    {
+      "name": "ncc_up_4_split_matmul_previous_unshifted_node",
+      "operator": "MatMul",
+      "M": 256,
+      "K": 256,
+      "T": 40800,
+      "dense_flops": 5347737600,
+      "output_bytes": 41779200,
+      "activation_input_bytes": 41779200,
+      "weight_bytes": 262144
+    },
+    {
+      "name": "ncc_up_5_split_matmul_current_node",
+      "operator": "MatMul",
+      "M": 128,
+      "K": 128,
+      "T": 81600,
+      "dense_flops": 2673868800,
+      "output_bytes": 41779200,
+      "activation_input_bytes": 41779200,
+      "weight_bytes": 65536
+    },
+    {
+      "name": "ncc_up_5_split_matmul_previous_unshifted_node",
+      "operator": "MatMul",
+      "M": 128,
+      "K": 128,
+      "T": 81600,
+      "dense_flops": 2673868800,
+      "output_bytes": 41779200,
+      "activation_input_bytes": 41779200,
+      "weight_bytes": 65536
+    },
+    {
+      "name": "ncc_up_6_split_matmul_current_node",
+      "operator": "MatMul",
+      "M": 64,
+      "K": 64,
+      "T": 163200,
+      "dense_flops": 1336934400,
+      "output_bytes": 41779200,
+      "activation_input_bytes": 41779200,
+      "weight_bytes": 16384
+    },
+    {
+      "name": "ncc_up_6_split_matmul_previous_unshifted_node",
+      "operator": "MatMul",
+      "M": 64,
+      "K": 64,
+      "T": 163200,
+      "dense_flops": 1336934400,
+      "output_bytes": 41779200,
+      "activation_input_bytes": 41779200,
+      "weight_bytes": 16384
+    }
+  ],
+  "upsampling": [
+    {
+      "stage": 1,
+      "channels_in": 2048,
+      "channels_out": 1024,
+      "stride": 8,
+      "input_frames": 170,
+      "output_frames": 1360,
+      "matrix_shape_each": [
+        8192,
+        2048,
+        170
+      ],
+      "projection_operator_each": "IntelPlainMatMulF32",
+      "projection_nodes": [
+        "ncc_up_1_split_matmul_current_node",
+        "ncc_up_1_split_matmul_previous_unshifted_node"
+      ],
+      "phase_node": "ncc_phase_finish_17_op",
+      "phase_output": "slice_1",
+      "next_stage_node": null,
+      "phase_output_consumers": [
+        "node_view_2",
+        "ncc_block_adds_22"
+      ],
+      "dense_projection_flops": 11408506880,
+      "dense_residual_flops_inside_stage": null,
+      "projection_weight_bytes_total": 134217728,
+      "matrix_activation_input_bytes_each": 1392640,
+      "projection_tensor_bytes_each": 5570560,
+      "phase_output_bytes": 5570560,
+      "projection_materialization_bytes_total": 11141120,
+      "mandatory_region_output_bytes": null,
+      "avoid_two_projection_boundaries_bytes": 22249472,
+      "additional_avoid_phase_stage_boundary_bytes": null,
+      "avoid_all_three_boundaries_bytes": null,
+      "existing_stage_extra_warmup_input_bytes": null,
+      "discarded_previous_final_column_flops": 33554432,
+      "discarded_previous_final_column_fraction_of_pair": 0.0029411764705882353
+    },
+    {
+      "stage": 2,
+      "channels_in": 1024,
+      "channels_out": 512,
+      "stride": 6,
+      "input_frames": 1360,
+      "output_frames": 8160,
+      "matrix_shape_each": [
+        3072,
+        1024,
+        1360
+      ],
+      "projection_operator_each": "IntelPlainMatMulF32",
+      "projection_nodes": [
+        "ncc_up_2_split_matmul_current_node",
+        "ncc_up_2_split_matmul_previous_unshifted_node"
+      ],
+      "phase_node": "ncc_phase_finish_58_op",
+      "phase_output": "slice_2",
+      "next_stage_node": null,
+      "phase_output_consumers": [
+        "node_view_16",
+        "ncc_block_adds_57"
+      ],
+      "dense_projection_flops": 17112760320,
+      "dense_residual_flops_inside_stage": null,
+      "projection_weight_bytes_total": 25165824,
+      "matrix_activation_input_bytes_each": 5570560,
+      "projection_tensor_bytes_each": 16711680,
+      "phase_output_bytes": 16711680,
+      "projection_materialization_bytes_total": 33423360,
+      "mandatory_region_output_bytes": null,
+      "avoid_two_projection_boundaries_bytes": 66834432,
+      "additional_avoid_phase_stage_boundary_bytes": null,
+      "avoid_all_three_boundaries_bytes": null,
+      "existing_stage_extra_warmup_input_bytes": null,
+      "discarded_previous_final_column_flops": 6291456,
+      "discarded_previous_final_column_fraction_of_pair": 0.0003676470588235294
+    },
+    {
+      "stage": 3,
+      "channels_in": 512,
+      "channels_out": 256,
+      "stride": 5,
+      "input_frames": 8160,
+      "output_frames": 40800,
+      "matrix_shape_each": [
+        1280,
+        512,
+        8160
+      ],
+      "projection_operator_each": "IntelPlainMatMulF32",
+      "projection_nodes": [
+        "ncc_up_3_split_matmul_current_node",
+        "ncc_up_3_split_matmul_previous_unshifted_node"
+      ],
+      "phase_node": "ncc_phase_finish_99_op",
+      "phase_output": "slice_3",
+      "next_stage_node": "sp_stage_c256",
+      "phase_output_consumers": [
+        "sp_stage_c256"
+      ],
+      "dense_projection_flops": 21390950400,
+      "dense_residual_flops_inside_stage": 16043212800,
+      "projection_weight_bytes_total": 5242880,
+      "matrix_activation_input_bytes_each": 16711680,
+      "projection_tensor_bytes_each": 41779200,
+      "phase_output_bytes": 41779200,
+      "projection_materialization_bytes_total": 83558400,
+      "mandatory_region_output_bytes": 41779200,
+      "avoid_two_projection_boundaries_bytes": 167111680,
+      "additional_avoid_phase_stage_boundary_bytes": 83558400,
+      "avoid_all_three_boundaries_bytes": 250670080,
+      "existing_stage_extra_warmup_input_bytes": 79872,
+      "discarded_previous_final_column_flops": 1310720,
+      "discarded_previous_final_column_fraction_of_pair": 6.127450980392157e-05
+    },
+    {
+      "stage": 4,
+      "channels_in": 256,
+      "channels_out": 128,
+      "stride": 2,
+      "input_frames": 40800,
+      "output_frames": 81600,
+      "matrix_shape_each": [
+        256,
+        256,
+        40800
+      ],
+      "projection_operator_each": "MatMul",
+      "projection_nodes": [
+        "ncc_up_4_split_matmul_current_node",
+        "ncc_up_4_split_matmul_previous_unshifted_node"
+      ],
+      "phase_node": "ncc_phase_finish_140_op",
+      "phase_output": "slice_4",
+      "next_stage_node": "sp_stage_c128",
+      "phase_output_consumers": [
+        "sp_stage_c128"
+      ],
+      "dense_projection_flops": 10695475200,
+      "dense_residual_flops_inside_stage": 8021606400,
+      "projection_weight_bytes_total": 524288,
+      "matrix_activation_input_bytes_each": 41779200,
+      "projection_tensor_bytes_each": 41779200,
+      "phase_output_bytes": 41779200,
+      "projection_materialization_bytes_total": 83558400,
+      "mandatory_region_output_bytes": 41779200,
+      "avoid_two_projection_boundaries_bytes": 167115776,
+      "additional_avoid_phase_stage_boundary_bytes": 83558400,
+      "avoid_all_three_boundaries_bytes": 250674176,
+      "existing_stage_extra_warmup_input_bytes": 39936,
+      "discarded_previous_final_column_flops": 131072,
+      "discarded_previous_final_column_fraction_of_pair": 1.2254901960784313e-05
+    },
+    {
+      "stage": 5,
+      "channels_in": 128,
+      "channels_out": 64,
+      "stride": 2,
+      "input_frames": 81600,
+      "output_frames": 163200,
+      "matrix_shape_each": [
+        128,
+        128,
+        81600
+      ],
+      "projection_operator_each": "MatMul",
+      "projection_nodes": [
+        "ncc_up_5_split_matmul_current_node",
+        "ncc_up_5_split_matmul_previous_unshifted_node"
+      ],
+      "phase_node": "ncc_phase_finish_181_op",
+      "phase_output": "slice_5",
+      "next_stage_node": "sp_stage_c64",
+      "phase_output_consumers": [
+        "sp_stage_c64"
+      ],
+      "dense_projection_flops": 5347737600,
+      "dense_residual_flops_inside_stage": 4010803200,
+      "projection_weight_bytes_total": 131072,
+      "matrix_activation_input_bytes_each": 41779200,
+      "projection_tensor_bytes_each": 41779200,
+      "phase_output_bytes": 41779200,
+      "projection_materialization_bytes_total": 83558400,
+      "mandatory_region_output_bytes": 41779200,
+      "avoid_two_projection_boundaries_bytes": 167116288,
+      "additional_avoid_phase_stage_boundary_bytes": 83558400,
+      "avoid_all_three_boundaries_bytes": 250674688,
+      "existing_stage_extra_warmup_input_bytes": 19968,
+      "discarded_previous_final_column_flops": 32768,
+      "discarded_previous_final_column_fraction_of_pair": 6.127450980392157e-06
+    },
+    {
+      "stage": 6,
+      "channels_in": 64,
+      "channels_out": 32,
+      "stride": 2,
+      "input_frames": 163200,
+      "output_frames": 326400,
+      "matrix_shape_each": [
+        64,
+        64,
+        163200
+      ],
+      "projection_operator_each": "MatMul",
+      "projection_nodes": [
+        "ncc_up_6_split_matmul_current_node",
+        "ncc_up_6_split_matmul_previous_unshifted_node"
+      ],
+      "phase_node": "ncc_phase_finish_222_op",
+      "phase_output": "slice_6",
+      "next_stage_node": "sp_stage_c32",
+      "phase_output_consumers": [
+        "sp_stage_c32"
+      ],
+      "dense_projection_flops": 2673868800,
+      "dense_residual_flops_inside_stage": 2005401600,
+      "projection_weight_bytes_total": 32768,
+      "matrix_activation_input_bytes_each": 41779200,
+      "projection_tensor_bytes_each": 41779200,
+      "phase_output_bytes": 41779200,
+      "projection_materialization_bytes_total": 83558400,
+      "mandatory_region_output_bytes": 41779200,
+      "avoid_two_projection_boundaries_bytes": 167116544,
+      "additional_avoid_phase_stage_boundary_bytes": 83558400,
+      "avoid_all_three_boundaries_bytes": 250674944,
+      "existing_stage_extra_warmup_input_bytes": 9984,
+      "discarded_previous_final_column_flops": 8192,
+      "discarded_previous_final_column_fraction_of_pair": 3.0637254901960783e-06
+    }
+  ],
+  "totals": {
+    "ordinary_matmul_count": 7,
+    "mkl_matmul_count": 12,
+    "stage_stack_count": 4,
+    "phase_finish_count": 6,
+    "dense_flops_ordinary_late_upsampling": 18717081600,
+    "dense_flops_all_upsampling": 68629299200,
+    "nominal_avoidable_bytes_late3_projection_phase_boundaries": 752023808,
+    "nominal_avoidable_bytes_stage3to6_projection_phase_boundaries": 1002693888
+  },
+  "accounting": {
+    "dense_flop_rule": "Each FP32 multiply-accumulate counts as two FLOPs. Bias, sine, depthwise and layout arithmetic excluded from dense projection counts.",
+    "tensor_bytes": "4 * batch1 * elements. Projection and phase bytes describe separate materialized tensors, not peak RSS.",
+    "boundary_bytes": "Producer write plus direct consumer read. Previous final projection column is written but not read; subtract 4*M once. Warmup overlap is listed separately. Logical bytes are not measured DRAM bytes.",
+    "mandatory_output": "Output of the fused upsampling plus residual region is still required by the following graph operator. Its full tensor write is not counted as an eliminated boundary.",
+    "phase_x86_source": "The inspected PhaseKernel::FinishRow uses SSE2 four-time vectors, even in a graph whose Snake backend is5. There is no AVX2/AVX512 phase specialization in this source. This is not a timing or current-binary assembly claim.",
+    "unchanged_work": "Fusion preserves both complete-K projections, six Snake evaluations and three residual pointwise matrices. Tiling retains local scratch traffic and may add segment warmup work.",
+    "timing_status": "No timing prediction. Profile the final combined graph before ranking these regions by runtime."
+  }
+}
