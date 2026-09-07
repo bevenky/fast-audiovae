@@ -13,7 +13,9 @@ On an Intel Xeon Platinum 8280 VM, two CPU threads and two segments:
 | Existing combined decoder's four-node region | 301.249 ms |
 | LIBXSMM projections, 128-position output tiles | 267.188 ms |
 
-That is **11.3% less region time**, measured over seven shuffled repetitions after two warmups on one captured speech activation representing 6.8 seconds. Only the production final output was timed. Direct AVX512 projection variants were slower. Intermediate and synthetic correctness checks passed; **whole-decoder RTF and full-corpus validation are pending**. This result does not establish an 11.3% decoder improvement or a memory saving.
+That is **11.3% less region time**, measured over seven shuffled repetitions after two warmups on one captured speech activation representing 6.8 seconds. Only the production final output was timed. Direct AVX512 projection variants were slower.
+
+The completed full-decoder comparison improved RTF from **0.25398 to 0.24424**, a **3.83% reduction in decoding time**. Mimi measured 0.17327 in the same run. All ten clip averages improved and all 264 validation records passed across the original 60-clip corpus and boundary checks. This remains an optional experiment. See the [complete measurements and remaining bottlenecks](../../../docs/intel-upsampling.md).
 
 ## Build
 

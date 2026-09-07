@@ -25,6 +25,8 @@ Latest kernel experiments use the same ten timed clips, five repetitions and ful
 
 The stage experiments reduce time by 16.9% on AMD and 26.4% on Intel. All ten clip averages improve, with 331 validation checks passing on each host. The fused option is available through `prepare`; the larger stage experiments remain separate. Apple correctness passed, but unstable timing prevents a new performance claim. See [kernel results](docs/cpu-kernel-results.md).
 
+A further Intel-only upsampling experiment reduced RTF from **0.25398 to 0.24424**, another **3.83% less decoding time**. Mimi measured 0.17327 in that same run. All ten clip averages improved and all 264 validation records passed. Runtime defaults remain unchanged. See [Intel results and bottlenecks](docs/intel-upsampling.md).
+
 Reconstruction quality from the original 60-recording FLEURS comparison across ten languages, measured in the common 16 kHz source bandwidth. Higher scores are better. New kernels passed numerical checks; these quality metrics were not rerun.
 
 | Codec | PESQ | STOI | UTMOS22 | DNSMOS P.835 overall | DNSMOS P.808 |
@@ -32,10 +34,13 @@ Reconstruction quality from the original 60-recording FLEURS comparison across t
 | Fast AudioVAE2 | 3.742 | 0.936 | 2.257 | 2.765 | 3.404 |
 | Pocket continuous Mimi | 2.130 | 0.807 | 2.517 | 2.894 | 3.339 |
 | Meta DAC-VAE | 4.284 | 0.973 | 2.222 | 2.779 | 3.431 |
+| Supertonic 3 | N/A | N/A | N/A | N/A | N/A |
 
 Stock and fast AudioVAE2 agree at this precision. UTMOS and DNSMOS are learned predictions, not listening-panel ratings. AudioVAE2 and Pocket continuous Mimi are causal and output 48 kHz and 24 kHz respectively. The tested Meta DAC-VAE outputs 48 kHz, is noncausal and retains its full watermark.
 
 The original comparison passed all 847 decoder validation checks. [Full results and methodology](docs/multilingual.md) include per-clip data and the MOS audit.
+
+Supertonic 3 lacks a matching public audio encoder for this reconstruction test. MUSHRA listening scores are unmeasured for all models. See [comparison status](docs/codec-comparison-status.md).
 
 ## Setup
 
