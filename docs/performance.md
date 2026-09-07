@@ -1,6 +1,6 @@
 # Performance and validation
 
-These are recorded development measurements of the accepted decoder paths on Apple M5 Max and AMD EPYC 9654. They are CPU-only results, not GPU, encoder-plus-decoder or whole-TTS timings.
+These are historical 20-clip English development measurements on Apple M5 Max and AMD EPYC 9654. The [new multilingual benchmark](multilingual.md) includes Intel, Meta DACVAE and reconstruction-quality results. They are CPU-only results, not GPU, encoder-plus-decoder or whole-TTS timings.
 
 ## Decoder measurements
 
@@ -21,7 +21,7 @@ AudioVAE2 produces **48 kHz** audio from 64-channel, 25 Hz continuous latents. M
 
 At four threads, native Apple decoding took 15.72% less time than Mimi. AMD with optional packing took 38.22% more time than Mimi, although it reduced AudioVAE2 time by 72.37% versus stock. Packing saved a further 2.24% versus native AMD, or 3.52% at one thread. It costs roughly 164 MiB of additional weight storage; no precision reduction or compression is involved.
 
-The AMD runs used one physical core or four sharing an L3 group, under a 16.15-core-equivalent quota. Cgroup counters showed zero additional throttled periods or throttled time during either timing block. CPU frequency was not measured. Results describe this environment, not universal CPU ratios. Intel hardware still needs ISA, numerical and matched 1/4-thread validation with suitable core placement.
+The AMD runs used one physical core or four sharing an L3 group, under a 16.15-core-equivalent quota. Cgroup counters showed zero additional throttled periods or throttled time during either timing block. CPU frequency was not measured. Results describe this environment, not universal CPU ratios. The subsequent [Intel campaign](multilingual.md) validates the native decoder at two threads on a two-vCPU VM. This older table does not include it.
 
 ## What passed
 

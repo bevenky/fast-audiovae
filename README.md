@@ -6,14 +6,15 @@ The package combines ONNX graph rewrites with native Snake, causal depthwise and
 
 ## Benchmarks
 
-CPU-only decoding, FP32, four threads, 20 speech clips. Lower RTF is better.
+CPU-only decoder inference, FP32, ONNX Runtime 1.29.0. Ten fixed multilingual clips, three repetitions. Lower RTF is better.
 
-| CPU | Stock RTF | Optimized RTF | Speedup |
-|---|---:|---:|---:|
-| Apple M5 Max (ARM) | 0.12102 | 0.03015 | 4.01× |
-| AMD EPYC 9654 (x86) | 0.25636 | 0.07246 | 3.54× |
+| CPU | Threads | Stock RTF | Optimized RTF | Speedup |
+|---|---:|---:|---:|---:|
+| Apple M5 Max | 4 | 0.11351 | 0.02706 | 4.19× |
+| AMD EPYC 9654 | 4 | 0.26078 | 0.07629 | 3.42× |
+| Intel Xeon Platinum 8280 VM | 2 | 0.67968 | 0.35355 | 1.92× |
 
-Stock is the original ONNX export. Optimized uses the default native backend, without optional AMD packing.
+Stock is the original ONNX export. Optimized uses the default native backend. [Full results](docs/multilingual.md) include Mimi and Meta DACVAE, quality scores on 60 recordings, and numerical validation.
 
 ## Setup
 
@@ -45,7 +46,7 @@ The default uses up to four CPUs visible to the process, so a two-vCPU VM uses t
 ## Hardware
 
 - **Apple ARM:** NEON/vForce; validated on M5 Max.
-- **Linux x86:** guarded AVX2/SSE2 and SLEEF; validated on AMD EPYC 9654. Intel has a portable native path but has not been validated on Intel hardware.
+- **Linux x86:** guarded AVX2/SSE2 and SLEEF; validated on AMD EPYC 9654 and an Intel Xeon Platinum 8280 VM.
 - **Other platforms, including generic ARM:** standard ONNX CPU fallback. Unavailable native dependencies also select the fallback.
 
 Use `prefer_custom=False` to request the ONNX fallback. See [performance and validation](docs/performance.md) for measured results and limits.
