@@ -8,13 +8,25 @@ The package combines ONNX graph rewrites with native Snake, causal depthwise and
 
 CPU-only decoder inference, FP32, ONNX Runtime 1.29.0. Ten fixed multilingual clips, three repetitions. Lower RTF is better.
 
-| CPU | Threads | Stock RTF | Optimized RTF | Speedup |
-|---|---:|---:|---:|---:|
-| Apple M5 Max | 4 | 0.11351 | 0.02706 | 4.19× |
-| AMD EPYC 9654 | 4 | 0.26078 | 0.07629 | 3.42× |
-| Intel Xeon Platinum 8280 VM | 2 | 0.67968 | 0.35355 | 1.92× |
+| CPU | Threads | Stock AudioVAE2 | Fast AudioVAE2 | Mimi | Meta DAC-VAE |
+|---|---:|---:|---:|---:|---:|
+| Apple M5 Max | 4 | 0.11351 | 0.02706 | 0.03285 | 0.54146 |
+| AMD EPYC 9654 | 4 | 0.26078 | 0.07629 | 0.05400 | 0.66065 |
+| Intel Xeon Platinum 8280 VM | 2 | 0.67968 | 0.35355 | 0.17709 | 2.06885 |
 
-Stock is the original ONNX export. Optimized uses the default native backend. [Full results](docs/multilingual.md) include Mimi and Meta DACVAE, quality scores on 60 recordings, and numerical validation.
+Stock is the original ONNX export. Fast uses the default native backend: 4.19x faster on Apple, 3.42x on AMD and 1.92x on Intel. These are full-clip decoder calls; loading, encoding and TTS generation are excluded.
+
+Reconstruction quality on 60 FLEURS recordings across ten languages, measured in the common 16 kHz source bandwidth. Higher scores are better.
+
+| Codec | PESQ | STOI | UTMOS22 | DNSMOS P.835 overall | DNSMOS P.808 |
+|---|---:|---:|---:|---:|---:|
+| Fast AudioVAE2 | 3.742 | 0.936 | 2.257 | 2.765 | 3.404 |
+| Pocket continuous Mimi | 2.130 | 0.807 | 2.517 | 2.894 | 3.339 |
+| Meta DAC-VAE | 4.284 | 0.973 | 2.222 | 2.779 | 3.431 |
+
+Stock and fast AudioVAE2 agree at this precision. UTMOS and DNSMOS are learned predictions, not listening-panel ratings. AudioVAE2 and Pocket continuous Mimi are causal and output 48 kHz and 24 kHz respectively. The tested Meta DAC-VAE outputs 48 kHz, is noncausal and retains its full watermark.
+
+All 847 decoder validation checks passed. [Full results and methodology](docs/multilingual.md) include per-clip data, the MOS audit and the experimental Intel MKL result (0.32621 RTF, with additional memory cost).
 
 ## Setup
 
