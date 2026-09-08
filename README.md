@@ -1,60 +1,21 @@
 # fast-audiovae
 
-CPU inference optimizations for the AudioVAE2 decoder used by VoxCPM2. The trained weights and FP32 interface stay unchanged: input latents `[1, 64, L]` at 25 Hz produce mono audio `[1, 1, 1920*L]` at 48 kHz.
+CPU inference for VoxCPM2's AudioVAE2 decoder, using ONNX graph rewrites and native kernels. FP32 latents `[1, 64, L]` at 25 Hz produce mono `[1, 1, 1920*L]` audio at 48 kHz. Calls start with fresh causal history; there is no cached streaming API.
 
-The package combines ONNX graph rewrites with native Snake, causal depthwise and phase-interleave operators. Every session uses ONNX Runtime's CPU execution provider. Backend selection checks platform and available CPU instructions; it does not benchmark or autotune your machine.
+## Run
 
-## Benchmarks
-
-Original multilingual baseline using the previous native build. CPU-only decoder inference, FP32, ONNX Runtime 1.29.0. Ten fixed clips, three repetitions. Lower RTF is better.
-
-| CPU | Threads | Stock AudioVAE2 | Fast AudioVAE2 | Mimi | Meta DAC-VAE |
-|---|---:|---:|---:|---:|---:|
-| Apple M5 Max | 4 | 0.11351 | 0.02706 | 0.03285 | 0.54146 |
-| AMD EPYC 9654 | 4 | 0.26078 | 0.07629 | 0.05400 | 0.66065 |
-| Intel Xeon Platinum 8280 VM | 2 | 0.67968 | 0.35355 | 0.17709 | 2.06885 |
-
-Stock is the original ONNX export. Fast used the then-current default native backend: 4.19x faster on Apple, 3.42x on AMD and 1.92x on Intel. These are full-clip decoder calls; loading, encoding and TTS generation are excluded.
-
-Latest kernel experiments use the same ten timed clips, five repetitions and full 60-clip validation:
-
-| CPU | Previous fast | Fused AVX512 option | Stage experiment | Mimi |
-|---|---:|---:|---:|---:|
-| AMD EPYC 9654, 4 threads | 0.07342 | 0.06501 | **0.06104** | 0.05173 |
-| Intel Xeon Platinum 8280 VM, 2 threads | 0.34654 | 0.29286 | **0.25510** | 0.17169 |
-
-The stage experiments reduce time by 16.9% on AMD and 26.4% on Intel. All ten clip averages improve, with 331 validation checks passing on each host. The fused option is available through `prepare`; the larger stage experiments remain separate. Apple correctness passed, but unstable timing prevents a new performance claim. See [kernel results](docs/cpu-kernel-results.md).
-
-A further Intel-only upsampling experiment reduced RTF from **0.25398 to 0.24424**, another **3.83% less decoding time**. Mimi measured 0.17327 in that same run. All ten clip averages improved and all 264 validation records passed. Runtime defaults remain unchanged. See [Intel results and bottlenecks](docs/intel-upsampling.md).
-
-Reconstruction quality from the original 60-recording FLEURS comparison across ten languages, measured in the common 16 kHz source bandwidth. Higher scores are better. New kernels passed numerical checks; these quality metrics were not rerun.
-
-| Codec | PESQ | STOI | UTMOS22 | DNSMOS P.835 overall | DNSMOS P.808 |
-|---|---:|---:|---:|---:|---:|
-| Fast AudioVAE2 | 3.742 | 0.936 | 2.257 | 2.765 | 3.404 |
-| Pocket continuous Mimi | 2.130 | 0.807 | 2.517 | 2.894 | 3.339 |
-| Meta DAC-VAE | 4.284 | 0.973 | 2.222 | 2.779 | 3.431 |
-| Supertonic 3 | N/A | N/A | N/A | N/A | N/A |
-
-Stock and fast AudioVAE2 agree at this precision. UTMOS and DNSMOS are learned predictions, not listening-panel ratings. AudioVAE2 and Pocket continuous Mimi are causal and output 48 kHz and 24 kHz respectively. The tested Meta DAC-VAE outputs 48 kHz, is noncausal and retains its full watermark.
-
-The original comparison passed all 847 decoder validation checks. [Full results and methodology](docs/multilingual.md) include per-clip data and the MOS audit.
-
-Supertonic 3 lacks a matching public audio encoder for this reconstruction test. MUSHRA listening scores are unmeasured for all models. See [comparison status](docs/codec-comparison-status.md).
-
-## Setup
-
-Python 3.11 to 3.13 is recommended in a virtual environment. Decoder tests used Python 3.13 on macOS and 3.12 on Linux. Native builds require Apple Command Line Tools on Apple ARM, or a C/C++ toolchain, CMake and Make on Linux x86.
+Use Python 3.11 to 3.13. Native builds require Apple Command Line Tools on Apple ARM, or a C/C++ compiler, CMake and Make on Linux x86.
 
 ```sh
 git clone https://github.com/bevenky/fast-audiovae.git
 cd fast-audiovae
-pip install -e .
+python -m pip install -e .
 python tools/build.py
 fast-audiovae prepare --output artifacts
+fast-audiovae inspect artifacts
 ```
 
-For standard ONNX without native operators, skip `tools/build.py`. Build dependencies and the pinned model are downloaded during setup, not package import. Generated files remain outside version control. Preparation produces a portable ONNX fallback and, when available, the locally built native backend.
+Build and prepare on each target machine. Setup downloads pinned dependencies and model files. To use standard ONNX on another platform, skip the native build. With uv, use `uv pip install -e .` inside an activated environment.
 
 ```python
 from fast_audiovae import load_decoder
@@ -65,53 +26,48 @@ print(selected)
 audio = session.run(None, {session.get_inputs()[0].name: latents})[0]
 ```
 
-Calls start with fresh causal history. There is no cached streaming API. Model loading, encoding and TTS generation are separate from decoding.
+Every session uses CPUExecutionProvider. The loader chooses a compatible native FP32 backend or standard ONNX CPU. Use `prefer_custom=False` to request the ONNX fallback. Omit `threads` for up to four visible CPUs; set it explicitly for CPU quotas or a two-vCPU VM.
 
-The default uses up to four CPUs visible to the process, so a two-vCPU VM uses two workers. Set `threads` explicitly if needed, including when a container's CPU quota is smaller than its visible CPU count.
+- **Apple ARM:** use the public FP32 route above, with NEON/vForce. The SME2 INT8 trial did not establish a reliable speed gain and remains experimental.
+- **Intel Linux:** the public route is FP32. [Selective INT8](experiments/intel-precision/README.md) is an explicit option for suitable AVX512-VNNI systems, using pinned sequential oneMKL.
+- **AMD Linux:** the public route is FP32. [Selective INT8 with AOCL-DLP](experiments/amd-precision/README.md) is an explicit option for the tested EPYC configuration. Its 60-clip quality evaluation reproduces the accepted Intel INT8 result.
 
-## Hardware
+INT8 is not selected automatically. Experimental graphs and libraries require their separate instructions. CPU capability checks prevent unsupported execution; they do not predict speed on an untested machine.
 
-- **Apple ARM:** NEON/vForce; validated on M5 Max.
-- **Linux x86:** guarded AVX2/SSE2 and optional AVX512 with SLEEF; validated on AMD EPYC 9654 and an Intel Xeon Platinum 8280 VM.
-- **Other platforms, including generic ARM:** standard ONNX CPU fallback. Unavailable native dependencies also select the fallback.
+## Decoder benchmarks
 
-Use `prefer_custom=False` to request the ONNX fallback. See [performance and validation](docs/performance.md) for measured results and limits.
+The matched FP32 codec comparison below used ONNX Runtime 1.29, ten fixed clips and three repetitions. Lower RTF is better. This historical comparison includes all three codecs; later experiments are linked below.
 
-## Optional fused decoder
+| CPU | Threads | Stock AudioVAE2 | Native AudioVAE2 FP32 | Mimi | Meta DAC-VAE |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Apple M5 Max | 4 | 0.11351 | 0.02706 | 0.03285 | 0.54146 |
+| AMD EPYC 9654 | 4 | 0.26078 | 0.07629 | 0.05400 | 0.66065 |
+| Intel Xeon Platinum 8280 VM | 2 | 0.67968 | 0.35355 | 0.17709 | 2.06885 |
 
-On compatible Linux x86 CPUs, enable AVX512 and fuse adjacent Snake, depthwise and residual operations:
+RTF measures full-clip decoder calls and excludes loading, encoding and TTS generation. Stock is the original export, not the rewritten ONNX fallback. Models have different latent and output-rate contracts.
 
-```sh
-fast-audiovae prepare --output artifacts-fused --native-backend avx512 --block-fusion both
-```
+Later matched experiments:
 
-Load this directory with `load_decoder("artifacts-fused")`. CPU and OS checks guard the native path; unsupported systems use the bundled standard ONNX fallback. The default preparation recipe stays unchanged. Larger stage and matrix experiments are kept separately in [experiments/cpu-stage](experiments/cpu-stage).
+- **Intel:** [Selective INT8](docs/intel-precision.md) measured RTF **0.16411**, versus optimized FP32 0.24821 and Mimi 0.17002. That is 33.9% less time than FP32. Automated quality scores declined slightly; a single-listener pilot tied FP32.
+- **AMD:** [AOCL selective INT8](docs/amd-precision.md) measured RTF **0.03435**, versus FP32 0.06056 and Mimi 0.05201. That is 43.3% less time in the final three-clip screen. Its fresh 60-clip quality scores reproduce the Intel INT8 result.
+- **Apple:** [Retain FP32](docs/apple-precision.md). The final SME2 INT8 screen was too noisy to establish a reliable gain. Fresh stock/fast quality scores agree at the precision reported below.
 
-## Optional AMD matrix packing
+Compare each experiment with its own control; do not combine speedups across campaigns.
 
-On AMD Zen 4 or newer running Linux, with AVX-512 enabled:
+## Reconstruction quality
 
-```sh
-python tools/build.py --amd-packed
-fast-audiovae prepare --output artifacts-amd --amd-build .build/amd/build.json
-```
+The original 60-clip FLEURS comparison covers ten languages, scored in the common 16 kHz source bandwidth. These are FP32 results, not scores for the later INT8 variants. Higher is better.
 
-Then call `load_decoder("artifacts-amd", threads=4, prefer_packed=True)`. This option adds approximately 164 MiB of packed FP32 weights for a modest measured gain. Packing is a layout transformation, not compression. The loader checks AMD vendor, instructions, OS vector state and validated thread count before enabling it.
+| Codec | PESQ | STOI | UTMOS22 | DNSMOS overall | DNSMOS P.808 |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| AudioVAE2 FP32 | 3.742 | 0.936 | 2.257 | 2.765 | 3.404 |
+| Pocket continuous Mimi | 2.130 | 0.807 | 2.517 | 2.894 | 3.339 |
+| Meta DAC-VAE | 4.284 | 0.973 | 2.222 | 2.779 | 3.431 |
 
-## Optional encoder preparation
+UTMOS and DNSMOS are predictions, not listening-panel ratings. AudioVAE2 outputs 48 kHz and Pocket continuous Mimi outputs 24 kHz; both tested decoders are causal. The tested 48 kHz Meta DAC-VAE is noncausal. No standardized MUSHRA panel is complete. Supertonic 3 has no matching public encoder for this reconstruction test. [Methodology and per-clip evidence](docs/multilingual.md).
 
-```sh
-pip install -e '.[encoder]'
-```
+## More
 
-```python
-from fast_audiovae.encoder import prepare_encoder
+[FP32 fusion and stage experiments](docs/cpu-kernel-results.md), [optional FP32 backends and encoder setup](docs/optional-backends.md), and the explicit experiment packages contain the detailed build and validation records. The encoder retains its existing 16 kHz input; decoder optimization does not change that interface.
 
-handle = prepare_encoder(vae.encoder.eval())  # Existing upstream CPU FP32 model.
-```
-
-Use the upstream VAE's normal encoding path under `torch.inference_mode()`. Its existing 16 kHz encoder input and 48 kHz decoder output remain unchanged. The helper folds weight normalization and removes redundant pointwise padding copies while preserving original encoder Snake and depthwise operations. It does not export an encoder ONNX model. `handle.restore()` restores forwards; reload the checkpoint before training.
-
-## Attribution
-
-Model architecture and weights originate from [OpenBMB VoxCPM](https://github.com/OpenBMB/VoxCPM). Preparation uses the checksum-verified [ai4all8/VoxCPM2-ONNX export](https://huggingface.co/ai4all8/VoxCPM2-ONNX/tree/ecb511b96675f041424b42f148bf72e301262586). Upstream model and dependency licenses apply.
+Architecture and weights originate from [OpenBMB VoxCPM](https://github.com/OpenBMB/VoxCPM). Preparation uses the checksum-verified [pinned ONNX export](https://huggingface.co/ai4all8/VoxCPM2-ONNX/tree/ecb511b96675f041424b42f148bf72e301262586). Upstream model and dependency licenses apply.
