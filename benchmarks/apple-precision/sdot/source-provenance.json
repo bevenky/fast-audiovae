@@ -1,0 +1,28 @@
+{
+  "base_sources": {
+    "precision.cpp": "95eeddad1153679fc0582896b965ad088100f7d1c0abc43b33587421adf4b9e3",
+    "precision.h": "c8758086e9346c1522802d86ea9be59a067fe0bc5e9702560c435b0960724ac0",
+    "custom_op.cpp": "b1f927d37804cf874a2e40e8fac0d2bfc31247cac675319a7869c905d9b6ae23"
+  },
+  "port_sources": {
+    "native/arm_dot.h": "568aaa3f9a8d02732db295250250e527db7572d38b5ce8382f4c9db32a45bfa8",
+    "native/custom_op.cpp": "6470399f8434897e06d4aaba4d67912c963e8e18ebc5af5e4da035def9e3d5c9",
+    "native/precision.cpp": "eba776d3b6ca81eeff5c6d96766b7f97e3199eff00df5441d6e78417303dff07",
+    "native/precision.h": "b4704bd9d02972fb4b84b14e0b47d691c0ee4fb73cfe3a97eef11b4fa67a59ef"
+  },
+  "source_graph_sha256": "fa7992825e807cac7ab1be405912ae3735031fb941a18dd81006005dc597bde3",
+  "source_semantics": "Symmetric W8A8 per-row weights and per-time-column activations, full-K INT32, original FP32 dequantization order",
+  "port": "Guarded ARM SDOT, unique ipa_ symbols and Apple-specific ORT domain",
+  "default_changed": false,
+  "committed": false,
+  "GPU_used": false,
+  "source_license": "Inherited release Apache-2.0 LICENSE; ONNX Runtime headers MIT, supplied through pinned dependency path",
+  "build_manifest": "build-r2/build.json",
+  "native_checks": "check-r2.json",
+  "graph_manifest": "graphs/selective_int8.json",
+  "runtime_config": "config-r2.json",
+  "license_files": {
+    "LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "ONNXRUNTIME-LICENSE": "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c"
+  }
+}

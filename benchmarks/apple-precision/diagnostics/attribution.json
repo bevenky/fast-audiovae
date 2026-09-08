@@ -1,0 +1,672 @@
+{
+  "source_sha256": "8c1a4962d0ea9401a78c3743f59f54951860f535aecdac791ceacff56eb75e68",
+  "scope": "One separate diagnostic profile, not paired RTF; native worker times overlap and instrumentation adds overhead",
+  "rows": [
+    {
+      "node": "ncc_up_1_split_matmul_previous_unshifted_node_kernel_time",
+      "M": 8192,
+      "K": 2048,
+      "T": 170,
+      "matrix_wall_ms": 12.107,
+      "quantize_allocate_ms": 0.9885,
+      "pack_ms": 0.328041,
+      "worker_sum_ms": 41.150416,
+      "worker_max_ms": 10.716583,
+      "unique_worker_threads": 4,
+      "worker_rows": [
+        [
+          0,
+          2048
+        ],
+        [
+          2048,
+          4096
+        ],
+        [
+          4096,
+          6144
+        ],
+        [
+          6144,
+          8192
+        ]
+      ]
+    },
+    {
+      "node": "ncc_up_1_split_matmul_current_node_kernel_time",
+      "M": 8192,
+      "K": 2048,
+      "T": 170,
+      "matrix_wall_ms": 10.741,
+      "quantize_allocate_ms": 0.430792,
+      "pack_ms": 0.229,
+      "worker_sum_ms": 39.341626,
+      "worker_max_ms": 9.991125,
+      "unique_worker_threads": 4,
+      "worker_rows": [
+        [
+          0,
+          2048
+        ],
+        [
+          2048,
+          4096
+        ],
+        [
+          4096,
+          6144
+        ],
+        [
+          6144,
+          8192
+        ]
+      ]
+    },
+    {
+      "node": "node_conv1d_3__bct_mm_kernel_time",
+      "M": 1024,
+      "K": 1024,
+      "T": 1360,
+      "matrix_wall_ms": 7.727,
+      "quantize_allocate_ms": 1.286375,
+      "pack_ms": 1.082709,
+      "worker_sum_ms": 19.882624,
+      "worker_max_ms": 5.257833,
+      "unique_worker_threads": 4,
+      "worker_rows": [
+        [
+          0,
+          256
+        ],
+        [
+          256,
+          512
+        ],
+        [
+          512,
+          768
+        ],
+        [
+          768,
+          1024
+        ]
+      ]
+    },
+    {
+      "node": "node_conv1d_5__bct_mm_kernel_time",
+      "M": 1024,
+      "K": 1024,
+      "T": 1360,
+      "matrix_wall_ms": 7.234,
+      "quantize_allocate_ms": 1.192125,
+      "pack_ms": 0.913208,
+      "worker_sum_ms": 18.608667,
+      "worker_max_ms": 4.941375,
+      "unique_worker_threads": 4,
+      "worker_rows": [
+        [
+          0,
+          256
+        ],
+        [
+          256,
+          512
+        ],
+        [
+          512,
+          768
+        ],
+        [
+          768,
+          1024
+        ]
+      ]
+    },
+    {
+      "node": "node_conv1d_7__bct_mm_kernel_time",
+      "M": 1024,
+      "K": 1024,
+      "T": 1360,
+      "matrix_wall_ms": 7.677,
+      "quantize_allocate_ms": 1.18375,
+      "pack_ms": 1.022166,
+      "worker_sum_ms": 20.246001,
+      "worker_max_ms": 5.32725,
+      "unique_worker_threads": 4,
+      "worker_rows": [
+        [
+          0,
+          256
+        ],
+        [
+          256,
+          512
+        ],
+        [
+          512,
+          768
+        ],
+        [
+          768,
+          1024
+        ]
+      ]
+    },
+    {
+      "node": "ncc_up_2_split_matmul_previous_unshifted_node_kernel_time",
+      "M": 3072,
+      "K": 1024,
+      "T": 1360,
+      "matrix_wall_ms": 21.08,
+      "quantize_allocate_ms": 1.134,
+      "pack_ms": 1.012292,
+      "worker_sum_ms": 66.947791,
+      "worker_max_ms": 18.844916,
+      "unique_worker_threads": 4,
+      "worker_rows": [
+        [
+          0,
+          768
+        ],
+        [
+          768,
+          1536
+        ],
+        [
+          1536,
+          2304
+        ],
+        [
+          2304,
+          3072
+        ]
+      ]
+    },
+    {
+      "node": "ncc_up_2_split_matmul_current_node_kernel_time",
+      "M": 3072,
+      "K": 1024,
+      "T": 1360,
+      "matrix_wall_ms": 22.125,
+      "quantize_allocate_ms": 0.870791,
+      "pack_ms": 0.967875,
+      "worker_sum_ms": 70.261833,
+      "worker_max_ms": 20.200333,
+      "unique_worker_threads": 4,
+      "worker_rows": [
+        [
+          0,
+          768
+        ],
+        [
+          768,
+          1536
+        ],
+        [
+          1536,
+          2304
+        ],
+        [
+          2304,
+          3072
+        ]
+      ]
+    },
+    {
+      "node": "node_conv1d_9__bct_mm_kernel_time",
+      "M": 512,
+      "K": 512,
+      "T": 8160,
+      "matrix_wall_ms": 17.682,
+      "quantize_allocate_ms": 4.456125,
+      "pack_ms": 3.90525,
+      "worker_sum_ms": 35.880751,
+      "worker_max_ms": 9.208875,
+      "unique_worker_threads": 4,
+      "worker_rows": [
+        [
+          0,
+          128
+        ],
+        [
+          128,
+          256
+        ],
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          512
+        ]
+      ]
+    },
+    {
+      "node": "node_conv1d_11__bct_mm_kernel_time",
+      "M": 512,
+      "K": 512,
+      "T": 8160,
+      "matrix_wall_ms": 17.745,
+      "quantize_allocate_ms": 3.546167,
+      "pack_ms": 4.549917,
+      "worker_sum_ms": 33.305375,
+      "worker_max_ms": 9.561292,
+      "unique_worker_threads": 4,
+      "worker_rows": [
+        [
+          0,
+          128
+        ],
+        [
+          128,
+          256
+        ],
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          512
+        ]
+      ]
+    },
+    {
+      "node": "node_conv1d_13__bct_mm_kernel_time",
+      "M": 512,
+      "K": 512,
+      "T": 8160,
+      "matrix_wall_ms": 17.15,
+      "quantize_allocate_ms": 4.3225,
+      "pack_ms": 4.315667,
+      "worker_sum_ms": 32.228167,
+      "worker_max_ms": 8.426834,
+      "unique_worker_threads": 4,
+      "worker_rows": [
+        [
+          0,
+          128
+        ],
+        [
+          128,
+          256
+        ],
+        [
+          256,
+          384
+        ],
+        [
+          384,
+          512
+        ]
+      ]
+    },
+    {
+      "node": "ncc_up_3_split_matmul_previous_unshifted_node_kernel_time",
+      "M": 1280,
+      "K": 512,
+      "T": 8160,
+      "matrix_wall_ms": 30.887,
+      "quantize_allocate_ms": 3.220916,
+      "pack_ms": 5.897958,
+      "worker_sum_ms": 82.712542,
+      "worker_max_ms": 21.688834,
+      "unique_worker_threads": 4,
+      "worker_rows": [
+        [
+          0,
+          320
+        ],
+        [
+          320,
+          640
+        ],
+        [
+          640,
+          960
+        ],
+        [
+          960,
+          1280
+        ]
+      ]
+    },
+    {
+      "node": "ncc_up_3_split_matmul_current_node_kernel_time",
+      "M": 1280,
+      "K": 512,
+      "T": 8160,
+      "matrix_wall_ms": 29.065,
+      "quantize_allocate_ms": 3.283041,
+      "pack_ms": 4.123208,
+      "worker_sum_ms": 83.313626,
+      "worker_max_ms": 21.532792,
+      "unique_worker_threads": 4,
+      "worker_rows": [
+        [
+          0,
+          320
+        ],
+        [
+          320,
+          640
+        ],
+        [
+          640,
+          960
+        ],
+        [
+          960,
+          1280
+        ]
+      ]
+    },
+    {
+      "node": "node_conv1d_15__bct_mm_kernel_time",
+      "M": 256,
+      "K": 256,
+      "T": 40800,
+      "matrix_wall_ms": 40.137,
+      "quantize_allocate_ms": 12.215042,
+      "pack_ms": 13.939209,
+      "worker_sum_ms": 54.52275,
+      "worker_max_ms": 13.792042,
+      "unique_worker_threads": 4,
+      "worker_rows": [
+        [
+          0,
+          64
+        ],
+        [
+          64,
+          128
+        ],
+        [
+          128,
+          192
+        ],
+        [
+          192,
+          256
+        ]
+      ]
+    },
+    {
+      "node": "node_conv1d_17__bct_mm_kernel_time",
+      "M": 256,
+      "K": 256,
+      "T": 40800,
+      "matrix_wall_ms": 30.439,
+      "quantize_allocate_ms": 8.741542,
+      "pack_ms": 10.231167,
+      "worker_sum_ms": 43.83821,
+      "worker_max_ms": 11.37425,
+      "unique_worker_threads": 4,
+      "worker_rows": [
+        [
+          0,
+          64
+        ],
+        [
+          64,
+          128
+        ],
+        [
+          128,
+          192
+        ],
+        [
+          192,
+          256
+        ]
+      ]
+    },
+    {
+      "node": "node_conv1d_19__bct_mm_kernel_time",
+      "M": 256,
+      "K": 256,
+      "T": 40800,
+      "matrix_wall_ms": 31.512,
+      "quantize_allocate_ms": 9.695125,
+      "pack_ms": 10.717083,
+      "worker_sum_ms": 43.125251,
+      "worker_max_ms": 11.027417,
+      "unique_worker_threads": 4,
+      "worker_rows": [
+        [
+          0,
+          64
+        ],
+        [
+          64,
+          128
+        ],
+        [
+          128,
+          192
+        ],
+        [
+          192,
+          256
+        ]
+      ]
+    },
+    {
+      "node": "ncc_up_4_split_matmul_previous_unshifted_node_kernel_time",
+      "M": 256,
+      "K": 256,
+      "T": 40800,
+      "matrix_wall_ms": 30.129,
+      "quantize_allocate_ms": 8.500417,
+      "pack_ms": 10.330625,
+      "worker_sum_ms": 42.43575,
+      "worker_max_ms": 11.184667,
+      "unique_worker_threads": 4,
+      "worker_rows": [
+        [
+          0,
+          64
+        ],
+        [
+          64,
+          128
+        ],
+        [
+          128,
+          192
+        ],
+        [
+          192,
+          256
+        ]
+      ]
+    },
+    {
+      "node": "ncc_up_4_split_matmul_current_node_kernel_time",
+      "M": 256,
+      "K": 256,
+      "T": 40800,
+      "matrix_wall_ms": 30.332,
+      "quantize_allocate_ms": 8.4735,
+      "pack_ms": 10.49325,
+      "worker_sum_ms": 41.991998,
+      "worker_max_ms": 11.302041,
+      "unique_worker_threads": 4,
+      "worker_rows": [
+        [
+          0,
+          64
+        ],
+        [
+          64,
+          128
+        ],
+        [
+          128,
+          192
+        ],
+        [
+          192,
+          256
+        ]
+      ]
+    },
+    {
+      "node": "node_conv1d_21__bct_mm_kernel_time",
+      "M": 128,
+      "K": 128,
+      "T": 81600,
+      "matrix_wall_ms": 25.036,
+      "quantize_allocate_ms": 8.280792,
+      "pack_ms": 10.532583,
+      "worker_sum_ms": 23.397583,
+      "worker_max_ms": 6.132375,
+      "unique_worker_threads": 4,
+      "worker_rows": [
+        [
+          0,
+          32
+        ],
+        [
+          32,
+          64
+        ],
+        [
+          64,
+          96
+        ],
+        [
+          96,
+          128
+        ]
+      ]
+    },
+    {
+      "node": "node_conv1d_23__bct_mm_kernel_time",
+      "M": 128,
+      "K": 128,
+      "T": 81600,
+      "matrix_wall_ms": 24.669,
+      "quantize_allocate_ms": 8.606375,
+      "pack_ms": 9.783625,
+      "worker_sum_ms": 22.910916,
+      "worker_max_ms": 6.131875,
+      "unique_worker_threads": 4,
+      "worker_rows": [
+        [
+          0,
+          32
+        ],
+        [
+          32,
+          64
+        ],
+        [
+          64,
+          96
+        ],
+        [
+          96,
+          128
+        ]
+      ]
+    },
+    {
+      "node": "node_conv1d_25__bct_mm_kernel_time",
+      "M": 128,
+      "K": 128,
+      "T": 81600,
+      "matrix_wall_ms": 27.164,
+      "quantize_allocate_ms": 8.748959,
+      "pack_ms": 10.51,
+      "worker_sum_ms": 28.640792,
+      "worker_max_ms": 7.701875,
+      "unique_worker_threads": 4,
+      "worker_rows": [
+        [
+          0,
+          32
+        ],
+        [
+          32,
+          64
+        ],
+        [
+          64,
+          96
+        ],
+        [
+          96,
+          128
+        ]
+      ]
+    },
+    {
+      "node": "ncc_up_5_split_matmul_previous_unshifted_node_kernel_time",
+      "M": 128,
+      "K": 128,
+      "T": 81600,
+      "matrix_wall_ms": 25.451,
+      "quantize_allocate_ms": 8.561583,
+      "pack_ms": 10.367,
+      "worker_sum_ms": 24.82004,
+      "worker_max_ms": 6.444416,
+      "unique_worker_threads": 4,
+      "worker_rows": [
+        [
+          0,
+          32
+        ],
+        [
+          32,
+          64
+        ],
+        [
+          64,
+          96
+        ],
+        [
+          96,
+          128
+        ]
+      ]
+    },
+    {
+      "node": "ncc_up_5_split_matmul_current_node_kernel_time",
+      "M": 128,
+      "K": 128,
+      "T": 81600,
+      "matrix_wall_ms": 25.162,
+      "quantize_allocate_ms": 8.414625,
+      "pack_ms": 10.297791,
+      "worker_sum_ms": 23.98775,
+      "worker_max_ms": 6.315083,
+      "unique_worker_threads": 4,
+      "worker_rows": [
+        [
+          0,
+          32
+        ],
+        [
+          32,
+          64
+        ],
+        [
+          64,
+          96
+        ],
+        [
+          96,
+          128
+        ]
+      ]
+    }
+  ],
+  "total_activation_values": 132997120,
+  "matrix_wall_ms": 491.251,
+  "serial_prepare_ms": 251.702666,
+  "worker_thread_count_histogram": {
+    "4": 22
+  }
+}

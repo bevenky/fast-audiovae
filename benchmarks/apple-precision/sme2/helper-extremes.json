@@ -1,0 +1,36 @@
+{
+  "source_sha256": "da4b368f79d772202b55907fe0c9e9be8430f9639336092b0361b0470e9b0429",
+  "command": [
+    "c++",
+    "-O3",
+    "-fPIC",
+    "-fno-fast-math",
+    "-ffp-contract=off",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-isysroot",
+    "<system-sdk>",
+    "-I<workspace-root>/work/cross-platform-int8/apple/candidate-r3/native/sme/upstream",
+    "-std=c++17",
+    "-isystem",
+    "<system-sdk>/usr/include/c++/v1",
+    "<workspace-root>/work/cross-platform-int8/apple/candidate-r3/native/sme/check_extremes.cpp",
+    "<workspace-root>/work/cross-platform-int8/kleidiai-review/check-build-r1/wrapper.o",
+    "<workspace-root>/work/cross-platform-int8/kleidiai-review/check-build-r1/kernel_c.o",
+    "<workspace-root>/work/cross-platform-int8/kleidiai-review/check-build-r1/kernel_asm.o",
+    "<workspace-root>/work/cross-platform-int8/kleidiai-review/check-build-r1/common_sme.o",
+    "-o",
+    "<workspace-root>/work/cross-platform-int8/kleidiai-review/check-build-r1/check_extremes"
+  ],
+  "check": {
+    "status": "passed",
+    "K": 16384,
+    "sign_combinations": 4,
+    "concurrent_callers": 4,
+    "bitwise_values": 272,
+    "overflow_alias_scale_and_SVL_errors": 4,
+    "timings_collected": false
+  },
+  "baseline_build_sha256": "8f146774f07018298096a617165b3afd11bb2f6df078cffa3f0c7433eb89241f"
+}

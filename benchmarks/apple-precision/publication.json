@@ -1,0 +1,695 @@
+{
+  "schema": 1,
+  "scope": "Source-only Apple precision experiments and normalized historical evidence",
+  "status": "FP32 retained; final SME2 timing improvement promising but unproven",
+  "native_source_bytes_changed": false,
+  "default_changed": false,
+  "sources": [
+    {
+      "source": "work/cross-platform-int8/apple/native/precision.cpp",
+      "published": "experiments/apple-precision/sdot/native/precision.cpp",
+      "sha256": "eba776d3b6ca81eeff5c6d96766b7f97e3199eff00df5441d6e78417303dff07",
+      "bytes": 22134,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/apple/native/precision.h",
+      "published": "experiments/apple-precision/sdot/native/precision.h",
+      "sha256": "b4704bd9d02972fb4b84b14e0b47d691c0ee4fb73cfe3a97eef11b4fa67a59ef",
+      "bytes": 3389,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/apple/native/arm_dot.h",
+      "published": "experiments/apple-precision/sdot/native/arm_dot.h",
+      "sha256": "568aaa3f9a8d02732db295250250e527db7572d38b5ce8382f4c9db32a45bfa8",
+      "bytes": 4961,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/apple/native/custom_op.cpp",
+      "published": "experiments/apple-precision/sdot/native/custom_op.cpp",
+      "sha256": "6470399f8434897e06d4aaba4d67912c963e8e18ebc5af5e4da035def9e3d5c9",
+      "bytes": 5854,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/apple/build.py",
+      "published": "experiments/apple-precision/sdot/build.py",
+      "sha256": "e2a33aba4acad7d41d5fff5d90f62534594f286cf692d0ca2a96f295580a7b28",
+      "bytes": 2984,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/apple/check.py",
+      "published": "experiments/apple-precision/sdot/check.py",
+      "sha256": "bc45967d063de3616dab84be2c8976cc4cf66ab22635ac9ea54017e94ace9af5",
+      "bytes": 8926,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/apple/rewrite.py",
+      "published": "experiments/apple-precision/sdot/rewrite.py",
+      "sha256": "c7f087cde22f05f952ecd65883e144afc6a62108e27ddc1a6ebdac642686db3b",
+      "bytes": 3291,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/apple/prepare_config.py",
+      "published": "experiments/apple-precision/sdot/prepare_config.py",
+      "sha256": "ede4ab5437a1d42762153a7b1ae443e274f3e7d9879135a2b17246b722d08b6c",
+      "bytes": 3239,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/apple/validate_export.py",
+      "published": "experiments/apple-precision/sdot/validate_export.py",
+      "sha256": "04c49ba9c6f8ccfc9bd001cecb7193d6cf348edb73ab4b389918d0b1031c8882",
+      "bytes": 13174,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/apple/candidate-r3/native/arm_dot.h",
+      "published": "experiments/apple-precision/sme2/native/arm_dot.h",
+      "sha256": "568aaa3f9a8d02732db295250250e527db7572d38b5ce8382f4c9db32a45bfa8",
+      "bytes": 4961,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/apple/candidate-r3/native/custom_op.cpp",
+      "published": "experiments/apple-precision/sme2/native/custom_op.cpp",
+      "sha256": "9ae3acb05e0100360710bca2da73af6a9d38b3b140457405ef5535743c8b8067",
+      "bytes": 6810,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/apple/candidate-r3/native/parallel_prepare.h",
+      "published": "experiments/apple-precision/sme2/native/parallel_prepare.h",
+      "sha256": "46b36c46eba3df6989ad03e1a7b5b528593e0935090c4e474b5a9b19ee658225",
+      "bytes": 5611,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/apple/candidate-r3/native/precision.cpp",
+      "published": "experiments/apple-precision/sme2/native/precision.cpp",
+      "sha256": "e05a067c903b9b62464b47e35f846c715106dc2bb9b41490d463f61e61557534",
+      "bytes": 26126,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/apple/candidate-r3/native/precision.h",
+      "published": "experiments/apple-precision/sme2/native/precision.h",
+      "sha256": "364075e93d9257483333f1ca2fc5d4cf939bfc58c7264a86dfeaf82f9b2d10a5",
+      "bytes": 3834,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/apple/candidate-r3/native/sme/build_check.py",
+      "published": "experiments/apple-precision/sme2/native/sme/build_check.py",
+      "sha256": "ae325e50cafbca542bd18670dd52424ef6dcc96cd7444228556816dd6146b3c0",
+      "bytes": 3373,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/apple/candidate-r3/native/sme/check_extremes.cpp",
+      "published": "experiments/apple-precision/sme2/native/sme/check_extremes.cpp",
+      "sha256": "da4b368f79d772202b55907fe0c9e9be8430f9639336092b0361b0470e9b0429",
+      "bytes": 2843,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/apple/candidate-r3/native/sme/check_sme.cpp",
+      "published": "experiments/apple-precision/sme2/native/sme/check_sme.cpp",
+      "sha256": "00aca0539b2684914fcd779b2e4313d91ae6eacf99ae0b2449875e3016aaa5dc",
+      "bytes": 3983,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/apple/candidate-r3/native/sme/sme_backend.cpp",
+      "published": "experiments/apple-precision/sme2/native/sme/sme_backend.cpp",
+      "sha256": "19a02ede9f6862c077369838fc70a13d9f055721705caa14e5c3e02ea3eecc77",
+      "bytes": 8613,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/apple/candidate-r3/native/sme/sme_backend.h",
+      "published": "experiments/apple-precision/sme2/native/sme/sme_backend.h",
+      "sha256": "d571631340ac9b0a106e550ef711b37bd33c9fed2e3a851c18c114f77a780df3",
+      "bytes": 2433,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/apple/candidate-r3/native/sme/upstream/LICENSES/Apache-2.0.txt",
+      "published": "experiments/apple-precision/sme2/native/sme/upstream/LICENSES/Apache-2.0.txt",
+      "sha256": "074e6e32c86a4c0ef8b3ed25b721ca23aca83df277cd88106ef7177c354615ff",
+      "bytes": 10280,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/apple/candidate-r3/native/sme/upstream/kai/kai_common.h",
+      "published": "experiments/apple-precision/sme2/native/sme/upstream/kai/kai_common.h",
+      "sha256": "3ccd119b75dfff8fccbc7b4b939e7daea86d15507ee57318f68e91a99015dba5",
+      "bytes": 9936,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/apple/candidate-r3/native/sme/upstream/kai/kai_common_sme_asm.S",
+      "published": "experiments/apple-precision/sme2/native/sme/upstream/kai/kai_common_sme_asm.S",
+      "sha256": "89537cbb0adcb6202da495ae3ab01fca5160ca31ff424ede20645984cfef21b4",
+      "bytes": 2068,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/apple/candidate-r3/native/sme/upstream/kai/ukernels/matmul/matmul_clamp_f32_qai8dxp_qsi8cxp/kai_matmul_clamp_f32_qai8dxp1vlx4_qsi8cxp4vlx4_1vlx4vl_sme2_mopa.c",
+      "published": "experiments/apple-precision/sme2/native/sme/upstream/kai/ukernels/matmul/matmul_clamp_f32_qai8dxp_qsi8cxp/kai_matmul_clamp_f32_qai8dxp1vlx4_qsi8cxp4vlx4_1vlx4vl_sme2_mopa.c",
+      "sha256": "772b6f42115c36504c49dba933959b390e89f4902affe477c4c4191b229f5a08",
+      "bytes": 7312,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/apple/candidate-r3/native/sme/upstream/kai/ukernels/matmul/matmul_clamp_f32_qai8dxp_qsi8cxp/kai_matmul_clamp_f32_qai8dxp1vlx4_qsi8cxp4vlx4_1vlx4vl_sme2_mopa.h",
+      "published": "experiments/apple-precision/sme2/native/sme/upstream/kai/ukernels/matmul/matmul_clamp_f32_qai8dxp_qsi8cxp/kai_matmul_clamp_f32_qai8dxp1vlx4_qsi8cxp4vlx4_1vlx4vl_sme2_mopa.h",
+      "sha256": "6bbdd7e0a534cb707b22295218d5163580a5f5e066893a72c8d596804c01cc03",
+      "bytes": 5531,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/apple/candidate-r3/native/sme/upstream/kai/ukernels/matmul/matmul_clamp_f32_qai8dxp_qsi8cxp/kai_matmul_clamp_f32_qai8dxp1vlx4_qsi8cxp4vlx4_1vlx4vl_sme2_mopa_asm.S",
+      "published": "experiments/apple-precision/sme2/native/sme/upstream/kai/ukernels/matmul/matmul_clamp_f32_qai8dxp_qsi8cxp/kai_matmul_clamp_f32_qai8dxp1vlx4_qsi8cxp4vlx4_1vlx4vl_sme2_mopa_asm.S",
+      "sha256": "2ae8a9dd3da8912c8019bdc83218f30fd2e34cbb71ff878183c701bf03b12f05",
+      "bytes": 6051,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/apple/candidate-r3/native/sme/upstream-provenance.json",
+      "published": "experiments/apple-precision/sme2/native/sme/upstream-provenance.json",
+      "sha256": "57818a6e508dec292989b1af6dcce854aa8f2c5b8b3bb5a649c4ae5ad5b301a9",
+      "bytes": 2501,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/apple/candidate-r3/build.py",
+      "published": "experiments/apple-precision/sme2/build.py",
+      "sha256": "fba381a5dadebb3b9a14532fffd97015cdb41804fa4f9767d187aae4b9fda4b3",
+      "bytes": 4117,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/apple/candidate-r3/check.py",
+      "published": "experiments/apple-precision/sme2/check.py",
+      "sha256": "7d8e1795eb1f9791e0bcc93b7ec01a2cf4bca1de4153e697bad81e62ef964e0b",
+      "bytes": 9575,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/apple/candidate-r3/check_parallel_edges.py",
+      "published": "experiments/apple-precision/sme2/check_parallel_edges.py",
+      "sha256": "a468a4d9241f018bc006095318b3771702c89aa3ca9cabb3b8cccbe748706070",
+      "bytes": 2978,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/apple/candidate-r3/rewrite.py",
+      "published": "experiments/apple-precision/sme2/rewrite.py",
+      "sha256": "863b5fa422cff50da36accf29872b8f97bf9a3603dfdbb1e175cb3e45de823c7",
+      "bytes": 3298,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/apple/candidate-r3/prepare_config.py",
+      "published": "experiments/apple-precision/sme2/prepare_config.py",
+      "sha256": "e65b170c7010f12759af6bcc442e31fb448c24e1bdcffad0484faca3788b2e0c",
+      "bytes": 3239,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/apple/diagnostics/make_profile_copy.py",
+      "published": "experiments/apple-precision/diagnostics/make_profile_copy.py",
+      "sha256": "9b721b116c810419af5b436e7656ceed5057769d591294be94f189c3959a271d",
+      "bytes": 3599,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/apple/diagnostics/profile_real.py",
+      "published": "experiments/apple-precision/diagnostics/profile_real.py",
+      "sha256": "73b253d411eff3f3983cb1a57fc30a735bc6e066a7caf4c185f1c9e79981ab7f",
+      "bytes": 4874,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/apple/diagnostics/profile-source/build.py",
+      "published": "experiments/apple-precision/diagnostics/profile-source/build.py",
+      "sha256": "e2a33aba4acad7d41d5fff5d90f62534594f286cf692d0ca2a96f295580a7b28",
+      "bytes": 2984,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/apple/diagnostics/profile-source/native/precision.cpp",
+      "published": "experiments/apple-precision/diagnostics/profile-source/native/precision.cpp",
+      "sha256": "a3bf8c3e869a161563e733e126f954f123969196c2c732933f1ca31653b5d7f6",
+      "bytes": 23764,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/apple/diagnostics/profile-source/native/precision.h",
+      "published": "experiments/apple-precision/diagnostics/profile-source/native/precision.h",
+      "sha256": "b4704bd9d02972fb4b84b14e0b47d691c0ee4fb73cfe3a97eef11b4fa67a59ef",
+      "bytes": 3389,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/apple/diagnostics/profile-source/native/arm_dot.h",
+      "published": "experiments/apple-precision/diagnostics/profile-source/native/arm_dot.h",
+      "sha256": "568aaa3f9a8d02732db295250250e527db7572d38b5ce8382f4c9db32a45bfa8",
+      "bytes": 4961,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/apple/diagnostics/profile-source/native/custom_op.cpp",
+      "published": "experiments/apple-precision/diagnostics/profile-source/native/custom_op.cpp",
+      "sha256": "6470399f8434897e06d4aaba4d67912c963e8e18ebc5af5e4da035def9e3d5c9",
+      "bytes": 5854,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/platform_campaign.py",
+      "published": "experiments/apple-precision/tools/platform_campaign.py",
+      "sha256": "7f42ba2e2ae9f1c9b311e2b3b90eb1f3f6e911f0934c25b32570f36f60efb202",
+      "bytes": 15449,
+      "byte_identical": true
+    },
+    {
+      "source": "work/fast-audiovae/benchmarks/compare_decoders.py",
+      "published": "experiments/apple-precision/tools/compare_decoders.py",
+      "sha256": "593dc1df8b7ac7334add9211da869eac931aaf61d360656b15a3196467cecf01",
+      "bytes": 40123,
+      "byte_identical": true
+    },
+    {
+      "source": "work/fast-audiovae/benchmarks/diagnose_cpu.py",
+      "published": "experiments/apple-precision/tools/diagnose_cpu.py",
+      "sha256": "d114e258059b22785afc567871e0e6ae3e15b6c613bbdb40a10fc49836ad88df",
+      "bytes": 22307,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/apple/validate_fp32.py",
+      "published": "experiments/apple-precision/retained-fp32/validate_fp32.py",
+      "sha256": "50d62ce55a7c0f1270f5eccc55fb737c6ca6d06b23dad4603e22ab4467126111",
+      "bytes": 13122,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/apple/audit_fp32_validation.py",
+      "published": "experiments/apple-precision/retained-fp32/audit_fp32_validation.py",
+      "sha256": "a86ab94d02a6f23400a2cfb9e7d938857164e1828ad6383b698438ae7c478ed6",
+      "bytes": 5434,
+      "byte_identical": true
+    },
+    {
+      "source": "work/intel-precision/score_quality.py",
+      "published": "experiments/apple-precision/quality/score_quality.py",
+      "sha256": "d0e406d77de02cde7476d2aef43c2b79543a9accc19153140b2f8e2dc507574e",
+      "bytes": 22665,
+      "byte_identical": true
+    },
+    {
+      "source": "work/quality-comparison/score.py",
+      "published": "experiments/apple-precision/quality/scorer/score.py",
+      "sha256": "797bddcba0ffbd9f1035d3166e4db4eabc7ebea1f5fb0ab83a429199fc880f03",
+      "bytes": 18103,
+      "byte_identical": true
+    },
+    {
+      "source": "work/quality-comparison/metrics.py",
+      "published": "experiments/apple-precision/quality/scorer/metrics.py",
+      "sha256": "c5e37fb3a6376b90ee89e9c7c69fb1f9540080f12c6d750864e83814da9be491",
+      "bytes": 20269,
+      "byte_identical": true
+    },
+    {
+      "source": "work/quality-comparison/metric_assets.json",
+      "published": "experiments/apple-precision/quality/scorer/metric_assets.json",
+      "sha256": "628c81cd349eb45819143a275efb5417da2b518db2c71e858d0c1a6fe7c713c0",
+      "bytes": 1556,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/apple/LICENSE",
+      "published": "experiments/apple-precision/licenses/LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "bytes": 11358,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/apple/ONNXRUNTIME-LICENSE",
+      "published": "experiments/apple-precision/licenses/ONNXRUNTIME-LICENSE",
+      "sha256": "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c",
+      "bytes": 1073,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/amd/release/pins/ort.json",
+      "published": "experiments/apple-precision/pins/ort.json",
+      "sha256": "c38917ab4acebe48623c605a33f9d40219d5c5766c436a7d3a7b18d81b21740e",
+      "bytes": 1702,
+      "byte_identical": true
+    }
+  ],
+  "normalized_records": [
+    {
+      "source": "work/cross-platform-int8/apple/build-r2/build.json",
+      "published": "benchmarks/apple-precision/sdot/build.json",
+      "original_sha256": "a2dc9a69bf531af15db6bb7ce0854c26fed27156020c24c7063e43657d7a18ae",
+      "published_sha256": "c0995406eedb4915916f4312cd2d28c073b12e172f63def1dbf23511fe66eb00",
+      "original_bytes": 3935,
+      "published_bytes": 3323
+    },
+    {
+      "source": "work/cross-platform-int8/apple/check-r2.json",
+      "published": "benchmarks/apple-precision/sdot/native-checks.json",
+      "original_sha256": "2df8ec51d4cbdd7e5e0875733720240a5786133ab7fbf4aa6ac893c108c36ba1",
+      "published_sha256": "2df8ec51d4cbdd7e5e0875733720240a5786133ab7fbf4aa6ac893c108c36ba1",
+      "original_bytes": 4528,
+      "published_bytes": 4528
+    },
+    {
+      "source": "work/cross-platform-int8/apple/graphs/selective_int8.json",
+      "published": "benchmarks/apple-precision/sdot/graph.json",
+      "original_sha256": "04a5a31d0d9b7596b48718bb6702168b88188f53b22ede235d8583543869d4a3",
+      "published_sha256": "e02c22be4eccbdc48657a2c1ae52ca522ed481dbbbf664cc9246784d80564509",
+      "original_bytes": 8808,
+      "published_bytes": 8694
+    },
+    {
+      "source": "work/cross-platform-int8/apple/config-r2.json",
+      "published": "benchmarks/apple-precision/sdot/config.json",
+      "original_sha256": "b3d9d13ea460b5601c4739ed26f1c499b492139b7f783b6fe7bf299084aeaa8f",
+      "published_sha256": "b3d9d13ea460b5601c4739ed26f1c499b492139b7f783b6fe7bf299084aeaa8f",
+      "original_bytes": 5698,
+      "published_bytes": 5698
+    },
+    {
+      "source": "work/cross-platform-int8/apple/screen-r2/results.json",
+      "published": "benchmarks/apple-precision/sdot/screen-results.json",
+      "original_sha256": "11ef56f800277f37884d6a17ad6de82c81505e140a5902cc007af196ad6ca776",
+      "published_sha256": "11ef56f800277f37884d6a17ad6de82c81505e140a5902cc007af196ad6ca776",
+      "original_bytes": 28331,
+      "published_bytes": 28331
+    },
+    {
+      "source": "work/cross-platform-int8/apple/screen-summary.json",
+      "published": "benchmarks/apple-precision/sdot/screen-summary.json",
+      "original_sha256": "3281af93259d3989e281071abf79d39b664a47036b4233b8cd7e4bd71cdf5847",
+      "published_sha256": "3281af93259d3989e281071abf79d39b664a47036b4233b8cd7e4bd71cdf5847",
+      "original_bytes": 2514,
+      "published_bytes": 2514
+    },
+    {
+      "source": "work/cross-platform-int8/apple/host-after-screen.json",
+      "published": "benchmarks/apple-precision/sdot/host-after-screen.json",
+      "original_sha256": "44031398a23744b076aeb613b1c9bc93d3bf620cf8e7b959f1452476211c02bb",
+      "published_sha256": "6045acd6b8105ca8c52c575b5aa5ef65acabd40e75c0fd051b6162ef0e0dc8af",
+      "original_bytes": 2093,
+      "published_bytes": 2155
+    },
+    {
+      "source": "work/cross-platform-int8/apple/environment-after-screen.json",
+      "published": "benchmarks/apple-precision/sdot/environment-after-screen.json",
+      "original_sha256": "db93894ee28d5f4fff05f08e4510a10c0f8aacafb8213ab5def22ec3b195bcb2",
+      "published_sha256": "08deb391f562d9d9149b8132a522e949ee0810d0b4a509da51079c6df486feef",
+      "original_bytes": 593,
+      "published_bytes": 479
+    },
+    {
+      "source": "work/cross-platform-int8/apple/provenance.json",
+      "published": "benchmarks/apple-precision/sdot/source-provenance.json",
+      "original_sha256": "fe0269c29ae8558ef0d44b22423bc1db7f51995c74b056a56f19963faa33f066",
+      "published_sha256": "fe0269c29ae8558ef0d44b22423bc1db7f51995c74b056a56f19963faa33f066",
+      "original_bytes": 1574,
+      "published_bytes": 1574
+    },
+    {
+      "source": "work/cross-platform-int8/apple/validation-r2/results.json",
+      "published": "benchmarks/apple-precision/sdot/interrupted-validation.json",
+      "original_sha256": "9108c610f00de93885c0e04bbd6804c11f9270211a6fae3a144c4a8ad9e6bf75",
+      "published_sha256": "2dcd18eb7af9cd64572b9dfc53d2d7c80cb4135dcf2d843fbb0c3d71267879b9",
+      "original_bytes": 40441,
+      "published_bytes": 37819
+    },
+    {
+      "source": "work/cross-platform-int8/apple/validation-r2/interruption.json",
+      "published": "benchmarks/apple-precision/sdot/interruption.json",
+      "original_sha256": "b9f37523489812dfdf867e7b0fac1186e429a6793ea5ecb86eb53a112061f7db",
+      "published_sha256": "b9f37523489812dfdf867e7b0fac1186e429a6793ea5ecb86eb53a112061f7db",
+      "original_bytes": 219,
+      "published_bytes": 219
+    },
+    {
+      "source": "work/cross-platform-int8/apple/candidate-r3/build-r2/build.json",
+      "published": "benchmarks/apple-precision/sme2/build.json",
+      "original_sha256": "a267ff5f534b9312b5f9a4efa8846f4bfabfda5beb4415a432a65d9fb07ed5e6",
+      "published_sha256": "63a0988427c7e1745aab7fd628580c2ff8375e6086c01c7d3b01f047dcb39371",
+      "original_bytes": 9967,
+      "published_bytes": 8248
+    },
+    {
+      "source": "work/cross-platform-int8/apple/candidate-r3/check-r2.json",
+      "published": "benchmarks/apple-precision/sme2/native-checks.json",
+      "original_sha256": "3d7214a5346af33d409b6f95479a3901e6ed96c5b9520c122d1d5026bc2c8c02",
+      "published_sha256": "3d7214a5346af33d409b6f95479a3901e6ed96c5b9520c122d1d5026bc2c8c02",
+      "original_bytes": 4522,
+      "published_bytes": 4522
+    },
+    {
+      "source": "work/cross-platform-int8/apple/candidate-r3/check-parallel-edges.json",
+      "published": "benchmarks/apple-precision/sme2/parallel-checks.json",
+      "original_sha256": "07d1a6b6fb89d0a44e69be966f04f85625baff2027d870187c2bf2880fe83ed7",
+      "published_sha256": "07d1a6b6fb89d0a44e69be966f04f85625baff2027d870187c2bf2880fe83ed7",
+      "original_bytes": 571,
+      "published_bytes": 571
+    },
+    {
+      "source": "work/cross-platform-int8/apple/candidate-r3/freeze.json",
+      "published": "benchmarks/apple-precision/sme2/original-freeze.json",
+      "original_sha256": "95c7b3b1fc5ea9cd13dfa9ef9b08846a011a4819688ad7a2d92115cbbd3b0e9e",
+      "published_sha256": "95c7b3b1fc5ea9cd13dfa9ef9b08846a011a4819688ad7a2d92115cbbd3b0e9e",
+      "original_bytes": 537,
+      "published_bytes": 537
+    },
+    {
+      "source": "work/cross-platform-int8/apple/candidate-r3/graphs/selective_int8.json",
+      "published": "benchmarks/apple-precision/sme2/graph.json",
+      "original_sha256": "6781012ef1eb5c021cba6355d15ea4a0e579bcbf3e4343d8d2613b3d4d1a85da",
+      "published_sha256": "568134a0eee5d1b6f7c2e12d7b15272d949eba90a3e0d6b0911613060380414b",
+      "original_bytes": 8824,
+      "published_bytes": 8710
+    },
+    {
+      "source": "work/cross-platform-int8/apple/candidate-r3/config.json",
+      "published": "benchmarks/apple-precision/sme2/config.json",
+      "original_sha256": "e3dd01f5a39d17bce7582fc8c726be4d8b43847e955e47a655c01cdacda28e20",
+      "published_sha256": "e3dd01f5a39d17bce7582fc8c726be4d8b43847e955e47a655c01cdacda28e20",
+      "original_bytes": 5755,
+      "published_bytes": 5755
+    },
+    {
+      "source": "work/cross-platform-int8/apple/candidate-r3/screen-final/results.json",
+      "published": "benchmarks/apple-precision/sme2/screen-results.json",
+      "original_sha256": "b249acc1d278351f54a4fbc128eb951010dedfd0438651612d687ea97a57cbce",
+      "published_sha256": "b249acc1d278351f54a4fbc128eb951010dedfd0438651612d687ea97a57cbce",
+      "original_bytes": 28342,
+      "published_bytes": 28342
+    },
+    {
+      "source": "work/cross-platform-int8/apple/candidate-r3/screen-summary.json",
+      "published": "benchmarks/apple-precision/sme2/screen-summary.json",
+      "original_sha256": "da6b709fa89260c41f4e27183f61ff88074914981456bcabf2702df9f7250af2",
+      "published_sha256": "da6b709fa89260c41f4e27183f61ff88074914981456bcabf2702df9f7250af2",
+      "original_bytes": 3184,
+      "published_bytes": 3184
+    },
+    {
+      "source": "work/cross-platform-int8/apple/diagnostics/cpu-features.json",
+      "published": "benchmarks/apple-precision/diagnostics/cpu-features.json",
+      "original_sha256": "db100795ee1cdc5db0a18589a64c36f4f27c492a04ea048425484c50a682eff9",
+      "published_sha256": "db100795ee1cdc5db0a18589a64c36f4f27c492a04ea048425484c50a682eff9",
+      "original_bytes": 1131,
+      "published_bytes": 1131
+    },
+    {
+      "source": "work/cross-platform-int8/apple/diagnostics/profile-source/profile-copy.json",
+      "published": "benchmarks/apple-precision/diagnostics/source-derivation.json",
+      "original_sha256": "c7181b1532bfa82deff02e519e558f4d0f55924791a7b8fec5ae1509fb9c4175",
+      "published_sha256": "c7181b1532bfa82deff02e519e558f4d0f55924791a7b8fec5ae1509fb9c4175",
+      "original_bytes": 807,
+      "published_bytes": 807
+    },
+    {
+      "source": "work/cross-platform-int8/apple/diagnostics/build-profile-r2/build.json",
+      "published": "benchmarks/apple-precision/diagnostics/build.json",
+      "original_sha256": "b79a6e846db00fd3a78ae20e6f613648b6d11c6a13d8693480ec9ae0b95e7af2",
+      "published_sha256": "452a93f309f14304b905a3a0a91f03365ab1662360bc19a59a61f1c025678722",
+      "original_bytes": 4089,
+      "published_bytes": 3477
+    },
+    {
+      "source": "work/cross-platform-int8/apple/diagnostics/real-profile-r2/results.json",
+      "published": "benchmarks/apple-precision/diagnostics/results.json",
+      "original_sha256": "8c1a4962d0ea9401a78c3743f59f54951860f535aecdac791ceacff56eb75e68",
+      "published_sha256": "112684179c47d319016bdb881d19b83866ab1520cae4979ff60a1e6899b7be87",
+      "original_bytes": 981087,
+      "published_bytes": 980973
+    },
+    {
+      "source": "work/cross-platform-int8/apple/diagnostics/real-profile-r2/attribution.json",
+      "published": "benchmarks/apple-precision/diagnostics/attribution.json",
+      "original_sha256": "f7aa53634bf19f78c15f7a406093a154f7b13a86f3cb4e46b947d805784d94f2",
+      "published_sha256": "f7aa53634bf19f78c15f7a406093a154f7b13a86f3cb4e46b947d805784d94f2",
+      "original_bytes": 12483,
+      "published_bytes": 12483
+    },
+    {
+      "source": "work/cross-platform-int8/apple/diagnostics/real-profile-r2/fast_fp32_2026-09-08_12-03-53_626.json",
+      "published": "benchmarks/apple-precision/diagnostics/traces/fast_fp32_2026-09-08_12-03-53_626.json",
+      "original_sha256": "f811ffbfbc23bfc4ae3ccdf99a5f2580a1c287ca0747f3397c404c20569a3c2b",
+      "published_sha256": "8705538e0633d66bdbfa17cc14c9f965f75666eb16cd57366a6545b2478186c0",
+      "original_bytes": 443962,
+      "published_bytes": 743772
+    },
+    {
+      "source": "work/cross-platform-int8/apple/diagnostics/real-profile-r2/int8_large_2026-09-08_12-03-55_145.json",
+      "published": "benchmarks/apple-precision/diagnostics/traces/int8_large_2026-09-08_12-03-55_145.json",
+      "original_sha256": "bec610ea6a8c4233464c280b4d2a43544ab3a437ee1ad560990610828fff3634",
+      "published_sha256": "dd64fd904d7d0fb6f78812f1e2992e63438ee91f267e250e0c4c4bf57e758c88",
+      "original_bytes": 445256,
+      "published_bytes": 744538
+    },
+    {
+      "source": "work/cross-platform-int8/kleidiai-review/check-build-r1/build.json",
+      "published": "benchmarks/apple-precision/sme2/helper-build.json",
+      "original_sha256": "8f146774f07018298096a617165b3afd11bb2f6df078cffa3f0c7433eb89241f",
+      "published_sha256": "45ab09405b2c60e1ef1f9b46783f009fde2f0f365a89650ebec68d3c776dd7c4",
+      "original_bytes": 7229,
+      "published_bytes": 5645
+    },
+    {
+      "source": "work/cross-platform-int8/kleidiai-review/check-build-r1/extremes.json",
+      "published": "benchmarks/apple-precision/sme2/helper-extremes.json",
+      "original_sha256": "7b39c8e1b022fa854938c7886ccc341d07c030e61f1b90a9bca00ab9e5da063f",
+      "published_sha256": "f23504b3a94db09eff6fe13ddca0735936246457662f39243e9a7eb26e839216",
+      "original_bytes": 1795,
+      "published_bytes": 1318
+    },
+    {
+      "source": "work/cross-platform-int8/apple/fp32-validation/config.json",
+      "published": "benchmarks/apple-precision/retained-fp32/config.json",
+      "original_sha256": "aea3341156c59bb62651cf172f8fb0bfc81fe7b59e4585a9cc48ce64bb7174b8",
+      "published_sha256": "aea3341156c59bb62651cf172f8fb0bfc81fe7b59e4585a9cc48ce64bb7174b8",
+      "original_bytes": 3997,
+      "published_bytes": 3997
+    },
+    {
+      "source": "work/cross-platform-int8/apple/fp32-validation/summary.json",
+      "published": "benchmarks/apple-precision/retained-fp32/summary.json",
+      "original_sha256": "92e68925589945531214ed3aaea67fcf44b8a50748b9b1469512aac6dd862bb8",
+      "published_sha256": "92e68925589945531214ed3aaea67fcf44b8a50748b9b1469512aac6dd862bb8",
+      "original_bytes": 895,
+      "published_bytes": 895
+    },
+    {
+      "source": "work/cross-platform-int8/apple/fp32-validation/audit.json",
+      "published": "benchmarks/apple-precision/retained-fp32/audit.json",
+      "original_sha256": "8ed86dccb08c2f73168ef51c73b81cc9b9ac3a202b2fa63b41db31d7f1a0187f",
+      "published_sha256": "8ed86dccb08c2f73168ef51c73b81cc9b9ac3a202b2fa63b41db31d7f1a0187f",
+      "original_bytes": 37097,
+      "published_bytes": 37097
+    },
+    {
+      "source": "work/cross-platform-int8/apple/fp32-validation/quality-inputs.json",
+      "published": "benchmarks/apple-precision/retained-fp32/quality-inputs.json",
+      "original_sha256": "f08cb0c26a03823202f801856166a572370adcf4984944f5fde28de4c4f87213",
+      "published_sha256": "b0ebcc3f27952c8fc914596d1a767037ee7f2bc7b7216462bb15a236d5ce0afb",
+      "original_bytes": 51144,
+      "published_bytes": 44304
+    },
+    {
+      "source": "work/cross-platform-int8/apple/fp32-validation/run/results.json",
+      "published": "benchmarks/apple-precision/retained-fp32/run/results.json",
+      "original_sha256": "2ffbd1b4a83e9c2da5822934285514fa0d513e22f7b0665f09959739652a2daa",
+      "published_sha256": "6692ee463a7e01f385af04e38cc27dae4e4659cb76b33e387ff8eaa8575d1870",
+      "original_bytes": 100177,
+      "published_bytes": 93337
+    },
+    {
+      "source": "work/cross-platform-int8/apple/fp32-validation/quality/comparison.json",
+      "published": "benchmarks/apple-precision/retained-fp32/quality/comparison.json",
+      "original_sha256": "623a29ec1fe40bd03fddd1749ecea721d6794d0cc317afe608ddbbfb67811265",
+      "published_sha256": "ecfd57aa4d2035d6aeccf18948a2f1cfbe267f416af4eec3a8f28caef335e011",
+      "original_bytes": 129117,
+      "published_bytes": 128946
+    },
+    {
+      "source": "work/cross-platform-int8/apple/fp32-validation/quality/comparison.csv",
+      "published": "benchmarks/apple-precision/retained-fp32/quality/comparison.csv",
+      "original_sha256": "472308c2707ae32a72fce80bee57cb8b1e6da0c06e64c3650cd41b03569fd85f",
+      "published_sha256": "472308c2707ae32a72fce80bee57cb8b1e6da0c06e64c3650cd41b03569fd85f",
+      "original_bytes": 18614,
+      "published_bytes": 18614
+    },
+    {
+      "source": "work/cross-platform-int8/apple/fp32-validation/quality/comparison-scores.json",
+      "published": "benchmarks/apple-precision/retained-fp32/quality/comparison-scores.json",
+      "original_sha256": "a970b257ce235adb7b610c35744a48ee770a14129ad10ba02f7be328be5a70a4",
+      "published_sha256": "03fc30bd01f489508ca8d77c369ea3dba04c45d7176adcae7c265125452e5c6f",
+      "original_bytes": 703397,
+      "published_bytes": 665606
+    },
+    {
+      "source": "work/cross-platform-int8/apple/fp32-validation/quality/comparison-manifest.json",
+      "published": "benchmarks/apple-precision/retained-fp32/quality/comparison-manifest.json",
+      "original_sha256": "fd8174639dec021302ae17883dc9d71d73608a0c627766e1e38a30c91056a9d2",
+      "published_sha256": "67dd08932a435283b5398c871e1b678e97e24145cfb987cfa718e73a3fed4c69",
+      "original_bytes": 131878,
+      "published_bytes": 114664
+    },
+    {
+      "source": "work/cross-platform-int8/apple/fp32-validation/quality/comparison-preflight.json",
+      "published": "benchmarks/apple-precision/retained-fp32/quality/comparison-preflight.json",
+      "original_sha256": "99908866bd1249b7f8f20562b283df645abd659979cbf5294ff66ea0c9b10292",
+      "published_sha256": "40df5cfd53463f6b34589ff37f4f0e033d69002e406013177ca7177ba14afa24",
+      "original_bytes": 1220,
+      "published_bytes": 1163
+    },
+    {
+      "source": "work/cross-platform-int8/apple/fp32-validation/quality/comparison-scores-summary.json",
+      "published": "benchmarks/apple-precision/retained-fp32/quality/comparison-scores-summary.json",
+      "original_sha256": "b622b99a386a29609dea43b6f5ec8eca401791d2a08ee8d6417df657d384ec2a",
+      "published_sha256": "b622b99a386a29609dea43b6f5ec8eca401791d2a08ee8d6417df657d384ec2a",
+      "original_bytes": 18682,
+      "published_bytes": 18682
+    }
+  ],
+  "normalization": [
+    "Private workspace and home prefixes replaced by logical roots",
+    "SDK and temporary paths normalized",
+    "Background process labels and host identifiers generalized",
+    "Presentation punctuation and application attribution normalized"
+  ],
+  "limits": [
+    "Original and published JSON hashes are intentionally different",
+    "Models, weights, prepared cases, audio, binaries and installed dependencies are omitted",
+    "Saved evidence configs require user-supplied local artifacts for replay",
+    "Full perceptual testing of Apple INT8 was not performed"
+  ],
+  "offline_checks": {
+    "final_screen_execution_checks": 84,
+    "final_screen_timings": 60,
+    "native_build_source_maps_verified": 2,
+    "CPU_provider_only": true,
+    "retained_FP32_checks": 156,
+    "retained_FP32_exports": 120,
+    "retained_FP32_timings": 0,
+    "retained_FP32_quality_complete": true
+  }
+}

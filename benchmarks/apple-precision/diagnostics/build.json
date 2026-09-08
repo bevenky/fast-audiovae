@@ -1,0 +1,78 @@
+{
+  "sources": {
+    "native/arm_dot.h": "568aaa3f9a8d02732db295250250e527db7572d38b5ce8382f4c9db32a45bfa8",
+    "native/custom_op.cpp": "6470399f8434897e06d4aaba4d67912c963e8e18ebc5af5e4da035def9e3d5c9",
+    "native/precision.cpp": "a3bf8c3e869a161563e733e126f954f123969196c2c732933f1ca31653b5d7f6",
+    "native/precision.h": "b4704bd9d02972fb4b84b14e0b47d691c0ee4fb73cfe3a97eef11b4fa67a59ef",
+    "build.py": "e2a33aba4acad7d41d5fff5d90f62534594f286cf692d0ca2a96f295580a7b28"
+  },
+  "commands": [
+    [
+      "c++",
+      "-shared",
+      "-fPIC",
+      "-O3",
+      "-std=c++17",
+      "-fno-fast-math",
+      "-ffp-contract=off",
+      "-fvisibility=hidden",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-isysroot",
+      "<system-sdk>",
+      "-isystem",
+      "<system-sdk>/usr/include/c++/v1",
+      "<workspace-root>/work/cross-platform-int8/apple/diagnostics/profile-source/native/precision.cpp",
+      "-Wl,-install_name,@rpath/libapple_int8_core_72e38aa6e663.dylib",
+      "-o",
+      "<workspace-root>/work/cross-platform-int8/apple/diagnostics/build-profile-r2/libapple_int8_core_72e38aa6e663.dylib"
+    ],
+    [
+      "c++",
+      "-shared",
+      "-fPIC",
+      "-O3",
+      "-std=c++17",
+      "-fno-fast-math",
+      "-ffp-contract=off",
+      "-fvisibility=hidden",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-isysroot",
+      "<system-sdk>",
+      "-isystem",
+      "<system-sdk>/usr/include/c++/v1",
+      "-I<workspace-root>/work/fast-audiovae/.deps/onnxruntime/include",
+      "<workspace-root>/work/cross-platform-int8/apple/diagnostics/profile-source/native/custom_op.cpp",
+      "<workspace-root>/work/cross-platform-int8/apple/diagnostics/build-profile-r2/libapple_int8_core_72e38aa6e663.dylib",
+      "-Wl,-rpath,@loader_path",
+      "-Wl,-install_name,@rpath/libapple_int8_ops_72e38aa6e663.dylib",
+      "-o",
+      "<workspace-root>/work/cross-platform-int8/apple/diagnostics/build-profile-r2/libapple_int8_ops_72e38aa6e663.dylib"
+    ]
+  ],
+  "core_path": "<workspace-root>/work/cross-platform-int8/apple/diagnostics/build-profile-r2/libapple_int8_core_72e38aa6e663.dylib",
+  "ops_path": "<workspace-root>/work/cross-platform-int8/apple/diagnostics/build-profile-r2/libapple_int8_ops_72e38aa6e663.dylib",
+  "libraries": {
+    "libapple_int8_core_72e38aa6e663.dylib": "e3427a0445ee45578b3a641961ab536f676986e0afe483b6d9d3584bf137dd35",
+    "libapple_int8_ops_72e38aa6e663.dylib": "bebac7e3812297ec23ea20b7c0583abe3371222bde747194aa23ab054eef84ca"
+  },
+  "ORT_API": 29,
+  "GPU_used": false,
+  "ort_headers": {
+    "onnxruntime_c_api.h": "acc0cf4b3f28d39339c76770d76164bb7a0637dc89f5fde764b4017b632f6743",
+    "onnxruntime_cxx_api.h": "9c63ed5bf0427ddf1c10a99aca0beeec77318ce77d2ea6f7ae76d7d933660f67",
+    "onnxruntime_cxx_inline.h": "c508dbb7d8203003a2584b8712118cb88e5b4ef1e1c7876a9974156fb7489301",
+    "onnxruntime_ep_c_api.h": "e6c986c9e98583f8113b2c6bc3864814883b806d501cf24da4d239c45753e235",
+    "onnxruntime_error_code.h": "5ce3b054e798eced8d14f5b86e98692fd33470463f96194ce0700a2d53dd8721",
+    "onnxruntime_float16.h": "88b242845d25981633a0bbd1c148e273cf8bfb016ea3f57c4af41a06530f72b0"
+  },
+  "compiler": "Apple clang version 17.0.0 (clang-1700.6.4.2)",
+  "domain": "fast.audiovae.precision.apple.experimental",
+  "C_API_prefix": "ipa_",
+  "backend": 2,
+  "capability_guard": "hw.optional.arm.FEAT_DotProd == 1",
+  "scope": "Standalone Apple W8A8 matrix experiment; full-K INT32, FP32 output; defaults unchanged"
+}

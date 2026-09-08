@@ -1,0 +1,985 @@
+{
+  "status": "running",
+  "platform": "apple",
+  "mode": "validation_only",
+  "gpu_used": false,
+  "threads": 4,
+  "affinity": null,
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "-1",
+    "NVIDIA_VISIBLE_DEVICES": "void",
+    "ROCR_VISIBLE_DEVICES": "-1",
+    "HIP_VISIBLE_DEVICES": "-1"
+  },
+  "runtime": {
+    "onnx": "1.22.0",
+    "soundfile": "0.14.0",
+    "onnxruntime": "1.29.0",
+    "build": "ORT Build Info: git-branch=HEAD, git-commit-id=2e2543fbe9, fp8-kv-cache=1, build type=Release",
+    "numpy": "2.5.3",
+    "python": "3.12.14",
+    "system": "macOS-26.5.1-arm64-arm-64bit"
+  },
+  "config_sha256": "b3d9d13ea460b5601c4739ed26f1c499b492139b7f783b6fe7bf299084aeaa8f",
+  "harness_sha256": "593dc1df8b7ac7334add9211da869eac931aaf61d360656b15a3196467cecf01",
+  "script_sha256": "04c49ba9c6f8ccfc9bd001cecb7193d6cf348edb73ab4b389918d0b1031c8882",
+  "derived_from_runner_sha256": "7f42ba2e2ae9f1c9b311e2b3b90eb1f3f6e911f0934c25b32570f36f60efb202",
+  "artifact_sha256": {
+    "../../audiovae2_onnx/audio_vae_decoder.onnx": "fdd20e200675ab9649bf33f16bc5974101ba5cf47ab89fbfe29f3d36ff6c3c84",
+    "../../audiovae2_onnx/audio_vae_decoder.onnx.data": "3b76bd57356e96893655bd24a364989e016c5af2fc8c29195caaefb4eccf5143",
+    "../../fast-audiovae/.build/check_bundle/decoder_native.onnx": "fa7992825e807cac7ab1be405912ae3735031fb941a18dd81006005dc597bde3",
+    "../../fast-audiovae/.build/check_bundle/runtime/libfast_audiovae_apple_880f8ca68b61.dylib": "c4797f745ee755bc66b63f13a9c2c626766f834cca566d13eb9eeee23abdc887",
+    "graphs/selective_int8.onnx": "44c09a8ed0bb782eec338673e36cafcc5555e05ac25bbeb015a713d4c28e32d2",
+    "build-r2/libapple_int8_ops_a7b5fc1fff32.dylib": "aa7b69437f102b190fb2dfd300435180989368ba9cabfb38ea635c601f61a82f",
+    "../../native_codec_cpu/mimi_onnx/mimi_decoder_fp32_dynamic.onnx": "e023777a2cee98a7e4a293f6af7712d4fed6364d1523cfc9a6283f112981e2f1",
+    "../../codec-quality-inputs/multilingual-encoded/fast_audiovae2.npz": "9b709b787c040591de57e094a5ba5a4515cc74e256e8014530ff8c7bb54d2d24",
+    "../../codec-quality-inputs/multilingual-encoded/fast_audiovae2.json": "398552d56b72077771cb53ce2ea9613a73bddd71c7031cf33aa9371094998a9f",
+    "../../codec-quality-inputs/multilingual-encoded/mimi_vae.npz": "af2d68663daf71db954488721e8fffc5888437100772a309b13c62391df0d9c7",
+    "../../codec-quality-inputs/multilingual-encoded/mimi_vae.json": "8df0ca5b8128c7a5b1a10dcb7dfe9e20bf4e1a5eeceaf7fe297c87f98334c0f4",
+    "build-r2/libapple_int8_core_a7b5fc1fff32.dylib": "a72995dbb4b93c097c3bff029dea0d6d29224913e913644451bcaec1078f47c0",
+    "../../multilingual-benchmark/apple/config.json": "bdcc25946ba4a5b9c379d8fdfeea8bbf18f4f8026b8d7be73f1841aed74a15be",
+    "graphs/selective_int8.json": "04a5a31d0d9b7596b48718bb6702168b88188f53b22ede235d8583543869d4a3",
+    "build-r2/build.json": "a2dc9a69bf531af15db6bb7ce0854c26fed27156020c24c7063e43657d7a18ae"
+  },
+  "checks": [
+    {
+      "model": "audio_stock",
+      "uid": "hi_in_00099_1919",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "9041c599cd403cde426a80feb0ae349de6464c1d4523383ba129b76240875f05",
+      "waveform_sha256": "91b16a7973829f747a450431d61ca9ab3270b75f95ec3ac5cd42e363f2471efc",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "hi_in_00159_1941",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "93fdb545d64c9f3cbf154158f97f7f8aa790720446de41e5960ef69372d39bff",
+      "waveform_sha256": "238df098622c346ffb0152b5ac1443e858dcccc23df1d4070061f554120ec37b",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "hi_in_00281_1748",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "0a43385e31b1548846d8d0b23c662c56869f8834d6442e671fc99295cc9a1455",
+      "waveform_sha256": "6cdaeaef50eace3639e2b02cac35387d9df25233e5a5dc6a5382b963384bfedb",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "hi_in_00190_1885",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "def41ea2a6d87c6c71f4e429f199782127981a3b2ceca91ea59df44a2d309e9e",
+      "waveform_sha256": "429367c29abf7e35f1ad0a3bfa2a6147deb08493c52f071d1515de2b8534977f",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "hi_in_00292_1691",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "185f411f8f404c578e07e960519ae37424cca87edf8ff8aca58002d334f49886",
+      "waveform_sha256": "888dd0847e3529d6cc73f2c4ad19c69437c7fee3e31df6fdf29ef5c59deb70f7",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "hi_in_00211_1943",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "d92ea7464d450d14df88a16a80beeb57a586efc60e3d3f760d4ef73357d745e3",
+      "waveform_sha256": "a0393c9116acbe29dc637d16676ddc0592d9755e6a7db1ba334e34817b20874b",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "bn_in_00633_1820",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "4b3b588d01449f6c6b3926adaf83f64ce8f1f9e4be6cfbc7fb8b92a66328c99e",
+      "waveform_sha256": "4c46b9e79772f6c678769080511e153f7fa4eb49fb93b2d321843e8d57678639",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "bn_in_00582_1926",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "a67e9ce4538a78d91f7edad599cbf4d48a59a9581833a1bf040406adabc23e10",
+      "waveform_sha256": "03784f6965653c68d5753b8e3a2c6f02da97b1f611e178644fb70c6834e70d78",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "bn_in_00735_1676",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "891a23ee753df6ea71a46100dc0b9ec3908c4cf7a76c534e1b886613f8366d2b",
+      "waveform_sha256": "c0af0a47348783fa928edcb2b9533a2acf5f847465a4b283563d27627c545ba9",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "bn_in_00208_1709",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "0cc4f3fdf1e4537e274ea4854b1d3ebc7c7216e4332fe0f97e46d71ea0968d9d",
+      "waveform_sha256": "4b0fa9e35a8dd9f884a4b27ea26359248b6b40824f0ac04f6d08898cb2659388",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "bn_in_00221_1754",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "9e369440e8ab1259e751eb63211ee4d50a5841a6f33ffc1634a465e3ab4f8395",
+      "waveform_sha256": "5981169634a7587c6527b202336a4b6d13632eb6441deb69e5b863687c912b2d",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "bn_in_00151_1818",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "b421d8dc62b90d2c2dc90e1474d1478f7d6d862bc0a77b0c3638af38482d7350",
+      "waveform_sha256": "c0b8754bc9073040d4c3ca2b18948ff88ad242b7686fc3adc7047e8ad5cd3627",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "gu_in_00926_1827",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "6a691a93d4691122d7711b1d0869ed19a45b366e9744662fec0e61dfa60e2efe",
+      "waveform_sha256": "354db102d025b087f4d42dd7f6c8f9c51908c490eeddbf4e2c04ebfa80c4427c",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "gu_in_00420_1858",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "a63d18fd3edecb85088f8df6b00a7299258f7d61ab25198105b4c37862c3bd22",
+      "waveform_sha256": "912243e554a40794dd68a5113f8a6319ebc8d25782d818e0a11718195861ccaa",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "gu_in_00713_1781",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "855124bd80d9fbc79e916edb602cc85466ec576ce360810693d21bc030ddca34",
+      "waveform_sha256": "dddc5b5a4759d5ad44574312743a1672518171a5d34431301a6bbf977025ceef",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "gu_in_00478_1731",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "2049f1991b071c4f05c86766c7f81da75f8c86dce8a1191e52d758fde613516a",
+      "waveform_sha256": "ac1af4d473d8be90e308a7eb336e277c1a113f857e3a7628e56b5c321d659598",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "gu_in_00337_1978",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "eb91a3f96dd6f274fecd645c502f0cb207df938e93674551edee575de939c72e",
+      "waveform_sha256": "ec0c7efd5c6107f0ad0188f66439670b26ccd31f8828709d1d8a00a0a316e3ee",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "gu_in_00528_1697",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "db04eef6722967c6cf6bfe1b6bb6e4bf099d668cc88d07e2ca8d55193f49220b",
+      "waveform_sha256": "a68e605f9a63c2699c7616ea6b7402e3c49b0cc26fffbf470861058d516af50f",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "ta_in_00494_1946",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "4233e806a9ad3e6f91b5fce5ebab8f3b6e26bba802a5be71b2d8a88316da4c70",
+      "waveform_sha256": "4adc730efddf95fbac0ca2b4054423d790722acc8aef666083ce61a9f93d1952",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "ta_in_00394_2003",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "2ee066c2da148eeee1693aa6c8ff1e3a7a65ae8b169fa68aae2e3800ebca5e39",
+      "waveform_sha256": "bf0b6aba527ebe8dc82aee3c0c5bd67b623d1cc30e6e4527af08f80a5cf1bc86",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "ta_in_00447_1742",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "59828a2ab512056fc89ea0a2e0be8e430ed302a9b43f826bcca300fd44a81289",
+      "waveform_sha256": "474e717f6df3de2b87adb1beb092690ca5fef54c8f18edd352463ddcf3fbf31d",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "ta_in_00201_1938",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "e78224a238b36f14722abebab1c6b605063b915aa630e89a02654cbb91376141",
+      "waveform_sha256": "9f6f4633da03e598ca43836c1f96a8f0308fe49555a804c921e0e9927e71f374",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "ta_in_00077_1834",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "cf26257d7748c4e473e694289c294a3b3d0bcfc8d631f11c8bc1335aa7c0ee70",
+      "waveform_sha256": "52fb4a6b7d3d6e164325e791991563f6be2792f2a37a530db6e0e2163db8eb55",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "ta_in_00012_1740",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "21725ea3ce7609f8d147ac1dbf16fe19276d13e1d5658569d29ff37c2e907868",
+      "waveform_sha256": "31e15769cfe0ce7492749ca555f5da396eebca94788e69923904eed18afd8e0b",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "te_in_00114_1911",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "dfd384b85b1992ed12aba34e7c45c53128ffb5aabe1f7ae162240e2f8027bc5b",
+      "waveform_sha256": "ce990a6efe0c18962108970abead32884cdad9f8a942019d78495c01568d5f1b",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "te_in_00185_1914",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "518ad576ea499b2070d1870c85d984eb7984729b3713f275d7a5b47b3a7c044d",
+      "waveform_sha256": "58531ac6f2d9b6c3ccc0b197c633f3446252d2508dbca239b74d66ab0f71a2a3",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "te_in_00471_1768",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "c0a11319a98f86dfcb361ada9a64f91ece7715e948ee560a16ccdad0c89a8a58",
+      "waveform_sha256": "42a9594f86b8d555e790e0ee8829cfbed48738f1ce49c727daf304b9a98f692f",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "te_in_00267_1838",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "b971b455da58a364cc30cb1156b9d53bf95449e377c132b0a13c91e9da7d8849",
+      "waveform_sha256": "fcb12855846f097594b1c53280e15346b1aa8a1593d5b6ee44d8ebdbf0657c5a",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "te_in_00228_1918",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "ba083262eb0a9f89dfd375e40a61de7953b8b580df9e18a2681f0004706a2a6b",
+      "waveform_sha256": "e39d02a0d3df403de925071feb1815bed1d6cb395e718446da8ff6112edd533c",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "te_in_00016_1969",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "ecc33ef27490a6fab09686ef59dd5740026642795141fe7acc0acee720fea07c",
+      "waveform_sha256": "af4a6eb067af84bba8629fda1b83453892adc90150ca1694b1742f181bcd707f",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "kn_in_00584_1904",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "b722caa630ebfa4d839a69d61f32e7741c6729b9c5406e98ed195419dbae70c0",
+      "waveform_sha256": "b7d9199cff8c07ee01cc67b038bbb890e671ea7a577ec0534b46182725c1d5d6",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "kn_in_00073_1705",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "358705bc9bc345fff0c404f198a364acb5e59124e3b343e4a1c4ec2f75bebc7a",
+      "waveform_sha256": "c33fedc6e42a3f082e246e2733baa49527244574b218baebbaa738e613a28d76",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "kn_in_00788_1926",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "22e48b43ea3c0d50613b48ea93637cbecec950f3a22e44b4871ff6b3cef6848f",
+      "waveform_sha256": "f40525bdd71945886211aa8c2c7c92d85e834aba817207f0afbe210cac478d4b",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "kn_in_00793_1839",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "3a68c8514335ad68e347b25222659eb6b3f30bd90c88e69cccad5cbadc9f4816",
+      "waveform_sha256": "18a0f6bbe3e1615f69221ad95de36005c9e7b9c0dcfbc219b5609b91189f4b97",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "kn_in_00227_1844",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "ded49c62166bf334011e50ea5ead3c45c0c7d5941db45987b68f0a8e3a094481",
+      "waveform_sha256": "fad50cab8c3f786fdd75647789fa45e928f5854986ed5d01f76806775b7b54f5",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "kn_in_00542_1781",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "7e491410140e11bd716a60927539f4d6dd41648fed9e4abe802417c99c6946e1",
+      "waveform_sha256": "a29627995625d55bb0d84496ca688c3b184cc6e919523977601fed5e0d08b5f2",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "en_us_00103_1779",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "64f35c3e1544184bffe5c8c88ad039c993826dbb904a3105b7d8207927e93afd",
+      "waveform_sha256": "28aa529ec2e5cb9e43e3f5405f860cfed917d0e57c680d46f48b2fb2a796c2e5",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "en_us_00344_1948",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "da6a1ec03158be50a394a931a43ddb1002549949388e3e41444692745a64853f",
+      "waveform_sha256": "e26eebb0b0611060e0acabb3def8ecafa761a69c8dcdf347b9a42c05c2247121",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "en_us_00133_1765",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "e01fa7824093cabb47ab49aa637853b0bc3cdafa8d1fd209526050aec9b92d4a",
+      "waveform_sha256": "541ab5db687b528a7dd13c84d713eaad87ed68f4ed2fd0bf61bfbb65d39f0bd2",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "en_us_00287_1786",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "d361c2fc75697c93ec11d8308d6a749e7008cf77e622fe843e11c90b710993f5",
+      "waveform_sha256": "cf604c1f294b1d9382da4a3c53d5a0dd39d012f9292dffa074255e9ee5ac0498",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "en_us_00557_1707",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "7b84f26908963b2343de5ba7e46799ede322f3a6ab854db827565820e34657fb",
+      "waveform_sha256": "7717fce7f0d6a18076c75eb97c36a5018d122d56978960e3c922bb99a0084675",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "en_us_00565_1837",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "83b13dffb860e4b0774a2d3e54079e05cb0906c02f9163f5ec9c208d636cbfc4",
+      "waveform_sha256": "f0e2dfc3922e1504233564df19e3ed288af1bf4036350a791724db16b2fc8008",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "es_419_00646_1781",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "800aaaa22a8eb51fa175cce71de3c338007bf4b93ce86ceb793fe98b69872bd7",
+      "waveform_sha256": "bb1cf51ccbf729cae3801c865aae7728b3ca88dbbe3a406b2a8aa7efb7a5360a",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "es_419_00706_1731",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "497963ae5abc03a0a078a9771ffc233b11143b291359dc6bd86948f4197806d4",
+      "waveform_sha256": "9afb75eaf3b8896fceea0e6c3464eac53da645281d56bfa7b791c72d098dc6bf",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "es_419_00172_1698",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "15466c1d090da5f27d5c97e21b5e0f6910452d9695990b4e8cdb2ada7b782a56",
+      "waveform_sha256": "bc45a8618d8441b2810dfb654d7e047ae6fc2671a1c7a085467f6b3522be46d6",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "es_419_00060_1994",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "8863397e707e9ba5b2c18181eef497ccf110733ced1cdfa484b8f455e8e3d737",
+      "waveform_sha256": "bc41c9c54fd4169f057b4750017b7c4e4bdf6986c911ba9ae12e04f8da9c26cf",
+      "fp32_parity_required": true
+    }
+  ],
+  "exports": [
+    {
+      "model": "audio_stock",
+      "uid": "hi_in_00099_1919",
+      "path": "<workspace-root>/work/cross-platform-int8/apple/validation-r2/wavs/audio_stock/hi_in_00099_1919.wav",
+      "sha256": "58fdcb3d72f0a5c662234136b3a8c1ebb76abeffb65f248561bb3f9116048043",
+      "rate": 48000,
+      "samples": 489600,
+      "subtype": "FLOAT"
+    },
+    {
+      "model": "audio_stock",
+      "uid": "hi_in_00159_1941",
+      "path": "<workspace-root>/work/cross-platform-int8/apple/validation-r2/wavs/audio_stock/hi_in_00159_1941.wav",
+      "sha256": "bc71f2fd3f4160627f35f10d92ddc9f61decdb9a81930975b5039ec89ad824c2",
+      "rate": 48000,
+      "samples": 270720,
+      "subtype": "FLOAT"
+    },
+    {
+      "model": "audio_stock",
+      "uid": "hi_in_00281_1748",
+      "path": "<workspace-root>/work/cross-platform-int8/apple/validation-r2/wavs/audio_stock/hi_in_00281_1748.wav",
+      "sha256": "0c3b6cd814cae576a2143383ecab3b95b7cbd0189e6e3be2a417f1fb5680ffaa",
+      "rate": 48000,
+      "samples": 360960,
+      "subtype": "FLOAT"
+    },
+    {
+      "model": "audio_stock",
+      "uid": "hi_in_00190_1885",
+      "path": "<workspace-root>/work/cross-platform-int8/apple/validation-r2/wavs/audio_stock/hi_in_00190_1885.wav",
+      "sha256": "3682e559e92b9acc89d57be7dee7337e56b0a50cf8ebbccdd776df13d05bf243",
+      "rate": 48000,
+      "samples": 299520,
+      "subtype": "FLOAT"
+    },
+    {
+      "model": "audio_stock",
+      "uid": "hi_in_00292_1691",
+      "path": "<workspace-root>/work/cross-platform-int8/apple/validation-r2/wavs/audio_stock/hi_in_00292_1691.wav",
+      "sha256": "955ffcefd6c1ab591e93cf51cbdaba1b126f6105355060562fd069ae7d1d7661",
+      "rate": 48000,
+      "samples": 483840,
+      "subtype": "FLOAT"
+    },
+    {
+      "model": "audio_stock",
+      "uid": "hi_in_00211_1943",
+      "path": "<workspace-root>/work/cross-platform-int8/apple/validation-r2/wavs/audio_stock/hi_in_00211_1943.wav",
+      "sha256": "0ac2ac7ac030bed4941bdd536d054f84e7faa0989a7c29475aae821e425eb94a",
+      "rate": 48000,
+      "samples": 512640,
+      "subtype": "FLOAT"
+    },
+    {
+      "model": "audio_stock",
+      "uid": "bn_in_00633_1820",
+      "path": "<workspace-root>/work/cross-platform-int8/apple/validation-r2/wavs/audio_stock/bn_in_00633_1820.wav",
+      "sha256": "f70b26681c99ab626c3007852913616f9befc96d6ce8a2eba2d787b6801d4409",
+      "rate": 48000,
+      "samples": 368640,
+      "subtype": "FLOAT"
+    },
+    {
+      "model": "audio_stock",
+      "uid": "bn_in_00582_1926",
+      "path": "<workspace-root>/work/cross-platform-int8/apple/validation-r2/wavs/audio_stock/bn_in_00582_1926.wav",
+      "sha256": "9d9c2cdacb4e78b2c7fe9992fbfd2158ddc6e20202de73a075c62406850eafc4",
+      "rate": 48000,
+      "samples": 326400,
+      "subtype": "FLOAT"
+    },
+    {
+      "model": "audio_stock",
+      "uid": "bn_in_00735_1676",
+      "path": "<workspace-root>/work/cross-platform-int8/apple/validation-r2/wavs/audio_stock/bn_in_00735_1676.wav",
+      "sha256": "8abef06fe71dcfdc87e14c799ca0b2e9b4cf89e47f282acfca4376fd20b11e5a",
+      "rate": 48000,
+      "samples": 349440,
+      "subtype": "FLOAT"
+    },
+    {
+      "model": "audio_stock",
+      "uid": "bn_in_00208_1709",
+      "path": "<workspace-root>/work/cross-platform-int8/apple/validation-r2/wavs/audio_stock/bn_in_00208_1709.wav",
+      "sha256": "bf0a6defe632562a2d075c6c34a1fc01c21bacc3fa8776beb7ed90df515ea234",
+      "rate": 48000,
+      "samples": 556800,
+      "subtype": "FLOAT"
+    },
+    {
+      "model": "audio_stock",
+      "uid": "bn_in_00221_1754",
+      "path": "<workspace-root>/work/cross-platform-int8/apple/validation-r2/wavs/audio_stock/bn_in_00221_1754.wav",
+      "sha256": "78640236d7cd9d3ec8a12088cecc75da32c5378562bc238b3fff859096429762",
+      "rate": 48000,
+      "samples": 504960,
+      "subtype": "FLOAT"
+    },
+    {
+      "model": "audio_stock",
+      "uid": "bn_in_00151_1818",
+      "path": "<workspace-root>/work/cross-platform-int8/apple/validation-r2/wavs/audio_stock/bn_in_00151_1818.wav",
+      "sha256": "6f02937075ede80ba01e787b1d6b494a19a6481265ede2550b22669c069b2605",
+      "rate": 48000,
+      "samples": 478080,
+      "subtype": "FLOAT"
+    },
+    {
+      "model": "audio_stock",
+      "uid": "gu_in_00926_1827",
+      "path": "<workspace-root>/work/cross-platform-int8/apple/validation-r2/wavs/audio_stock/gu_in_00926_1827.wav",
+      "sha256": "4719d1f25f40e95149d2eb6ea1e9e0b8a889219e9274d1659508f8f574e76e0b",
+      "rate": 48000,
+      "samples": 378240,
+      "subtype": "FLOAT"
+    },
+    {
+      "model": "audio_stock",
+      "uid": "gu_in_00420_1858",
+      "path": "<workspace-root>/work/cross-platform-int8/apple/validation-r2/wavs/audio_stock/gu_in_00420_1858.wav",
+      "sha256": "f29ea86b13b65b5759ca29f2037d64b5c7790c6ab59eecc90a07527152cd87c8",
+      "rate": 48000,
+      "samples": 380160,
+      "subtype": "FLOAT"
+    },
+    {
+      "model": "audio_stock",
+      "uid": "gu_in_00713_1781",
+      "path": "<workspace-root>/work/cross-platform-int8/apple/validation-r2/wavs/audio_stock/gu_in_00713_1781.wav",
+      "sha256": "00aa996b068e6ecb9729a1276561cb608d5c56b32d7b8c07df1afacd808cc6a6",
+      "rate": 48000,
+      "samples": 349440,
+      "subtype": "FLOAT"
+    },
+    {
+      "model": "audio_stock",
+      "uid": "gu_in_00478_1731",
+      "path": "<workspace-root>/work/cross-platform-int8/apple/validation-r2/wavs/audio_stock/gu_in_00478_1731.wav",
+      "sha256": "4b314dfa9f01b34e02a35c02379d21698a795552c7825dfd43314c34769aafd7",
+      "rate": 48000,
+      "samples": 216960,
+      "subtype": "FLOAT"
+    },
+    {
+      "model": "audio_stock",
+      "uid": "gu_in_00337_1978",
+      "path": "<workspace-root>/work/cross-platform-int8/apple/validation-r2/wavs/audio_stock/gu_in_00337_1978.wav",
+      "sha256": "5a497db8a03e75ee00c56c8155da0d2f9e4ad2c0ae5353c7351073a62d815238",
+      "rate": 48000,
+      "samples": 230400,
+      "subtype": "FLOAT"
+    },
+    {
+      "model": "audio_stock",
+      "uid": "gu_in_00528_1697",
+      "path": "<workspace-root>/work/cross-platform-int8/apple/validation-r2/wavs/audio_stock/gu_in_00528_1697.wav",
+      "sha256": "3e2658468d87dd6f2b290123891a295a3f67d7714f21c0b053dfbe916efea94b",
+      "rate": 48000,
+      "samples": 293760,
+      "subtype": "FLOAT"
+    },
+    {
+      "model": "audio_stock",
+      "uid": "ta_in_00494_1946",
+      "path": "<workspace-root>/work/cross-platform-int8/apple/validation-r2/wavs/audio_stock/ta_in_00494_1946.wav",
+      "sha256": "6755a0a3d7bff07fae2ebc07953b8bac29501f37edb99fd96732df99f22e918d",
+      "rate": 48000,
+      "samples": 472320,
+      "subtype": "FLOAT"
+    },
+    {
+      "model": "audio_stock",
+      "uid": "ta_in_00394_2003",
+      "path": "<workspace-root>/work/cross-platform-int8/apple/validation-r2/wavs/audio_stock/ta_in_00394_2003.wav",
+      "sha256": "a241e6a91e4d866da3096e732f8bcb1a7984d7d9b90d50a57710cbec3a8901cb",
+      "rate": 48000,
+      "samples": 378240,
+      "subtype": "FLOAT"
+    },
+    {
+      "model": "audio_stock",
+      "uid": "ta_in_00447_1742",
+      "path": "<workspace-root>/work/cross-platform-int8/apple/validation-r2/wavs/audio_stock/ta_in_00447_1742.wav",
+      "sha256": "7a0ee1a19291db9b1a13dd4e7e204aaaa8022ef9c3e0db621fe120f510734aea",
+      "rate": 48000,
+      "samples": 510720,
+      "subtype": "FLOAT"
+    },
+    {
+      "model": "audio_stock",
+      "uid": "ta_in_00201_1938",
+      "path": "<workspace-root>/work/cross-platform-int8/apple/validation-r2/wavs/audio_stock/ta_in_00201_1938.wav",
+      "sha256": "16d206162bb5209c888dedd13fb12ca8c4e5bad993c754992fbe647a1f11aadf",
+      "rate": 48000,
+      "samples": 435840,
+      "subtype": "FLOAT"
+    },
+    {
+      "model": "audio_stock",
+      "uid": "ta_in_00077_1834",
+      "path": "<workspace-root>/work/cross-platform-int8/apple/validation-r2/wavs/audio_stock/ta_in_00077_1834.wav",
+      "sha256": "0321b9e94075940d3b12d0553ec264102003a7ba2e827d5ae477b8e1ee8d3a98",
+      "rate": 48000,
+      "samples": 512640,
+      "subtype": "FLOAT"
+    },
+    {
+      "model": "audio_stock",
+      "uid": "ta_in_00012_1740",
+      "path": "<workspace-root>/work/cross-platform-int8/apple/validation-r2/wavs/audio_stock/ta_in_00012_1740.wav",
+      "sha256": "d2575db31faa674c4f4c439972be667f2d3727537ff3a1dc689bfc79bccd87b1",
+      "rate": 48000,
+      "samples": 372480,
+      "subtype": "FLOAT"
+    },
+    {
+      "model": "audio_stock",
+      "uid": "te_in_00114_1911",
+      "path": "<workspace-root>/work/cross-platform-int8/apple/validation-r2/wavs/audio_stock/te_in_00114_1911.wav",
+      "sha256": "7e990514a5dc1ee9c388533b3b38ff722e81bba4d6cdbf2603b9b3444b6e7267",
+      "rate": 48000,
+      "samples": 512640,
+      "subtype": "FLOAT"
+    },
+    {
+      "model": "audio_stock",
+      "uid": "te_in_00185_1914",
+      "path": "<workspace-root>/work/cross-platform-int8/apple/validation-r2/wavs/audio_stock/te_in_00185_1914.wav",
+      "sha256": "8cdadd9ff2ed970a1ab55ec94531a38ec8482b34f5c80f8092e3b5eb4d0c9ac2",
+      "rate": 48000,
+      "samples": 564480,
+      "subtype": "FLOAT"
+    },
+    {
+      "model": "audio_stock",
+      "uid": "te_in_00471_1768",
+      "path": "<workspace-root>/work/cross-platform-int8/apple/validation-r2/wavs/audio_stock/te_in_00471_1768.wav",
+      "sha256": "a6438c15962e333c81c6ea2f5d38a094abb884a22878a118cc9147e4a1b8063f",
+      "rate": 48000,
+      "samples": 495360,
+      "subtype": "FLOAT"
+    },
+    {
+      "model": "audio_stock",
+      "uid": "te_in_00267_1838",
+      "path": "<workspace-root>/work/cross-platform-int8/apple/validation-r2/wavs/audio_stock/te_in_00267_1838.wav",
+      "sha256": "16b138b4ecf403e13bd87fd89eae2d2a87368855918b25706db5970f035668af",
+      "rate": 48000,
+      "samples": 241920,
+      "subtype": "FLOAT"
+    },
+    {
+      "model": "audio_stock",
+      "uid": "te_in_00228_1918",
+      "path": "<workspace-root>/work/cross-platform-int8/apple/validation-r2/wavs/audio_stock/te_in_00228_1918.wav",
+      "sha256": "c85c8287d846308473797f13836f66c866c808e0e2411fb113af1b890e37aa0f",
+      "rate": 48000,
+      "samples": 539520,
+      "subtype": "FLOAT"
+    },
+    {
+      "model": "audio_stock",
+      "uid": "te_in_00016_1969",
+      "path": "<workspace-root>/work/cross-platform-int8/apple/validation-r2/wavs/audio_stock/te_in_00016_1969.wav",
+      "sha256": "e92a35802d3b2e0a72b91604eee3f542f6485bdaf2df68425a965a88653fe428",
+      "rate": 48000,
+      "samples": 524160,
+      "subtype": "FLOAT"
+    },
+    {
+      "model": "audio_stock",
+      "uid": "kn_in_00584_1904",
+      "path": "<workspace-root>/work/cross-platform-int8/apple/validation-r2/wavs/audio_stock/kn_in_00584_1904.wav",
+      "sha256": "bc80ced070a9d23cbe2219a052279583db17ac9e24b63a6dcb6cbf3a4a00ec0f",
+      "rate": 48000,
+      "samples": 506880,
+      "subtype": "FLOAT"
+    },
+    {
+      "model": "audio_stock",
+      "uid": "kn_in_00073_1705",
+      "path": "<workspace-root>/work/cross-platform-int8/apple/validation-r2/wavs/audio_stock/kn_in_00073_1705.wav",
+      "sha256": "987e97d22bc67194a9a41be5dee6096436276e38a7fff930fb50c01c4e496519",
+      "rate": 48000,
+      "samples": 564480,
+      "subtype": "FLOAT"
+    },
+    {
+      "model": "audio_stock",
+      "uid": "kn_in_00788_1926",
+      "path": "<workspace-root>/work/cross-platform-int8/apple/validation-r2/wavs/audio_stock/kn_in_00788_1926.wav",
+      "sha256": "fc436eab55f0090d009cc7738510d07c9c7fba2c284d50510b64e046f23e94d5",
+      "rate": 48000,
+      "samples": 458880,
+      "subtype": "FLOAT"
+    },
+    {
+      "model": "audio_stock",
+      "uid": "kn_in_00793_1839",
+      "path": "<workspace-root>/work/cross-platform-int8/apple/validation-r2/wavs/audio_stock/kn_in_00793_1839.wav",
+      "sha256": "cc38283286c1460ba84530cc3b88a62ce04e4c6ade7052ddf706127aaa2e52ad",
+      "rate": 48000,
+      "samples": 355200,
+      "subtype": "FLOAT"
+    },
+    {
+      "model": "audio_stock",
+      "uid": "kn_in_00227_1844",
+      "path": "<workspace-root>/work/cross-platform-int8/apple/validation-r2/wavs/audio_stock/kn_in_00227_1844.wav",
+      "sha256": "f3264a55a633670ac38b648834a8914857fea2100c792539ddcb62233dc70451",
+      "rate": 48000,
+      "samples": 535680,
+      "subtype": "FLOAT"
+    },
+    {
+      "model": "audio_stock",
+      "uid": "kn_in_00542_1781",
+      "path": "<workspace-root>/work/cross-platform-int8/apple/validation-r2/wavs/audio_stock/kn_in_00542_1781.wav",
+      "sha256": "c07bb6a11e781f6b6ffb5f2c01d97a0e4359d6ff02b25b23a1883d1306b56440",
+      "rate": 48000,
+      "samples": 403200,
+      "subtype": "FLOAT"
+    },
+    {
+      "model": "audio_stock",
+      "uid": "en_us_00103_1779",
+      "path": "<workspace-root>/work/cross-platform-int8/apple/validation-r2/wavs/audio_stock/en_us_00103_1779.wav",
+      "sha256": "31b4ea5b3dbfba81d7a3fbf830957a530db26beb876a40122860b35cb4dc43d8",
+      "rate": 48000,
+      "samples": 518400,
+      "subtype": "FLOAT"
+    },
+    {
+      "model": "audio_stock",
+      "uid": "en_us_00344_1948",
+      "path": "<workspace-root>/work/cross-platform-int8/apple/validation-r2/wavs/audio_stock/en_us_00344_1948.wav",
+      "sha256": "2682a0a897029eb8e95753b26ed8d7de46534652eb4e9240cd127f969861d426",
+      "rate": 48000,
+      "samples": 489600,
+      "subtype": "FLOAT"
+    },
+    {
+      "model": "audio_stock",
+      "uid": "en_us_00133_1765",
+      "path": "<workspace-root>/work/cross-platform-int8/apple/validation-r2/wavs/audio_stock/en_us_00133_1765.wav",
+      "sha256": "0b37cd5d6d12bfa787f1315edd2c3adf99af4cf93e16ec4e8a225b99eb77d900",
+      "rate": 48000,
+      "samples": 568320,
+      "subtype": "FLOAT"
+    },
+    {
+      "model": "audio_stock",
+      "uid": "en_us_00287_1786",
+      "path": "<workspace-root>/work/cross-platform-int8/apple/validation-r2/wavs/audio_stock/en_us_00287_1786.wav",
+      "sha256": "ba0dc62cc982a9b609e69597f60381fed6b1c109e55881f7983314438a2c4bde",
+      "rate": 48000,
+      "samples": 372480,
+      "subtype": "FLOAT"
+    },
+    {
+      "model": "audio_stock",
+      "uid": "en_us_00557_1707",
+      "path": "<workspace-root>/work/cross-platform-int8/apple/validation-r2/wavs/audio_stock/en_us_00557_1707.wav",
+      "sha256": "464952bf3f3c4328bcd538f9b28b4f9879b6132a2ad9881f347aac11e8785ca1",
+      "rate": 48000,
+      "samples": 524160,
+      "subtype": "FLOAT"
+    },
+    {
+      "model": "audio_stock",
+      "uid": "en_us_00565_1837",
+      "path": "<workspace-root>/work/cross-platform-int8/apple/validation-r2/wavs/audio_stock/en_us_00565_1837.wav",
+      "sha256": "ca652d450c60e5a4250beeb71917e7f52d11537e42ed8c4adea712353d8e5b66",
+      "rate": 48000,
+      "samples": 493440,
+      "subtype": "FLOAT"
+    },
+    {
+      "model": "audio_stock",
+      "uid": "es_419_00646_1781",
+      "path": "<workspace-root>/work/cross-platform-int8/apple/validation-r2/wavs/audio_stock/es_419_00646_1781.wav",
+      "sha256": "0e8ebd4c6790944a48d2dc35184e00ff0db65ba5599cb14f6cd8178dfe174954",
+      "rate": 48000,
+      "samples": 395520,
+      "subtype": "FLOAT"
+    },
+    {
+      "model": "audio_stock",
+      "uid": "es_419_00706_1731",
+      "path": "<workspace-root>/work/cross-platform-int8/apple/validation-r2/wavs/audio_stock/es_419_00706_1731.wav",
+      "sha256": "83c9db75b008840e93c4898b242a4bfd71bb2130277f82cc20353d8043e8b20a",
+      "rate": 48000,
+      "samples": 326400,
+      "subtype": "FLOAT"
+    },
+    {
+      "model": "audio_stock",
+      "uid": "es_419_00172_1698",
+      "path": "<workspace-root>/work/cross-platform-int8/apple/validation-r2/wavs/audio_stock/es_419_00172_1698.wav",
+      "sha256": "619f0f240ebcfa2b6b896438d8d30dde14378a0648c0c188c9d5e230614afb72",
+      "rate": 48000,
+      "samples": 495360,
+      "subtype": "FLOAT"
+    },
+    {
+      "model": "audio_stock",
+      "uid": "es_419_00060_1994",
+      "path": "<workspace-root>/work/cross-platform-int8/apple/validation-r2/wavs/audio_stock/es_419_00060_1994.wav",
+      "sha256": "9e067f710463d82b8e5defe414526a2dafe996a47e183c0dfd57e534cb2c4513",
+      "rate": 48000,
+      "samples": 443520,
+      "subtype": "FLOAT"
+    }
+  ],
+  "measurements": [],
+  "providers": [
+    {
+      "model": "audio_stock",
+      "providers": [
+        "CPUExecutionProvider"
+      ]
+    }
+  ],
+  "failures": [],
+  "protocol": {
+    "validation_uids": [
+      "hi_in_00099_1919",
+      "hi_in_00159_1941",
+      "hi_in_00281_1748",
+      "hi_in_00190_1885",
+      "hi_in_00292_1691",
+      "hi_in_00211_1943",
+      "bn_in_00633_1820",
+      "bn_in_00582_1926",
+      "bn_in_00735_1676",
+      "bn_in_00208_1709",
+      "bn_in_00221_1754",
+      "bn_in_00151_1818",
+      "gu_in_00926_1827",
+      "gu_in_00420_1858",
+      "gu_in_00713_1781",
+      "gu_in_00478_1731",
+      "gu_in_00337_1978",
+      "gu_in_00528_1697",
+      "ta_in_00494_1946",
+      "ta_in_00394_2003",
+      "ta_in_00447_1742",
+      "ta_in_00201_1938",
+      "ta_in_00077_1834",
+      "ta_in_00012_1740",
+      "te_in_00114_1911",
+      "te_in_00185_1914",
+      "te_in_00471_1768",
+      "te_in_00267_1838",
+      "te_in_00228_1918",
+      "te_in_00016_1969",
+      "kn_in_00584_1904",
+      "kn_in_00073_1705",
+      "kn_in_00788_1926",
+      "kn_in_00793_1839",
+      "kn_in_00227_1844",
+      "kn_in_00542_1781",
+      "en_us_00103_1779",
+      "en_us_00344_1948",
+      "en_us_00133_1765",
+      "en_us_00287_1786",
+      "en_us_00557_1707",
+      "en_us_00565_1837",
+      "es_419_00646_1781",
+      "es_419_00706_1731",
+      "es_419_00172_1698",
+      "es_419_00060_1994",
+      "es_419_00787_1941",
+      "es_419_00899_1738",
+      "fr_fr_00129_1717",
+      "fr_fr_00374_1935",
+      "fr_fr_00257_1874",
+      "fr_fr_00045_1736",
+      "fr_fr_00644_1660",
+      "fr_fr_00041_1714",
+      "pt_br_00672_1745",
+      "pt_br_00499_1674",
+      "pt_br_00046_2003",
+      "pt_br_00031_1676",
+      "pt_br_00677_1747",
+      "pt_br_00325_1975"
+    ],
+    "timing_uids": [],
+    "warmups": 0,
+    "repeats": 0,
+    "seed": 20260908,
+    "decoder_only": true,
+    "same_time_column_scales": true,
+    "fp32_gate": "atol1e-5/rtol1e-4 against the frozen reference and fresh stock",
+    "int8_gate": "No FP32 parity assertion; separate perceptual evaluation required",
+    "timing": "None. Full waveform validation and export only"
+  },
+  "host_before": {
+    "cpu_ticks": null,
+    "loadavg": [
+      31.197265625,
+      46.341796875,
+      45.15966796875
+    ],
+    "meminfo": null,
+    "clock_ticks_per_second": 100,
+    "scope": "Optional OS counters outside inference timers; missing counters are null"
+  },
+  "started_utc": "2026-09-08T07:57:46Z",
+  "gpu_mappings_before": {
+    "available": true,
+    "source": "dyld loaded images",
+    "basenames": [],
+    "metal_images": [
+      "Metal"
+    ],
+    "scope": "Loaded libraries inventory; sessions explicitly use CPU provider and native kernels use CPU instructions"
+  },
+  "progress": {
+    "phase": "session",
+    "model": "audio_stock"
+  },
+  "finished_utc": "2026-09-08T07:59:42Z"
+}

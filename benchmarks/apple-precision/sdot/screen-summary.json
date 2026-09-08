@@ -1,0 +1,84 @@
+{
+  "source_sha256": "11ef56f800277f37884d6a17ad6de82c81505e140a5902cc007af196ad6ca776",
+  "status": "complete",
+  "scope": "Three-clip implementation screen; no quality score or promotion",
+  "native_quantization_checks": "../check-r2.json",
+  "decoder_checks": 84,
+  "failures": 0,
+  "timings": 60,
+  "decoder_only": true,
+  "threads": 4,
+  "ORT_version": "1.29.0",
+  "static_ONNX_parser_version": "1.19.1",
+  "future_static_parser_version": "1.22.0",
+  "summary": {
+    "audio_stock": {
+      "decoder_rtf": 0.24666793150856386,
+      "per_clip_rtf": {
+        "hi_in_00099_1919": 0.24502961847058827,
+        "en_us_00103_1779": 0.25093328164814815,
+        "pt_br_00672_1745": 0.2435317147863248
+      }
+    },
+    "fast_fp32": {
+      "decoder_rtf": 0.09384032362977601,
+      "per_clip_rtf": {
+        "hi_in_00099_1919": 0.09275664380392158,
+        "en_us_00103_1779": 0.09419554322222222,
+        "pt_br_00672_1745": 0.09461138801282051
+      }
+    },
+    "int8_large": {
+      "decoder_rtf": 0.17094757055335966,
+      "per_clip_rtf": {
+        "hi_in_00099_1919": 0.1808905343137255,
+        "en_us_00103_1779": 0.1530114051111111,
+        "pt_br_00672_1745": 0.18080786504273505
+      }
+    },
+    "mimi": {
+      "decoder_rtf": 0.08603928206578948,
+      "per_clip_rtf": {
+        "hi_in_00099_1919": 0.07358530595703125,
+        "en_us_00103_1779": 0.08482095062962962,
+        "pt_br_00672_1745": 0.10106991185897436
+      }
+    }
+  },
+  "repeat_cv": {
+    "audio_stock": 0.055212370318137645,
+    "fast_fp32": 0.1313684062403984,
+    "int8_large": 0.16171356197853087,
+    "mimi": 0.1636070075674908
+  },
+  "paired_time_ratio_int8_over_FP32": {
+    "hi_in_00099_1919": [
+      1.907035160098195,
+      2.230074249762308,
+      1.7571280393757376,
+      1.9856954204658328,
+      1.8483898223365303
+    ],
+    "en_us_00103_1779": [
+      1.1377752684357927,
+      2.128941432476141,
+      1.5261466374579826,
+      1.9278390573982176,
+      1.59005468369248
+    ],
+    "pt_br_00672_1745": [
+      1.5389711313710486,
+      1.6775713286892548,
+      2.4199675177608713,
+      1.977969019908084,
+      1.827583218882498
+    ]
+  },
+  "faster_pairs": 0,
+  "total_pairs": 15,
+  "quality_pass": null,
+  "speed_pass": false,
+  "default_changed": false,
+  "aggregate_extra_time_fraction": 0.8216856457975505,
+  "caveat": "High repeat variability; retain current paired screen only, do not compare absolute RTF to older Apple campaigns. After-run host snapshot is not proof of timer-period interference."
+}

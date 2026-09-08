@@ -1,0 +1,570 @@
+{
+  "aggregation": "Equal mean across language means; each language mean is unweighted over utterances. No duration weighting.",
+  "models": {
+    "audio_stock": {
+      "clips": 60,
+      "metrics": {
+        "pesq_wb": {
+          "mean": 3.741549905141194,
+          "utterance_mean": 3.7415499051411945,
+          "std_sample": 0.29637637742856615,
+          "minimum": 3.011359214782715,
+          "maximum": 4.155395030975342,
+          "count": 60
+        },
+        "stoi": {
+          "mean": 0.9359857245256661,
+          "utterance_mean": 0.9359857245256662,
+          "std_sample": 0.035521685586164586,
+          "minimum": 0.7965931694805483,
+          "maximum": 0.9838632905032203,
+          "count": 60
+        },
+        "estoi": {
+          "mean": 0.884635406080009,
+          "utterance_mean": 0.8846354060800091,
+          "std_sample": 0.053284905151860705,
+          "minimum": 0.6902371260078326,
+          "maximum": 0.9707795083518906,
+          "count": 60
+        },
+        "utmos": {
+          "mean": 2.256899863481521,
+          "utterance_mean": 2.2568998634815216,
+          "std_sample": 0.7091228452403541,
+          "minimum": 1.2346422672271729,
+          "maximum": 3.774472236633301,
+          "count": 60
+        },
+        "dnsmos_sig": {
+          "mean": 3.2349331986386263,
+          "utterance_mean": 3.2349331986386267,
+          "std_sample": 0.47128897250568247,
+          "minimum": 1.7021907836152448,
+          "maximum": 3.6883304086530755,
+          "count": 60
+        },
+        "dnsmos_bak": {
+          "mean": 3.61340014390705,
+          "utterance_mean": 3.6134001439070498,
+          "std_sample": 0.5380532330952144,
+          "minimum": 1.5902934735864318,
+          "maximum": 4.18912168468249,
+          "count": 60
+        },
+        "dnsmos_ovrl": {
+          "mean": 2.7653470680410144,
+          "utterance_mean": 2.7653470680410144,
+          "std_sample": 0.5296563123966082,
+          "minimum": 1.3025800464527657,
+          "maximum": 3.418448398483947,
+          "count": 60
+        },
+        "dnsmos_p808": {
+          "mean": 3.4039319375488497,
+          "utterance_mean": 3.4039319375488493,
+          "std_sample": 0.43659570769838496,
+          "minimum": 2.1681464513142905,
+          "maximum": 4.172074794769287,
+          "count": 60
+        },
+        "mrstft_spectral_convergence": {
+          "mean": 0.14351884009457255,
+          "utterance_mean": 0.14351884009457258,
+          "std_sample": 0.05190129684927404,
+          "minimum": 0.060235128925163584,
+          "maximum": 0.30870724531026617,
+          "count": 60
+        },
+        "mrstft_log_magnitude_mae": {
+          "mean": 0.7679645312329134,
+          "utterance_mean": 0.7679645312329133,
+          "std_sample": 0.0324977367811086,
+          "minimum": 0.6968015730381012,
+          "maximum": 0.8319015204906464,
+          "count": 60
+        },
+        "si_sdr_db": {
+          "mean": 12.932260383548812,
+          "utterance_mean": 12.93226038354881,
+          "std_sample": 3.4231294840755426,
+          "minimum": 4.386849771656525,
+          "maximum": 21.35197248696653,
+          "count": 60
+        },
+        "snr_db": {
+          "mean": 12.944176230351726,
+          "utterance_mean": 12.944176230351726,
+          "std_sample": 3.152268223470711,
+          "minimum": 5.46291970072744,
+          "maximum": 20.715977469474666,
+          "count": 60
+        }
+      },
+      "metric_errors": 0,
+      "language_counts": {
+        "bn_in": 6,
+        "en_us": 6,
+        "es_419": 6,
+        "fr_fr": 6,
+        "gu_in": 6,
+        "hi_in": 6,
+        "kn_in": 6,
+        "pt_br": 6,
+        "ta_in": 6,
+        "te_in": 6
+      },
+      "constant_delay_flags": 0
+    },
+    "fast_fp32": {
+      "clips": 60,
+      "metrics": {
+        "pesq_wb": {
+          "mean": 3.7415493051211044,
+          "utterance_mean": 3.741549305121104,
+          "std_sample": 0.29637758932598923,
+          "minimum": 3.0113582611083984,
+          "maximum": 4.155395984649658,
+          "count": 60
+        },
+        "stoi": {
+          "mean": 0.9359857298003943,
+          "utterance_mean": 0.9359857298003943,
+          "std_sample": 0.035521681610748534,
+          "minimum": 0.7965931707435525,
+          "maximum": 0.9838632890849476,
+          "count": 60
+        },
+        "estoi": {
+          "mean": 0.8846354122524616,
+          "utterance_mean": 0.8846354122524616,
+          "std_sample": 0.05328489618219959,
+          "minimum": 0.6902371165300348,
+          "maximum": 0.9707795052754591,
+          "count": 60
+        },
+        "utmos": {
+          "mean": 2.2568999608357747,
+          "utterance_mean": 2.2568999608357747,
+          "std_sample": 0.7091228918485049,
+          "minimum": 1.2346422672271729,
+          "maximum": 3.7744719982147217,
+          "count": 60
+        },
+        "dnsmos_sig": {
+          "mean": 3.2349339759857734,
+          "utterance_mean": 3.234933975985774,
+          "std_sample": 0.47128398493947493,
+          "minimum": 1.702189182433594,
+          "maximum": 3.6883277686214475,
+          "count": 60
+        },
+        "dnsmos_bak": {
+          "mean": 3.6134038254989753,
+          "utterance_mean": 3.6134038254989758,
+          "std_sample": 0.5380503675170077,
+          "minimum": 1.5902912522417627,
+          "maximum": 4.189121286319271,
+          "count": 60
+        },
+        "dnsmos_ovrl": {
+          "mean": 2.7653481322861055,
+          "utterance_mean": 2.765348132286106,
+          "std_sample": 0.5296532586856338,
+          "minimum": 1.3025806132215416,
+          "maximum": 3.418448555503278,
+          "count": 60
+        },
+        "dnsmos_p808": {
+          "mean": 3.403931715403284,
+          "utterance_mean": 3.403931715403284,
+          "std_sample": 0.4365957952338385,
+          "minimum": 2.1681460539499917,
+          "maximum": 4.172075271606445,
+          "count": 60
+        },
+        "mrstft_spectral_convergence": {
+          "mean": 0.14351884437074275,
+          "utterance_mean": 0.14351884437074278,
+          "std_sample": 0.05190129328298401,
+          "minimum": 0.060235135029099905,
+          "maximum": 0.3087072431749988,
+          "count": 60
+        },
+        "mrstft_log_magnitude_mae": {
+          "mean": 0.7679645222922167,
+          "utterance_mean": 0.7679645222922166,
+          "std_sample": 0.0324977067555734,
+          "minimum": 0.696801632642746,
+          "maximum": 0.8319007456302643,
+          "count": 60
+        },
+        "si_sdr_db": {
+          "mean": 12.932260430289045,
+          "utterance_mean": 12.932260430289045,
+          "std_sample": 3.4231295301313707,
+          "minimum": 4.3868493969093665,
+          "maximum": 21.351972360878456,
+          "count": 60
+        },
+        "snr_db": {
+          "mean": 12.94417600684632,
+          "utterance_mean": 12.944176006846318,
+          "std_sample": 3.152268167017578,
+          "minimum": 5.462919238551099,
+          "maximum": 20.715977085978547,
+          "count": 60
+        }
+      },
+      "metric_errors": 0,
+      "language_counts": {
+        "bn_in": 6,
+        "en_us": 6,
+        "es_419": 6,
+        "fr_fr": 6,
+        "gu_in": 6,
+        "hi_in": 6,
+        "kn_in": 6,
+        "pt_br": 6,
+        "ta_in": 6,
+        "te_in": 6
+      },
+      "constant_delay_flags": 0
+    },
+    "original_reference": {
+      "clips": 60,
+      "metrics": {
+        "utmos": {
+          "mean": 2.320664312442144,
+          "utterance_mean": 2.3206643124421436,
+          "std_sample": 0.7321276745628853,
+          "minimum": 1.260864496231079,
+          "maximum": 4.149857044219971,
+          "count": 60
+        },
+        "dnsmos_sig": {
+          "mean": 3.258729224929187,
+          "utterance_mean": 3.2587292249291884,
+          "std_sample": 0.46863041925383786,
+          "minimum": 1.9917594489980401,
+          "maximum": 3.7160301681507306,
+          "count": 60
+        },
+        "dnsmos_bak": {
+          "mean": 3.583423737374477,
+          "utterance_mean": 3.5834237373744773,
+          "std_sample": 0.5327797404794474,
+          "minimum": 1.8234587280396797,
+          "maximum": 4.1936996824740405,
+          "count": 60
+        },
+        "dnsmos_ovrl": {
+          "mean": 2.775029648720724,
+          "utterance_mean": 2.775029648720724,
+          "std_sample": 0.5286998834114476,
+          "minimum": 1.4108774626747362,
+          "maximum": 3.433535151539563,
+          "count": 60
+        },
+        "dnsmos_p808": {
+          "mean": 3.4283738823069463,
+          "utterance_mean": 3.428373882306947,
+          "std_sample": 0.4115898974021063,
+          "minimum": 2.257649024327596,
+          "maximum": 4.237659454345703,
+          "count": 60
+        }
+      },
+      "metric_errors": 0,
+      "language_counts": {
+        "bn_in": 6,
+        "en_us": 6,
+        "es_419": 6,
+        "fr_fr": 6,
+        "gu_in": 6,
+        "hi_in": 6,
+        "kn_in": 6,
+        "pt_br": 6,
+        "ta_in": 6,
+        "te_in": 6
+      },
+      "constant_delay_flags": 0
+    }
+  },
+  "paired_differences": {
+    "audio_stock minus fast_fp32": {
+      "pesq_wb": {
+        "mean_first_minus_second": 6.000200907389323e-07,
+        "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+        "paired_bootstrap_95_percentile_ci": [
+          -2.7894973754882807e-06,
+          4.351139068603516e-06
+        ],
+        "pairs": 60,
+        "positive_pairs": 24,
+        "negative_pairs": 36,
+        "exact_ties": 0
+      },
+      "stoi": {
+        "mean_first_minus_second": -5.274728145006809e-09,
+        "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+        "paired_bootstrap_95_percentile_ci": [
+          -9.15877602809349e-09,
+          -1.6044388491398603e-09
+        ],
+        "pairs": 60,
+        "positive_pairs": 24,
+        "negative_pairs": 36,
+        "exact_ties": 0
+      },
+      "estoi": {
+        "mean_first_minus_second": -6.172452686007783e-09,
+        "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+        "paired_bootstrap_95_percentile_ci": [
+          -1.5832376167636737e-08,
+          3.0418562400417464e-09
+        ],
+        "pairs": 60,
+        "positive_pairs": 27,
+        "negative_pairs": 33,
+        "exact_ties": 0
+      },
+      "utmos": {
+        "mean_first_minus_second": -9.735425313313802e-08,
+        "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+        "paired_bootstrap_95_percentile_ci": [
+          -3.536542256673177e-07,
+          1.0927518208821614e-07
+        ],
+        "pairs": 60,
+        "positive_pairs": 22,
+        "negative_pairs": 24,
+        "exact_ties": 14
+      },
+      "dnsmos_sig": {
+        "mean_first_minus_second": -7.773471472294346e-07,
+        "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+        "paired_bootstrap_95_percentile_ci": [
+          -5.015759899585358e-06,
+          2.7136371740791685e-06
+        ],
+        "pairs": 60,
+        "positive_pairs": 26,
+        "negative_pairs": 32,
+        "exact_ties": 2
+      },
+      "dnsmos_bak": {
+        "mean_first_minus_second": -3.6815919258600017e-06,
+        "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+        "paired_bootstrap_95_percentile_ci": [
+          -8.146928000231645e-06,
+          1.9041629290931393e-07
+        ],
+        "pairs": 60,
+        "positive_pairs": 20,
+        "negative_pairs": 38,
+        "exact_ties": 2
+      },
+      "dnsmos_ovrl": {
+        "mean_first_minus_second": -1.0642450914163011e-06,
+        "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+        "paired_bootstrap_95_percentile_ci": [
+          -3.186880874917752e-06,
+          6.34939579278737e-07
+        ],
+        "pairs": 60,
+        "positive_pairs": 25,
+        "negative_pairs": 34,
+        "exact_ties": 1
+      },
+      "dnsmos_p808": {
+        "mean_first_minus_second": 2.2214556498756367e-07,
+        "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+        "paired_bootstrap_95_percentile_ci": [
+          -1.5324614348573754e-07,
+          5.985569386320517e-07
+        ],
+        "pairs": 60,
+        "positive_pairs": 31,
+        "negative_pairs": 27,
+        "exact_ties": 2
+      },
+      "mrstft_spectral_convergence": {
+        "mean_first_minus_second": -4.27617018287918e-09,
+        "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+        "paired_bootstrap_95_percentile_ci": [
+          -6.075324543219329e-09,
+          -2.3188855373419465e-09
+        ],
+        "pairs": 60,
+        "positive_pairs": 8,
+        "negative_pairs": 43,
+        "exact_ties": 9
+      },
+      "mrstft_log_magnitude_mae": {
+        "mean_first_minus_second": 8.940696716308595e-09,
+        "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+        "paired_bootstrap_95_percentile_ci": [
+          -1.3411045074462891e-08,
+          3.7749608357747394e-08
+        ],
+        "pairs": 60,
+        "positive_pairs": 26,
+        "negative_pairs": 26,
+        "exact_ties": 8
+      },
+      "si_sdr_db": {
+        "mean_first_minus_second": -4.6740235415398966e-08,
+        "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+        "paired_bootstrap_95_percentile_ci": [
+          -1.087365351755872e-07,
+          1.522688276097322e-08
+        ],
+        "pairs": 60,
+        "positive_pairs": 24,
+        "negative_pairs": 36,
+        "exact_ties": 0
+      },
+      "snr_db": {
+        "mean_first_minus_second": 2.2350540781109393e-07,
+        "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+        "paired_bootstrap_95_percentile_ci": [
+          1.6162116366014166e-07,
+          2.848113822399393e-07
+        ],
+        "pairs": 60,
+        "positive_pairs": 46,
+        "negative_pairs": 14,
+        "exact_ties": 0
+      }
+    },
+    "audio_stock minus original_reference": {
+      "utmos": {
+        "mean_first_minus_second": -0.06376444896062215,
+        "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+        "paired_bootstrap_95_percentile_ci": [
+          -0.09414309953649838,
+          -0.03373478571573894
+        ],
+        "pairs": 60,
+        "positive_pairs": 19,
+        "negative_pairs": 41,
+        "exact_ties": 0
+      },
+      "dnsmos_sig": {
+        "mean_first_minus_second": -0.02379602629056097,
+        "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+        "paired_bootstrap_95_percentile_ci": [
+          -0.047296386016816766,
+          -0.0006638725755695222
+        ],
+        "pairs": 60,
+        "positive_pairs": 19,
+        "negative_pairs": 41,
+        "exact_ties": 0
+      },
+      "dnsmos_bak": {
+        "mean_first_minus_second": 0.029976406532572497,
+        "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+        "paired_bootstrap_95_percentile_ci": [
+          -0.010714565355982995,
+          0.06902539198055967
+        ],
+        "pairs": 60,
+        "positive_pairs": 36,
+        "negative_pairs": 24,
+        "exact_ties": 0
+      },
+      "dnsmos_ovrl": {
+        "mean_first_minus_second": -0.009682580679709656,
+        "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+        "paired_bootstrap_95_percentile_ci": [
+          -0.03475606485490449,
+          0.014112606729670444
+        ],
+        "pairs": 60,
+        "positive_pairs": 28,
+        "negative_pairs": 32,
+        "exact_ties": 0
+      },
+      "dnsmos_p808": {
+        "mean_first_minus_second": -0.024441944758097345,
+        "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+        "paired_bootstrap_95_percentile_ci": [
+          -0.05857206957538923,
+          0.009580130992427695
+        ],
+        "pairs": 60,
+        "positive_pairs": 24,
+        "negative_pairs": 36,
+        "exact_ties": 0
+      }
+    },
+    "fast_fp32 minus original_reference": {
+      "utmos": {
+        "mean_first_minus_second": -0.06376435160636902,
+        "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+        "paired_bootstrap_95_percentile_ci": [
+          -0.09414304390549658,
+          -0.03373469432195029
+        ],
+        "pairs": 60,
+        "positive_pairs": 19,
+        "negative_pairs": 41,
+        "exact_ties": 0
+      },
+      "dnsmos_sig": {
+        "mean_first_minus_second": -0.02379524894341374,
+        "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+        "paired_bootstrap_95_percentile_ci": [
+          -0.04729597294937286,
+          -0.0006652026728044266
+        ],
+        "pairs": 60,
+        "positive_pairs": 19,
+        "negative_pairs": 41,
+        "exact_ties": 0
+      },
+      "dnsmos_bak": {
+        "mean_first_minus_second": 0.029980088124498355,
+        "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+        "paired_bootstrap_95_percentile_ci": [
+          -0.010708492784897676,
+          0.06902693735322706
+        ],
+        "pairs": 60,
+        "positive_pairs": 36,
+        "negative_pairs": 24,
+        "exact_ties": 0
+      },
+      "dnsmos_ovrl": {
+        "mean_first_minus_second": -0.009681516434618242,
+        "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+        "paired_bootstrap_95_percentile_ci": [
+          -0.03475332922199714,
+          0.01411362820374968
+        ],
+        "pairs": 60,
+        "positive_pairs": 28,
+        "negative_pairs": 32,
+        "exact_ties": 0
+      },
+      "dnsmos_p808": {
+        "mean_first_minus_second": -0.02444216690366233,
+        "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+        "paired_bootstrap_95_percentile_ci": [
+          -0.058572242648119055,
+          0.0095800351474493
+        ],
+        "pairs": 60,
+        "positive_pairs": 24,
+        "negative_pairs": 36,
+        "exact_ties": 0
+      }
+    }
+  },
+  "bootstrap": {
+    "seed": 20260907,
+    "resamples": 10000
+  }
+}

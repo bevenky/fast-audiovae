@@ -1,0 +1,152 @@
+{
+  "expected_case_count": 60,
+  "expected_uids": [
+    "hi_in_00099_1919",
+    "hi_in_00159_1941",
+    "hi_in_00281_1748",
+    "hi_in_00190_1885",
+    "hi_in_00292_1691",
+    "hi_in_00211_1943",
+    "bn_in_00633_1820",
+    "bn_in_00582_1926",
+    "bn_in_00735_1676",
+    "bn_in_00208_1709",
+    "bn_in_00221_1754",
+    "bn_in_00151_1818",
+    "gu_in_00926_1827",
+    "gu_in_00420_1858",
+    "gu_in_00713_1781",
+    "gu_in_00478_1731",
+    "gu_in_00337_1978",
+    "gu_in_00528_1697",
+    "ta_in_00494_1946",
+    "ta_in_00394_2003",
+    "ta_in_00447_1742",
+    "ta_in_00201_1938",
+    "ta_in_00077_1834",
+    "ta_in_00012_1740",
+    "te_in_00114_1911",
+    "te_in_00185_1914",
+    "te_in_00471_1768",
+    "te_in_00267_1838",
+    "te_in_00228_1918",
+    "te_in_00016_1969",
+    "kn_in_00584_1904",
+    "kn_in_00073_1705",
+    "kn_in_00788_1926",
+    "kn_in_00793_1839",
+    "kn_in_00227_1844",
+    "kn_in_00542_1781",
+    "en_us_00103_1779",
+    "en_us_00344_1948",
+    "en_us_00133_1765",
+    "en_us_00287_1786",
+    "en_us_00557_1707",
+    "en_us_00565_1837",
+    "es_419_00646_1781",
+    "es_419_00706_1731",
+    "es_419_00172_1698",
+    "es_419_00060_1994",
+    "es_419_00787_1941",
+    "es_419_00899_1738",
+    "fr_fr_00129_1717",
+    "fr_fr_00374_1935",
+    "fr_fr_00257_1874",
+    "fr_fr_00045_1736",
+    "fr_fr_00644_1660",
+    "fr_fr_00041_1714",
+    "pt_br_00672_1745",
+    "pt_br_00499_1674",
+    "pt_br_00046_2003",
+    "pt_br_00031_1676",
+    "pt_br_00677_1747",
+    "pt_br_00325_1975"
+  ],
+  "timing_uids": [
+    "hi_in_00099_1919",
+    "bn_in_00633_1820",
+    "gu_in_00926_1827",
+    "ta_in_00494_1946",
+    "te_in_00114_1911",
+    "kn_in_00584_1904",
+    "en_us_00103_1779",
+    "es_419_00646_1781",
+    "fr_fr_00129_1717",
+    "pt_br_00672_1745"
+  ],
+  "timing_selection": "First selected UID per language in frozen raw manifest order; no timing or score used",
+  "frozen_manifest_sha256": "d7e76c92e3826c518f747184cc938b3b86ca87a4e6643fd9f7cbd78f887e4cc7",
+  "kind_contracts": {
+    "audio": {
+      "sample_rate": 48000,
+      "hop": 1920,
+      "latent_channels": 64
+    },
+    "mimi": {
+      "sample_rate": 24000,
+      "hop": 1920,
+      "latent_channels": 32
+    }
+  },
+  "models": [
+    {
+      "name": "audio_stock",
+      "kind": "audio",
+      "path": "../../audiovae2_onnx/audio_vae_decoder.onnx",
+      "causal": true,
+      "external_data": [
+        "../../audiovae2_onnx/audio_vae_decoder.onnx.data"
+      ]
+    },
+    {
+      "name": "fast_fp32",
+      "kind": "audio",
+      "path": "../../fast-audiovae/.build/check_bundle/decoder_native.onnx",
+      "custom_library": "../../fast-audiovae/.build/check_bundle/runtime/libfast_audiovae_apple_880f8ca68b61.dylib",
+      "causal": true
+    },
+    {
+      "name": "int8_large",
+      "kind": "audio",
+      "path": "graphs/selective_int8.onnx",
+      "causal": true,
+      "approximate": true,
+      "custom_libraries": [
+        "../../fast-audiovae/.build/check_bundle/runtime/libfast_audiovae_apple_880f8ca68b61.dylib",
+        "build-r2/libapple_int8_ops_a7b5fc1fff32.dylib"
+      ]
+    },
+    {
+      "name": "mimi",
+      "kind": "mimi",
+      "path": "../../native_codec_cpu/mimi_onnx/mimi_decoder_fp32_dynamic.onnx",
+      "causal": true
+    }
+  ],
+  "artifact_sha256": {
+    "../../audiovae2_onnx/audio_vae_decoder.onnx": "fdd20e200675ab9649bf33f16bc5974101ba5cf47ab89fbfe29f3d36ff6c3c84",
+    "../../audiovae2_onnx/audio_vae_decoder.onnx.data": "3b76bd57356e96893655bd24a364989e016c5af2fc8c29195caaefb4eccf5143",
+    "../../fast-audiovae/.build/check_bundle/decoder_native.onnx": "fa7992825e807cac7ab1be405912ae3735031fb941a18dd81006005dc597bde3",
+    "../../fast-audiovae/.build/check_bundle/runtime/libfast_audiovae_apple_880f8ca68b61.dylib": "c4797f745ee755bc66b63f13a9c2c626766f834cca566d13eb9eeee23abdc887",
+    "graphs/selective_int8.onnx": "44c09a8ed0bb782eec338673e36cafcc5555e05ac25bbeb015a713d4c28e32d2",
+    "build-r2/libapple_int8_ops_a7b5fc1fff32.dylib": "aa7b69437f102b190fb2dfd300435180989368ba9cabfb38ea635c601f61a82f",
+    "../../native_codec_cpu/mimi_onnx/mimi_decoder_fp32_dynamic.onnx": "e023777a2cee98a7e4a293f6af7712d4fed6364d1523cfc9a6283f112981e2f1",
+    "../../codec-quality-inputs/multilingual-encoded/fast_audiovae2.npz": "9b709b787c040591de57e094a5ba5a4515cc74e256e8014530ff8c7bb54d2d24",
+    "../../codec-quality-inputs/multilingual-encoded/fast_audiovae2.json": "398552d56b72077771cb53ce2ea9613a73bddd71c7031cf33aa9371094998a9f",
+    "../../codec-quality-inputs/multilingual-encoded/mimi_vae.npz": "af2d68663daf71db954488721e8fffc5888437100772a309b13c62391df0d9c7",
+    "../../codec-quality-inputs/multilingual-encoded/mimi_vae.json": "8df0ca5b8128c7a5b1a10dcb7dfe9e20bf4e1a5eeceaf7fe297c87f98334c0f4",
+    "build-r2/libapple_int8_core_a7b5fc1fff32.dylib": "a72995dbb4b93c097c3bff029dea0d6d29224913e913644451bcaec1078f47c0",
+    "../../multilingual-benchmark/apple/config.json": "bdcc25946ba4a5b9c379d8fdfeea8bbf18f4f8026b8d7be73f1841aed74a15be",
+    "graphs/selective_int8.json": "04a5a31d0d9b7596b48718bb6702168b88188f53b22ede235d8583543869d4a3",
+    "build-r2/build.json": "a2dc9a69bf531af15db6bb7ce0854c26fed27156020c24c7063e43657d7a18ae"
+  },
+  "audio_cases": "../../codec-quality-inputs/multilingual-encoded/fast_audiovae2.npz",
+  "mimi_cases": "../../codec-quality-inputs/multilingual-encoded/mimi_vae.npz",
+  "transitive_core_library": "build-r2/libapple_int8_core_a7b5fc1fff32.dylib",
+  "port_provenance": {
+    "source_config": "../../multilingual-benchmark/apple/config.json",
+    "graph_manifest": "graphs/selective_int8.json",
+    "build": "build-r2/build.json",
+    "scope": "Initial Apple CPU screen before full quality/speed validation; no default change"
+  }
+}

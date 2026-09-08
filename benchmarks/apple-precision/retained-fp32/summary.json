@@ -1,0 +1,33 @@
+{
+  "status": "complete",
+  "runtime": {
+    "onnx": "1.22.0",
+    "soundfile": "0.14.0",
+    "onnxruntime": "1.29.0",
+    "build": "ORT Build Info: git-branch=HEAD, git-commit-id=2e2543fbe9, fp8-kv-cache=1, build type=Release",
+    "numpy": "2.5.3",
+    "python": "3.12.14",
+    "system": "macOS-26.5.1-arm64-arm-64bit"
+  },
+  "providers": [
+    {
+      "model": "audio_stock",
+      "providers": [
+        "CPUExecutionProvider"
+      ]
+    },
+    {
+      "model": "fast_fp32",
+      "providers": [
+        "CPUExecutionProvider"
+      ]
+    }
+  ],
+  "checks": 156,
+  "failures": 0,
+  "exports": 120,
+  "measurements": 0,
+  "report_sha256": "2ffbd1b4a83e9c2da5822934285514fa0d513e22f7b0665f09959739652a2daa",
+  "audit_sha256": "8ed86dccb08c2f73168ef51c73b81cc9b9ac3a202b2fa63b41db31d7f1a0187f",
+  "quality_manifest_sha256": "f08cb0c26a03823202f801856166a572370adcf4984944f5fde28de4c4f87213"
+}

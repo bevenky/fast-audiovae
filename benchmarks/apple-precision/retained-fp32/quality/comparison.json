@@ -1,0 +1,3748 @@
+{
+  "schema_version": 1,
+  "status": "complete",
+  "baseline": "audio_stock",
+  "manifest": "<workspace-root>/work/cross-platform-int8/apple/fp32-validation/quality/comparison-manifest.json",
+  "manifest_sha256": "fd8174639dec021302ae17883dc9d71d73608a0c627766e1e38a30c91056a9d2",
+  "raw_scores": "<workspace-root>/work/cross-platform-int8/apple/fp32-validation/quality/comparison-scores.json",
+  "raw_scores_sha256": "a970b257ce235adb7b610c35744a48ee770a14129ad10ba02f7be328be5a70a4",
+  "scorer_exit_code": 0,
+  "provenance": {
+    "metric_sample_rate": 16000,
+    "sample_rate_limitation": "All reported quality metrics assess at most 0-8 kHz bandwidth",
+    "resampling": "scipy.signal.resample_poly, Kaiser beta 5.0, constant padding",
+    "alignment": "No external gain normalization, lag correction, time warping, or silence removal",
+    "metric_internal_processing": "pesq 0.0.4 scales both inputs by their common maximum absolute sample, then runs PESQ with its standard level/alignment processing. STOI/ESTOI retain standard normalization and silent-frame exclusion. SI-SDR uses its defining zero-mean scale projection only internally. These metric-specific operations do not alter the shared waveforms or other metrics.",
+    "mrstft": {
+      "fft_sizes": [
+        256,
+        512,
+        1024,
+        2048
+      ],
+      "hop": "fft_size // 4",
+      "window": "periodic Hann",
+      "boundary": "zeros",
+      "padded": true,
+      "log": "natural log, magnitude floor 1e-7"
+    },
+    "utmos": {
+      "implementation": "tarepan/SpeechMOS utmos22_strong",
+      "commit": "ed25eacbfa42b99156c36ebec67a733b5dbb9b79",
+      "device": "cpu",
+      "note": "Single strong learner via SpeechMOS reimplementation; not the full official UTMOS22 ensemble or UTMOSv2"
+    },
+    "dnsmos": {
+      "implementation": "microsoft/DNS-Challenge non-personalized P.835 + P.808",
+      "commit": "591184a9fcb2cbdec02520fed81a32bbbf9d73ff",
+      "device": "CPUExecutionProvider",
+      "threads": 2,
+      "window_seconds": 9.01,
+      "hop_seconds": 1,
+      "short_clip_handling": "Repeat waveform by doubling, following upstream"
+    },
+    "assets": {
+      "speechmos_source.zip": {
+        "url": "https://github.com/tarepan/SpeechMOS/archive/ed25eacbfa42b99156c36ebec67a733b5dbb9b79.zip",
+        "sha256": "2c948956d7b07b4f7eed11e249fed5a1b617802749f5a55a200c11dcbd271ed6",
+        "bytes": 15803
+      },
+      "utmos22_strong_step7459_v1.pt": {
+        "url": "https://github.com/tarepan/SpeechMOS/releases/download/v1.0.0/utmos22_strong_step7459_v1.pt",
+        "sha256": "38aa51ab79e2a4e09a1449758a4b37e9cbb2e8235a49662a732d33a9ba1e9bff",
+        "bytes": 411179119
+      },
+      "sig_bak_ovr.onnx": {
+        "url": "https://raw.githubusercontent.com/microsoft/DNS-Challenge/591184a9fcb2cbdec02520fed81a32bbbf9d73ff/DNSMOS/DNSMOS/sig_bak_ovr.onnx",
+        "sha256": "269fbebdb513aa23cddfbb593542ecc540284a91849ac50516870e1ac78f6edd",
+        "bytes": 1157965
+      },
+      "model_v8.onnx": {
+        "url": "https://raw.githubusercontent.com/microsoft/DNS-Challenge/591184a9fcb2cbdec02520fed81a32bbbf9d73ff/DNSMOS/DNSMOS/model_v8.onnx",
+        "sha256": "9246480c58567bc6affd4200938e77eef49468c8bc7ed3776d109c07456f6e91",
+        "bytes": 224860
+      },
+      "dnsmos_local.py": {
+        "url": "https://raw.githubusercontent.com/microsoft/DNS-Challenge/591184a9fcb2cbdec02520fed81a32bbbf9d73ff/DNSMOS/dnsmos_local.py",
+        "sha256": "1ab566afe006daab32ac7073296a5d0ef99f8b82f91c7266f3ccf26113d7a28b",
+        "bytes": 6491
+      },
+      "DNSMOS_LICENSE.txt": {
+        "url": "https://raw.githubusercontent.com/microsoft/DNS-Challenge/591184a9fcb2cbdec02520fed81a32bbbf9d73ff/LICENSE",
+        "sha256": "d6239afa918961b465b07bf7411cbe34ff6685854f58553db7966f4881a0211f",
+        "bytes": 19047
+      }
+    },
+    "versions": {
+      "numpy": "2.5.3",
+      "scipy": "1.18.1",
+      "librosa": "1.0.0",
+      "torch": "2.8.0",
+      "torchaudio": "2.8.0",
+      "onnxruntime": "1.29.0",
+      "pystoi": "0.4.1",
+      "pesq": "0.0.4"
+    },
+    "initialization_errors": {},
+    "cpu": {
+      "torch_threads": 2,
+      "torch_interop_threads": 1,
+      "ort_providers": [
+        [
+          "CPUExecutionProvider"
+        ],
+        [
+          "CPUExecutionProvider"
+        ]
+      ],
+      "environment": {
+        "CUDA_VISIBLE_DEVICES": "-1",
+        "NVIDIA_VISIBLE_DEVICES": "void",
+        "ROCR_VISIBLE_DEVICES": "-1",
+        "HIP_VISIBLE_DEVICES": "-1",
+        "PYTORCH_ENABLE_MPS_FALLBACK": "0",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      }
+    },
+    "python": "3.12.14 (main, Aug 12 2026, 13:57:54) [Clang 21.0.0 (clang-2100.1.1.101)]",
+    "platform": "macOS-26.5.1-arm64-arm-64bit",
+    "code_sha256": {
+      "score.py": "797bddcba0ffbd9f1035d3166e4db4eabc7ebea1f5fb0ab83a429199fc880f03",
+      "metrics.py": "c5e37fb3a6376b90ee89e9c7c69fb1f9540080f12c6d750864e83814da9be491",
+      "metric_assets.json": "628c81cd349eb45819143a275efb5417da2b518db2c71e858d0c1a6fe7c713c0"
+    },
+    "supplementary_aligned_stoi": false,
+    "source_manifest": "<workspace-root>/work/cross-platform-int8/apple/fp32-validation/quality/comparison-manifest.json",
+    "manifest_sha256": "fd8174639dec021302ae17883dc9d71d73608a0c627766e1e38a30c91056a9d2",
+    "paired_metric_installed_file_sha256": {
+      "pesq": {
+        "pesq/__init__.py": "c3c306e49ed72dc9369b182e0b7b415c2609a5d54e69d81ea9d0b728626b0cde",
+        "pesq/_pesq.py": "362071df81152feaa6bc66e0f3a89b52fb06580e0510815492ee210b0f0263c2",
+        "pesq/cypesq.cpython-312-darwin.so": "3cce054f5bed727848ab2b3ee27c01284acf355660cb58e923c82f9a5cd1553d"
+      },
+      "pystoi": {
+        "pystoi/__init__.py": "48ce9882b6ba42f643f8305481a48902ddee97aa4f07bca13e44fea1b7d104ea",
+        "pystoi/stoi.py": "482b30bfa8e60f1453200315afcd5564fc9e9aa1d14aeb9710a58fd7a9f52658",
+        "pystoi/utils.py": "0222df0354a248ccc7f8525eda9bda9da815e5d60106f611a5f4750d1ba7f321"
+      }
+    }
+  },
+  "wrapper_sha256": "d0e406d77de02cde7476d2aef43c2b79543a9accc19153140b2f8e2dc507574e",
+  "absolute_quality": {
+    "aggregation": "Equal mean across language means; each language mean is unweighted over utterances. No duration weighting.",
+    "models": {
+      "audio_stock": {
+        "clips": 60,
+        "metrics": {
+          "pesq_wb": {
+            "mean": 3.741549905141194,
+            "utterance_mean": 3.7415499051411945,
+            "std_sample": 0.29637637742856615,
+            "minimum": 3.011359214782715,
+            "maximum": 4.155395030975342,
+            "count": 60
+          },
+          "stoi": {
+            "mean": 0.9359857245256661,
+            "utterance_mean": 0.9359857245256662,
+            "std_sample": 0.035521685586164586,
+            "minimum": 0.7965931694805483,
+            "maximum": 0.9838632905032203,
+            "count": 60
+          },
+          "estoi": {
+            "mean": 0.884635406080009,
+            "utterance_mean": 0.8846354060800091,
+            "std_sample": 0.053284905151860705,
+            "minimum": 0.6902371260078326,
+            "maximum": 0.9707795083518906,
+            "count": 60
+          },
+          "utmos": {
+            "mean": 2.256899863481521,
+            "utterance_mean": 2.2568998634815216,
+            "std_sample": 0.7091228452403541,
+            "minimum": 1.2346422672271729,
+            "maximum": 3.774472236633301,
+            "count": 60
+          },
+          "dnsmos_sig": {
+            "mean": 3.2349331986386263,
+            "utterance_mean": 3.2349331986386267,
+            "std_sample": 0.47128897250568247,
+            "minimum": 1.7021907836152448,
+            "maximum": 3.6883304086530755,
+            "count": 60
+          },
+          "dnsmos_bak": {
+            "mean": 3.61340014390705,
+            "utterance_mean": 3.6134001439070498,
+            "std_sample": 0.5380532330952144,
+            "minimum": 1.5902934735864318,
+            "maximum": 4.18912168468249,
+            "count": 60
+          },
+          "dnsmos_ovrl": {
+            "mean": 2.7653470680410144,
+            "utterance_mean": 2.7653470680410144,
+            "std_sample": 0.5296563123966082,
+            "minimum": 1.3025800464527657,
+            "maximum": 3.418448398483947,
+            "count": 60
+          },
+          "dnsmos_p808": {
+            "mean": 3.4039319375488497,
+            "utterance_mean": 3.4039319375488493,
+            "std_sample": 0.43659570769838496,
+            "minimum": 2.1681464513142905,
+            "maximum": 4.172074794769287,
+            "count": 60
+          },
+          "mrstft_spectral_convergence": {
+            "mean": 0.14351884009457255,
+            "utterance_mean": 0.14351884009457258,
+            "std_sample": 0.05190129684927404,
+            "minimum": 0.060235128925163584,
+            "maximum": 0.30870724531026617,
+            "count": 60
+          },
+          "mrstft_log_magnitude_mae": {
+            "mean": 0.7679645312329134,
+            "utterance_mean": 0.7679645312329133,
+            "std_sample": 0.0324977367811086,
+            "minimum": 0.6968015730381012,
+            "maximum": 0.8319015204906464,
+            "count": 60
+          },
+          "si_sdr_db": {
+            "mean": 12.932260383548812,
+            "utterance_mean": 12.93226038354881,
+            "std_sample": 3.4231294840755426,
+            "minimum": 4.386849771656525,
+            "maximum": 21.35197248696653,
+            "count": 60
+          },
+          "snr_db": {
+            "mean": 12.944176230351726,
+            "utterance_mean": 12.944176230351726,
+            "std_sample": 3.152268223470711,
+            "minimum": 5.46291970072744,
+            "maximum": 20.715977469474666,
+            "count": 60
+          }
+        },
+        "metric_errors": 0,
+        "language_counts": {
+          "bn_in": 6,
+          "en_us": 6,
+          "es_419": 6,
+          "fr_fr": 6,
+          "gu_in": 6,
+          "hi_in": 6,
+          "kn_in": 6,
+          "pt_br": 6,
+          "ta_in": 6,
+          "te_in": 6
+        },
+        "constant_delay_flags": 0
+      },
+      "fast_fp32": {
+        "clips": 60,
+        "metrics": {
+          "pesq_wb": {
+            "mean": 3.7415493051211044,
+            "utterance_mean": 3.741549305121104,
+            "std_sample": 0.29637758932598923,
+            "minimum": 3.0113582611083984,
+            "maximum": 4.155395984649658,
+            "count": 60
+          },
+          "stoi": {
+            "mean": 0.9359857298003943,
+            "utterance_mean": 0.9359857298003943,
+            "std_sample": 0.035521681610748534,
+            "minimum": 0.7965931707435525,
+            "maximum": 0.9838632890849476,
+            "count": 60
+          },
+          "estoi": {
+            "mean": 0.8846354122524616,
+            "utterance_mean": 0.8846354122524616,
+            "std_sample": 0.05328489618219959,
+            "minimum": 0.6902371165300348,
+            "maximum": 0.9707795052754591,
+            "count": 60
+          },
+          "utmos": {
+            "mean": 2.2568999608357747,
+            "utterance_mean": 2.2568999608357747,
+            "std_sample": 0.7091228918485049,
+            "minimum": 1.2346422672271729,
+            "maximum": 3.7744719982147217,
+            "count": 60
+          },
+          "dnsmos_sig": {
+            "mean": 3.2349339759857734,
+            "utterance_mean": 3.234933975985774,
+            "std_sample": 0.47128398493947493,
+            "minimum": 1.702189182433594,
+            "maximum": 3.6883277686214475,
+            "count": 60
+          },
+          "dnsmos_bak": {
+            "mean": 3.6134038254989753,
+            "utterance_mean": 3.6134038254989758,
+            "std_sample": 0.5380503675170077,
+            "minimum": 1.5902912522417627,
+            "maximum": 4.189121286319271,
+            "count": 60
+          },
+          "dnsmos_ovrl": {
+            "mean": 2.7653481322861055,
+            "utterance_mean": 2.765348132286106,
+            "std_sample": 0.5296532586856338,
+            "minimum": 1.3025806132215416,
+            "maximum": 3.418448555503278,
+            "count": 60
+          },
+          "dnsmos_p808": {
+            "mean": 3.403931715403284,
+            "utterance_mean": 3.403931715403284,
+            "std_sample": 0.4365957952338385,
+            "minimum": 2.1681460539499917,
+            "maximum": 4.172075271606445,
+            "count": 60
+          },
+          "mrstft_spectral_convergence": {
+            "mean": 0.14351884437074275,
+            "utterance_mean": 0.14351884437074278,
+            "std_sample": 0.05190129328298401,
+            "minimum": 0.060235135029099905,
+            "maximum": 0.3087072431749988,
+            "count": 60
+          },
+          "mrstft_log_magnitude_mae": {
+            "mean": 0.7679645222922167,
+            "utterance_mean": 0.7679645222922166,
+            "std_sample": 0.0324977067555734,
+            "minimum": 0.696801632642746,
+            "maximum": 0.8319007456302643,
+            "count": 60
+          },
+          "si_sdr_db": {
+            "mean": 12.932260430289045,
+            "utterance_mean": 12.932260430289045,
+            "std_sample": 3.4231295301313707,
+            "minimum": 4.3868493969093665,
+            "maximum": 21.351972360878456,
+            "count": 60
+          },
+          "snr_db": {
+            "mean": 12.94417600684632,
+            "utterance_mean": 12.944176006846318,
+            "std_sample": 3.152268167017578,
+            "minimum": 5.462919238551099,
+            "maximum": 20.715977085978547,
+            "count": 60
+          }
+        },
+        "metric_errors": 0,
+        "language_counts": {
+          "bn_in": 6,
+          "en_us": 6,
+          "es_419": 6,
+          "fr_fr": 6,
+          "gu_in": 6,
+          "hi_in": 6,
+          "kn_in": 6,
+          "pt_br": 6,
+          "ta_in": 6,
+          "te_in": 6
+        },
+        "constant_delay_flags": 0
+      },
+      "original_reference": {
+        "clips": 60,
+        "metrics": {
+          "utmos": {
+            "mean": 2.320664312442144,
+            "utterance_mean": 2.3206643124421436,
+            "std_sample": 0.7321276745628853,
+            "minimum": 1.260864496231079,
+            "maximum": 4.149857044219971,
+            "count": 60
+          },
+          "dnsmos_sig": {
+            "mean": 3.258729224929187,
+            "utterance_mean": 3.2587292249291884,
+            "std_sample": 0.46863041925383786,
+            "minimum": 1.9917594489980401,
+            "maximum": 3.7160301681507306,
+            "count": 60
+          },
+          "dnsmos_bak": {
+            "mean": 3.583423737374477,
+            "utterance_mean": 3.5834237373744773,
+            "std_sample": 0.5327797404794474,
+            "minimum": 1.8234587280396797,
+            "maximum": 4.1936996824740405,
+            "count": 60
+          },
+          "dnsmos_ovrl": {
+            "mean": 2.775029648720724,
+            "utterance_mean": 2.775029648720724,
+            "std_sample": 0.5286998834114476,
+            "minimum": 1.4108774626747362,
+            "maximum": 3.433535151539563,
+            "count": 60
+          },
+          "dnsmos_p808": {
+            "mean": 3.4283738823069463,
+            "utterance_mean": 3.428373882306947,
+            "std_sample": 0.4115898974021063,
+            "minimum": 2.257649024327596,
+            "maximum": 4.237659454345703,
+            "count": 60
+          }
+        },
+        "metric_errors": 0,
+        "language_counts": {
+          "bn_in": 6,
+          "en_us": 6,
+          "es_419": 6,
+          "fr_fr": 6,
+          "gu_in": 6,
+          "hi_in": 6,
+          "kn_in": 6,
+          "pt_br": 6,
+          "ta_in": 6,
+          "te_in": 6
+        },
+        "constant_delay_flags": 0
+      }
+    },
+    "paired_differences": {
+      "audio_stock minus fast_fp32": {
+        "pesq_wb": {
+          "mean_first_minus_second": 6.000200907389323e-07,
+          "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+          "paired_bootstrap_95_percentile_ci": [
+            -2.7894973754882807e-06,
+            4.351139068603516e-06
+          ],
+          "pairs": 60,
+          "positive_pairs": 24,
+          "negative_pairs": 36,
+          "exact_ties": 0
+        },
+        "stoi": {
+          "mean_first_minus_second": -5.274728145006809e-09,
+          "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+          "paired_bootstrap_95_percentile_ci": [
+            -9.15877602809349e-09,
+            -1.6044388491398603e-09
+          ],
+          "pairs": 60,
+          "positive_pairs": 24,
+          "negative_pairs": 36,
+          "exact_ties": 0
+        },
+        "estoi": {
+          "mean_first_minus_second": -6.172452686007783e-09,
+          "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+          "paired_bootstrap_95_percentile_ci": [
+            -1.5832376167636737e-08,
+            3.0418562400417464e-09
+          ],
+          "pairs": 60,
+          "positive_pairs": 27,
+          "negative_pairs": 33,
+          "exact_ties": 0
+        },
+        "utmos": {
+          "mean_first_minus_second": -9.735425313313802e-08,
+          "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+          "paired_bootstrap_95_percentile_ci": [
+            -3.536542256673177e-07,
+            1.0927518208821614e-07
+          ],
+          "pairs": 60,
+          "positive_pairs": 22,
+          "negative_pairs": 24,
+          "exact_ties": 14
+        },
+        "dnsmos_sig": {
+          "mean_first_minus_second": -7.773471472294346e-07,
+          "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+          "paired_bootstrap_95_percentile_ci": [
+            -5.015759899585358e-06,
+            2.7136371740791685e-06
+          ],
+          "pairs": 60,
+          "positive_pairs": 26,
+          "negative_pairs": 32,
+          "exact_ties": 2
+        },
+        "dnsmos_bak": {
+          "mean_first_minus_second": -3.6815919258600017e-06,
+          "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+          "paired_bootstrap_95_percentile_ci": [
+            -8.146928000231645e-06,
+            1.9041629290931393e-07
+          ],
+          "pairs": 60,
+          "positive_pairs": 20,
+          "negative_pairs": 38,
+          "exact_ties": 2
+        },
+        "dnsmos_ovrl": {
+          "mean_first_minus_second": -1.0642450914163011e-06,
+          "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+          "paired_bootstrap_95_percentile_ci": [
+            -3.186880874917752e-06,
+            6.34939579278737e-07
+          ],
+          "pairs": 60,
+          "positive_pairs": 25,
+          "negative_pairs": 34,
+          "exact_ties": 1
+        },
+        "dnsmos_p808": {
+          "mean_first_minus_second": 2.2214556498756367e-07,
+          "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+          "paired_bootstrap_95_percentile_ci": [
+            -1.5324614348573754e-07,
+            5.985569386320517e-07
+          ],
+          "pairs": 60,
+          "positive_pairs": 31,
+          "negative_pairs": 27,
+          "exact_ties": 2
+        },
+        "mrstft_spectral_convergence": {
+          "mean_first_minus_second": -4.27617018287918e-09,
+          "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+          "paired_bootstrap_95_percentile_ci": [
+            -6.075324543219329e-09,
+            -2.3188855373419465e-09
+          ],
+          "pairs": 60,
+          "positive_pairs": 8,
+          "negative_pairs": 43,
+          "exact_ties": 9
+        },
+        "mrstft_log_magnitude_mae": {
+          "mean_first_minus_second": 8.940696716308595e-09,
+          "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+          "paired_bootstrap_95_percentile_ci": [
+            -1.3411045074462891e-08,
+            3.7749608357747394e-08
+          ],
+          "pairs": 60,
+          "positive_pairs": 26,
+          "negative_pairs": 26,
+          "exact_ties": 8
+        },
+        "si_sdr_db": {
+          "mean_first_minus_second": -4.6740235415398966e-08,
+          "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+          "paired_bootstrap_95_percentile_ci": [
+            -1.087365351755872e-07,
+            1.522688276097322e-08
+          ],
+          "pairs": 60,
+          "positive_pairs": 24,
+          "negative_pairs": 36,
+          "exact_ties": 0
+        },
+        "snr_db": {
+          "mean_first_minus_second": 2.2350540781109393e-07,
+          "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+          "paired_bootstrap_95_percentile_ci": [
+            1.6162116366014166e-07,
+            2.848113822399393e-07
+          ],
+          "pairs": 60,
+          "positive_pairs": 46,
+          "negative_pairs": 14,
+          "exact_ties": 0
+        }
+      },
+      "audio_stock minus original_reference": {
+        "utmos": {
+          "mean_first_minus_second": -0.06376444896062215,
+          "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+          "paired_bootstrap_95_percentile_ci": [
+            -0.09414309953649838,
+            -0.03373478571573894
+          ],
+          "pairs": 60,
+          "positive_pairs": 19,
+          "negative_pairs": 41,
+          "exact_ties": 0
+        },
+        "dnsmos_sig": {
+          "mean_first_minus_second": -0.02379602629056097,
+          "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+          "paired_bootstrap_95_percentile_ci": [
+            -0.047296386016816766,
+            -0.0006638725755695222
+          ],
+          "pairs": 60,
+          "positive_pairs": 19,
+          "negative_pairs": 41,
+          "exact_ties": 0
+        },
+        "dnsmos_bak": {
+          "mean_first_minus_second": 0.029976406532572497,
+          "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+          "paired_bootstrap_95_percentile_ci": [
+            -0.010714565355982995,
+            0.06902539198055967
+          ],
+          "pairs": 60,
+          "positive_pairs": 36,
+          "negative_pairs": 24,
+          "exact_ties": 0
+        },
+        "dnsmos_ovrl": {
+          "mean_first_minus_second": -0.009682580679709656,
+          "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+          "paired_bootstrap_95_percentile_ci": [
+            -0.03475606485490449,
+            0.014112606729670444
+          ],
+          "pairs": 60,
+          "positive_pairs": 28,
+          "negative_pairs": 32,
+          "exact_ties": 0
+        },
+        "dnsmos_p808": {
+          "mean_first_minus_second": -0.024441944758097345,
+          "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+          "paired_bootstrap_95_percentile_ci": [
+            -0.05857206957538923,
+            0.009580130992427695
+          ],
+          "pairs": 60,
+          "positive_pairs": 24,
+          "negative_pairs": 36,
+          "exact_ties": 0
+        }
+      },
+      "fast_fp32 minus original_reference": {
+        "utmos": {
+          "mean_first_minus_second": -0.06376435160636902,
+          "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+          "paired_bootstrap_95_percentile_ci": [
+            -0.09414304390549658,
+            -0.03373469432195029
+          ],
+          "pairs": 60,
+          "positive_pairs": 19,
+          "negative_pairs": 41,
+          "exact_ties": 0
+        },
+        "dnsmos_sig": {
+          "mean_first_minus_second": -0.02379524894341374,
+          "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+          "paired_bootstrap_95_percentile_ci": [
+            -0.04729597294937286,
+            -0.0006652026728044266
+          ],
+          "pairs": 60,
+          "positive_pairs": 19,
+          "negative_pairs": 41,
+          "exact_ties": 0
+        },
+        "dnsmos_bak": {
+          "mean_first_minus_second": 0.029980088124498355,
+          "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+          "paired_bootstrap_95_percentile_ci": [
+            -0.010708492784897676,
+            0.06902693735322706
+          ],
+          "pairs": 60,
+          "positive_pairs": 36,
+          "negative_pairs": 24,
+          "exact_ties": 0
+        },
+        "dnsmos_ovrl": {
+          "mean_first_minus_second": -0.009681516434618242,
+          "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+          "paired_bootstrap_95_percentile_ci": [
+            -0.03475332922199714,
+            0.01411362820374968
+          ],
+          "pairs": 60,
+          "positive_pairs": 28,
+          "negative_pairs": 32,
+          "exact_ties": 0
+        },
+        "dnsmos_p808": {
+          "mean_first_minus_second": -0.02444216690366233,
+          "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+          "paired_bootstrap_95_percentile_ci": [
+            -0.058572242648119055,
+            0.0095800351474493
+          ],
+          "pairs": 60,
+          "positive_pairs": 24,
+          "negative_pairs": 36,
+          "exact_ties": 0
+        }
+      }
+    },
+    "bootstrap": {
+      "seed": 20260907,
+      "resamples": 10000
+    }
+  },
+  "errors": [],
+  "interpretation": "Predicted quality and numerical deltas only. No human ratings, codec timing or automatic quality-equivalence decision.",
+  "per_clip": [
+    {
+      "uid": "hi_in_00099_1919",
+      "language": "hi_in",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": 1.1920928955078125e-06,
+        "stoi": -7.298673110334164e-09,
+        "estoi": -1.6257998725066614e-08,
+        "utmos": 0.0,
+        "dnsmos_sig": 0.0,
+        "dnsmos_bak": -1.908708042286378e-06,
+        "dnsmos_ovrl": -9.135523710845916e-07,
+        "dnsmos_p808": -7.152557373046875e-07,
+        "mrstft_spectral_convergence": -1.0157646362918271e-08,
+        "mrstft_log_magnitude_mae": 0.0,
+        "si_sdr_db": 2.3355298317540019e-07,
+        "snr_db": 1.2328078469181492e-07
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "hi_in_00159_1941",
+      "language": "hi_in",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": -5.7220458984375e-06,
+        "stoi": 1.504864854950938e-08,
+        "estoi": 2.0326225591560387e-08,
+        "utmos": 4.76837158203125e-07,
+        "dnsmos_sig": -2.4802143951951905e-06,
+        "dnsmos_bak": -6.715569771387209e-06,
+        "dnsmos_ovrl": -3.9206569524274926e-06,
+        "dnsmos_p808": -4.410743713378906e-06,
+        "mrstft_spectral_convergence": 6.103936321666392e-09,
+        "mrstft_log_magnitude_mae": 4.470348358154297e-08,
+        "si_sdr_db": -1.2608807509195685e-07,
+        "snr_db": -3.834961184168151e-07
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "hi_in_00281_1748",
+      "language": "hi_in",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": -6.842613220214844e-05,
+        "stoi": 1.2630042567352007e-09,
+        "estoi": -9.477797768830953e-09,
+        "utmos": 3.5762786865234375e-07,
+        "dnsmos_sig": 9.971073781267492e-05,
+        "dnsmos_bak": 9.260310414793693e-05,
+        "dnsmos_ovrl": 5.560179433694579e-05,
+        "dnsmos_p808": -3.9736429879866364e-07,
+        "mrstft_spectral_convergence": -6.915311809296831e-09,
+        "mrstft_log_magnitude_mae": -4.470348358154297e-08,
+        "si_sdr_db": 3.6426936844691227e-07,
+        "snr_db": 7.798236367762001e-08
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "hi_in_00190_1885",
+      "language": "hi_in",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": -2.86102294921875e-06,
+        "stoi": -1.6914260991818253e-08,
+        "estoi": -2.0706132475289962e-08,
+        "utmos": 2.1457672119140625e-06,
+        "dnsmos_sig": -5.730102850787233e-05,
+        "dnsmos_bak": 0.00011653247526233201,
+        "dnsmos_ovrl": 1.0782527843034018e-05,
+        "dnsmos_p808": -3.1789143850602386e-07,
+        "mrstft_spectral_convergence": 0.0,
+        "mrstft_log_magnitude_mae": 4.470348358154297e-08,
+        "si_sdr_db": -4.816456407041869e-07,
+        "snr_db": -5.220165650854369e-07
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "hi_in_00292_1691",
+      "language": "hi_in",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": -1.239776611328125e-05,
+        "stoi": 1.766907065103851e-09,
+        "estoi": 3.0788232630030166e-08,
+        "utmos": 2.384185791015625e-07,
+        "dnsmos_sig": 4.062818899086551e-07,
+        "dnsmos_bak": 9.242596013869786e-06,
+        "dnsmos_ovrl": 4.544287118601886e-06,
+        "dnsmos_p808": -4.76837158203125e-07,
+        "mrstft_spectral_convergence": 9.584991439437474e-09,
+        "mrstft_log_magnitude_mae": -2.9802322387695312e-08,
+        "si_sdr_db": 1.1253515808107295e-07,
+        "snr_db": -4.487130400576689e-07
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "hi_in_00211_1943",
+      "language": "hi_in",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": 1.6689300537109375e-05,
+        "stoi": -1.4182727214873125e-09,
+        "estoi": -3.0764315539499876e-09,
+        "utmos": -9.5367431640625e-07,
+        "dnsmos_sig": 1.4635173530841428e-06,
+        "dnsmos_bak": 1.8105224963704813e-06,
+        "dnsmos_ovrl": 2.071780334400586e-06,
+        "dnsmos_p808": -7.152557373046875e-07,
+        "mrstft_spectral_convergence": 1.1369002392291883e-08,
+        "mrstft_log_magnitude_mae": -2.9802322387695312e-08,
+        "si_sdr_db": 3.4703726115026257e-07,
+        "snr_db": -3.318925330120237e-07
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "bn_in_00633_1820",
+      "language": "bn_in",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": -1.430511474609375e-06,
+        "stoi": 5.051765450403423e-09,
+        "estoi": -1.3978573187856114e-08,
+        "utmos": 4.76837158203125e-07,
+        "dnsmos_sig": -4.399565334267663e-08,
+        "dnsmos_bak": -2.206706129825875e-06,
+        "dnsmos_ovrl": -1.0916513657477367e-06,
+        "dnsmos_p808": 2.1457672119140625e-06,
+        "mrstft_spectral_convergence": 1.869500075579733e-08,
+        "mrstft_log_magnitude_mae": -2.9802322387695312e-08,
+        "si_sdr_db": -1.619375566974668e-07,
+        "snr_db": -6.176467817198272e-07
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "bn_in_00582_1926",
+      "language": "bn_in",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": 2.6226043701171875e-06,
+        "stoi": 1.6272696967689626e-08,
+        "estoi": 1.0510131098762088e-08,
+        "utmos": -4.76837158203125e-07,
+        "dnsmos_sig": 7.429117943047459e-08,
+        "dnsmos_bak": 3.3938479493400564e-07,
+        "dnsmos_ovrl": 6.003414734223611e-07,
+        "dnsmos_p808": -5.960464477539063e-08,
+        "mrstft_spectral_convergence": 1.2825435991015155e-08,
+        "mrstft_log_magnitude_mae": -1.4901161193847656e-08,
+        "si_sdr_db": 3.953419405178238e-07,
+        "snr_db": -8.446695964892115e-08
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "bn_in_00735_1676",
+      "language": "bn_in",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": 4.0531158447265625e-06,
+        "stoi": -4.209903425866912e-09,
+        "estoi": -2.3641199664581336e-08,
+        "utmos": -9.5367431640625e-07,
+        "dnsmos_sig": -4.059176674786613e-07,
+        "dnsmos_bak": 7.345694084115451e-07,
+        "dnsmos_ovrl": -5.5452541669609445e-08,
+        "dnsmos_p808": -9.5367431640625e-07,
+        "mrstft_spectral_convergence": 1.9641960696814564e-09,
+        "mrstft_log_magnitude_mae": 0.0,
+        "si_sdr_db": 2.5652034452150474e-07,
+        "snr_db": -2.757337647096847e-07
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "bn_in_00208_1709",
+      "language": "bn_in",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": -2.86102294921875e-06,
+        "stoi": 7.945248570173646e-09,
+        "estoi": 2.9115550859160066e-08,
+        "utmos": -7.152557373046875e-07,
+        "dnsmos_sig": 2.584943530337114e-07,
+        "dnsmos_bak": 6.174259583602293e-06,
+        "dnsmos_ovrl": 4.054501566042035e-06,
+        "dnsmos_p808": 1.430511474609375e-06,
+        "mrstft_spectral_convergence": 2.5794616442809115e-09,
+        "mrstft_log_magnitude_mae": 4.470348358154297e-08,
+        "si_sdr_db": 2.887941068507871e-07,
+        "snr_db": 4.113065621424994e-08
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "bn_in_00221_1754",
+      "language": "bn_in",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": 1.71661376953125e-05,
+        "stoi": 6.88317713937181e-09,
+        "estoi": 1.5335685943362876e-08,
+        "utmos": -4.76837158203125e-07,
+        "dnsmos_sig": 4.857050920126227e-06,
+        "dnsmos_bak": 2.5727533063957253e-06,
+        "dnsmos_ovrl": 4.236785038358448e-06,
+        "dnsmos_p808": 0.0,
+        "mrstft_spectral_convergence": 6.664560694980004e-09,
+        "mrstft_log_magnitude_mae": 2.9802322387695312e-08,
+        "si_sdr_db": -1.6531721769297292e-07,
+        "snr_db": -5.710049357787739e-07
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "bn_in_00151_1818",
+      "language": "bn_in",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": 5.9604644775390625e-06,
+        "stoi": 6.678564146156418e-09,
+        "estoi": 2.5238190204390776e-08,
+        "utmos": 0.0,
+        "dnsmos_sig": 2.5276774806570756e-07,
+        "dnsmos_bak": -9.551961959175514e-06,
+        "dnsmos_ovrl": -5.516613448719454e-06,
+        "dnsmos_p808": -9.5367431640625e-07,
+        "mrstft_spectral_convergence": 1.6285387038905696e-08,
+        "mrstft_log_magnitude_mae": 0.0,
+        "si_sdr_db": 1.0775378989080764e-07,
+        "snr_db": -3.855756780524189e-07
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "gu_in_00926_1827",
+      "language": "gu_in",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": 4.291534423828125e-06,
+        "stoi": 3.1773559339143276e-09,
+        "estoi": 6.146748554591852e-09,
+        "utmos": 2.384185791015625e-07,
+        "dnsmos_sig": 7.62471176862789e-07,
+        "dnsmos_bak": 9.114198107340599e-07,
+        "dnsmos_ovrl": 1.2379180542865242e-06,
+        "dnsmos_p808": -4.371007285008943e-07,
+        "mrstft_spectral_convergence": 1.1264467747462703e-08,
+        "mrstft_log_magnitude_mae": 1.4901161193847656e-08,
+        "si_sdr_db": -2.0602594297258747e-07,
+        "snr_db": -7.852286181275758e-07
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "gu_in_00420_1858",
+      "language": "gu_in",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": -9.5367431640625e-07,
+        "stoi": -1.3493606898506982e-08,
+        "estoi": -1.6833987315223453e-08,
+        "utmos": 7.152557373046875e-07,
+        "dnsmos_sig": 1.0428802710293894e-06,
+        "dnsmos_bak": 7.748966064369256e-07,
+        "dnsmos_ovrl": 1.3207677889148783e-06,
+        "dnsmos_p808": -1.0728836059570312e-06,
+        "mrstft_spectral_convergence": 2.3590851744303976e-08,
+        "mrstft_log_magnitude_mae": 4.470348358154297e-08,
+        "si_sdr_db": -6.904504132876355e-07,
+        "snr_db": -1.1469987981627128e-06
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "gu_in_00713_1781",
+      "language": "gu_in",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": 4.76837158203125e-07,
+        "stoi": 2.7291924276084956e-08,
+        "estoi": 4.9346174924025377e-08,
+        "utmos": 2.384185791015625e-07,
+        "dnsmos_sig": -2.095397810819577e-08,
+        "dnsmos_bak": 3.3590977834840885e-06,
+        "dnsmos_ovrl": 1.7599992623296146e-06,
+        "dnsmos_p808": 2.861022947442393e-07,
+        "mrstft_spectral_convergence": 0.0,
+        "mrstft_log_magnitude_mae": -1.4901161193847656e-08,
+        "si_sdr_db": -1.3232751427949552e-07,
+        "snr_db": -3.84425025146129e-07
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "gu_in_00478_1731",
+      "language": "gu_in",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": -3.337860107421875e-06,
+        "stoi": 9.146526536163435e-09,
+        "estoi": -1.7235836091700207e-09,
+        "utmos": 0.0,
+        "dnsmos_sig": -5.179350330841714e-07,
+        "dnsmos_bak": 1.102947098541307e-06,
+        "dnsmos_ovrl": 4.068230436971021e-07,
+        "dnsmos_p808": 7.152557373046875e-07,
+        "mrstft_spectral_convergence": 1.3881503863055755e-08,
+        "mrstft_log_magnitude_mae": -5.960464477539063e-08,
+        "si_sdr_db": 1.1482989137334698e-07,
+        "snr_db": -1.9711791132692724e-07
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "gu_in_00337_1978",
+      "language": "gu_in",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": 1.4066696166992188e-05,
+        "stoi": 3.44415862496561e-08,
+        "estoi": 3.841195839182632e-08,
+        "utmos": 4.76837158203125e-07,
+        "dnsmos_sig": -2.818696223094719e-07,
+        "dnsmos_bak": -6.2740701447516756e-06,
+        "dnsmos_ovrl": -3.483192990483275e-06,
+        "dnsmos_p808": -4.76837158203125e-07,
+        "mrstft_spectral_convergence": 4.746662257693046e-09,
+        "mrstft_log_magnitude_mae": 0.0,
+        "si_sdr_db": 3.1340713135818987e-07,
+        "snr_db": 1.0439593900457567e-07
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "gu_in_00528_1697",
+      "language": "gu_in",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": 2.6226043701171875e-06,
+        "stoi": 5.4769546675714764e-09,
+        "estoi": 1.4853264618253093e-08,
+        "utmos": 4.76837158203125e-07,
+        "dnsmos_sig": 1.0046468190694213e-06,
+        "dnsmos_bak": 2.605599278560078e-06,
+        "dnsmos_ovrl": 1.867774340968964e-06,
+        "dnsmos_p808": -1.5894571969710114e-07,
+        "mrstft_spectral_convergence": 3.6070776365804136e-09,
+        "mrstft_log_magnitude_mae": 2.9802322387695312e-08,
+        "si_sdr_db": -2.8365941595609456e-07,
+        "snr_db": -5.728662202386658e-07
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "ta_in_00494_1946",
+      "language": "ta_in",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": 2.6226043701171875e-06,
+        "stoi": 1.5615553294878737e-10,
+        "estoi": -9.727189498320854e-09,
+        "utmos": 2.384185791015625e-07,
+        "dnsmos_sig": -1.8053803563233828e-07,
+        "dnsmos_bak": -4.431980852537265e-06,
+        "dnsmos_ovrl": -1.3449730187353737e-06,
+        "dnsmos_p808": 7.152557373046875e-07,
+        "mrstft_spectral_convergence": 5.036975198047244e-09,
+        "mrstft_log_magnitude_mae": -2.9802322387695312e-08,
+        "si_sdr_db": -9.371033726779388e-09,
+        "snr_db": -3.205212486534492e-07
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "ta_in_00394_2003",
+      "language": "ta_in",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": 7.3909759521484375e-06,
+        "stoi": -2.7513152867086887e-09,
+        "estoi": 1.0012229489930746e-08,
+        "utmos": 7.152557373046875e-07,
+        "dnsmos_sig": 1.0892397672712661e-06,
+        "dnsmos_bak": -1.7153270079450778e-05,
+        "dnsmos_ovrl": -7.2952193681530275e-06,
+        "dnsmos_p808": -3.1789143895011307e-07,
+        "mrstft_spectral_convergence": -6.160896348639255e-09,
+        "mrstft_log_magnitude_mae": 1.4901161193847656e-08,
+        "si_sdr_db": -3.2223547741239145e-07,
+        "snr_db": -6.264162806246532e-07
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "ta_in_00447_1742",
+      "language": "ta_in",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": -1.049041748046875e-05,
+        "stoi": 2.0747708884272242e-08,
+        "estoi": 9.541555434644522e-09,
+        "utmos": 7.152557373046875e-07,
+        "dnsmos_sig": 5.208028395209396e-07,
+        "dnsmos_bak": 0.0,
+        "dnsmos_ovrl": 4.3396038051923824e-07,
+        "dnsmos_p808": 3.814697265625e-06,
+        "mrstft_spectral_convergence": 1.5321837687487516e-09,
+        "mrstft_log_magnitude_mae": 1.043081283569336e-07,
+        "si_sdr_db": -1.1832679902568088e-07,
+        "snr_db": -4.052998505699179e-07
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "ta_in_00201_1938",
+      "language": "ta_in",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": -9.5367431640625e-07,
+        "stoi": -6.501281735182829e-10,
+        "estoi": 1.3229058959396411e-08,
+        "utmos": 1.1920928955078125e-06,
+        "dnsmos_sig": 6.796217491000789e-07,
+        "dnsmos_bak": 1.3484519252315863e-06,
+        "dnsmos_ovrl": 1.7961026634871757e-06,
+        "dnsmos_p808": 1.430511474609375e-06,
+        "mrstft_spectral_convergence": 1.4589647573393094e-08,
+        "mrstft_log_magnitude_mae": 0.0,
+        "si_sdr_db": 3.0524303795687047e-07,
+        "snr_db": -4.996964051429131e-07
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "ta_in_00077_1834",
+      "language": "ta_in",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": -9.5367431640625e-07,
+        "stoi": 6.798464680102256e-09,
+        "estoi": 7.191738093936806e-09,
+        "utmos": 0.0,
+        "dnsmos_sig": 4.2050401294346784e-07,
+        "dnsmos_bak": 1.208244023942484e-06,
+        "dnsmos_ovrl": 2.046439035119363e-06,
+        "dnsmos_p808": 7.152557373046875e-07,
+        "mrstft_spectral_convergence": -1.0864811550437281e-08,
+        "mrstft_log_magnitude_mae": 4.470348358154297e-08,
+        "si_sdr_db": -5.238036848709271e-08,
+        "snr_db": -1.4915854684716123e-07
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "ta_in_00012_1740",
+      "language": "ta_in",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": 4.76837158203125e-07,
+        "stoi": 4.2932590371691504e-08,
+        "estoi": 6.436283672694998e-08,
+        "utmos": -3.5762786865234375e-07,
+        "dnsmos_sig": -3.0388396856650957e-06,
+        "dnsmos_bak": -1.2858655963565724e-05,
+        "dnsmos_ovrl": -1.0296771445705843e-05,
+        "dnsmos_p808": -1.9073486328125e-06,
+        "mrstft_spectral_convergence": 1.4232232184441251e-08,
+        "mrstft_log_magnitude_mae": -4.470348358154297e-08,
+        "si_sdr_db": 1.8533684453814203e-07,
+        "snr_db": -2.535252523472309e-07
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "te_in_00114_1911",
+      "language": "te_in",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": 4.0531158447265625e-06,
+        "stoi": 2.286425515585222e-08,
+        "estoi": 3.7803830510441117e-08,
+        "utmos": -2.384185791015625e-07,
+        "dnsmos_sig": -1.9411525671308993e-06,
+        "dnsmos_bak": -1.4569882802462075e-06,
+        "dnsmos_ovrl": -2.4683552206639092e-06,
+        "dnsmos_p808": 1.6689300537109375e-06,
+        "mrstft_spectral_convergence": -7.178137473307089e-09,
+        "mrstft_log_magnitude_mae": -1.4901161193847656e-08,
+        "si_sdr_db": -1.3164658874131874e-07,
+        "snr_db": -2.702623600470133e-07
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "te_in_00185_1914",
+      "language": "te_in",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": -4.5299530029296875e-06,
+        "stoi": -3.888558919307172e-09,
+        "estoi": -2.966886780697564e-08,
+        "utmos": -2.384185791015625e-07,
+        "dnsmos_sig": 4.7644474232555467e-07,
+        "dnsmos_bak": 5.659299713300925e-07,
+        "dnsmos_ovrl": 1.2719016702078534e-06,
+        "dnsmos_p808": 1.7881393432617188e-06,
+        "mrstft_spectral_convergence": 5.407328321216376e-09,
+        "mrstft_log_magnitude_mae": -1.4901161193847656e-08,
+        "si_sdr_db": 3.537860582270014e-07,
+        "snr_db": 2.8430831022774328e-08
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "te_in_00471_1768",
+      "language": "te_in",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": -2.765655517578125e-05,
+        "stoi": -8.980288734861119e-10,
+        "estoi": -4.773548223369062e-10,
+        "utmos": -2.384185791015625e-07,
+        "dnsmos_sig": 0.0,
+        "dnsmos_bak": -3.983632197446241e-07,
+        "dnsmos_ovrl": 0.0,
+        "dnsmos_p808": 7.152557373046875e-07,
+        "mrstft_spectral_convergence": 7.162627296830593e-09,
+        "mrstft_log_magnitude_mae": 7.450580596923828e-08,
+        "si_sdr_db": 1.5670864428329878e-07,
+        "snr_db": -2.502571838647327e-07
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "te_in_00267_1838",
+      "language": "te_in",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": -8.344650268554688e-06,
+        "stoi": 2.3587483077847082e-08,
+        "estoi": 1.525893583709248e-07,
+        "utmos": 1.1920928955078125e-07,
+        "dnsmos_sig": 3.4441368228499414e-06,
+        "dnsmos_bak": 2.3306912466658503e-06,
+        "dnsmos_ovrl": 2.694226706623226e-06,
+        "dnsmos_p808": -1.1920928955078125e-06,
+        "mrstft_spectral_convergence": 4.502924283444898e-09,
+        "mrstft_log_magnitude_mae": -1.4901161193847656e-08,
+        "si_sdr_db": 2.059310943991477e-09,
+        "snr_db": -2.9544830049133e-07
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "te_in_00228_1918",
+      "language": "te_in",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": -1.0967254638671875e-05,
+        "stoi": -5.967794147743177e-09,
+        "estoi": -2.536644161388324e-08,
+        "utmos": -2.384185791015625e-07,
+        "dnsmos_sig": 6.076131544574537e-07,
+        "dnsmos_bak": 6.233596794302798e-08,
+        "dnsmos_ovrl": 5.434231360457176e-07,
+        "dnsmos_p808": 1.6689300537109375e-06,
+        "mrstft_spectral_convergence": 1.176467884222987e-08,
+        "mrstft_log_magnitude_mae": 0.0,
+        "si_sdr_db": 2.3302984430983997e-07,
+        "snr_db": -1.1793179766073081e-07
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "te_in_00016_1969",
+      "language": "te_in",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": -1.430511474609375e-06,
+        "stoi": 1.2030170304377918e-08,
+        "estoi": 1.986030340184186e-09,
+        "utmos": -1.1920928955078125e-07,
+        "dnsmos_sig": -1.6011816508232357e-06,
+        "dnsmos_bak": -2.221344669095515e-06,
+        "dnsmos_ovrl": 5.667687759114415e-07,
+        "dnsmos_p808": -1.6689300537109375e-06,
+        "mrstft_spectral_convergence": 3.1033473291142144e-09,
+        "mrstft_log_magnitude_mae": -4.470348358154297e-08,
+        "si_sdr_db": 2.3462483866865114e-07,
+        "snr_db": 7.112275035581206e-08
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "kn_in_00584_1904",
+      "language": "kn_in",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": 2.1457672119140625e-06,
+        "stoi": -2.0842813031052287e-09,
+        "estoi": -4.269225861719406e-09,
+        "utmos": 7.152557373046875e-07,
+        "dnsmos_sig": -2.6000041239981897e-06,
+        "dnsmos_bak": -1.22927763284153e-05,
+        "dnsmos_ovrl": -6.658744851950615e-06,
+        "dnsmos_p808": 2.384185791015625e-07,
+        "mrstft_spectral_convergence": 0.0,
+        "mrstft_log_magnitude_mae": -1.043081283569336e-07,
+        "si_sdr_db": 1.511227374351165e-07,
+        "snr_db": 6.462639845494778e-08
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "kn_in_00073_1705",
+      "language": "kn_in",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": -6.67572021484375e-06,
+        "stoi": -8.635517079191857e-09,
+        "estoi": -6.59117116441621e-09,
+        "utmos": 0.0,
+        "dnsmos_sig": 6.326122151900648e-06,
+        "dnsmos_bak": 1.4578835336731544e-05,
+        "dnsmos_ovrl": 6.322740251141212e-06,
+        "dnsmos_p808": -4.172325134277344e-06,
+        "mrstft_spectral_convergence": 5.009465703365024e-09,
+        "mrstft_log_magnitude_mae": 2.9802322387695312e-08,
+        "si_sdr_db": 4.459560223324388e-07,
+        "snr_db": 2.4415667709831723e-07
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "kn_in_00788_1926",
+      "language": "kn_in",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": 8.344650268554688e-06,
+        "stoi": 5.577575623583186e-09,
+        "estoi": 5.125466273625534e-09,
+        "utmos": 0.0,
+        "dnsmos_sig": 3.968397130016399e-06,
+        "dnsmos_bak": 1.1776478571867699e-05,
+        "dnsmos_ovrl": 8.945773425805825e-06,
+        "dnsmos_p808": -1.1920928955078125e-06,
+        "mrstft_spectral_convergence": 2.085785655303596e-09,
+        "mrstft_log_magnitude_mae": -1.4901161193847656e-08,
+        "si_sdr_db": 3.0124309091661416e-07,
+        "snr_db": 5.677685877003569e-08
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "kn_in_00793_1839",
+      "language": "kn_in",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": 2.1457672119140625e-06,
+        "stoi": 3.912156487650975e-09,
+        "estoi": 2.332296933360567e-08,
+        "utmos": -7.152557373046875e-07,
+        "dnsmos_sig": 2.154206120152935e-07,
+        "dnsmos_bak": -2.662180768275846e-06,
+        "dnsmos_ovrl": -1.3306659023548661e-06,
+        "dnsmos_p808": 0.0,
+        "mrstft_spectral_convergence": 0.0,
+        "mrstft_log_magnitude_mae": 0.0,
+        "si_sdr_db": -3.805472008622246e-07,
+        "snr_db": -3.7719111922740467e-07
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "kn_in_00227_1844",
+      "language": "kn_in",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": 5.7220458984375e-06,
+        "stoi": 1.4532289482893646e-08,
+        "estoi": 1.1993804505117112e-08,
+        "utmos": 0.0,
+        "dnsmos_sig": -1.156841674898601e-06,
+        "dnsmos_bak": -4.536052020664982e-06,
+        "dnsmos_ovrl": -3.2412336077314308e-06,
+        "dnsmos_p808": 3.5762786865234375e-07,
+        "mrstft_spectral_convergence": 6.425880466620626e-09,
+        "mrstft_log_magnitude_mae": -7.748603820800781e-07,
+        "si_sdr_db": 6.398017582398552e-08,
+        "snr_db": 5.971554450923122e-08
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "kn_in_00542_1781",
+      "language": "kn_in",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": -2.0503997802734375e-05,
+        "stoi": 6.1257139361003965e-09,
+        "estoi": 8.538733486940231e-08,
+        "utmos": 2.384185791015625e-07,
+        "dnsmos_sig": -2.8381978132152597e-06,
+        "dnsmos_bak": 4.732781996974467e-06,
+        "dnsmos_ovrl": 1.3222258421485833e-07,
+        "dnsmos_p808": 1.3623918793115308e-07,
+        "mrstft_spectral_convergence": 0.0,
+        "mrstft_log_magnitude_mae": -1.4901161193847656e-08,
+        "si_sdr_db": 3.897631195570739e-08,
+        "snr_db": -7.057216855343995e-08
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "en_us_00103_1779",
+      "language": "en_us",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": -7.152557373046875e-07,
+        "stoi": 6.705967459108564e-08,
+        "estoi": 1.261905779870176e-07,
+        "utmos": 0.0,
+        "dnsmos_sig": -4.216241229038076e-06,
+        "dnsmos_bak": 2.7995510034628523e-06,
+        "dnsmos_ovrl": -5.358294831392385e-06,
+        "dnsmos_p808": -2.1457672119140625e-06,
+        "mrstft_spectral_convergence": 0.0,
+        "mrstft_log_magnitude_mae": 5.960464477539063e-08,
+        "si_sdr_db": 3.918033701921786e-07,
+        "snr_db": 2.3696311757248623e-07
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "en_us_00344_1948",
+      "language": "en_us",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": 4.291534423828125e-06,
+        "stoi": 1.8334563312016883e-08,
+        "estoi": 4.799538821931293e-08,
+        "utmos": 0.0,
+        "dnsmos_sig": 7.58508683995629e-06,
+        "dnsmos_bak": 1.753474072785366e-05,
+        "dnsmos_ovrl": 1.3180291238423791e-05,
+        "dnsmos_p808": 2.384185791015625e-07,
+        "mrstft_spectral_convergence": 9.047022658803527e-09,
+        "mrstft_log_magnitude_mae": -2.9802322387695312e-08,
+        "si_sdr_db": 3.061571085538617e-07,
+        "snr_db": 2.364852935698991e-07
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "en_us_00133_1765",
+      "language": "en_us",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": -7.152557373046875e-06,
+        "stoi": -3.964436234848989e-08,
+        "estoi": -1.04283376822778e-07,
+        "utmos": -2.384185791015625e-07,
+        "dnsmos_sig": -2.5607559983598094e-07,
+        "dnsmos_bak": 2.5288242522236715e-07,
+        "dnsmos_ovrl": -3.765962416135693e-06,
+        "dnsmos_p808": -6.079673767089844e-06,
+        "mrstft_spectral_convergence": 0.0,
+        "mrstft_log_magnitude_mae": -2.9802322387695312e-08,
+        "si_sdr_db": -2.4534561582356673e-07,
+        "snr_db": -3.9779473759438133e-07
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "en_us_00287_1786",
+      "language": "en_us",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": 3.337860107421875e-06,
+        "stoi": 1.2022490447627376e-08,
+        "estoi": 5.783422185601239e-09,
+        "utmos": 0.0,
+        "dnsmos_sig": 7.845238565007406e-06,
+        "dnsmos_bak": 5.797630016513011e-06,
+        "dnsmos_ovrl": 6.7639680303432925e-06,
+        "dnsmos_p808": 1.6689300537109375e-06,
+        "mrstft_spectral_convergence": -3.156496458656122e-08,
+        "mrstft_log_magnitude_mae": 1.4901161193847656e-08,
+        "si_sdr_db": 6.547153708069686e-07,
+        "snr_db": 6.567006014535082e-07
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "en_us_00557_1707",
+      "language": "en_us",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": 1.239776611328125e-05,
+        "stoi": -2.6347102277668455e-10,
+        "estoi": -3.83728282482565e-09,
+        "utmos": -3.5762786865234375e-07,
+        "dnsmos_sig": -8.246559848323898e-07,
+        "dnsmos_bak": 2.7716456862947325e-07,
+        "dnsmos_ovrl": -1.2808662575025664e-06,
+        "dnsmos_p808": -2.384185791015625e-07,
+        "mrstft_spectral_convergence": 3.555514493935874e-09,
+        "mrstft_log_magnitude_mae": -5.960464477539063e-08,
+        "si_sdr_db": -5.850283102404319e-08,
+        "snr_db": -5.2464384836525824e-08
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "en_us_00565_1837",
+      "language": "en_us",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": -2.8133392333984375e-05,
+        "stoi": -3.767223755168914e-09,
+        "estoi": -6.3352871837452085e-09,
+        "utmos": 0.0,
+        "dnsmos_sig": -7.693138734943261e-07,
+        "dnsmos_bak": 2.115816544190352e-06,
+        "dnsmos_ovrl": 2.937079801590414e-07,
+        "dnsmos_p808": -4.5299530029296875e-06,
+        "mrstft_spectral_convergence": 4.9063874352217596e-09,
+        "mrstft_log_magnitude_mae": -8.940696716308594e-08,
+        "si_sdr_db": -1.6485149245681896e-08,
+        "snr_db": -3.195196285332713e-07
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "es_419_00646_1781",
+      "language": "es_419",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": 9.5367431640625e-07,
+        "stoi": -5.087529286740278e-10,
+        "estoi": 2.375430074863516e-09,
+        "utmos": -4.76837158203125e-07,
+        "dnsmos_sig": 2.007734307696296e-07,
+        "dnsmos_bak": 4.826188084727789e-07,
+        "dnsmos_ovrl": -3.031615860571435e-07,
+        "dnsmos_p808": 4.76837158203125e-07,
+        "mrstft_spectral_convergence": 9.191628361215898e-09,
+        "mrstft_log_magnitude_mae": 5.960464477539063e-08,
+        "si_sdr_db": 3.685472744763274e-07,
+        "snr_db": 3.287543215435562e-08
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "es_419_00706_1731",
+      "language": "es_419",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": 1.049041748046875e-05,
+        "stoi": -4.500762873504982e-09,
+        "estoi": -5.047672280156235e-09,
+        "utmos": -4.76837158203125e-07,
+        "dnsmos_sig": 3.5830257698599155e-06,
+        "dnsmos_bak": 1.502794275554109e-05,
+        "dnsmos_ovrl": 7.673374015304546e-06,
+        "dnsmos_p808": -5.960464477539063e-08,
+        "mrstft_spectral_convergence": 5.026898841631322e-09,
+        "mrstft_log_magnitude_mae": 1.341104507446289e-07,
+        "si_sdr_db": 2.428938650211876e-08,
+        "snr_db": -2.7983264061504087e-07
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "es_419_00172_1698",
+      "language": "es_419",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": 3.4332275390625e-05,
+        "stoi": 4.323363000935387e-09,
+        "estoi": -1.1713254033374199e-08,
+        "utmos": 0.0,
+        "dnsmos_sig": 2.41382937904433e-06,
+        "dnsmos_bak": 3.5209710773642655e-06,
+        "dnsmos_ovrl": 3.5047608561988852e-06,
+        "dnsmos_p808": 1.6689300537109375e-06,
+        "mrstft_spectral_convergence": 0.0,
+        "mrstft_log_magnitude_mae": -8.940696716308594e-08,
+        "si_sdr_db": 9.818315049869852e-09,
+        "snr_db": -1.7803245100367349e-07
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "es_419_00060_1994",
+      "language": "es_419",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": 3.337860107421875e-06,
+        "stoi": -3.1668853095467853e-09,
+        "estoi": -9.052304572598757e-09,
+        "utmos": 0.0,
+        "dnsmos_sig": -1.0313289546814985e-06,
+        "dnsmos_bak": -2.874533890917519e-06,
+        "dnsmos_ovrl": -2.1918913191143474e-06,
+        "dnsmos_p808": -2.384185791015625e-07,
+        "mrstft_spectral_convergence": 7.122541792470294e-09,
+        "mrstft_log_magnitude_mae": 1.4901161193847656e-08,
+        "si_sdr_db": 2.6607544612033962e-08,
+        "snr_db": -4.08053317357826e-07
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "es_419_00787_1941",
+      "language": "es_419",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": 9.5367431640625e-07,
+        "stoi": -6.594626178468843e-09,
+        "estoi": -1.3239236040796243e-08,
+        "utmos": 5.7220458984375e-06,
+        "dnsmos_sig": 2.4779891356629946e-06,
+        "dnsmos_bak": 1.6889386165175324e-06,
+        "dnsmos_ovrl": 2.2717593677334946e-06,
+        "dnsmos_p808": 1.0217939117040942e-07,
+        "mrstft_spectral_convergence": 1.097450409714984e-08,
+        "mrstft_log_magnitude_mae": -1.4901161193847656e-08,
+        "si_sdr_db": 5.76511350658393e-07,
+        "snr_db": -2.1316139964255854e-09
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "es_419_00899_1738",
+      "language": "es_419",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": -5.626678466796875e-05,
+        "stoi": 5.517844958724538e-09,
+        "estoi": 4.2581311809897215e-09,
+        "utmos": -7.152557373046875e-07,
+        "dnsmos_sig": 1.0521223083870268e-06,
+        "dnsmos_bak": 3.0063718092776526e-07,
+        "dnsmos_ovrl": 1.0852045719822456e-06,
+        "dnsmos_p808": -1.1920928955078125e-06,
+        "mrstft_spectral_convergence": 9.871336553723964e-09,
+        "mrstft_log_magnitude_mae": 0.0,
+        "si_sdr_db": 1.9482776991708306e-07,
+        "snr_db": -7.985890881911928e-08
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "fr_fr_00129_1717",
+      "language": "fr_fr",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": 1.0013580322265625e-05,
+        "stoi": 4.643000317550161e-09,
+        "estoi": 1.5353186166855437e-08,
+        "utmos": -4.76837158203125e-07,
+        "dnsmos_sig": -1.0495064062254755e-07,
+        "dnsmos_bak": 1.8241193622259289e-07,
+        "dnsmos_ovrl": 1.5701933131495593e-07,
+        "dnsmos_p808": 3.0653817262304983e-07,
+        "mrstft_spectral_convergence": -2.135267351821568e-09,
+        "mrstft_log_magnitude_mae": 4.470348358154297e-08,
+        "si_sdr_db": -3.747471586379447e-07,
+        "snr_db": -4.6217634075418346e-07
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "fr_fr_00374_1935",
+      "language": "fr_fr",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": -4.76837158203125e-07,
+        "stoi": -1.2569149498986576e-08,
+        "estoi": -9.38106931025473e-08,
+        "utmos": 7.152557373046875e-07,
+        "dnsmos_sig": -5.783045207152782e-07,
+        "dnsmos_bak": 1.0610369027830302e-07,
+        "dnsmos_ovrl": -5.506537874566675e-07,
+        "dnsmos_p808": -3.2186508178710938e-06,
+        "mrstft_spectral_convergence": 8.323670586118936e-09,
+        "mrstft_log_magnitude_mae": 5.960464477539063e-08,
+        "si_sdr_db": -3.852810035454013e-07,
+        "snr_db": -5.222955650197036e-07
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "fr_fr_00257_1874",
+      "language": "fr_fr",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": 3.0279159545898438e-05,
+        "stoi": 2.0768989861252862e-09,
+        "estoi": -5.714737894013666e-08,
+        "utmos": -2.6226043701171875e-06,
+        "dnsmos_sig": -1.3718870630619051e-06,
+        "dnsmos_bak": -4.904876869993302e-06,
+        "dnsmos_ovrl": -3.5871589636471413e-06,
+        "dnsmos_p808": -1.430511474609375e-06,
+        "mrstft_spectral_convergence": -7.45621334119484e-09,
+        "mrstft_log_magnitude_mae": 1.043081283569336e-07,
+        "si_sdr_db": -1.534597000585336e-07,
+        "snr_db": -4.4900430573591166e-07
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "fr_fr_00045_1736",
+      "language": "fr_fr",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": 1.2636184692382812e-05,
+        "stoi": 3.421211092202725e-09,
+        "estoi": 1.5028915889558903e-08,
+        "utmos": 2.384185791015625e-07,
+        "dnsmos_sig": 7.635339880351921e-07,
+        "dnsmos_bak": -2.6854712151802573e-06,
+        "dnsmos_ovrl": -3.0792377669897064e-07,
+        "dnsmos_p808": -1.123973301542236e-06,
+        "mrstft_spectral_convergence": 1.235786677156181e-08,
+        "mrstft_log_magnitude_mae": -1.9371509552001953e-07,
+        "si_sdr_db": -3.952401534945693e-07,
+        "snr_db": -8.204176999981883e-07
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "fr_fr_00644_1660",
+      "language": "fr_fr",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": 7.152557373046875e-07,
+        "stoi": 9.399463096748661e-09,
+        "estoi": -2.233095153236775e-08,
+        "utmos": 4.76837158203125e-07,
+        "dnsmos_sig": 4.7191804464219445e-07,
+        "dnsmos_bak": 4.737508518815048e-08,
+        "dnsmos_ovrl": 4.09332033601828e-07,
+        "dnsmos_p808": 1.6212463380682607e-06,
+        "mrstft_spectral_convergence": 5.161725102897918e-09,
+        "mrstft_log_magnitude_mae": 7.450580596923828e-08,
+        "si_sdr_db": -8.268740803174524e-08,
+        "snr_db": -1.697465341621296e-07
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "fr_fr_00041_1714",
+      "language": "fr_fr",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": 1.6689300537109375e-06,
+        "stoi": -2.3015755967747964e-09,
+        "estoi": 1.1214547623872306e-08,
+        "utmos": -4.76837158203125e-07,
+        "dnsmos_sig": -1.0763659774593037e-05,
+        "dnsmos_bak": -1.0433823281807975e-05,
+        "dnsmos_ovrl": -1.1920833803191755e-05,
+        "dnsmos_p808": 4.76837158203125e-07,
+        "mrstft_spectral_convergence": 4.2611639494705145e-09,
+        "mrstft_log_magnitude_mae": 8.940696716308594e-08,
+        "si_sdr_db": 2.1155899254665655e-07,
+        "snr_db": -7.189367678961389e-08
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "pt_br_00672_1745",
+      "language": "pt_br",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": 9.5367431640625e-07,
+        "stoi": 4.541299669647003e-09,
+        "estoi": 1.2789299952409294e-08,
+        "utmos": 7.152557373046875e-07,
+        "dnsmos_sig": 2.349468527729215e-06,
+        "dnsmos_bak": 2.934935899645552e-06,
+        "dnsmos_ovrl": 3.5626003369593207e-06,
+        "dnsmos_p808": 4.76837158203125e-07,
+        "mrstft_spectral_convergence": 7.612754676644684e-09,
+        "mrstft_log_magnitude_mae": 4.470348358154297e-08,
+        "si_sdr_db": 9.859988381322182e-08,
+        "snr_db": -2.437086905615615e-07
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "pt_br_00499_1674",
+      "language": "pt_br",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": 1.239776611328125e-05,
+        "stoi": 4.065042680245767e-08,
+        "estoi": 4.6318659352451164e-08,
+        "utmos": 0.0,
+        "dnsmos_sig": 1.9672753368560336e-06,
+        "dnsmos_bak": -1.0007051551852442e-06,
+        "dnsmos_ovrl": 9.78385944705451e-07,
+        "dnsmos_p808": -3.4059796760743666e-08,
+        "mrstft_spectral_convergence": 8.469209417105716e-09,
+        "mrstft_log_magnitude_mae": 8.940696716308594e-08,
+        "si_sdr_db": 1.3481600369402713e-07,
+        "snr_db": -1.2487743106248672e-07
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "pt_br_00046_2003",
+      "language": "pt_br",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": 7.152557373046875e-07,
+        "stoi": -1.9573363485569928e-08,
+        "estoi": -3.988768448870417e-08,
+        "utmos": 2.384185791015625e-07,
+        "dnsmos_sig": -1.5076436060468268e-05,
+        "dnsmos_bak": 6.97940674587727e-07,
+        "dnsmos_ovrl": -9.075653280454787e-06,
+        "dnsmos_p808": 1.0728836059570312e-06,
+        "mrstft_spectral_convergence": 2.2208970495984914e-09,
+        "mrstft_log_magnitude_mae": 2.9802322387695312e-08,
+        "si_sdr_db": -4.7362956223651054e-08,
+        "snr_db": -3.7425300192239774e-08
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "pt_br_00031_1676",
+      "language": "pt_br",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": 5.7220458984375e-06,
+        "stoi": 1.2593424969509215e-08,
+        "estoi": 1.1703430446985408e-08,
+        "utmos": -2.384185791015625e-07,
+        "dnsmos_sig": -9.909091098769807e-07,
+        "dnsmos_bak": 0.0,
+        "dnsmos_ovrl": -1.0046382521444741e-06,
+        "dnsmos_p808": 7.152557373046875e-07,
+        "mrstft_spectral_convergence": 4.725853985920736e-09,
+        "mrstft_log_magnitude_mae": 2.9802322387695312e-08,
+        "si_sdr_db": 1.3682522226332594e-07,
+        "snr_db": -5.690578142036884e-08
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "pt_br_00677_1747",
+      "language": "pt_br",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": 6.198883056640625e-06,
+        "stoi": -3.4144459482021716e-09,
+        "estoi": -2.1766572211312507e-08,
+        "utmos": 2.384185791015625e-07,
+        "dnsmos_sig": 1.3815898500801893e-06,
+        "dnsmos_bak": 7.230635223898219e-07,
+        "dnsmos_ovrl": 1.1862818189989355e-06,
+        "dnsmos_p808": -2.384185791015625e-07,
+        "mrstft_spectral_convergence": 2.1588718035481236e-09,
+        "mrstft_log_magnitude_mae": -5.960464477539063e-08,
+        "si_sdr_db": -5.009839991743092e-07,
+        "snr_db": -4.092730705451686e-07
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    },
+    {
+      "uid": "pt_br_00325_1975",
+      "language": "pt_br",
+      "model": "fast_fp32",
+      "baseline": "audio_stock",
+      "candidate_minus_baseline": {
+        "pesq_wb": -6.198883056640625e-06,
+        "stoi": -3.2939360128381168e-09,
+        "estoi": -2.1034554542609385e-08,
+        "utmos": -4.76837158203125e-07,
+        "dnsmos_sig": -2.6400316279762137e-06,
+        "dnsmos_bak": -2.3945449711959554e-06,
+        "dnsmos_ovrl": -3.486717511602677e-06,
+        "dnsmos_p808": 2.1457672119140625e-06,
+        "mrstft_spectral_convergence": 0.0,
+        "mrstft_log_magnitude_mae": -4.470348358154297e-08,
+        "si_sdr_db": 1.8528285927743582e-07,
+        "snr_db": -1.6092174703885576e-08
+      },
+      "candidate_metric_errors": [],
+      "baseline_metric_errors": []
+    }
+  ],
+  "aggregate_candidate_minus_baseline": {
+    "fast_fp32": {
+      "pesq_wb": {
+        "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+        "paired_bootstrap_95_percentile_ci": [
+          -4.351139068603516e-06,
+          2.7894973754882807e-06
+        ],
+        "pairs": 60,
+        "positive_pairs": 36,
+        "negative_pairs": 24,
+        "exact_ties": 0,
+        "mean_candidate_minus_baseline": -6.000200907389323e-07,
+        "expected_pairs": 60,
+        "status": "complete",
+        "improvement_direction": "positive"
+      },
+      "stoi": {
+        "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+        "paired_bootstrap_95_percentile_ci": [
+          1.6044388491398603e-09,
+          9.15877602809349e-09
+        ],
+        "pairs": 60,
+        "positive_pairs": 36,
+        "negative_pairs": 24,
+        "exact_ties": 0,
+        "mean_candidate_minus_baseline": 5.274728145006809e-09,
+        "expected_pairs": 60,
+        "status": "complete",
+        "improvement_direction": "positive"
+      },
+      "estoi": {
+        "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+        "paired_bootstrap_95_percentile_ci": [
+          -3.0418562400417464e-09,
+          1.5832376167636737e-08
+        ],
+        "pairs": 60,
+        "positive_pairs": 33,
+        "negative_pairs": 27,
+        "exact_ties": 0,
+        "mean_candidate_minus_baseline": 6.172452686007783e-09,
+        "expected_pairs": 60,
+        "status": "complete",
+        "improvement_direction": "positive"
+      },
+      "utmos": {
+        "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+        "paired_bootstrap_95_percentile_ci": [
+          -1.0927518208821614e-07,
+          3.536542256673177e-07
+        ],
+        "pairs": 60,
+        "positive_pairs": 24,
+        "negative_pairs": 22,
+        "exact_ties": 14,
+        "mean_candidate_minus_baseline": 9.735425313313802e-08,
+        "expected_pairs": 60,
+        "status": "complete",
+        "improvement_direction": "positive"
+      },
+      "dnsmos_sig": {
+        "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+        "paired_bootstrap_95_percentile_ci": [
+          -2.7136371740791685e-06,
+          5.015759899585358e-06
+        ],
+        "pairs": 60,
+        "positive_pairs": 32,
+        "negative_pairs": 26,
+        "exact_ties": 2,
+        "mean_candidate_minus_baseline": 7.773471472294346e-07,
+        "expected_pairs": 60,
+        "status": "complete",
+        "improvement_direction": "positive"
+      },
+      "dnsmos_bak": {
+        "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+        "paired_bootstrap_95_percentile_ci": [
+          -1.9041629290931393e-07,
+          8.146928000231645e-06
+        ],
+        "pairs": 60,
+        "positive_pairs": 38,
+        "negative_pairs": 20,
+        "exact_ties": 2,
+        "mean_candidate_minus_baseline": 3.6815919258600017e-06,
+        "expected_pairs": 60,
+        "status": "complete",
+        "improvement_direction": "positive"
+      },
+      "dnsmos_ovrl": {
+        "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+        "paired_bootstrap_95_percentile_ci": [
+          -6.34939579278737e-07,
+          3.186880874917752e-06
+        ],
+        "pairs": 60,
+        "positive_pairs": 34,
+        "negative_pairs": 25,
+        "exact_ties": 1,
+        "mean_candidate_minus_baseline": 1.0642450914163011e-06,
+        "expected_pairs": 60,
+        "status": "complete",
+        "improvement_direction": "positive"
+      },
+      "dnsmos_p808": {
+        "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+        "paired_bootstrap_95_percentile_ci": [
+          -5.985569386320517e-07,
+          1.5324614348573754e-07
+        ],
+        "pairs": 60,
+        "positive_pairs": 27,
+        "negative_pairs": 31,
+        "exact_ties": 2,
+        "mean_candidate_minus_baseline": -2.2214556498756367e-07,
+        "expected_pairs": 60,
+        "status": "complete",
+        "improvement_direction": "positive"
+      },
+      "mrstft_spectral_convergence": {
+        "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+        "paired_bootstrap_95_percentile_ci": [
+          2.3188855373419465e-09,
+          6.075324543219329e-09
+        ],
+        "pairs": 60,
+        "positive_pairs": 43,
+        "negative_pairs": 8,
+        "exact_ties": 9,
+        "mean_candidate_minus_baseline": 4.27617018287918e-09,
+        "expected_pairs": 60,
+        "status": "complete",
+        "improvement_direction": "negative"
+      },
+      "mrstft_log_magnitude_mae": {
+        "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+        "paired_bootstrap_95_percentile_ci": [
+          -3.7749608357747394e-08,
+          1.3411045074462891e-08
+        ],
+        "pairs": 60,
+        "positive_pairs": 26,
+        "negative_pairs": 26,
+        "exact_ties": 8,
+        "mean_candidate_minus_baseline": -8.940696716308595e-09,
+        "expected_pairs": 60,
+        "status": "complete",
+        "improvement_direction": "negative"
+      },
+      "si_sdr_db": {
+        "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+        "paired_bootstrap_95_percentile_ci": [
+          -1.522688276097322e-08,
+          1.087365351755872e-07
+        ],
+        "pairs": 60,
+        "positive_pairs": 36,
+        "negative_pairs": 24,
+        "exact_ties": 0,
+        "mean_candidate_minus_baseline": 4.6740235415398966e-08,
+        "expected_pairs": 60,
+        "status": "complete",
+        "improvement_direction": "positive"
+      },
+      "snr_db": {
+        "bootstrap_method": "Paired within-language resampling, equal-weight mean of fixed language strata",
+        "paired_bootstrap_95_percentile_ci": [
+          -2.848113822399393e-07,
+          -1.6162116366014166e-07
+        ],
+        "pairs": 60,
+        "positive_pairs": 14,
+        "negative_pairs": 46,
+        "exact_ties": 0,
+        "mean_candidate_minus_baseline": -2.2350540781109393e-07,
+        "expected_pairs": 60,
+        "status": "complete",
+        "improvement_direction": "positive"
+      }
+    }
+  },
+  "per_language_candidate_minus_baseline": {
+    "fast_fp32": {
+      "bn_in": {
+        "pesq_wb": {
+          "mean_candidate_minus_baseline": 4.251797993977864e-06,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "stoi": {
+          "mean_candidate_minus_baseline": 6.436924807988002e-09,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "estoi": {
+          "mean_candidate_minus_baseline": 7.096630875539726e-09,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "utmos": {
+          "mean_candidate_minus_baseline": -3.5762786865234375e-07,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "dnsmos_sig": {
+          "mean_candidate_minus_baseline": 8.321151466391304e-07,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "dnsmos_bak": {
+          "mean_candidate_minus_baseline": -3.229501659429701e-07,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "dnsmos_ovrl": {
+          "mean_candidate_minus_baseline": 3.7131845361434063e-07,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "dnsmos_p808": {
+          "mean_candidate_minus_baseline": 2.682209014892578e-07,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "mrstft_spectral_convergence": {
+          "mean_candidate_minus_baseline": 9.835673699110092e-09,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "mrstft_log_magnitude_mae": {
+          "mean_candidate_minus_baseline": 4.967053731282552e-09,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "si_sdr_db": {
+          "mean_candidate_minus_baseline": 1.2019256789841393e-07,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "snr_db": {
+          "mean_candidate_minus_baseline": -3.1554957728256266e-07,
+          "pairs": 6,
+          "expected_pairs": 6
+        }
+      },
+      "en_us": {
+        "pesq_wb": {
+          "mean_candidate_minus_baseline": -2.6623407999674478e-06,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "stoi": {
+          "mean_candidate_minus_baseline": 8.956945204049068e-09,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "estoi": {
+          "mean_candidate_minus_baseline": 1.091890692676382e-08,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "utmos": {
+          "mean_candidate_minus_baseline": -9.934107462565105e-08,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "dnsmos_sig": {
+          "mean_candidate_minus_baseline": 1.560673119627154e-06,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "dnsmos_bak": {
+          "mean_candidate_minus_baseline": 4.796297547645286e-06,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "dnsmos_ovrl": {
+          "mean_candidate_minus_baseline": 1.6388072906492468e-06,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "dnsmos_p808": {
+          "mean_candidate_minus_baseline": -1.8477439880371094e-06,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "mrstft_spectral_convergence": {
+          "mean_candidate_minus_baseline": -2.3426733331000094e-09,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "mrstft_log_magnitude_mae": {
+          "mean_candidate_minus_baseline": -2.2351741790771484e-08,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "si_sdr_db": {
+          "mean_candidate_minus_baseline": 1.720570422432862e-07,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "snr_db": {
+          "mean_candidate_minus_baseline": 6.00617102719525e-08,
+          "pairs": 6,
+          "expected_pairs": 6
+        }
+      },
+      "es_419": {
+        "pesq_wb": {
+          "mean_candidate_minus_baseline": -1.0331471761067708e-06,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "stoi": {
+          "mean_candidate_minus_baseline": -8.216365550891188e-10,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "estoi": {
+          "mean_candidate_minus_baseline": -5.403150945178699e-09,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "utmos": {
+          "mean_candidate_minus_baseline": 6.755193074544271e-07,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "dnsmos_sig": {
+          "mean_candidate_minus_baseline": 1.4494018448403996e-06,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "dnsmos_bak": {
+          "mean_candidate_minus_baseline": 3.024429091317652e-06,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "dnsmos_ovrl": {
+          "mean_candidate_minus_baseline": 2.0066743176746136e-06,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "dnsmos_p808": {
+          "mean_candidate_minus_baseline": 1.2630508061661772e-07,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "mrstft_spectral_convergence": {
+          "mean_candidate_minus_baseline": 7.031151607698553e-09,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "mrstft_log_magnitude_mae": {
+          "mean_candidate_minus_baseline": 1.7384688059488933e-08,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "si_sdr_db": {
+          "mean_candidate_minus_baseline": 2.00100273535971e-07,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "snr_db": {
+          "mean_candidate_minus_baseline": -1.5250558327295494e-07,
+          "pairs": 6,
+          "expected_pairs": 6
+        }
+      },
+      "fr_fr": {
+        "pesq_wb": {
+          "mean_candidate_minus_baseline": 9.139378865559896e-06,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "stoi": {
+          "mean_candidate_minus_baseline": 7.783080661442435e-10,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "estoi": {
+          "mean_candidate_minus_baseline": -2.1948728982460846e-08,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "utmos": {
+          "mean_candidate_minus_baseline": -3.5762786865234375e-07,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "dnsmos_sig": {
+          "mean_candidate_minus_baseline": -1.9305583277192304e-06,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "dnsmos_bak": {
+          "mean_candidate_minus_baseline": -2.9480467758820814e-06,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "dnsmos_ovrl": {
+          "mean_candidate_minus_baseline": -2.633369827679625e-06,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "dnsmos_p808": {
+          "mean_candidate_minus_baseline": -5.614189875213782e-07,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "mrstft_spectral_convergence": {
+          "mean_candidate_minus_baseline": 3.4188242861721285e-09,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "mrstft_log_magnitude_mae": {
+          "mean_candidate_minus_baseline": 2.9802322387695312e-08,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "si_sdr_db": {
+          "mean_candidate_minus_baseline": -1.9664273853692293e-07,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "snr_db": {
+          "mean_candidate_minus_baseline": -4.159223537432884e-07,
+          "pairs": 6,
+          "expected_pairs": 6
+        }
+      },
+      "gu_in": {
+        "pesq_wb": {
+          "mean_candidate_minus_baseline": 2.86102294921875e-06,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "stoi": {
+          "mean_candidate_minus_baseline": 1.1006790127480551e-08,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "estoi": {
+          "mean_candidate_minus_baseline": 1.5033429260717195e-08,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "utmos": {
+          "mean_candidate_minus_baseline": 3.5762786865234375e-07,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "dnsmos_sig": {
+          "mean_candidate_minus_baseline": 3.315399389099601e-07,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "dnsmos_bak": {
+          "mean_candidate_minus_baseline": 4.133150721674639e-07,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "dnsmos_ovrl": {
+          "mean_candidate_minus_baseline": 5.183482499523014e-07,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "dnsmos_p808": {
+          "mean_candidate_minus_baseline": -1.907348633848708e-07,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "mrstft_spectral_convergence": {
+          "mean_candidate_minus_baseline": 9.515093874849315e-09,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "mrstft_log_magnitude_mae": {
+          "mean_candidate_minus_baseline": 2.483526865641276e-09,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "si_sdr_db": {
+          "mean_candidate_minus_baseline": -1.4737104396071268e-07,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "snr_db": {
+          "mean_candidate_minus_baseline": -4.970401056662391e-07,
+          "pairs": 6,
+          "expected_pairs": 6
+        }
+      },
+      "hi_in": {
+        "pesq_wb": {
+          "mean_candidate_minus_baseline": -1.1920928955078125e-05,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "stoi": {
+          "mean_candidate_minus_baseline": -1.2587744920485495e-09,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "estoi": {
+          "mean_candidate_minus_baseline": 2.66016283075506e-10,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "utmos": {
+          "mean_candidate_minus_baseline": 3.7749608357747394e-07,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "dnsmos_sig": {
+          "mean_candidate_minus_baseline": 6.966549025433366e-06,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "dnsmos_bak": {
+          "mean_candidate_minus_baseline": 3.5260736684472604e-05,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "dnsmos_ovrl": {
+          "mean_candidate_minus_baseline": 1.1361030051578366e-05,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "dnsmos_p808": {
+          "mean_candidate_minus_baseline": -1.1722246805826824e-06,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "mrstft_spectral_convergence": {
+          "mean_candidate_minus_baseline": 1.664161996863441e-09,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "mrstft_log_magnitude_mae": {
+          "mean_candidate_minus_baseline": -2.483526865641276e-09,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "si_sdr_db": {
+          "mean_candidate_minus_baseline": 7.49435091762507e-08,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "snr_db": {
+          "mean_candidate_minus_baseline": -2.4747585136708494e-07,
+          "pairs": 6,
+          "expected_pairs": 6
+        }
+      },
+      "kn_in": {
+        "pesq_wb": {
+          "mean_candidate_minus_baseline": -1.4702479044596355e-06,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "stoi": {
+          "mean_candidate_minus_baseline": 3.237989524655186e-09,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "estoi": {
+          "mean_candidate_minus_baseline": 1.9161529659269167e-08,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "utmos": {
+          "mean_candidate_minus_baseline": 3.9736429850260414e-08,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "dnsmos_sig": {
+          "mean_candidate_minus_baseline": 6.524827136367151e-07,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "dnsmos_bak": {
+          "mean_candidate_minus_baseline": 1.9328477980362635e-06,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "dnsmos_ovrl": {
+          "mean_candidate_minus_baseline": 6.950153165208306e-07,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "dnsmos_p808": {
+          "mean_candidate_minus_baseline": -7.720220656833495e-07,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "mrstft_spectral_convergence": {
+          "mean_candidate_minus_baseline": 2.253521970881541e-09,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "mrstft_log_magnitude_mae": {
+          "mean_candidate_minus_baseline": -1.465280850728353e-07,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "si_sdr_db": {
+          "mean_candidate_minus_baseline": 1.0345518960027296e-07,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "snr_db": {
+          "mean_candidate_minus_baseline": -3.747968158052117e-09,
+          "pairs": 6,
+          "expected_pairs": 6
+        }
+      },
+      "pt_br": {
+        "pesq_wb": {
+          "mean_candidate_minus_baseline": 3.2981236775716147e-06,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "stoi": {
+          "mean_candidate_minus_baseline": 5.2505676658339455e-09,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "estoi": {
+          "mean_candidate_minus_baseline": -1.9795702484633657e-09,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "utmos": {
+          "mean_candidate_minus_baseline": 7.947285970052083e-08,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "dnsmos_sig": {
+          "mean_candidate_minus_baseline": -2.168173847276004e-06,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "dnsmos_bak": {
+          "mean_candidate_minus_baseline": 1.601149950403169e-07,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "dnsmos_ovrl": {
+          "mean_candidate_minus_baseline": -1.3066234905897052e-06,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "dnsmos_p808": {
+          "mean_candidate_minus_baseline": 6.897108895861e-07,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "mrstft_spectral_convergence": {
+          "mean_candidate_minus_baseline": 4.197931155469625e-09,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "mrstft_log_magnitude_mae": {
+          "mean_candidate_minus_baseline": 1.4901161193847656e-08,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "si_sdr_db": {
+          "mean_candidate_minus_baseline": 1.1961689416750687e-09,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "snr_db": {
+          "mean_candidate_minus_baseline": -1.480470747476185e-07,
+          "pairs": 6,
+          "expected_pairs": 6
+        }
+      },
+      "ta_in": {
+        "pesq_wb": {
+          "mean_candidate_minus_baseline": -3.178914388020833e-07,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "stoi": {
+          "mean_candidate_minus_baseline": 1.1205579334797969e-08,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "estoi": {
+          "mean_candidate_minus_baseline": 1.5768371534422936e-08,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "utmos": {
+          "mean_candidate_minus_baseline": 4.172325134277344e-07,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "dnsmos_sig": {
+          "mean_candidate_minus_baseline": -8.486822541028023e-08,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "dnsmos_bak": {
+          "mean_candidate_minus_baseline": -5.314535157729949e-06,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "dnsmos_ovrl": {
+          "mean_candidate_minus_baseline": -2.4434102922447445e-06,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "dnsmos_p808": {
+          "mean_candidate_minus_baseline": 7.417466905135228e-07,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "mrstft_spectral_convergence": {
+          "mean_candidate_minus_baseline": 3.0608884709256343e-09,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "mrstft_log_magnitude_mae": {
+          "mean_candidate_minus_baseline": 1.4901161193847656e-08,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "si_sdr_db": {
+          "mean_candidate_minus_baseline": -1.9556326928219883e-09,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "snr_db": {
+          "mean_candidate_minus_baseline": -3.7576959736422094e-07,
+          "pairs": 6,
+          "expected_pairs": 6
+        }
+      },
+      "te_in": {
+        "pesq_wb": {
+          "mean_candidate_minus_baseline": -8.145968119303385e-06,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "stoi": {
+          "mean_candidate_minus_baseline": 7.954587766256793e-09,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "estoi": {
+          "mean_candidate_minus_baseline": 2.2811092496392387e-08,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "utmos": {
+          "mean_candidate_minus_baseline": -1.5894571940104166e-07,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "dnsmos_sig": {
+          "mean_candidate_minus_baseline": 1.643100836131358e-07,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "dnsmos_bak": {
+          "mean_candidate_minus_baseline": -1.862898305245627e-07,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "dnsmos_ovrl": {
+          "mean_candidate_minus_baseline": 4.3466084468738825e-07,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "dnsmos_p808": {
+          "mean_candidate_minus_baseline": 4.967053731282552e-07,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "mrstft_spectral_convergence": {
+          "mean_candidate_minus_baseline": 4.127128099921477e-09,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "mrstft_log_magnitude_mae": {
+          "mean_candidate_minus_baseline": -2.483526865641276e-09,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "si_sdr_db": {
+          "mean_candidate_minus_baseline": 1.4142701794857734e-07,
+          "pairs": 6,
+          "expected_pairs": 6
+        },
+        "snr_db": {
+          "mean_candidate_minus_baseline": -1.3905767678087008e-07,
+          "pairs": 6,
+          "expected_pairs": 6
+        }
+      }
+    }
+  },
+  "native_waveform_differences": {
+    "summary": {
+      "fast_fp32": {
+        "compared_clips": 60,
+        "expected_clips": 60,
+        "max_abs_across_clips": 1.6689300537109375e-06,
+        "equal_clip_mean_rmse": 2.1666993447909304e-08,
+        "bitwise_equal_clips": 0
+      }
+    },
+    "per_clip": [
+      {
+        "uid": "hi_in_00099_1919",
+        "language": "hi_in",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 489600,
+        "max_abs": 2.980232238769531e-07,
+        "rmse": 2.8265810468832328e-08,
+        "mean_signed_error": 8.688149825029631e-11,
+        "bitwise_equal": false,
+        "snr_db": 126.44468609133419,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "hi_in_00159_1941",
+        "language": "hi_in",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 270720,
+        "max_abs": 3.427267074584961e-07,
+        "rmse": 2.980291264094198e-08,
+        "mean_signed_error": 3.96503827074431e-11,
+        "bitwise_equal": false,
+        "snr_db": 131.55636085254667,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "hi_in_00281_1748",
+        "language": "hi_in",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 360000,
+        "max_abs": 1.7881393432617188e-07,
+        "rmse": 7.670522572276504e-09,
+        "mean_signed_error": 2.8287301863074958e-11,
+        "bitwise_equal": false,
+        "snr_db": 127.29980742087164,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "hi_in_00190_1885",
+        "language": "hi_in",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 299520,
+        "max_abs": 1.3690441846847534e-07,
+        "rmse": 8.596430878892802e-09,
+        "mean_signed_error": 2.97722163334494e-11,
+        "bitwise_equal": false,
+        "snr_db": 120.60344286180316,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "hi_in_00292_1691",
+        "language": "hi_in",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 483840,
+        "max_abs": 4.470348358154297e-07,
+        "rmse": 2.5298661877169336e-08,
+        "mean_signed_error": 3.2772841062061696e-12,
+        "bitwise_equal": false,
+        "snr_db": 127.87134065000346,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "hi_in_00211_1943",
+        "language": "hi_in",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 512640,
+        "max_abs": 1.2665987014770508e-07,
+        "rmse": 1.023846783646935e-08,
+        "mean_signed_error": 3.244397494015749e-11,
+        "bitwise_equal": false,
+        "snr_db": 127.96769828043375,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "bn_in_00633_1820",
+        "language": "bn_in",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 368640,
+        "max_abs": 3.725290298461914e-07,
+        "rmse": 1.778840679886173e-08,
+        "mean_signed_error": 1.021384503402081e-10,
+        "bitwise_equal": false,
+        "snr_db": 127.36228902174717,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "bn_in_00582_1926",
+        "language": "bn_in",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 325440,
+        "max_abs": 3.650784492492676e-07,
+        "rmse": 2.028912773863541e-08,
+        "mean_signed_error": 4.817223975775232e-11,
+        "bitwise_equal": false,
+        "snr_db": 124.79025442587582,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "bn_in_00735_1676",
+        "language": "bn_in",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 348480,
+        "max_abs": 4.023313522338867e-07,
+        "rmse": 2.4713377204261038e-08,
+        "mean_signed_error": 1.264706742655088e-10,
+        "bitwise_equal": false,
+        "snr_db": 126.54622829586147,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "bn_in_00208_1709",
+        "language": "bn_in",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 555840,
+        "max_abs": 6.92903995513916e-07,
+        "rmse": 2.3961286371570895e-08,
+        "mean_signed_error": 4.1477740704899985e-11,
+        "bitwise_equal": false,
+        "snr_db": 122.73120440318783,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "bn_in_00221_1754",
+        "language": "bn_in",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 504000,
+        "max_abs": 5.364418029785156e-07,
+        "rmse": 2.6035597513701745e-08,
+        "mean_signed_error": -8.787109523256826e-13,
+        "bitwise_equal": false,
+        "snr_db": 127.62341202300888,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "bn_in_00151_1818",
+        "language": "bn_in",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 478080,
+        "max_abs": 3.855675458908081e-07,
+        "rmse": 1.6626271394113786e-08,
+        "mean_signed_error": 6.963127342127651e-11,
+        "bitwise_equal": false,
+        "snr_db": 125.85589044199061,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "gu_in_00926_1827",
+        "language": "gu_in",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 377280,
+        "max_abs": 3.3155083656311035e-07,
+        "rmse": 1.8704199170328456e-08,
+        "mean_signed_error": 5.300997292616971e-11,
+        "bitwise_equal": false,
+        "snr_db": 123.52685988421666,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "gu_in_00420_1858",
+        "language": "gu_in",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 380160,
+        "max_abs": 2.980232238769531e-07,
+        "rmse": 2.563920539662708e-08,
+        "mean_signed_error": 4.1280540762675e-11,
+        "bitwise_equal": false,
+        "snr_db": 126.74782094957409,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "gu_in_00713_1781",
+        "language": "gu_in",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 348480,
+        "max_abs": 5.513429641723633e-07,
+        "rmse": 1.921319970309674e-08,
+        "mean_signed_error": 8.833645538266985e-11,
+        "bitwise_equal": false,
+        "snr_db": 123.3885308991536,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "gu_in_00478_1731",
+        "language": "gu_in",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 216000,
+        "max_abs": 2.9616057872772217e-07,
+        "rmse": 1.2048632047820432e-08,
+        "mean_signed_error": 4.411272715030803e-11,
+        "bitwise_equal": false,
+        "snr_db": 125.62596204758361,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "gu_in_00337_1978",
+        "language": "gu_in",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 230400,
+        "max_abs": 2.384185791015625e-07,
+        "rmse": 1.60879741488824e-08,
+        "mean_signed_error": 7.285083990366945e-11,
+        "bitwise_equal": false,
+        "snr_db": 121.49840001037552,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "gu_in_00528_1697",
+        "language": "gu_in",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 293760,
+        "max_abs": 2.8312206268310547e-07,
+        "rmse": 1.8988512244248494e-08,
+        "mean_signed_error": 2.5372970101147465e-11,
+        "bitwise_equal": false,
+        "snr_db": 124.47511657469812,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "ta_in_00494_1946",
+        "language": "ta_in",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 472320,
+        "max_abs": 5.908077582716942e-08,
+        "rmse": 3.994749386186679e-09,
+        "mean_signed_error": 2.7841835419787692e-11,
+        "bitwise_equal": false,
+        "snr_db": 125.46853498119525,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "ta_in_00394_2003",
+        "language": "ta_in",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 377280,
+        "max_abs": 4.544854164123535e-07,
+        "rmse": 3.4024335697152524e-08,
+        "mean_signed_error": 6.507511270965535e-11,
+        "bitwise_equal": false,
+        "snr_db": 127.28225063438217,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "ta_in_00447_1742",
+        "language": "ta_in",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 510720,
+        "max_abs": 1.9371509552001953e-07,
+        "rmse": 1.0956414176864235e-08,
+        "mean_signed_error": 5.150804766694797e-11,
+        "bitwise_equal": false,
+        "snr_db": 128.10259481833862,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "ta_in_00201_1938",
+        "language": "ta_in",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 435840,
+        "max_abs": 1.6391277313232422e-07,
+        "rmse": 1.2006915815263333e-08,
+        "mean_signed_error": -1.9502333636085318e-11,
+        "bitwise_equal": false,
+        "snr_db": 128.19905195980016,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "ta_in_00077_1834",
+        "language": "ta_in",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 512640,
+        "max_abs": 1.2516975402832031e-06,
+        "rmse": 6.382966297840745e-08,
+        "mean_signed_error": 8.243249487776696e-11,
+        "bitwise_equal": false,
+        "snr_db": 121.50214317993891,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "ta_in_00012_1740",
+        "language": "ta_in",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 371520,
+        "max_abs": 3.166496753692627e-07,
+        "rmse": 2.784246994269296e-08,
+        "mean_signed_error": -6.57512731217081e-12,
+        "bitwise_equal": false,
+        "snr_db": 129.061698075894,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "te_in_00114_1911",
+        "language": "te_in",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 512640,
+        "max_abs": 1.4156103134155273e-07,
+        "rmse": 8.29476052546935e-09,
+        "mean_signed_error": 6.257321750582423e-11,
+        "bitwise_equal": false,
+        "snr_db": 123.05498073070896,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "te_in_00185_1914",
+        "language": "te_in",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 564480,
+        "max_abs": 1.257285475730896e-07,
+        "rmse": 8.224142143840613e-09,
+        "mean_signed_error": 2.8525669102435166e-11,
+        "bitwise_equal": false,
+        "snr_db": 126.90610668100881,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "te_in_00471_1768",
+        "language": "te_in",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 495360,
+        "max_abs": 2.384185791015625e-07,
+        "rmse": 1.6105044720212635e-08,
+        "mean_signed_error": 4.5375423943816126e-11,
+        "bitwise_equal": false,
+        "snr_db": 126.17482384921527,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "te_in_00267_1838",
+        "language": "te_in",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 241920,
+        "max_abs": 1.471489667892456e-07,
+        "rmse": 7.45041358202207e-09,
+        "mean_signed_error": 7.038716135516624e-11,
+        "bitwise_equal": false,
+        "snr_db": 126.94428994177132,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "te_in_00228_1918",
+        "language": "te_in",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 538560,
+        "max_abs": 1.043081283569336e-07,
+        "rmse": 5.779742498049209e-09,
+        "mean_signed_error": 3.8039291445797226e-11,
+        "bitwise_equal": false,
+        "snr_db": 125.02054940420079,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "te_in_00016_1969",
+        "language": "te_in",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 524160,
+        "max_abs": 1.0058283805847168e-07,
+        "rmse": 6.3168303393686026e-09,
+        "mean_signed_error": 4.621620687222484e-11,
+        "bitwise_equal": false,
+        "snr_db": 126.64876360637518,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "kn_in_00584_1904",
+        "language": "kn_in",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 506880,
+        "max_abs": 1.1920928955078125e-06,
+        "rmse": 7.296371274278452e-08,
+        "mean_signed_error": -4.0581669150598817e-10,
+        "bitwise_equal": false,
+        "snr_db": 127.2804428077442,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "kn_in_00073_1705",
+        "language": "kn_in",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 564480,
+        "max_abs": 2.9802322387695312e-08,
+        "rmse": 2.4979393311849084e-09,
+        "mean_signed_error": 5.4922522843445744e-12,
+        "bitwise_equal": false,
+        "snr_db": 125.79638533892208,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "kn_in_00788_1926",
+        "language": "kn_in",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 457920,
+        "max_abs": 1.862645149230957e-08,
+        "rmse": 1.9784980442939497e-09,
+        "mean_signed_error": 8.557735332157496e-12,
+        "bitwise_equal": false,
+        "snr_db": 125.70136416757927,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "kn_in_00793_1839",
+        "language": "kn_in",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 354240,
+        "max_abs": 1.430511474609375e-06,
+        "rmse": 1.0121498473480205e-07,
+        "mean_signed_error": -1.4819205114265483e-10,
+        "bitwise_equal": false,
+        "snr_db": 126.13740923115024,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "kn_in_00227_1844",
+        "language": "kn_in",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 535680,
+        "max_abs": 1.6689300537109375e-06,
+        "rmse": 1.0311759092616507e-07,
+        "mean_signed_error": 8.157809307736724e-10,
+        "bitwise_equal": false,
+        "snr_db": 127.0076075208538,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "kn_in_00542_1781",
+        "language": "kn_in",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 403200,
+        "max_abs": 3.4924596548080444e-08,
+        "rmse": 2.1939461942734744e-09,
+        "mean_signed_error": 2.631551876761074e-12,
+        "bitwise_equal": false,
+        "snr_db": 125.43457489784774,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "en_us_00103_1779",
+        "language": "en_us",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 518400,
+        "max_abs": 1.7695128917694092e-08,
+        "rmse": 1.587030417686149e-09,
+        "mean_signed_error": 2.3872410324252853e-12,
+        "bitwise_equal": false,
+        "snr_db": 123.36944227776019,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "en_us_00344_1948",
+        "language": "en_us",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 489600,
+        "max_abs": 1.4235411072149873e-08,
+        "rmse": 9.81650307460022e-10,
+        "mean_signed_error": 4.113620547386238e-12,
+        "bitwise_equal": false,
+        "snr_db": 117.39164380827653,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "en_us_00133_1765",
+        "language": "en_us",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 567360,
+        "max_abs": 2.3050233721733093e-08,
+        "rmse": 1.3892156551533196e-09,
+        "mean_signed_error": 9.173086565689638e-12,
+        "bitwise_equal": false,
+        "snr_db": 120.13418519360388,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "en_us_00287_1786",
+        "language": "en_us",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 371520,
+        "max_abs": 2.8870999813079834e-08,
+        "rmse": 8.34243001826763e-10,
+        "mean_signed_error": 4.672923298115797e-12,
+        "bitwise_equal": false,
+        "snr_db": 117.71556556262482,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "en_us_00557_1707",
+        "language": "en_us",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 524160,
+        "max_abs": 2.2351741790771484e-08,
+        "rmse": 1.7780578926690406e-09,
+        "mean_signed_error": -2.4408485140985972e-12,
+        "bitwise_equal": false,
+        "snr_db": 124.37985285144968,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "en_us_00565_1837",
+        "language": "en_us",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 492480,
+        "max_abs": 6.854534149169922e-07,
+        "rmse": 1.6607728781302282e-08,
+        "mean_signed_error": 5.750120126240521e-11,
+        "bitwise_equal": false,
+        "snr_db": 129.1764623998863,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "es_419_00646_1781",
+        "language": "es_419",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 394560,
+        "max_abs": 7.897615432739258e-07,
+        "rmse": 4.4437815766107196e-08,
+        "mean_signed_error": 1.6703221730866477e-10,
+        "bitwise_equal": false,
+        "snr_db": 127.27747008578407,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "es_419_00706_1731",
+        "language": "es_419",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 325440,
+        "max_abs": 4.76837158203125e-07,
+        "rmse": 3.28692236367252e-08,
+        "mean_signed_error": 3.526169924170395e-11,
+        "bitwise_equal": false,
+        "snr_db": 126.98981763594988,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "es_419_00172_1698",
+        "language": "es_419",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 495360,
+        "max_abs": 4.172325134277344e-07,
+        "rmse": 2.2978894236060558e-08,
+        "mean_signed_error": 1.0976152086890492e-11,
+        "bitwise_equal": false,
+        "snr_db": 128.04519856501994,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "es_419_00060_1994",
+        "language": "es_419",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 443520,
+        "max_abs": 2.682209014892578e-07,
+        "rmse": 1.5281783851471517e-08,
+        "mean_signed_error": 4.069302102073359e-11,
+        "bitwise_equal": false,
+        "snr_db": 128.39751196034675,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "es_419_00787_1941",
+        "language": "es_419",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 397440,
+        "max_abs": 1.9371509552001953e-07,
+        "rmse": 1.2488871170317293e-08,
+        "mean_signed_error": 2.6836880783039567e-11,
+        "bitwise_equal": false,
+        "snr_db": 128.21875503047974,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "es_419_00899_1738",
+        "language": "es_419",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 555840,
+        "max_abs": 2.0815059542655945e-07,
+        "rmse": 1.6438315738032664e-08,
+        "mean_signed_error": 3.660101042680157e-11,
+        "bitwise_equal": false,
+        "snr_db": 127.02424043235649,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "fr_fr_00129_1717",
+        "language": "fr_fr",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 423360,
+        "max_abs": 4.246830940246582e-07,
+        "rmse": 1.7311560139704825e-08,
+        "mean_signed_error": 2.411963662778294e-11,
+        "bitwise_equal": false,
+        "snr_db": 120.17574041670446,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "fr_fr_00374_1935",
+        "language": "fr_fr",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 264960,
+        "max_abs": 4.7963112592697144e-08,
+        "rmse": 3.4559800420612527e-09,
+        "mean_signed_error": 1.766942452171932e-11,
+        "bitwise_equal": false,
+        "snr_db": 124.73549671202433,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "fr_fr_00257_1874",
+        "language": "fr_fr",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 486720,
+        "max_abs": 9.238719940185547e-07,
+        "rmse": 1.8092313620875962e-08,
+        "mean_signed_error": 5.428020448468649e-11,
+        "bitwise_equal": false,
+        "snr_db": 126.91248504614899,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "fr_fr_00045_1736",
+        "language": "fr_fr",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 201600,
+        "max_abs": 2.076849341392517e-07,
+        "rmse": 1.662117924169413e-08,
+        "mean_signed_error": -1.0889920455692083e-11,
+        "bitwise_equal": false,
+        "snr_db": 128.13196068567046,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "fr_fr_00644_1660",
+        "language": "fr_fr",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 354240,
+        "max_abs": 2.682209014892578e-07,
+        "rmse": 1.1241517632378517e-08,
+        "mean_signed_error": 2.940278362971919e-11,
+        "bitwise_equal": false,
+        "snr_db": 121.66599701262236,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "fr_fr_00041_1714",
+        "language": "fr_fr",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 469440,
+        "max_abs": 4.116445779800415e-07,
+        "rmse": 1.6156199270433536e-08,
+        "mean_signed_error": 5.214856145938053e-11,
+        "bitwise_equal": false,
+        "snr_db": 125.2595875419421,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "pt_br_00672_1745",
+        "language": "pt_br",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 449280,
+        "max_abs": 2.942979335784912e-07,
+        "rmse": 1.9301281363099277e-08,
+        "mean_signed_error": 5.826262504806835e-11,
+        "bitwise_equal": false,
+        "snr_db": 125.39433173611961,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "pt_br_00499_1674",
+        "language": "pt_br",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 411840,
+        "max_abs": 3.5762786865234375e-07,
+        "rmse": 2.5477538717556378e-08,
+        "mean_signed_error": 8.742604604088009e-11,
+        "bitwise_equal": false,
+        "snr_db": 128.88153363544023,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "pt_br_00046_2003",
+        "language": "pt_br",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 552960,
+        "max_abs": 1.2218952178955078e-06,
+        "rmse": 7.333589285839123e-08,
+        "mean_signed_error": -4.5773619253877585e-11,
+        "bitwise_equal": false,
+        "snr_db": 126.11061399749963,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "pt_br_00031_1676",
+        "language": "pt_br",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 437760,
+        "max_abs": 3.6694109439849854e-07,
+        "rmse": 2.3561136535604226e-08,
+        "mean_signed_error": 5.350392187249345e-11,
+        "bitwise_equal": false,
+        "snr_db": 121.45173127747023,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "pt_br_00677_1747",
+        "language": "pt_br",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 319680,
+        "max_abs": 7.338821887969971e-07,
+        "rmse": 2.9891169489833506e-08,
+        "mean_signed_error": 2.8693618863422637e-11,
+        "bitwise_equal": false,
+        "snr_db": 127.55572813756649,
+        "snr_status": "finite"
+      },
+      {
+        "uid": "pt_br_00325_1975",
+        "language": "pt_br",
+        "model": "fast_fp32",
+        "baseline": "audio_stock",
+        "status": "same_native_rate_and_shape",
+        "sample_rate": 48000,
+        "samples": 489600,
+        "max_abs": 5.960464477539062e-07,
+        "rmse": 3.9140257722349404e-08,
+        "mean_signed_error": -3.372722167272276e-11,
+        "bitwise_equal": false,
+        "snr_db": 123.9029057913034,
+        "snr_status": "finite"
+      }
+    ],
+    "meaning": "Numerical differences from supplied baseline at unchanged native rate; no quality threshold inferred"
+  }
+}
