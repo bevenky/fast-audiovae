@@ -6,6 +6,12 @@ import json
 def main():
     parser = argparse.ArgumentParser(description="Prepare or inspect an AudioVAE2 CPU decoder")
     commands = parser.add_subparsers(dest="command", required=True)
+    automatic = commands.add_parser("setup", help="Automatically prepare the CPU recipe and cache its weights")
+    automatic.add_argument("--mode", choices=("streaming", "batch", "both"), default="streaming")
+    automatic.add_argument("--threads", type=int, default=1)
+    automatic.add_argument("--cache-dir")
+    automatic.add_argument("--source", help="Local pinned model for offline preparation")
+    automatic.add_argument("--offline", action="store_true")
     prepare = commands.add_parser("prepare", help="Download the pinned weights and prepare a CPU model bundle")
     prepare.add_argument("--output", default="artifacts")
     prepare.add_argument("--source", help="Use a local copy of the pinned ONNX export")
@@ -26,7 +32,11 @@ def main():
     inspect.add_argument("--amd-packed", action="store_true")
     inspect.add_argument("--streaming", action="store_true")
     args = parser.parse_args()
-    if args.command == "prepare":
+    if args.command == "setup":
+        from .automatic import setup
+        selected = setup(mode=args.mode, threads=args.threads, cache_dir=args.cache_dir,
+                         source=args.source, offline=args.offline)
+    elif args.command == "prepare":
         from .prepare import prepare as prepare_bundle
         selected = prepare_bundle(args.output, source=args.source, native_build=args.native_build,
                                   amd_build=args.amd_build, block_fusion=args.block_fusion,
