@@ -1,0 +1,299 @@
+{
+  "version": "0.2.0",
+  "status": "passed",
+  "scope": "Installed package output parity against previously accepted native bundles. No new RTF benchmark.",
+  "unit_tests_passed": 257,
+  "subtests_passed": 1959,
+  "packaged_resource_files": 94,
+  "native_payload_hashes_verified": true,
+  "native_arithmetic_changed": false,
+  "elf_relocation": "Only dynamic dependency names and search paths changed; executable and math/data sections are byte-identical.",
+  "reference": "Accepted canonical full decoder for Intel and AMD; accepted Apple full decoder.",
+  "waveform_gate": {
+    "Intel and AMD": "bitwise",
+    "Apple": {
+      "atol": 1e-05,
+      "rtol": 0.0001
+    }
+  },
+  "platforms": {
+    "Apple M5 Max": {
+      "streaming_recipe": "apple_stream_projection",
+      "batch_recipe": "apple_native",
+      "threads": 1,
+      "providers": [
+        "CPUExecutionProvider"
+      ],
+      "onnxruntime": "1.29.0",
+      "numpy": "2.5.3",
+      "setup_validation": "Streaming and batch prepared in the same cache.",
+      "default_streaming": true,
+      "cache_reuse": true,
+      "cache_reuse_mode": "streaming",
+      "dependency_validation": "Fresh isolated environment and official published dependencies.",
+      "compiler_discovery_disabled": true,
+      "checks": [
+        {
+          "case": "batch",
+          "samples": 24960,
+          "bitwise": true,
+          "max_abs": 0.0,
+          "passed": true
+        },
+        {
+          "case": "stream_1",
+          "samples": 24960,
+          "bitwise": false,
+          "max_abs": 1.6391277313232422e-07,
+          "passed": true
+        },
+        {
+          "case": "reset_1",
+          "samples": 24960,
+          "bitwise": false,
+          "max_abs": 1.6391277313232422e-07,
+          "passed": true
+        },
+        {
+          "case": "stream_2",
+          "samples": 24960,
+          "bitwise": false,
+          "max_abs": 1.6391277313232422e-07,
+          "passed": true
+        },
+        {
+          "case": "reset_2",
+          "samples": 24960,
+          "bitwise": false,
+          "max_abs": 1.6391277313232422e-07,
+          "passed": true
+        },
+        {
+          "case": "stream_4",
+          "samples": 24960,
+          "bitwise": false,
+          "max_abs": 1.6391277313232422e-07,
+          "passed": true
+        },
+        {
+          "case": "reset_4",
+          "samples": 24960,
+          "bitwise": false,
+          "max_abs": 1.6391277313232422e-07,
+          "passed": true
+        }
+      ]
+    },
+    "Intel Xeon Platinum 8280 VM": {
+      "streaming_recipe": "intel_stream_projection",
+      "batch_recipe": "intel_precision",
+      "threads": 1,
+      "providers": [
+        "CPUExecutionProvider"
+      ],
+      "onnxruntime": "1.29.0",
+      "numpy": "2.2.6",
+      "setup_validation": "Separate complete cold caches per mode due limited disk capacity. Initial combined batch preparation ran out of disk before any waveform checks.",
+      "default_streaming": true,
+      "cache_reuse": true,
+      "cache_reuse_mode": "streaming",
+      "dependency_validation": "Fresh final wheel and official ONNX1.22 target; reused established published ORT1.29 and NumPy dependencies for disk capacity",
+      "compiler_discovery_disabled": true,
+      "checks": [
+        {
+          "case": "batch",
+          "samples": 24960,
+          "bitwise": true,
+          "max_abs": 0.0,
+          "passed": true
+        },
+        {
+          "case": "stream_1",
+          "samples": 24960,
+          "bitwise": true,
+          "max_abs": 0.0,
+          "passed": true
+        },
+        {
+          "case": "reset_1",
+          "samples": 24960,
+          "bitwise": true,
+          "max_abs": 0.0,
+          "passed": true
+        },
+        {
+          "case": "stream_2",
+          "samples": 24960,
+          "bitwise": true,
+          "max_abs": 0.0,
+          "passed": true
+        },
+        {
+          "case": "reset_2",
+          "samples": 24960,
+          "bitwise": true,
+          "max_abs": 0.0,
+          "passed": true
+        },
+        {
+          "case": "stream_4",
+          "samples": 24960,
+          "bitwise": true,
+          "max_abs": 0.0,
+          "passed": true
+        },
+        {
+          "case": "reset_4",
+          "samples": 24960,
+          "bitwise": true,
+          "max_abs": 0.0,
+          "passed": true
+        }
+      ]
+    },
+    "AMD EPYC 9654": {
+      "streaming_recipe": "amd_precision",
+      "batch_recipe": "amd_precision",
+      "threads": 1,
+      "providers": [
+        "CPUExecutionProvider"
+      ],
+      "onnxruntime": "1.29.0",
+      "numpy": "2.5.3",
+      "setup_validation": "Streaming and batch prepared in the same cache.",
+      "default_streaming": true,
+      "cache_reuse": true,
+      "cache_reuse_mode": "streaming",
+      "dependency_validation": "Fresh isolated environment and official published dependencies.",
+      "compiler_discovery_disabled": true,
+      "checks": [
+        {
+          "case": "batch",
+          "samples": 24960,
+          "bitwise": true,
+          "max_abs": 0.0,
+          "passed": true
+        },
+        {
+          "case": "stream_1",
+          "samples": 24960,
+          "bitwise": true,
+          "max_abs": 0.0,
+          "passed": true
+        },
+        {
+          "case": "reset_1",
+          "samples": 24960,
+          "bitwise": true,
+          "max_abs": 0.0,
+          "passed": true
+        },
+        {
+          "case": "stream_2",
+          "samples": 24960,
+          "bitwise": true,
+          "max_abs": 0.0,
+          "passed": true
+        },
+        {
+          "case": "reset_2",
+          "samples": 24960,
+          "bitwise": true,
+          "max_abs": 0.0,
+          "passed": true
+        },
+        {
+          "case": "stream_4",
+          "samples": 24960,
+          "bitwise": true,
+          "max_abs": 0.0,
+          "passed": true
+        },
+        {
+          "case": "reset_4",
+          "samples": 24960,
+          "bitwise": true,
+          "max_abs": 0.0,
+          "passed": true
+        }
+      ]
+    }
+  },
+  "graph_preparation_disk": {
+    "native_execution": false,
+    "model_inference": false,
+    "rewriter_commands": 7,
+    "selected_sha256": "26b545641a43380b2f012c44f600f9e9f4413f424402bb35d9aa758b45849304",
+    "observed_peak_allocated_graph_bytes": 1099902976,
+    "final_allocated_graph_bytes": 183304192,
+    "steps": [
+      {
+        "script": "experiments/cpu-stage/stage/rewrite.py",
+        "allocated_bytes": 366645248,
+        "graph_count": 2
+      },
+      {
+        "script": "experiments/cpu-stage/stage/rewrite.py",
+        "allocated_bytes": 549953536,
+        "graph_count": 3
+      },
+      {
+        "script": "experiments/cpu-stage/stage/rewrite.py",
+        "allocated_bytes": 733286400,
+        "graph_count": 4
+      },
+      {
+        "script": "experiments/cpu-stage/mkl/prepare_decoder.py",
+        "allocated_bytes": 916647936,
+        "graph_count": 5
+      },
+      {
+        "script": "experiments/cpu-stage/compose_candidates.py",
+        "allocated_bytes": 1099902976,
+        "graph_count": 6
+      },
+      {
+        "script": "experiments/cpu-stage/upsample/rewrite.py",
+        "allocated_bytes": 366530560,
+        "graph_count": 2
+      },
+      {
+        "script": "experiments/intel-precision/tools/rewrite.py",
+        "allocated_bytes": 733020160,
+        "graph_count": 4
+      }
+    ]
+  },
+  "artifacts": [
+    {
+      "file": "fast_audiovae-0.2.0-py3-none-any.whl",
+      "bytes": 378231,
+      "sha256": "79c808e103b289580f1863bc49f318c4f492290d6162a01d33f7495670cc6372",
+      "wheel_metadata": "Wheel-Version: 1.0\nGenerator: setuptools (84.0.0)\nRoot-Is-Purelib: true\nTag: py3-none-any",
+      "package_python_matches_source": true
+    },
+    {
+      "file": "fast_audiovae-0.2.0-py3-none-linux_x86_64.whl",
+      "bytes": 179758747,
+      "sha256": "2e452d55c6231ce230201a6a97cf41f6a02850824cd02e9af446b2f89f60c35b",
+      "wheel_metadata": "Wheel-Version: 1.0\nGenerator: setuptools (84.0.0)\nRoot-Is-Purelib: false\nTag: py3-none-linux_x86_64",
+      "native_files": 59,
+      "native_hashes_passed": true,
+      "package_python_matches_source": true
+    },
+    {
+      "file": "fast_audiovae-0.2.0-py3-none-macosx_26_0_arm64.whl",
+      "bytes": 419857,
+      "sha256": "b23669a68163577d49472d6510173abc181e1f67bd5669833340f357f09057f7",
+      "wheel_metadata": "Wheel-Version: 1.0\nGenerator: setuptools (84.0.0)\nRoot-Is-Purelib: false\nTag: py3-none-macosx_26_0_arm64",
+      "native_files": 4,
+      "native_hashes_passed": true,
+      "package_python_matches_source": true
+    },
+    {
+      "file": "fast_audiovae-0.2.0.tar.gz",
+      "bytes": 345293,
+      "sha256": "3472353757bdc3bd0c5eb000e9003a13e0a305a7f9d0121b5ebf4b3c9c9b6e50"
+    }
+  ]
+}

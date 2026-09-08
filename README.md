@@ -4,29 +4,28 @@ Fast CPU inference for VoxCPM2's AudioVAE2 decoder, using ONNX graph rewrites an
 
 ## Run
 
-Use Python 3.11 to 3.13. Native builds need Apple Command Line Tools on Apple ARM, or a C/C++ compiler, CMake and Make on Linux x86.
+Use Python 3.11 to 3.13. Install from the release wheels; pip picks the platform automatically:
 
 ```sh
-git clone https://github.com/bevenky/fast-audiovae.git
-cd fast-audiovae
-python -m pip install -e .
-python tools/build.py
-fast-audiovae prepare --output artifacts --streaming
+python -m pip install fast-audiovae==0.2.0 --find-links https://github.com/bevenky/fast-audiovae/releases/expanded_assets/v0.2.0
 ```
 
-Build and prepare on each target machine. Setup downloads pinned dependencies and model files. With uv, use `uv pip install -e .` inside an activated environment.
+With uv, use `uv pip install` with the same arguments. The first load downloads the pinned weights and prepares a local cache. Native wheels include the kernels and their CPU dependencies; no compiler or kernel flags are needed.
 
 ```python
-from fast_audiovae import load_decoder
+from fast_audiovae import load
 
-session, selected = load_decoder("artifacts")
-# latents: contiguous NumPy float32 array, shape [1, 64, L]
-audio = session.run(None, {session.get_inputs()[0].name: latents})[0]
+decoder = load()  # Streaming is the default.
+with decoder.stream() as stream:
+    # Pass only new latents: NumPy float32, shape [1, 64, L].
+    audio = stream.decode_chunk(latents)
 ```
 
-For live audio, use `load_streaming_decoder` and pass new latent chunks to `stream.decode_chunk()`. [Streaming usage and validation](docs/streaming.md).
+For a complete latent sequence, use `decoder = load(mode="batch")`, then `audio = decoder.decode(latents)`. Both return 48 kHz audio. [Streaming usage and validation](docs/streaming.md).
 
-Inference uses the CPU only. The loader automatically detects compatible CPU instructions and falls back to standard ONNX when needed. Set `threads` explicitly for a CPU quota; otherwise the loader uses up to four visible CPUs.
+The loader selects the retained Apple, Intel or AMD recipe for the requested mode. Inference uses the CPU only and defaults to one thread. `decoder.info` shows the selection. Unsupported CPU or OS combinations use standard ONNX with an explicit fallback message.
+
+Native wheels currently cover Apple ARM on macOS 26.2 or newer and compatible Intel/AMD Linux x86 systems with glibc 2.38 or newer. The loader also checks native library compatibility before using them.
 
 The tables below report the previously accepted full-clip builds. [Streaming validation](docs/streaming.md#validation-results) covers the new API.
 
@@ -42,7 +41,7 @@ This table compares full-clip decoding. Lower RTF is better. RTF is total decodi
 
 CPU-only, ONNX Runtime 1.29. Base, optimized and Mimi values are matched within each row: ten clips on Apple and Intel, three on AMD, with five repetitions after warmup. DAC timings come from the earlier comparison and are shown for reference.
 
-Setup and measured results: [Apple](docs/apple-precision.md), [AMD](experiments/amd-precision/README.md), [Intel](experiments/intel-precision/README.md). The optimized Intel and AMD results use these setup recipes; they are not yet selected automatically.
+Measured results: [Apple](docs/apple-precision.md), [AMD](experiments/amd-precision/README.md), [Intel](experiments/intel-precision/README.md). These full-clip measurements use the thread counts shown; they are separate from the default one-thread streaming path.
 
 ## Reconstruction quality
 

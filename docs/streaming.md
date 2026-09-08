@@ -4,7 +4,23 @@ Streaming uses AudioVAE2's existing weights and causal history. Pass only new la
 
 ## Prepare and load
 
-Prepare streaming alongside a new model bundle:
+The automatic loader prepares the right CPU recipe on first use. Streaming and one inference thread are the defaults:
+
+```python
+from fast_audiovae import load
+
+decoder = load()
+with decoder.stream() as stream:
+    for latents in latent_chunks:
+        audio = stream.decode_chunk(latents)
+        play_or_send(audio)
+```
+
+No kernel flags or compiler are needed with a supported platform wheel. Use `load(mode="batch")` for full-sequence calls. `decoder.info` reports the selected recipe and any fallback. To prepare the cache ahead of time, run `fast-audiovae setup`; `--mode both` also prepares batch mode. Set `FAST_AUDIOVAE_CACHE` to choose a different cache location.
+
+### Existing model bundles
+
+The original explicit bundle API remains available. Prepare streaming alongside a manually prepared bundle:
 
 ```sh
 fast-audiovae prepare --output artifacts --streaming
@@ -42,7 +58,7 @@ fast-audiovae inspect artifacts --streaming
 
 ## Existing INT8 recipes
 
-Intel and AMD INT8 bundles require an explicit preparation option:
+The automatic loader handles the retained Intel and AMD recipes. When managing an existing INT8 bundle manually, use this preparation option:
 
 ```sh
 fast-audiovae prepare-streaming artifacts --canonical-precision
@@ -94,7 +110,7 @@ The [streaming projection recipes](../experiments/streaming-matrix/README.md) im
 
 These are new paired measurements on three frozen multilingual clips, with two warmups and five measured repetitions. Every clip improved at both chunk sizes. Each variant passed 126 timed waveform checks, 72 state checks and 180 complete streams across all 60 multilingual clips at 40, 80 and 160 ms. Intel remained bitwise identical to its accepted full decoder. Apple passed the existing strict tolerances against both accepted and stored upstream outputs, with maximum difference 3.93e-6 against the accepted decoder. [Results and provenance](../benchmarks/streaming/projection.json). Mimi was not rerun in this experiment, so use the earlier comparison below as historical context rather than a freshly matched speed ratio.
 
-The full-call graph is byte-identical between the paired variants. Its control timings varied by 4.0% on Apple and 0.2% on Intel; no full-call improvement is claimed. The recipes apply to streaming, and automatic setup does not yet select them.
+The full-call graph is byte-identical between the paired variants. Its control timings varied by 4.0% on Apple and 0.2% on Intel; no full-call improvement is claimed. The automatic loader selects these projection recipes for one-thread streaming on their respective CPUs.
 
 ### Earlier matched one-thread comparison
 
@@ -113,7 +129,7 @@ The table averages per-clip medians across three frozen Bengali, English and Spa
 
 All 405 runs passed waveform and sample-count checks; independent audits checked 25,830 raw calls. Intel and AMD optimized streaming outputs are bitwise identical to their corresponding full outputs. Other paths passed `atol=1e-5`, `rtol=1e-4`, with maximum absolute error below 7.25e-7. These checks establish streaming parity, not equal quality between codecs.
 
-The optimized native kernels were active. Intel and AMD used explicitly prepared one-worker graphs with unchanged weights; automatic preparation of those schedules is still pending. These results must not be mixed with the earlier two- and four-thread measurements below. [Results and provenance](../benchmarks/streaming/one-thread.json).
+The optimized native kernels were active. Intel and AMD used one-worker graphs with unchanged weights. Automatic preparation now reproduces those schedules. These results must not be mixed with the earlier two- and four-thread measurements below. [Results and provenance](../benchmarks/streaming/one-thread.json).
 
 ### Earlier multi-thread validation
 
@@ -129,7 +145,7 @@ Full-clip regression screens used the same preselected clip and three randomized
 
 The new Intel and AMD full outputs are bitwise identical across all 60 clips. Comparing the new output with the accepted AMD output completed all 12 quality metrics with no errors. PESQ is unchanged at 3.71737024; STOI, UTMOS and DNSMOS overall remain 0.934448, 2.251605 and 2.760339 at the displayed precision. At native 48 kHz, only 91 of 25,683,840 samples changed, with maximum difference 5.96e-8. No meaningful degradation was detected on this corpus. This retains the earlier accepted quantization approximation; it is not a claim of exact agreement with the original FP32 decoder or a new human listening study.
 
-[Validation summary and source hashes](../benchmarks/streaming/summary.json). The local suite passed 183 tests and 1,944 subtests. These results validate the prepared CPU bundles; relocating all Intel and AMD library dependencies into distributable wheels remains separate work.
+[Validation summary and source hashes](../benchmarks/streaming/summary.json). The original streaming suite passed 183 tests and 1,944 subtests. Platform wheels now include the native dependencies; installation checks are separate from these recorded decoder measurements.
 
 The optional encoder retains its existing 16 kHz input. This API streams decoder latents to 48 kHz audio; it does not add a stateful encoder API.
 
