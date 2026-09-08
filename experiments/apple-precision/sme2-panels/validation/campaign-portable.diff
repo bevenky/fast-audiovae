@@ -1,0 +1,11 @@
+--- validation/campaign_v2.py
++++ validation/campaign_portable.py
+@@ -205,7 +205,7 @@
+     args = parser.parse_args()
+     require(args.threads == 4, 'Frozen Apple comparison requires four ORT threads')
+     require(0 <= args.settle_seconds <= 60 and 0 <= args.repeat_gap_seconds <= 60, 'Invalid bounded settle interval')
+-    common = Path(__file__).resolve().parents[3] / 'platform_campaign.py'
++    common = Path(__file__).resolve().parents[2] / 'tools' / 'platform_campaign.py'
+     require(sha(common) == COMMON_SHA and sha(args.harness) == args.harness_sha256, 'Frozen source mismatch')
+     spec = importlib.util.spec_from_file_location('public_decoder_harness', args.harness)
+     h = importlib.util.module_from_spec(spec)

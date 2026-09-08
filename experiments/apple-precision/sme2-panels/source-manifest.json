@@ -1,0 +1,236 @@
+{
+  "schema_version": 1,
+  "scope": "Source-only staging; not a runtime default or a performance/quality decision",
+  "source_root_label": "candidate-r4",
+  "destination_repository_path": "experiments/apple-precision/sme2-panels",
+  "copied_files": {
+    "build.py": {
+      "origin": "candidate-r4/build.py",
+      "sha256": "86ef0e67f817163f910619523b415bd1199a50ada4ebf50838e87bfedd30f3f9",
+      "bytes": 4125
+    },
+    "check.py": {
+      "origin": "candidate-r4/check.py",
+      "sha256": "1a71d11ac3cc538d2bb42642f35ce52ff647f993094f0f7223be61c2aee00df3",
+      "bytes": 9575
+    },
+    "check_parallel_edges.py": {
+      "origin": "candidate-r4/check_parallel_edges.py",
+      "sha256": "a468a4d9241f018bc006095318b3771702c89aa3ca9cabb3b8cccbe748706070",
+      "bytes": 2978
+    },
+    "rewrite.py": {
+      "origin": "candidate-r4/rewrite.py",
+      "sha256": "b2ff559c6bdaca2d62200bdb55c8a740306e4a2084cd302afbd509d62b687f15",
+      "bytes": 3298
+    },
+    "rewrite_fused.py": {
+      "origin": "candidate-r4/rewrite_fused.py",
+      "sha256": "ae735de12a737c15dbae683b8025d527f68cdc1d4bfecd58bbcb9b7c2be8cfd0",
+      "bytes": 5581
+    },
+    "native/arm_dot.h": {
+      "origin": "candidate-r4/native/arm_dot.h",
+      "sha256": "568aaa3f9a8d02732db295250250e527db7572d38b5ce8382f4c9db32a45bfa8",
+      "bytes": 4961
+    },
+    "native/custom_op.cpp": {
+      "origin": "candidate-r4/native/custom_op.cpp",
+      "sha256": "f36548e5f4bb83a72784d485c7395201e9d0649082ca7f584253c23259c4a899",
+      "bytes": 8949
+    },
+    "native/parallel_prepare.h": {
+      "origin": "candidate-r4/native/parallel_prepare.h",
+      "sha256": "330783dcd33c5267ac9b2edca9db9d35fdd5678b0d5250298f930d0219bd9e00",
+      "bytes": 7074
+    },
+    "native/precision.cpp": {
+      "origin": "candidate-r4/native/precision.cpp",
+      "sha256": "783ee1e509f5d79974a86f3021b2f4c863163c1ec33782888e97f179612567d5",
+      "bytes": 32393
+    },
+    "native/precision.h": {
+      "origin": "candidate-r4/native/precision.h",
+      "sha256": "43963ccdc2e742dca4b276cb549514f8fedfb776f14a914c70cbb5c49b4c8ff1",
+      "bytes": 4935
+    },
+    "native/sme/build_check.py": {
+      "origin": "candidate-r4/native/sme/build_check.py",
+      "sha256": "ae325e50cafbca542bd18670dd52424ef6dcc96cd7444228556816dd6146b3c0",
+      "bytes": 3373
+    },
+    "native/sme/check_extremes.cpp": {
+      "origin": "candidate-r4/native/sme/check_extremes.cpp",
+      "sha256": "da4b368f79d772202b55907fe0c9e9be8430f9639336092b0361b0470e9b0429",
+      "bytes": 2843
+    },
+    "native/sme/check_sme.cpp": {
+      "origin": "candidate-r4/native/sme/check_sme.cpp",
+      "sha256": "00aca0539b2684914fcd779b2e4313d91ae6eacf99ae0b2449875e3016aaa5dc",
+      "bytes": 3983
+    },
+    "native/sme/sme_backend.cpp": {
+      "origin": "candidate-r4/native/sme/sme_backend.cpp",
+      "sha256": "e6a99b1a549ca36eadf0c8369d13b379f5130df861cbccc559386ee40f26922d",
+      "bytes": 9561
+    },
+    "native/sme/sme_backend.h": {
+      "origin": "candidate-r4/native/sme/sme_backend.h",
+      "sha256": "58b4d6aba342f0fe115e3321345f87a9c3b046baec4e51e1b32a2eaa69c13003",
+      "bytes": 3090
+    },
+    "native/sme/upstream/LICENSES/Apache-2.0.txt": {
+      "origin": "candidate-r4/native/sme/upstream/LICENSES/Apache-2.0.txt",
+      "sha256": "074e6e32c86a4c0ef8b3ed25b721ca23aca83df277cd88106ef7177c354615ff",
+      "bytes": 10280
+    },
+    "native/sme/upstream/kai/kai_common.h": {
+      "origin": "candidate-r4/native/sme/upstream/kai/kai_common.h",
+      "sha256": "3ccd119b75dfff8fccbc7b4b939e7daea86d15507ee57318f68e91a99015dba5",
+      "bytes": 9936
+    },
+    "native/sme/upstream/kai/kai_common_sme_asm.S": {
+      "origin": "candidate-r4/native/sme/upstream/kai/kai_common_sme_asm.S",
+      "sha256": "89537cbb0adcb6202da495ae3ab01fca5160ca31ff424ede20645984cfef21b4",
+      "bytes": 2068
+    },
+    "native/sme/upstream/kai/ukernels/matmul/matmul_clamp_f32_qai8dxp_qsi8cxp/kai_matmul_clamp_f32_qai8dxp1vlx4_qsi8cxp4vlx4_1vlx4vl_sme2_mopa.c": {
+      "origin": "candidate-r4/native/sme/upstream/kai/ukernels/matmul/matmul_clamp_f32_qai8dxp_qsi8cxp/kai_matmul_clamp_f32_qai8dxp1vlx4_qsi8cxp4vlx4_1vlx4vl_sme2_mopa.c",
+      "sha256": "772b6f42115c36504c49dba933959b390e89f4902affe477c4c4191b229f5a08",
+      "bytes": 7312
+    },
+    "native/sme/upstream/kai/ukernels/matmul/matmul_clamp_f32_qai8dxp_qsi8cxp/kai_matmul_clamp_f32_qai8dxp1vlx4_qsi8cxp4vlx4_1vlx4vl_sme2_mopa.h": {
+      "origin": "candidate-r4/native/sme/upstream/kai/ukernels/matmul/matmul_clamp_f32_qai8dxp_qsi8cxp/kai_matmul_clamp_f32_qai8dxp1vlx4_qsi8cxp4vlx4_1vlx4vl_sme2_mopa.h",
+      "sha256": "6bbdd7e0a534cb707b22295218d5163580a5f5e066893a72c8d596804c01cc03",
+      "bytes": 5531
+    },
+    "native/sme/upstream/kai/ukernels/matmul/matmul_clamp_f32_qai8dxp_qsi8cxp/kai_matmul_clamp_f32_qai8dxp1vlx4_qsi8cxp4vlx4_1vlx4vl_sme2_mopa_asm.S": {
+      "origin": "candidate-r4/native/sme/upstream/kai/ukernels/matmul/matmul_clamp_f32_qai8dxp_qsi8cxp/kai_matmul_clamp_f32_qai8dxp1vlx4_qsi8cxp4vlx4_1vlx4vl_sme2_mopa_asm.S",
+      "sha256": "2ae8a9dd3da8912c8019bdc83218f30fd2e34cbb71ff878183c701bf03b12f05",
+      "bytes": 6051
+    },
+    "native/sme/upstream-provenance.json": {
+      "origin": "candidate-r4/native/sme/upstream-provenance.json",
+      "sha256": "57818a6e508dec292989b1af6dcce854aa8f2c5b8b3bb5a649c4ae5ad5b301a9",
+      "bytes": 2501
+    },
+    "native/tests/check_panels.py": {
+      "origin": "candidate-r4/native/tests/check_panels.py",
+      "sha256": "456445331c2fcbca02a35a19658349487344927f669a47d035d230d678e8d6d4",
+      "bytes": 10036
+    },
+    "fused/stage.cpp": {
+      "origin": "candidate-r4/fused/stage.cpp",
+      "sha256": "610d06dd144a89b0e27169745d9b0acbdb69576f8aa59880725e5349177327cd",
+      "bytes": 11078
+    },
+    "fused/upsample.cpp": {
+      "origin": "candidate-r4/fused/upsample.cpp",
+      "sha256": "2e46be5cccd425ba316bee9b24d80218efff9e216349fe7ce5edb393c07ac3be",
+      "bytes": 18605
+    },
+    "fused/stage_dw.h": {
+      "origin": "candidate-r4/fused/stage_dw.h",
+      "sha256": "15ac27814b2ca829802705420f6902a3528715e5b4d2dd3d1c08f77f3e4a6ff7",
+      "bytes": 2899
+    },
+    "fused/fused_pointwise.c": {
+      "origin": "candidate-r4/fused/fused_pointwise.c",
+      "sha256": "8e6dc221fb88aaa24a1b4e93b276e8043010084c95027f95f39f2b8e23525522",
+      "bytes": 8689
+    },
+    "fused/fused_pointwise.h": {
+      "origin": "candidate-r4/fused/fused_pointwise.h",
+      "sha256": "68ca5b4acf978b779cf1c53874fba0e970d954ba665a1494b2efdc47ee44a6dc",
+      "bytes": 559
+    },
+    "fused/proof_stage.py": {
+      "origin": "candidate-r4/fused/proof_stage.py",
+      "sha256": "da4f33edb020edcccbdc19da4092eb415dccdb6951e4787b32b09c757b3c1bfd",
+      "bytes": 9740
+    },
+    "fused/proof_upsample.py": {
+      "origin": "candidate-r4/fused/proof_upsample.py",
+      "sha256": "401190f5e516c56fed4f533d599c97a8460ee1dce37323c26ce4ecc2c62ae8a4",
+      "bytes": 21809
+    },
+    "fused/build_fused.py": {
+      "origin": "candidate-r4/fused/build_fused.py",
+      "sha256": "3b26bc776bffee16442c92a10bfa46ad779872a7f3288bd7e74cee6d01123ed6",
+      "bytes": 3363
+    },
+    "fused/check_fused.py": {
+      "origin": "candidate-r4/fused/check_fused.py",
+      "sha256": "b8d19c095d793eeda242056ee57930331af78686e6c60f086bbe209a66c9e6a3",
+      "bytes": 8799
+    },
+    "validation/campaign.py": {
+      "origin": "candidate-r4/validation/campaign.py",
+      "sha256": "a586b926a88cbd088358d27e24c344c502f7c3b5438386b1ac43e46bad551353",
+      "bytes": 29004
+    },
+    "validation/campaign_v2.py": {
+      "origin": "candidate-r4/validation/campaign_v2.py",
+      "sha256": "fa579b049d57849978ee10698170c9e8d884e1ffadd2d35ad8820d7f2b8b0614",
+      "bytes": 30279
+    },
+    "validation/check_protocol.py": {
+      "origin": "candidate-r4/validation/check_protocol.py",
+      "sha256": "9c347a606f8d40bf4b73992ee6d2fd51c7ab86eee93f8c6664b285e8ca66c961",
+      "bytes": 2600
+    },
+    "validation/check_protocol_v2.py": {
+      "origin": "candidate-r4/validation/check_protocol_v2.py",
+      "sha256": "5f3b2e0563ffef4352460c25a7eadbbed6ee4fdf4a65181fbfdfd383690f1d1b",
+      "bytes": 4183
+    },
+    "validation/prepare_config.py": {
+      "origin": "candidate-r4/validation/prepare_config.py",
+      "sha256": "5c8009781b96981651cc7ce52c7c1aeeb60027887b15ac59109c9e4bc28c09ad",
+      "bytes": 2495
+    },
+    "validation/profile_fused.py": {
+      "origin": "candidate-r4/validation/profile_fused.py",
+      "sha256": "be8a69660f21154d183e866f80995a9902868188845009682a06aa1a8969352f",
+      "bytes": 8643
+    },
+    "validation/source-freeze-v2.json": {
+      "origin": "candidate-r4/validation/source-freeze-v2.json",
+      "sha256": "b415b62e6012747dd16830c071efe24dc420dbd2bbb53d513846ca517468e369",
+      "bytes": 955
+    }
+  },
+  "semantic_source_edits": [],
+  "existing_repository_dependencies_sha256": {
+    "LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "native/apple/native_kernels.h": "60783218490c3a257662cecf9e93814d52831ee357d0984aaba146942b55e9ec",
+    "src/fast_audiovae/__init__.py": "0e2fac0475d10c42ab2a1565ff73dd4584c8bd9002fe0d7f1cb9c8dd83c0222b",
+    "src/fast_audiovae/runtime.py": "54e6ed450906ddc31062c0c0f7f2048c4fd76e5303e10bf7fbe6bab14ece31f4",
+    "src/fast_audiovae/graph/__init__.py": "cfeb97ab5b72a89daf873ba415349c3f1fcebbebfaa60cc41487aeca26ef75f8",
+    "src/fast_audiovae/graph/block_fusion.py": "4c977f095d1bf0873d046282da18edc1b33c4fbf454869736a4d8ce2977947f7",
+    "src/fast_audiovae/graph/elementwise.py": "0fa3ed80f277fff11afb6d0973be9470b728f1554d13e7eb2425639f0c2f8c4c",
+    "experiments/apple-precision/pins/ort.json": "c38917ab4acebe48623c605a33f9d40219d5c5766c436a7d3a7b18d81b21740e",
+    "experiments/apple-precision/licenses/ONNXRUNTIME-LICENSE": "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c",
+    "experiments/apple-precision/tools/platform_campaign.py": "7f42ba2e2ae9f1c9b311e2b3b90eb1f3f6e911f0934c25b32570f36f60efb202",
+    "experiments/apple-precision/tools/compare_decoders.py": "593dc1df8b7ac7334add9211da869eac931aaf61d360656b15a3196467cecf01",
+    "experiments/apple-precision/tools/diagnose_cpu.py": "d114e258059b22785afc567871e0e6ae3e15b6c613bbdb40a10fc49836ad88df",
+    "experiments/apple-precision/quality/score_quality.py": "d0e406d77de02cde7476d2aef43c2b79543a9accc19153140b2f8e2dc507574e",
+    "experiments/apple-precision/quality/scorer/score.py": "797bddcba0ffbd9f1035d3166e4db4eabc7ebea1f5fb0ab83a429199fc880f03",
+    "experiments/apple-precision/quality/scorer/metrics.py": "c5e37fb3a6376b90ee89e9c7c69fb1f9540080f12c6d750864e83814da9be491",
+    "experiments/apple-precision/quality/scorer/metric_assets.json": "628c81cd349eb45819143a275efb5417da2b518db2c71e858d0c1a6fe7c713c0"
+  },
+  "not_bundled": [
+    "ONNX graphs and external learned weights",
+    "compiled libraries and objects",
+    "audio and latent case archives",
+    "metric checkpoint weights",
+    "local configs and raw output evidence",
+    "runtime default changes"
+  ],
+  "packaging_files_sha256": {
+    "validation/campaign_portable.py": "1410a48d96d3182dd9d31cd91e38037a27f6d78955c95877783b0825d28cfdc1",
+    "validation/check_protocol_portable.py": "61c36f05ae0de3bf0da57a29be071dd37b556fb2d09993e88c6bd9839fddd9d9",
+    "validation/prepare_config_portable.py": "a23af8d68982d449a86d1016295110776493074a7547d54ef5882e932e7f92a5",
+    "validation/check_config_portable.py": "6efd98514c95118fa2b779a4807dde72c9672564d8d0e4d58cfdd4c93906f9d0"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "revision": "real-prefix-validation-v2",
+  "source_sha256": {
+    "campaign.py": "a586b926a88cbd088358d27e24c344c502f7c3b5438386b1ac43e46bad551353",
+    "campaign_v2.py": "fa579b049d57849978ee10698170c9e8d884e1ffadd2d35ad8820d7f2b8b0614",
+    "check_protocol.py": "9c347a606f8d40bf4b73992ee6d2fd51c7ab86eee93f8c6664b285e8ca66c961",
+    "check_protocol_v2.py": "5f3b2e0563ffef4352460c25a7eadbbed6ee4fdf4a65181fbfdfd383690f1d1b"
+  },
+  "change": "Bound state-check lengths by each original latent tensor; filter first-clip boundary lengths/cuts; no padding or duplication. Reject lengths below 2 for a non-vacuous future check.",
+  "unchanged": [
+    "native sources and libraries",
+    "models and case archives",
+    "numerical tolerances",
+    "all timing code, scheduling, aggregation and intervals"
+  ],
+  "synthetic_checks": {
+    "command": "python3 -B check_protocol_v2.py",
+    "tests": 7,
+    "failures": 0,
+    "model_execution": false
+  }
+}

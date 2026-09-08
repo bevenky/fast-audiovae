@@ -28,7 +28,7 @@ audio = session.run(None, {session.get_inputs()[0].name: latents})[0]
 
 Every session uses CPUExecutionProvider. The loader chooses a compatible native FP32 backend or standard ONNX CPU. Use `prefer_custom=False` to request the ONNX fallback. Omit `threads` for up to four visible CPUs; set it explicitly for CPU quotas or a two-vCPU VM.
 
-- **Apple ARM:** use the public FP32 route above, with NEON/vForce. The SME2 INT8 trial did not establish a reliable speed gain and remains experimental.
+- **Apple ARM:** use the public FP32 route above, with NEON/vForce. The latest SME2 INT8 experiment saved only 3.0% of decoder time, below the 10% adoption threshold.
 - **Intel Linux:** the public route is FP32. [Selective INT8](experiments/intel-precision/README.md) is an explicit option for suitable AVX512-VNNI systems, using pinned sequential oneMKL.
 - **AMD Linux:** the public route is FP32. [Selective INT8 with AOCL-DLP](experiments/amd-precision/README.md) is an explicit option for the tested EPYC configuration. Its 60-clip quality evaluation reproduces the accepted Intel INT8 result.
 
@@ -50,7 +50,7 @@ Later matched experiments:
 
 - **Intel:** [Selective INT8](docs/intel-precision.md) measured RTF **0.16411**, versus optimized FP32 0.24821 and Mimi 0.17002. That is 33.9% less time than FP32. Automated quality scores declined slightly; a single-listener pilot tied FP32.
 - **AMD:** [AOCL selective INT8](docs/amd-precision.md) measured RTF **0.03435**, versus FP32 0.06056 and Mimi 0.05201. That is 43.3% less time in the final three-clip screen. Its fresh 60-clip quality scores reproduce the Intel INT8 result.
-- **Apple:** [Retain FP32](docs/apple-precision.md). The final SME2 INT8 screen was too noisy to establish a reliable gain. Fresh stock/fast quality scores agree at the precision reported below.
+- **Apple:** [Retain FP32](docs/apple-precision.md). The latest ten-clip comparison measured FP32 RTF **0.02469**, INT8 0.02394 and Mimi 0.02811. INT8 saved only 3.0% and its fresh 60-clip quality scores were slightly below FP32.
 
 Compare each experiment with its own control; do not combine speedups across campaigns.
 

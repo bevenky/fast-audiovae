@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "original_copied_sources_unchanged": true,
+  "executed_workspace_runner": "validation/campaign_v2.py",
+  "executed_workspace_runner_sha256": "fa579b049d57849978ee10698170c9e8d884e1ffadd2d35ad8820d7f2b8b0614",
+  "portable_runner": "validation/campaign_portable.py",
+  "portable_runner_sha256": "1410a48d96d3182dd9d31cd91e38037a27f6d78955c95877783b0825d28cfdc1",
+  "portable_runner_change": "Only common helper path changes from original workspace depth to parent tools directory. Timing, math, checks and tolerances unchanged.",
+  "runner_diff": "validation/campaign-portable.diff",
+  "runner_diff_sha256": "39e2aa3f5278d450d0c0ff989b652064c48ec11de2265b5e9a4cdfafe28c3c47",
+  "new_explicit_path_preparer": "validation/prepare_config_portable.py",
+  "new_preparer_sha256": "a23af8d68982d449a86d1016295110776493074a7547d54ef5882e932e7f92a5",
+  "common_runner_sha256": "7f42ba2e2ae9f1c9b311e2b3b90eb1f3f6e911f0934c25b32570f36f60efb202",
+  "public_harness_sha256": "593dc1df8b7ac7334add9211da869eac931aaf61d360656b15a3196467cecf01",
+  "synthetic_checks": [
+    {
+      "source": "validation/check_protocol_portable.py",
+      "sha256": "61c36f05ae0de3bf0da57a29be071dd37b556fb2d09993e88c6bd9839fddd9d9",
+      "tests": 7,
+      "failures": 0,
+      "scope": "Real-prefix lengths, deterministic paired scheduling, complete grid and primary/corpus aggregation"
+    },
+    {
+      "source": "validation/check_config_portable.py",
+      "sha256": "6efd98514c95118fa2b779a4807dde72c9672564d8d0e4d58cfdd4c93906f9d0",
+      "tests": 4,
+      "failures": 0,
+      "scope": "Tiny stand-in files for config relocation, model/cohort/contract rejection, graph/build contract and stale hash rejection; no ONNX external-data parsing or native execution"
+    }
+  ],
+  "model_execution": false,
+  "native_execution": false,
+  "benchmark_execution": false,
+  "runtime_defaults_changed": false,
+  "state": "Experimental; measured gain failed the adoption threshold; quality evidence reviewed separately"
+}
