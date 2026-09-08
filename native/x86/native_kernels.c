@@ -194,6 +194,15 @@ const char *ncc_snake_math_name(int32_t backend) {
     return "scalar-libm-sinf";
 }
 
+uint32_t ncc_streaming_math_version(int32_t backend) {
+#if NCC_HAVE_SLEEF
+    if (backend == NCC_AVX512 && ncc_vector_sine_available(backend)) return 1;
+#else
+    (void)backend;
+#endif
+    return 0;
+}
+
 static int checked_bytes(uint64_t count, size_t *bytes) {
     if (count > SIZE_MAX / sizeof(float)) return NCC_SIZE_OVERFLOW;
     *bytes = (size_t)count * sizeof(float);
@@ -524,8 +533,15 @@ static void sine_sleef_avx512(const float *x, float *y, int64_t n) {
     int64_t i = 0;
     for (; i <= n - 16; i += 16)
         _mm512_storeu_ps(y+i, Sleef_sinf16_u10avx512f(_mm512_loadu_ps(x+i)));
-    /* Preserve the accurate vector policy for every tail. */
-    sine_sleef_avx2(x+i,y+i,n-i);
+    /* Keep the same approximation and FMA policy at every chunk boundary.
+     * Delegating short tails to AVX2/SSE2 changes low bits according to tensor
+     * length; a later INT8 rounding threshold can amplify that difference. */
+    if (i < n) {
+        float tail[16] = {0};
+        for (int j=0; i+j<n; ++j) tail[j] = x[i+j];
+        _mm512_storeu_ps(tail, Sleef_sinf16_u10avx512f(_mm512_loadu_ps(tail)));
+        for (int j=0; i+j<n; ++j) y[i+j] = tail[j];
+    }
 }
 
 #endif

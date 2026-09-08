@@ -99,7 +99,7 @@ struct Unit{std::vector<float> w,b,ap,rp,aq,rq,pw,pb;};
 struct Kernel{
     const OrtApi& api;
     int q,segments,backend,projection_mode,projection_isa;
-    bool debug;
+    bool debug,streaming;
     std::vector<float> current_w,previous_w,phase_bias;
     std::array<Unit,3> units;
     int precision_mode;
@@ -109,7 +109,7 @@ struct Kernel{
     std::mutex plan_mutex;
     std::vector<Plan> residual_plans,projection_plans;
 
-    Kernel(const OrtApi& a,const OrtKernelInfo* raw,bool dbg):api(a),debug(dbg){
+    Kernel(const OrtApi& a,const OrtKernelInfo* raw,bool dbg,bool stream=false):api(a),debug(dbg),streaming(stream){
         Ort::ConstKernelInfo info(raw);
         auto integer=[&](const char* name){
             const auto value=info.GetAttribute<int64_t>(name);
@@ -171,6 +171,8 @@ struct Kernel{
         int64_t input_time,output_time;int parts;
         std::vector<Plan> residual,projection;
         std::mutex failure_mutex;std::exception_ptr failure;
+        const float* state_in=nullptr;float* state_out=nullptr;
+        const float* carry_in=nullptr;float* carry_out=nullptr;
     };
     static void publish_high(const Work& work,size_t output,const float* tile,int n,
                              int64_t t,int64_t first,size_t batch){
@@ -191,6 +193,16 @@ struct Kernel{
             std::vector<float> scratch(4*tile_size);
             std::vector<float> history(Channels*78,0.0f);
             std::array<float,ProjectionChannels> carry{};
+            if(work.state_in&&warm==0){
+                int offset=0;
+                for(int halo:{6,18,54}){
+                    for(int c=0;c<Channels;++c)
+                        std::memcpy(history.data()+static_cast<size_t>(offset)*Channels+static_cast<size_t>(c)*halo,
+                                    work.state_in+(batch*Channels+c)*78+offset,halo*sizeof(float));
+                    offset+=halo;
+                }
+                std::copy_n(work.carry_in+batch*ProjectionChannels,ProjectionChannels,carry.begin());
+            }
             const float* input=work.x+batch*ProjectionChannels*work.input_time;
             alignas(64) float row[54+256];
             if(warm){
@@ -260,6 +272,17 @@ struct Kernel{
                     std::swap(a,b);publish_high(work,3+u,a,n,t,first,batch);
                 }
             }
+            if(work.state_out&&part==work.parts-1){
+                int offset=0;
+                for(int halo:{6,18,54}){
+                    for(int c=0;c<Channels;++c)
+                        std::memcpy(work.state_out+(batch*Channels+c)*78+offset,
+                                    history.data()+static_cast<size_t>(offset)*Channels+static_cast<size_t>(c)*halo,
+                                    halo*sizeof(float));
+                    offset+=halo;
+                }
+                std::copy(carry.begin(),carry.end(),work.carry_out+batch*ProjectionChannels);
+            }
         }catch(...){
             std::lock_guard<std::mutex> lock(work.failure_mutex);
             if(!work.failure)work.failure=std::current_exception();
@@ -280,9 +303,27 @@ struct Kernel{
                 for(size_t i=0;i<2;++i)outputs[i]=context.GetOutput(i,dims).GetTensorMutableData<float>();
                 for(size_t i=2;i<6;++i)outputs[i]=context.GetOutput(i,high_shape).GetTensorMutableData<float>();
             }else outputs[5]=context.GetOutput(0,high_shape).GetTensorMutableData<float>();
+            const float* state_in=nullptr;float* state_out=nullptr;
+            const float* carry_in=nullptr;float* carry_out=nullptr;
+            if(streaming){
+                require(static_cast<uint64_t>(dims[0])<=std::numeric_limits<size_t>::max()/sizeof(float)/Channels/78,
+                        "Upsample history tensor size overflow");
+                const std::vector<int64_t> state_shape{dims[0],Channels,78},carry_shape{dims[0],ProjectionChannels,1};
+                auto state=context.GetInput(28);auto carry=context.GetInput(29);
+                require(shape(state)==state_shape,"Upsample history must have shape [B,128,78]");
+                require(shape(carry)==carry_shape,"Upsample projected history must have shape [B,256,1]");
+                state_in=state.GetTensorData<float>();carry_in=carry.GetTensorData<float>();
+                state_out=context.GetOutput(1,state_shape).GetTensorMutableData<float>();
+                carry_out=context.GetOutput(2,carry_shape).GetTensorMutableData<float>();
+                if(dims[0]&&!dims[2]){
+                    std::memcpy(state_out,state_in,static_cast<size_t>(dims[0])*Channels*78*sizeof(float));
+                    std::memcpy(carry_out,carry_in,static_cast<size_t>(dims[0])*ProjectionChannels*sizeof(float));
+                }
+            }
             if(!dims[0]||!dims[2])return nullptr;
             const int parts=static_cast<int>(std::min<int64_t>(segments,high_time));
             Work work{this,input.GetTensorData<float>(),outputs,dims[2],high_time,parts,{},{},{},{}};
+            work.state_in=state_in;work.state_out=state_out;work.carry_in=carry_in;work.carry_out=carry_out;
             work.residual.resize(q+1);work.projection.resize(q/Stride+1);
             work.projection[1]=projection_plan(1);
             for(int part=0;part<parts;++part){
@@ -300,16 +341,16 @@ struct Kernel{
     }
 };
 
-template<bool debug>struct Op:Ort::CustomOpBase<Op<debug>,Kernel,true>{
+template<bool debug,bool streaming=false>struct Op:Ort::CustomOpBase<Op<debug,streaming>,Kernel,true>{
     Op(){this->start_ver_=1;this->end_ver_=1;}
-    const char* GetName()const{return debug?"UpsampleStageDebugF32":"UpsampleStageF32";}
+    const char* GetName()const{return streaming?"UpsampleStageStreamingF32":debug?"UpsampleStageDebugF32":"UpsampleStageF32";}
     const char* GetExecutionProviderType()const{return "CPUExecutionProvider";}
-    size_t GetInputTypeCount()const{return 28;}
+    size_t GetInputTypeCount()const{return streaming?30:28;}
     ONNXTensorElementDataType GetInputType(size_t)const{return ONNX_TENSOR_ELEMENT_DATA_TYPE_FLOAT;}
-    size_t GetOutputTypeCount()const{return debug?6:1;}
+    size_t GetOutputTypeCount()const{return streaming?3:debug?6:1;}
     ONNXTensorElementDataType GetOutputType(size_t)const{return ONNX_TENSOR_ELEMENT_DATA_TYPE_FLOAT;}
     OrtStatus* CreateKernelV2(const OrtApi& a,const OrtKernelInfo* info,void** out)const noexcept{
-        *out=nullptr;try{*out=new Kernel(a,info,debug);return nullptr;}catch(...){return error(a);}
+        *out=nullptr;try{*out=new Kernel(a,info,debug,streaming);return nullptr;}catch(...){return error(a);}
     }
     static OrtStatus* InferOutputShape(Ort::ShapeInferContext& context)noexcept{
         try{
@@ -328,13 +369,19 @@ template<bool debug>struct Op:Ort::CustomOpBase<Op<debug>,Kernel,true>{
             if(debug){
                 for(size_t i=0;i<2;++i){auto status=context.SetOutputShape(i,low);if(status)return status.release();}
                 for(size_t i=2;i<6;++i){auto status=context.SetOutputShape(i,high);if(status)return status.release();}
-            }else return context.SetOutputShape(0,high).release();
+            }else{
+                auto status=context.SetOutputShape(0,high);if(status)return status.release();
+                if(streaming){
+                    auto h=high;h[2]=78;status=context.SetOutputShape(1,h);if(status)return status.release();
+                    auto carry=low;carry[2]=1;status=context.SetOutputShape(2,carry);if(status)return status.release();
+                }
+            }
             return nullptr;
         }catch(...){return error(Ort::GetApi());}
     }
 };
 std::mutex registration;const OrtApi* registered=nullptr;
-std::unique_ptr<Ort::CustomOpDomain> domain;Op<false> op;Op<true> debug_op;
+std::unique_ptr<Ort::CustomOpDomain> domain;Op<false> op;Op<true> debug_op;Op<false,true> streaming_op;
 }
 
 extern "C" NCC_API OrtStatus* ORT_API_CALL RegisterCustomOps(OrtSessionOptions* options,const OrtApiBase* base){
@@ -345,7 +392,7 @@ extern "C" NCC_API OrtStatus* ORT_API_CALL RegisterCustomOps(OrtSessionOptions* 
         require(!registered||registered==api,"Multiple ORT runtimes unsupported");
         if(!registered){
             Ort::InitApi(api);auto d=std::make_unique<Ort::CustomOpDomain>("fast.audiovae.precision.upsample.experimental");
-            d->Add(&op);d->Add(&debug_op);domain=std::move(d);registered=api;
+            d->Add(&op);d->Add(&debug_op);d->Add(&streaming_op);domain=std::move(d);registered=api;
         }
         return api->AddCustomOpDomain(options,*domain);
     }catch(...){return error(*api);}

@@ -44,12 +44,12 @@ struct Unit { std::vector<float> w,b,ap,rp,aq,rq,pw,pb; };
 struct Kernel {
   const OrtApi& api;
   int c,q,segments,backend,matrix_mode,matrix_isa;
-  bool debug;
+  bool debug,streaming;
   std::array<Unit,3> units;
   using Plan=std::shared_ptr<void>;
   std::mutex plan_mutex;
   std::vector<Plan> plans; // At most Q immutable shape plans, no audio/history.
-  Kernel(const OrtApi&a,const OrtKernelInfo* raw,bool dbg):api(a),debug(dbg){
+  Kernel(const OrtApi&a,const OrtKernelInfo* raw,bool dbg,bool stream=false):api(a),debug(dbg),streaming(stream){
     Ort::ConstKernelInfo info(raw);
     auto integer=[&](const char* name){auto x=info.GetAttribute<int64_t>(name);require(x>=0&&x<=INT32_MAX,"Invalid integer attribute");return static_cast<int>(x);};
     require(ncc_abi_version()==1&&integer("native_abi")==1,"Native ABI mismatch");
@@ -86,6 +86,7 @@ struct Kernel {
     const Kernel* self;const float* x;std::array<float*,3> out;
     int64_t b,t;int parts;std::vector<Plan> plans;
     std::atomic<int> failure{0};
+    const float* state_in=nullptr;float* state_out=nullptr;
   };
   static void segment(void* opaque,size_t task) noexcept {
     auto& work=*static_cast<Work*>(opaque);const auto& k=*work.self;
@@ -97,6 +98,15 @@ struct Kernel {
       const size_t tile=static_cast<size_t>(k.c)*k.q;
       std::vector<float> scratch(4*tile);
       std::vector<float> history(static_cast<size_t>(k.c)*78,0.0f);
+      if(work.state_in&&warm==0){
+        int offset=0;
+        for(int halo:{6,18,54}){
+          for(int c=0;c<k.c;++c)
+            std::memcpy(history.data()+static_cast<size_t>(offset)*k.c+static_cast<size_t>(c)*halo,
+                        work.state_in+(batch*k.c+c)*78+offset,halo*sizeof(float));
+          offset+=halo;
+        }
+      }
       float* a=scratch.data();float* b=a+tile;float* pre=b+tile;float* post=pre+tile;
       const float* input=work.x+batch*k.c*work.t;
       alignas(64) float row[54+256];
@@ -130,6 +140,16 @@ struct Kernel {
           }
         }
       }
+      if(work.state_out&&part==work.parts-1){
+        int offset=0;
+        for(int halo:{6,18,54}){
+          for(int c=0;c<k.c;++c)
+            std::memcpy(work.state_out+(batch*k.c+c)*78+offset,
+                        history.data()+static_cast<size_t>(offset)*k.c+static_cast<size_t>(c)*halo,
+                        halo*sizeof(float));
+          offset+=halo;
+        }
+      }
     }catch(...){work.failure.store(1,std::memory_order_relaxed);}
   }
   OrtStatus* ComputeV2(OrtKernelContext* raw) noexcept {
@@ -140,9 +160,21 @@ struct Kernel {
       std::array<float*,3> outputs{};
       if(debug)for(int u=0;u<3;++u)outputs[u]=context.GetOutput(u,dims).GetTensorMutableData<float>();
       else outputs[2]=context.GetOutput(0,dims).GetTensorMutableData<float>();
+      const float* state_in=nullptr;float* state_out=nullptr;
+      if(streaming){
+        require(static_cast<uint64_t>(dims[0])<=std::numeric_limits<size_t>::max()/sizeof(float)/c/78,
+                "Stage history tensor size overflow");
+        const std::vector<int64_t> state_shape{dims[0],c,78};
+        auto state=context.GetInput(25);
+        require(shape(state)==state_shape,"Stage history must have shape [B,C,78]");
+        state_in=state.GetTensorData<float>();
+        state_out=context.GetOutput(1,state_shape).GetTensorMutableData<float>();
+        if(dims[0]&&!dims[2])std::memcpy(state_out,state_in,static_cast<size_t>(dims[0])*c*78*sizeof(float));
+      }
       if(!dims[0]||!dims[2])return nullptr;
       const int parts=static_cast<int>(std::min<int64_t>(segments,dims[2]));
       Work work{this,input.GetTensorData<float>(),outputs,dims[0],dims[2],parts,{}};
+      work.state_in=state_in;work.state_out=state_out;
       work.plans.resize(q+1);work.plans[q]=plan(q);
       for(int p=0;p<parts;++p){
         int64_t first=dims[2]*p/parts,last=dims[2]*(p+1)/parts,warm=std::max<int64_t>(0,first-78);
@@ -154,32 +186,34 @@ struct Kernel {
     }catch(...){return error(api);}
   }
 };
-template<bool debug>struct Op:Ort::CustomOpBase<Op<debug>,Kernel,true>{
+template<bool debug,bool streaming=false>struct Op:Ort::CustomOpBase<Op<debug,streaming>,Kernel,true>{
   Op(){this->start_ver_=1;this->end_ver_=1;}
-  const char* GetName()const{return debug?"StageStackDebugF32":"StageStackF32";}
+  const char* GetName()const{return streaming?"StageStackStreamingF32":debug?"StageStackDebugF32":"StageStackF32";}
   const char* GetExecutionProviderType()const{return "CPUExecutionProvider";}
-  size_t GetInputTypeCount()const{return 25;}
+  size_t GetInputTypeCount()const{return streaming?26:25;}
   ONNXTensorElementDataType GetInputType(size_t)const{return ONNX_TENSOR_ELEMENT_DATA_TYPE_FLOAT;}
-  size_t GetOutputTypeCount()const{return debug?3:1;}
+  size_t GetOutputTypeCount()const{return streaming?2:debug?3:1;}
   ONNXTensorElementDataType GetOutputType(size_t)const{return ONNX_TENSOR_ELEMENT_DATA_TYPE_FLOAT;}
   OrtStatus* CreateKernelV2(const OrtApi&a,const OrtKernelInfo*i,void**out)const noexcept{
-    *out=nullptr;try{*out=new Kernel(a,i,debug);return nullptr;}catch(...){return error(a);}
+    *out=nullptr;try{*out=new Kernel(a,i,debug,streaming);return nullptr;}catch(...){return error(a);}
   }
   static OrtStatus* InferOutputShape(Ort::ShapeInferContext& ctx)noexcept{
     try{const auto& s=ctx.GetInputShape(0);require(s.size()==3,"Stage requires rank3");
-      for(size_t i=0;i<(debug?3:1);++i){auto status=ctx.SetOutputShape(i,s);if(status)return status.release();}return nullptr;
+      for(size_t i=0;i<(debug?3:1);++i){auto status=ctx.SetOutputShape(i,s);if(status)return status.release();}
+      if(streaming){auto h=s;h[2]=78;auto status=ctx.SetOutputShape(1,h);if(status)return status.release();}
+      return nullptr;
     }catch(...){return error(Ort::GetApi());}
   }
 };
 std::mutex registration;const OrtApi* registered=nullptr;
-std::unique_ptr<Ort::CustomOpDomain> domain;Op<false> op;Op<true> debug_op;
+std::unique_ptr<Ort::CustomOpDomain> domain;Op<false> op;Op<true> debug_op;Op<false,true> streaming_op;
 }
 extern "C" NCC_API OrtStatus* ORT_API_CALL RegisterCustomOps(OrtSessionOptions* options,const OrtApiBase* base){
   const OrtApi* api=base->GetApi(ORT_API_VERSION);
   if(!api)return base->GetApi(1)->CreateStatus(ORT_FAIL,"ORT API29 required");
   try{std::lock_guard<std::mutex> lock(registration);
     require(!registered||registered==api,"Multiple ORT runtimes unsupported");
-    if(!registered){Ort::InitApi(api);auto d=std::make_unique<Ort::CustomOpDomain>("fast.audiovae.stage.experimental");d->Add(&op);d->Add(&debug_op);domain=std::move(d);registered=api;}
+    if(!registered){Ort::InitApi(api);auto d=std::make_unique<Ort::CustomOpDomain>("fast.audiovae.stage.experimental");d->Add(&op);d->Add(&debug_op);d->Add(&streaming_op);domain=std::move(d);registered=api;}
     return api->AddCustomOpDomain(options,*domain);
   }catch(...){return error(*api);}
 }

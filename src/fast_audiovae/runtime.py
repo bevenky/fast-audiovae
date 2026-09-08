@@ -2,7 +2,7 @@
 
 Select a platform-specific native library and graph when compatible. The
 native library detects supported CPU instructions. Other platforms use the
-standard-ONNX fallback. This interface does not expose streaming state.
+standard-ONNX fallback. Streaming sessions use explicit per-stream history.
 """
 import ctypes
 import json
@@ -22,6 +22,21 @@ def _default_threads():
 
 
 def load_decoder(model_dir="artifacts", *, threads=None, prefer_custom=True, prefer_packed=False):
+    """Load the original full-call decoder session."""
+    return _load_session(model_dir, threads=threads, prefer_custom=prefer_custom, prefer_packed=prefer_packed)
+
+
+def load_streaming_decoder(model_dir="artifacts", *, threads=None, prefer_custom=True, prefer_packed=False):
+    """Load a prepared streaming graph using the same CPU selection policy."""
+    from .streaming import StreamingDecoder
+    session, info = _load_session(model_dir, threads=threads, prefer_custom=prefer_custom,
+                                  prefer_packed=prefer_packed, streaming=True)
+    decoder = StreamingDecoder(session, info.pop("streaming_specification"))
+    info["state_bytes_per_stream"] = decoder.state_bytes
+    return decoder, info
+
+
+def _load_session(model_dir, *, threads, prefer_custom, prefer_packed, streaming=False):
     automatic_threads = threads is None
     if automatic_threads:
         threads = _default_threads()
@@ -87,6 +102,17 @@ def load_decoder(model_dir="artifacts", *, threads=None, prefer_custom=True, pre
                         eligible=False
             elif native['math']=='vforce':eligible=bool(caps & 32) and backend!=1
             else:raise RuntimeError('Unknown native math contract')
+            if eligible and native.get('required_math_version') is not None:
+                expected = native['required_math_version']
+                if type(expected) is not int or expected != 1:
+                    raise RuntimeError('Unsupported native streaming math requirement')
+                try:
+                    library.ncc_streaming_math_version.argtypes = [ctypes.c_int32]
+                    library.ncc_streaming_math_version.restype = ctypes.c_uint32
+                    info['native_streaming_math_version'] = int(library.ncc_streaming_math_version(backend))
+                except AttributeError:
+                    info['native_streaming_math_version'] = 0
+                eligible = info['native_streaming_math_version'] == expected
             if eligible:
                 options.register_custom_ops_library(str(root/native['library']))
                 selected=native['model'];info.update(selected='native',reason='Compatible CPU vector-math backend',
@@ -122,10 +148,62 @@ def load_decoder(model_dir="artifacts", *, threads=None, prefer_custom=True, pre
                                 packed_reason='Explicitly requested and compatible CPU',
                                 packed_tested_cpu=packed['tested_cpu'])
                 else:info['packed_reason']='CPU does not support this optional AMD package'
+    if streaming:
+        from .assets import sha256
+        entry = manifest.get('streaming', {}).get('models', {}).get(selected)
+        if not entry:
+            raise RuntimeError('No streaming graph for the selected decoder; run fast-audiovae prepare-streaming on this bundle')
+        if manifest['streaming'].get('version') != 1:
+            raise RuntimeError('Unsupported streaming manifest version')
+        if entry.get('required_math_version') is not None:
+            if type(entry['required_math_version']) is not int or entry['required_math_version'] != 1:
+                raise RuntimeError('Unsupported streaming math requirement')
+            if not library or info.get('backend') != entry.get('required_backend', 5):
+                raise RuntimeError('Streaming precision requires the validated native backend')
+            try:
+                library.ncc_streaming_math_version.argtypes = [ctypes.c_int32]
+                library.ncc_streaming_math_version.restype = ctypes.c_uint32
+                actual = int(library.ncc_streaming_math_version(info['backend']))
+            except AttributeError:
+                actual = 0
+            if actual != entry['required_math_version']:
+                raise RuntimeError('Rebuild the native library with consistent streaming sine arithmetic')
+        stream_path = (root / entry['model']).resolve()
+        if not stream_path.is_relative_to(root) or not stream_path.is_file():
+            raise RuntimeError('Streaming graph is missing or outside the model bundle')
+        if sha256(root / selected) != entry['source_sha256'] or sha256(stream_path) != entry['model_sha256']:
+            raise RuntimeError('Streaming graph or its full-call source differs from the prepared bundle')
+        for relative, digest in entry.get('source_external_sha256', {}).items():
+            external = (root / relative).resolve()
+            if not external.is_relative_to(root) or not external.is_file() or sha256(external) != digest:
+                raise RuntimeError('Streaming source external weights differ from the prepared bundle')
+        info.update(fresh_call_only=False, streaming=True,
+                    streaming_specification=entry, full_call_model=selected)
+        selected = entry['model']
+    # Explicitly prepared advanced recipes may need several operator libraries.
+    # A streaming recipe replaces that list with its state-aware counterparts;
+    # registering both versions would collide in the same custom-op domains.
+    additional = native.get('additional_libraries', []) if info['selected'] == 'native' else []
+    if streaming:
+        additional = entry.get('additional_libraries', additional)
+    if additional:
+        from .assets import sha256
+        if not isinstance(additional, list):
+            raise RuntimeError('Additional native libraries must be an explicit list')
+        registered = set()
+        for record in additional:
+            path = (root / record['library']).resolve()
+            if (not path.is_relative_to(root) or not path.is_file() or path in registered
+                    or (native and path == (root / native['library']).resolve())
+                    or sha256(path) != record['sha256']):
+                raise RuntimeError('Additional native library is missing, duplicated or differs from its manifest')
+            registered.add(path)
+            options.register_custom_ops_library(str(path))
     session=ort.InferenceSession(str(root/selected),sess_options=options,providers=['CPUExecutionProvider'])
     session.disable_fallback()
     if session.get_providers()!=['CPUExecutionProvider']:raise RuntimeError('CPU-only provider requirement failed')
     session._codec_native_library=library
     session._codec_packed_library=packed_library
     info['providers']=session.get_providers()
+    info['model']=selected
     return session,info

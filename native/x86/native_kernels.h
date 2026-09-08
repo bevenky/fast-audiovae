@@ -36,6 +36,8 @@ NCC_API const char *ncc_backend_name(int32_t backend);
 NCC_API const char *ncc_status_string(int32_t status);
 NCC_API const char *ncc_snake_math_name(int32_t backend);
 NCC_API int32_t ncc_vector_sine_available(int32_t backend);
+/* Version 1 keeps AVX512 sine arithmetic independent of chunk width. */
+NCC_API uint32_t ncc_streaming_math_version(int32_t backend);
 NCC_API int32_t ncc_sine_f32(const float *x, float *y, int64_t count, int32_t backend);
 NCC_API uint32_t ncc_compiled_tile(void);
 
