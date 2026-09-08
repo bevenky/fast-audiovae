@@ -1,0 +1,21 @@
+{
+  "parent_precision_sha256": "95eeddad1153679fc0582896b965ad088100f7d1c0abc43b33587421adf4b9e3",
+  "sources": {
+    "precision.cpp": "293f5dbdba71fcda31da947072963c14f5be9cf0efec03fe450a9318d3611ffe",
+    "precision.h": "c8758086e9346c1522802d86ea9be59a067fe0bc5e9702560c435b0960724ac0",
+    "custom_op.cpp": "b1f927d37804cf874a2e40e8fac0d2bfc31247cac675319a7869c905d9b6ae23"
+  },
+  "backend": "AMD AOCL-DLP direct U8xS8->S32, row-major, N/N, alpha1 beta0, full K",
+  "unchanged": [
+    "weight quantization",
+    "activation per-time-column quantization and scales",
+    "MR2048 NT512 geometry",
+    "128*sum activation compensation",
+    "ordered FP32 dequantization",
+    "all fused-stage arithmetic"
+  ],
+  "threads": "Each ORT row callback requests one AOCL TLS thread and rejects higher-priority ways above one; ORT owns outer parallelism.",
+  "gpu_used": false,
+  "native_execution": false,
+  "script_sha256": "dde8a2e3dcf444717621c7a953fc9c202399c3573827ffcc27a3ebe04468f414"
+}

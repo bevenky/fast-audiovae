@@ -1,0 +1,2981 @@
+{
+  "status": "complete",
+  "scope": "Correctness only; no timing or perceptual equivalence claim",
+  "runtime": "1.29.0",
+  "providers": [
+    "CPUExecutionProvider"
+  ],
+  "gpu_used": false,
+  "gpu_mappings": {
+    "available": true,
+    "basenames": [],
+    "scope": "Read /proc/self/maps only; no device query. Mapped libraries alone do not prove GPU execution."
+  },
+  "threads": {
+    "ORT": 4,
+    "integer_inner": 1,
+    "affinity": [
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  "source_config_sha256": "3cfcf751ba8f36062f671892c040d6bcd85763c53d322a476e97ab36c10c6e31",
+  "candidate_config_sha256": "6b476b759e4f5ee48c4d0f50692fa111714a4bafee9a9b8b6fcb6df687a89398",
+  "harness_sha256": "593dc1df8b7ac7334add9211da869eac931aaf61d360656b15a3196467cecf01",
+  "script_sha256": "95f4fce28db80e321076c1d4af8c7a22e3c7383d8cf7d8fc090d2b2a4e1358d5",
+  "reference_helper_sha256": "afcc11152f2d648f54cfe174ad83000a7938e1afd611c4d893f25f369aadad86",
+  "records": [
+    {
+      "test": "full_2_vs_4",
+      "uid": "hi_in_00099_1919",
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "full_2_vs_4",
+      "uid": "en_us_00103_1779",
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "full_2_vs_4",
+      "uid": "pt_br_00672_1745",
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "short_2_vs_4",
+      "length": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "short_2_vs_4",
+      "length": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "short_2_vs_4",
+      "length": 3,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "short_2_vs_4",
+      "length": 7,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "short_2_vs_4",
+      "length": 8,
+      "passed": true,
+      "max_abs": 1.1175870895385742e-08,
+      "rmse": 2.1040814791691115e-10,
+      "bitwise_equal": false
+    },
+    {
+      "test": "short_2_vs_4",
+      "length": 15,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "short_2_vs_4",
+      "length": 16,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "short_2_vs_4",
+      "length": 17,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "short_2_vs_4",
+      "length": 31,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "short_2_vs_4",
+      "length": 32,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "short_2_vs_4",
+      "length": 33,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "short_2_vs_4",
+      "length": 63,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "short_2_vs_4",
+      "length": 64,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "short_2_vs_4",
+      "length": 65,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 1,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 2.9802322387695312e-08,
+      "rmse": 7.644507642547602e-09,
+      "bitwise_equal": false
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 1,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 1,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 2.9802322387695312e-08,
+      "rmse": 1.095294345760632e-08,
+      "bitwise_equal": false
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 1,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 1,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 2.9802322387695312e-08,
+      "rmse": 1.2423893106118413e-08,
+      "bitwise_equal": false
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 1,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 2,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 2,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 2,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 2,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 2,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 2,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 3,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 3,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 3,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 3,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 3,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 3,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 7,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 7,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 7,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 7,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 7,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 7,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 8,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 8,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 8,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 8,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 8,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 8,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 15,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 15,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 15,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 15,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 15,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 15,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 16,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 16,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 16,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 16,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 16,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 16,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 17,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 17,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 17,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 1.4901161193847656e-08,
+      "rmse": 6.776367082344358e-10,
+      "bitwise_equal": false
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 17,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 1.4901161193847656e-08,
+      "rmse": 6.776367082344358e-10,
+      "bitwise_equal": false
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 17,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 1.4901161193847656e-08,
+      "rmse": 7.491555684617197e-10,
+      "bitwise_equal": false
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 17,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 1.4901161193847656e-08,
+      "rmse": 7.491555684617197e-10,
+      "bitwise_equal": false
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 53,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 53,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 53,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 53,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 53,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 53,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 54,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 54,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 54,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 54,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 54,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 54,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 55,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 55,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 55,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 55,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 55,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 55,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 77,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 77,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 77,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 77,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 77,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 77,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 78,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 78,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 78,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 78,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 78,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 78,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 79,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 79,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 79,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 79,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 79,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 79,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 255,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 255,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 255,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 255,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 255,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 255,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 256,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 256,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 256,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 256,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 256,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 256,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 257,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 257,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 257,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 257,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 257,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 257,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 513,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 513,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 513,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 513,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 64,
+      "length": 513,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 64,
+      "length": 513,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_future",
+      "channels": 64,
+      "unit": 0,
+      "passed": true,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 64,
+      "unit": 0,
+      "length": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 64,
+      "unit": 0,
+      "length": 53,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 64,
+      "unit": 0,
+      "length": 54,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 64,
+      "unit": 0,
+      "length": 55,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 64,
+      "unit": 0,
+      "length": 77,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 64,
+      "unit": 0,
+      "length": 78,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 64,
+      "unit": 0,
+      "length": 79,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 64,
+      "unit": 0,
+      "length": 255,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 64,
+      "unit": 0,
+      "length": 256,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 64,
+      "unit": 0,
+      "length": 257,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_future",
+      "channels": 64,
+      "unit": 1,
+      "passed": true,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 64,
+      "unit": 1,
+      "length": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 64,
+      "unit": 1,
+      "length": 53,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 64,
+      "unit": 1,
+      "length": 54,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 64,
+      "unit": 1,
+      "length": 55,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 64,
+      "unit": 1,
+      "length": 77,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 64,
+      "unit": 1,
+      "length": 78,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 64,
+      "unit": 1,
+      "length": 79,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 64,
+      "unit": 1,
+      "length": 255,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 64,
+      "unit": 1,
+      "length": 256,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 64,
+      "unit": 1,
+      "length": 257,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_future",
+      "channels": 64,
+      "unit": 2,
+      "passed": true,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 64,
+      "unit": 2,
+      "length": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 64,
+      "unit": 2,
+      "length": 53,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 64,
+      "unit": 2,
+      "length": 54,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 64,
+      "unit": 2,
+      "length": 55,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 64,
+      "unit": 2,
+      "length": 77,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 64,
+      "unit": 2,
+      "length": 78,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 64,
+      "unit": 2,
+      "length": 79,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 64,
+      "unit": 2,
+      "length": 255,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 64,
+      "unit": 2,
+      "length": 256,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 64,
+      "unit": 2,
+      "length": 257,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 1,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 1.4901161193847656e-08,
+      "rmse": 3.8560104196049555e-09,
+      "bitwise_equal": false
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 1,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 1,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 1.4901161193847656e-08,
+      "rmse": 4.71446121374997e-09,
+      "bitwise_equal": false
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 1,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 1,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 1.4901161193847656e-08,
+      "rmse": 5.790418999011576e-09,
+      "bitwise_equal": false
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 1,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 2,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 2,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 2,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 2,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 2,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 2,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 3,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 3,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 3,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 3,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 3,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 3,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 7,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 7,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 7,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 7,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 7,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 7,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 8,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 8,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 8,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 8,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 8,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 8,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 15,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 15,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 15,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 15,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 15,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 15,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 16,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 16,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 16,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 16,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 16,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 16,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 17,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 17,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 17,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 17,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 17,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 17,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 53,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 53,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 53,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 53,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 53,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 53,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 54,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 54,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 54,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 54,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 54,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 54,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 55,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 55,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 55,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 55,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 55,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 55,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 77,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 77,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 77,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 77,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 77,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 77,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 78,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 78,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 78,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 78,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 78,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 78,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 79,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 79,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 79,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 79,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 79,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 79,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 255,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 255,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 255,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 255,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 255,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 255,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 256,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 256,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 256,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 256,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 256,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 256,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 257,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 257,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 257,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 257,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 257,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 257,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 513,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 513,
+      "unit": 0,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 513,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 513,
+      "unit": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_original",
+      "channels": 32,
+      "length": 513,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_2_vs_4",
+      "channels": 32,
+      "length": 513,
+      "unit": 2,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_future",
+      "channels": 32,
+      "unit": 0,
+      "passed": true,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 32,
+      "unit": 0,
+      "length": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 32,
+      "unit": 0,
+      "length": 53,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 32,
+      "unit": 0,
+      "length": 54,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 32,
+      "unit": 0,
+      "length": 55,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 32,
+      "unit": 0,
+      "length": 77,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 32,
+      "unit": 0,
+      "length": 78,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 32,
+      "unit": 0,
+      "length": 79,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 32,
+      "unit": 0,
+      "length": 255,
+      "passed": true,
+      "max_abs": 2.9802322387695312e-08,
+      "rmse": 6.261946867513256e-10,
+      "bitwise_equal": false
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 32,
+      "unit": 0,
+      "length": 256,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 32,
+      "unit": 0,
+      "length": 257,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_future",
+      "channels": 32,
+      "unit": 1,
+      "passed": true,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 32,
+      "unit": 1,
+      "length": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 32,
+      "unit": 1,
+      "length": 53,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 32,
+      "unit": 1,
+      "length": 54,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 32,
+      "unit": 1,
+      "length": 55,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 32,
+      "unit": 1,
+      "length": 77,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 32,
+      "unit": 1,
+      "length": 78,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 32,
+      "unit": 1,
+      "length": 79,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 32,
+      "unit": 1,
+      "length": 255,
+      "passed": true,
+      "max_abs": 2.9802322387695312e-08,
+      "rmse": 7.287293570706656e-10,
+      "bitwise_equal": false
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 32,
+      "unit": 1,
+      "length": 256,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 32,
+      "unit": 1,
+      "length": 257,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_future",
+      "channels": 32,
+      "unit": 2,
+      "passed": true,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 32,
+      "unit": 2,
+      "length": 1,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 32,
+      "unit": 2,
+      "length": 53,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 32,
+      "unit": 2,
+      "length": 54,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 32,
+      "unit": 2,
+      "length": 55,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 32,
+      "unit": 2,
+      "length": 77,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 32,
+      "unit": 2,
+      "length": 78,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 32,
+      "unit": 2,
+      "length": 79,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 32,
+      "unit": 2,
+      "length": 255,
+      "passed": true,
+      "max_abs": 2.9802322387695312e-08,
+      "rmse": 7.911137837149529e-10,
+      "bitwise_equal": false
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 32,
+      "unit": 2,
+      "length": 256,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    },
+    {
+      "test": "retained_stage_prefix",
+      "channels": 32,
+      "unit": 2,
+      "length": 257,
+      "passed": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "bitwise_equal": true
+    }
+  ],
+  "record_count": 299,
+  "passed": true,
+  "FP32_tolerance": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "-1",
+    "NVIDIA_VISIBLE_DEVICES": "void",
+    "ROCR_VISIBLE_DEVICES": "-1",
+    "HIP_VISIBLE_DEVICES": "-1"
+  }
+}

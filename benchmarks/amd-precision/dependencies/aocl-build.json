@@ -1,0 +1,40 @@
+{
+  "source_pin": {
+    "repo": "https://github.com/amd/aocl-dlp",
+    "branch": "dev",
+    "commit": "c577191304a3db0029f2f12fcacbc8ad296a645d",
+    "archive_sha256": "7c93b699d4cb147fb698bb04acde0cbc67947d970cb5bc36623a3579c0dc816a",
+    "fetched_utc": "2026-09-07T13:24:38.423053+00:00"
+  },
+  "platform": "Linux-6.8.0-59-generic-x86_64-with-glibc2.39",
+  "compiler": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+  "cmake": "cmake version 3.28.3",
+  "build_options": {
+    "type": "Release",
+    "threading_model": "openmp",
+    "jobs": 8,
+    "examples": false,
+    "tests": false,
+    "benchmarks": false
+  },
+  "probe_flags": [
+    "-std=c11",
+    "-O3",
+    "-fPIC",
+    "-shared",
+    "-fopenmp",
+    "-D_POSIX_C_SOURCE=200809L",
+    "-ffp-contract=off",
+    "-fno-fast-math"
+  ],
+  "sha256": {
+    "probe.c": "603256beff595140889ec870ffc1872ee000087b55e383512f7182a4bb91f772",
+    "compare_dlp.py": "04a91eaa89c87638620c0529345f4d5172bc0b8b4a48aa37fe91e25baf226731",
+    "libdlp_probe.so": "bbaacebf9f37ed61b04a047ab41c577d46445fd08d529a152679d7d98adcac72",
+    "install/lib/libaocl-dlp.so": "6fb0e10f2074367c4b038beb14647b8c02cc67116f973d10b4a02f9ca01974b0",
+    "install/lib/libaocl-dlp.a": "655fd590d3d1ba812a35165a11fac81db906f72b06633c38441230546edef0d4",
+    "build/compile_commands.json": "9b9485fdbf6806fb4e42fd9dea9297c5468dc362e165397ae4e6da7598eba7e3"
+  },
+  "ldd": "\tlinux-vdso.so.1 (0x00007ffcd81ea000)\n\tlibaocl-dlp.so => <dependency-root>/work/native_codec_cpu/ort_experiments/aocl_dlp_candidate/./install/lib/libaocl-dlp.so (0x00007ddc30000000)\n\tlibgomp.so.1 => /usr/lib/x86_64-linux-gnu/libgomp.so.1 (0x00007ddc30bd4000)\n\tlibc.so.6 => /usr/lib/x86_64-linux-gnu/libc.so.6 (0x00007ddc2fdee000)\n\tlibstdc++.so.6 => /usr/lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007ddc2fb70000)\n\tlibm.so.6 => /usr/lib/x86_64-linux-gnu/libm.so.6 (0x00007ddc30aeb000)\n\tlibgcc_s.so.1 => /usr/lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007ddc30abb000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007ddc30c3d000)\n",
+  "dlp_ldd": "\tlinux-vdso.so.1 (0x00007ffc9043b000)\n\tlibgomp.so.1 => /usr/lib/x86_64-linux-gnu/libgomp.so.1 (0x00007f57ecdc8000)\n\tlibstdc++.so.6 => /usr/lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007f57ebf82000)\n\tlibm.so.6 => /usr/lib/x86_64-linux-gnu/libm.so.6 (0x00007f57eccdf000)\n\tlibgcc_s.so.1 => /usr/lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007f57ebf54000)\n\tlibc.so.6 => /usr/lib/x86_64-linux-gnu/libc.so.6 (0x00007f57ebd42000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007f57ece2b000)\n"
+}

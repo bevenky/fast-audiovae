@@ -1,0 +1,648 @@
+{
+  "schema": 1,
+  "status": "AOCL four-worker tested opt-in recipe with measured quality tradeoff; defaults unchanged",
+  "sources": [
+    {
+      "source": "work/cross-platform-int8/amd/release/fused/stage_precision.cpp",
+      "published": "experiments/amd-precision/common/fused/stage_precision.cpp",
+      "sha256": "e2224a974a5fb8f1673fd31ae0f5a9c44d2896c60ea5b06be201d78ded073189",
+      "bytes": 10819,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/amd/release/fused/upsample_precision.cpp",
+      "published": "experiments/amd-precision/common/fused/upsample_precision.cpp",
+      "sha256": "5f8ae215d93f92186b4ed53cd4f6fe8dca0212f0973eb7ca27518cdc7680dec5",
+      "bytes": 20289,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/amd/release/native/precision.h",
+      "published": "experiments/amd-precision/common/native/precision.h",
+      "sha256": "c8758086e9346c1522802d86ea9be59a067fe0bc5e9702560c435b0960724ac0",
+      "bytes": 2774,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/amd/release/support/matrix/fused_pointwise.c",
+      "published": "experiments/amd-precision/common/support/matrix/fused_pointwise.c",
+      "sha256": "8e6dc221fb88aaa24a1b4e93b276e8043010084c95027f95f39f2b8e23525522",
+      "bytes": 8689,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/amd/release/support/matrix/fused_pointwise.h",
+      "published": "experiments/amd-precision/common/support/matrix/fused_pointwise.h",
+      "sha256": "68ca5b4acf978b779cf1c53874fba0e970d954ba665a1494b2efdc47ee44a6dc",
+      "bytes": 559,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/amd/release/support/upsample/projection.c",
+      "published": "experiments/amd-precision/common/support/upsample/projection.c",
+      "sha256": "d7260800a6986517cfcde40a7c4d453dcd6a322bc7f476ada8f43abf86b22ba7",
+      "bytes": 6030,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/amd/release/support/upsample/projection.h",
+      "published": "experiments/amd-precision/common/support/upsample/projection.h",
+      "sha256": "6451922cf4316e07021642ca863b63d903baa95429183fd6296cdca0fff67fd2",
+      "bytes": 712,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/amd/release/support/stage/stage_dw.h",
+      "published": "experiments/amd-precision/common/support/stage/stage_dw.h",
+      "sha256": "4586053d717c485a3157f75162299ff8835c5be3405b03db3cd97c52ed75e32a",
+      "bytes": 1946,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/amd/release/support/native/native_kernels.h",
+      "published": "experiments/amd-precision/common/support/native/native_kernels.h",
+      "sha256": "046c463260fe9cd91940e2a020d3bd17bf5c869437947473ed7d31eb226dd8c4",
+      "bytes": 4891,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/amd/aocl-native/source/precision.cpp",
+      "published": "experiments/amd-precision/aocl/source/precision.cpp",
+      "sha256": "293f5dbdba71fcda31da947072963c14f5be9cf0efec03fe450a9318d3611ffe",
+      "bytes": 23336,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/amd/aocl-native/source/precision.h",
+      "published": "experiments/amd-precision/aocl/source/precision.h",
+      "sha256": "c8758086e9346c1522802d86ea9be59a067fe0bc5e9702560c435b0960724ac0",
+      "bytes": 2774,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/amd/aocl-native/source/custom_op.cpp",
+      "published": "experiments/amd-precision/aocl/source/custom_op.cpp",
+      "sha256": "b1f927d37804cf874a2e40e8fac0d2bfc31247cac675319a7869c905d9b6ae23",
+      "bytes": 5748,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/amd/aocl-native/derive.py",
+      "published": "experiments/amd-precision/aocl/derive.py",
+      "sha256": "dde8a2e3dcf444717621c7a953fc9c202399c3573827ffcc27a3ebe04468f414",
+      "bytes": 5003,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/amd/aocl-native/build.py",
+      "published": "experiments/amd-precision/aocl/build.py",
+      "sha256": "8d43f976c2526ef74239a5601bde4110bdb376477f3c9a8dec6d4830d3baa909",
+      "bytes": 4313,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/amd/aocl-native/prepare_config.py",
+      "published": "experiments/amd-precision/aocl/prepare_config.py",
+      "sha256": "78703c7f9f30f96849d3b8e47e0a0bd9b06f5ea9c596b69e54194115d635c888",
+      "bytes": 3347,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/amd/aocl-native/schedule.py",
+      "published": "experiments/amd-precision/aocl/schedule.py",
+      "sha256": "42828524fa5e513eb4738c9092ba63eba82c1e767755e314f57f43f172a121b4",
+      "bytes": 4030,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/amd/aocl-native/check_schedule.py",
+      "published": "experiments/amd-precision/aocl/check_schedule.py",
+      "sha256": "95f4fce28db80e321076c1d4af8c7a22e3c7383d8cf7d8fc090d2b2a4e1358d5",
+      "bytes": 7696,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/amd/aocl-native/stage_reference.py",
+      "published": "experiments/amd-precision/aocl/stage_reference.py",
+      "sha256": "afcc11152f2d648f54cfe174ad83000a7938e1afd611c4d893f25f369aadad86",
+      "bytes": 8623,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/amd/aocl-native/source/derivation.json",
+      "published": "experiments/amd-precision/aocl/source/derivation.json",
+      "sha256": "1ca02a129dd3d60e21ef1fa8b702c6c874a2c8170d994196767d1bf2e4de2602",
+      "bytes": 988,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/amd/aocl-native/rebuild-provenance.json",
+      "published": "experiments/amd-precision/aocl/rebuild-provenance.json",
+      "sha256": "51b78a2e5a4b6a1bf618cb75d59ce9cdb99b660e8d39db29e0e34ea7fdf35169",
+      "bytes": 12867,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/amd/aocl-native/REBUILD.md",
+      "published": "experiments/amd-precision/aocl/REBUILD.md",
+      "sha256": "d1a08498b644c45019c25dbd78ee9ba2b44475f6a6fb5c26bd6437d4ac540ccd",
+      "bytes": 3151,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/amd/prepare_config.py",
+      "published": "experiments/amd-precision/mkl/prepare_config.py",
+      "sha256": "81c67f933f7b284d014943f225dcccf66bd5765d4424a1706a0eb2a959998968",
+      "bytes": 4486,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/amd/check_int8.py",
+      "published": "experiments/amd-precision/mkl/check_int8.py",
+      "sha256": "2ccad474272bd574b84c4a6e4afa953ca676f877a06de8f518041236a536eb8f",
+      "bytes": 12577,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/amd/provision_cpu_mkl.py",
+      "published": "experiments/amd-precision/mkl/provision_cpu_mkl.py",
+      "sha256": "0cf685974b351dbf1b9107f3de5cb4ab15e5281c6ac178433024ddf58339bf7e",
+      "bytes": 2186,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/amd/complete_mkl_headers.py",
+      "published": "experiments/amd-precision/mkl/complete_mkl_headers.py",
+      "sha256": "ff08e2a01a95eec12901749ee613e107180cb854c9913273baf99b1f5238870e",
+      "bytes": 1879,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/amd/release/native/precision.cpp",
+      "published": "experiments/amd-precision/mkl/native/precision.cpp",
+      "sha256": "95eeddad1153679fc0582896b965ad088100f7d1c0abc43b33587421adf4b9e3",
+      "bytes": 20637,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/amd/release/native/precision.h",
+      "published": "experiments/amd-precision/mkl/native/precision.h",
+      "sha256": "c8758086e9346c1522802d86ea9be59a067fe0bc5e9702560c435b0960724ac0",
+      "bytes": 2774,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/amd/release/native/custom_op.cpp",
+      "published": "experiments/amd-precision/mkl/native/custom_op.cpp",
+      "sha256": "b1f927d37804cf874a2e40e8fac0d2bfc31247cac675319a7869c905d9b6ae23",
+      "bytes": 5748,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/amd/release/native/build.py",
+      "published": "experiments/amd-precision/mkl/native/build.py",
+      "sha256": "0167c0e441b7c83ee44820a7bae550be2f09ce67d5970e028c6462e4fd17d2fb",
+      "bytes": 5060,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/amd/release/native/check_micro.py",
+      "published": "experiments/amd-precision/mkl/native/check_micro.py",
+      "sha256": "bc3f05d0ca2021914c4729fa3c93ee05b6f5e29a824be17ae8c834bdcb2d1553",
+      "bytes": 12455,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/amd/release/native/check_candidate.py",
+      "published": "experiments/amd-precision/mkl/native/check_candidate.py",
+      "sha256": "0cd72f8d44a8987edf3cafc686df199dcdb3b019130abfa4dd843475a37d28ad",
+      "bytes": 3600,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/amd/release/native/check_half_fixed.py",
+      "published": "experiments/amd-precision/mkl/native/check_half_fixed.py",
+      "sha256": "70f37a3b44e7228827a2ffe3ceb02907a0996765f48588e42ad01fedf6b1b96e",
+      "bytes": 2744,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/amd/probe/precision_probe.cpp",
+      "published": "experiments/amd-precision/probe/precision_probe.cpp",
+      "sha256": "8ababa3c519d39c89ddf792cdcf389cb11a76e39b4783fcc18e05e7d33078bc5",
+      "bytes": 10723,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/amd/probe/build.py",
+      "published": "experiments/amd-precision/probe/build.py",
+      "sha256": "03b09414b74f3b64f1215bc44f8bab70260615388351efd64980aa31a0094ae1",
+      "bytes": 1794,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/amd/probe/run.py",
+      "published": "experiments/amd-precision/probe/run.py",
+      "sha256": "0151d67dc535d7a89db866a97e9401ad0951f0d0c38c9567c89bc8363a268edf",
+      "bytes": 8739,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/amd/probe/profile_parser.py",
+      "published": "experiments/amd-precision/probe/profile_parser.py",
+      "sha256": "26c5aca757312829f8b4da4334c20c1958a7c20909bdeda4b3f0b843637e0868",
+      "bytes": 26671,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/amd/platform_campaign.py",
+      "published": "experiments/amd-precision/tools/platform_campaign.py",
+      "sha256": "7f42ba2e2ae9f1c9b311e2b3b90eb1f3f6e911f0934c25b32570f36f60efb202",
+      "bytes": 15449,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/amd/compare_decoders.py",
+      "published": "experiments/amd-precision/tools/compare_decoders.py",
+      "sha256": "593dc1df8b7ac7334add9211da869eac931aaf61d360656b15a3196467cecf01",
+      "bytes": 40123,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/amd/quality_only.py",
+      "published": "experiments/amd-precision/tools/quality_only.py",
+      "sha256": "34914d63c7c9183a9d21e4819d2fc54e522aa728a96154178b188d031460cc54",
+      "bytes": 13518,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/amd/verify_quality_identity.py",
+      "published": "experiments/amd-precision/tools/verify_quality_identity.py",
+      "sha256": "5ee393eb188b5099467fb6a1e6cb82a9f3566485fa58e57cf0a718662f94080d",
+      "bytes": 3905,
+      "byte_identical": true
+    },
+    {
+      "source": "work/fast-audiovae/benchmarks/diagnose_cpu.py",
+      "published": "experiments/amd-precision/tools/diagnose_cpu.py",
+      "sha256": "d114e258059b22785afc567871e0e6ae3e15b6c613bbdb40a10fc49836ad88df",
+      "bytes": 22307,
+      "byte_identical": true
+    },
+    {
+      "source": "work/intel-precision/score_quality.py",
+      "published": "experiments/amd-precision/quality/score_quality.py",
+      "sha256": "d0e406d77de02cde7476d2aef43c2b79543a9accc19153140b2f8e2dc507574e",
+      "bytes": 22665,
+      "byte_identical": true
+    },
+    {
+      "source": "work/quality-comparison/score.py",
+      "published": "experiments/amd-precision/quality/scorer/score.py",
+      "sha256": "797bddcba0ffbd9f1035d3166e4db4eabc7ebea1f5fb0ab83a429199fc880f03",
+      "bytes": 18103,
+      "byte_identical": true
+    },
+    {
+      "source": "work/quality-comparison/metrics.py",
+      "published": "experiments/amd-precision/quality/scorer/metrics.py",
+      "sha256": "c5e37fb3a6376b90ee89e9c7c69fb1f9540080f12c6d750864e83814da9be491",
+      "bytes": 20269,
+      "byte_identical": true
+    },
+    {
+      "source": "work/quality-comparison/metric_assets.json",
+      "published": "experiments/amd-precision/quality/scorer/metric_assets.json",
+      "sha256": "628c81cd349eb45819143a275efb5417da2b518db2c71e858d0c1a6fe7c713c0",
+      "bytes": 1556,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/amd/release/LICENSE",
+      "published": "experiments/amd-precision/licenses/LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "bytes": 11358,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/amd/release/licenses/libxsmm-LICENSE.md",
+      "published": "experiments/amd-precision/licenses/libxsmm-LICENSE.md",
+      "sha256": "e60bc806cb48bb16fe29f5b03f5e33384f13063aa1c217dad62d983e318fba46",
+      "bytes": 1685,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/amd/release/licenses/sleef-LICENSE.txt",
+      "published": "experiments/amd-precision/licenses/sleef-LICENSE.txt",
+      "sha256": "c9bff75738922193e67fa726fa225535870d2aa1059f91452c411736284ad566",
+      "bytes": 1338,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/amd/release/licenses/onnxruntime-LICENSE",
+      "published": "experiments/amd-precision/licenses/onnxruntime-LICENSE",
+      "sha256": "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c",
+      "bytes": 1073,
+      "byte_identical": true
+    },
+    {
+      "source": "work/native_codec_cpu/ort_experiments/aocl_dlp_candidate/source/LICENSE",
+      "published": "experiments/amd-precision/licenses/AOCL-LICENSE",
+      "sha256": "991645d551f6cc57c807a297affefa674de63b2695499da04372f04a7cf210cf",
+      "bytes": 3539,
+      "byte_identical": true
+    },
+    {
+      "source": "work/native_codec_cpu/ort_experiments/aocl_dlp_candidate/source/NOTICES",
+      "published": "experiments/amd-precision/licenses/AOCL-NOTICES",
+      "sha256": "14f5af1bb2252be7ed3c6010188dc6af90807b051e439afe68b32f8747d213cb",
+      "bytes": 3537,
+      "byte_identical": true
+    },
+    {
+      "source": "work/cross-platform-int8/amd/aocl-native/rebuild-provenance.json",
+      "published": "experiments/amd-precision/pins/rebuild.json",
+      "sha256": "51b78a2e5a4b6a1bf618cb75d59ce9cdb99b660e8d39db29e0e34ea7fdf35169",
+      "bytes": 12867,
+      "byte_identical": true
+    }
+  ],
+  "normalized_records": [
+    {
+      "source": "work/native_codec_cpu/ort_experiments/aocl_dlp_candidate/source_pin.json",
+      "published": "benchmarks/amd-precision/dependencies/aocl-source_pin.json",
+      "original_sha256": "6c4309a53808b3fc26faa84f026136c347bf419046c8fe9a1de3c74b12bfb385",
+      "published_sha256": "6c4309a53808b3fc26faa84f026136c347bf419046c8fe9a1de3c74b12bfb385",
+      "original_bytes": 264,
+      "published_bytes": 264
+    },
+    {
+      "source": "work/native_codec_cpu/ort_experiments/aocl_dlp_candidate/build.json",
+      "published": "benchmarks/amd-precision/dependencies/aocl-build.json",
+      "original_sha256": "692989f0130571163e49731a8b5e234dea2aab2baa5ad323f053e39c6c376ced",
+      "published_sha256": "8254acad7866e5bd0372b6d0846acbf3cd1ece35bc0dff28c31dd28e672892da",
+      "original_bytes": 2532,
+      "published_bytes": 2516
+    },
+    {
+      "source": "work/cross-platform-int8/amd/source-pins.json",
+      "published": "benchmarks/amd-precision/source-pins.json",
+      "original_sha256": "17df3ef30e29e91ea1033c3b98a1267ef4415ab51d0424c858315204a218fa10",
+      "published_sha256": "17df3ef30e29e91ea1033c3b98a1267ef4415ab51d0424c858315204a218fa10",
+      "original_bytes": 5172,
+      "published_bytes": 5172
+    },
+    {
+      "source": "work/cross-platform-int8/amd/graph-inspection.json",
+      "published": "benchmarks/amd-precision/graph-inspection.json",
+      "original_sha256": "38865e5ae27ac26f1373e6c822569a5e47cafef9ce3a22fd05e3db9352d8ae70",
+      "published_sha256": "38865e5ae27ac26f1373e6c822569a5e47cafef9ce3a22fd05e3db9352d8ae70",
+      "original_bytes": 7207,
+      "published_bytes": 7207
+    },
+    {
+      "source": "work/cross-platform-int8/amd/scheduling-audit.json",
+      "published": "benchmarks/amd-precision/scheduling-audit.json",
+      "original_sha256": "a2a29a1814ba965c50350ddc5e68d9743027c302d867bef67073a4a9afd8b9e1",
+      "published_sha256": "a2a29a1814ba965c50350ddc5e68d9743027c302d867bef67073a4a9afd8b9e1",
+      "original_bytes": 3758,
+      "published_bytes": 3758
+    },
+    {
+      "source": "work/cross-platform-int8/amd/checks-int8-r2.json",
+      "published": "benchmarks/amd-precision/checks-int8-r2.json",
+      "original_sha256": "3e727a328f98bc1a1490563f74b1cae09226a9daefbab32f2266650d6ab7ebb9",
+      "published_sha256": "0712bd726d8c462cdf95e4bc64042b1a1ddefcba7b34144427fdc2da49de705e",
+      "original_bytes": 5710,
+      "published_bytes": 5500
+    },
+    {
+      "source": "work/cross-platform-int8/amd/screen-r1-results.json",
+      "published": "benchmarks/amd-precision/screen-r1-results.json",
+      "original_sha256": "986424768f71b2ba96f6184cb20abe4926f1fefd97a97efca07fbe1a1e8e714d",
+      "published_sha256": "986424768f71b2ba96f6184cb20abe4926f1fefd97a97efca07fbe1a1e8e714d",
+      "original_bytes": 34746,
+      "published_bytes": 34746
+    },
+    {
+      "source": "work/cross-platform-int8/amd/checks-aocl-r2.json",
+      "published": "benchmarks/amd-precision/checks-aocl-r2.json",
+      "original_sha256": "ee619967626957cd0faa5c83fd0a877198273cc3c0e143a64cc9eb86e8ae086b",
+      "published_sha256": "f6370362e3297bb9beed006c752106e1cd61b72cc6f56962157a09af0b13ebee",
+      "original_bytes": 5217,
+      "published_bytes": 5182
+    },
+    {
+      "source": "work/cross-platform-int8/amd/checks-schedule4-r1.json",
+      "published": "benchmarks/amd-precision/checks-schedule4-r1.json",
+      "original_sha256": "c256e13242c198beaf925a27dad0a6dcd41b5926cc426076d1c9dabd69df56a4",
+      "published_sha256": "c256e13242c198beaf925a27dad0a6dcd41b5926cc426076d1c9dabd69df56a4",
+      "original_bytes": 61237,
+      "published_bytes": 61237
+    },
+    {
+      "source": "work/cross-platform-int8/amd/screen-aocl4-r1-results.json",
+      "published": "benchmarks/amd-precision/screen-aocl4-r1-results.json",
+      "original_sha256": "723fe7cf73943a7f4bec361d8b5bb38b7c01dd060fbb863ee0116557437ab6c1",
+      "published_sha256": "723fe7cf73943a7f4bec361d8b5bb38b7c01dd060fbb863ee0116557437ab6c1",
+      "original_bytes": 33682,
+      "published_bytes": 33682
+    },
+    {
+      "source": "work/cross-platform-int8/amd/screen-aocl4-r1-statistics.json",
+      "published": "benchmarks/amd-precision/screen-aocl4-r1-statistics.json",
+      "original_sha256": "acfa2f87b2155b704ecb514aab9094eb7260d84de0e1e5ac566037a27308eee2",
+      "published_sha256": "acfa2f87b2155b704ecb514aab9094eb7260d84de0e1e5ac566037a27308eee2",
+      "original_bytes": 1329,
+      "published_bytes": 1329
+    },
+    {
+      "source": "work/cross-platform-int8/amd/campaign-aocl4-r1.json",
+      "published": "benchmarks/amd-precision/campaign-aocl4-r1.json",
+      "original_sha256": "6b476b759e4f5ee48c4d0f50692fa111714a4bafee9a9b8b6fcb6df687a89398",
+      "published_sha256": "6b476b759e4f5ee48c4d0f50692fa111714a4bafee9a9b8b6fcb6df687a89398",
+      "original_bytes": 10386,
+      "published_bytes": 10386
+    },
+    {
+      "source": "work/cross-platform-int8/amd/profile-mkl2-r1-results.json",
+      "published": "benchmarks/amd-precision/profile-mkl2-r1-results.json",
+      "original_sha256": "ec02d8a884bd1d0c1607ebee9fd6a468502c7772219e3201aa79030e12be0eb1",
+      "published_sha256": "5f53d48f32b03df3a942dc1220cb741b0743a040fe1f6f5bbe607d1be4e9da28",
+      "original_bytes": 803730,
+      "published_bytes": 803380
+    },
+    {
+      "source": "work/cross-platform-int8/amd/profile-aocl4-r1-results.json",
+      "published": "benchmarks/amd-precision/profile-aocl4-r1-results.json",
+      "original_sha256": "954a033f98a16a2dafa747ba6ac1656f824643b942af7635b30f6ae4e9fb8cd3",
+      "published_sha256": "a7b1be1ff3ef1d55f8ed423f74f0e59c8bfb7bd7ee9f794a3f81f7d70e3d629e",
+      "original_bytes": 802651,
+      "published_bytes": 802460
+    },
+    {
+      "source": "work/cross-platform-int8/amd/diagnostic-summary.json",
+      "published": "benchmarks/amd-precision/diagnostic-summary.json",
+      "original_sha256": "8243c7a433eb9e9cf85c8df8223d8f0cede925c5c515625d84a246f9a5d1cbce",
+      "published_sha256": "8243c7a433eb9e9cf85c8df8223d8f0cede925c5c515625d84a246f9a5d1cbce",
+      "original_bytes": 4487,
+      "published_bytes": 4487
+    },
+    {
+      "source": "work/cross-platform-int8/amd/quality-aocl4-r1-results.json",
+      "published": "benchmarks/amd-precision/quality-aocl4-r1-results.json",
+      "original_sha256": "47d3c7d27515ecf2967292714ad4cb19d679e79c255ac5016a9e4a0b5fac2b9d",
+      "published_sha256": "83b23d869a59fdcacef166ad5b6d1640ed3a38921a914c41819332b726894a33",
+      "original_bytes": 140839,
+      "published_bytes": 134539
+    },
+    {
+      "source": "work/cross-platform-int8/amd/quality-identity.json",
+      "published": "benchmarks/amd-precision/quality-identity.json",
+      "original_sha256": "3766cc3950ba850d1e7e21808a4f943221b24493b39f4494c746c6b98bc11200",
+      "published_sha256": "3766cc3950ba850d1e7e21808a4f943221b24493b39f4494c746c6b98bc11200",
+      "original_bytes": 122484,
+      "published_bytes": 122484
+    },
+    {
+      "source": "work/cross-platform-int8/amd/quality-numerical-differences.json",
+      "published": "benchmarks/amd-precision/quality-numerical-differences.json",
+      "original_sha256": "7e82b5d8c4c0fe8c51d14408a416f3a783ae83b3f6e34e28bad998e10357f4fc",
+      "published_sha256": "7e82b5d8c4c0fe8c51d14408a416f3a783ae83b3f6e34e28bad998e10357f4fc",
+      "original_bytes": 25746,
+      "published_bytes": 25746
+    },
+    {
+      "source": "work/cross-platform-int8/amd/quality-inputs.json",
+      "published": "benchmarks/amd-precision/quality-inputs.json",
+      "original_sha256": "84660d74db29b2bd4a433e0fe64c071bfdf6be4cdb59496fe18d535b4cc44841",
+      "published_sha256": "76aa94763f0f311019d1fbac41e303e6d9ee874d66bdd3a00a74555d4c6b3a5c",
+      "original_bytes": 69954,
+      "published_bytes": 59694
+    },
+    {
+      "source": "work/cross-platform-int8/amd/quality-local-exports.json",
+      "published": "benchmarks/amd-precision/quality-local-exports.json",
+      "original_sha256": "f5f8cbc8fcce854a4c7c18b1e42f743cc7aa38d5c82eb437b25ba939f96a731a",
+      "published_sha256": "26e7f330155daea6f5f2d896257ec948967fa7b554f4175bd377a86508ee837f",
+      "original_bytes": 73048,
+      "published_bytes": 62788
+    },
+    {
+      "source": "work/cross-platform-int8/amd/campaign-r1.json",
+      "published": "benchmarks/amd-precision/campaign-r1.json",
+      "original_sha256": "5800f5aef762fc75792520d6f20870a8ae4be1ff2ee1904fce28f9aecd98b8e1",
+      "published_sha256": "5800f5aef762fc75792520d6f20870a8ae4be1ff2ee1904fce28f9aecd98b8e1",
+      "original_bytes": 7882,
+      "published_bytes": 7882
+    },
+    {
+      "source": "work/cross-platform-int8/amd/campaign-aocl-r1.json",
+      "published": "benchmarks/amd-precision/campaign-aocl-r1.json",
+      "original_sha256": "3cfcf751ba8f36062f671892c040d6bcd85763c53d322a476e97ab36c10c6e31",
+      "published_sha256": "3cfcf751ba8f36062f671892c040d6bcd85763c53d322a476e97ab36c10c6e31",
+      "original_bytes": 7328,
+      "published_bytes": 7328
+    },
+    {
+      "source": "work/cross-platform-int8/amd/int8_large_4workers.schedule.json",
+      "published": "benchmarks/amd-precision/int8_large_4workers.schedule.json",
+      "original_sha256": "b108f34775d023a0e124ec76e3e6c63ca382ffc2b913376ea6354286086840f0",
+      "published_sha256": "b108f34775d023a0e124ec76e3e6c63ca382ffc2b913376ea6354286086840f0",
+      "original_bytes": 2702,
+      "published_bytes": 2702
+    },
+    {
+      "source": "work/cross-platform-int8/amd/quality/comparison.json",
+      "published": "benchmarks/amd-precision/quality/comparison.json",
+      "original_sha256": "031a43cf3d3fd7d99eed6175ad215a3c57f818842967f834fae627e0fbc2cd58",
+      "published_sha256": "df8dfc67c5dd23b8b79b8bc4538b2ed8d70fcbc8a925b8e8b0f3cda7e75635b9",
+      "original_bytes": 248205,
+      "published_bytes": 248034
+    },
+    {
+      "source": "work/cross-platform-int8/amd/quality/comparison.csv",
+      "published": "benchmarks/amd-precision/quality/comparison.csv",
+      "original_sha256": "46470d4064f78b9bbacc8166191ed4e9adcd4f93dcab56ad9aca2b0cb8b82714",
+      "published_sha256": "46470d4064f78b9bbacc8166191ed4e9adcd4f93dcab56ad9aca2b0cb8b82714",
+      "original_bytes": 37080,
+      "published_bytes": 37080
+    },
+    {
+      "source": "work/cross-platform-int8/amd/quality/comparison-scores.json",
+      "published": "benchmarks/amd-precision/quality/comparison-scores.json",
+      "original_sha256": "b24ecc150f1359a57edaec90da9e513c65a0591d8536058f36dc1d1a7efdac16",
+      "published_sha256": "c60a474c1c546597fb94d1458c1cdd36a7efc645ef6adfe0dbcbbb75a3e8deb3",
+      "original_bytes": 979222,
+      "published_bytes": 927751
+    },
+    {
+      "source": "work/cross-platform-int8/amd/quality/comparison-manifest.json",
+      "published": "benchmarks/amd-precision/quality/comparison-manifest.json",
+      "original_sha256": "3c6cdfd28ebbbfcc19d1095d80583ff7217a27c68720564a990e4f103ea70ccd",
+      "published_sha256": "add95afb31f576a215e4b094b9c232fafedef4a6705aea20e97f29bd8916a4c4",
+      "original_bytes": 177846,
+      "published_bytes": 153792
+    },
+    {
+      "source": "work/cross-platform-int8/amd/quality/comparison-preflight.json",
+      "published": "benchmarks/amd-precision/quality/comparison-preflight.json",
+      "original_sha256": "b79d573d4298bc6c150a042613a0891901e217a13a970b90ea892d212ef82f2c",
+      "published_sha256": "9b56b651223f59e4284c5f95d977ada14621674a185002a94b9cfb582831f40e",
+      "original_bytes": 1219,
+      "published_bytes": 1162
+    },
+    {
+      "source": "work/cross-platform-int8/amd/quality/comparison-scores-summary.json",
+      "published": "benchmarks/amd-precision/quality/comparison-scores-summary.json",
+      "original_sha256": "55d5b4690d9868744fcadbd95b4176de2c7467c2ba82efa58a7d1ba6fef64137",
+      "published_sha256": "55d5b4690d9868744fcadbd95b4176de2c7467c2ba82efa58a7d1ba6fef64137",
+      "original_bytes": 34689,
+      "published_bytes": 34689
+    },
+    {
+      "source": "work/cross-platform-int8/amd/evidence/native-build-r2/build.json",
+      "published": "benchmarks/amd-precision/builds/native-build-r2/build.json",
+      "original_sha256": "e86f24be37f3797b882323ea77105605f289930fb4786de9057005119031c355",
+      "published_sha256": "cab0c4fb327b12e03dceb8c35a6ade88465f95ef2c6e1f09d74bce4bf19f6b72",
+      "original_bytes": 5282,
+      "published_bytes": 4870
+    },
+    {
+      "source": "work/cross-platform-int8/amd/evidence/fused-build-r2/build.json",
+      "published": "benchmarks/amd-precision/builds/fused-build-r2/build.json",
+      "original_sha256": "e27d915b819d8fcb72766671cac2161d0feaa64a3c5403c15a43ce38075e0605",
+      "published_sha256": "0c82d3a7a334000579ae8fcb2413f11ad71033fa3a21832b06a247d4af6ae6e0",
+      "original_bytes": 15113,
+      "published_bytes": 12507
+    },
+    {
+      "source": "work/cross-platform-int8/amd/evidence/aocl-build-r2/build.json",
+      "published": "benchmarks/amd-precision/builds/aocl-build-r2/build.json",
+      "original_sha256": "463aaf42294b591fcb9258d7297d1f40b385f9e6fb0f698b8ca0f0f41f2a4547",
+      "published_sha256": "a5d497e1548b3dfbfc11979679b1241f4f589ec884269fdbb59758a7a77c6af0",
+      "original_bytes": 12099,
+      "published_bytes": 10730
+    },
+    {
+      "source": "work/cross-platform-int8/amd/evidence/aocl-dlp-CMakeCache.txt",
+      "published": "benchmarks/amd-precision/builds/aocl-dlp-CMakeCache.txt",
+      "original_sha256": "34ec5221b06dd96e4f558008e1c76f5088242804d78000325a8b7457c48ee4c9",
+      "published_sha256": "cf882b739afb6f7b981ed9d41d5432a0c61be76adb2afe6ce3d6ad965d7b7c9c",
+      "original_bytes": 21469,
+      "published_bytes": 21309
+    }
+  ],
+  "native_source_bytes_changed": false,
+  "default_changed": false,
+  "normalization": [
+    "Private paths replaced by logical roots",
+    "Application attribution and presentation punctuation normalized"
+  ],
+  "limits": [
+    "Original JSON hashes differ from normalized published hashes",
+    "Models, weights, audio, binaries and installed libraries omitted",
+    "The new source-only build adapter is packaging code, not a measured runtime build",
+    "No quality conclusion from timing or native parity alone"
+  ]
+}

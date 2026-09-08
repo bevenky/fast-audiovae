@@ -1,0 +1,44 @@
+{
+  "status": "complete",
+  "screen_sha256": "723fe7cf73943a7f4bec361d8b5bb38b7c01dd060fbb863ee0116557437ab6c1",
+  "paired_wins": 15,
+  "pair_count": 15,
+  "decoder_time_reduction_percent": 43.280377516070324,
+  "within_clip_paired_bootstrap_95_percent": [
+    43.01747397158125,
+    43.56817742510769
+  ],
+  "bootstrap_replicates": 20000,
+  "bootstrap_seed": 20260908,
+  "repeat_cv_percent": {
+    "fast_fp32": {
+      "hi_in_00099_1919": {
+        "mean_ns": 619509114,
+        "cv_percent": 1.238523376146341
+      },
+      "en_us_00103_1779": {
+        "mean_ns": 654146343.2,
+        "cv_percent": 0.8057833844972645
+      },
+      "pt_br_00672_1745": {
+        "mean_ns": 564968343.4,
+        "cv_percent": 0.19251945882139299
+      }
+    },
+    "int8_large": {
+      "hi_in_00099_1919": {
+        "mean_ns": 352958078.6,
+        "cv_percent": 1.3930444548042134
+      },
+      "en_us_00103_1779": {
+        "mean_ns": 371126472.8,
+        "cv_percent": 1.4106702824327784
+      },
+      "pt_br_00672_1745": {
+        "mean_ns": 318775927.2,
+        "cv_percent": 0.8918120482926538
+      }
+    }
+  },
+  "limits": "Reuses the single completed randomized three-clip screen; pairs are same clip/repeat. Resampling within each fixed clip estimates repeat noise, not cross-language/population uncertainty. No new inference."
+}

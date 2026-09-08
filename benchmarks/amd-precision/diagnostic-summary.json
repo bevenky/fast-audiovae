@@ -1,0 +1,98 @@
+{
+  "status": "complete",
+  "scope": "One diagnostic pass per frozen configuration; headline timings unchanged",
+  "latent_shape": [
+    1,
+    64,
+    255
+  ],
+  "uid": "hi_in_00099_1919",
+  "configurations": [
+    {
+      "configuration": "Rejected MKL2 portability port",
+      "threads": {
+        "ORT": 4,
+        "native_shards_segments": 2,
+        "integer_inner": 1,
+        "affinity": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "profiled_calls": 3,
+      "preparation_worker_ms_per_decode": 51.88468533333333,
+      "GEMM_including_internal_packing_worker_ms_per_decode": 3808.766228,
+      "row_remainder_worker_ms_per_decode": 58.75099633333333,
+      "profile_model_wall_ms_per_decode": 2342.628,
+      "prepare_calls_per_decode": 4567.0,
+      "integer_GEMM_calls_per_decode": 6759.0,
+      "CPU_libraries": [
+        "libmkl_core.so.3",
+        "libmkl_def.so.3",
+        "libmkl_intel_lp64.so.3",
+        "libmkl_sequential.so.3",
+        "libmkl_vml_def.so.3",
+        "libprecision_stage.so",
+        "libprecision_upsample.so",
+        "libintel_precision_core.so",
+        "libintel_precision_ops.so",
+        "libprecision_probe_mkl.so"
+      ],
+      "provenance": {
+        "config_sha256": "5800f5aef762fc75792520d6f20870a8ae4be1ff2ee1904fce28f9aecd98b8e1",
+        "screen_sha256": "986424768f71b2ba96f6184cb20abe4926f1fefd97a97efca07fbe1a1e8e714d",
+        "harness_sha256": "593dc1df8b7ac7334add9211da869eac931aaf61d360656b15a3196467cecf01",
+        "probe_sha256": "c3b05e317356d33bd3f041ecf88123fa9a2e37cf6a4362744fd15432820ab758",
+        "core_sha256": "b11decb7518f9c201a496ddb4370d9cca0e9b0654403a7bb86b38ef08c05e436",
+        "gemm_library_sha256": "9dbdb7d4193679f028787da6b9b2b545e0e16b87a95a64ee7318f544da8b08ac",
+        "script_sha256": "0151d67dc535d7a89db866a97e9401ad0951f0d0c38c9567c89bc8363a268edf",
+        "profile_parser_sha256": "26c5aca757312829f8b4da4334c20c1958a7c20909bdeda4b3f0b843637e0868"
+      }
+    },
+    {
+      "configuration": "AMD AOCL INT8 + 4 native workers",
+      "threads": {
+        "ORT": 4,
+        "native_shards_segments": 4,
+        "integer_inner": 1,
+        "affinity": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "profiled_calls": 3,
+      "preparation_worker_ms_per_decode": 52.140613333333334,
+      "GEMM_including_internal_packing_worker_ms_per_decode": 399.950827,
+      "row_remainder_worker_ms_per_decode": 63.771096,
+      "profile_model_wall_ms_per_decode": 351.1453333333333,
+      "prepare_calls_per_decode": 4586.0,
+      "integer_GEMM_calls_per_decode": 8020.0,
+      "CPU_libraries": [
+        "libgomp.so.1.0.0",
+        "libaocl-dlp.so",
+        "libamd_aocl_precision_core.so",
+        "libamd_aocl_precision_ops.so",
+        "libamd_aocl_precision_stage.so",
+        "libamd_aocl_precision_upsample.so",
+        "libprecision_probe_aocl.so"
+      ],
+      "provenance": {
+        "config_sha256": "6b476b759e4f5ee48c4d0f50692fa111714a4bafee9a9b8b6fcb6df687a89398",
+        "screen_sha256": "723fe7cf73943a7f4bec361d8b5bb38b7c01dd060fbb863ee0116557437ab6c1",
+        "harness_sha256": "593dc1df8b7ac7334add9211da869eac931aaf61d360656b15a3196467cecf01",
+        "probe_sha256": "da0aa18b944fe3072ca9b007a0428c02b17fdad83cfe35062caa1730a2ca8f92",
+        "core_sha256": "27cfe25d1f8090187b8f3725a4602458f968358e9d3197476f96fa73b627f769",
+        "gemm_library_sha256": "6fb0e10f2074367c4b038beb14647b8c02cc67116f973d10b4a02f9ca01974b0",
+        "script_sha256": "0151d67dc535d7a89db866a97e9401ad0951f0d0c38c9567c89bc8363a268edf",
+        "profile_parser_sha256": "26c5aca757312829f8b4da4334c20c1958a7c20909bdeda4b3f0b843637e0868"
+      }
+    }
+  ],
+  "explanation": "The rejected port spends overwhelmingly more worker time inside integer GEMM. Per-column preparation and the combined dequantization/remainder costs remain similar. AOCL and outer scheduling changed together, so this does not isolate a vendor-library speedup.",
+  "packing_source_fact": "For the pinned row-major non-transposed U8 A / S8 B API, immutable A stays unpacked and dynamic B is packed internally. Internal B packing is charged to GEMM. No separate pack-time claim is made.",
+  "limits": "Worker-call times overlap; do not sum them as wall time or divide them into wall percentages. Profiles include instrumentation overhead and do not replace the completed randomized screen. Loaded library names are dispatch clues, not an instruction trace."
+}

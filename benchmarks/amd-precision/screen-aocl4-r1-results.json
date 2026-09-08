@@ -1,0 +1,1195 @@
+{
+  "status": "complete",
+  "platform": "amd",
+  "mode": "screen",
+  "gpu_used": false,
+  "threads": 4,
+  "affinity": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "-1",
+    "NVIDIA_VISIBLE_DEVICES": "void",
+    "ROCR_VISIBLE_DEVICES": "-1",
+    "HIP_VISIBLE_DEVICES": "-1"
+  },
+  "runtime": {
+    "onnxruntime": "1.29.0",
+    "build": "ORT Build Info: git-branch=HEAD, git-commit-id=2e2543fbe9, fp8-kv-cache=1, build type=Release",
+    "numpy": "2.2.6",
+    "python": "3.12.3",
+    "system": "Linux-6.8.0-59-generic-x86_64-with-glibc2.39"
+  },
+  "config_sha256": "6b476b759e4f5ee48c4d0f50692fa111714a4bafee9a9b8b6fcb6df687a89398",
+  "harness_sha256": "593dc1df8b7ac7334add9211da869eac931aaf61d360656b15a3196467cecf01",
+  "script_sha256": "7f42ba2e2ae9f1c9b311e2b3b90eb1f3f6e911f0934c25b32570f36f60efb202",
+  "artifact_sha256": {
+    "../../audiovae2-cpu-20260907/work/audiovae2_onnx/audio_vae_decoder.onnx": "fdd20e200675ab9649bf33f16bc5974101ba5cf47ab89fbfe29f3d36ff6c3c84",
+    "../../audiovae2-cpu-20260907/work/audiovae2_onnx/audio_vae_decoder.onnx.data": "3b76bd57356e96893655bd24a364989e016c5af2fc8c29195caaefb4eccf5143",
+    "../stage-reuse/stage_late3.onnx": "749baee66c8a2d20f820eb30c27e52bc53da3ed86e5731202acd409e19242920",
+    "../repo/.build/x86/libfast_audiovae_x86_728052551e0b.so": "eb0160215fcabbc4b9202cdb323fee13d23117e052b6fec501ed79e621c45199",
+    "../stage-reuse/native/libstage_pipeline.so": "567a35bcb24b7ada9c8536dae0bfe192e06938023cff23affd2196c25a13706d",
+    "aocl-build-r2/libamd_aocl_precision_ops.so": "53984715a05abc18373d528c00070f5f67c41ab3a971768f9d378f2d545561ca",
+    "aocl-build-r2/libamd_aocl_precision_stage.so": "9cd54e63c5d0d4842e53399ffd72727e4c71401565f456084e4785680e71f4cf",
+    "aocl-build-r2/libamd_aocl_precision_upsample.so": "8cd7b179f4648253261110dffd29cb3277fc8409ba1e3877538b6d9cf859483b",
+    "../../audiovae2-cpu-20260907/work/native_codec_cpu/mimi_onnx/mimi_decoder_fp32_dynamic.onnx": "e023777a2cee98a7e4a293f6af7712d4fed6364d1523cfc9a6283f112981e2f1",
+    "../../fast-audiovae-multilingual-20260907/fast_audiovae2.npz": "9b709b787c040591de57e094a5ba5a4515cc74e256e8014530ff8c7bb54d2d24",
+    "../../fast-audiovae-multilingual-20260907/fast_audiovae2.json": "398552d56b72077771cb53ce2ea9613a73bddd71c7031cf33aa9371094998a9f",
+    "../../fast-audiovae-multilingual-20260907/mimi_vae.npz": "af2d68663daf71db954488721e8fffc5888437100772a309b13c62391df0d9c7",
+    "../../fast-audiovae-multilingual-20260907/mimi_vae.json": "8df0ca5b8128c7a5b1a10dcb7dfe9e20bf4e1a5eeceaf7fe297c87f98334c0f4",
+    "aocl-build-r2/libamd_aocl_precision_core.so": "27cfe25d1f8090187b8f3725a4602458f968358e9d3197476f96fa73b627f769",
+    "../../audiovae2-cpu-20260907/work/native_codec_cpu/ort_experiments/aocl_dlp_candidate/install/lib/libaocl-dlp.so": "6fb0e10f2074367c4b038beb14647b8c02cc67116f973d10b4a02f9ca01974b0",
+    "int8_large_4workers.onnx": "746b0c696671ee8e8ed76e55fc35f2876f861286e8b01969e26999df0d66178d"
+  },
+  "checks": [
+    {
+      "model": "audio_stock",
+      "uid": "hi_in_00099_1919",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "9041c599cd403cde426a80feb0ae349de6464c1d4523383ba129b76240875f05",
+      "waveform_sha256": "cc45d404073032bf02b2bb3cf953fdbb36e462fbadacc197610de90ed3900bd3",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "en_us_00103_1779",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "64f35c3e1544184bffe5c8c88ad039c993826dbb904a3105b7d8207927e93afd",
+      "waveform_sha256": "c70b714087b46c216f2156255b3321c3aeafc9004c84fdb587a3b394f26773d3",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "uid": "pt_br_00672_1745",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "c9a0389a35e53586d5a0a18b2b97d7b2fb9a3054bd4555f78bd1adf3acfba745",
+      "waveform_sha256": "0bede7b5d9a1a14a83bf5b859880a10d47d9d325bc9b5c07d9e021cea7853308",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "audio_stock",
+      "test": "future",
+      "cut": 1,
+      "passed": true
+    },
+    {
+      "model": "audio_stock",
+      "test": "future",
+      "cut": 8,
+      "passed": true
+    },
+    {
+      "model": "audio_stock",
+      "test": "future",
+      "cut": 32,
+      "passed": true
+    },
+    {
+      "model": "audio_stock",
+      "test": "future",
+      "cut": 64,
+      "passed": true
+    },
+    {
+      "model": "audio_stock",
+      "test": "short_prefix",
+      "length": 1,
+      "passed": true
+    },
+    {
+      "model": "audio_stock",
+      "test": "short_prefix",
+      "length": 2,
+      "passed": true
+    },
+    {
+      "model": "audio_stock",
+      "test": "short_prefix",
+      "length": 3,
+      "passed": true
+    },
+    {
+      "model": "audio_stock",
+      "test": "short_prefix",
+      "length": 7,
+      "passed": true
+    },
+    {
+      "model": "audio_stock",
+      "test": "short_prefix",
+      "length": 8,
+      "passed": true
+    },
+    {
+      "model": "audio_stock",
+      "test": "short_prefix",
+      "length": 15,
+      "passed": true
+    },
+    {
+      "model": "audio_stock",
+      "test": "short_prefix",
+      "length": 16,
+      "passed": true
+    },
+    {
+      "model": "audio_stock",
+      "test": "short_prefix",
+      "length": 17,
+      "passed": true
+    },
+    {
+      "model": "audio_stock",
+      "test": "short_prefix",
+      "length": 31,
+      "passed": true
+    },
+    {
+      "model": "audio_stock",
+      "test": "short_prefix",
+      "length": 32,
+      "passed": true
+    },
+    {
+      "model": "audio_stock",
+      "test": "short_prefix",
+      "length": 33,
+      "passed": true
+    },
+    {
+      "model": "audio_stock",
+      "test": "short_prefix",
+      "length": 63,
+      "passed": true
+    },
+    {
+      "model": "audio_stock",
+      "test": "short_prefix",
+      "length": 64,
+      "passed": true
+    },
+    {
+      "model": "audio_stock",
+      "test": "repeat_history_concurrency",
+      "passed": true
+    },
+    {
+      "model": "fast_fp32",
+      "uid": "hi_in_00099_1919",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "9041c599cd403cde426a80feb0ae349de6464c1d4523383ba129b76240875f05",
+      "waveform_sha256": "7984ed74fae44adb51a5c88343382e3feecc4bf5f7aa9a5540b31034264758e8",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "fast_fp32",
+      "uid": "en_us_00103_1779",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "64f35c3e1544184bffe5c8c88ad039c993826dbb904a3105b7d8207927e93afd",
+      "waveform_sha256": "2bef3571b27e4e1ceb04da47f5d0287bef2f0beb035c8cb6e637d73a6e746638",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "fast_fp32",
+      "uid": "pt_br_00672_1745",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "c9a0389a35e53586d5a0a18b2b97d7b2fb9a3054bd4555f78bd1adf3acfba745",
+      "waveform_sha256": "3c24f0f9ee7bf91ccc3575b51146c56dda9cd39fffaf1f1349e8a2444120f4ee",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "fast_fp32",
+      "test": "future",
+      "cut": 1,
+      "passed": true
+    },
+    {
+      "model": "fast_fp32",
+      "test": "future",
+      "cut": 8,
+      "passed": true
+    },
+    {
+      "model": "fast_fp32",
+      "test": "future",
+      "cut": 32,
+      "passed": true
+    },
+    {
+      "model": "fast_fp32",
+      "test": "future",
+      "cut": 64,
+      "passed": true
+    },
+    {
+      "model": "fast_fp32",
+      "test": "short_prefix",
+      "length": 1,
+      "passed": true
+    },
+    {
+      "model": "fast_fp32",
+      "test": "short_prefix",
+      "length": 2,
+      "passed": true
+    },
+    {
+      "model": "fast_fp32",
+      "test": "short_prefix",
+      "length": 3,
+      "passed": true
+    },
+    {
+      "model": "fast_fp32",
+      "test": "short_prefix",
+      "length": 7,
+      "passed": true
+    },
+    {
+      "model": "fast_fp32",
+      "test": "short_prefix",
+      "length": 8,
+      "passed": true
+    },
+    {
+      "model": "fast_fp32",
+      "test": "short_prefix",
+      "length": 15,
+      "passed": true
+    },
+    {
+      "model": "fast_fp32",
+      "test": "short_prefix",
+      "length": 16,
+      "passed": true
+    },
+    {
+      "model": "fast_fp32",
+      "test": "short_prefix",
+      "length": 17,
+      "passed": true
+    },
+    {
+      "model": "fast_fp32",
+      "test": "short_prefix",
+      "length": 31,
+      "passed": true
+    },
+    {
+      "model": "fast_fp32",
+      "test": "short_prefix",
+      "length": 32,
+      "passed": true
+    },
+    {
+      "model": "fast_fp32",
+      "test": "short_prefix",
+      "length": 33,
+      "passed": true
+    },
+    {
+      "model": "fast_fp32",
+      "test": "short_prefix",
+      "length": 63,
+      "passed": true
+    },
+    {
+      "model": "fast_fp32",
+      "test": "short_prefix",
+      "length": 64,
+      "passed": true
+    },
+    {
+      "model": "fast_fp32",
+      "test": "repeat_history_concurrency",
+      "passed": true
+    },
+    {
+      "model": "int8_large",
+      "uid": "hi_in_00099_1919",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "9041c599cd403cde426a80feb0ae349de6464c1d4523383ba129b76240875f05",
+      "waveform_sha256": "8d48dc6f80d2926d290fa9dc0d27986059bc8335820265e8b832fb333e61e667",
+      "fp32_parity_required": false
+    },
+    {
+      "model": "int8_large",
+      "uid": "en_us_00103_1779",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "64f35c3e1544184bffe5c8c88ad039c993826dbb904a3105b7d8207927e93afd",
+      "waveform_sha256": "d8a3e7f4fb557d779f841d06546a8e76e4e66e190cbe325c5db4c72ff8d392b8",
+      "fp32_parity_required": false
+    },
+    {
+      "model": "int8_large",
+      "uid": "pt_br_00672_1745",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "c9a0389a35e53586d5a0a18b2b97d7b2fb9a3054bd4555f78bd1adf3acfba745",
+      "waveform_sha256": "215596c451aaf01f0dc2c2de099168b01bd098a7fdde8c156cb722fa1b3c6ebc",
+      "fp32_parity_required": false
+    },
+    {
+      "model": "int8_large",
+      "test": "future",
+      "cut": 1,
+      "passed": true
+    },
+    {
+      "model": "int8_large",
+      "test": "future",
+      "cut": 8,
+      "passed": true
+    },
+    {
+      "model": "int8_large",
+      "test": "future",
+      "cut": 32,
+      "passed": true
+    },
+    {
+      "model": "int8_large",
+      "test": "future",
+      "cut": 64,
+      "passed": true
+    },
+    {
+      "model": "int8_large",
+      "test": "short_prefix",
+      "length": 1,
+      "passed": true
+    },
+    {
+      "model": "int8_large",
+      "test": "short_prefix",
+      "length": 2,
+      "passed": true
+    },
+    {
+      "model": "int8_large",
+      "test": "short_prefix",
+      "length": 3,
+      "passed": true
+    },
+    {
+      "model": "int8_large",
+      "test": "short_prefix",
+      "length": 7,
+      "passed": true
+    },
+    {
+      "model": "int8_large",
+      "test": "short_prefix",
+      "length": 8,
+      "passed": true
+    },
+    {
+      "model": "int8_large",
+      "test": "short_prefix",
+      "length": 15,
+      "passed": true
+    },
+    {
+      "model": "int8_large",
+      "test": "short_prefix",
+      "length": 16,
+      "passed": true
+    },
+    {
+      "model": "int8_large",
+      "test": "short_prefix",
+      "length": 17,
+      "passed": true
+    },
+    {
+      "model": "int8_large",
+      "test": "short_prefix",
+      "length": 31,
+      "passed": true
+    },
+    {
+      "model": "int8_large",
+      "test": "short_prefix",
+      "length": 32,
+      "passed": true
+    },
+    {
+      "model": "int8_large",
+      "test": "short_prefix",
+      "length": 33,
+      "passed": true
+    },
+    {
+      "model": "int8_large",
+      "test": "short_prefix",
+      "length": 63,
+      "passed": true
+    },
+    {
+      "model": "int8_large",
+      "test": "short_prefix",
+      "length": 64,
+      "passed": true
+    },
+    {
+      "model": "int8_large",
+      "test": "repeat_history_concurrency",
+      "passed": true
+    },
+    {
+      "model": "mimi",
+      "uid": "hi_in_00099_1919",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "d02f200aa4fcd4696c1afdf73e931aaec4ea0bfbda7c1951f6a427aa7a5f68b2",
+      "waveform_sha256": "f84cba1152df41e96d0d5aebce01fd78d998e10923720a9419d7e900f9389efb",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "mimi",
+      "uid": "en_us_00103_1779",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "ab623c50766738dbe2eeb9b7d34621c3182a6f13f6aee5dbc880f0c1c3025b26",
+      "waveform_sha256": "76599d049be84856a8fb8921a0d8554643d357d80b88da04e82ccf4b5e7aeb6e",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "mimi",
+      "uid": "pt_br_00672_1745",
+      "test": "full_waveform",
+      "passed": true,
+      "latent_sha256": "e7c75cee8dd15bfe991dfcfac84d143ad1028cd2a555d5de55edbbbff2ee8fc7",
+      "waveform_sha256": "922cc631c8779d05e61250458ae3910eb160f2b3809c5905a464a58e4598d0f9",
+      "fp32_parity_required": true
+    },
+    {
+      "model": "mimi",
+      "test": "future",
+      "cut": 1,
+      "passed": true
+    },
+    {
+      "model": "mimi",
+      "test": "future",
+      "cut": 8,
+      "passed": true
+    },
+    {
+      "model": "mimi",
+      "test": "future",
+      "cut": 32,
+      "passed": true
+    },
+    {
+      "model": "mimi",
+      "test": "future",
+      "cut": 64,
+      "passed": true
+    },
+    {
+      "model": "mimi",
+      "test": "short_prefix",
+      "length": 1,
+      "passed": true
+    },
+    {
+      "model": "mimi",
+      "test": "short_prefix",
+      "length": 2,
+      "passed": true
+    },
+    {
+      "model": "mimi",
+      "test": "short_prefix",
+      "length": 3,
+      "passed": true
+    },
+    {
+      "model": "mimi",
+      "test": "short_prefix",
+      "length": 7,
+      "passed": true
+    },
+    {
+      "model": "mimi",
+      "test": "short_prefix",
+      "length": 8,
+      "passed": true
+    },
+    {
+      "model": "mimi",
+      "test": "short_prefix",
+      "length": 15,
+      "passed": true
+    },
+    {
+      "model": "mimi",
+      "test": "short_prefix",
+      "length": 16,
+      "passed": true
+    },
+    {
+      "model": "mimi",
+      "test": "short_prefix",
+      "length": 17,
+      "passed": true
+    },
+    {
+      "model": "mimi",
+      "test": "short_prefix",
+      "length": 31,
+      "passed": true
+    },
+    {
+      "model": "mimi",
+      "test": "short_prefix",
+      "length": 32,
+      "passed": true
+    },
+    {
+      "model": "mimi",
+      "test": "short_prefix",
+      "length": 33,
+      "passed": true
+    },
+    {
+      "model": "mimi",
+      "test": "short_prefix",
+      "length": 63,
+      "passed": true
+    },
+    {
+      "model": "mimi",
+      "test": "short_prefix",
+      "length": 64,
+      "passed": true
+    },
+    {
+      "model": "mimi",
+      "test": "repeat_history_concurrency",
+      "passed": true
+    }
+  ],
+  "exports": [],
+  "measurements": [
+    {
+      "model": "fast_fp32",
+      "uid": "en_us_00103_1779",
+      "repeat": 0,
+      "elapsed_ns": 649487996,
+      "generated_seconds": 10.8
+    },
+    {
+      "model": "mimi",
+      "uid": "en_us_00103_1779",
+      "repeat": 0,
+      "elapsed_ns": 554638690,
+      "generated_seconds": 10.8
+    },
+    {
+      "model": "audio_stock",
+      "uid": "en_us_00103_1779",
+      "repeat": 0,
+      "elapsed_ns": 2775823423,
+      "generated_seconds": 10.8
+    },
+    {
+      "model": "int8_large",
+      "uid": "en_us_00103_1779",
+      "repeat": 0,
+      "elapsed_ns": 368789471,
+      "generated_seconds": 10.8
+    },
+    {
+      "model": "audio_stock",
+      "uid": "pt_br_00672_1745",
+      "repeat": 0,
+      "elapsed_ns": 2386424238,
+      "generated_seconds": 9.36
+    },
+    {
+      "model": "int8_large",
+      "uid": "pt_br_00672_1745",
+      "repeat": 0,
+      "elapsed_ns": 321247721,
+      "generated_seconds": 9.36
+    },
+    {
+      "model": "fast_fp32",
+      "uid": "pt_br_00672_1745",
+      "repeat": 0,
+      "elapsed_ns": 563724957,
+      "generated_seconds": 9.36
+    },
+    {
+      "model": "mimi",
+      "uid": "pt_br_00672_1745",
+      "repeat": 0,
+      "elapsed_ns": 472068283,
+      "generated_seconds": 9.36
+    },
+    {
+      "model": "int8_large",
+      "uid": "hi_in_00099_1919",
+      "repeat": 0,
+      "elapsed_ns": 349505899,
+      "generated_seconds": 10.2
+    },
+    {
+      "model": "fast_fp32",
+      "uid": "hi_in_00099_1919",
+      "repeat": 0,
+      "elapsed_ns": 611376729,
+      "generated_seconds": 10.2
+    },
+    {
+      "model": "mimi",
+      "uid": "hi_in_00099_1919",
+      "repeat": 0,
+      "elapsed_ns": 525813493,
+      "generated_seconds": 10.24
+    },
+    {
+      "model": "audio_stock",
+      "uid": "hi_in_00099_1919",
+      "repeat": 0,
+      "elapsed_ns": 2592972212,
+      "generated_seconds": 10.2
+    },
+    {
+      "model": "int8_large",
+      "uid": "en_us_00103_1779",
+      "repeat": 1,
+      "elapsed_ns": 373419066,
+      "generated_seconds": 10.8
+    },
+    {
+      "model": "audio_stock",
+      "uid": "en_us_00103_1779",
+      "repeat": 1,
+      "elapsed_ns": 2765662418,
+      "generated_seconds": 10.8
+    },
+    {
+      "model": "fast_fp32",
+      "uid": "en_us_00103_1779",
+      "repeat": 1,
+      "elapsed_ns": 652338562,
+      "generated_seconds": 10.8
+    },
+    {
+      "model": "mimi",
+      "uid": "en_us_00103_1779",
+      "repeat": 1,
+      "elapsed_ns": 555327541,
+      "generated_seconds": 10.8
+    },
+    {
+      "model": "audio_stock",
+      "uid": "pt_br_00672_1745",
+      "repeat": 1,
+      "elapsed_ns": 2395801150,
+      "generated_seconds": 9.36
+    },
+    {
+      "model": "int8_large",
+      "uid": "pt_br_00672_1745",
+      "repeat": 1,
+      "elapsed_ns": 322457531,
+      "generated_seconds": 9.36
+    },
+    {
+      "model": "mimi",
+      "uid": "pt_br_00672_1745",
+      "repeat": 1,
+      "elapsed_ns": 473507457,
+      "generated_seconds": 9.36
+    },
+    {
+      "model": "fast_fp32",
+      "uid": "pt_br_00672_1745",
+      "repeat": 1,
+      "elapsed_ns": 566342770,
+      "generated_seconds": 9.36
+    },
+    {
+      "model": "mimi",
+      "uid": "hi_in_00099_1919",
+      "repeat": 1,
+      "elapsed_ns": 524734866,
+      "generated_seconds": 10.24
+    },
+    {
+      "model": "audio_stock",
+      "uid": "hi_in_00099_1919",
+      "repeat": 1,
+      "elapsed_ns": 2597507555,
+      "generated_seconds": 10.2
+    },
+    {
+      "model": "fast_fp32",
+      "uid": "hi_in_00099_1919",
+      "repeat": 1,
+      "elapsed_ns": 611700314,
+      "generated_seconds": 10.2
+    },
+    {
+      "model": "int8_large",
+      "uid": "hi_in_00099_1919",
+      "repeat": 1,
+      "elapsed_ns": 350318352,
+      "generated_seconds": 10.2
+    },
+    {
+      "model": "mimi",
+      "uid": "pt_br_00672_1745",
+      "repeat": 2,
+      "elapsed_ns": 471557595,
+      "generated_seconds": 9.36
+    },
+    {
+      "model": "int8_large",
+      "uid": "pt_br_00672_1745",
+      "repeat": 2,
+      "elapsed_ns": 316872071,
+      "generated_seconds": 9.36
+    },
+    {
+      "model": "fast_fp32",
+      "uid": "pt_br_00672_1745",
+      "repeat": 2,
+      "elapsed_ns": 565030289,
+      "generated_seconds": 9.36
+    },
+    {
+      "model": "audio_stock",
+      "uid": "pt_br_00672_1745",
+      "repeat": 2,
+      "elapsed_ns": 2394852975,
+      "generated_seconds": 9.36
+    },
+    {
+      "model": "audio_stock",
+      "uid": "en_us_00103_1779",
+      "repeat": 2,
+      "elapsed_ns": 2770676719,
+      "generated_seconds": 10.8
+    },
+    {
+      "model": "mimi",
+      "uid": "en_us_00103_1779",
+      "repeat": 2,
+      "elapsed_ns": 578822901,
+      "generated_seconds": 10.8
+    },
+    {
+      "model": "int8_large",
+      "uid": "en_us_00103_1779",
+      "repeat": 2,
+      "elapsed_ns": 379259051,
+      "generated_seconds": 10.8
+    },
+    {
+      "model": "fast_fp32",
+      "uid": "en_us_00103_1779",
+      "repeat": 2,
+      "elapsed_ns": 662908373,
+      "generated_seconds": 10.8
+    },
+    {
+      "model": "fast_fp32",
+      "uid": "hi_in_00099_1919",
+      "repeat": 2,
+      "elapsed_ns": 625408196,
+      "generated_seconds": 10.2
+    },
+    {
+      "model": "int8_large",
+      "uid": "hi_in_00099_1919",
+      "repeat": 2,
+      "elapsed_ns": 361162427,
+      "generated_seconds": 10.2
+    },
+    {
+      "model": "mimi",
+      "uid": "hi_in_00099_1919",
+      "repeat": 2,
+      "elapsed_ns": 523645948,
+      "generated_seconds": 10.24
+    },
+    {
+      "model": "audio_stock",
+      "uid": "hi_in_00099_1919",
+      "repeat": 2,
+      "elapsed_ns": 2597796200,
+      "generated_seconds": 10.2
+    },
+    {
+      "model": "mimi",
+      "uid": "pt_br_00672_1745",
+      "repeat": 3,
+      "elapsed_ns": 497415654,
+      "generated_seconds": 9.36
+    },
+    {
+      "model": "audio_stock",
+      "uid": "pt_br_00672_1745",
+      "repeat": 3,
+      "elapsed_ns": 2398056847,
+      "generated_seconds": 9.36
+    },
+    {
+      "model": "fast_fp32",
+      "uid": "pt_br_00672_1745",
+      "repeat": 3,
+      "elapsed_ns": 565670168,
+      "generated_seconds": 9.36
+    },
+    {
+      "model": "int8_large",
+      "uid": "pt_br_00672_1745",
+      "repeat": 3,
+      "elapsed_ns": 316721777,
+      "generated_seconds": 9.36
+    },
+    {
+      "model": "mimi",
+      "uid": "en_us_00103_1779",
+      "repeat": 3,
+      "elapsed_ns": 555963041,
+      "generated_seconds": 10.8
+    },
+    {
+      "model": "int8_large",
+      "uid": "en_us_00103_1779",
+      "repeat": 3,
+      "elapsed_ns": 367270536,
+      "generated_seconds": 10.8
+    },
+    {
+      "model": "fast_fp32",
+      "uid": "en_us_00103_1779",
+      "repeat": 3,
+      "elapsed_ns": 654836442,
+      "generated_seconds": 10.8
+    },
+    {
+      "model": "audio_stock",
+      "uid": "en_us_00103_1779",
+      "repeat": 3,
+      "elapsed_ns": 2758341369,
+      "generated_seconds": 10.8
+    },
+    {
+      "model": "mimi",
+      "uid": "hi_in_00099_1919",
+      "repeat": 3,
+      "elapsed_ns": 551960626,
+      "generated_seconds": 10.24
+    },
+    {
+      "model": "audio_stock",
+      "uid": "hi_in_00099_1919",
+      "repeat": 3,
+      "elapsed_ns": 2602708050,
+      "generated_seconds": 10.2
+    },
+    {
+      "model": "fast_fp32",
+      "uid": "hi_in_00099_1919",
+      "repeat": 3,
+      "elapsed_ns": 627932457,
+      "generated_seconds": 10.2
+    },
+    {
+      "model": "int8_large",
+      "uid": "hi_in_00099_1919",
+      "repeat": 3,
+      "elapsed_ns": 349867905,
+      "generated_seconds": 10.2
+    },
+    {
+      "model": "int8_large",
+      "uid": "en_us_00103_1779",
+      "repeat": 4,
+      "elapsed_ns": 366894240,
+      "generated_seconds": 10.8
+    },
+    {
+      "model": "mimi",
+      "uid": "en_us_00103_1779",
+      "repeat": 4,
+      "elapsed_ns": 571761127,
+      "generated_seconds": 10.8
+    },
+    {
+      "model": "audio_stock",
+      "uid": "en_us_00103_1779",
+      "repeat": 4,
+      "elapsed_ns": 2756909407,
+      "generated_seconds": 10.8
+    },
+    {
+      "model": "fast_fp32",
+      "uid": "en_us_00103_1779",
+      "repeat": 4,
+      "elapsed_ns": 651160343,
+      "generated_seconds": 10.8
+    },
+    {
+      "model": "fast_fp32",
+      "uid": "pt_br_00672_1745",
+      "repeat": 4,
+      "elapsed_ns": 564073533,
+      "generated_seconds": 9.36
+    },
+    {
+      "model": "audio_stock",
+      "uid": "pt_br_00672_1745",
+      "repeat": 4,
+      "elapsed_ns": 2399277266,
+      "generated_seconds": 9.36
+    },
+    {
+      "model": "mimi",
+      "uid": "pt_br_00672_1745",
+      "repeat": 4,
+      "elapsed_ns": 501981487,
+      "generated_seconds": 9.36
+    },
+    {
+      "model": "int8_large",
+      "uid": "pt_br_00672_1745",
+      "repeat": 4,
+      "elapsed_ns": 316580536,
+      "generated_seconds": 9.36
+    },
+    {
+      "model": "audio_stock",
+      "uid": "hi_in_00099_1919",
+      "repeat": 4,
+      "elapsed_ns": 2601211704,
+      "generated_seconds": 10.2
+    },
+    {
+      "model": "int8_large",
+      "uid": "hi_in_00099_1919",
+      "repeat": 4,
+      "elapsed_ns": 353935810,
+      "generated_seconds": 10.2
+    },
+    {
+      "model": "fast_fp32",
+      "uid": "hi_in_00099_1919",
+      "repeat": 4,
+      "elapsed_ns": 621127874,
+      "generated_seconds": 10.2
+    },
+    {
+      "model": "mimi",
+      "uid": "hi_in_00099_1919",
+      "repeat": 4,
+      "elapsed_ns": 546235412,
+      "generated_seconds": 10.24
+    }
+  ],
+  "providers": [
+    {
+      "model": "audio_stock",
+      "providers": [
+        "CPUExecutionProvider"
+      ]
+    },
+    {
+      "model": "fast_fp32",
+      "providers": [
+        "CPUExecutionProvider"
+      ]
+    },
+    {
+      "model": "int8_large",
+      "providers": [
+        "CPUExecutionProvider"
+      ]
+    },
+    {
+      "model": "mimi",
+      "providers": [
+        "CPUExecutionProvider"
+      ]
+    }
+  ],
+  "failures": [],
+  "protocol": {
+    "validation_uids": [
+      "hi_in_00099_1919",
+      "en_us_00103_1779",
+      "pt_br_00672_1745"
+    ],
+    "timing_uids": [
+      "hi_in_00099_1919",
+      "en_us_00103_1779",
+      "pt_br_00672_1745"
+    ],
+    "warmups": 2,
+    "repeats": 5,
+    "seed": 20260908,
+    "decoder_only": true,
+    "same_time_column_scales": true,
+    "fp32_gate": "atol1e-5/rtol1e-4 against the frozen reference and fresh stock",
+    "int8_gate": "No FP32 parity assertion; separate perceptual evaluation required",
+    "timing": "Randomized adjacent model groups per clip, fresh runs; checks outside timers"
+  },
+  "host_before": {
+    "cpu_ticks": [
+      13515485320,
+      115670695,
+      4940017013,
+      748105859226,
+      12613962,
+      0,
+      50669617,
+      0,
+      0,
+      0
+    ],
+    "loadavg": [
+      4.0224609375,
+      4.859375,
+      4.89794921875
+    ],
+    "meminfo": "MemTotal:       1584766536 kB\nMemFree:        1134572564 kB\nMemAvailable:   1524362700 kB\nBuffers:          682988 kB\nCached:         385469164 kB\nSwapCached:            0 kB\nActive:         40527440 kB\nInactive:       378701304 kB\nActive(anon):   25359392 kB\nInactive(anon):  8026612 kB\nActive(file):   15168048 kB\nInactive(file): 370674692 kB\nUnevictable:        3072 kB\nMlocked:               0 kB\nSwapTotal:             0 kB\nSwapFree:              0 kB\nZswap:                 0 kB\nZswapped:              0 kB\nDirty:               176 kB\nWriteback:             0 kB\nAnonPages:      33070236 kB\nMapped:          3121700 kB\nShmem:            309396 kB\nKReclaimable:   13454668 kB\nSlab:           19958408 kB\nSReclaimable:   13454668 kB\nSUnreclaim:      6503740 kB\nKernelStack:      113264 kB\nPageTables:       150500 kB\nSecPageTables:         0 kB\nNFS_Unstable:          0 kB\nBounce:                0 kB\nWritebackTmp:          0 kB\nCommitLimit:    792383268 kB\nCommitted_AS:   129279604 kB\nVmallocTotal:   13743895347199 kB\nVmallocUsed:     2515640 kB\nVmallocChunk:          0 kB\nPercpu:           984576 kB\nHardwareCorrupted:     0 kB\nAnonHugePages:   6045696 kB\nShmemHugePages:        0 kB\nShmemPmdMapped:        0 kB\nFileHugePages:  127014912 kB\nFilePmdMapped:         0 kB\nUnaccepted:            0 kB\nHugePages_Total:       0\nHugePages_Free:        0\nHugePages_Rsvd:        0\nHugePages_Surp:        0\nHugepagesize:       2048 kB\nHugetlb:               0 kB\nDirectMap4k:    632465836 kB\nDirectMap2M:    943054848 kB\nDirectMap1G:    34603008 kB",
+    "clock_ticks_per_second": 100,
+    "scope": "Optional OS counters outside inference timers; missing counters are null"
+  },
+  "started_utc": "2026-09-08T08:22:16Z",
+  "gpu_mappings_before": {
+    "available": true,
+    "basenames": [],
+    "scope": "Read /proc/self/maps only; no device query. Mapped libraries alone do not prove GPU execution."
+  },
+  "progress": {
+    "phase": "timing",
+    "repeat": 4
+  },
+  "gpu_mappings_before_timing": {
+    "available": true,
+    "basenames": [],
+    "scope": "Read /proc/self/maps only; no device query. Mapped libraries alone do not prove GPU execution."
+  },
+  "host_before_timing": {
+    "cpu_ticks": [
+      13515512841,
+      115670695,
+      4940029017,
+      748106900712,
+      12613963,
+      0,
+      50669635,
+      0,
+      0,
+      0
+    ],
+    "loadavg": [
+      5.89794921875,
+      5.26220703125,
+      5.03466796875
+    ],
+    "meminfo": "MemTotal:       1584766536 kB\nMemFree:        1132107056 kB\nMemAvailable:   1521793472 kB\nBuffers:          683032 kB\nCached:         385365396 kB\nSwapCached:            0 kB\nActive:         43694380 kB\nInactive:       378597592 kB\nActive(anon):   28526332 kB\nInactive(anon):  8026612 kB\nActive(file):   15168048 kB\nInactive(file): 370570980 kB\nUnevictable:        3072 kB\nMlocked:               0 kB\nSwapTotal:             0 kB\nSwapFree:              0 kB\nZswap:                 0 kB\nZswapped:              0 kB\nDirty:               348 kB\nWriteback:             0 kB\nAnonPages:      36237148 kB\nMapped:          3156500 kB\nShmem:            309388 kB\nKReclaimable:   13454660 kB\nSlab:           19958208 kB\nSReclaimable:   13454660 kB\nSUnreclaim:      6503548 kB\nKernelStack:      113152 kB\nPageTables:       156824 kB\nSecPageTables:         0 kB\nNFS_Unstable:          0 kB\nBounce:                0 kB\nWritebackTmp:          0 kB\nCommitLimit:    792383268 kB\nCommitted_AS:   133290820 kB\nVmallocTotal:   13743895347199 kB\nVmallocUsed:     2515652 kB\nVmallocChunk:          0 kB\nPercpu:           984576 kB\nHardwareCorrupted:     0 kB\nAnonHugePages:   6057984 kB\nShmemHugePages:        0 kB\nShmemPmdMapped:        0 kB\nFileHugePages:  127014912 kB\nFilePmdMapped:         0 kB\nUnaccepted:            0 kB\nHugePages_Total:       0\nHugePages_Free:        0\nHugePages_Rsvd:        0\nHugePages_Surp:        0\nHugepagesize:       2048 kB\nHugetlb:               0 kB\nDirectMap4k:    632465836 kB\nDirectMap2M:    943054848 kB\nDirectMap1G:    34603008 kB",
+    "clock_ticks_per_second": 100,
+    "scope": "Optional OS counters outside inference timers; missing counters are null"
+  },
+  "host_after_timing": {
+    "cpu_ticks": [
+      13515539360,
+      115670695,
+      4940035381,
+      748108041426,
+      12613963,
+      0,
+      50669649,
+      0,
+      0,
+      0
+    ],
+    "loadavg": [
+      5.1337890625,
+      5.154296875,
+      5.009765625
+    ],
+    "meminfo": "MemTotal:       1584766536 kB\nMemFree:        1132270556 kB\nMemAvailable:   1521825892 kB\nBuffers:          683076 kB\nCached:         385234308 kB\nSwapCached:            0 kB\nActive:         43760764 kB\nInactive:       378466416 kB\nActive(anon):   28592588 kB\nInactive(anon):  8026612 kB\nActive(file):   15168176 kB\nInactive(file): 370439804 kB\nUnevictable:        3072 kB\nMlocked:               0 kB\nSwapTotal:             0 kB\nSwapFree:              0 kB\nZswap:                 0 kB\nZswapped:              0 kB\nDirty:                40 kB\nWriteback:             0 kB\nAnonPages:      36303320 kB\nMapped:          3155312 kB\nShmem:            309388 kB\nKReclaimable:   13454628 kB\nSlab:           19959492 kB\nSReclaimable:   13454628 kB\nSUnreclaim:      6504864 kB\nKernelStack:      113152 kB\nPageTables:       156896 kB\nSecPageTables:         0 kB\nNFS_Unstable:          0 kB\nBounce:                0 kB\nWritebackTmp:          0 kB\nCommitLimit:    792383268 kB\nCommitted_AS:   133346592 kB\nVmallocTotal:   13743895347199 kB\nVmallocUsed:     2515764 kB\nVmallocChunk:          0 kB\nPercpu:           984576 kB\nHardwareCorrupted:     0 kB\nAnonHugePages:   6057984 kB\nShmemHugePages:        0 kB\nShmemPmdMapped:        0 kB\nFileHugePages:  127014912 kB\nFilePmdMapped:         0 kB\nUnaccepted:            0 kB\nHugePages_Total:       0\nHugePages_Free:        0\nHugePages_Rsvd:        0\nHugePages_Surp:        0\nHugepagesize:       2048 kB\nHugetlb:               0 kB\nDirectMap4k:    632465836 kB\nDirectMap2M:    943054848 kB\nDirectMap1G:    34603008 kB",
+    "clock_ticks_per_second": 100,
+    "scope": "Optional OS counters outside inference timers; missing counters are null"
+  },
+  "host_timing_delta": {
+    "ticks": [
+      26519,
+      0,
+      6364,
+      1140714,
+      0,
+      0,
+      14,
+      0
+    ],
+    "total_ticks": 1173611,
+    "steal_percent": 0.0,
+    "iowait_percent": 0.0,
+    "scope": "Whole-VM /proc/stat counters around timing, outside inference timers"
+  },
+  "summary": {
+    "audio_stock": {
+      "decoder_rtf": 0.2555600891501976,
+      "per_clip_rtf": {
+        "hi_in_00099_1919": 0.25474893570588236,
+        "en_us_00103_1779": 0.2560632099259259,
+        "pt_br_00672_1745": 0.25586351444444444
+      }
+    },
+    "fast_fp32": {
+      "decoder_rtf": 0.060560731245059285,
+      "per_clip_rtf": {
+        "hi_in_00099_1919": 0.06073618764705883,
+        "en_us_00103_1779": 0.060569105851851844,
+        "pt_br_00672_1745": 0.06035986574786325
+      }
+    },
+    "int8_large": {
+      "decoder_rtf": 0.03434981813570487,
+      "per_clip_rtf": {
+        "hi_in_00099_1919": 0.03460373319607843,
+        "en_us_00103_1779": 0.03436356229629629,
+        "pt_br_00672_1745": 0.03405725717948718
+      }
+    },
+    "mimi": {
+      "decoder_rtf": 0.052009435006578945,
+      "per_clip_rtf": {
+        "hi_in_00099_1919": 0.052195123925781246,
+        "en_us_00103_1779": 0.052157653703703705,
+        "pt_br_00672_1745": 0.05163526658119658
+      }
+    }
+  },
+  "gpu_mappings_after": {
+    "available": true,
+    "basenames": [],
+    "scope": "Read /proc/self/maps only; no device query. Mapped libraries alone do not prove GPU execution."
+  },
+  "quality_pass": null,
+  "commit_eligible": false,
+  "limit": "Completed runtime gates and timings; perceptual quality and final adoption decision are separate.",
+  "finished_utc": "2026-09-08T08:24:14Z"
+}

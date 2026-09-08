@@ -1,0 +1,315 @@
+{
+  "graph_sha256": "26b545641a43380b2f012c44f600f9e9f4413f424402bb35d9aa758b45849304",
+  "nodes": 106,
+  "operators": [
+    {
+      "domain": "",
+      "op": "Add",
+      "count": 7
+    },
+    {
+      "domain": "",
+      "op": "Concat",
+      "count": 6
+    },
+    {
+      "domain": "",
+      "op": "Conv",
+      "count": 1
+    },
+    {
+      "domain": "",
+      "op": "MatMul",
+      "count": 3
+    },
+    {
+      "domain": "",
+      "op": "Mul",
+      "count": 12
+    },
+    {
+      "domain": "",
+      "op": "Reshape",
+      "count": 31
+    },
+    {
+      "domain": "",
+      "op": "Shape",
+      "count": 1
+    },
+    {
+      "domain": "",
+      "op": "Squeeze",
+      "count": 1
+    },
+    {
+      "domain": "",
+      "op": "Tanh",
+      "count": 1
+    },
+    {
+      "domain": "fast.audiovae.precision.matrix.experimental",
+      "op": "PrecisionMatMulF32",
+      "count": 14
+    },
+    {
+      "domain": "fast.audiovae.precision.stage.experimental",
+      "op": "StageStackF32",
+      "count": 1
+    },
+    {
+      "domain": "fast.audiovae.precision.upsample.experimental",
+      "op": "UpsampleStageF32",
+      "count": 1
+    },
+    {
+      "domain": "fast.audiovae.stage.experimental",
+      "op": "StageStackF32",
+      "count": 2
+    },
+    {
+      "domain": "venky.audio.cpu.portable",
+      "op": "BiasResidualF32",
+      "count": 6
+    },
+    {
+      "domain": "venky.audio.cpu.portable",
+      "op": "CausalDW7F32",
+      "count": 1
+    },
+    {
+      "domain": "venky.audio.cpu.portable",
+      "op": "PhaseSumBiasInterleaveF32",
+      "count": 5
+    },
+    {
+      "domain": "venky.audio.cpu.portable",
+      "op": "SnakeDW7SnakeF32",
+      "count": 6
+    },
+    {
+      "domain": "venky.audio.cpu.portable",
+      "op": "SnakeF32",
+      "count": 7
+    }
+  ],
+  "precision_regions": [
+    {
+      "name": "ncc_up_1_split_matmul_current_node",
+      "op": "PrecisionMatMulF32",
+      "domain": "fast.audiovae.precision.matrix.experimental",
+      "attributes": {
+        "K": 2048,
+        "M": 8192,
+        "backend": 1,
+        "native_abi": 1,
+        "precision_mode": 8,
+        "shards": 2
+      }
+    },
+    {
+      "name": "ncc_up_1_split_matmul_previous_unshifted_node",
+      "op": "PrecisionMatMulF32",
+      "domain": "fast.audiovae.precision.matrix.experimental",
+      "attributes": {
+        "K": 2048,
+        "M": 8192,
+        "backend": 1,
+        "native_abi": 1,
+        "precision_mode": 8,
+        "shards": 2
+      }
+    },
+    {
+      "name": "node_conv1d_3__bct_mm",
+      "op": "PrecisionMatMulF32",
+      "domain": "fast.audiovae.precision.matrix.experimental",
+      "attributes": {
+        "K": 1024,
+        "M": 1024,
+        "backend": 1,
+        "native_abi": 1,
+        "precision_mode": 8,
+        "shards": 2
+      }
+    },
+    {
+      "name": "node_conv1d_5__bct_mm",
+      "op": "PrecisionMatMulF32",
+      "domain": "fast.audiovae.precision.matrix.experimental",
+      "attributes": {
+        "K": 1024,
+        "M": 1024,
+        "backend": 1,
+        "native_abi": 1,
+        "precision_mode": 8,
+        "shards": 2
+      }
+    },
+    {
+      "name": "node_conv1d_7__bct_mm",
+      "op": "PrecisionMatMulF32",
+      "domain": "fast.audiovae.precision.matrix.experimental",
+      "attributes": {
+        "K": 1024,
+        "M": 1024,
+        "backend": 1,
+        "native_abi": 1,
+        "precision_mode": 8,
+        "shards": 2
+      }
+    },
+    {
+      "name": "ncc_up_2_split_matmul_current_node",
+      "op": "PrecisionMatMulF32",
+      "domain": "fast.audiovae.precision.matrix.experimental",
+      "attributes": {
+        "K": 1024,
+        "M": 3072,
+        "backend": 1,
+        "native_abi": 1,
+        "precision_mode": 8,
+        "shards": 2
+      }
+    },
+    {
+      "name": "ncc_up_2_split_matmul_previous_unshifted_node",
+      "op": "PrecisionMatMulF32",
+      "domain": "fast.audiovae.precision.matrix.experimental",
+      "attributes": {
+        "K": 1024,
+        "M": 3072,
+        "backend": 1,
+        "native_abi": 1,
+        "precision_mode": 8,
+        "shards": 2
+      }
+    },
+    {
+      "name": "node_conv1d_9__bct_mm",
+      "op": "PrecisionMatMulF32",
+      "domain": "fast.audiovae.precision.matrix.experimental",
+      "attributes": {
+        "K": 512,
+        "M": 512,
+        "backend": 1,
+        "native_abi": 1,
+        "precision_mode": 8,
+        "shards": 2
+      }
+    },
+    {
+      "name": "node_conv1d_11__bct_mm",
+      "op": "PrecisionMatMulF32",
+      "domain": "fast.audiovae.precision.matrix.experimental",
+      "attributes": {
+        "K": 512,
+        "M": 512,
+        "backend": 1,
+        "native_abi": 1,
+        "precision_mode": 8,
+        "shards": 2
+      }
+    },
+    {
+      "name": "node_conv1d_13__bct_mm",
+      "op": "PrecisionMatMulF32",
+      "domain": "fast.audiovae.precision.matrix.experimental",
+      "attributes": {
+        "K": 512,
+        "M": 512,
+        "backend": 1,
+        "native_abi": 1,
+        "precision_mode": 8,
+        "shards": 2
+      }
+    },
+    {
+      "name": "ncc_up_3_split_matmul_current_node",
+      "op": "PrecisionMatMulF32",
+      "domain": "fast.audiovae.precision.matrix.experimental",
+      "attributes": {
+        "K": 512,
+        "M": 1280,
+        "backend": 1,
+        "native_abi": 1,
+        "precision_mode": 8,
+        "shards": 2
+      }
+    },
+    {
+      "name": "ncc_up_3_split_matmul_previous_unshifted_node",
+      "op": "PrecisionMatMulF32",
+      "domain": "fast.audiovae.precision.matrix.experimental",
+      "attributes": {
+        "K": 512,
+        "M": 1280,
+        "backend": 1,
+        "native_abi": 1,
+        "precision_mode": 8,
+        "shards": 2
+      }
+    },
+    {
+      "name": "sp_stage_c256",
+      "op": "StageStackF32",
+      "domain": "fast.audiovae.precision.stage.experimental",
+      "attributes": {
+        "backend": 5,
+        "channels": 256,
+        "matrix_isa": 0,
+        "matrix_mode": 1,
+        "native_abi": 1,
+        "segments": 2,
+        "tile_time": 256,
+        "precision_mode": 8
+      }
+    },
+    {
+      "name": "upsample_stage_c128",
+      "op": "UpsampleStageF32",
+      "domain": "fast.audiovae.precision.upsample.experimental",
+      "attributes": {
+        "backend": 5,
+        "channels": 128,
+        "matrix_isa": 512,
+        "matrix_mode": 0,
+        "native_abi": 1,
+        "projection_isa": 0,
+        "projection_mode": 1,
+        "segments": 2,
+        "stride": 2,
+        "tile_time": 128,
+        "precision_mode": 8
+      }
+    },
+    {
+      "name": "ncc_up_5_split_matmul_current_node",
+      "op": "PrecisionMatMulF32",
+      "domain": "fast.audiovae.precision.matrix.experimental",
+      "attributes": {
+        "K": 128,
+        "M": 128,
+        "backend": 1,
+        "native_abi": 1,
+        "precision_mode": 8,
+        "shards": 2
+      }
+    },
+    {
+      "name": "ncc_up_5_split_matmul_previous_unshifted_node",
+      "op": "PrecisionMatMulF32",
+      "domain": "fast.audiovae.precision.matrix.experimental",
+      "attributes": {
+        "K": 128,
+        "M": 128,
+        "backend": 1,
+        "native_abi": 1,
+        "precision_mode": 8,
+        "shards": 2
+      }
+    }
+  ],
+  "initializer_count": 233,
+  "external_data": false
+}
