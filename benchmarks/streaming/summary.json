@@ -1,0 +1,440 @@
+{
+  "status": "complete",
+  "cpu_only": true,
+  "onnxruntime": "1.29.0",
+  "platforms": {
+    "Apple M5 Max": {
+      "clips": 60,
+      "streaming_checks": 540,
+      "failed_streaming_checks": 0,
+      "bitwise_exact_streaming_checks": 60,
+      "maximum_streaming_absolute_error": 3.129243850708008e-06,
+      "minimum_nonexact_snr_db": 102.23424802303457,
+      "state_bytes": 683264,
+      "threads": 4,
+      "timing": {
+        "40": {
+          "median_rtf": 0.2951724927201044,
+          "rtf_repeats": [
+            0.2971409461423605,
+            0.2951724927201044,
+            0.27949316417760994
+          ],
+          "median_first_chunk_ms": 11.44108409062028,
+          "median_chunk_p50_ms": 11.448292061686516,
+          "largest_repeat_p95_ms": 13.539991760626435,
+          "case": "bn_in_00151_1818"
+        },
+        "200": {
+          "median_rtf": 0.08606394742574378,
+          "rtf_repeats": [
+            0.08674687460480056,
+            0.08606394742574378,
+            0.08365249309883299
+          ],
+          "median_first_chunk_ms": 16.7903748806566,
+          "median_chunk_p50_ms": 16.71406254172325,
+          "largest_repeat_p95_ms": 20.41673938510939,
+          "case": "bn_in_00151_1818"
+        }
+      },
+      "source_sha256": "1f16cf1d6b849f7a91dd2d9ab7c023df8d759b620d423f719dca9f1cd671cbe0"
+    },
+    "AMD EPYC 9654": {
+      "clips": 60,
+      "streaming_checks": 540,
+      "failed_streaming_checks": 0,
+      "bitwise_exact_streaming_checks": 540,
+      "maximum_streaming_absolute_error": 0.0,
+      "minimum_nonexact_snr_db": null,
+      "state_bytes": 683264,
+      "threads": 4,
+      "timing": {
+        "40": {
+          "median_rtf": 0.14335568321038442,
+          "rtf_repeats": [
+            0.14318730382914524,
+            0.14382087621822892,
+            0.14335568321038442
+          ],
+          "median_first_chunk_ms": 5.731046199798584,
+          "median_chunk_p50_ms": 5.716413259506226,
+          "largest_repeat_p95_ms": 5.817529559135437,
+          "case": "bn_in_00151_1818"
+        },
+        "200": {
+          "median_rtf": 0.05700377650169962,
+          "rtf_repeats": [
+            0.05700377650169962,
+            0.05694014510237069,
+            0.05725766176799214
+          ],
+          "median_first_chunk_ms": 11.419132351875305,
+          "median_chunk_p50_ms": 11.396646499633789,
+          "largest_repeat_p95_ms": 11.54089830815792,
+          "case": "bn_in_00151_1818"
+        }
+      },
+      "source_sha256": "f85eaf14e40553452fab842d87779e26d4b7a36fae150fabd1eb44d8ac5a54c7"
+    },
+    "Intel Xeon Platinum 8280 VM": {
+      "clips": 60,
+      "streaming_checks": 540,
+      "failed_streaming_checks": 0,
+      "bitwise_exact_streaming_checks": 540,
+      "maximum_streaming_absolute_error": 0.0,
+      "minimum_nonexact_snr_db": null,
+      "state_bytes": 683264,
+      "threads": 2,
+      "timing": {
+        "40": {
+          "median_rtf": 0.521664452518385,
+          "rtf_repeats": [
+            0.5222710773318886,
+            0.521664452518385,
+            0.5202364655263931
+          ],
+          "median_first_chunk_ms": 20.98107896745205,
+          "median_chunk_p50_ms": 20.85614949464798,
+          "largest_repeat_p95_ms": 21.309779584407806,
+          "case": "bn_in_00151_1818"
+        },
+        "200": {
+          "median_rtf": 0.27539192541805374,
+          "rtf_repeats": [
+            0.27539192541805374,
+            0.2742894528710459,
+            0.2782568849817696
+          ],
+          "median_first_chunk_ms": 55.355822667479515,
+          "median_chunk_p50_ms": 55.07985595613718,
+          "largest_repeat_p95_ms": 58.5168837569654,
+          "case": "bn_in_00151_1818"
+        }
+      },
+      "source_sha256": "3ada533c52869a0483dac508144072043af312cb43baea001109aed3f008fd3c"
+    }
+  },
+  "full_clip_regression_screens": {
+    "AMD EPYC 9654": {
+      "old_median_rtf": 0.03474366295180723,
+      "new_median_rtf": 0.03394035070281124,
+      "median_time_change_percent": -2.312111564374375,
+      "old_mean_rtf": 0.03454149300535475,
+      "new_mean_rtf": 0.03396947771084337,
+      "mean_time_change_percent": -1.6560236537045636,
+      "old_rtf_repeats": [
+        0.0347738672690763,
+        0.03410694879518072,
+        0.03474366295180723
+      ],
+      "new_rtf_repeats": [
+        0.03406063684738955,
+        0.03390744558232931,
+        0.03394035070281124
+      ],
+      "source_sha256": "1bed2054c413af230e59f4e12f60068be05ffb3c459052056a53c38a8eb971fa"
+    },
+    "Intel Xeon Platinum 8280 VM": {
+      "old_median_rtf": 0.16859809991465993,
+      "new_median_rtf": 0.17180397122888919,
+      "median_time_change_percent": 1.9014872147740558,
+      "old_mean_rtf": 0.16908001253154462,
+      "new_mean_rtf": 0.1721461221246595,
+      "mean_time_change_percent": 1.8134074792210297,
+      "old_rtf_repeats": [
+        0.16859809991465993,
+        0.16851629519528413,
+        0.1701256424846898
+      ],
+      "new_rtf_repeats": [
+        0.1753943790887374,
+        0.16924001605635186,
+        0.17180397122888919
+      ],
+      "source_sha256": "d950f8440e714807ec2d0d76e4fb9017423dbf8276d4c34f027f8283c910328a"
+    }
+  },
+  "timing_scope": "One preselected 9.96-second Bengali clip; two warmups, three repeats. Decoder only, excluding model loading and encoding. These are not broad throughput estimates or matched Mimi streaming benchmarks.",
+  "unit_tests": {
+    "passed": 183,
+    "subtests_passed": 1944
+  },
+  "quality_comparisons": [
+    {
+      "metric": "pesq_wb",
+      "old_accepted": 3.717370239893596,
+      "new_canonical": 3.717370239893596,
+      "delta": 0.0,
+      "pairs": 60,
+      "ci95": [
+        -0.0,
+        -0.0
+      ],
+      "worst_clip": {
+        "uid": "hi_in_00099_1919",
+        "delta": 0.0
+      },
+      "best_clip": {
+        "uid": "hi_in_00099_1919",
+        "delta": 0.0
+      },
+      "historical_old_mean": 3.717370239893596,
+      "baseline_rescore_delta": 0.0
+    },
+    {
+      "metric": "stoi",
+      "old_accepted": 0.9344478935933631,
+      "new_canonical": 0.9344478935935486,
+      "delta": 1.8551826741486366e-13,
+      "pairs": 60,
+      "ci95": [
+        -1.9854414408844894e-13,
+        8.051707448923177e-13
+      ],
+      "worst_clip": {
+        "uid": "kn_in_00793_1839",
+        "delta": -2.952860178595529e-12
+      },
+      "best_clip": {
+        "uid": "fr_fr_00041_1714",
+        "delta": 1.762656687276376e-11
+      },
+      "historical_old_mean": 0.9344478935933631,
+      "baseline_rescore_delta": 0.0
+    },
+    {
+      "metric": "estoi",
+      "old_accepted": 0.8816932696560063,
+      "new_canonical": 0.8816932696566964,
+      "delta": 6.901146321069973e-13,
+      "pairs": 60,
+      "ci95": [
+        -3.4498926863394754e-13,
+        2.388055771647875e-12
+      ],
+      "worst_clip": {
+        "uid": "kn_in_00793_1839",
+        "delta": -9.346523555109343e-12
+      },
+      "best_clip": {
+        "uid": "fr_fr_00041_1714",
+        "delta": 4.830447153381101e-11
+      },
+      "historical_old_mean": 0.881693269656006,
+      "baseline_rescore_delta": 2.220446049250313e-16
+    },
+    {
+      "metric": "utmos",
+      "old_accepted": 2.251605212688446,
+      "new_canonical": 2.2516052206357324,
+      "delta": 7.947286384535346e-09,
+      "pairs": 60,
+      "ci95": [
+        -3.9736429850260424e-09,
+        1.986821492513021e-08
+      ],
+      "worst_clip": {
+        "uid": "es_419_00899_1738",
+        "delta": -2.384185791015625e-07
+      },
+      "best_clip": {
+        "uid": "bn_in_00221_1754",
+        "delta": 2.384185791015625e-07
+      },
+      "historical_old_mean": 2.251605212688446,
+      "baseline_rescore_delta": 0.0
+    },
+    {
+      "metric": "dnsmos_sig",
+      "old_accepted": 3.2366083677634436,
+      "new_canonical": 3.2366083622541346,
+      "delta": -5.509309008999708e-09,
+      "pairs": 60,
+      "ci95": [
+        -1.5595729063733187e-08,
+        3.262878833787397e-09
+      ],
+      "worst_clip": {
+        "uid": "en_us_00565_1837",
+        "delta": -2.595086026069282e-07
+      },
+      "best_clip": {
+        "uid": "es_419_00899_1738",
+        "delta": 1.2791381243104638e-07
+      },
+      "historical_old_mean": 3.2366083677634436,
+      "baseline_rescore_delta": 0.0
+    },
+    {
+      "metric": "dnsmos_bak",
+      "old_accepted": 3.606429769504152,
+      "new_canonical": 3.6064297593818013,
+      "delta": -1.0122350513341871e-08,
+      "pairs": 60,
+      "ci95": [
+        -2.1218068591011274e-08,
+        -5.716951652819567e-10
+      ],
+      "worst_clip": {
+        "uid": "en_us_00565_1837",
+        "delta": -2.6413436682304337e-07
+      },
+      "best_clip": {
+        "uid": "kn_in_00793_1839",
+        "delta": 8.021565989224655e-08
+      },
+      "historical_old_mean": 3.606429769504152,
+      "baseline_rescore_delta": 0.0
+    },
+    {
+      "metric": "dnsmos_ovrl",
+      "old_accepted": 2.7603388138510576,
+      "new_canonical": 2.7603388158917577,
+      "delta": 2.0407000533850805e-09,
+      "pairs": 60,
+      "ci95": [
+        -6.496055730368748e-09,
+        1.0295362503261648e-08
+      ],
+      "worst_clip": {
+        "uid": "en_us_00557_1707",
+        "delta": -1.8214505592695218e-07
+      },
+      "best_clip": {
+        "uid": "kn_in_00584_1904",
+        "delta": 1.566718239587317e-07
+      },
+      "historical_old_mean": 2.7603388138510576,
+      "baseline_rescore_delta": 0.0
+    },
+    {
+      "metric": "dnsmos_p808",
+      "old_accepted": 3.3970562701944322,
+      "new_canonical": 3.3970562701944322,
+      "delta": 0.0,
+      "pairs": 60,
+      "ci95": [
+        -0.0,
+        -0.0
+      ],
+      "worst_clip": {
+        "uid": "hi_in_00099_1919",
+        "delta": 0.0
+      },
+      "best_clip": {
+        "uid": "hi_in_00099_1919",
+        "delta": 0.0
+      },
+      "historical_old_mean": 3.3970562701944322,
+      "baseline_rescore_delta": 0.0
+    },
+    {
+      "metric": "mrstft_spectral_convergence",
+      "old_accepted": 0.14500636680607998,
+      "new_canonical": 0.14500636680607998,
+      "delta": 0.0,
+      "pairs": 60,
+      "ci95": [
+        -0.0,
+        -0.0
+      ],
+      "worst_clip": {
+        "uid": "hi_in_00099_1919",
+        "delta": 0.0
+      },
+      "best_clip": {
+        "uid": "hi_in_00099_1919",
+        "delta": 0.0
+      },
+      "historical_old_mean": 0.14500636680607998,
+      "baseline_rescore_delta": 0.0
+    },
+    {
+      "metric": "mrstft_log_magnitude_mae",
+      "old_accepted": 0.7738078062733014,
+      "new_canonical": 0.7738078062733014,
+      "delta": 0.0,
+      "pairs": 60,
+      "ci95": [
+        -0.0,
+        -0.0
+      ],
+      "worst_clip": {
+        "uid": "hi_in_00099_1919",
+        "delta": 0.0
+      },
+      "best_clip": {
+        "uid": "hi_in_00099_1919",
+        "delta": 0.0
+      },
+      "historical_old_mean": 0.7738078062733014,
+      "baseline_rescore_delta": 0.0
+    },
+    {
+      "metric": "si_sdr_db",
+      "old_accepted": 12.88339706021436,
+      "new_canonical": 12.883397060213838,
+      "delta": -5.222489107836736e-13,
+      "pairs": 60,
+      "ci95": [
+        -1.897025499649392e-12,
+        9.352844424862875e-13
+      ],
+      "worst_clip": {
+        "uid": "fr_fr_00041_1714",
+        "delta": -2.1470825117830827e-11
+      },
+      "best_clip": {
+        "uid": "en_us_00565_1837",
+        "delta": 3.134559278805682e-11
+      },
+      "historical_old_mean": 12.88339706021436,
+      "baseline_rescore_delta": 0.0
+    },
+    {
+      "metric": "snr_db",
+      "old_accepted": 12.869752797699132,
+      "new_canonical": 12.869752797697581,
+      "delta": -1.5507595207964187e-12,
+      "pairs": 60,
+      "ci95": [
+        -5.655784729441394e-12,
+        1.1685622839744762e-12
+      ],
+      "worst_clip": {
+        "uid": "fr_fr_00041_1714",
+        "delta": -1.1424994283970591e-10
+      },
+      "best_clip": {
+        "uid": "en_us_00565_1837",
+        "delta": 2.97717406283482e-11
+      },
+      "historical_old_mean": 12.869752797699132,
+      "baseline_rescore_delta": 0.0
+    }
+  ],
+  "quality_scope": "Accepted AMD full-call versus canonical AMD full-call, 60 FLEURS clips; common 16 kHz metric bandwidth. Streaming parity is a separate native 48 kHz waveform gate.",
+  "x86_waveform_identity": {
+    "comparisons": 120,
+    "bitwise_equal": 120,
+    "max_abs": 0.0,
+    "max_rmse": 0.0,
+    "changed_samples": 0
+  },
+  "implementation_sha256": {
+    "src/fast_audiovae/streaming.py": "75e57dd80358da54ce1b23728470b0f19cc0a1dec96cefabf6f61cecc09d6fe5",
+    "src/fast_audiovae/runtime.py": "b2153a39f806638ac4500b59503357b9ce44e4a88aff55180c42328e7300fb68",
+    "src/fast_audiovae/prepare_streaming.py": "0274bbf8d723fa8c6e04f0fdd3d0656897a484f4ada4d3a1c0cfc2da82ea351c",
+    "src/fast_audiovae/graph/streaming.py": "b1fdab90f4873810fc88ce79ee3ee6f6e21970a99ade532ac0353e88248aaa67",
+    "src/fast_audiovae/graph/canonical.py": "59d1f09ab42feac919f9e7d1026a12176cabdb61aa7cc3fd88a7cf40d4d72de4",
+    "native/x86/native_kernels.c": "082059962a20afdd72b43f0342fd13a273422198d5670b88242da353559b04bd",
+    "native/x86/native_kernels.h": "acffa4b6c2ebb375b62420e3997fbcd080dd0216c7810b2b293f1ad4c7f2eae3",
+    "experiments/cpu-stage/stage/custom_op.cpp": "9c72198e9336d9e43d694d21c264161053dbf2462bea05787a9b7993b85502ce",
+    "experiments/intel-precision/fused/stage_precision.cpp": "5ac04cb702bb2b4f01815509b2683c7bd47d7bfec4485b54bd3e3debe9c6073f",
+    "experiments/intel-precision/fused/upsample_precision.cpp": "0df57e2a79e503abe01737d400f3f6ef4ef92f704bb1ea74f06cfbdfb5332495",
+    "experiments/amd-precision/common/fused/stage_precision.cpp": "5ac04cb702bb2b4f01815509b2683c7bd47d7bfec4485b54bd3e3debe9c6073f",
+    "experiments/amd-precision/common/fused/upsample_precision.cpp": "0df57e2a79e503abe01737d400f3f6ef4ef92f704bb1ea74f06cfbdfb5332495",
+    "tools/validate_streaming.py": "a8c3266ac7d4fb9055f34e0969e020c15aeccf19b8bf9e73b01215c1dad91912"
+  }
+}

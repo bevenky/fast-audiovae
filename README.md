@@ -1,6 +1,6 @@
 # fast-audiovae
 
-Fast CPU inference for VoxCPM2's AudioVAE2 decoder, using ONNX graph rewrites and native kernels. Latents `[1, 64, L]` at 25 Hz produce mono audio `[1, 1, 1920*L]` at 48 kHz. Each call starts with fresh causal history.
+Fast CPU inference for VoxCPM2's AudioVAE2 decoder, using ONNX graph rewrites and native kernels. Latents `[1, 64, L]` at 25 Hz produce mono audio `[1, 1, 1920*L]` at 48 kHz. Supports full-clip and stateful streaming decoding.
 
 ## Run
 
@@ -11,7 +11,7 @@ git clone https://github.com/bevenky/fast-audiovae.git
 cd fast-audiovae
 python -m pip install -e .
 python tools/build.py
-fast-audiovae prepare --output artifacts
+fast-audiovae prepare --output artifacts --streaming
 ```
 
 Build and prepare on each target machine. Setup downloads pinned dependencies and model files. With uv, use `uv pip install -e .` inside an activated environment.
@@ -24,11 +24,15 @@ session, selected = load_decoder("artifacts")
 audio = session.run(None, {session.get_inputs()[0].name: latents})[0]
 ```
 
+For live audio, use `load_streaming_decoder` and pass new latent chunks to `stream.decode_chunk()`. [Streaming usage and validation](docs/streaming.md).
+
 Inference uses the CPU only. The loader automatically detects compatible CPU instructions and falls back to standard ONNX when needed. Set `threads` explicitly for a CPU quota; otherwise the loader uses up to four visible CPUs.
+
+The tables below report the previously accepted full-clip builds. [Streaming validation](docs/streaming.md#validation-results) covers the new API.
 
 ## Decoder speed
 
-Lower RTF is better. RTF is total decoding time divided by generated audio duration; it excludes loading, encoding and TTS generation.
+This table compares full-clip decoding. Lower RTF is better. RTF is total decoding time divided by generated audio duration; it excludes loading, encoding and TTS generation. Streaming chunk latency is measured separately.
 
 | CPU | Threads | Base AudioVAE2 | Optimized AudioVAE2 | Mimi | Meta DAC-VAE, earlier run |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -56,6 +60,6 @@ Intel and AMD were scored independently and agree at the displayed precision. UT
 
 ## More
 
-[Kernel experiments](docs/cpu-kernel-results.md) and [optional backends and encoder setup](docs/optional-backends.md) contain the detailed build and validation records. The encoder retains its existing 16 kHz input. There is no cached streaming API.
+[Kernel experiments](docs/cpu-kernel-results.md) and [optional backends and encoder setup](docs/optional-backends.md) contain the detailed build and validation records. The encoder retains its existing 16 kHz input. The [streaming decoder](docs/streaming.md) carries independent history between chunks.
 
 Architecture and weights originate from [OpenBMB VoxCPM](https://github.com/OpenBMB/VoxCPM). Preparation uses the checksum-verified [pinned ONNX export](https://huggingface.co/ai4all8/VoxCPM2-ONNX/tree/ecb511b96675f041424b42f148bf72e301262586). Upstream model and dependency licenses apply.

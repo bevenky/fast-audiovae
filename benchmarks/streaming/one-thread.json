@@ -1,0 +1,289 @@
+{
+  "protocol": {
+    "execution": "CPU only, one inference thread",
+    "onnxruntime": "1.29.0",
+    "clips": [
+      "bn_in_00151_1818",
+      "en_us_00103_1779",
+      "es_419_00060_1994"
+    ],
+    "warmups_per_clip_model_mode": 2,
+    "measured_repetitions_per_clip_model_mode": 3,
+    "order": "same randomized schedule on all hosts",
+    "aggregation": "mean of per-clip median RTF",
+    "rtf": "sum of decode calls and flush divided by actual returned audio duration",
+    "excluded": [
+      "model loading",
+      "stream creation",
+      "input chunk preparation",
+      "encoding"
+    ],
+    "output_rates_hz": {
+      "audiovae2": 48000,
+      "mimi": 24000
+    },
+    "modes": [
+      "full",
+      "stream_80",
+      "stream_160"
+    ],
+    "scheduling_note": "Intel and AMD one-worker graphs are explicit validation bundles; automatic preparation is pending.",
+    "run_note": "All hosts initially dispatched together; only final Intel rerun after setup and memory cleanup is included.",
+    "quality_scope": "Waveform parity against each codec's own full output; no new perceptual scoring."
+  },
+  "checks": {
+    "runs_passed": 405,
+    "measured_runs": 243,
+    "raw_calls_checked": 25830,
+    "all_counts_and_rtf_recomputed": true,
+    "intel_amd_optimized_streams": "bitwise identical to their full references",
+    "other_paths_atol": 1e-05,
+    "other_paths_rtol": 0.0001
+  },
+  "driver_sha256": "7e9dbc738d5b22a83a473196288add3bfa9594f6317eea3458856d2601179355",
+  "hosts": [
+    {
+      "cpu": "Apple M5 Max",
+      "result_sha256": "8b9902ac510fffcb9d2c9e8ae2bb4184d9a76d4447e149da8e8fac8294bf34fd",
+      "runs_checked": 135,
+      "raw_calls_checked": 8610,
+      "maximum_waveform_error": 7.245689630508423e-07,
+      "results": [
+        {
+          "codec": "audiovae2_stock",
+          "mode": "full",
+          "sum_call_rtf": 0.1149782080706134,
+          "whole_loop_rtf": 0.11498295788002108,
+          "first_call_seconds": 1.1491986943098407,
+          "process_cpu_to_loop_wall_ratio": 0.9983769493789836
+        },
+        {
+          "codec": "audiovae2_stock",
+          "mode": "stream_80",
+          "sum_call_rtf": 0.3014136447730546,
+          "whole_loop_rtf": 0.3014975455905742,
+          "first_call_seconds": 0.023955097344393533,
+          "process_cpu_to_loop_wall_ratio": 0.9980913934826053
+        },
+        {
+          "codec": "audiovae2_stock",
+          "mode": "stream_160",
+          "sum_call_rtf": 0.1823492438192019,
+          "whole_loop_rtf": 0.1823920261769003,
+          "first_call_seconds": 0.029034652669603627,
+          "process_cpu_to_loop_wall_ratio": 0.9982435266346721
+        },
+        {
+          "codec": "audiovae2_optimized",
+          "mode": "full",
+          "sum_call_rtf": 0.05258152697246089,
+          "whole_loop_rtf": 0.05258609493415484,
+          "first_call_seconds": 0.5258222913059095,
+          "process_cpu_to_loop_wall_ratio": 0.9992650789050621
+        },
+        {
+          "codec": "audiovae2_optimized",
+          "mode": "stream_80",
+          "sum_call_rtf": 0.22212963825261012,
+          "whole_loop_rtf": 0.22220952131558394,
+          "first_call_seconds": 0.017868277772019308,
+          "process_cpu_to_loop_wall_ratio": 0.9989432327325796
+        },
+        {
+          "codec": "audiovae2_optimized",
+          "mode": "stream_160",
+          "sum_call_rtf": 0.12176068923531355,
+          "whole_loop_rtf": 0.12180190725243079,
+          "first_call_seconds": 0.01936841670734187,
+          "process_cpu_to_loop_wall_ratio": 0.9989714077413248
+        },
+        {
+          "codec": "mimi",
+          "mode": "full",
+          "sum_call_rtf": 0.04400551742290027,
+          "whole_loop_rtf": 0.04400866237132657,
+          "first_call_seconds": 0.44124515269262093,
+          "process_cpu_to_loop_wall_ratio": 0.9992355287411596
+        },
+        {
+          "codec": "mimi",
+          "mode": "stream_80",
+          "sum_call_rtf": 0.05470990291406096,
+          "whole_loop_rtf": 0.054767696888826545,
+          "first_call_seconds": 0.004422166772807638,
+          "process_cpu_to_loop_wall_ratio": 0.9981665937823565
+        },
+        {
+          "codec": "mimi",
+          "mode": "stream_160",
+          "sum_call_rtf": 0.03875539136132716,
+          "whole_loop_rtf": 0.03878883584380943,
+          "first_call_seconds": 0.006314097360397379,
+          "process_cpu_to_loop_wall_ratio": 0.9991706087095075
+        }
+      ]
+    },
+    {
+      "cpu": "AMD EPYC 9654",
+      "result_sha256": "84f6c305d3433d2452a9c4ef636d3fc2569062c9a2b139535bc61517f373f009",
+      "runs_checked": 135,
+      "raw_calls_checked": 8610,
+      "maximum_waveform_error": 4.470348358154297e-07,
+      "results": [
+        {
+          "codec": "audiovae2_stock",
+          "mode": "full",
+          "sum_call_rtf": 0.41160129471992984,
+          "whole_loop_rtf": 0.41163155319131284,
+          "first_call_seconds": 4.1149211799105005,
+          "process_cpu_to_loop_wall_ratio": 0.9995683381226621
+        },
+        {
+          "codec": "audiovae2_stock",
+          "mode": "stream_80",
+          "sum_call_rtf": 0.600554308501267,
+          "whole_loop_rtf": 0.6007186761705274,
+          "first_call_seconds": 0.04966373989979426,
+          "process_cpu_to_loop_wall_ratio": 0.999575095890393
+        },
+        {
+          "codec": "audiovae2_stock",
+          "mode": "stream_160",
+          "sum_call_rtf": 0.47790723786954953,
+          "whole_loop_rtf": 0.47799550140123026,
+          "first_call_seconds": 0.078628475467364,
+          "process_cpu_to_loop_wall_ratio": 0.9996452130575506
+        },
+        {
+          "codec": "audiovae2_optimized",
+          "mode": "full",
+          "sum_call_rtf": 0.11612355589718913,
+          "whole_loop_rtf": 0.11613591968078593,
+          "first_call_seconds": 1.1602518483996391,
+          "process_cpu_to_loop_wall_ratio": 0.9995728166085311
+        },
+        {
+          "codec": "audiovae2_optimized",
+          "mode": "stream_80",
+          "sum_call_rtf": 0.18047893531889425,
+          "whole_loop_rtf": 0.1805830544118919,
+          "first_call_seconds": 0.015663310885429382,
+          "process_cpu_to_loop_wall_ratio": 0.9996239891353439
+        },
+        {
+          "codec": "audiovae2_optimized",
+          "mode": "stream_160",
+          "sum_call_rtf": 0.1421385004479436,
+          "whole_loop_rtf": 0.1421986252082153,
+          "first_call_seconds": 0.024632155895233154,
+          "process_cpu_to_loop_wall_ratio": 0.9996227350013284
+        },
+        {
+          "codec": "mimi",
+          "mode": "full",
+          "sum_call_rtf": 0.1303619653927761,
+          "whole_loop_rtf": 0.1303704261216789,
+          "first_call_seconds": 1.3061518644293149,
+          "process_cpu_to_loop_wall_ratio": 0.9996011152351455
+        },
+        {
+          "codec": "mimi",
+          "mode": "stream_80",
+          "sum_call_rtf": 0.12297165501623293,
+          "whole_loop_rtf": 0.1230688772277281,
+          "first_call_seconds": 0.010854306320349375,
+          "process_cpu_to_loop_wall_ratio": 0.9995633667585283
+        },
+        {
+          "codec": "mimi",
+          "mode": "stream_160",
+          "sum_call_rtf": 0.11397911794039609,
+          "whole_loop_rtf": 0.11403910331998977,
+          "first_call_seconds": 0.019489516814549763,
+          "process_cpu_to_loop_wall_ratio": 0.9996415858228348
+        }
+      ]
+    },
+    {
+      "cpu": "Intel Xeon Platinum 8280 VM",
+      "result_sha256": "0a9b94d8516622467972e128c4d6b1753c9d0230cb796f2022bd9c88fbc25459",
+      "runs_checked": 135,
+      "raw_calls_checked": 8610,
+      "maximum_waveform_error": 4.470348358154297e-07,
+      "results": [
+        {
+          "codec": "audiovae2_stock",
+          "mode": "full",
+          "sum_call_rtf": 0.7202923296966447,
+          "whole_loop_rtf": 0.7203360850953169,
+          "first_call_seconds": 7.201441917568445,
+          "process_cpu_to_loop_wall_ratio": 0.9998623064819584
+        },
+        {
+          "codec": "audiovae2_stock",
+          "mode": "stream_80",
+          "sum_call_rtf": 1.0041014897354579,
+          "whole_loop_rtf": 1.0043938192120787,
+          "first_call_seconds": 0.08060454639295737,
+          "process_cpu_to_loop_wall_ratio": 0.9998529636920228
+        },
+        {
+          "codec": "audiovae2_stock",
+          "mode": "stream_160",
+          "sum_call_rtf": 0.8049202085411908,
+          "whole_loop_rtf": 0.8050756982102686,
+          "first_call_seconds": 0.1280475500971079,
+          "process_cpu_to_loop_wall_ratio": 0.9998023642739534
+        },
+        {
+          "codec": "audiovae2_optimized",
+          "mode": "full",
+          "sum_call_rtf": 0.19964092776599335,
+          "whole_loop_rtf": 0.19968722840779163,
+          "first_call_seconds": 1.995685978482167,
+          "process_cpu_to_loop_wall_ratio": 0.9998055001156161
+        },
+        {
+          "codec": "audiovae2_optimized",
+          "mode": "stream_80",
+          "sum_call_rtf": 0.37679390294367954,
+          "whole_loop_rtf": 0.37706188589272865,
+          "first_call_seconds": 0.030473556990424793,
+          "process_cpu_to_loop_wall_ratio": 0.9998386686070394
+        },
+        {
+          "codec": "audiovae2_optimized",
+          "mode": "stream_160",
+          "sum_call_rtf": 0.2785005001352676,
+          "whole_loop_rtf": 0.27864381917506187,
+          "first_call_seconds": 0.044201587637265526,
+          "process_cpu_to_loop_wall_ratio": 0.999822176858007
+        },
+        {
+          "codec": "mimi",
+          "mode": "full",
+          "sum_call_rtf": 0.2015013568365979,
+          "whole_loop_rtf": 0.20152695193524378,
+          "first_call_seconds": 2.022055054704348,
+          "process_cpu_to_loop_wall_ratio": 0.9998631391819219
+        },
+        {
+          "codec": "mimi",
+          "mode": "stream_80",
+          "sum_call_rtf": 0.22228334523995538,
+          "whole_loop_rtf": 0.22255404171741636,
+          "first_call_seconds": 0.018779952079057693,
+          "process_cpu_to_loop_wall_ratio": 0.9998237526434812
+        },
+        {
+          "codec": "mimi",
+          "mode": "stream_160",
+          "sum_call_rtf": 0.18445785754669908,
+          "whole_loop_rtf": 0.1846090765679854,
+          "first_call_seconds": 0.030223729088902473,
+          "process_cpu_to_loop_wall_ratio": 0.9998660943498148
+        }
+      ]
+    }
+  ]
+}

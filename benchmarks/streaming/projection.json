@@ -1,0 +1,228 @@
+{
+  "protocol": {
+    "execution": "CPU only, ONNX Runtime 1.29.0, one inference thread; Intel pinned to CPU0",
+    "targets": [
+      "Apple 80 ms",
+      "Apple 160 ms",
+      "Intel 80 ms",
+      "Intel 160 ms"
+    ],
+    "baseline": "currently accepted optimized one-thread streaming decoder",
+    "candidate_scope": "only first streaming upsampling projection pair; full-call graph unchanged",
+    "measurement": "Adjacent randomized baseline/candidate pairs, two warmups and five measured repetitions on three frozen clips",
+    "acceptance": {
+      "quality": "Apple atol=1e-5, rtol=1e-4 against accepted full and available stored references; Intel bitwise against accepted full",
+      "speed": "At least 10% lower aggregate streaming RTF at both 80 and 160 ms, with no slower per-clip streaming medians",
+      "corpus": "All 60 frozen multilingual clips with 1, 2 and 4 frame streams before retention",
+      "loading_and_memory": "Recorded separately; CPU only, no additional buffering"
+    },
+    "source_note": "First Apple attempt excluded because bookkeeping source was edited during launch; final harness frozen thereafter",
+    "no_commits_or_pushes_during_measurement": true
+  },
+  "hosts": {
+    "apple": {
+      "retained": true,
+      "rtf": [
+        {
+          "mode": "full",
+          "complete_pairs": 15,
+          "clips": 3,
+          "mean_clip_median_baseline_rtf": 0.05847615983916004,
+          "mean_clip_median_candidate_rtf": 0.06084125835028783,
+          "aggregate_reduction_percent": -4.044551690181164,
+          "median_paired_reduction_percent": -5.822939241301084,
+          "per_clip": [
+            {
+              "uid": "bn_in_00151_1818",
+              "before_rtf": 0.05561271757186655,
+              "after_rtf": 0.05963000332858099,
+              "time_reduction_percent": -7.223681798184067
+            },
+            {
+              "uid": "en_us_00103_1779",
+              "before_rtf": 0.05864804009130845,
+              "after_rtf": 0.061237959178268075,
+              "time_reduction_percent": -4.416036892157704
+            },
+            {
+              "uid": "es_419_00060_1994",
+              "before_rtf": 0.061167721854305114,
+              "after_rtf": 0.061655812544014414,
+              "time_reduction_percent": -0.7979546645073388
+            }
+          ]
+        },
+        {
+          "mode": "stream_160",
+          "complete_pairs": 15,
+          "clips": 3,
+          "mean_clip_median_baseline_rtf": 0.13771802469819072,
+          "mean_clip_median_candidate_rtf": 0.09077338580688231,
+          "aggregate_reduction_percent": 34.08750524427552,
+          "median_paired_reduction_percent": 34.01947726541068,
+          "per_clip": [
+            {
+              "uid": "bn_in_00151_1818",
+              "before_rtf": 0.1311051370117843,
+              "after_rtf": 0.08549933066034322,
+              "time_reduction_percent": 34.78567460506283
+            },
+            {
+              "uid": "en_us_00103_1779",
+              "before_rtf": 0.13153505796152684,
+              "after_rtf": 0.0859074694259713,
+              "time_reduction_percent": 34.688537978142165
+            },
+            {
+              "uid": "es_419_00060_1994",
+              "before_rtf": 0.15051387912126105,
+              "after_rtf": 0.10091335733433242,
+              "time_reduction_percent": 32.954118302251786
+            }
+          ]
+        },
+        {
+          "mode": "stream_80",
+          "complete_pairs": 15,
+          "clips": 3,
+          "mean_clip_median_baseline_rtf": 0.24714614656148132,
+          "mean_clip_median_candidate_rtf": 0.14975230286571783,
+          "aggregate_reduction_percent": 39.40738913019439,
+          "median_paired_reduction_percent": 38.63315027734687,
+          "per_clip": [
+            {
+              "uid": "bn_in_00151_1818",
+              "before_rtf": 0.240327895036431,
+              "after_rtf": 0.1469046977324314,
+              "time_reduction_percent": 38.873222473753074
+            },
+            {
+              "uid": "en_us_00103_1779",
+              "before_rtf": 0.24140089894731148,
+              "after_rtf": 0.14601727693203698,
+              "time_reduction_percent": 39.51253803578133
+            },
+            {
+              "uid": "es_419_00060_1994",
+              "before_rtf": 0.25970964570070143,
+              "after_rtf": 0.15633493393268516,
+              "time_reduction_percent": 39.803955486177415
+            }
+          ]
+        }
+      ],
+      "paired_runs_passed": 126,
+      "state_checks_passed": 72,
+      "corpus_clips": 60,
+      "corpus_streams_passed": 180,
+      "maximum_waveform_error": 3.933906555175781e-06,
+      "corpus_bitwise_streams": 0,
+      "corpus_raw_calls": 23630,
+      "paired_raw_calls": 8036,
+      "campaign_sha256": "8acd6b72199a4fb890b8aec1c9825473788313ef687fb7cf106aae4aebc04c25",
+      "corpus_sha256": "91d2d3a79b3798d9a7bb4000aeae97791443d899c4b8a02eebc7dfe35519cc6b"
+    },
+    "intel": {
+      "retained": true,
+      "rtf": [
+        {
+          "mode": "full",
+          "complete_pairs": 15,
+          "clips": 3,
+          "mean_clip_median_baseline_rtf": 0.20009294012964698,
+          "mean_clip_median_candidate_rtf": 0.20048426521594614,
+          "aggregate_reduction_percent": -0.19557166087200706,
+          "median_paired_reduction_percent": 0.262654786882055,
+          "per_clip": [
+            {
+              "uid": "bn_in_00151_1818",
+              "before_rtf": 0.20015597339704572,
+              "after_rtf": 0.199395271175238,
+              "time_reduction_percent": 0.38005471877610164
+            },
+            {
+              "uid": "en_us_00103_1779",
+              "before_rtf": 0.19849475490412224,
+              "after_rtf": 0.19974240015640302,
+              "time_reduction_percent": -0.6285532596986831
+            },
+            {
+              "uid": "es_419_00060_1994",
+              "before_rtf": 0.20162809208777302,
+              "after_rtf": 0.20231512431619744,
+              "time_reduction_percent": -0.34074231487810636
+            }
+          ]
+        },
+        {
+          "mode": "stream_160",
+          "complete_pairs": 15,
+          "clips": 3,
+          "mean_clip_median_baseline_rtf": 0.27842075638366565,
+          "mean_clip_median_candidate_rtf": 0.24781283991092617,
+          "aggregate_reduction_percent": 10.993403247048706,
+          "median_paired_reduction_percent": 11.30732260962134,
+          "per_clip": [
+            {
+              "uid": "bn_in_00151_1818",
+              "before_rtf": 0.27771182376966175,
+              "after_rtf": 0.2481570682417317,
+              "time_reduction_percent": 10.642238823955585
+            },
+            {
+              "uid": "en_us_00103_1779",
+              "before_rtf": 0.27741323828835174,
+              "after_rtf": 0.24604522847329025,
+              "time_reduction_percent": 11.307322609621329
+            },
+            {
+              "uid": "es_419_00060_1994",
+              "before_rtf": 0.2801372070929834,
+              "after_rtf": 0.24923622301775655,
+              "time_reduction_percent": 11.030660438108164
+            }
+          ]
+        },
+        {
+          "mode": "stream_80",
+          "complete_pairs": 15,
+          "clips": 3,
+          "mean_clip_median_baseline_rtf": 0.37608517403595937,
+          "mean_clip_median_candidate_rtf": 0.31151507353842356,
+          "aggregate_reduction_percent": 17.169009829502592,
+          "median_paired_reduction_percent": 17.063407064489766,
+          "per_clip": [
+            {
+              "uid": "bn_in_00151_1818",
+              "before_rtf": 0.3743633173451007,
+              "after_rtf": 0.3105350517589284,
+              "time_reduction_percent": 17.049818352617397
+            },
+            {
+              "uid": "en_us_00103_1779",
+              "before_rtf": 0.37654412789615216,
+              "after_rtf": 0.3112092672812718,
+              "time_reduction_percent": 17.351182975531408
+            },
+            {
+              "uid": "es_419_00060_1994",
+              "before_rtf": 0.3773480768666252,
+              "after_rtf": 0.31280090157507046,
+              "time_reduction_percent": 17.105473500099254
+            }
+          ]
+        }
+      ],
+      "paired_runs_passed": 126,
+      "state_checks_passed": 72,
+      "corpus_clips": 60,
+      "corpus_streams_passed": 180,
+      "maximum_waveform_error": 0.0,
+      "corpus_bitwise_streams": 180,
+      "corpus_raw_calls": 23630,
+      "paired_raw_calls": 8036,
+      "campaign_sha256": "7913c41ba9b89c3976ec6af3a4e50e780211e90b29d3af3e70a717e77d886333",
+      "corpus_sha256": "3839c4f4cec1f2f71218d1f78fa89a39eaa1556f1ff2041b27fe8a5d5eeb6fb8"
+    }
+  }
+}
