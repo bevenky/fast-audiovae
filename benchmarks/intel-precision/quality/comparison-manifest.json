@@ -1,0 +1,3431 @@
+{
+  "stage_ready": true,
+  "dataset": {
+    "dataset": "google/fleurs",
+    "revision": "70bb2e84b976b7e960aa89f1c648e09c59f894dd",
+    "split": "test",
+    "license": "CC-BY-4.0",
+    "seed": 20260907,
+    "language_count": 10,
+    "samples_per_language": 6,
+    "language_groups": {
+      "Indic": 6,
+      "English": 1,
+      "Romance": 3
+    },
+    "selection": "Seeded per-language sample of full 4-12 second utterances. Target 3 per supplied gender label where available; fill any missing quota from remaining eligible utterances in the same seeded order. No model output or quality score used for selection. No speaker IDs available for speaker balancing.",
+    "normalization": "None; original floating-point decoded samples saved losslessly as FLOAT WAV.",
+    "metric_bandwidth": 16000,
+    "sources": [
+      {
+        "language": "hi_in",
+        "parquet_sha256": "8a0be26c5584c1478233a6f47fb90275c713f72565327ea1da76c9f1cd5dd38b",
+        "bytes": 305903369,
+        "selected_gender_counts": {
+          "0": 3,
+          "1": 3
+        },
+        "eligible_gender_counts": {
+          "0": 129,
+          "1": 111
+        }
+      },
+      {
+        "language": "bn_in",
+        "parquet_sha256": "7193d9b9c3c28add1e4c5ceac84805dba57d6fcd34772e16a76e26a5309443a7",
+        "bytes": 791045036,
+        "selected_gender_counts": {
+          "0": 6,
+          "1": 0
+        },
+        "eligible_gender_counts": {
+          "0": 397,
+          "1": 0
+        }
+      },
+      {
+        "language": "gu_in",
+        "parquet_sha256": "2ff07db72023fc565a732ef5dc78c7aa5057c94de56f558febb7cc28188749d4",
+        "bytes": 671840520,
+        "selected_gender_counts": {
+          "0": 3,
+          "1": 3
+        },
+        "eligible_gender_counts": {
+          "0": 451,
+          "1": 272
+        }
+      },
+      {
+        "language": "ta_in",
+        "parquet_sha256": "6a0ca70812792cb075e20ecef7b69aac173af5f1f4ae37d3a42c58e219ea4bb6",
+        "bytes": 489237869,
+        "selected_gender_counts": {
+          "0": 3,
+          "1": 3
+        },
+        "eligible_gender_counts": {
+          "0": 184,
+          "1": 124
+        }
+      },
+      {
+        "language": "te_in",
+        "parquet_sha256": "545a999e972e49649814e2f0267da898965a5e896aa215ac5d85898dff357fa1",
+        "bytes": 331720646,
+        "selected_gender_counts": {
+          "0": 3,
+          "1": 3
+        },
+        "eligible_gender_counts": {
+          "0": 221,
+          "1": 84
+        }
+      },
+      {
+        "language": "kn_in",
+        "parquet_sha256": "4c1d7d489d34472c631f42cf306f3ba9b912e5d3eaee4d45c172db56c4ff7273",
+        "bytes": 731055502,
+        "selected_gender_counts": {
+          "0": 3,
+          "1": 3
+        },
+        "eligible_gender_counts": {
+          "0": 149,
+          "1": 208
+        }
+      },
+      {
+        "language": "en_us",
+        "parquet_sha256": "6428a4d04d3aac29e16b45e039bb1470a8bd7aa334cf92f7984c9c520d1f234d",
+        "bytes": 401722686,
+        "selected_gender_counts": {
+          "0": 3,
+          "1": 3
+        },
+        "eligible_gender_counts": {
+          "0": 152,
+          "1": 352
+        }
+      },
+      {
+        "language": "es_419",
+        "parquet_sha256": "f1e8b7f6eecb91d16b79d91bc1838d8b0e5ebc0b37b317e2b58eb8694c64d3c0",
+        "bytes": 703040007,
+        "selected_gender_counts": {
+          "0": 3,
+          "1": 3
+        },
+        "eligible_gender_counts": {
+          "0": 328,
+          "1": 156
+        }
+      },
+      {
+        "language": "fr_fr",
+        "parquet_sha256": "99a08ff00edbc7b6f040e23b33e49bc4a1fce38f364d50c603227d612fd797ef",
+        "bytes": 445464011,
+        "selected_gender_counts": {
+          "0": 3,
+          "1": 3
+        },
+        "eligible_gender_counts": {
+          "0": 348,
+          "1": 143
+        }
+      },
+      {
+        "language": "pt_br",
+        "parquet_sha256": "dde5da617c30a9c88703f1095077bc1e263c31190f76d613ba31bdc57602ff49",
+        "bytes": 741766051,
+        "selected_gender_counts": {
+          "0": 6,
+          "1": 0
+        },
+        "eligible_gender_counts": {
+          "0": 466,
+          "1": 0
+        }
+      }
+    ],
+    "duration_s": 534.58
+  },
+  "models": {
+    "fast_fp32": {
+      "input": "supplied reconstruction directory",
+      "directory": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32"
+    },
+    "int8_all": {
+      "input": "supplied reconstruction directory",
+      "directory": "<workspace>/work/intel-precision/campaign/wavs/int8_all"
+    },
+    "int8_large": {
+      "input": "supplied reconstruction directory",
+      "directory": "<workspace>/work/intel-precision/campaign/wavs/int8_large"
+    },
+    "stock_fp32": {
+      "input": "supplied reconstruction directory",
+      "directory": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32"
+    }
+  },
+  "samples": [
+    {
+      "uid": "hi_in_00099_1919",
+      "language": "hi_in",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/hi_in/hi_in_00099_1919.wav",
+      "reference_rate": 16000,
+      "reference_samples": 163200,
+      "reference_sha256": "98e063c169daf9fe798d5e5d3e02ebe11432b4c5c52c2280ffbf45e4eb70b060",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/hi_in_00099_1919.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/hi_in_00099_1919.wav",
+          "raw_sha256": "8ff7b15fbe1ea52cf9d820ce38670b5a326c7888494c61afb91d9b10cae960b1",
+          "full_decoder_samples": 489600,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 489600,
+          "sha256": "925660a91d53c98d47d511e8f005b7639343722ab3194408bcc238bb1998a324"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/hi_in_00099_1919.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/hi_in_00099_1919.wav",
+          "raw_sha256": "da6bc099cb830a13fb9a2363f47443cd32555762c2223fc133c7ab7b12d5e748",
+          "full_decoder_samples": 489600,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 489600,
+          "sha256": "f24b27db05ff8319d107a44cf84e5131cd2c1443cbc2c4c740ad33b4045536c3"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/hi_in_00099_1919.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/hi_in_00099_1919.wav",
+          "raw_sha256": "bcc005bc1782f4a874f16b5236865a50278c2606e8471fb15355ff149b0db1c1",
+          "full_decoder_samples": 489600,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 489600,
+          "sha256": "26e9cc71a7da3f30a44d1b962eeea3dfe5915bae4821589df196ffadd48a095a"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/hi_in_00099_1919.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/hi_in_00099_1919.wav",
+          "raw_sha256": "963d4fb0b5a98f03414daf3d22b99f9b2e417c32710be8cb8f980f0890d1aeb4",
+          "full_decoder_samples": 489600,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 489600,
+          "sha256": "e15dc5e760ee9fd3c8fe50fe52118079107b9a0fdccf4c2f6121cc17ec3a91ad"
+        }
+      }
+    },
+    {
+      "uid": "hi_in_00159_1941",
+      "language": "hi_in",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/hi_in/hi_in_00159_1941.wav",
+      "reference_rate": 16000,
+      "reference_samples": 90240,
+      "reference_sha256": "6dee552909e44117df9b4b822ccf5514a0c2a4d215ec05232c0f92953e408192",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/hi_in_00159_1941.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/hi_in_00159_1941.wav",
+          "raw_sha256": "d17a94bc7eb6cfa2dbfb16ca4ff9308541343f36739820a27f3e7c48eed79ed4",
+          "full_decoder_samples": 270720,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 270720,
+          "sha256": "1bb22eb2f22d259f0bb6c0b86fad357ba5e01209870a97f4bcdca450ac3efbab"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/hi_in_00159_1941.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/hi_in_00159_1941.wav",
+          "raw_sha256": "08de3aa83ca45933de170066abbae45b06f0ed739a59d78ac867d87f666effa9",
+          "full_decoder_samples": 270720,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 270720,
+          "sha256": "3149b0f3db26fba7b0619016b68360648b0a6c8f490785122d6480e2a5884560"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/hi_in_00159_1941.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/hi_in_00159_1941.wav",
+          "raw_sha256": "f696a2d8fcfdf1da868628430141c1e27999aa331a8970099265a7797519440c",
+          "full_decoder_samples": 270720,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 270720,
+          "sha256": "38ff3c75128ac96e9a8a45eb5c50c32af9a4f219b9b73f6eca61c228a53f47a3"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/hi_in_00159_1941.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/hi_in_00159_1941.wav",
+          "raw_sha256": "da1ff00b171538f7bcdaf17cbef8d5227907405e9d16d4a0898e0ce95a24cdc6",
+          "full_decoder_samples": 270720,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 270720,
+          "sha256": "c551783bb358ee39c2c952ec2761f73c127784154f259ac9d72c4add228f06d6"
+        }
+      }
+    },
+    {
+      "uid": "hi_in_00281_1748",
+      "language": "hi_in",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/hi_in/hi_in_00281_1748.wav",
+      "reference_rate": 16000,
+      "reference_samples": 120000,
+      "reference_sha256": "a974d80fedff640d7c5dc9aacb82ea3b4455daea548bca7115fba0b9f0a1ca1a",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/hi_in_00281_1748.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/hi_in_00281_1748.wav",
+          "raw_sha256": "4d85f0e1639b8fc251fc3a8d38e4211c0846b6dde83704a5eb90dd0a9089de43",
+          "full_decoder_samples": 360960,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 360000,
+          "sha256": "d8415b81e15e0e9237f92ac3e5e75411667ed1d536c9d1ed5810201956309672"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/hi_in_00281_1748.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/hi_in_00281_1748.wav",
+          "raw_sha256": "6aa1278eec659e09554b0971b2d8f701e125963aeb20d047e50d3c3552429caf",
+          "full_decoder_samples": 360960,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 360000,
+          "sha256": "029b52694b63daf6524677ee2a7581dbed4d369abab048b3d876f2d3bc74812b"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/hi_in_00281_1748.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/hi_in_00281_1748.wav",
+          "raw_sha256": "37657fca9f3596832dafc9e43512e507da3caa536ebd6afb12d46dd761da80a8",
+          "full_decoder_samples": 360960,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 360000,
+          "sha256": "629e9ce3d4c4a0050f4c16b9b989fb7f341a5f1413c2c5f37cf7ab7897ac3a54"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/hi_in_00281_1748.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/hi_in_00281_1748.wav",
+          "raw_sha256": "7fbfc7016b729bddfd8662e47bcdc54befbbe10574f318912bd0806846792d4b",
+          "full_decoder_samples": 360960,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 360000,
+          "sha256": "866362fa591f150cd966ec9ac21ab1e946ffc0ca29335d971ed7ca79ebfb6a00"
+        }
+      }
+    },
+    {
+      "uid": "hi_in_00190_1885",
+      "language": "hi_in",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/hi_in/hi_in_00190_1885.wav",
+      "reference_rate": 16000,
+      "reference_samples": 99840,
+      "reference_sha256": "960184d5e0963be3a26220c21c43d492f48f3e0f5160af765904a5eabd04930e",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/hi_in_00190_1885.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/hi_in_00190_1885.wav",
+          "raw_sha256": "688eeffc70a2bdaa392fa5554049ede04223f3ebc6d87cc29255e0bb7c4d1b3f",
+          "full_decoder_samples": 299520,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 299520,
+          "sha256": "46f9ea29ac69a830e37e62ee720460f7a026556f677ef7f3098b1d8e833cd04b"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/hi_in_00190_1885.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/hi_in_00190_1885.wav",
+          "raw_sha256": "fb0a69a85ccf7764820f895f6919234347bbaa1a3b9e15678da1dd3872969e25",
+          "full_decoder_samples": 299520,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 299520,
+          "sha256": "54086700d93d23f52fd29cb6bbcc9beebe1056cc7610dada08af2ecb9fef780f"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/hi_in_00190_1885.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/hi_in_00190_1885.wav",
+          "raw_sha256": "dd38487b600279f36872bcb73559ea6b002a34ac67d29d0eb050811ca986b187",
+          "full_decoder_samples": 299520,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 299520,
+          "sha256": "3081cd6d4d8d9764a0cbbe9e3a31a2bbbb0b50e5ddadbf105a2cc52ea768a9c3"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/hi_in_00190_1885.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/hi_in_00190_1885.wav",
+          "raw_sha256": "a7eba83ffd9690586084ec05e267df3a0b0063577f997a3d6faccc99f01c5e3c",
+          "full_decoder_samples": 299520,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 299520,
+          "sha256": "ab8e99d3ed68e3521e2f5f3144f10643b6927968e9927581496cbf5efc63024a"
+        }
+      }
+    },
+    {
+      "uid": "hi_in_00292_1691",
+      "language": "hi_in",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/hi_in/hi_in_00292_1691.wav",
+      "reference_rate": 16000,
+      "reference_samples": 161280,
+      "reference_sha256": "810296402a62ced8a1bc05047b4d444ca12577d6805391a6a32bbff634addd21",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/hi_in_00292_1691.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/hi_in_00292_1691.wav",
+          "raw_sha256": "10350513f68be31d612ecdb0cd926233601b679a5cb2df36a3cb7fdab7e394c6",
+          "full_decoder_samples": 483840,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 483840,
+          "sha256": "6ae29c86d561f643fde70b0ae950afd61f30e3cd33a82ab64466b5e324d8e32e"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/hi_in_00292_1691.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/hi_in_00292_1691.wav",
+          "raw_sha256": "b653350f1e498098bd765ad6bbd48915c4c930d22aa56ffe6f03a36fef186a72",
+          "full_decoder_samples": 483840,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 483840,
+          "sha256": "16ad90d1d56385e2d4837dca25cc045b14b7fe78b81c9b0e345a58188d849c72"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/hi_in_00292_1691.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/hi_in_00292_1691.wav",
+          "raw_sha256": "bc0ea1d1a1f64fe20d391a2db10c37af431ddc9eeb6387b633ea9223f7a055b7",
+          "full_decoder_samples": 483840,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 483840,
+          "sha256": "2cb54daedcf193c4cd8c14260198e3f2726228e4e179d4e3ca299daeb94eb57d"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/hi_in_00292_1691.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/hi_in_00292_1691.wav",
+          "raw_sha256": "86d17de0011ffbc0fe735832a0282442114528b27bc61ce2d4b364b8916c02bf",
+          "full_decoder_samples": 483840,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 483840,
+          "sha256": "2c954899d4db1abe7c2ab791038db71588b9cd4543526c89bbc17fe74903e1fb"
+        }
+      }
+    },
+    {
+      "uid": "hi_in_00211_1943",
+      "language": "hi_in",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/hi_in/hi_in_00211_1943.wav",
+      "reference_rate": 16000,
+      "reference_samples": 170880,
+      "reference_sha256": "c36dd07540a05a6cc2fcdef8a0923e4335c3a144a51c4f1fdf93f3ad2efccad4",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/hi_in_00211_1943.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/hi_in_00211_1943.wav",
+          "raw_sha256": "b601402a38016167a75b5968625524a5821212dce4d77233669762772bbfa210",
+          "full_decoder_samples": 512640,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 512640,
+          "sha256": "f75457ec14b7605ffa4a935b795fcd20542e9ba75e8681cd9cc19b431ef857b6"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/hi_in_00211_1943.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/hi_in_00211_1943.wav",
+          "raw_sha256": "acb962b296ae0c834f88ca76771cf73801499eb5f839e3ab95e651e1995a638f",
+          "full_decoder_samples": 512640,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 512640,
+          "sha256": "548ccfe28a91d23dd695543233e55584358a67dd92ffbc77cda9aa062cd25fe0"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/hi_in_00211_1943.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/hi_in_00211_1943.wav",
+          "raw_sha256": "7266668a9c17e3cfad1e6bc7b9a9cf9f8dae455f0499664ea65950e5861b7e16",
+          "full_decoder_samples": 512640,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 512640,
+          "sha256": "73cc55191ee1a38ad1a2edb49c287383bd7b6f8dd858a4c814bb29d4091bfa67"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/hi_in_00211_1943.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/hi_in_00211_1943.wav",
+          "raw_sha256": "177cc3a35f6cd02b2d7c6f9e451f4ad636cc30aa37f2cf041b3662805fa8c3b3",
+          "full_decoder_samples": 512640,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 512640,
+          "sha256": "9a0bd56bcc0b682da598b890a985281abbb4524beee5e0ea67624f077bb712a6"
+        }
+      }
+    },
+    {
+      "uid": "bn_in_00633_1820",
+      "language": "bn_in",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/bn_in/bn_in_00633_1820.wav",
+      "reference_rate": 16000,
+      "reference_samples": 122880,
+      "reference_sha256": "d769cfbdacaa82cee9b9749d66771ef195523c20d8d676fe5a6f5fbf4010af94",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/bn_in_00633_1820.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/bn_in_00633_1820.wav",
+          "raw_sha256": "f71ebcc0ac6dd678846a8f86ed20852b7b2301a392d55b163346c5721a18e78a",
+          "full_decoder_samples": 368640,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 368640,
+          "sha256": "d486b0b00ef705832550aa0323cad6e567b7f29fad6fb1ba4af8c0825255d08e"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/bn_in_00633_1820.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/bn_in_00633_1820.wav",
+          "raw_sha256": "48d481e9e32f87f2445c1b7615df4540ebbcdfec223a69605dd681f1377af688",
+          "full_decoder_samples": 368640,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 368640,
+          "sha256": "a9337fb15310e626346a58c5d176013e6295cfc4f58e945c1303c2876321b07d"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/bn_in_00633_1820.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/bn_in_00633_1820.wav",
+          "raw_sha256": "dd8fec0ef5f1bd2294c1c57436630928e5da8b51864a554ff04b49b91b9bb63c",
+          "full_decoder_samples": 368640,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 368640,
+          "sha256": "bc2a70902b81ea163373143bfc0ef7beda98de23ee8c95f0224f0c6cda324e2d"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/bn_in_00633_1820.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/bn_in_00633_1820.wav",
+          "raw_sha256": "7d4a0bc148a69fc751a80e9cd243ac6bc3c989a9e6add12dc60f3442c6df1b68",
+          "full_decoder_samples": 368640,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 368640,
+          "sha256": "e11ed6b1dc8674f9fddf42180bc3867955f70691806a23c5bdc1213f853250ae"
+        }
+      }
+    },
+    {
+      "uid": "bn_in_00582_1926",
+      "language": "bn_in",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/bn_in/bn_in_00582_1926.wav",
+      "reference_rate": 16000,
+      "reference_samples": 108480,
+      "reference_sha256": "d5556cd7e0b89d360cbc91177ba639cdc1e25b06707c35bd8812b4102b825a42",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/bn_in_00582_1926.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/bn_in_00582_1926.wav",
+          "raw_sha256": "cf92633c749a667b9d423efc28f3ed78782d346c009fb34f045b520b18217448",
+          "full_decoder_samples": 326400,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 325440,
+          "sha256": "e93c8246191cd29928d70d749b92c56e0c341db5997fce99583258ce17e3eff6"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/bn_in_00582_1926.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/bn_in_00582_1926.wav",
+          "raw_sha256": "3e44f6fe380a2e18efa57d1bd3d3507ab65626d684e2bd0570af48f0b4db2129",
+          "full_decoder_samples": 326400,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 325440,
+          "sha256": "c61f82c139bdd250bd3e50dfddeb233c007c3f190d7ace87bd19d739d9d65bfa"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/bn_in_00582_1926.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/bn_in_00582_1926.wav",
+          "raw_sha256": "f2b85bd313225ad4b00b804f97ebc6fe8bb511bfee92a162448c2bbecec7c143",
+          "full_decoder_samples": 326400,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 325440,
+          "sha256": "4c1c8cda50c786c8c55faf7617661f8968b1ad336d4e213f8482915e58f6c96a"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/bn_in_00582_1926.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/bn_in_00582_1926.wav",
+          "raw_sha256": "08553a4830a0e3bffb546b0235812a33448c1f8067407b5fcba91efc3b28e76f",
+          "full_decoder_samples": 326400,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 325440,
+          "sha256": "132e200f7deb2ae7dec03d6b50eb115b8feb0d801acfcb9665e93af92a9ad29f"
+        }
+      }
+    },
+    {
+      "uid": "bn_in_00735_1676",
+      "language": "bn_in",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/bn_in/bn_in_00735_1676.wav",
+      "reference_rate": 16000,
+      "reference_samples": 116160,
+      "reference_sha256": "b3de4cc71f3698ab25d70a92490b0b891434ab0a3d9b976f4a6ce31014f6f5e7",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/bn_in_00735_1676.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/bn_in_00735_1676.wav",
+          "raw_sha256": "057481e39710535540bd811c887b6ded0ce3e9eee9547a94e3853a98efd1f084",
+          "full_decoder_samples": 349440,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 348480,
+          "sha256": "d34491a601f33738b3489805b2f71043e2174482e4d62989879f1dd0ccb3b033"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/bn_in_00735_1676.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/bn_in_00735_1676.wav",
+          "raw_sha256": "747a7f400fdd386bfb2160e28bf86b6e7e8608b8ae56411d2229fd23f1aa570d",
+          "full_decoder_samples": 349440,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 348480,
+          "sha256": "3080daee215457be4ce2c2a46b6eb9fee964a4e78dd0ba95c41ded18764769f3"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/bn_in_00735_1676.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/bn_in_00735_1676.wav",
+          "raw_sha256": "f99da8533ff11f6a647bc7066d16546804d49dd16f9d1d1dff377fe10414c099",
+          "full_decoder_samples": 349440,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 348480,
+          "sha256": "6572c1d922b00dfe82de2a7de931302f3ef09a460d2b73fe68b67b0c7010e470"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/bn_in_00735_1676.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/bn_in_00735_1676.wav",
+          "raw_sha256": "cd80deb476252de20c31add7ff4dc809ccc7f8ad54d22432116581cb9d99ff0a",
+          "full_decoder_samples": 349440,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 348480,
+          "sha256": "fd82d7c11a56081ee3376fd4d8c05e5207ccdc24ebb729207a3bde56c216d52d"
+        }
+      }
+    },
+    {
+      "uid": "bn_in_00208_1709",
+      "language": "bn_in",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/bn_in/bn_in_00208_1709.wav",
+      "reference_rate": 16000,
+      "reference_samples": 185280,
+      "reference_sha256": "48214dcfe89b73f7fa2a4d214ed767ac769638599d2339f269ff9255764f99d9",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/bn_in_00208_1709.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/bn_in_00208_1709.wav",
+          "raw_sha256": "cdbd5451a92db6fdca0c4c0437b427cf76c038eea6a9773a5a9ba1764e316721",
+          "full_decoder_samples": 556800,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 555840,
+          "sha256": "e9991d6c09f16957ea60b195fd1a490b41ab824718bda28e7188fd4bb181843d"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/bn_in_00208_1709.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/bn_in_00208_1709.wav",
+          "raw_sha256": "d76763e3852c0c68b79de601df74f454cd6357d8b30e0225a9bddb28d04bad4d",
+          "full_decoder_samples": 556800,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 555840,
+          "sha256": "a74747cfb5f8ca48fc87c2ca269bb237762292d3f279d255e599dd4887795577"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/bn_in_00208_1709.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/bn_in_00208_1709.wav",
+          "raw_sha256": "00ec371ca80ede9d79d3a9621a0a43e4c978c7f9eb03e342fb8a49affb4c7d2e",
+          "full_decoder_samples": 556800,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 555840,
+          "sha256": "34a66fa198b640c530ffd7cf6b077c8e74663f248df41e9001e8f87028b91103"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/bn_in_00208_1709.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/bn_in_00208_1709.wav",
+          "raw_sha256": "c3ece6b130bac3362b2cdad20d03cd2604471de26831f531f949189a79a85f86",
+          "full_decoder_samples": 556800,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 555840,
+          "sha256": "6e8c04fdeed209ca74417f9da76a9a0bfbdacf6e4a9b4c596b09f78c8e536d60"
+        }
+      }
+    },
+    {
+      "uid": "bn_in_00221_1754",
+      "language": "bn_in",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/bn_in/bn_in_00221_1754.wav",
+      "reference_rate": 16000,
+      "reference_samples": 168000,
+      "reference_sha256": "4d84056e7685ab8694221b5748be7c7f21f68354a0a4a807d09cfa400eceb41a",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/bn_in_00221_1754.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/bn_in_00221_1754.wav",
+          "raw_sha256": "edc0945ce707f0b30627b995a85caf2a2696fafd74ddb9c3e620dc662f456dcb",
+          "full_decoder_samples": 504960,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 504000,
+          "sha256": "356046b38c8efe0d990e7798203e4779309bd5f95294a316bf38c49c74f07701"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/bn_in_00221_1754.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/bn_in_00221_1754.wav",
+          "raw_sha256": "f821dc8d2ed983e40e21a86c7bc74d6f46cdd889a4adc4f92802723a05412dab",
+          "full_decoder_samples": 504960,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 504000,
+          "sha256": "ea355164464273e4c4312c11cd23515b368d3ac537c735b973b34f5683b891e0"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/bn_in_00221_1754.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/bn_in_00221_1754.wav",
+          "raw_sha256": "a626ab48306091a26f720bc50a28bfad4ef8c9b43e3de61c20bdea5a5273b2ea",
+          "full_decoder_samples": 504960,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 504000,
+          "sha256": "fef45a49f7c4e8b9693dae7a4cc712e4ffe3f28a148ccb0f7dfa9e8c6da97d3c"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/bn_in_00221_1754.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/bn_in_00221_1754.wav",
+          "raw_sha256": "8cbf3c192867f918d9c54bca2d3b604d9b56c8a67dc22042938bf95cafba9743",
+          "full_decoder_samples": 504960,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 504000,
+          "sha256": "53b7fcd025216527fb22569d2cee62443b88c26dffe4a7c1025b2b54b1db2c77"
+        }
+      }
+    },
+    {
+      "uid": "bn_in_00151_1818",
+      "language": "bn_in",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/bn_in/bn_in_00151_1818.wav",
+      "reference_rate": 16000,
+      "reference_samples": 159360,
+      "reference_sha256": "ad3ab00e71f26ade563267cc11506e3ee6bf2a241152b3ac31c4e8e33bbee072",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/bn_in_00151_1818.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/bn_in_00151_1818.wav",
+          "raw_sha256": "c0e6ae096c336d3ed322869974021bb74b12f9b6a4c6952cc8d91ce3aed4ebe4",
+          "full_decoder_samples": 478080,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 478080,
+          "sha256": "90d3c00604a91d0c44c9705fc38e93960b90d3997d63f68729990db3afa38855"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/bn_in_00151_1818.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/bn_in_00151_1818.wav",
+          "raw_sha256": "c6a197b633bd64df7ff6c7759e06612a13a43c5ba2e4da9e85bfaf619455ca88",
+          "full_decoder_samples": 478080,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 478080,
+          "sha256": "866c2ac8cef0c20569751eddedb8c452ae9ce6110184ddc7f4aef652155cc6c1"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/bn_in_00151_1818.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/bn_in_00151_1818.wav",
+          "raw_sha256": "99a41809ba1bfb719fbf9731cb087cd2050191c346bc58e07986d941a0f992b1",
+          "full_decoder_samples": 478080,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 478080,
+          "sha256": "cc897e8522cb40171e1e40386b85b58128106fc81387c421c6b9843842c8bdb3"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/bn_in_00151_1818.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/bn_in_00151_1818.wav",
+          "raw_sha256": "a894231a68edc437039c4783ccc7eaf29ed65e701298f6648714e9c7cb3eb633",
+          "full_decoder_samples": 478080,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 478080,
+          "sha256": "bbb650800cdcf3d3f0b9ce583c667cbf2f95eaee294f60ffe5b47d2f82893797"
+        }
+      }
+    },
+    {
+      "uid": "gu_in_00926_1827",
+      "language": "gu_in",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/gu_in/gu_in_00926_1827.wav",
+      "reference_rate": 16000,
+      "reference_samples": 125760,
+      "reference_sha256": "bdf42a2654a44d4cf6f00c7e9e0b0df3bca71d37d900780797c46c5adf77adba",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/gu_in_00926_1827.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/gu_in_00926_1827.wav",
+          "raw_sha256": "34a978bff3c353ea6129e20098b3c07c35deaff188fb2b91349b9200dbae0059",
+          "full_decoder_samples": 378240,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 377280,
+          "sha256": "6b53dea941d3f2b57e4a4c1b99e0edb5e2d53d8adaa7be58354ad46636db791d"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/gu_in_00926_1827.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/gu_in_00926_1827.wav",
+          "raw_sha256": "b368dbee631af4215ec416ff98c44593058f4b798fa41a91a2c21c6ff954f049",
+          "full_decoder_samples": 378240,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 377280,
+          "sha256": "3262d7e40c6fce20c78871a00510bd5deab2f33b50c43262530a8dfac0fb11b7"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/gu_in_00926_1827.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/gu_in_00926_1827.wav",
+          "raw_sha256": "3b2d5d78de2d4018baf7fb36d0afbf5abb4395a1587f43601fa6210b25885221",
+          "full_decoder_samples": 378240,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 377280,
+          "sha256": "84f2708435b869f6b5b2c6e9afc70ab3fbc55a6d9e0f5fe0ccdfb872847493da"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/gu_in_00926_1827.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/gu_in_00926_1827.wav",
+          "raw_sha256": "6cc96e29e3294f48fbfdd21bd7598dbdc54cc9996b0443b752545957a5f4fd15",
+          "full_decoder_samples": 378240,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 377280,
+          "sha256": "a7ce1ed7d726ed3f3199c8afc5f04554b349a32c621ec29a5f55f97c732f9a0d"
+        }
+      }
+    },
+    {
+      "uid": "gu_in_00420_1858",
+      "language": "gu_in",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/gu_in/gu_in_00420_1858.wav",
+      "reference_rate": 16000,
+      "reference_samples": 126720,
+      "reference_sha256": "5fe34a5345f4b8dad592749c2b641af2d755ab6e270853d3b884bfa0300004a8",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/gu_in_00420_1858.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/gu_in_00420_1858.wav",
+          "raw_sha256": "c4acdd8abcf7ae254acdd84d972ffcb71852476ab93968b2c377f4a5468f1d8e",
+          "full_decoder_samples": 380160,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 380160,
+          "sha256": "f90465b551d344b99cf359810b0759dc77b886e53a8f6d755ca8bbc9d18c22eb"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/gu_in_00420_1858.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/gu_in_00420_1858.wav",
+          "raw_sha256": "5fedb747238b51d952c423aa127a41533a068de7432d7269c9250e170c616f0e",
+          "full_decoder_samples": 380160,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 380160,
+          "sha256": "f29a92427e232821e53c2da1e6282a5f4144671346334429e275b5ce1de2fdb4"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/gu_in_00420_1858.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/gu_in_00420_1858.wav",
+          "raw_sha256": "67738ea5a4b2ae11e58d7bcd18ccb820675bd0fed69cf27c6e818c90b4c5a7d8",
+          "full_decoder_samples": 380160,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 380160,
+          "sha256": "995fd4a1d362534c1f880c95874cba86faa7dfe8024fef1d80c71232ee2549c3"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/gu_in_00420_1858.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/gu_in_00420_1858.wav",
+          "raw_sha256": "a48eb32d10f268c8001fb238717e09bbf128b5f0244414be6561f50895f88414",
+          "full_decoder_samples": 380160,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 380160,
+          "sha256": "a76c57f40812013b1fdd278b9683540754ea7cd8c32ba692af5e9ab322284746"
+        }
+      }
+    },
+    {
+      "uid": "gu_in_00713_1781",
+      "language": "gu_in",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/gu_in/gu_in_00713_1781.wav",
+      "reference_rate": 16000,
+      "reference_samples": 116160,
+      "reference_sha256": "43b34763d3c89f2227ab94c2ffa903718b6cd17d6618b625ae391296ab09abf0",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/gu_in_00713_1781.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/gu_in_00713_1781.wav",
+          "raw_sha256": "5856e000f850378f919278b937a811c8418a0c017437f1eeb0daa7804a5047ac",
+          "full_decoder_samples": 349440,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 348480,
+          "sha256": "77101d5267bfc0500b30b77b2bec83a37bcccf19efda7adc127e7ddd8620fc09"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/gu_in_00713_1781.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/gu_in_00713_1781.wav",
+          "raw_sha256": "8c41539c4ee7a8fab8a5f6889b742e0da8ede0434f1e6099e440ce657b8a44ea",
+          "full_decoder_samples": 349440,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 348480,
+          "sha256": "0affcbdd2785ad7e902f2032dc1df37585af239514a7517ab3c97d4dbb878aed"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/gu_in_00713_1781.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/gu_in_00713_1781.wav",
+          "raw_sha256": "6996ce2d93d77e8fd7ed923fb638ed28404d1283f1b8e426e31ae496e0aeccde",
+          "full_decoder_samples": 349440,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 348480,
+          "sha256": "c9e843893dbf6d8d3a33e7393cd38cae3e9213e441cc5482307ac83e40ad412c"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/gu_in_00713_1781.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/gu_in_00713_1781.wav",
+          "raw_sha256": "1cf31cc53c6230123b48b1d38eeae8b0d22c5bb8a3aa6965d58f4eaf75cae26f",
+          "full_decoder_samples": 349440,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 348480,
+          "sha256": "a5b0c555e91993e348af30bc8a2754afb08d296c2d25435a230ecf6a6b8683dd"
+        }
+      }
+    },
+    {
+      "uid": "gu_in_00478_1731",
+      "language": "gu_in",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/gu_in/gu_in_00478_1731.wav",
+      "reference_rate": 16000,
+      "reference_samples": 72000,
+      "reference_sha256": "47528555bb9f60529e54b8a339c06e91d5a1775ce755cd220142fe85b2176422",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/gu_in_00478_1731.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/gu_in_00478_1731.wav",
+          "raw_sha256": "5e59582caea2c7bf1f4d8bef11374ea6f4c717ff2a4c4b646d1977cf7218c5b9",
+          "full_decoder_samples": 216960,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 216000,
+          "sha256": "c2268373173d5fd592298ce027b5754d34763667c0e867b55f12c890ca948bf6"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/gu_in_00478_1731.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/gu_in_00478_1731.wav",
+          "raw_sha256": "f50ed5ccfd4e35dc3d527bb8e3921fb10f8cbfdb713e5fa3c579b482fd9321a3",
+          "full_decoder_samples": 216960,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 216000,
+          "sha256": "1c1b87136d80dd4ed2264bb91e922e41e6021520928da248182e5711697a59d3"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/gu_in_00478_1731.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/gu_in_00478_1731.wav",
+          "raw_sha256": "58ba8e8ed757b18ead6f844624e7842c7fc6da98d7716cbe50877503baffae6e",
+          "full_decoder_samples": 216960,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 216000,
+          "sha256": "aac6256d67c2920b253b28ec5a4b3caa708c30840ffc965cd0f28d60121db6d0"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/gu_in_00478_1731.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/gu_in_00478_1731.wav",
+          "raw_sha256": "89e112eca6aa00530d8b67f863a81d98549a8c41aae97b2bffcfee65076e903f",
+          "full_decoder_samples": 216960,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 216000,
+          "sha256": "9a0396aaa12cc5a6adac9657f4ddc7602aaed818883e2c0d80d17cf1254fb374"
+        }
+      }
+    },
+    {
+      "uid": "gu_in_00337_1978",
+      "language": "gu_in",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/gu_in/gu_in_00337_1978.wav",
+      "reference_rate": 16000,
+      "reference_samples": 76800,
+      "reference_sha256": "011d831e581a8c0f6bc29520936e5051e4fb8f328eea4c8a92f4bd4b0d354c04",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/gu_in_00337_1978.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/gu_in_00337_1978.wav",
+          "raw_sha256": "a933c0ee32947b343c7ba13a980087129f551ec2a03aba4d10b66bed8383c05b",
+          "full_decoder_samples": 230400,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 230400,
+          "sha256": "0e3beeb03ed18138c60b8c220f6a0f3476b01a328b502a6aa98ce7116f8b3e5b"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/gu_in_00337_1978.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/gu_in_00337_1978.wav",
+          "raw_sha256": "99a6926b93fe96def9423e3be70e35ef7bda4867eee9dc1077f99951da5a9798",
+          "full_decoder_samples": 230400,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 230400,
+          "sha256": "73e228872eefa0cf0295a5df150bacbec7bb03ca01f7cdbb618a091d6c6016ff"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/gu_in_00337_1978.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/gu_in_00337_1978.wav",
+          "raw_sha256": "d6a53cf5f9462e4d12f7f54914a6e0520f645f1e7f2111b8439345e5eb9d93b0",
+          "full_decoder_samples": 230400,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 230400,
+          "sha256": "2ba67c69e142715e676adfe7e4adf55c394424eda662a2488200777dfdc008f9"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/gu_in_00337_1978.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/gu_in_00337_1978.wav",
+          "raw_sha256": "5d9419dee40d886bafc0dd6d7831bcc14293690169cfc5f66de68dcaea798e9b",
+          "full_decoder_samples": 230400,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 230400,
+          "sha256": "9e442223a9a49685a7ae10d3a63393ccf18c7a34046d6e2a5e888d3ffa377ee7"
+        }
+      }
+    },
+    {
+      "uid": "gu_in_00528_1697",
+      "language": "gu_in",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/gu_in/gu_in_00528_1697.wav",
+      "reference_rate": 16000,
+      "reference_samples": 97920,
+      "reference_sha256": "429453c4966aff7e56792ca937fe1501165f5fad7a7d0e2764a12e42c5130d1a",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/gu_in_00528_1697.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/gu_in_00528_1697.wav",
+          "raw_sha256": "dbe26f2b6f0752875b10aded27322502324feac9586123812bee857091c4e8cc",
+          "full_decoder_samples": 293760,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 293760,
+          "sha256": "80846a312df86bac90a57df0995b3e11f17b44900bd65c4e0c6a913901ead85b"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/gu_in_00528_1697.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/gu_in_00528_1697.wav",
+          "raw_sha256": "db5c4f738f4c8f4ca21bd952a71b22858a93e66c061e1edcbd4bdd57baf845fe",
+          "full_decoder_samples": 293760,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 293760,
+          "sha256": "f66820c6fc8b43adf31d847674f1dffd57ba3f0fcd8a3de10d6a4ecf72b429f5"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/gu_in_00528_1697.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/gu_in_00528_1697.wav",
+          "raw_sha256": "0541030a9cac93935e2bdcf251b11e65e300f369dc6ade995865260235101d5d",
+          "full_decoder_samples": 293760,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 293760,
+          "sha256": "4af420cdc7b683e621a88d9a2cccc2cffe22b86864ceb4e34e63aad0ecd21630"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/gu_in_00528_1697.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/gu_in_00528_1697.wav",
+          "raw_sha256": "00bb83ef067de787cfebb5b2c45bb175d28023ebf74ce0fd190038bcf6061ead",
+          "full_decoder_samples": 293760,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 293760,
+          "sha256": "1625378c77029e0815093c41a007f9c8b49ce4c118c4a36e442a245f4d820d83"
+        }
+      }
+    },
+    {
+      "uid": "ta_in_00494_1946",
+      "language": "ta_in",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/ta_in/ta_in_00494_1946.wav",
+      "reference_rate": 16000,
+      "reference_samples": 157440,
+      "reference_sha256": "d3966f42e01080d6f7ab382393ab62337fc876e2b92b70f39f649d130f89436b",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/ta_in_00494_1946.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/ta_in_00494_1946.wav",
+          "raw_sha256": "ae745d5739f0cb6eea9d0860bff3016b45d136ed0187eb973f6128137154cfe6",
+          "full_decoder_samples": 472320,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 472320,
+          "sha256": "10abfe6cfa4867dc28a28db98acd273f5b67db86b25b22ccff8d5f313a09916d"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/ta_in_00494_1946.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/ta_in_00494_1946.wav",
+          "raw_sha256": "6bbbd3dcc8b8affe3b1a3395bc2b2e0688ed41bcf88770ee7446cc89d1df0c73",
+          "full_decoder_samples": 472320,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 472320,
+          "sha256": "f4f86a005f17b74308b7a010e8e6f1961a59b66ac6e5d8ab5d91c5396f905e6a"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/ta_in_00494_1946.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/ta_in_00494_1946.wav",
+          "raw_sha256": "6cf2d61f88f5886509cd218ce5623ae5b476f761bc5167f71f181f3e8de3e66b",
+          "full_decoder_samples": 472320,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 472320,
+          "sha256": "fe99fb9907843b21a333b03fadf19fc1ed43cc9bb6230f11bff0d72dce77970c"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/ta_in_00494_1946.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/ta_in_00494_1946.wav",
+          "raw_sha256": "90086264e57af9af7261df5e7e6070017433b2babf4ada91d988c87bf76d15e8",
+          "full_decoder_samples": 472320,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 472320,
+          "sha256": "21b2a32231ce15dea6ae94666a3f73a61d945f04d978e7766a32d4c6fe5d0fea"
+        }
+      }
+    },
+    {
+      "uid": "ta_in_00394_2003",
+      "language": "ta_in",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/ta_in/ta_in_00394_2003.wav",
+      "reference_rate": 16000,
+      "reference_samples": 125760,
+      "reference_sha256": "e257a43d2af416f83b41eec8a7b3ee920db1c33459eacb948edf94a27e5f688e",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/ta_in_00394_2003.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/ta_in_00394_2003.wav",
+          "raw_sha256": "7ee2be934c78fe789b54d5fcfc9bf579299bd88d2612c5d3bc519463fb6bc754",
+          "full_decoder_samples": 378240,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 377280,
+          "sha256": "d18bdbd6b1419bfc648960190d57669a18855cdbcfd86d6e7fe7827984109c0d"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/ta_in_00394_2003.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/ta_in_00394_2003.wav",
+          "raw_sha256": "f540d728420fb8ddc43c3218d567cf085c65e68702565fc94b5dcbff972ae3f7",
+          "full_decoder_samples": 378240,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 377280,
+          "sha256": "94932b4e5dcbf1a470af12a9df70245077f78b106adc86ffd741ba494934b1d0"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/ta_in_00394_2003.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/ta_in_00394_2003.wav",
+          "raw_sha256": "49923456b97526e4b363b87e3523ff4e2fb0c1051bd1e4ac0a3dfc39d8e9f0f6",
+          "full_decoder_samples": 378240,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 377280,
+          "sha256": "05ff5b5ac5ff75891d9fac47a5a8915033e762995f53ad2cafabaca69de0d74a"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/ta_in_00394_2003.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/ta_in_00394_2003.wav",
+          "raw_sha256": "974cda29088a29e8f27ed679a923cb2aeb47f661b4ac58d1ee64d4e3560a669e",
+          "full_decoder_samples": 378240,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 377280,
+          "sha256": "0692a8aa7c06ac0b71fe69775414d89a72706607fb49455291887cd8d724e074"
+        }
+      }
+    },
+    {
+      "uid": "ta_in_00447_1742",
+      "language": "ta_in",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/ta_in/ta_in_00447_1742.wav",
+      "reference_rate": 16000,
+      "reference_samples": 170240,
+      "reference_sha256": "1b0189d968996984fddc0685a504c935178bfe372609ce71485249216edf1d08",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/ta_in_00447_1742.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/ta_in_00447_1742.wav",
+          "raw_sha256": "2ec2f811c4b3d34fe6dc91fc2b5fb1b8b5b60824d4403d94b0e682ffa9042662",
+          "full_decoder_samples": 510720,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 510720,
+          "sha256": "a26cf93407bafe4cb2b9e1a62ffb7fd1dff7ee06d0fa5c11d16448ab3977b048"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/ta_in_00447_1742.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/ta_in_00447_1742.wav",
+          "raw_sha256": "157a1ca1ba354a861fc9cd13f3080cbbda89e1579e9d1d906f308109b23b2423",
+          "full_decoder_samples": 510720,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 510720,
+          "sha256": "344ef7de3dfe60fc16bd8f4875864541665aaa7150aa40d7ec94c1a86b4b9c87"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/ta_in_00447_1742.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/ta_in_00447_1742.wav",
+          "raw_sha256": "1aaf5698f599d05b30bb6890477f09fadc31ab659d3d126d36c0782c7157440f",
+          "full_decoder_samples": 510720,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 510720,
+          "sha256": "3d64a2c893a6b970189c0feac7599f1e5460d15570ce72bd0042feddaea3aada"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/ta_in_00447_1742.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/ta_in_00447_1742.wav",
+          "raw_sha256": "62e6e94f2df7172940cdf590c3de8a934327c11dec01fa474831900e0e9f603e",
+          "full_decoder_samples": 510720,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 510720,
+          "sha256": "b2d2a6742291e6493f3ff46aa0b84642a874d4cb10816ef8ef9f71756e2e7236"
+        }
+      }
+    },
+    {
+      "uid": "ta_in_00201_1938",
+      "language": "ta_in",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/ta_in/ta_in_00201_1938.wav",
+      "reference_rate": 16000,
+      "reference_samples": 145280,
+      "reference_sha256": "f9c5c4e27a58785a8d17245237eb62710349006a49c14fff344acfc1e7b79b32",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/ta_in_00201_1938.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/ta_in_00201_1938.wav",
+          "raw_sha256": "be477a201e526d124a5acec0999233d34da9ce964c692d1630c6ec8ec5d9b1be",
+          "full_decoder_samples": 435840,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 435840,
+          "sha256": "5dab40728b99855fb8d447eb1210d3b5d7c6763492e4f09e5b6a4f8835f0f8e2"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/ta_in_00201_1938.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/ta_in_00201_1938.wav",
+          "raw_sha256": "f183791b36ae65a85c2cf4e0b66941854f3da701a5145eb9acf6cc0957cd06c8",
+          "full_decoder_samples": 435840,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 435840,
+          "sha256": "93f08c1b63eef6ac36ac676f493243775d8c7574c7c7a74b710c5d0abc105504"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/ta_in_00201_1938.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/ta_in_00201_1938.wav",
+          "raw_sha256": "c47567a8c11a7521da4c32c0ae5f7f97feee3de88814cea5823470feb723afc7",
+          "full_decoder_samples": 435840,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 435840,
+          "sha256": "123c3583cb88ed457ac07bfd6f6a1de52a163293c4054af0f4f3a8b7fd690e7c"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/ta_in_00201_1938.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/ta_in_00201_1938.wav",
+          "raw_sha256": "688d2fc5ef972a903255bb736c5bdab3b5a7865472fd51d50dbe3ac5734e3adf",
+          "full_decoder_samples": 435840,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 435840,
+          "sha256": "66391118f69a9f1078cacbd8ddb016d94e2d8e465d6ee878e4a66e0d8f5765f6"
+        }
+      }
+    },
+    {
+      "uid": "ta_in_00077_1834",
+      "language": "ta_in",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/ta_in/ta_in_00077_1834.wav",
+      "reference_rate": 16000,
+      "reference_samples": 170880,
+      "reference_sha256": "d615f6a6f7a5de0a6f919d4a6807b1524946470c37262ce1ea2952e6e802bddd",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/ta_in_00077_1834.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/ta_in_00077_1834.wav",
+          "raw_sha256": "6acc7da4945b25b3d54b6432bd9d58bc8f0c30e9b1ff8aadeae5f303f21e0b91",
+          "full_decoder_samples": 512640,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 512640,
+          "sha256": "56c34f63ee5cde25438805c7f3ada4c2ab12ecdc6a5c9c3b88c35f7db0f3fe79"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/ta_in_00077_1834.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/ta_in_00077_1834.wav",
+          "raw_sha256": "8a613d15dac4945bc51f7f0cf693c10c530dbfe5ba48a5dc9dee35a56081dc21",
+          "full_decoder_samples": 512640,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 512640,
+          "sha256": "7670725f857147196af85c47bd83cd80a07b516325ce3fdaa4db6364addaa9e0"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/ta_in_00077_1834.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/ta_in_00077_1834.wav",
+          "raw_sha256": "e8001963a9eb8ef572a303a61dc2aea662fe9efcfe5c9b46d7584c42ac361c51",
+          "full_decoder_samples": 512640,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 512640,
+          "sha256": "75b191946e5c81495c8453de56e22ae536e67c9984c37b121c7fcc69c39b5f3b"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/ta_in_00077_1834.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/ta_in_00077_1834.wav",
+          "raw_sha256": "1cb03b5d298a7ebee9e11d86f81bd7b0c52745e430e76d5a271f12096f54923f",
+          "full_decoder_samples": 512640,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 512640,
+          "sha256": "ccbd86ae7d7b50e9436ab71dd86735b9d25a360038796b1a873a3623c91731c8"
+        }
+      }
+    },
+    {
+      "uid": "ta_in_00012_1740",
+      "language": "ta_in",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/ta_in/ta_in_00012_1740.wav",
+      "reference_rate": 16000,
+      "reference_samples": 123840,
+      "reference_sha256": "349ca4ae58408fcd679e6c82a7319555f713e6934aca730c57c438190fab865c",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/ta_in_00012_1740.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/ta_in_00012_1740.wav",
+          "raw_sha256": "a60ac3696f2abd680d2589983c6bc4e111db0ad993361c006736ab20d7787cb9",
+          "full_decoder_samples": 372480,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 371520,
+          "sha256": "3869bb932e3179d82280bff75cf2fc83e1b4c2e1b75233775b0ab195539445c2"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/ta_in_00012_1740.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/ta_in_00012_1740.wav",
+          "raw_sha256": "259c6c1f651f2a3a348d5c64f611559f8ea4eaf490cc6ce1fb023f88583d1092",
+          "full_decoder_samples": 372480,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 371520,
+          "sha256": "38ac76bd5807be490f3bfc7a06d8ff8a2a134d50a27509b801983349c9707b68"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/ta_in_00012_1740.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/ta_in_00012_1740.wav",
+          "raw_sha256": "4b7c8e90b1c989e8bf5f30d77a71113492d2451daa10fc3b64bf815816210ed5",
+          "full_decoder_samples": 372480,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 371520,
+          "sha256": "cd09026e67c17f82c89491509649336987e47c4ebfcb7b13dab4b29dfa206f82"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/ta_in_00012_1740.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/ta_in_00012_1740.wav",
+          "raw_sha256": "53a49eb278d1f7395427194ef048c6fdebbaec8c47ac26c830d9dee840bbaf32",
+          "full_decoder_samples": 372480,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 371520,
+          "sha256": "733d2a55238ba697a0c7a24262b70806cc1f7d776dcadebe867535f6254aa189"
+        }
+      }
+    },
+    {
+      "uid": "te_in_00114_1911",
+      "language": "te_in",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/te_in/te_in_00114_1911.wav",
+      "reference_rate": 16000,
+      "reference_samples": 170880,
+      "reference_sha256": "11144a90686f7954849679d5ef7f9ba45717b5567be97fc4239676cfbe988c13",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/te_in_00114_1911.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/te_in_00114_1911.wav",
+          "raw_sha256": "6eb96a9340ecc45b8f4c21e1c36b2c07b04b266e4df370b4d9e07c98b380c522",
+          "full_decoder_samples": 512640,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 512640,
+          "sha256": "264f720229fa3f67487c94194d4bf4a1c913d9cde93c72b76636927256d420c4"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/te_in_00114_1911.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/te_in_00114_1911.wav",
+          "raw_sha256": "5d042586eb92529d68cdd4aa3136afed76e2fa04213da98854dc96b444e977d9",
+          "full_decoder_samples": 512640,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 512640,
+          "sha256": "19689e59008c3d159d8a462f6d319570e7f07fe81445563b4eec53b9b4280dc1"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/te_in_00114_1911.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/te_in_00114_1911.wav",
+          "raw_sha256": "015ea17ffd1c79e8e820c0875bbbfcdd301b5a79e186650f1355103fd72b1402",
+          "full_decoder_samples": 512640,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 512640,
+          "sha256": "1bb0ddb4e1c405e412b01edf26b71823ade6d3b503935946eca6bf2a0c2210c8"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/te_in_00114_1911.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/te_in_00114_1911.wav",
+          "raw_sha256": "274e6b2c4a3a840acba6b363c1da83d2792c55316a2fe23c5c25f9f05b067458",
+          "full_decoder_samples": 512640,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 512640,
+          "sha256": "efeb0ad10f6fdf62ef41c50fb6deb6bd3ab90302f9eecc75299b4609187a4608"
+        }
+      }
+    },
+    {
+      "uid": "te_in_00185_1914",
+      "language": "te_in",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/te_in/te_in_00185_1914.wav",
+      "reference_rate": 16000,
+      "reference_samples": 188160,
+      "reference_sha256": "c33c9df9aa9543a4be9a5b7adda76f7789c07e899c9373c77f8f04eac30ee20e",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/te_in_00185_1914.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/te_in_00185_1914.wav",
+          "raw_sha256": "30bb8acaa1656b3b89cf4a403a00be1e2c9e9ab92faa8d6b6d8b4a961c275007",
+          "full_decoder_samples": 564480,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 564480,
+          "sha256": "99a5d60a9126219a5b30a7cb055eb9071b631687eae859240dc755eb5470ae83"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/te_in_00185_1914.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/te_in_00185_1914.wav",
+          "raw_sha256": "732090b3b7f6f93603b1593690b626d12de20fc71d3ed5e73d2456b3064b94c5",
+          "full_decoder_samples": 564480,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 564480,
+          "sha256": "a3ec9dbba761762190aed0b81959494228e788d677ba571a7c8b76e5f2a468c7"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/te_in_00185_1914.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/te_in_00185_1914.wav",
+          "raw_sha256": "0839af931bc56f6896106d2af0a0bd73ca7fc004ad6d21cad6968f671d7d3bb4",
+          "full_decoder_samples": 564480,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 564480,
+          "sha256": "7fba6ab5e1e04d5a98277f6adf964742ef6f1985d80535cf697fb3671d3f03b4"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/te_in_00185_1914.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/te_in_00185_1914.wav",
+          "raw_sha256": "d7b3bd64a11c38234b4e34681ccb285b2149909f93892b9ea78c1704bd3f003a",
+          "full_decoder_samples": 564480,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 564480,
+          "sha256": "a2f71ca362343e9e5536edff2a37a7eac62b46b5d8ee74fc908df38cb92385a7"
+        }
+      }
+    },
+    {
+      "uid": "te_in_00471_1768",
+      "language": "te_in",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/te_in/te_in_00471_1768.wav",
+      "reference_rate": 16000,
+      "reference_samples": 165120,
+      "reference_sha256": "ebca614ecce6b351e2e2b15fdb24f084cde1ce01b2983970607f526d9a00e1dd",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/te_in_00471_1768.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/te_in_00471_1768.wav",
+          "raw_sha256": "4f1f31659b7fc2fbc02cd3dfc13741829bff8722e4335f2771833949b5e91f87",
+          "full_decoder_samples": 495360,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 495360,
+          "sha256": "f088fd2ba86e8987737570b3a8e1c47ddd1033bb66b4665654fdf61a274e29a4"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/te_in_00471_1768.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/te_in_00471_1768.wav",
+          "raw_sha256": "75242d462f9fa84f7238d4e93d8be49bbb1c889b9e817c7ebc2558e7edc04a7e",
+          "full_decoder_samples": 495360,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 495360,
+          "sha256": "75c33aeebfda456cafbfa58aaa3d9809538d85c5c294e88e373406ce2cab06df"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/te_in_00471_1768.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/te_in_00471_1768.wav",
+          "raw_sha256": "aa979c83f5c57732ae0c7a0e4fcd5e17e4c1f68c1fca18f094cc624d14001abf",
+          "full_decoder_samples": 495360,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 495360,
+          "sha256": "7fc5c990a6719074deec8b6020665b6feab896aeecdd62dcbdb2f73a8def8ca3"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/te_in_00471_1768.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/te_in_00471_1768.wav",
+          "raw_sha256": "e11731c93bd4fcfaaba8ae24d6ba81be8d0723eb9efd641d0c536bf82364d5d1",
+          "full_decoder_samples": 495360,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 495360,
+          "sha256": "8ce3e299c8ba355b986632d1a1bf5de4dab9afabddd878fb8f57278bb2da47e1"
+        }
+      }
+    },
+    {
+      "uid": "te_in_00267_1838",
+      "language": "te_in",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/te_in/te_in_00267_1838.wav",
+      "reference_rate": 16000,
+      "reference_samples": 80640,
+      "reference_sha256": "5c32da072826abba83a7047576b6c8e648da6de3db8ad4d5f3e98a91a195ae3d",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/te_in_00267_1838.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/te_in_00267_1838.wav",
+          "raw_sha256": "e63cc64da90698f2905292ab7487af97f8e51f69a577f2e4a937818570317c7e",
+          "full_decoder_samples": 241920,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 241920,
+          "sha256": "c5c4c244e76b50c402407f3fb706d09a3045312e97c74c3e28d5cd4fc8610d36"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/te_in_00267_1838.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/te_in_00267_1838.wav",
+          "raw_sha256": "a132e9063f6da0b7eff3ca9816a230d922c21543aa806b3ab623469efad15ab2",
+          "full_decoder_samples": 241920,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 241920,
+          "sha256": "34deb5dddcb6897cc629979a30d0eb28bd3b4c7b9df3c3fa98712fd1567fee6f"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/te_in_00267_1838.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/te_in_00267_1838.wav",
+          "raw_sha256": "3f049f6a51bc9c5f149e1eb6f073671302e28e5a60937f03d087226435bbecf3",
+          "full_decoder_samples": 241920,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 241920,
+          "sha256": "c2946f02797b350c62b174426ea57221a9b4343b69ca4096accac3b5bdbf5592"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/te_in_00267_1838.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/te_in_00267_1838.wav",
+          "raw_sha256": "8f77556b5460605ae6ff0979d025828e70a03d8aed5be468c847461470c362e2",
+          "full_decoder_samples": 241920,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 241920,
+          "sha256": "ad95281ad4070726dcfc8087448e8f82e1c0794bc63778baea1caf9693facdef"
+        }
+      }
+    },
+    {
+      "uid": "te_in_00228_1918",
+      "language": "te_in",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/te_in/te_in_00228_1918.wav",
+      "reference_rate": 16000,
+      "reference_samples": 179520,
+      "reference_sha256": "5639dff9ae16f3369f5da67d8d19543faf5876f6bb2f7089a61cbed934c7b764",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/te_in_00228_1918.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/te_in_00228_1918.wav",
+          "raw_sha256": "af08cb13bfb2f5cf3213e7dc0406649b56948b47912b8a14f2a312e4600e7b27",
+          "full_decoder_samples": 539520,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 538560,
+          "sha256": "71ae62b1c072772e103b9809d858c006c6eab449c51a43eb91ea1989ffcab48b"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/te_in_00228_1918.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/te_in_00228_1918.wav",
+          "raw_sha256": "911320761d56d3f458a30a98ee784f1ea67df637b76c7efcef5dde324c54d55a",
+          "full_decoder_samples": 539520,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 538560,
+          "sha256": "b5efe37bc951a5ba666379498c2fb089d8abe2ebbd2b5874145911da343a6ec3"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/te_in_00228_1918.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/te_in_00228_1918.wav",
+          "raw_sha256": "49407549a9ea77e7f461cbe421890371da2e9071b6f359d0a1e7ccbe34beda7b",
+          "full_decoder_samples": 539520,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 538560,
+          "sha256": "ce53a8531b80ddbe041a114a258cc4b8ad15c96ceecb9f4651f5bdc970ea6ede"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/te_in_00228_1918.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/te_in_00228_1918.wav",
+          "raw_sha256": "19a92f5bee98ab9cc88152413327394be37f247dc5803c59177e486515fca2f1",
+          "full_decoder_samples": 539520,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 538560,
+          "sha256": "f2b35ff4ba4f61c60c343c8c262ed9c88c6ab70655538b0993a98c467aa68c1e"
+        }
+      }
+    },
+    {
+      "uid": "te_in_00016_1969",
+      "language": "te_in",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/te_in/te_in_00016_1969.wav",
+      "reference_rate": 16000,
+      "reference_samples": 174720,
+      "reference_sha256": "c3377c742f238d4327f7f50794628ffc92a11ac4944d7f669cfa5b52ea2d7139",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/te_in_00016_1969.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/te_in_00016_1969.wav",
+          "raw_sha256": "21e3cb838dcd8826e4e6bfd2ccb4d2a26060dc4ca6bb97ac504756f3467c0997",
+          "full_decoder_samples": 524160,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 524160,
+          "sha256": "ad3d13cd92e55d73162a78a81edf7490fd73cc5867f69aebc8ee52dd90e1ab5b"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/te_in_00016_1969.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/te_in_00016_1969.wav",
+          "raw_sha256": "7a332fd9dff7c88c92eb07a60d6447a32901b7db48e08b9a8cf875676e762bd1",
+          "full_decoder_samples": 524160,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 524160,
+          "sha256": "2c00bf3f246e3b576d531c5276027571ecdf5648283d0299b537437bd448b8d1"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/te_in_00016_1969.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/te_in_00016_1969.wav",
+          "raw_sha256": "45273028232d23fe35a848150c79cd40cda0c50f14fb6eefee3ab335a4a89947",
+          "full_decoder_samples": 524160,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 524160,
+          "sha256": "f047d6b417694bf11f99675ec65ab993ab29f2b1be6c1901efc57186601e3ca2"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/te_in_00016_1969.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/te_in_00016_1969.wav",
+          "raw_sha256": "dd6c7c8786d1c2267a2363b4554391e7bb17c105218aaddcd67b3b468b58dc98",
+          "full_decoder_samples": 524160,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 524160,
+          "sha256": "770b2cbb8f2862ee956163a4b1180997f3ce089591ca495de19e68000530d520"
+        }
+      }
+    },
+    {
+      "uid": "kn_in_00584_1904",
+      "language": "kn_in",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/kn_in/kn_in_00584_1904.wav",
+      "reference_rate": 16000,
+      "reference_samples": 168960,
+      "reference_sha256": "3f143716703dc73009e9afc894803b9d2b5752cac2248126ee0a17bec0a80208",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/kn_in_00584_1904.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/kn_in_00584_1904.wav",
+          "raw_sha256": "17507c30fd171339a7c03f2224852a412466fca8b04bd22bcd47be03e7a0d4d5",
+          "full_decoder_samples": 506880,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 506880,
+          "sha256": "35a01163c9ea64f83efe899785c456cc60b9e4b35a1e82548601768109d6e2f7"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/kn_in_00584_1904.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/kn_in_00584_1904.wav",
+          "raw_sha256": "306ff3e830cf632a6f7eb54d6f4246cfb68f7c1045ae9f41ce7e1df482e78f91",
+          "full_decoder_samples": 506880,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 506880,
+          "sha256": "948505b78827ab83a4d783fd5302d560692bb85f35394850a5a8b0a12bac087c"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/kn_in_00584_1904.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/kn_in_00584_1904.wav",
+          "raw_sha256": "a5976b911a218f91e649e0c81fbdd70caf4694773653f053edd0f51faa5cea1b",
+          "full_decoder_samples": 506880,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 506880,
+          "sha256": "2862f07fe3a866fef533444db7566109c76b8b08275fe016fc6204547c95e383"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/kn_in_00584_1904.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/kn_in_00584_1904.wav",
+          "raw_sha256": "8810bf456bfa5cfc4bb95f115730ad3471cde6805eb7aca7579debae864dc0bd",
+          "full_decoder_samples": 506880,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 506880,
+          "sha256": "8ad978c633bc081c53167c565b23716ff70b4306a4c2d0aa33a0acf1ebc294ef"
+        }
+      }
+    },
+    {
+      "uid": "kn_in_00073_1705",
+      "language": "kn_in",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/kn_in/kn_in_00073_1705.wav",
+      "reference_rate": 16000,
+      "reference_samples": 188160,
+      "reference_sha256": "9e51168fb9b172c5eb1a5d0e5df21fa59ddf32b65f789e0c124aa984a4712e83",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/kn_in_00073_1705.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/kn_in_00073_1705.wav",
+          "raw_sha256": "fce45d14cd29dcb9ae31e01635c26bedf1d67209495100186e1cc981db3b3653",
+          "full_decoder_samples": 564480,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 564480,
+          "sha256": "db03b7c40e6ba94ff9bcea569820ba3c0af98a9f949be13d6cdaf0c75d897cdd"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/kn_in_00073_1705.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/kn_in_00073_1705.wav",
+          "raw_sha256": "89412b5b62cd2d90c2c52433f875226a01fb618201e5ae68c3ecd76b00d5e80c",
+          "full_decoder_samples": 564480,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 564480,
+          "sha256": "77a4db1fcb3d1b18a6a8337e8d57a1d9830f9c89024be6e10c7d139fabae0e4e"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/kn_in_00073_1705.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/kn_in_00073_1705.wav",
+          "raw_sha256": "9aff1f62ee23e8c02b4eb19166568e91637fff7b16da8ca454bb3da6ddcb371f",
+          "full_decoder_samples": 564480,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 564480,
+          "sha256": "af224bb701ad832c5af7dee806ab3737bf1a62d8311439c85eb2bfb2d41c0cb4"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/kn_in_00073_1705.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/kn_in_00073_1705.wav",
+          "raw_sha256": "03e38de8ce0f6711e2d1136358a3ed27d4de58790dbf897c6bc0bce8ec009e6f",
+          "full_decoder_samples": 564480,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 564480,
+          "sha256": "f96feccab203e46f28309e69593ca6d9fb685db3eb309abe18269ae7aca0eb15"
+        }
+      }
+    },
+    {
+      "uid": "kn_in_00788_1926",
+      "language": "kn_in",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/kn_in/kn_in_00788_1926.wav",
+      "reference_rate": 16000,
+      "reference_samples": 152640,
+      "reference_sha256": "a9123276d63c805c44b45444bed5a99bf9e2ed3985271950e8bf781cf4a5015b",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/kn_in_00788_1926.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/kn_in_00788_1926.wav",
+          "raw_sha256": "f085f38e7c232306fc6b13a95cd7985822b392446617e92cff6071cc7aaf2d89",
+          "full_decoder_samples": 458880,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 457920,
+          "sha256": "214df640f49258c8aadf179c04199c832b7342ef48b87501132eca9d2c28a086"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/kn_in_00788_1926.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/kn_in_00788_1926.wav",
+          "raw_sha256": "d60cf37e8ead16b7dfb0b82aa065a726bd846650dbfb927a51f32e081dd4bd4b",
+          "full_decoder_samples": 458880,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 457920,
+          "sha256": "7bfbd6bacb2fa72958eb4806c4470117b6b3bb157f8041d99d689083deb57f2e"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/kn_in_00788_1926.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/kn_in_00788_1926.wav",
+          "raw_sha256": "d3fea9deaf94e99d787ac632d132eec20db39352ee95be76af6655d052d4f883",
+          "full_decoder_samples": 458880,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 457920,
+          "sha256": "345a27b83f9a24dbd625556930f1e85e7f08ca00810dd258d800af45673ed5ab"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/kn_in_00788_1926.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/kn_in_00788_1926.wav",
+          "raw_sha256": "e309449924774d0d7054ad37677cf260cf54a3b76ac40c70ee7f03d1861dd991",
+          "full_decoder_samples": 458880,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 457920,
+          "sha256": "9dfd745fbf7953c3f0f66f711ca2f92b5ea83aebd495496e39012042081c6f14"
+        }
+      }
+    },
+    {
+      "uid": "kn_in_00793_1839",
+      "language": "kn_in",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/kn_in/kn_in_00793_1839.wav",
+      "reference_rate": 16000,
+      "reference_samples": 118080,
+      "reference_sha256": "83d64c13c35b9fe701e046d41ce14dce77ee3d66584c39b92d819acec7040b58",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/kn_in_00793_1839.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/kn_in_00793_1839.wav",
+          "raw_sha256": "7eb154ae41a8f5bbfc108ac5d79f65dd082a01c35abe09a015f285ce1a74363d",
+          "full_decoder_samples": 355200,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 354240,
+          "sha256": "8682998ac23a13ad60a4fd95571d4b8018de836ccc66d9052177a21aa1a63d94"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/kn_in_00793_1839.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/kn_in_00793_1839.wav",
+          "raw_sha256": "687d8d0b4f3c2a992e55381dd59ab6029a9ff4512ecb6cf7c1b5f38aa3ba76a8",
+          "full_decoder_samples": 355200,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 354240,
+          "sha256": "b1da1ee82c68c77ed09cb2b4bd8f19cd3cbcaf7817c5c84c709cc09760e1e2ca"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/kn_in_00793_1839.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/kn_in_00793_1839.wav",
+          "raw_sha256": "d687f2c4d06991ec387b1317e6d9f023bd6a0d96aa49999321550c4668d514ea",
+          "full_decoder_samples": 355200,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 354240,
+          "sha256": "474fbbf1cff809c788a61615ed994cd0cfef6e5218abda11aed434f00999e520"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/kn_in_00793_1839.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/kn_in_00793_1839.wav",
+          "raw_sha256": "e37a5a8f4604741124a515519fe0af79b04423072177829cfd4c75eccdb26c77",
+          "full_decoder_samples": 355200,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 354240,
+          "sha256": "30212c694e66af2903dc28d661f69f1ffc9f8a6377d000b9d849472e849c3ffa"
+        }
+      }
+    },
+    {
+      "uid": "kn_in_00227_1844",
+      "language": "kn_in",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/kn_in/kn_in_00227_1844.wav",
+      "reference_rate": 16000,
+      "reference_samples": 178560,
+      "reference_sha256": "3edd4702e2abbc2a5549ee1fdc4efb4d3a1048336fcbc4bde9773f0a05606f40",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/kn_in_00227_1844.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/kn_in_00227_1844.wav",
+          "raw_sha256": "027ee2e06787f977daf438bbee52d85af9f236a6bbfe7c560a4e0d783504e72e",
+          "full_decoder_samples": 535680,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 535680,
+          "sha256": "3aedc2c7d8e559dbc12c26e323c1fd8c46fa1fa55f8837d483c50cb454575611"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/kn_in_00227_1844.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/kn_in_00227_1844.wav",
+          "raw_sha256": "25b1eacfcd20ae4ad546041729e1db225c543659532c20875e849df85aabcbd6",
+          "full_decoder_samples": 535680,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 535680,
+          "sha256": "c5d211d167216a376d8f485d419e22e6a3248d4f509a70e6041cf24f076a523f"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/kn_in_00227_1844.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/kn_in_00227_1844.wav",
+          "raw_sha256": "759c1fa21064a632a030c7afdddc16f196b2285c98910b1b2e22bad7d8eefe5c",
+          "full_decoder_samples": 535680,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 535680,
+          "sha256": "a72daf29ee7f8ddf74b257b7baa268d952d973a4479b2844b2f4d1504a4b73b2"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/kn_in_00227_1844.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/kn_in_00227_1844.wav",
+          "raw_sha256": "560861a3ffee0e9e0bbe010a53e27952b1a58fd11104100335356168e4992c6f",
+          "full_decoder_samples": 535680,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 535680,
+          "sha256": "8113d4b6b852dd26bb63ac739a183a101a7efdab4219f773900a457d84211811"
+        }
+      }
+    },
+    {
+      "uid": "kn_in_00542_1781",
+      "language": "kn_in",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/kn_in/kn_in_00542_1781.wav",
+      "reference_rate": 16000,
+      "reference_samples": 134400,
+      "reference_sha256": "a4b676a90e1c57a2fa0dbafc50d8e3a44afc3f56347690e43150aaa4936ff466",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/kn_in_00542_1781.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/kn_in_00542_1781.wav",
+          "raw_sha256": "f50ffca6aa6999ea989b575fcf414a3e42d9b87c8425ce6341b8a0ee5e206f91",
+          "full_decoder_samples": 403200,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 403200,
+          "sha256": "72ded2505266a6e6e0f89eca50d5e01c2823fd661d7fd1cc1f54c0ee456f3bc0"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/kn_in_00542_1781.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/kn_in_00542_1781.wav",
+          "raw_sha256": "7cdc554f5881a72843517b018e60a31c8630229c3526e55406e52d4f7cdbd8b8",
+          "full_decoder_samples": 403200,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 403200,
+          "sha256": "05f9ce9bcd82c6753fb6ae66bda0e2bf5babbcfb7117903b396ee0f662e9bbbe"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/kn_in_00542_1781.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/kn_in_00542_1781.wav",
+          "raw_sha256": "004759529c066ab259016e417fee06d86256b4e4c9197b6eca80c8084de3814d",
+          "full_decoder_samples": 403200,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 403200,
+          "sha256": "5270e4df5f7d285b0f3e71603823028eeec9f1ca36a295016778985301234f55"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/kn_in_00542_1781.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/kn_in_00542_1781.wav",
+          "raw_sha256": "093422d92b0a02546215cd082e646621737e35aa9c47f37380df36c8cdbf156d",
+          "full_decoder_samples": 403200,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 403200,
+          "sha256": "8c46a1398edf7418f87746ff70e0d9660d573fc116ae4d32189105b71fd31ad9"
+        }
+      }
+    },
+    {
+      "uid": "en_us_00103_1779",
+      "language": "en_us",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/en_us/en_us_00103_1779.wav",
+      "reference_rate": 16000,
+      "reference_samples": 172800,
+      "reference_sha256": "cd7261cb086c47ed1059ff3ba8d45767b08ff705dfa6de5899f8dbf9b9f61eae",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/en_us_00103_1779.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/en_us_00103_1779.wav",
+          "raw_sha256": "cdbcf39dd72ff2cd133c761cbe497411a64404b4e932e53b84ed460d796c672c",
+          "full_decoder_samples": 518400,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 518400,
+          "sha256": "e129170c3fd96c231883c4a2a07a3501d1e484365cd3e2c0499a81bb1b8d3d46"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/en_us_00103_1779.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/en_us_00103_1779.wav",
+          "raw_sha256": "0274ab92777b039a5a9dbe497422cd53fe0aaf09ddb23351e1debd1a4ccf83ec",
+          "full_decoder_samples": 518400,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 518400,
+          "sha256": "9d99355bec063eb16240aefbeb40f9ddf536ff581ea59f78dc6e3d75930940b8"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/en_us_00103_1779.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/en_us_00103_1779.wav",
+          "raw_sha256": "1d845f1e2d976259e28a7e51ea217a32da53d4e9a1b6a4495b9135fd2ed3c310",
+          "full_decoder_samples": 518400,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 518400,
+          "sha256": "3c0b716b553ae67b7a9aaeb3b456d2f851e5da6fec33b003ef82ac48744b226a"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/en_us_00103_1779.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/en_us_00103_1779.wav",
+          "raw_sha256": "9f18947be0d512950c367a8e27b04ecc7c411e9695cd14fdaacfead8cae796d9",
+          "full_decoder_samples": 518400,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 518400,
+          "sha256": "6608f7a94c73c3fac362c6a6d1eb09ae9fdcb147b9800f791f2c4d6937a6b61c"
+        }
+      }
+    },
+    {
+      "uid": "en_us_00344_1948",
+      "language": "en_us",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/en_us/en_us_00344_1948.wav",
+      "reference_rate": 16000,
+      "reference_samples": 163200,
+      "reference_sha256": "3721d12dcee1746c9e4931a8ddea4ca11582a514767b1707accafbb147462dfd",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/en_us_00344_1948.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/en_us_00344_1948.wav",
+          "raw_sha256": "15041f7bb5d26fee7285d84b9789bce19901d1f9c1c99393debd85de7727ddfb",
+          "full_decoder_samples": 489600,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 489600,
+          "sha256": "aeb620222dc41a9ee8871675a8b0a768f47d5d31a2b7b2e0ad01272a48f99127"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/en_us_00344_1948.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/en_us_00344_1948.wav",
+          "raw_sha256": "e96ee460df9682530940130d7d5aa064d0d9a33ef655e7a544736728a2ddc52e",
+          "full_decoder_samples": 489600,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 489600,
+          "sha256": "e8c958316e50d98cdd8f5df62a356ecbbc5e15797798d85895dc6d2727497629"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/en_us_00344_1948.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/en_us_00344_1948.wav",
+          "raw_sha256": "ff1317440c9d76654a4f79a1e1238b25043ece6f0bc5e79b30700bbf2c6b241a",
+          "full_decoder_samples": 489600,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 489600,
+          "sha256": "ce4082d162a43a1c9ea8e2ed10d95652154a51fd4c062769423af97dcc07fbe5"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/en_us_00344_1948.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/en_us_00344_1948.wav",
+          "raw_sha256": "2c9394ed858c1eccf95bf774ee79d1a8ce83cdce98eefaadb3d1ef4659097399",
+          "full_decoder_samples": 489600,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 489600,
+          "sha256": "2f30f91a633686b2daded13ded3c1d48f70d941b02965aa229c2c4f2ef226b14"
+        }
+      }
+    },
+    {
+      "uid": "en_us_00133_1765",
+      "language": "en_us",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/en_us/en_us_00133_1765.wav",
+      "reference_rate": 16000,
+      "reference_samples": 189120,
+      "reference_sha256": "0b478e9acf553f496c7ede2df02008126abacddf0ed38a00a79faf4a0adcd926",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/en_us_00133_1765.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/en_us_00133_1765.wav",
+          "raw_sha256": "a0fb68976fd5d398314cf36067b784461c3a6eec629824cebae50142e72baaf3",
+          "full_decoder_samples": 568320,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 567360,
+          "sha256": "41c9b415428e8e200c9529adf10a9177ed7955070c3e52c427db481e163050de"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/en_us_00133_1765.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/en_us_00133_1765.wav",
+          "raw_sha256": "da6df285fc30f463ee0560bf296918df7760cec46a9ef6feeff1ad293925855b",
+          "full_decoder_samples": 568320,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 567360,
+          "sha256": "02d20c03653888c3d51e2d4fb49f11c4cf0ca954a4b8535605a6007dadb98f99"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/en_us_00133_1765.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/en_us_00133_1765.wav",
+          "raw_sha256": "efba944c40b58895a7cde00008a490b70d8155acc34e83bc3aaf0c7364021e70",
+          "full_decoder_samples": 568320,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 567360,
+          "sha256": "82e7cfc0627197bf2f6e484ff352b8565ee09c182fa45b858d2b9b225a835088"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/en_us_00133_1765.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/en_us_00133_1765.wav",
+          "raw_sha256": "3cb4a82979e4ee4674f423b32750ca2352e55dbb72083992a7ba34b3f497c8ee",
+          "full_decoder_samples": 568320,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 567360,
+          "sha256": "cd9a7e2dfa50f6c5b02a53a5468ba23dd40fab06accca27eafe779a255f74a4c"
+        }
+      }
+    },
+    {
+      "uid": "en_us_00287_1786",
+      "language": "en_us",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/en_us/en_us_00287_1786.wav",
+      "reference_rate": 16000,
+      "reference_samples": 123840,
+      "reference_sha256": "af8333c7a788cf9f646c9c01a48fc2ed563913b52f39bc50909011f70f494b43",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/en_us_00287_1786.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/en_us_00287_1786.wav",
+          "raw_sha256": "4e2d4f49034b120446ecb3e9409c857b20cfa32e87ac4943448cd6dca6879b1b",
+          "full_decoder_samples": 372480,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 371520,
+          "sha256": "f685e3d3bee83208db769a8340da612fa4b03501305c5f82a3cd8a2645c0e2c3"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/en_us_00287_1786.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/en_us_00287_1786.wav",
+          "raw_sha256": "46ada53f8c3ce568345b74dc8eecc0570ca04226ea39a77099c0f31ab675808b",
+          "full_decoder_samples": 372480,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 371520,
+          "sha256": "f4b6f7a73a59a2a79e3793068f5d9884f9eaa011a09184b46b0fbabc095d4623"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/en_us_00287_1786.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/en_us_00287_1786.wav",
+          "raw_sha256": "7eb4616dab673cd9fa9770004b00f4e938440743999e75fe9863673495cc2acc",
+          "full_decoder_samples": 372480,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 371520,
+          "sha256": "77eea6da0dc0eaa8cd86d9941e09a227dd9502ac7541f9a4e302b56d35849c97"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/en_us_00287_1786.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/en_us_00287_1786.wav",
+          "raw_sha256": "43b51de0521228dac6136b0858b0ae88cdff91f80b6ba6cd796bd4d2d544036f",
+          "full_decoder_samples": 372480,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 371520,
+          "sha256": "64c56dc66113b1c362ce6e16ccb02344ab08f245971e8acbb4835f02861199f8"
+        }
+      }
+    },
+    {
+      "uid": "en_us_00557_1707",
+      "language": "en_us",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/en_us/en_us_00557_1707.wav",
+      "reference_rate": 16000,
+      "reference_samples": 174720,
+      "reference_sha256": "20cc9d0d3a8731a8ab9c34fc02f7c3ca8e106fe88f174383fde2746c1a503ceb",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/en_us_00557_1707.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/en_us_00557_1707.wav",
+          "raw_sha256": "829a47ed7f2376a57bbec2572f282c2223cfaf5b8cd5e76508f2c95a26e98d02",
+          "full_decoder_samples": 524160,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 524160,
+          "sha256": "0b32a37a82b32ebdd9b43029ff5b59e2a79fffa616762dc1221191fab9d5a1b5"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/en_us_00557_1707.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/en_us_00557_1707.wav",
+          "raw_sha256": "c394c923c5f8f55651c0be2584c2bfe09c0029cedfa6a259360dd0b6a5826555",
+          "full_decoder_samples": 524160,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 524160,
+          "sha256": "0fc2b7bfbf3e13598ce5e695775a1ac8f0bd02d42670959160a82d904173f8e6"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/en_us_00557_1707.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/en_us_00557_1707.wav",
+          "raw_sha256": "d33ab839b43a295af6db4b9a8a0b41a7be318595d65e5ca38399b1c04e696cbe",
+          "full_decoder_samples": 524160,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 524160,
+          "sha256": "e95bb8b864532fb85c0889417525767bf7f46900e76fea3cbf30f6188929d8c8"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/en_us_00557_1707.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/en_us_00557_1707.wav",
+          "raw_sha256": "d9cdd0ff96d4754fa316cfc7ce39f175753b7050a5bf580a61308ab2261bb0ca",
+          "full_decoder_samples": 524160,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 524160,
+          "sha256": "90cc5303cf2c8d1e3fd93bfff0f44485685e41058d00246af80cbb6decf0e210"
+        }
+      }
+    },
+    {
+      "uid": "en_us_00565_1837",
+      "language": "en_us",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/en_us/en_us_00565_1837.wav",
+      "reference_rate": 16000,
+      "reference_samples": 164160,
+      "reference_sha256": "c990a7a0a89836d3d39597c5daec5a28a4ee593b6e18fc45601f451d3105b473",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/en_us_00565_1837.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/en_us_00565_1837.wav",
+          "raw_sha256": "d7df33b825a5dcc46f9e05d6b4beae0ac77f6b68255a821eadebb719611e634f",
+          "full_decoder_samples": 493440,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 492480,
+          "sha256": "7dd11bb46781b8b741f19b4d9923736ee2e23b4991e3a5cf38747c77793d7aa1"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/en_us_00565_1837.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/en_us_00565_1837.wav",
+          "raw_sha256": "4573e3e573a1681eb7bc89178b5cc282f899ec68991ed069ab99325173357a0c",
+          "full_decoder_samples": 493440,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 492480,
+          "sha256": "455ea0ef8c6f35e0d81bf8c4887532042e26d5c87e3e78314d0e3fe08e14a00b"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/en_us_00565_1837.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/en_us_00565_1837.wav",
+          "raw_sha256": "dd2019065f2a9a738ec7cbd1aa80643d0e76d9bf8a68d55f9324f565c343047e",
+          "full_decoder_samples": 493440,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 492480,
+          "sha256": "38bee8c1b14b2438db9cc6ded928cd9b737807f88f04639b0da48936c2c22174"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/en_us_00565_1837.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/en_us_00565_1837.wav",
+          "raw_sha256": "d995cba50c82af360737e25b511825d27068f4bc6160179bb3d686e0d5341782",
+          "full_decoder_samples": 493440,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 492480,
+          "sha256": "cbd0d157734cd375bbac7a18c6855e82a71c7a71b7ffc788309078ee5ac957e1"
+        }
+      }
+    },
+    {
+      "uid": "es_419_00646_1781",
+      "language": "es_419",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/es_419/es_419_00646_1781.wav",
+      "reference_rate": 16000,
+      "reference_samples": 131520,
+      "reference_sha256": "61acdf68d9d9c125503216d7d2cf18c3524eaf38242529face3255810246fa8a",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/es_419_00646_1781.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/es_419_00646_1781.wav",
+          "raw_sha256": "83ff9b16dd2645a4cccbc403c1a485d6af34a31e6ac144e16e9fe1644076bbcc",
+          "full_decoder_samples": 395520,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 394560,
+          "sha256": "346cd1b00402fd813c3f901b5d94059dea84f6a8df6e0a93dad7f9e8ad3025cf"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/es_419_00646_1781.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/es_419_00646_1781.wav",
+          "raw_sha256": "37226e28e5473d52021bdc1f96a2956e28add886e92b61b91375a361149c2a82",
+          "full_decoder_samples": 395520,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 394560,
+          "sha256": "f4f7926ad29472bec274f1863e96ef5e010a0340445262bd448c7230776f2ebc"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/es_419_00646_1781.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/es_419_00646_1781.wav",
+          "raw_sha256": "987bc17cba09f233e96bb63b568276f8a5977cfc9a6dbdd5b0703746d8399dfe",
+          "full_decoder_samples": 395520,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 394560,
+          "sha256": "0efffb8c580f0015c2c667fe095722b2135fa9e8a0894a0140ff477b8bca89f8"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/es_419_00646_1781.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/es_419_00646_1781.wav",
+          "raw_sha256": "41782b2a91f95947fa0d3250225957af53054c033d452c19dabff5262b97b628",
+          "full_decoder_samples": 395520,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 394560,
+          "sha256": "60549c24699ddc4d20b1a9b9f6c502c6d46aac986903be8b02962629faefeaa9"
+        }
+      }
+    },
+    {
+      "uid": "es_419_00706_1731",
+      "language": "es_419",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/es_419/es_419_00706_1731.wav",
+      "reference_rate": 16000,
+      "reference_samples": 108480,
+      "reference_sha256": "72330fefb220d5436ccb7be2b89b3a3a811b07503647e79f54b6695317f4eed3",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/es_419_00706_1731.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/es_419_00706_1731.wav",
+          "raw_sha256": "d8473f7e96defadc59f3932848a1e85c497bd1011a6a584d8561f513e55d7a64",
+          "full_decoder_samples": 326400,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 325440,
+          "sha256": "0a5e39b24207779795370f7237952cda1dcf83ac8c797d10846121c9c49db4b3"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/es_419_00706_1731.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/es_419_00706_1731.wav",
+          "raw_sha256": "16ab61143b31d6f87b30e63236b85d213a12945cd16bb34b2ae642020a7e7826",
+          "full_decoder_samples": 326400,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 325440,
+          "sha256": "af3dca9ee467a0cddc1864d91ec02347d5ad885d0e5a294ba6c7b84d1d490f4e"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/es_419_00706_1731.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/es_419_00706_1731.wav",
+          "raw_sha256": "c8506e3bbe2a145f2bf8ef173b568ad2a5593fa2c45a53d27301406841818b13",
+          "full_decoder_samples": 326400,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 325440,
+          "sha256": "146f1aa191542bdbd2f6c9b8016708b5a848801741c0cf293c42371c0155cda8"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/es_419_00706_1731.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/es_419_00706_1731.wav",
+          "raw_sha256": "842bcc78249bb0f511eb53ca6bed9763a71b9726e612b1f4edd9fe4cc716acf2",
+          "full_decoder_samples": 326400,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 325440,
+          "sha256": "57d4b8488b0d0abb90695682dec0a8f477a0adfaea80108b402e71fed119a9e3"
+        }
+      }
+    },
+    {
+      "uid": "es_419_00172_1698",
+      "language": "es_419",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/es_419/es_419_00172_1698.wav",
+      "reference_rate": 16000,
+      "reference_samples": 165120,
+      "reference_sha256": "6486197a365fd80fe21a41e695fba6b21af395b667cac6c68791ac40d1718851",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/es_419_00172_1698.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/es_419_00172_1698.wav",
+          "raw_sha256": "2a8483193264aa0cdc649609457c5a899e1373a7d8b92623646408e045939a5a",
+          "full_decoder_samples": 495360,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 495360,
+          "sha256": "233cbb59365c590a2764c626c354584ff1913e7f93e9bbcf485ce6397107c6ae"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/es_419_00172_1698.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/es_419_00172_1698.wav",
+          "raw_sha256": "7a9acbdaf8744709df8cef8594587eda5e0c161f176aad5fa9184c26d4e507b9",
+          "full_decoder_samples": 495360,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 495360,
+          "sha256": "5e73e99146dd2bb1eeb6af164c8a12310c2f74b4f78153d643646fb144015ef2"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/es_419_00172_1698.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/es_419_00172_1698.wav",
+          "raw_sha256": "236eb188765c4b5283bd7166a05e2810bb91ed6ed370b9fa17f1aa2b7084f42a",
+          "full_decoder_samples": 495360,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 495360,
+          "sha256": "9525891752d7b8cfd5f0df33a768f7c0edc43593181d06c544c554cfa84b9e9f"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/es_419_00172_1698.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/es_419_00172_1698.wav",
+          "raw_sha256": "ea2e0c26e351c2857717a4f3e44dc5eaf6343fd4127be51d9eb89c95357bf14d",
+          "full_decoder_samples": 495360,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 495360,
+          "sha256": "410c8b8ddd72bfc32f24941169da7ea1ca72eae99e666035136c89b3c1f747f1"
+        }
+      }
+    },
+    {
+      "uid": "es_419_00060_1994",
+      "language": "es_419",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/es_419/es_419_00060_1994.wav",
+      "reference_rate": 16000,
+      "reference_samples": 147840,
+      "reference_sha256": "51307e2705efd5e610560815c7e017b9258804ae86e74c992d3b40b82e4e563a",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/es_419_00060_1994.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/es_419_00060_1994.wav",
+          "raw_sha256": "0695d3c2afd922264cad0340ce7013c966f9ca0d27c1a9bbe9244b196f49c47e",
+          "full_decoder_samples": 443520,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 443520,
+          "sha256": "f6c8c5800554157278925d3d04a08f73946fad54ab8b3bf341517381cdcb1982"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/es_419_00060_1994.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/es_419_00060_1994.wav",
+          "raw_sha256": "930d519ee6db57ff948ccb2b0ff6a128ee123fd12e7c9c2a9b89ca72f5a38898",
+          "full_decoder_samples": 443520,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 443520,
+          "sha256": "97a07a5f09d5cd05c4197b9704568ce67f8bf1f6000be3a512ccfec0811cc093"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/es_419_00060_1994.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/es_419_00060_1994.wav",
+          "raw_sha256": "84c9cff285e47d19762926f5f34c05c2ea6e0ab89c2b9813b82274474e2e76e4",
+          "full_decoder_samples": 443520,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 443520,
+          "sha256": "3f48d366d107606eb81a45aa284005065acd7abc5082315782b679ec53a84873"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/es_419_00060_1994.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/es_419_00060_1994.wav",
+          "raw_sha256": "8307f425a63f64c266d572b6f8707e3f7ed5da9184a2a4059560bf52b3342285",
+          "full_decoder_samples": 443520,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 443520,
+          "sha256": "6b9980204424d29d637ed1a3bcb19f2d2db7bd97131a68ab15f9a4e2405f8c80"
+        }
+      }
+    },
+    {
+      "uid": "es_419_00787_1941",
+      "language": "es_419",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/es_419/es_419_00787_1941.wav",
+      "reference_rate": 16000,
+      "reference_samples": 132480,
+      "reference_sha256": "3837a40716df887b350472ac501b18ac294ee88cac1778766125a3f6e5d129b1",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/es_419_00787_1941.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/es_419_00787_1941.wav",
+          "raw_sha256": "6399a95c805aa147fa1b5671d03a5c80fcaf24372615700145ffd6d931176f1e",
+          "full_decoder_samples": 397440,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 397440,
+          "sha256": "dd1e69314f722f3699387ae82a1e86be250430047c4ba52658058503e4707322"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/es_419_00787_1941.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/es_419_00787_1941.wav",
+          "raw_sha256": "c03872373c31323915fe3ea03a7a51224a678b84504ba5be3e0e16524d67126c",
+          "full_decoder_samples": 397440,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 397440,
+          "sha256": "55f83bf22a16b7bdbd55fb298daced23f2961d5124a9841f265654f358ab10ef"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/es_419_00787_1941.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/es_419_00787_1941.wav",
+          "raw_sha256": "34b08e5507eb1e9306eb3a14672ed7768a97d96d975f5cff941eb7b1fbfe0da0",
+          "full_decoder_samples": 397440,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 397440,
+          "sha256": "372751b5cb4e11fc2be60d66fcd7b5e292b3f00589dd00e70068efa1f91e1a95"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/es_419_00787_1941.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/es_419_00787_1941.wav",
+          "raw_sha256": "a7110317e0d59e568ddc1a1125c570ebaf59c9cba7e7b8a033d9f518cdfa6d11",
+          "full_decoder_samples": 397440,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 397440,
+          "sha256": "2a823ecafae8c4a0066435e49def2760ed22afa25643a6d3532c4453152a9868"
+        }
+      }
+    },
+    {
+      "uid": "es_419_00899_1738",
+      "language": "es_419",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/es_419/es_419_00899_1738.wav",
+      "reference_rate": 16000,
+      "reference_samples": 185280,
+      "reference_sha256": "ba967428ed166751e70094be2fe0009863441e589cadb7e81039ec627a38163c",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/es_419_00899_1738.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/es_419_00899_1738.wav",
+          "raw_sha256": "eda14d7ead22f212c84559d01b74dfc80b62a65bc5c4267b165a3abc8302b521",
+          "full_decoder_samples": 556800,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 555840,
+          "sha256": "bc152e6ef4b817178e72b4451a71ccaefef6e91c80e72f9b5fcbe9c60ffa52cb"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/es_419_00899_1738.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/es_419_00899_1738.wav",
+          "raw_sha256": "4155a05789cef20668526d5af7fc17b3eb0fc9887e4916fdb4fb1cf3531643f2",
+          "full_decoder_samples": 556800,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 555840,
+          "sha256": "a0b3507e0b7ca7fb6d9344c22eac7338e954ede1a17fdbfba3b6885c0062c614"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/es_419_00899_1738.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/es_419_00899_1738.wav",
+          "raw_sha256": "1ec30ecb1d88aa25fcf288777207827e52490aae6fb7b04ca3748df48a5d4faf",
+          "full_decoder_samples": 556800,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 555840,
+          "sha256": "874a7d57bc71b6d2aee4da4d7f26ca77a27c6dc263b78d03c9ed1315672b7ffe"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/es_419_00899_1738.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/es_419_00899_1738.wav",
+          "raw_sha256": "477d7076dda965c3cffdbe6b6ac0b998388221c6642543cee67965929bf638b3",
+          "full_decoder_samples": 556800,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 555840,
+          "sha256": "1ebf1cabce4439774c60fd53aac2fd383ee2fd7d2e28f627af3376dc10ae023b"
+        }
+      }
+    },
+    {
+      "uid": "fr_fr_00129_1717",
+      "language": "fr_fr",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/fr_fr/fr_fr_00129_1717.wav",
+      "reference_rate": 16000,
+      "reference_samples": 141120,
+      "reference_sha256": "3989fdedeaf5dc0f46563f56067cfcdaaf3379f1dce667f01a90be9b9812af19",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/fr_fr_00129_1717.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/fr_fr_00129_1717.wav",
+          "raw_sha256": "ff99f0b77d55d86b28b97855922efa6586afe7f8b84f3c64f09af2368213e810",
+          "full_decoder_samples": 424320,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 423360,
+          "sha256": "e3694750176d8e4fa6a538fa8c37c1d87c5e750eb06d4657b98f6ad2ed476091"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/fr_fr_00129_1717.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/fr_fr_00129_1717.wav",
+          "raw_sha256": "be307a596bb725e6fdbe6c927c669c9b27d6cb151ace53c398c1cbb4be066fa1",
+          "full_decoder_samples": 424320,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 423360,
+          "sha256": "5e5aafa34aab441b0f4de51c54545da24901e2b2863d684e482b0f65e6128d10"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/fr_fr_00129_1717.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/fr_fr_00129_1717.wav",
+          "raw_sha256": "f06819baa6fc50ce74627da76addc161f05f54aae91eab1bec0fea54d5a11a09",
+          "full_decoder_samples": 424320,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 423360,
+          "sha256": "55519b60b15f978ad743cb4a5adb6cbaba011a4fa82dc9a9c94b5866e0976ffe"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/fr_fr_00129_1717.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/fr_fr_00129_1717.wav",
+          "raw_sha256": "6130793bf196bd57bc06fced76c575a3b625afa0b1ae92446d71d86d49828e57",
+          "full_decoder_samples": 424320,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 423360,
+          "sha256": "186a38b93e628a908c55c7124cf79db26adba443dd5b861231d0e5780324209a"
+        }
+      }
+    },
+    {
+      "uid": "fr_fr_00374_1935",
+      "language": "fr_fr",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/fr_fr/fr_fr_00374_1935.wav",
+      "reference_rate": 16000,
+      "reference_samples": 88320,
+      "reference_sha256": "98271f728878f3957a317efd33e977dd4db63a66dc5289a68077ef035ba295a4",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/fr_fr_00374_1935.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/fr_fr_00374_1935.wav",
+          "raw_sha256": "b5fc8c74902c5fdf96170c898e384df769887bf3b43d0c882cc85892bcc83496",
+          "full_decoder_samples": 264960,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 264960,
+          "sha256": "482a6b898a241d338dc71f60f835da6c2ae2c595ebe2199b30e621ceb1dd3393"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/fr_fr_00374_1935.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/fr_fr_00374_1935.wav",
+          "raw_sha256": "e723bf916719a8d78dd1bc8f15bdb4154dba1ea902841d7c2c555c801d8a65a2",
+          "full_decoder_samples": 264960,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 264960,
+          "sha256": "b2d50861174cf6e33ed7909ea006ca039e73b7c34850c56ef080f8e7a74c7336"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/fr_fr_00374_1935.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/fr_fr_00374_1935.wav",
+          "raw_sha256": "1d06cade2393966192d96a62457f1933ad172502b9f493d981681d0602099245",
+          "full_decoder_samples": 264960,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 264960,
+          "sha256": "fb687179cfc7fb1558543712d5e1b298e8cc213e0c7d203f7f2313a839a831c4"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/fr_fr_00374_1935.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/fr_fr_00374_1935.wav",
+          "raw_sha256": "792eedfb0714626f196bac26e77f9d18cd2fa020c962ffc216d25e123bfdefe4",
+          "full_decoder_samples": 264960,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 264960,
+          "sha256": "70579c689661bd294f27afb89b60b3b4621b11b621c1bfd887b5159d30dd090c"
+        }
+      }
+    },
+    {
+      "uid": "fr_fr_00257_1874",
+      "language": "fr_fr",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/fr_fr/fr_fr_00257_1874.wav",
+      "reference_rate": 16000,
+      "reference_samples": 162240,
+      "reference_sha256": "e4171dc75571ae3e3c76d547e305a5e78fe0e1ed498442df91a807bb7fd31e5b",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/fr_fr_00257_1874.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/fr_fr_00257_1874.wav",
+          "raw_sha256": "a7bc6b1376a78eae6e0a6d0e3eb909f9ce67e4c44fe51ddccdc86ef8514d96be",
+          "full_decoder_samples": 487680,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 486720,
+          "sha256": "74247518d8374d6f3f10daa44cc2beb72a0b7f259366b2818d8090adb16563f0"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/fr_fr_00257_1874.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/fr_fr_00257_1874.wav",
+          "raw_sha256": "0569efb838c2e7ec680751e12dbb39a140a5b3a885917bfbb6510398b2d951b7",
+          "full_decoder_samples": 487680,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 486720,
+          "sha256": "ec1eaa51d5b5d815d9b2901bb1ac93d8e87b5bbc85c93aeff7f106122fb9d4f5"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/fr_fr_00257_1874.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/fr_fr_00257_1874.wav",
+          "raw_sha256": "1dfe5805f961b5931487ee02246c4576127f823696a61477d4b4cd39e24bdd4f",
+          "full_decoder_samples": 487680,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 486720,
+          "sha256": "1c1232425d2ca10a1767bcc9d9fb85c6444a41c9c4b2ddb3a430394f70a2ef31"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/fr_fr_00257_1874.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/fr_fr_00257_1874.wav",
+          "raw_sha256": "96360d4e2a746b6fb8f2451e650ce9c5fb05b909699c2f62133948cb48c31c57",
+          "full_decoder_samples": 487680,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 486720,
+          "sha256": "0793b8db3bcd6db039115e4fab46660522f1193991d1679f0d893f2a07d2b986"
+        }
+      }
+    },
+    {
+      "uid": "fr_fr_00045_1736",
+      "language": "fr_fr",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/fr_fr/fr_fr_00045_1736.wav",
+      "reference_rate": 16000,
+      "reference_samples": 67200,
+      "reference_sha256": "2f0133757337d49f83dc8dcc14e562d7154519955b296d2ba84bdfe58ab2eac9",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/fr_fr_00045_1736.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/fr_fr_00045_1736.wav",
+          "raw_sha256": "a41be4e16fe780a6d9f7de601cd935fa083f4afea296ac2391ec641a0ed7497a",
+          "full_decoder_samples": 201600,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 201600,
+          "sha256": "88a6c3c777da331e8d42100c43f50e860943429c8cda32b521aed58c5252e76e"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/fr_fr_00045_1736.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/fr_fr_00045_1736.wav",
+          "raw_sha256": "485c8e942b20d6da6d3aeec082e9a478db06ff7bed3e470b8f23bba36f59df49",
+          "full_decoder_samples": 201600,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 201600,
+          "sha256": "84e7020f9cc816821752d2dafc13bbabe1751fc5546e0e74de9126a31376e6db"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/fr_fr_00045_1736.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/fr_fr_00045_1736.wav",
+          "raw_sha256": "2d8da33bce12150981dde8da8a4e18b0fd8d06c77172b95027ade9aa69029d97",
+          "full_decoder_samples": 201600,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 201600,
+          "sha256": "0b46025058e267f9699e84db5fec5c78a810c2783f9efdcc9cdc682354540a87"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/fr_fr_00045_1736.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/fr_fr_00045_1736.wav",
+          "raw_sha256": "5e11d7d1e225e20c3c6cc1a0831ad614a6cab6f191ce04538c1732d3a7357f27",
+          "full_decoder_samples": 201600,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 201600,
+          "sha256": "cae8c46b6d6f3efaf22048e983f6ee6e494748a5f9ef1f2a1f9d34de05811dbb"
+        }
+      }
+    },
+    {
+      "uid": "fr_fr_00644_1660",
+      "language": "fr_fr",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/fr_fr/fr_fr_00644_1660.wav",
+      "reference_rate": 16000,
+      "reference_samples": 118080,
+      "reference_sha256": "0c3955f90560ac01688f52cc129f1eb9bfaf39df8d1547350adb5cdcc633596b",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/fr_fr_00644_1660.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/fr_fr_00644_1660.wav",
+          "raw_sha256": "c69f1b7d373d59a9d1055cc422be26eb412c1e204c4a8a2934f312896ac0981e",
+          "full_decoder_samples": 355200,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 354240,
+          "sha256": "256e8ded8df9acc49271436eae178f9e019959386db3acbd1678d9a1d2507780"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/fr_fr_00644_1660.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/fr_fr_00644_1660.wav",
+          "raw_sha256": "49957632ae3baa34b528e0e50bebed4e46b0f2159abe9c1b6d300fd013c3d5aa",
+          "full_decoder_samples": 355200,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 354240,
+          "sha256": "630e68084a57b98684354c89d16debfc2e990722ce4f040d4ea193e4f107e6e2"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/fr_fr_00644_1660.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/fr_fr_00644_1660.wav",
+          "raw_sha256": "59de42f747c990afef8708133fd6d1af617de89815a31f166ede57e415117f71",
+          "full_decoder_samples": 355200,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 354240,
+          "sha256": "a046251024e17d9fd69b837ba2d2ef722068960f30efffea94edc99cbefb98ab"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/fr_fr_00644_1660.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/fr_fr_00644_1660.wav",
+          "raw_sha256": "8d1fcc8cc2eb1ed9f90160abd107fbe3d89f33a03fc800437b86bf6002b079ae",
+          "full_decoder_samples": 355200,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 354240,
+          "sha256": "2f190b59de787e0e85fa1ef2009ca2d61b57feafa53fb7c8ac622a6d3aff89a2"
+        }
+      }
+    },
+    {
+      "uid": "fr_fr_00041_1714",
+      "language": "fr_fr",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/fr_fr/fr_fr_00041_1714.wav",
+      "reference_rate": 16000,
+      "reference_samples": 156480,
+      "reference_sha256": "6714cc5d2344dede31ced471db016a3955504530775fb2761340e1e903160e2d",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/fr_fr_00041_1714.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/fr_fr_00041_1714.wav",
+          "raw_sha256": "533cf6935e6f670ef14887b5c1559fd6399eb1fd227cb5683839a38362709ee9",
+          "full_decoder_samples": 470400,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 469440,
+          "sha256": "7e40d10ad24ed1af6f55ca508b68ad1e54fd930cd8b768a021cfe884a0c495fa"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/fr_fr_00041_1714.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/fr_fr_00041_1714.wav",
+          "raw_sha256": "00656bd0437d2f718220a04a857722bafbd4f66f3c008534b31a2bae268844d3",
+          "full_decoder_samples": 470400,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 469440,
+          "sha256": "4a5a635f1af1d52f54b1edad13cd77860c4d20d75e516adfaf11a7d5dfd51910"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/fr_fr_00041_1714.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/fr_fr_00041_1714.wav",
+          "raw_sha256": "15b151d2664f9437e459cfa95442b85a822e4828bed8f260831c0d0a4ead9e05",
+          "full_decoder_samples": 470400,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 469440,
+          "sha256": "545b39f30b599c5c5406535d6985696a1c9b064c27c777edaddcad0e077052bb"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/fr_fr_00041_1714.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/fr_fr_00041_1714.wav",
+          "raw_sha256": "8665e2af78a81691ad90faa165150295e4c29f2180d3b1f4bc7a6047b9a33343",
+          "full_decoder_samples": 470400,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 469440,
+          "sha256": "232cd02839644068d0214b214122904d3c9e34658a256f3701fc1da49423ff4e"
+        }
+      }
+    },
+    {
+      "uid": "pt_br_00672_1745",
+      "language": "pt_br",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/pt_br/pt_br_00672_1745.wav",
+      "reference_rate": 16000,
+      "reference_samples": 149760,
+      "reference_sha256": "6ecd8dc2bea71f372d6ab9fe5e9c7889736c5ac658097265a0839b7eac94da31",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/pt_br_00672_1745.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/pt_br_00672_1745.wav",
+          "raw_sha256": "60eaa6ad278f08ef13c0179cb2709d4680ee6adafe3d81f91f725f676de1ef53",
+          "full_decoder_samples": 449280,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 449280,
+          "sha256": "f0892834f11349bc63786cade8e6cfc3438ffb06f1dc3035611f74637b211f64"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/pt_br_00672_1745.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/pt_br_00672_1745.wav",
+          "raw_sha256": "f94d90a5f242f0a1cefee86a06fc7bc01471bc4e1e62006178f7d8f0756634a2",
+          "full_decoder_samples": 449280,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 449280,
+          "sha256": "82e30824a57d6f4dbdf7e168799221130e390e23be5ab56be9b1f1cb17e9d5a3"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/pt_br_00672_1745.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/pt_br_00672_1745.wav",
+          "raw_sha256": "e50eb6c685d8df2bf1d12255126858d4547e7c27dd7a25329c9851ab496b0903",
+          "full_decoder_samples": 449280,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 449280,
+          "sha256": "a73c0db5ed7104d4b44f49c4e7ffab227944e1df3e076c6f457568dde7506127"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/pt_br_00672_1745.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/pt_br_00672_1745.wav",
+          "raw_sha256": "037cbfc75dd61074642a55f766a51ec5bc04e0d3c726e560c938f3a333bc0bd4",
+          "full_decoder_samples": 449280,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 449280,
+          "sha256": "9d9d8cdc71da4623752627d9e96e6460dcc23ac7c45010e969951c509bfff591"
+        }
+      }
+    },
+    {
+      "uid": "pt_br_00499_1674",
+      "language": "pt_br",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/pt_br/pt_br_00499_1674.wav",
+      "reference_rate": 16000,
+      "reference_samples": 137280,
+      "reference_sha256": "4a73c944904dbc1282b4be2931e4482de5a288e7dc9526da50de918e92983b4b",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/pt_br_00499_1674.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/pt_br_00499_1674.wav",
+          "raw_sha256": "a7a1f588c283cadd69151b12413723993b52b3fbbc60b983b0bbcb44ca17f4fc",
+          "full_decoder_samples": 412800,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 411840,
+          "sha256": "cf36c6e7805f66e747a00b730d70a776c8c22d6a81a6ce70e8da550695a98f89"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/pt_br_00499_1674.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/pt_br_00499_1674.wav",
+          "raw_sha256": "8b6f2f6264f1eb28d156799e691f2a7d9676db1730412bac96863038f86ea5bf",
+          "full_decoder_samples": 412800,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 411840,
+          "sha256": "93ad29fdf429474580f2900aef748661f5f67a73545c4a0ed665f44bfdee003a"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/pt_br_00499_1674.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/pt_br_00499_1674.wav",
+          "raw_sha256": "166c00f79a7d470bfd89e99b495f5ab8529e7ec99f8e5dfd165e8fbf707673c8",
+          "full_decoder_samples": 412800,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 411840,
+          "sha256": "bfbf4d1d97a531c638422af160c54e48f6905c2a0415a932d514589211ccd264"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/pt_br_00499_1674.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/pt_br_00499_1674.wav",
+          "raw_sha256": "87c63f2f3c0eef32e1d8487a5d158a2c1f7a24fe6671b5526e9eb8c052b1ba99",
+          "full_decoder_samples": 412800,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 411840,
+          "sha256": "02f775637539820b0d276ca39d0121a0a18bdca74206ba58a79a874e0975ef76"
+        }
+      }
+    },
+    {
+      "uid": "pt_br_00046_2003",
+      "language": "pt_br",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/pt_br/pt_br_00046_2003.wav",
+      "reference_rate": 16000,
+      "reference_samples": 184320,
+      "reference_sha256": "d1eb532c039982c553e0bf6f48a93eead3b16bba528a2617b1b4277a151ac6b4",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/pt_br_00046_2003.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/pt_br_00046_2003.wav",
+          "raw_sha256": "81e630d79330f9420295af5a0a014f6311734bf73f75912608d3de10b07dfe2c",
+          "full_decoder_samples": 552960,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 552960,
+          "sha256": "1e060b1ab98b09ed44b611a98af006fbcfaf217951d0fa8ae6ecd7256632656f"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/pt_br_00046_2003.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/pt_br_00046_2003.wav",
+          "raw_sha256": "95b3912f684535b85544ab8ca6eff916840e29002ae9a148b4fabb706fc2e9f5",
+          "full_decoder_samples": 552960,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 552960,
+          "sha256": "d6e09e4c0cdec87a558fc5c99cb6691cd235d0b18406873f17acb268bb75d673"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/pt_br_00046_2003.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/pt_br_00046_2003.wav",
+          "raw_sha256": "eb4f8a26b242671048b054e7e31bcb8de20594dbcf967a178cf2d0452aa7e1a1",
+          "full_decoder_samples": 552960,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 552960,
+          "sha256": "8c93171e14c09a49516ccc22283723d66cedde92f5840da765b5529022c23564"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/pt_br_00046_2003.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/pt_br_00046_2003.wav",
+          "raw_sha256": "d40f4be57682bf4a4153e038269aadd925707a1145ab2774c98f5725f0d39d61",
+          "full_decoder_samples": 552960,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 552960,
+          "sha256": "1bef7ddba5f974c4215cb9d60b4e232986ed8efdd4f74e05519294e26be8ab81"
+        }
+      }
+    },
+    {
+      "uid": "pt_br_00031_1676",
+      "language": "pt_br",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/pt_br/pt_br_00031_1676.wav",
+      "reference_rate": 16000,
+      "reference_samples": 145920,
+      "reference_sha256": "13816c2d425f4ded2b339619d7027dbcab73df0595b994a10271fe1cf3c00bdf",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/pt_br_00031_1676.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/pt_br_00031_1676.wav",
+          "raw_sha256": "d7e6be07bbe84d26e83e5d31bc9703d4522717feee75c62c990c0ef4386521e1",
+          "full_decoder_samples": 437760,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 437760,
+          "sha256": "d1f5dd4b5c50d22d776943fe7daae67a7928014d2fdbca81e9d30b97ebe84de1"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/pt_br_00031_1676.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/pt_br_00031_1676.wav",
+          "raw_sha256": "b3fe14b22e090083790ca8d1fb419eec96c686630d1d07ee54440ebfde3da003",
+          "full_decoder_samples": 437760,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 437760,
+          "sha256": "2fcc49ea965a938881ed69cc3ffb4f2342b383f1b9f77b4b4f66e3368bd676e7"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/pt_br_00031_1676.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/pt_br_00031_1676.wav",
+          "raw_sha256": "122532c37fa983fc4718af1627d7c215cf4b47d6c66bb9b03594e0c11c262678",
+          "full_decoder_samples": 437760,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 437760,
+          "sha256": "8251e42cf313e50536df26496d073603830cb5da69c186d9403f8ba7ec35d36b"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/pt_br_00031_1676.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/pt_br_00031_1676.wav",
+          "raw_sha256": "9138c333573586e5809234f9e0f39775b5d9a4573eb4b96610272f0a1b066a1f",
+          "full_decoder_samples": 437760,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 437760,
+          "sha256": "b5c1b4d9b1a2d43b4e90711cfd22e4ee6bf3b72f4c3fa419e5ae13a72d32c990"
+        }
+      }
+    },
+    {
+      "uid": "pt_br_00677_1747",
+      "language": "pt_br",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/pt_br/pt_br_00677_1747.wav",
+      "reference_rate": 16000,
+      "reference_samples": 106560,
+      "reference_sha256": "9d890d67018f9123bcd6447ea7eeeafe01efdd1276684ce3b40390d3c808ab6b",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/pt_br_00677_1747.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/pt_br_00677_1747.wav",
+          "raw_sha256": "ef150a42d588b0acf38cc3ee9b1732c43646b4a16e7ece229cb5081cf9ccacae",
+          "full_decoder_samples": 320640,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 319680,
+          "sha256": "57b47ab6179dff286207859e5ab42841e79571605d1a3de119739a92e0c965d4"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/pt_br_00677_1747.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/pt_br_00677_1747.wav",
+          "raw_sha256": "e7f0b1b06fbd8606d08e83a2f8d744ce99a1b15426df112d70380c1170ae9bf6",
+          "full_decoder_samples": 320640,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 319680,
+          "sha256": "f429a570f31c93facb09da94c95ec5f00d494ecc7e74cc13d98c4009496a78cc"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/pt_br_00677_1747.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/pt_br_00677_1747.wav",
+          "raw_sha256": "0a0346f3f44b533f1034e7c447ce475d8fff19fcbc903ff4581933c6902a091e",
+          "full_decoder_samples": 320640,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 319680,
+          "sha256": "ad9d90afd7ef53e7caf62740dc648374832e50b9af443682d7f0b0d1d7063a2d"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/pt_br_00677_1747.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/pt_br_00677_1747.wav",
+          "raw_sha256": "4e81911938a88a1e33d6cf2b77eacab75587d32b36c98f30575bdd4bee635f66",
+          "full_decoder_samples": 320640,
+          "right_padding_removed_samples": 960,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 319680,
+          "sha256": "e2386209e3aad37f7ab99224797e2d258ba518272aa7ad5cf63db74a8c0bc2b1"
+        }
+      }
+    },
+    {
+      "uid": "pt_br_00325_1975",
+      "language": "pt_br",
+      "reference_path": "<workspace>/work/fleurs-multilingual/audio/pt_br/pt_br_00325_1975.wav",
+      "reference_rate": 16000,
+      "reference_samples": 163200,
+      "reference_sha256": "09eea7dd67686b8a0d2f52be6f45cf94dbf91897bf100e298899e9b123b271e5",
+      "outputs": {
+        "fast_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/fast_fp32/pt_br_00325_1975.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/fast_fp32/pt_br_00325_1975.wav",
+          "raw_sha256": "d6dc52ac2db1d42fa48734707b372e1218d867a4038dfc917f6539b8350125f9",
+          "full_decoder_samples": 489600,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 489600,
+          "sha256": "8a985fa875724593d55e6ff32b2a59d772bbf12f1987dbdf71499c550d50540a"
+        },
+        "int8_all": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_all/pt_br_00325_1975.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_all/pt_br_00325_1975.wav",
+          "raw_sha256": "58e55a30f95471db17a082559c563dca779ea2c9066eee5e9f2406eb0c501c42",
+          "full_decoder_samples": 489600,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 489600,
+          "sha256": "343bc784338402192a56f031b023cfe2dd5ca74a8c271bc543be2d743745e90e"
+        },
+        "int8_large": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/int8_large/pt_br_00325_1975.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/int8_large/pt_br_00325_1975.wav",
+          "raw_sha256": "8c13efe8ae0e242a151cfd6aaaee56206e84bd9606dfd48ff445e95d86600ede",
+          "full_decoder_samples": 489600,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 489600,
+          "sha256": "4db6334eecdbc454d225a815cfb0af0a9f2c7f22d2b7b171433aec76e94f22da"
+        },
+        "stock_fp32": {
+          "path": "<workspace>/work/intel-precision/quality/comparison-waveforms/stock_fp32/pt_br_00325_1975.wav",
+          "raw_path": "<workspace>/work/intel-precision/campaign/wavs/stock_fp32/pt_br_00325_1975.wav",
+          "raw_sha256": "dd8da0a8c2dc0a6a56a6d9a67c735ed206e06ac42257aa7eafec7cdd2e6f8bf6",
+          "full_decoder_samples": 489600,
+          "right_padding_removed_samples": 0,
+          "trim_policy": "Known AudioVAE2 640-input/1920-output hop; left trim zero",
+          "sample_rate": 48000,
+          "samples": 489600,
+          "sha256": "1c13add41adc1202e81db49306a74de24dcf3f0998f2ff783bc3d1c27ad3d3da"
+        }
+      }
+    }
+  ],
+  "protocol": {
+    "purpose": "Precision comparison on exactly paired frozen source clips",
+    "baseline": "fast_fp32",
+    "normalization": "None",
+    "alignment": "Start aligned; pretrimmed known right padding only",
+    "metric_definition": "Unchanged pinned quality-comparison/score.py and metrics.py",
+    "cpu_only": true,
+    "threads": 2,
+    "native_differences": "No resampling, gain fit or alignment",
+    "codec_inference": false,
+    "codec_timing": false
+  },
+  "preparation": {
+    "sources_manifest": "<workspace>/work/codec-quality-inputs/manifest.json",
+    "sources_manifest_sha256": "cf0e74aba33517a3fced4268873b6f28d176413398eeb9affb2b413e0bbf417b",
+    "source_identities_sha256": "829b8070356f2dd37c65abee1d19b4445b2a3b4769055f623af7bac431e599bb",
+    "wrapper_sha256": "d0e406d77de02cde7476d2aef43c2b79543a9accc19153140b2f8e2dc507574e"
+  }
+}

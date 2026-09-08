@@ -1,0 +1,25 @@
+{
+  "status": "source_prepared",
+  "compiled": false,
+  "inference_executed": false,
+  "baseline_core_sha256": "f223ebebe63ca9ffaf54821ee541e2f37afce37bae74905a1bad4b8ef6d6c88d",
+  "public_header_sha256": "4abb9adf521aacd26ea0d2db783ff17c9e56791d44ff09f63ba00698c056e9b6",
+  "patch_script_sha256": "1a17e4302e60e524159ded9077688eea33aaebfd9d5d53d02e7ca18be921ef47",
+  "direct_kernel_sha256": "96792f107d35f11cc84b592384b93be531f9803e862ee153cc21248a0fbe928e",
+  "changes": [
+    "internal header",
+    "workspace private capacity",
+    "bounded packed activation allocation",
+    "allocation accounting",
+    "invalidate packed state before preparation",
+    "pack unchanged quantized activation once",
+    "guarded workspace dispatch with unchanged MKL fallback"
+  ],
+  "output_sha256": {
+    "precision.cpp": "629967d046b8ede6054303c344621a4e62432f0d191f5980ae6c383332123bb6",
+    "precision.h": "4abb9adf521aacd26ea0d2db783ff17c9e56791d44ff09f63ba00698c056e9b6",
+    "direct_vnni.h": "96792f107d35f11cc84b592384b93be531f9803e862ee153cc21248a0fbe928e"
+  },
+  "scope": "Only small INT8 workspace calls; ordinary prepare/run_rows, FP16 and fallback kernels are unchanged",
+  "extra_workspace_capacity_bytes_maximum": 65536
+}

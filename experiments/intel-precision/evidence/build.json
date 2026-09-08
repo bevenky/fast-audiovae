@@ -1,0 +1,99 @@
+{
+  "scope": "Larger ordinary-W8A8 GEMM and fixed64 FP16-rounded operand candidate",
+  "integer_geometry": "MR2048/NT512 ordinary GEMM, <=4MiB INT32 scratch per callback",
+  "half_compute": "64x64 aligned padded FP32 SGEMM; half-rounded operands, FP32 accumulation/output",
+  "GPU_used": false,
+  "native_execution": false,
+  "ORT_API": 29,
+  "sources": {
+    "precision.h": "c8758086e9346c1522802d86ea9be59a067fe0bc5e9702560c435b0960724ac0",
+    "precision.cpp": "95eeddad1153679fc0582896b965ad088100f7d1c0abc43b33587421adf4b9e3",
+    "custom_op.cpp": "b1f927d37804cf874a2e40e8fac0d2bfc31247cac675319a7869c905d9b6ae23",
+    "build.py": "0167c0e441b7c83ee44820a7bae550be2f09ce67d5970e028c6462e4fd17d2fb",
+    "check_micro.py": "bc3f05d0ca2021914c4729fa3c93ee05b6f5e29a824be17ae8c834bdcb2d1553",
+    "check_candidate.py": "0cd72f8d44a8987edf3cafc686df199dcdb3b019130abfa4dd843475a37d28ad",
+    "check_half_fixed.py": "70f37a3b44e7228827a2ffe3ceb02907a0996765f48588e42ad01fedf6b1b96e"
+  },
+  "mkl_header_sha256": {
+    "mkl_cblas.h": "12100f333cbca07387ca3e9e51092e17f3af05f3a8aa1d93cab1b1e8420f0ec5",
+    "mkl_service.h": "02ff230034b626727576886decbdce2a01b76728e59b9d708e884d5bd153e2c7",
+    "mkl_types.h": "0039030497854ba329fe20f6a89bef50c9ab3901f44a1aaef39fbc842a1a0cc4",
+    "mkl_version.h": "ad8144d3ca6212c5e45e8ed69bb76f71a318ed5aebdbe7fc1982790249452a03"
+  },
+  "mkl_library_sha256": {
+    "libmkl_avx2.so.3": "9acbe1a76b73007d7a4b978d30aed3f5d39b7ade386e90f7752c2a3d539ee0d0",
+    "libmkl_avx512.so.3": "2814ba3be2ac299a27205b7a1fc7e09a363c28967782dfa861cf4a0c428592c6",
+    "libmkl_core.so.3": "b4f086651ee5a8471140d53fedfdbbaba606287784763b0739f282872c31aa9b",
+    "libmkl_def.so.3": "4bc51353a8473a08f18fabefdf5ab79efd98dbf337e2913a23d215748a780782",
+    "libmkl_intel_lp64.so.3": "9dbdb7d4193679f028787da6b9b2b545e0e16b87a95a64ee7318f544da8b08ac",
+    "libmkl_mc3.so.3": "88e3ad1d94ba6d21ceeab6e817c0538457cf22e4113f3bb854bc52b3caf6b555",
+    "libmkl_sequential.so.3": "4e7ff529bec90a1b0ce70299258a64a2ebae7a5a6f3ec031306a6ddb39b5a650",
+    "libmkl_vml_avx2.so.3": "707ab79a97ab3d07d0e337bbc78383c2bde925f18d54acf930b2fd110550ed27",
+    "libmkl_vml_avx512.so.3": "95c52c71bf47711ee776a5dcd9225a5d11289c9333b63ff1fd260c4e801ecda9",
+    "libmkl_vml_def.so.3": "5a68d0cce4a69bdbdfdfbfdf00388e3a0ed1a0d9899b202f4e9cd8f07cc727a3",
+    "libmkl_vml_mc3.so.3": "6d19dfa399ccf86b1aa406b71592c6531ecff4b0bf084e2c3240ee39902e8113"
+  },
+  "mkl_pins_sha256": "0d064597b74ef5b6a6b46d2eea2dbf4283c1bb327699003e302df0082a3bd428",
+  "ort_headers": {
+    "onnxruntime_c_api.h": "acc0cf4b3f28d39339c76770d76164bb7a0637dc89f5fde764b4017b632f6743",
+    "onnxruntime_cxx_api.h": "9c63ed5bf0427ddf1c10a99aca0beeec77318ce77d2ea6f7ae76d7d933660f67",
+    "onnxruntime_cxx_inline.h": "c508dbb7d8203003a2584b8712118cb88e5b4ef1e1c7876a9974156fb7489301",
+    "onnxruntime_ep_c_api.h": "e6c986c9e98583f8113b2c6bc3864814883b806d501cf24da4d239c45753e235",
+    "onnxruntime_error_code.h": "5ce3b054e798eced8d14f5b86e98692fd33470463f96194ce0700a2d53dd8721",
+    "onnxruntime_float16.h": "88b242845d25981633a0bbd1c148e273cf8bfb016ea3f57c4af41a06530f72b0"
+  },
+  "commands": [
+    [
+      "g++",
+      "-shared",
+      "-fPIC",
+      "-O3",
+      "-std=c++17",
+      "-fno-fast-math",
+      "-ffp-contract=off",
+      "-fvisibility=hidden",
+      "native/precision.cpp",
+      "-DIP_WITH_MKL=1",
+      "-I<MKL_INCLUDE>",
+      "-Wl,--no-as-needed",
+      "<MKL_LIBRARY_DIR>/libmkl_intel_lp64.so.3",
+      "<MKL_LIBRARY_DIR>/libmkl_sequential.so.3",
+      "<MKL_LIBRARY_DIR>/libmkl_core.so.3",
+      "-Wl,-rpath,<MKL_LIBRARY_DIR>",
+      "-Wl,--disable-new-dtags",
+      "-lpthread",
+      "-lm",
+      "-ldl",
+      "-o",
+      "historical-build/libintel_precision_core.so"
+    ],
+    [
+      "g++",
+      "-shared",
+      "-fPIC",
+      "-O3",
+      "-std=c++17",
+      "-fno-fast-math",
+      "-ffp-contract=off",
+      "-fvisibility=hidden",
+      "-I<ORT_INCLUDE>",
+      "native/custom_op.cpp",
+      "historical-build/libintel_precision_core.so",
+      "-Wl,-rpath,$ORIGIN",
+      "-Wl,-Bsymbolic-functions",
+      "-o",
+      "historical-build/libintel_precision_ops.so"
+    ]
+  ],
+  "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "libraries": {
+    "libintel_precision_core.so": "cdf177421522690c61ea6df833c560ca7f49daf61433623d33bdb48961b21db4",
+    "libintel_precision_ops.so": "41209af17f5f3e5ac1173bcfa32c9e014e5f6257fd8ad7e446a9d7872d196858"
+  },
+  "core_path": "historical-build/libintel_precision_core.so",
+  "ops_path": "historical-build/libintel_precision_ops.so",
+  "public_copy": {
+    "original_sha256": "c3bf09d902645d0f3099ebe36dde61ce8337cba3c6f95b6adbf695b706c4fc77",
+    "transformation": "Replace machine-specific build/include/library path prefixes with symbolic paths; all hashes, compiler, flags and numerical evidence unchanged"
+  }
+}

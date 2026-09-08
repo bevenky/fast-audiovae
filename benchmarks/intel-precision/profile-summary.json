@@ -1,0 +1,1567 @@
+{
+  "scope": "Three CPU profiling runs, not headline RTF; original config and kernels unchanged",
+  "status": "complete",
+  "uid": "hi_in_00099_1919",
+  "latent_shape": [
+    1,
+    64,
+    255
+  ],
+  "generated_seconds": 10.2,
+  "threads": 2,
+  "affinity": [
+    0,
+    1
+  ],
+  "reports": {
+    "fast-fp32-profile.json": {
+      "sha256": "973cc30853fda7e4982ef6abeb92dc58024e4954c11657ab036008e306e367c9",
+      "raw_profile_sha256": "07e85cb1eca1c9dd539bb85c7a1a8d3c66da61775844f60489544402a8184e3f",
+      "all_gates_passed": true
+    },
+    "int8-large-profile.json": {
+      "sha256": "f0a055fcb5d7131db3ae9202a9816da4e64ee3e9f2ae2d18dd45d5d99a6a889a",
+      "raw_profile_sha256": "0efbb4e9a76c5dd3423db1d33b2cb8973c7cddc34f796653d59cb62909a19f55",
+      "all_gates_passed": true
+    },
+    "int8-large-native-profile.json": {
+      "sha256": "0e7fd8472d1901fd12fac05e6a1a097bace7e6952edfb5a7877bacf1771d25fe",
+      "raw_profile_sha256": "411cf12f8e465f7b8913668c9f2bf8ba14dd18a22c74a897735ff6a7633aee31",
+      "all_gates_passed": true
+    }
+  },
+  "helper_provenance": {
+    "scope": "Isolated missing diagnostic helper for the existing frozen profile runners",
+    "source_path": "work/fast-audiovae/benchmarks/diagnose_cpu.py",
+    "helper_sha256": "d114e258059b22785afc567871e0e6ae3e15b6c613bbdb40a10fc49836ad88df",
+    "source_launcher_sha256": "45a6ed41b2b552a0d48ee146b5c11d5f7b9b8f817360145142a3f73b8aa2f168",
+    "launcher_sha256": "6164a412fb4316292c8385b6bf8acbfb66802e5dc4fe2000cf2db53b8976370b",
+    "profile_precision_sha256": "cc323812d88cd3242403e14f5c54861dbd21e015e4149f7c5b416288842131c3",
+    "profile_precision_probe_sha256": "26c5aca757312829f8b4da4334c20c1958a7c20909bdeda4b3f0b843637e0868",
+    "gpu_used": false,
+    "core_or_graph_changed": false
+  },
+  "helper_and_launcher_hashes_verified_after": true,
+  "int8_operators": [
+    {
+      "op_name": "StageStackF32",
+      "calls": 9,
+      "mean_us_per_model_call": 607658.0,
+      "percent_of_selected_kernel_time": 35.8824825048259
+    },
+    {
+      "op_name": "PrecisionMatMulF32",
+      "calls": 42,
+      "mean_us_per_model_call": 402300.0,
+      "percent_of_selected_kernel_time": 23.755998788284625
+    },
+    {
+      "op_name": "UpsampleStageF32",
+      "calls": 3,
+      "mean_us_per_model_call": 292328.0,
+      "percent_of_selected_kernel_time": 17.262101948251722
+    },
+    {
+      "op_name": "SnakeF32",
+      "calls": 21,
+      "mean_us_per_model_call": 87736.0,
+      "percent_of_selected_kernel_time": 5.180850881652846
+    },
+    {
+      "op_name": "MatMul",
+      "calls": 9,
+      "mean_us_per_model_call": 62437.0,
+      "percent_of_selected_kernel_time": 3.6869333739600476
+    },
+    {
+      "op_name": "SnakeDW7SnakeF32",
+      "calls": 18,
+      "mean_us_per_model_call": 62129.0,
+      "percent_of_selected_kernel_time": 3.6687458332521388
+    },
+    {
+      "op_name": "PhaseSumBiasInterleaveF32",
+      "calls": 15,
+      "mean_us_per_model_call": 51388.333333333336,
+      "percent_of_selected_kernel_time": 3.03450455977786
+    },
+    {
+      "op_name": "Mul",
+      "calls": 36,
+      "mean_us_per_model_call": 36442.0,
+      "percent_of_selected_kernel_time": 2.151916748303923
+    },
+    {
+      "op_name": "Add",
+      "calls": 21,
+      "mean_us_per_model_call": 35304.333333333336,
+      "percent_of_selected_kernel_time": 2.084737011901226
+    },
+    {
+      "op_name": "FusedConv",
+      "calls": 3,
+      "mean_us_per_model_call": 32058.333333333332,
+      "percent_of_selected_kernel_time": 1.8930592289860584
+    },
+    {
+      "op_name": "BiasResidualF32",
+      "calls": 18,
+      "mean_us_per_model_call": 22916.0,
+      "percent_of_selected_kernel_time": 1.3532002690338814
+    },
+    {
+      "op_name": "Reshape",
+      "calls": 93,
+      "mean_us_per_model_call": 548.0,
+      "percent_of_selected_kernel_time": 0.032359650350434935
+    },
+    {
+      "op_name": "Concat",
+      "calls": 18,
+      "mean_us_per_model_call": 106.33333333333333,
+      "percent_of_selected_kernel_time": 0.006279031911063713
+    },
+    {
+      "op_name": "CausalDW7F32",
+      "calls": 3,
+      "mean_us_per_model_call": 78.66666666666667,
+      "percent_of_selected_kernel_time": 0.004645302605050271
+    },
+    {
+      "op_name": "Shape",
+      "calls": 3,
+      "mean_us_per_model_call": 27.333333333333332,
+      "percent_of_selected_kernel_time": 0.0016140458203988228
+    },
+    {
+      "op_name": "Squeeze",
+      "calls": 3,
+      "mean_us_per_model_call": 9.666666666666666,
+      "percent_of_selected_kernel_time": 0.0005708210828239739
+    }
+  ],
+  "native_counter_means": {
+    "abi": 1,
+    "fields": 20,
+    "enabled": 0,
+    "active": 0,
+    "prepare_calls": 4567,
+    "prepare_ns": 171815627.66666666,
+    "prepare_failures": 0,
+    "row_calls": 5539,
+    "row_ns": 959510337.6666666,
+    "row_failures": 0,
+    "gemm_calls": 6759,
+    "gemm_ns": 762630036.6666666,
+    "nested_gemm_calls": 6759,
+    "nested_gemm_ns": 762630036.6666666,
+    "outside_row_gemm_calls": 0,
+    "outside_row_gemm_ns": 0,
+    "clock_errors": 0,
+    "resolution_errors": 0,
+    "control_errors": 0,
+    "resolved": 1,
+    "row_remainder_ns": 196880301
+  },
+  "native_mean_profiled_wrapper_wall_ms": 1720.1554883333333,
+  "native_time_semantics": "Nanoseconds summed across worker calls; overlapping worker times are not wall shares",
+  "int8_kernel_sum_to_wrapper_wall_ratio": 0.9991989786588282,
+  "ceilings": {
+    "all_preparation_zero_time_optimistic_fraction": 0.09988377727012318,
+    "all_row_remainder_zero_time_optimistic_fraction": 0.11445494452990308,
+    "all_GEMM_2x_optimistic_no_overlap_fraction": 0.22167473866144,
+    "all_GEMM_2x_balanced_two_worker_scenario_fraction": 0.11083736933072,
+    "four_late_regions_kernel_fraction": 0.5314458445307763,
+    "late_region_reduction_needed_for_20_percent_total": 0.376331854051063,
+    "late_region_speedup_needed_for_20_percent_total": 1.6034168275156306
+  },
+  "caveat": "All ceilings are idealized attribution bounds, not predicted improvements. GEMM overlap cannot be recovered from aggregate counters; late-region kernel events do not separate matrix/Snake/DW/copy time.",
+  "headline_rtf_updated": false,
+  "new_kernel_changes": false,
+  "GPU_used": false,
+  "top_int8_nodes": [
+    {
+      "name": "upsample_stage_c128_kernel_time",
+      "op_name": "UpsampleStageF32",
+      "calls": 3,
+      "run_duration_us": [
+        293254.0,
+        294766.0,
+        288964.0
+      ],
+      "input_type_shape": [
+        {
+          "float": [
+            1,
+            256,
+            61200
+          ]
+        },
+        {
+          "float": [
+            256,
+            256
+          ]
+        },
+        {
+          "float": [
+            256,
+            256
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128,
+            128
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128,
+            128
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128,
+            128
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        }
+      ],
+      "output_type_shape": [
+        {
+          "float": [
+            1,
+            128,
+            122400
+          ]
+        }
+      ],
+      "activation_size": "62668800",
+      "parameter_size": "741376",
+      "output_size": "62668800",
+      "provider": "CPUExecutionProvider",
+      "node_index": "76",
+      "sum_duration_us": 876984.0,
+      "mean_us_per_model_call": 292328.0,
+      "median_us_per_model_call": 293254.0,
+      "percent_of_selected_kernel_time": 17.262101948251722
+    },
+    {
+      "name": "sp_stage_c256_kernel_time",
+      "op_name": "StageStackF32",
+      "calls": 3,
+      "run_duration_us": [
+        240154.0,
+        238778.0,
+        235782.0
+      ],
+      "input_type_shape": [
+        {
+          "float": [
+            1,
+            256,
+            61200
+          ]
+        },
+        {
+          "float": [
+            256,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        },
+        {
+          "float": [
+            256,
+            256
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        },
+        {
+          "float": [
+            256,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        },
+        {
+          "float": [
+            256,
+            256
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        },
+        {
+          "float": [
+            256,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        },
+        {
+          "float": [
+            256,
+            256
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        }
+      ],
+      "output_type_shape": [
+        {
+          "float": [
+            1,
+            256,
+            61200
+          ]
+        }
+      ],
+      "activation_size": "62668800",
+      "parameter_size": "826368",
+      "output_size": "62668800",
+      "provider": "CPUExecutionProvider",
+      "node_index": "67",
+      "sum_duration_us": 714714.0,
+      "mean_us_per_model_call": 238238.0,
+      "median_us_per_model_call": 238778.0,
+      "percent_of_selected_kernel_time": 14.068062737567368
+    },
+    {
+      "name": "sp_stage_c64_kernel_time",
+      "op_name": "StageStackF32",
+      "calls": 3,
+      "run_duration_us": [
+        197990.0,
+        200694.0,
+        200963.0
+      ],
+      "input_type_shape": [
+        {
+          "float": [
+            1,
+            64,
+            244800
+          ]
+        },
+        {
+          "float": [
+            64,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            64,
+            64
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            64,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            64,
+            64
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            64,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            64,
+            64
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        }
+      ],
+      "output_type_shape": [
+        {
+          "float": [
+            1,
+            64,
+            244800
+          ]
+        }
+      ],
+      "activation_size": "62668800",
+      "parameter_size": "59136",
+      "output_size": "62668800",
+      "provider": "CPUExecutionProvider",
+      "node_index": "88",
+      "sum_duration_us": 599647.0,
+      "mean_us_per_model_call": 199882.33333333334,
+      "median_us_per_model_call": 200694.0,
+      "percent_of_selected_kernel_time": 11.803143098349913
+    },
+    {
+      "name": "sp_stage_c32_kernel_time",
+      "op_name": "StageStackF32",
+      "calls": 3,
+      "run_duration_us": [
+        170034.0,
+        167999.0,
+        170580.0
+      ],
+      "input_type_shape": [
+        {
+          "float": [
+            1,
+            32,
+            489600
+          ]
+        },
+        {
+          "float": [
+            32,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            32,
+            32
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            32,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            32,
+            32
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            32,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            32,
+            32
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        }
+      ],
+      "output_type_shape": [
+        {
+          "float": [
+            1,
+            32,
+            489600
+          ]
+        }
+      ],
+      "activation_size": "62668800",
+      "parameter_size": "17280",
+      "output_size": "62668800",
+      "provider": "CPUExecutionProvider",
+      "node_index": "100",
+      "sum_duration_us": 508613.0,
+      "mean_us_per_model_call": 169537.66666666666,
+      "median_us_per_model_call": 170034.0,
+      "percent_of_selected_kernel_time": 10.011276668908616
+    },
+    {
+      "name": "ncc_up_3_split_matmul_previous_unshifted_node_kernel_time",
+      "op_name": "PrecisionMatMulF32",
+      "calls": 3,
+      "run_duration_us": [
+        54967.0,
+        48777.0,
+        47901.0
+      ],
+      "input_type_shape": [
+        {
+          "float": [
+            1280,
+            512
+          ]
+        },
+        {
+          "float": [
+            1,
+            512,
+            12240
+          ]
+        }
+      ],
+      "output_type_shape": [
+        {
+          "float": [
+            1,
+            1280,
+            12240
+          ]
+        }
+      ],
+      "activation_size": "25067520",
+      "parameter_size": "2621440",
+      "output_size": "62668800",
+      "provider": "CPUExecutionProvider",
+      "node_index": "62",
+      "sum_duration_us": 151645.0,
+      "mean_us_per_model_call": 50548.333333333336,
+      "median_us_per_model_call": 48777.0,
+      "percent_of_selected_kernel_time": 2.984902176029018
+    },
+    {
+      "name": "ncc_up_3_split_matmul_current_node_kernel_time",
+      "op_name": "PrecisionMatMulF32",
+      "calls": 3,
+      "run_duration_us": [
+        47916.0,
+        48834.0,
+        47072.0
+      ],
+      "input_type_shape": [
+        {
+          "float": [
+            1280,
+            512
+          ]
+        },
+        {
+          "float": [
+            1,
+            512,
+            12240
+          ]
+        }
+      ],
+      "output_type_shape": [
+        {
+          "float": [
+            1,
+            1280,
+            12240
+          ]
+        }
+      ],
+      "activation_size": "25067520",
+      "parameter_size": "2621440",
+      "output_size": "62668800",
+      "provider": "CPUExecutionProvider",
+      "node_index": "61",
+      "sum_duration_us": 143822.0,
+      "mean_us_per_model_call": 47940.666666666664,
+      "median_us_per_model_call": 47916.0,
+      "percent_of_selected_kernel_time": 2.8309182680658473
+    },
+    {
+      "name": "ncc_up_5_split_matmul_previous_unshifted_node_kernel_time",
+      "op_name": "PrecisionMatMulF32",
+      "calls": 3,
+      "run_duration_us": [
+        40348.0,
+        40229.0,
+        39608.0
+      ],
+      "input_type_shape": [
+        {
+          "float": [
+            128,
+            128
+          ]
+        },
+        {
+          "float": [
+            1,
+            128,
+            122400
+          ]
+        }
+      ],
+      "output_type_shape": [
+        {
+          "float": [
+            1,
+            128,
+            122400
+          ]
+        }
+      ],
+      "activation_size": "62668800",
+      "parameter_size": "65536",
+      "output_size": "62668800",
+      "provider": "CPUExecutionProvider",
+      "node_index": "83",
+      "sum_duration_us": 120185.0,
+      "mean_us_per_model_call": 40061.666666666664,
+      "median_us_per_model_call": 40229.0,
+      "percent_of_selected_kernel_time": 2.3656597185930797
+    },
+    {
+      "name": "ncc_up_5_split_matmul_current_node_kernel_time",
+      "op_name": "PrecisionMatMulF32",
+      "calls": 3,
+      "run_duration_us": [
+        38901.0,
+        38712.0,
+        38529.0
+      ],
+      "input_type_shape": [
+        {
+          "float": [
+            128,
+            128
+          ]
+        },
+        {
+          "float": [
+            1,
+            128,
+            122400
+          ]
+        }
+      ],
+      "output_type_shape": [
+        {
+          "float": [
+            1,
+            128,
+            122400
+          ]
+        }
+      ],
+      "activation_size": "62668800",
+      "parameter_size": "65536",
+      "output_size": "62668800",
+      "provider": "CPUExecutionProvider",
+      "node_index": "82",
+      "sum_duration_us": 116142.0,
+      "mean_us_per_model_call": 38714.0,
+      "median_us_per_model_call": 38712.0,
+      "percent_of_selected_kernel_time": 2.2860793862531716
+    },
+    {
+      "name": "ncc_up_2_split_matmul_previous_unshifted_node_kernel_time",
+      "op_name": "PrecisionMatMulF32",
+      "calls": 3,
+      "run_duration_us": [
+        31808.0,
+        33736.0,
+        31084.0
+      ],
+      "input_type_shape": [
+        {
+          "float": [
+            3072,
+            1024
+          ]
+        },
+        {
+          "float": [
+            1,
+            1024,
+            2040
+          ]
+        }
+      ],
+      "output_type_shape": [
+        {
+          "float": [
+            1,
+            3072,
+            2040
+          ]
+        }
+      ],
+      "activation_size": "8355840",
+      "parameter_size": "12582912",
+      "output_size": "25067520",
+      "provider": "CPUExecutionProvider",
+      "node_index": "36",
+      "sum_duration_us": 96628.0,
+      "mean_us_per_model_call": 32209.333333333332,
+      "median_us_per_model_call": 31808.0,
+      "percent_of_selected_kernel_time": 1.901975847969481
+    },
+    {
+      "name": "node_conv1d_38_kernel_time",
+      "op_name": "FusedConv",
+      "calls": 3,
+      "run_duration_us": [
+        34033.0,
+        31546.0,
+        30596.0
+      ],
+      "input_type_shape": [
+        {
+          "float": [
+            1,
+            32,
+            489600
+          ]
+        },
+        {
+          "float": [
+            1,
+            32,
+            7
+          ]
+        },
+        {
+          "float": [
+            1
+          ]
+        }
+      ],
+      "output_type_shape": [
+        {
+          "float": [
+            1,
+            1,
+            489600
+          ]
+        }
+      ],
+      "activation_size": "62668800",
+      "parameter_size": "900",
+      "output_size": "1958400",
+      "provider": "CPUExecutionProvider",
+      "node_index": "106",
+      "sum_duration_us": 96175.0,
+      "mean_us_per_model_call": 32058.333333333332,
+      "median_us_per_model_call": 31546.0,
+      "percent_of_selected_kernel_time": 1.8930592289860584
+    },
+    {
+      "name": "ncc_up_2_split_matmul_current_node_kernel_time",
+      "op_name": "PrecisionMatMulF32",
+      "calls": 3,
+      "run_duration_us": [
+        32081.0,
+        31473.0,
+        30586.0
+      ],
+      "input_type_shape": [
+        {
+          "float": [
+            3072,
+            1024
+          ]
+        },
+        {
+          "float": [
+            1,
+            1024,
+            2040
+          ]
+        }
+      ],
+      "output_type_shape": [
+        {
+          "float": [
+            1,
+            3072,
+            2040
+          ]
+        }
+      ],
+      "activation_size": "8355840",
+      "parameter_size": "12582912",
+      "output_size": "25067520",
+      "provider": "CPUExecutionProvider",
+      "node_index": "35",
+      "sum_duration_us": 94140.0,
+      "mean_us_per_model_call": 31380.0,
+      "median_us_per_model_call": 31473.0,
+      "percent_of_selected_kernel_time": 1.853003335760307
+    },
+    {
+      "name": "ncc_up_6_split_matmul_current_node_kernel_time",
+      "op_name": "MatMul",
+      "calls": 3,
+      "run_duration_us": [
+        31069.0,
+        30700.0,
+        30943.0
+      ],
+      "input_type_shape": [
+        {
+          "float": [
+            64,
+            64
+          ]
+        },
+        {
+          "float": [
+            1,
+            64,
+            244800
+          ]
+        }
+      ],
+      "output_type_shape": [
+        {
+          "float": [
+            1,
+            64,
+            244800
+          ]
+        }
+      ],
+      "activation_size": "62668800",
+      "parameter_size": "16384",
+      "output_size": "62668800",
+      "provider": "CPUExecutionProvider",
+      "node_index": "94",
+      "sum_duration_us": 92712.0,
+      "mean_us_per_model_call": 30904.0,
+      "median_us_per_model_call": 30943.0,
+      "percent_of_selected_kernel_time": 1.82489531830263
+    },
+    {
+      "name": "ncc_up_6_split_matmul_previous_unshifted_node_kernel_time",
+      "op_name": "MatMul",
+      "calls": 3,
+      "run_duration_us": [
+        31073.0,
+        30680.0,
+        30825.0
+      ],
+      "input_type_shape": [
+        {
+          "float": [
+            64,
+            64
+          ]
+        },
+        {
+          "float": [
+            1,
+            64,
+            244800
+          ]
+        }
+      ],
+      "output_type_shape": [
+        {
+          "float": [
+            1,
+            64,
+            244800
+          ]
+        }
+      ],
+      "activation_size": "62668800",
+      "parameter_size": "16384",
+      "output_size": "62668800",
+      "provider": "CPUExecutionProvider",
+      "node_index": "95",
+      "sum_duration_us": 92578.0,
+      "mean_us_per_model_call": 30859.333333333332,
+      "median_us_per_model_call": 30825.0,
+      "percent_of_selected_kernel_time": 1.822257731230271
+    },
+    {
+      "name": "node_conv1d_11__bct_mm_kernel_time",
+      "op_name": "PrecisionMatMulF32",
+      "calls": 3,
+      "run_duration_us": [
+        24919.0,
+        25261.0,
+        25125.0
+      ],
+      "input_type_shape": [
+        {
+          "float": [
+            512,
+            512
+          ]
+        },
+        {
+          "float": [
+            1,
+            512,
+            12240
+          ]
+        }
+      ],
+      "output_type_shape": [
+        {
+          "float": [
+            1,
+            512,
+            12240
+          ]
+        }
+      ],
+      "activation_size": "25067520",
+      "parameter_size": "1048576",
+      "output_size": "25067520",
+      "provider": "CPUExecutionProvider",
+      "node_index": "49",
+      "sum_duration_us": 75305.0,
+      "mean_us_per_model_call": 25101.666666666668,
+      "median_us_per_model_call": 25125.0,
+      "percent_of_selected_kernel_time": 1.4822648842089434
+    },
+    {
+      "name": "ncc_up_1_split_matmul_previous_unshifted_node_kernel_time",
+      "op_name": "PrecisionMatMulF32",
+      "calls": 3,
+      "run_duration_us": [
+        25121.0,
+        24850.0,
+        25121.0
+      ],
+      "input_type_shape": [
+        {
+          "float": [
+            8192,
+            2048
+          ]
+        },
+        {
+          "float": [
+            1,
+            2048,
+            255
+          ]
+        }
+      ],
+      "output_type_shape": [
+        {
+          "float": [
+            1,
+            8192,
+            255
+          ]
+        }
+      ],
+      "activation_size": "2088960",
+      "parameter_size": "67108864",
+      "output_size": "8355840",
+      "provider": "CPUExecutionProvider",
+      "node_index": "10",
+      "sum_duration_us": 75092.0,
+      "mean_us_per_model_call": 25030.666666666668,
+      "median_us_per_model_call": 25121.0,
+      "percent_of_selected_kernel_time": 1.4780723017730293
+    },
+    {
+      "name": "node_conv1d_13__bct_mm_kernel_time",
+      "op_name": "PrecisionMatMulF32",
+      "calls": 3,
+      "run_duration_us": [
+        25629.0,
+        25331.0,
+        24025.0
+      ],
+      "input_type_shape": [
+        {
+          "float": [
+            512,
+            512
+          ]
+        },
+        {
+          "float": [
+            1,
+            512,
+            12240
+          ]
+        }
+      ],
+      "output_type_shape": [
+        {
+          "float": [
+            1,
+            512,
+            12240
+          ]
+        }
+      ],
+      "activation_size": "25067520",
+      "parameter_size": "1048576",
+      "output_size": "25067520",
+      "provider": "CPUExecutionProvider",
+      "node_index": "54",
+      "sum_duration_us": 74985.0,
+      "mean_us_per_model_call": 24995.0,
+      "median_us_per_model_call": 25331.0,
+      "percent_of_selected_kernel_time": 1.475966168812265
+    },
+    {
+      "name": "ncc_up_1_split_matmul_current_node_kernel_time",
+      "op_name": "PrecisionMatMulF32",
+      "calls": 3,
+      "run_duration_us": [
+        25065.0,
+        25202.0,
+        24541.0
+      ],
+      "input_type_shape": [
+        {
+          "float": [
+            8192,
+            2048
+          ]
+        },
+        {
+          "float": [
+            1,
+            2048,
+            255
+          ]
+        }
+      ],
+      "output_type_shape": [
+        {
+          "float": [
+            1,
+            8192,
+            255
+          ]
+        }
+      ],
+      "activation_size": "2088960",
+      "parameter_size": "67108864",
+      "output_size": "8355840",
+      "provider": "CPUExecutionProvider",
+      "node_index": "9",
+      "sum_duration_us": 74808.0,
+      "mean_us_per_model_call": 24936.0,
+      "median_us_per_model_call": 25065.0,
+      "percent_of_selected_kernel_time": 1.4724821918584774
+    },
+    {
+      "name": "node_conv1d_9__bct_mm_kernel_time",
+      "op_name": "PrecisionMatMulF32",
+      "calls": 3,
+      "run_duration_us": [
+        25098.0,
+        25037.0,
+        24432.0
+      ],
+      "input_type_shape": [
+        {
+          "float": [
+            512,
+            512
+          ]
+        },
+        {
+          "float": [
+            1,
+            512,
+            12240
+          ]
+        }
+      ],
+      "output_type_shape": [
+        {
+          "float": [
+            1,
+            512,
+            12240
+          ]
+        }
+      ],
+      "activation_size": "25067520",
+      "parameter_size": "1048576",
+      "output_size": "25067520",
+      "provider": "CPUExecutionProvider",
+      "node_index": "44",
+      "sum_duration_us": 74567.0,
+      "mean_us_per_model_call": 24855.666666666668,
+      "median_us_per_model_call": 25037.0,
+      "percent_of_selected_kernel_time": 1.4677384718253539
+    },
+    {
+      "name": "ncc_node_add_1365_kernel_time",
+      "op_name": "SnakeF32",
+      "calls": 3,
+      "run_duration_us": [
+        19516.0,
+        19310.0,
+        19674.0
+      ],
+      "input_type_shape": [
+        {
+          "float": [
+            1,
+            32,
+            489600
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        }
+      ],
+      "output_type_shape": [
+        {
+          "float": [
+            1,
+            32,
+            489600
+          ]
+        }
+      ],
+      "activation_size": "62668800",
+      "parameter_size": "256",
+      "output_size": "62668800",
+      "provider": "CPUExecutionProvider",
+      "node_index": "102",
+      "sum_duration_us": 58500.0,
+      "mean_us_per_model_call": 19500.0,
+      "median_us_per_model_call": 19516.0,
+      "percent_of_selected_kernel_time": 1.1514839084552577
+    },
+    {
+      "name": "ncc_node_add_1150_kernel_time",
+      "op_name": "SnakeF32",
+      "calls": 3,
+      "run_duration_us": [
+        19521.0,
+        19220.0,
+        18651.0
+      ],
+      "input_type_shape": [
+        {
+          "float": [
+            1,
+            64,
+            244800
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        }
+      ],
+      "output_type_shape": [
+        {
+          "float": [
+            1,
+            64,
+            244800
+          ]
+        }
+      ],
+      "activation_size": "62668800",
+      "parameter_size": "512",
+      "output_size": "62668800",
+      "provider": "CPUExecutionProvider",
+      "node_index": "92",
+      "sum_duration_us": 57392.0,
+      "mean_us_per_model_call": 19130.666666666668,
+      "median_us_per_model_call": 19220.0,
+      "percent_of_selected_kernel_time": 1.129674606394259
+    }
+  ]
+}

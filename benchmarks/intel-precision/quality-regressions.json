@@ -1,0 +1,186 @@
+{
+  "schema_version": 1,
+  "status": "complete",
+  "purpose": "Metric-selected unblinded diagnostic listening; not an unbiased sample or MUSHRA test",
+  "baseline": "fast_fp32",
+  "candidate": "int8_large",
+  "source_clip_count": 60,
+  "selected_clip_count": 4,
+  "selection": {
+    "metrics_in_order": [
+      "pesq_wb",
+      "stoi",
+      "utmos",
+      "dnsmos_ovrl"
+    ],
+    "rule": "Ascending candidate-minus-baseline delta, UID lexical tie break, skipping previously selected UIDs; all four actual selections rank first for their metric"
+  },
+  "audio_contract": {
+    "sample_rate": 48000,
+    "format": "Mono IEEE FLOAT WAV",
+    "copy": "Exact prepared waveform bytes",
+    "additional_processing": "None",
+    "normalization": "None",
+    "levels": "Relative levels preserved",
+    "known_right_padding": "Already removed in source preparation"
+  },
+  "metric_sample_rate": 16000,
+  "selections": [
+    {
+      "uid": "en_us_00344_1948",
+      "language": "en_us",
+      "selection_metric": "pesq_wb",
+      "selection_metric_label": "PESQ WB",
+      "candidate_minus_fast_fp32": -0.19867253303527832,
+      "rank_among_60_for_metric": 1,
+      "seconds": 10.2,
+      "audio": {
+        "fast_fp32": {
+          "file": "audio/01-pesq_wb-fast_fp32.wav",
+          "sha256": "aeb620222dc41a9ee8871675a8b0a768f47d5d31a2b7b2e0ad01272a48f99127",
+          "source_prepared_waveform_sha256": "aeb620222dc41a9ee8871675a8b0a768f47d5d31a2b7b2e0ad01272a48f99127",
+          "source_raw_decoder_waveform_sha256": "15041f7bb5d26fee7285d84b9789bce19901d1f9c1c99393debd85de7727ddfb",
+          "bytes": 1958480,
+          "sample_rate": 48000,
+          "samples": 489600,
+          "channels": 1,
+          "subtype": "FLOAT",
+          "right_padding_removed_samples": 0
+        },
+        "int8_large": {
+          "file": "audio/01-pesq_wb-int8_large.wav",
+          "sha256": "ce4082d162a43a1c9ea8e2ed10d95652154a51fd4c062769423af97dcc07fbe5",
+          "source_prepared_waveform_sha256": "ce4082d162a43a1c9ea8e2ed10d95652154a51fd4c062769423af97dcc07fbe5",
+          "source_raw_decoder_waveform_sha256": "ff1317440c9d76654a4f79a1e1238b25043ece6f0bc5e79b30700bbf2c6b241a",
+          "bytes": 1958480,
+          "sample_rate": 48000,
+          "samples": 489600,
+          "channels": 1,
+          "subtype": "FLOAT",
+          "right_padding_removed_samples": 0
+        }
+      }
+    },
+    {
+      "uid": "en_us_00133_1765",
+      "language": "en_us",
+      "selection_metric": "stoi",
+      "selection_metric_label": "STOI",
+      "candidate_minus_fast_fp32": -0.01659641111713739,
+      "rank_among_60_for_metric": 1,
+      "seconds": 11.82,
+      "audio": {
+        "fast_fp32": {
+          "file": "audio/02-stoi-fast_fp32.wav",
+          "sha256": "41c9b415428e8e200c9529adf10a9177ed7955070c3e52c427db481e163050de",
+          "source_prepared_waveform_sha256": "41c9b415428e8e200c9529adf10a9177ed7955070c3e52c427db481e163050de",
+          "source_raw_decoder_waveform_sha256": "a0fb68976fd5d398314cf36067b784461c3a6eec629824cebae50142e72baaf3",
+          "bytes": 2269520,
+          "sample_rate": 48000,
+          "samples": 567360,
+          "channels": 1,
+          "subtype": "FLOAT",
+          "right_padding_removed_samples": 960
+        },
+        "int8_large": {
+          "file": "audio/02-stoi-int8_large.wav",
+          "sha256": "82e7cfc0627197bf2f6e484ff352b8565ee09c182fa45b858d2b9b225a835088",
+          "source_prepared_waveform_sha256": "82e7cfc0627197bf2f6e484ff352b8565ee09c182fa45b858d2b9b225a835088",
+          "source_raw_decoder_waveform_sha256": "efba944c40b58895a7cde00008a490b70d8155acc34e83bc3aaf0c7364021e70",
+          "bytes": 2269520,
+          "sample_rate": 48000,
+          "samples": 567360,
+          "channels": 1,
+          "subtype": "FLOAT",
+          "right_padding_removed_samples": 960
+        }
+      }
+    },
+    {
+      "uid": "fr_fr_00374_1935",
+      "language": "fr_fr",
+      "selection_metric": "utmos",
+      "selection_metric_label": "UTMOS22",
+      "candidate_minus_fast_fp32": -0.0287933349609375,
+      "rank_among_60_for_metric": 1,
+      "seconds": 5.52,
+      "audio": {
+        "fast_fp32": {
+          "file": "audio/03-utmos-fast_fp32.wav",
+          "sha256": "482a6b898a241d338dc71f60f835da6c2ae2c595ebe2199b30e621ceb1dd3393",
+          "source_prepared_waveform_sha256": "482a6b898a241d338dc71f60f835da6c2ae2c595ebe2199b30e621ceb1dd3393",
+          "source_raw_decoder_waveform_sha256": "b5fc8c74902c5fdf96170c898e384df769887bf3b43d0c882cc85892bcc83496",
+          "bytes": 1059920,
+          "sample_rate": 48000,
+          "samples": 264960,
+          "channels": 1,
+          "subtype": "FLOAT",
+          "right_padding_removed_samples": 0
+        },
+        "int8_large": {
+          "file": "audio/03-utmos-int8_large.wav",
+          "sha256": "fb687179cfc7fb1558543712d5e1b298e8cc213e0c7d203f7f2313a839a831c4",
+          "source_prepared_waveform_sha256": "fb687179cfc7fb1558543712d5e1b298e8cc213e0c7d203f7f2313a839a831c4",
+          "source_raw_decoder_waveform_sha256": "1d06cade2393966192d96a62457f1933ad172502b9f493d981681d0602099245",
+          "bytes": 1059920,
+          "sample_rate": 48000,
+          "samples": 264960,
+          "channels": 1,
+          "subtype": "FLOAT",
+          "right_padding_removed_samples": 0
+        }
+      }
+    },
+    {
+      "uid": "hi_in_00292_1691",
+      "language": "hi_in",
+      "selection_metric": "dnsmos_ovrl",
+      "selection_metric_label": "DNSMOS P.835 overall",
+      "candidate_minus_fast_fp32": -0.062240553789413955,
+      "rank_among_60_for_metric": 1,
+      "seconds": 10.08,
+      "audio": {
+        "fast_fp32": {
+          "file": "audio/04-dnsmos_ovrl-fast_fp32.wav",
+          "sha256": "6ae29c86d561f643fde70b0ae950afd61f30e3cd33a82ab64466b5e324d8e32e",
+          "source_prepared_waveform_sha256": "6ae29c86d561f643fde70b0ae950afd61f30e3cd33a82ab64466b5e324d8e32e",
+          "source_raw_decoder_waveform_sha256": "10350513f68be31d612ecdb0cd926233601b679a5cb2df36a3cb7fdab7e394c6",
+          "bytes": 1935440,
+          "sample_rate": 48000,
+          "samples": 483840,
+          "channels": 1,
+          "subtype": "FLOAT",
+          "right_padding_removed_samples": 0
+        },
+        "int8_large": {
+          "file": "audio/04-dnsmos_ovrl-int8_large.wav",
+          "sha256": "2cb54daedcf193c4cd8c14260198e3f2726228e4e179d4e3ca299daeb94eb57d",
+          "source_prepared_waveform_sha256": "2cb54daedcf193c4cd8c14260198e3f2726228e4e179d4e3ca299daeb94eb57d",
+          "source_raw_decoder_waveform_sha256": "bc0ea1d1a1f64fe20d391a2db10c37af431ddc9eeb6387b633ea9223f7a055b7",
+          "bytes": 1935440,
+          "sample_rate": 48000,
+          "samples": 483840,
+          "channels": 1,
+          "subtype": "FLOAT",
+          "right_padding_removed_samples": 0
+        }
+      }
+    }
+  ],
+  "source_sha256": {
+    "quality_comparison": "7a88838b96a0e753b405128da0a66a6303829d9650e751d423c86b24b5973e39",
+    "prepared_manifest": "3c9e80758d12890966619f2a142311a5c6d8427a219d28b89d0e9d7c0f688dfc",
+    "raw_scores": "f907094f7d01c51c033140edc361577fd75ec567300793bbfba6868f11a01db8"
+  },
+  "page_sha256": "d50ae453a61c40b74d5f3d5d7a40e7c03c73c103a61cb09191750d95a686c6cc",
+  "blinded_study": "../intel-precision-listening/index.html",
+  "dataset": {
+    "name": "Google FLEURS",
+    "url": "https://huggingface.co/datasets/google/fleurs",
+    "revision": "70bb2e84b976b7e960aa89f1c648e09c59f894dd",
+    "split": "test",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "attribution": "Modified codec reconstructions of Google FLEURS recordings; known decoder right padding removed during prior preparation"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "status": "source_prepared",
+  "compiled": false,
+  "inference_executed": false,
+  "baseline_core_sha256": "f3548d164cadeb3597d5f051f471d322788c262f4efa3951109c3bc534a7a90d",
+  "public_header_sha256": "4abb9adf521aacd26ea0d2db783ff17c9e56791d44ff09f63ba00698c056e9b6",
+  "patch_script_sha256": "e04c2a1a5a45423541f030b74dbc18b55976125449418f97a003ccd7896ff488",
+  "guarded_helper_sha256": "28205301207e28345244c7b53235e760380b264773fb369a26ac43a5126f5d20",
+  "changes": [
+    "private helper include",
+    "one guarded reciprocal plan per sixteen time columns",
+    "guarded quotient before unchanged clamp and RN-even conversion"
+  ],
+  "outputs": {
+    "precision.cpp": "16427cba87ce067e438c503c3bdb64946a12e9bc1ca7f4de4e251b90c8fb0823",
+    "precision.h": "4abb9adf521aacd26ea0d2db783ff17c9e56791d44ff09f63ba00698c056e9b6",
+    "guarded_quantize.h": "28205301207e28345244c7b53235e760380b264773fb369a26ac43a5126f5d20"
+  },
+  "scope": "Existing AVX512 INT8 activation preparation only; scales, clamp, integer rounding, sums, scalar tails, FP16 and GEMM remain unchanged",
+  "extra_per_column_state": "Sixteen scale values, reciprocal values and a mask in the local plan; no persistent buffer"
+}

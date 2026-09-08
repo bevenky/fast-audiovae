@@ -1,0 +1,228 @@
+{
+  "status": "complete",
+  "gpu_used": false,
+  "models_executed": false,
+  "separate_process_per_library": true,
+  "reference_sha256": "407a7f61f06267fbf9ea27be4bf512331ed33bd7c1146607c8ea2cf48b044548",
+  "script_sha256": "8b14389f13c8379e5ee7a7098718e105f17325fbbed34c615bdfb903437a724f",
+  "comparisons": [
+    {
+      "case": "stage256_q256",
+      "ratios_of_median_sample_means": {
+        "residual_prepare_run": {
+          "vnni_over_workspace_mkl_time": 1.1017284897490145,
+          "workspace_mkl_over_baseline_time": null
+        },
+        "raw_prepare_run": {
+          "vnni_over_workspace_mkl_time": 1.0822428832293172,
+          "workspace_mkl_over_baseline_time": 0.9663470935847603
+        },
+        "prepare_only": {
+          "vnni_over_workspace_mkl_time": 1.4003182892142847,
+          "workspace_mkl_over_baseline_time": 0.9847888952080666
+        },
+        "empty_run_control": {
+          "vnni_over_workspace_mkl_time": 0.9861045828437133,
+          "workspace_mkl_over_baseline_time": 1.1449328983216172
+        },
+        "residual_run_only": {
+          "vnni_over_workspace_mkl_time": 0.9779523642192601,
+          "workspace_mkl_over_baseline_time": null
+        },
+        "raw_run_only": {
+          "vnni_over_workspace_mkl_time": 0.9775425038157455,
+          "workspace_mkl_over_baseline_time": 1.0009398628373027
+        }
+      }
+    },
+    {
+      "case": "stage256_q128",
+      "ratios_of_median_sample_means": {
+        "residual_prepare_run": {
+          "vnni_over_workspace_mkl_time": 1.1118257160275846,
+          "workspace_mkl_over_baseline_time": null
+        },
+        "residual_run_only": {
+          "vnni_over_workspace_mkl_time": 0.9522510186911263,
+          "workspace_mkl_over_baseline_time": null
+        },
+        "raw_prepare_run": {
+          "vnni_over_workspace_mkl_time": 1.1677590938532145,
+          "workspace_mkl_over_baseline_time": 0.9390726130880952
+        },
+        "prepare_only": {
+          "vnni_over_workspace_mkl_time": 1.6319432192425312,
+          "workspace_mkl_over_baseline_time": 0.9186075564709458
+        },
+        "empty_run_control": {
+          "vnni_over_workspace_mkl_time": 0.9975677655677655,
+          "workspace_mkl_over_baseline_time": 1.1131226147372542
+        },
+        "raw_run_only": {
+          "vnni_over_workspace_mkl_time": 0.9542508755848167,
+          "workspace_mkl_over_baseline_time": 0.9960506186944482
+        }
+      }
+    },
+    {
+      "case": "up128_q128_projection",
+      "ratios_of_median_sample_means": {
+        "prepare_only": {
+          "vnni_over_workspace_mkl_time": 1.5828639346803781,
+          "workspace_mkl_over_baseline_time": 1.0487588972793294
+        },
+        "empty_run_control": {
+          "vnni_over_workspace_mkl_time": 0.9908402325171746,
+          "workspace_mkl_over_baseline_time": 1.118988173455979
+        },
+        "raw_run_only": {
+          "vnni_over_workspace_mkl_time": 0.6902233968252928,
+          "workspace_mkl_over_baseline_time": 0.932650552300334
+        },
+        "residual_run_only": {
+          "vnni_over_workspace_mkl_time": 0.7809773471437146,
+          "workspace_mkl_over_baseline_time": null
+        },
+        "residual_prepare_run": {
+          "vnni_over_workspace_mkl_time": 0.9758779812394253,
+          "workspace_mkl_over_baseline_time": null
+        },
+        "raw_prepare_run": {
+          "vnni_over_workspace_mkl_time": 0.9698497552476772,
+          "workspace_mkl_over_baseline_time": 0.9378939668153468
+        }
+      }
+    },
+    {
+      "case": "up128_q128_residual",
+      "ratios_of_median_sample_means": {
+        "residual_run_only": {
+          "vnni_over_workspace_mkl_time": 0.76787699019944,
+          "workspace_mkl_over_baseline_time": null
+        },
+        "empty_run_control": {
+          "vnni_over_workspace_mkl_time": 0.9090147920736812,
+          "workspace_mkl_over_baseline_time": 1.1204832977967307
+        },
+        "raw_run_only": {
+          "vnni_over_workspace_mkl_time": 0.7615275797415487,
+          "workspace_mkl_over_baseline_time": 1.0133827875450478
+        },
+        "residual_prepare_run": {
+          "vnni_over_workspace_mkl_time": 1.1680491717147818,
+          "workspace_mkl_over_baseline_time": null
+        },
+        "raw_prepare_run": {
+          "vnni_over_workspace_mkl_time": 1.070970412936804,
+          "workspace_mkl_over_baseline_time": 0.9302690451638782
+        },
+        "prepare_only": {
+          "vnni_over_workspace_mkl_time": 1.8377535101404054,
+          "workspace_mkl_over_baseline_time": 0.8779900911295249
+        }
+      }
+    },
+    {
+      "case": "up128_q256_projection",
+      "ratios_of_median_sample_means": {
+        "residual_prepare_run": {
+          "vnni_over_workspace_mkl_time": 1.053593555773955,
+          "workspace_mkl_over_baseline_time": null
+        },
+        "raw_prepare_run": {
+          "vnni_over_workspace_mkl_time": 1.0658040716804145,
+          "workspace_mkl_over_baseline_time": 1.014174065835606
+        },
+        "prepare_only": {
+          "vnni_over_workspace_mkl_time": 1.289879535718209,
+          "workspace_mkl_over_baseline_time": 0.9014066842254655
+        },
+        "empty_run_control": {
+          "vnni_over_workspace_mkl_time": 1.0932794340576049,
+          "workspace_mkl_over_baseline_time": 0.9748448326820137
+        },
+        "raw_run_only": {
+          "vnni_over_workspace_mkl_time": 0.9107502728637469,
+          "workspace_mkl_over_baseline_time": 1.0808713840801891
+        },
+        "residual_run_only": {
+          "vnni_over_workspace_mkl_time": 0.9714928572402229,
+          "workspace_mkl_over_baseline_time": null
+        }
+      }
+    },
+    {
+      "case": "up128_q256_residual",
+      "ratios_of_median_sample_means": {
+        "raw_run_only": {
+          "vnni_over_workspace_mkl_time": 0.9111167138590434,
+          "workspace_mkl_over_baseline_time": 1.0228494869775933
+        },
+        "prepare_only": {
+          "vnni_over_workspace_mkl_time": 1.6430972978120264,
+          "workspace_mkl_over_baseline_time": 1.0909693891821266
+        },
+        "residual_prepare_run": {
+          "vnni_over_workspace_mkl_time": 1.2487515189134788,
+          "workspace_mkl_over_baseline_time": null
+        },
+        "empty_run_control": {
+          "vnni_over_workspace_mkl_time": 0.9862507392075694,
+          "workspace_mkl_over_baseline_time": 1.297981897847571
+        },
+        "residual_run_only": {
+          "vnni_over_workspace_mkl_time": 1.0016729968098121,
+          "workspace_mkl_over_baseline_time": null
+        },
+        "raw_prepare_run": {
+          "vnni_over_workspace_mkl_time": 1.1753633540499069,
+          "workspace_mkl_over_baseline_time": 0.939672984454284
+        }
+      }
+    },
+    {
+      "case": "residual128_t64",
+      "ratios_of_median_sample_means": {
+        "prepare_only": {
+          "vnni_over_workspace_mkl_time": 1.6312429663549226,
+          "workspace_mkl_over_baseline_time": 1.2901594612862044
+        },
+        "residual_run_only": {
+          "vnni_over_workspace_mkl_time": 0.8283752600718743,
+          "workspace_mkl_over_baseline_time": null
+        },
+        "residual_prepare_run": {
+          "vnni_over_workspace_mkl_time": 1.0159973215733664,
+          "workspace_mkl_over_baseline_time": null
+        },
+        "empty_run_control": {
+          "vnni_over_workspace_mkl_time": 0.9818605792832596,
+          "workspace_mkl_over_baseline_time": 1.4600057339449541
+        },
+        "raw_prepare_run": {
+          "vnni_over_workspace_mkl_time": 1.0015259975307678,
+          "workspace_mkl_over_baseline_time": 0.9106718351201337
+        },
+        "raw_run_only": {
+          "vnni_over_workspace_mkl_time": 0.7031891868015372,
+          "workspace_mkl_over_baseline_time": 0.9146922878014092
+        }
+      }
+    }
+  ],
+  "reports": {
+    "baseline": {
+      "path": "baseline.json",
+      "sha256": "899492e1d8425527910fb5db351b6764b372d30c6136ff563542d5ba9d041c96"
+    },
+    "workspace_mkl": {
+      "path": "workspace_mkl.json",
+      "sha256": "dd582ed5492761ebe8790e6b81ca4ef1abd93235141ecca7ef1dbede405e5a09"
+    },
+    "workspace_vnni": {
+      "path": "workspace_vnni.json",
+      "sha256": "d41d35d7967ca5ac687fb868791d37d0317e62aa0cbe212281cfb67eaa8edc25"
+    }
+  },
+  "limit": "Diagnostic hot matrix ratios include common Python/ctypes overhead and separate-process drift. No decoder RTF or significance claim."
+}

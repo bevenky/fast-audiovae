@@ -1,0 +1,49 @@
+{
+  "status": "source_prepared",
+  "compiled": false,
+  "inference_executed": false,
+  "parent_source_manifest_sha256": "6027e714d9ebeea7fdad32d431998721973054a32de8a2703be84ddc25e21174",
+  "parent_outputs": {
+    "row_nonlinear.h": "bc457eab0bf7c98e82c23e72386254c0a748545fbb4d15574c02148be06a568a",
+    "sleefinline_avx512f.h": "7247a9f87694aab7afbe672d352bd9a814124b6cd04f7d3db53760b91c27fd8e",
+    "sleef_inline_avx512.h": "a6e9e847fd12f69b993a197abe62bc7bfc7d0e75ba53f88842c7177b08b3005d",
+    "check_sine.cpp": "cddd03b4d646ecd61b182e79f196249d9aafb81068571f5923f6561f9cbc3bcb"
+  },
+  "sleef_version": "3.9.0",
+  "sleef_commit": "906ca7512ee483296780a81a21b9ca715d40dfe1",
+  "sleef_source_archive_sha256": "af60856abac08a3b5e72a8d156dd71fec1f7ac23de8ee67793f45f9edcdf0908",
+  "generated_header_sha256": "7247a9f87694aab7afbe672d352bd9a814124b6cd04f7d3db53760b91c27fd8e",
+  "patch_script_sha256": "542b4cc66b2c66183591960a9b20d9f8d7c93034374d64b947b4a0087e80b376",
+  "helper_sha256": "cba53c7229938fd6edc68182001237af732be362843f57c4055e79a091f11833",
+  "outputs": {
+    "row_nonlinear.h": "385b0415d0d0673dec838d2b810cdb6075845178d149a991db073c601b42df40",
+    "sleefinline_avx512f.h": "7247a9f87694aab7afbe672d352bd9a814124b6cd04f7d3db53760b91c27fd8e",
+    "sleef_inline_avx512.h": "a6e9e847fd12f69b993a197abe62bc7bfc7d0e75ba53f88842c7177b08b3005d",
+    "check_sine.cpp": "cddd03b4d646ecd61b182e79f196249d9aafb81068571f5923f6561f9cbc3bcb",
+    "row_dw_post_snake.h": "cba53c7229938fd6edc68182001237af732be362843f57c4055e79a091f11833"
+  },
+  "changes": [
+    "Include the fused AVX512 DW/post-Snake helper",
+    "Dispatch only backend5 to its ordered vector path"
+  ],
+  "unchanged": [
+    "AVX2 execution branch",
+    "Pre-Snake and all sine grouping",
+    "Upstream generated sine and wrapper bytes",
+    "Seven DW products, six additions, bias, and Snake order",
+    "Chronological 6*d history bytes",
+    "Weights and model graphs"
+  ],
+  "tail_policy": "Scalar DW for fewer than 16 remaining values, then original 8/4/padded4 Snake",
+  "history_note": "Backend5 copies the same transformed[n:n+6*d] interval after post-Snake; buffers are disjoint and no external history is read during the fused operation.",
+  "required_flags": [
+    "-fno-fast-math",
+    "-ffp-contract=off"
+  ],
+  "required_validation": [
+    "Original versus inline sine parity",
+    "Existing check_rows all widths/dilations/backends and repeated histories",
+    "Exact full-decoder waveform, repeated-call and causal checks"
+  ],
+  "performance": "Unmeasured. Removes the vector depthwise row store/reload; register spills or instruction-cache pressure may erase savings."
+}

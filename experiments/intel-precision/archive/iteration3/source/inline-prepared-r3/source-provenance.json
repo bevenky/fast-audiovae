@@ -1,0 +1,34 @@
+{
+  "status": "source_prepared",
+  "compiled": false,
+  "inference_executed": false,
+  "sleef_version": "3.9.0",
+  "sleef_commit": "906ca7512ee483296780a81a21b9ca715d40dfe1",
+  "sleef_source_archive_sha256": "af60856abac08a3b5e72a8d156dd71fec1f7ac23de8ee67793f45f9edcdf0908",
+  "source_row_sha256": "a92627ac0e4c1b07951b1293634c10ed81f0090e1b429858cfd8a17ba55affa7",
+  "generated_header_sha256": "7247a9f87694aab7afbe672d352bd9a814124b6cd04f7d3db53760b91c27fd8e",
+  "wrapper_sha256": "a6e9e847fd12f69b993a197abe62bc7bfc7d0e75ba53f88842c7177b08b3005d",
+  "checker_sha256": "cddd03b4d646ecd61b182e79f196249d9aafb81068571f5923f6561f9cbc3bcb",
+  "patch_script_sha256": "a9a09c70c13119441033734878a29444e7d133b03113186cd53e05d3220be4a6",
+  "outputs": {
+    "row_nonlinear.h": "bc457eab0bf7c98e82c23e72386254c0a748545fbb4d15574c02148be06a568a",
+    "sleefinline_avx512f.h": "7247a9f87694aab7afbe672d352bd9a814124b6cd04f7d3db53760b91c27fd8e",
+    "sleef_inline_avx512.h": "a6e9e847fd12f69b993a197abe62bc7bfc7d0e75ba53f88842c7177b08b3005d",
+    "check_sine.cpp": "cddd03b4d646ecd61b182e79f196249d9aafb81068571f5923f6561f9cbc3bcb"
+  },
+  "changes": [
+    "Include the isolated target-scoped generated-header wrapper",
+    "Replace only the 16-lane external u10 sine call with the private inline definition"
+  ],
+  "required_flags": [
+    "-fno-fast-math",
+    "-ffp-contract=off"
+  ],
+  "scope": "GCC x86_64 AVX512F CONFIG1 only; original CPU guards, 8/4/padded tails, Snake order and history unchanged",
+  "required_validation": [
+    "Pinned archive versus inline sine bit parity",
+    "Existing check_rows with modified helper",
+    "Exact full-decoder waveform and causal gates before timing"
+  ],
+  "generation_note": "The supplied header hash and archive hash are pinned; retain the separate upstream CMake generation record as provenance. Header text alone does not prove its origin."
+}

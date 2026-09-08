@@ -1,0 +1,35 @@
+{
+  "status": "prepared_not_scored",
+  "clips": 60,
+  "variants": [
+    "fast_fp32",
+    "int8_all",
+    "int8_large",
+    "stock_fp32"
+  ],
+  "baseline": "fast_fp32",
+  "manifest": "<workspace>/work/intel-precision/quality/comparison-manifest.json",
+  "manifest_sha256": "3c9e80758d12890966619f2a142311a5c6d8427a219d28b89d0e9d7c0f688dfc",
+  "assets_hashes_verified": true,
+  "scorer_hashes": {
+    "score.py": "797bddcba0ffbd9f1035d3166e4db4eabc7ebea1f5fb0ab83a429199fc880f03",
+    "metrics.py": "c5e37fb3a6376b90ee89e9c7c69fb1f9540080f12c6d750864e83814da9be491",
+    "metric_assets.json": "628c81cd349eb45819143a275efb5417da2b518db2c71e858d0c1a6fe7c713c0"
+  },
+  "cpu_environment": {
+    "CUDA_VISIBLE_DEVICES": "-1",
+    "NVIDIA_VISIBLE_DEVICES": "void",
+    "ROCR_VISIBLE_DEVICES": "-1",
+    "HIP_VISIBLE_DEVICES": "-1",
+    "PYTORCH_ENABLE_MPS_FALLBACK": "0",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "NUMBA_NUM_THREADS": "1",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "HF_HUB_OFFLINE": "1",
+    "TRANSFORMERS_OFFLINE": "1"
+  },
+  "predictor_models_loaded": false,
+  "native_difference_records": 180
+}

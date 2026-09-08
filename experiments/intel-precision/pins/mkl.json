@@ -1,0 +1,50 @@
+{
+  "version": "2026.1.0",
+  "source": "Official Intel PyPI wheels",
+  "packages": [
+    {
+      "filename": "mkl-2026.1.0-py2.py3-none-manylinux_2_28_x86_64.whl",
+      "url": "https://files.pythonhosted.org/packages/61/da/4921e17b1f455f7fed30d5cc0964f3289eee6a6cb03cdf7d5e20c14bd025/mkl-2026.1.0-py2.py3-none-manylinux_2_28_x86_64.whl",
+      "sha256": "4d5a26449818a8aebd4b2aaf6b291831e691f9cf74b152df49b99cf48bbd5360",
+      "wheel_bytes": 224034262
+    },
+    {
+      "filename": "mkl_include-2026.1.0-py2.py3-none-manylinux_2_28_x86_64.whl",
+      "url": "https://files.pythonhosted.org/packages/5c/42/76a2c4964399376855ed3d4867ad2c2c01c9a7297dca307ce43c1ef76c71/mkl_include-2026.1.0-py2.py3-none-manylinux_2_28_x86_64.whl",
+      "sha256": "e64b260e67284b8a696343d58c339ad9d990cc985077dab1269d1c6d2a2e2b1b",
+      "wheel_bytes": 1259488
+    }
+  ],
+  "direct_link_libraries": [
+    "libmkl_intel_lp64.so.3",
+    "libmkl_sequential.so.3",
+    "libmkl_core.so.3"
+  ],
+  "cpu_library_sha256": {
+    "libmkl_avx2.so.3": "9acbe1a76b73007d7a4b978d30aed3f5d39b7ade386e90f7752c2a3d539ee0d0",
+    "libmkl_avx512.so.3": "2814ba3be2ac299a27205b7a1fc7e09a363c28967782dfa861cf4a0c428592c6",
+    "libmkl_core.so.3": "b4f086651ee5a8471140d53fedfdbbaba606287784763b0739f282872c31aa9b",
+    "libmkl_def.so.3": "4bc51353a8473a08f18fabefdf5ab79efd98dbf337e2913a23d215748a780782",
+    "libmkl_intel_lp64.so.3": "9dbdb7d4193679f028787da6b9b2b545e0e16b87a95a64ee7318f544da8b08ac",
+    "libmkl_mc3.so.3": "88e3ad1d94ba6d21ceeab6e817c0538457cf22e4113f3bb854bc52b3caf6b555",
+    "libmkl_sequential.so.3": "4e7ff529bec90a1b0ce70299258a64a2ebae7a5a6f3ec031306a6ddb39b5a650",
+    "libmkl_vml_avx2.so.3": "707ab79a97ab3d07d0e337bbc78383c2bde925f18d54acf930b2fd110550ed27",
+    "libmkl_vml_avx512.so.3": "95c52c71bf47711ee776a5dcd9225a5d11289c9333b63ff1fd260c4e801ecda9",
+    "libmkl_vml_def.so.3": "5a68d0cce4a69bdbdfdfbfdf00388e3a0ed1a0d9899b202f4e9cd8f07cc727a3",
+    "libmkl_vml_mc3.so.3": "6d19dfa399ccf86b1aa406b71592c6531ecff4b0bf084e2c3240ee39902e8113"
+  },
+  "header_sha256": {
+    "mkl_cblas.h": "12100f333cbca07387ca3e9e51092e17f3af05f3a8aa1d93cab1b1e8420f0ec5",
+    "mkl_service.h": "02ff230034b626727576886decbdce2a01b76728e59b9d708e884d5bd153e2c7",
+    "mkl_types.h": "0039030497854ba329fe20f6a89bef50c9ab3901f44a1aaef39fbc842a1a0cc4",
+    "mkl_version.h": "ad8144d3ca6212c5e45e8ed69bb76f71a318ed5aebdbe7fc1982790249452a03"
+  },
+  "threading": "Sequential LP64 directly linked; ORT owns one or two row workers.",
+  "scope": "Measured Intel Xeon Platinum 8280 VM dependency subset. AVX10 dispatch files were not part of that subset. This is not a general Intel redistribution specification.",
+  "runtime_dispatch_observed": [
+    "libmkl_avx512.so.3",
+    "libmkl_vml_avx512.so.3"
+  ],
+  "dependency_download_or_install": false,
+  "gpu_runtime": false
+}
