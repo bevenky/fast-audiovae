@@ -1,0 +1,45 @@
+{
+  "version": "audiovae_authorized_memory_discard_v1",
+  "utc": "2026-09-11T17:50:26.007118+00:00",
+  "action": "SIGKILL verified stopped controller and Muon runner using pidfds; no resume",
+  "before": [
+    {
+      "pid": 1119736,
+      "start_ticks": 4024281579,
+      "state": "T",
+      "argv_sha256": "11bcd8b44f9af3d35b629ad3e0467fab4a43420871c81d198deb2d4fab44b730",
+      "exact_argv_verified": true
+    },
+    {
+      "pid": 1131527,
+      "start_ticks": 4024831693,
+      "state": "T",
+      "argv_sha256": "6eea501b41cc5d041c9509c73f759d39db4c4433f589f6da4b69418940aa2dec",
+      "exact_argv_verified": true
+    }
+  ],
+  "after": [
+    {
+      "pid": 1119736,
+      "absent": true,
+      "state": null
+    },
+    {
+      "pid": 1131527,
+      "absent": true,
+      "state": null
+    }
+  ],
+  "terminated": true,
+  "last_logged_completed_update": 253,
+  "new_checkpoint_created": false,
+  "in_memory_training_state_discarded": true,
+  "directories_deleted": [],
+  "tensorboard_processes_changed": false,
+  "gpu_query": {
+    "name": "NVIDIA H100 NVL",
+    "memory_total_mib": 95830,
+    "memory_used_mib": 0,
+    "utilization_percent_transient": 19
+  }
+}

@@ -13,3 +13,5 @@ Audio, latents, model weights, ONNX binaries, caches, environments, TensorBoard 
 The last inspected local pause receipt, dated 2026-09-11 16:04:03 UTC, records AdamW complete and audited, Muon paused with 253 logged updates in process memory, and NorMuon/Shampoo deferred. Only Muon's step-zero checkpoint was on disk in that receipt. This archive is not a checkpoint of the paused process and makes no claim that the remote process still exists.
 
 The [selection manifest](experiments/audiovae2-compression/archive/selection-manifest.json) records exact copies, projections and exclusions. The [archive preparation tool](experiments/audiovae2-compression/archive/prepare_archive.py) records how files were selected.
+
+The later [process cleanup receipt](experiments/audiovae2-compression/archive/outputs/audiovae2-compression-preflight/progressive-pruning-v1/optimizer-comparison-v1/user-authorized-memory-discard-20260911T175026Z.json) records the authorized discard of the paused Muon process at 17:50 UTC. No new checkpoint was produced; the last journaled update was 253.
