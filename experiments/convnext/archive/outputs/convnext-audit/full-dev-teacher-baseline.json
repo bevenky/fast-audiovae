@@ -1,0 +1,226 @@
+{
+  "archive_projection_version": 1,
+  "original_relative_path": "outputs/convnext-audit/full-dev-teacher-baseline.json",
+  "original_sha256": "17e25733a5ef9f8d3d32898ae3bc96f2dc9704247525e6278270d3e9cebdc7f8",
+  "omitted_field_paths": [
+    "results"
+  ],
+  "note": "Labelled projection. Omitted numerical payloads and listed bulk report collections remain outside Git; configuration metadata is retained.",
+  "report": {
+    "created_utc": "2026-09-09T03:54:48.450843+00:00",
+    "state": "complete",
+    "device": "cpu",
+    "threads": 1,
+    "training_updates": 0,
+    "model_forward_calls": 0,
+    "teacher_forward_calls": 0,
+    "manifest_sha256": "198ed7aa345db0675c8db3382b9856a31857a66b6a17c62ed9d581d781f5c8fd",
+    "teacher_identity": {
+      "autocast": false,
+      "checkpoint_sha256": "94b5d51e107e0507d4acc976cfdadb64edd6fd06d1f751dadbf2fd1594274bf1",
+      "config": {
+        "cond_dim": 128,
+        "cond_out_layer": false,
+        "cond_type": "scale_bias",
+        "decoder_dim": 2048,
+        "decoder_rates": [
+          8,
+          6,
+          5,
+          2,
+          2,
+          2
+        ],
+        "depthwise": true,
+        "encoder_dim": 128,
+        "encoder_rates": [
+          2,
+          5,
+          8,
+          8
+        ],
+        "latent_dim": 64,
+        "out_sample_rate": 48000,
+        "sample_rate": 16000,
+        "sr_bin_boundaries": [
+          20000,
+          30000,
+          40000
+        ],
+        "use_noise_block": false
+      },
+      "decoder_hop": 1920,
+      "device": "cuda:0",
+      "dtype": "float32",
+      "encoder_hop": 640,
+      "input_padding": "right_zero_to_multiple_of_640",
+      "latent_channels": 64,
+      "latent_rate": 25,
+      "model_repo": "openbmb/VoxCPM2",
+      "model_revision": "32279effe8c19989596f05d353d1447f51d9e915",
+      "posterior": "raw_mu",
+      "reconstruct_trim": "right_trim_to_3_times_original_input_samples",
+      "sample_rate_in": 16000,
+      "sample_rate_out": 48000,
+      "source_repo": "OpenBMB/VoxCPM",
+      "source_revision": "f772e498a45fbb5fb8e13fbf9b9c48be9fe33e69",
+      "source_sha256": "2efdff1708d8ec1471624aae6f232d0f933de26b788b6901c434246847e2d3a8",
+      "sr_cond": 48000,
+      "target_preparation_policy": {
+        "cublas_workspace_config": ":4096:8",
+        "cuda_matmul_allow_tf32": false,
+        "cudnn_allow_tf32": false,
+        "cudnn_benchmark": false,
+        "cudnn_deterministic": true,
+        "deterministic_algorithms": true,
+        "jit_optimized_execution": true,
+        "warmup_encode_decode_passes": 2,
+        "warmup_input_policy": "first_selected_complete_utterance_including_resume",
+        "warmup_source_sha256": "ac8165bbcf4ce6f6c6b1e716e4b02ad35b67e61f95ca146f823ee9500697314a"
+      },
+      "tf32": false,
+      "torch_version": "2.11.0+cu128",
+      "weight_norm": "original_retained"
+    },
+    "loss_config": {
+      "teacher_fft_sizes": [
+        1024,
+        2048,
+        4096
+      ],
+      "reference_fft_sizes_16k": [
+        256,
+        512,
+        1024
+      ],
+      "teacher_spectral_weight": 15.0,
+      "teacher_waveform_weight": 1.0,
+      "reference_spectral_weight": 45.0,
+      "log_epsilon": 1e-05
+    },
+    "scored_frames": 64,
+    "expected_dev_rows": 2839,
+    "manifest_dev_rows": 2839,
+    "selection": "Every dev manifest row, in manifest order, using the same leading fixed crop and valid sample count as source_training.evaluate",
+    "aggregation": "Arithmetic mean of one scalar loss per dev utterance, identical to source_training.evaluate; not duration weighting or group-macro weighting",
+    "exact_teacher_policy": "Student prediction equals cached original-teacher waveform. Teacher spectral and waveform losses are analytically zero; only original-reference branch requires FFTs.",
+    "missing": [],
+    "implementation_sha256": {
+      "cache.py": "88c999d941020d5d4aaf0e31474ee3bbb345caeefdecd487aab58e838e881df3",
+      "corpus_training.py": "214e70d28d2181cba608f52ebe2330e1494380d6ac6f3251a438de2961ec1224",
+      "losses.py": "b68a20e83756d4579c3e30be85eb5831ddd07df9012ab4e4f3960a02dedacf30",
+      "source_training.py": "1e6d3a79701c161162fac2228f9b595bfe3a5a48d12ff853eebe12563ee0a791"
+    },
+    "first_clip_full_criterion_check": "bitwise equal scalar results",
+    "summary": {
+      "examples": 2839,
+      "scored_samples": 293382780,
+      "total": 21.60400846059913,
+      "teacher_spectral": 0.0,
+      "teacher_waveform": 0.0,
+      "reference_spectral": 0.4800890768816161
+    },
+    "by_dataset": {
+      "crema_d": {
+        "examples": 738,
+        "scored_samples": 85267788,
+        "total": 28.469130286033238,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.6326473395271999
+      },
+      "emogator": {
+        "examples": 1530,
+        "scored_samples": 138458880,
+        "total": 19.753483513211894,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.4389663003044191
+      },
+      "freesound_human_whistle_cc0": {
+        "examples": 1,
+        "scored_samples": 122880,
+        "total": 12.227987289428711,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.27173304557800293
+      },
+      "freesound_human_whistle_cc_by_4": {
+        "examples": 1,
+        "scored_samples": 122880,
+        "total": 10.113924026489258,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.22475385665893555
+      },
+      "fsd50k_vocal_cc0": {
+        "examples": 3,
+        "scored_samples": 261660,
+        "total": 18.415967623392742,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.4092437227567037
+      },
+      "fsd50k_vocal_cc_by_3": {
+        "examples": 10,
+        "scored_samples": 843333,
+        "total": 29.093820095062256,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.6465293437242507
+      },
+      "jnv": {
+        "examples": 105,
+        "scored_samples": 12889599,
+        "total": 15.89319893064953,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.3531821994554429
+      },
+      "jvnv": {
+        "examples": 426,
+        "scored_samples": 52346880,
+        "total": 17.37382674888826,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.38608503850622916
+      },
+      "librispeech": {
+        "examples": 25,
+        "scored_samples": 3068880,
+        "total": 26.486719818115233,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.5885937750339508
+      }
+    },
+    "by_language": {
+      "en": {
+        "examples": 763,
+        "scored_samples": 88336668,
+        "total": 28.404175814607353,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.6312039068767002
+      },
+      "ja": {
+        "examples": 531,
+        "scored_samples": 65236479,
+        "total": 17.08104723680715,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.3795788273944918
+      },
+      "und": {
+        "examples": 1545,
+        "scored_samples": 139809633,
+        "total": 19.800231579515156,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.440005146261172
+      }
+    },
+    "finished_utc": "2026-09-09T03:55:15.208000+00:00",
+    "elapsed_seconds": 26.535700410604477
+  }
+}

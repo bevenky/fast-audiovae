@@ -1,0 +1,85 @@
+{
+  "batch_checks": [],
+  "batch_qualification_performed": false,
+  "complete": true,
+  "decoder_policy": "Singleton full-source decode from reference latents, cuDNN9.25.1; crop only after continuous decode",
+  "elapsed_seconds": 235.20635867118835,
+  "encoder_policy": "Full-source singleton cuDNN-disabled FP32 raw_mu reference only; no batched encoder results used",
+  "generator_sha256": "13e4c420a2781aa311b4be869b0292f791b1d5c7348cfe40139df826a8d27479",
+  "latent_batch_tolerance": {
+    "atol": 2e-05,
+    "max_rms": 2e-06,
+    "rtol": 2e-05
+  },
+  "original_cache_unchanged": true,
+  "parameter_updates": 0,
+  "pool_counts": {
+    "targeted_generator": 12800
+  },
+  "pool_selection": "Ordered crop prefixes; source count is reported separately",
+  "prior_batch_failure_evidence": "/dev/shm/fast-audiovae-recovery-fresh32-v1/failed.json",
+  "runtime": {
+    "cuda": "12.6",
+    "cudnn": 92501,
+    "torch": "2.14.0+cu126"
+  },
+  "sources": 3621,
+  "teacher": {
+    "autocast": false,
+    "checkpoint_sha256": "94b5d51e107e0507d4acc976cfdadb64edd6fd06d1f751dadbf2fd1594274bf1",
+    "config": {
+      "cond_dim": 128,
+      "cond_out_layer": false,
+      "cond_type": "scale_bias",
+      "decoder_dim": 2048,
+      "decoder_rates": [
+        8,
+        6,
+        5,
+        2,
+        2,
+        2
+      ],
+      "depthwise": true,
+      "encoder_dim": 128,
+      "encoder_rates": [
+        2,
+        5,
+        8,
+        8
+      ],
+      "latent_dim": 64,
+      "out_sample_rate": 48000,
+      "sample_rate": 16000,
+      "sr_bin_boundaries": [
+        20000,
+        30000,
+        40000
+      ],
+      "use_noise_block": false
+    },
+    "decoder_hop": 1920,
+    "device": "cuda:0",
+    "dtype": "float32",
+    "encoder_hop": 640,
+    "input_padding": "right_zero_to_multiple_of_640",
+    "latent_channels": 64,
+    "latent_rate": 25,
+    "model_repo": "openbmb/VoxCPM2",
+    "model_revision": "32279effe8c19989596f05d353d1447f51d9e915",
+    "posterior": "raw_mu",
+    "reconstruct_trim": "right_trim_to_3_times_original_input_samples",
+    "sample_rate_in": 16000,
+    "sample_rate_out": 48000,
+    "source_repo": "OpenBMB/VoxCPM",
+    "source_revision": "f772e498a45fbb5fb8e13fbf9b9c48be9fe33e69",
+    "source_sha256": "2efdff1708d8ec1471624aae6f232d0f933de26b788b6901c434246847e2d3a8",
+    "sr_cond": 48000,
+    "tf32": false,
+    "torch_version": "2.14.0+cu126",
+    "weight_norm": "original_retained"
+  },
+  "teacher_remained_frozen": true,
+  "teacher_state_sha256": "8da1691a055ac7eee3d06750846fc1ad1f887adfec13c31340cab7397fde1501",
+  "version": "full-source-corrected-training-pairs-v1"
+}

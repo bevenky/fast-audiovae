@@ -1,0 +1,59 @@
+{
+  "evaluated_step": 2000,
+  "probe_examples": 32,
+  "probe_scored_samples": 983040,
+  "normalization_mode": "fixed_statistics",
+  "reconstruction_weights": {
+    "teacher_waveform": 0.5,
+    "teacher_mel": 0.5,
+    "feature_matching": 0.0,
+    "adversarial": 0.0
+  },
+  "balancer_state_source": "copy_of_training_state_updated_on_probe_batch",
+  "output_gradients": {
+    "teacher_waveform/raw_norm": 0.021388063207268715,
+    "teacher_waveform/target_share": 0.5,
+    "teacher_waveform/raw_share": 0.04071100250017879,
+    "teacher_waveform/ema_norm": 0.021388060179002452,
+    "teacher_waveform/scale": 23.377529136133194,
+    "teacher_waveform/scaled_norm": 0.5000000707933827,
+    "teacher_waveform/saturated": 0.0,
+    "teacher_waveform/zero_norm": 0.0,
+    "teacher_mel/raw_norm": 0.5039751529693604,
+    "teacher_mel/target_share": 0.5,
+    "teacher_mel/raw_share": 0.9592889974998212,
+    "teacher_mel/ema_norm": 0.3264349279706133,
+    "teacher_mel/scale": 1.5316988384435737,
+    "teacher_mel/scaled_norm": 0.7719381564075917,
+    "teacher_mel/saturated": 0.0,
+    "teacher_mel/zero_norm": 0.0,
+    "combined_norm": 1.1338309049606323,
+    "valid_samples_mean": 30720.0
+  },
+  "parameters": [
+    {
+      "parameter": "adapter.weight",
+      "waveform_raw_norm": 1.7827786207199097,
+      "mel_raw_norm": 20.70406150817871,
+      "waveform_scaled_norm": 41.67695617675781,
+      "mel_scaled_norm": 31.712385177612305,
+      "cosine": 0.7382135987281799
+    },
+    {
+      "parameter": "blocks.5.project.weight",
+      "waveform_raw_norm": 0.09823665022850037,
+      "mel_raw_norm": 1.41078782081604,
+      "waveform_scaled_norm": 2.296530246734619,
+      "mel_scaled_norm": 2.1609020233154297,
+      "cosine": 0.8473987579345703
+    },
+    {
+      "parameter": "output.weight",
+      "waveform_raw_norm": 1.3488037586212158,
+      "mel_raw_norm": 15.611745834350586,
+      "waveform_scaled_norm": 31.531700134277344,
+      "mel_scaled_norm": 23.912490844726562,
+      "cosine": 0.8753330707550049
+    }
+  ]
+}

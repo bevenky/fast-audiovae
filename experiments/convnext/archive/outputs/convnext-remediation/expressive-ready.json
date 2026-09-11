@@ -1,0 +1,136 @@
+{
+  "active_plan_modified": false,
+  "all_audio_on_runpod": true,
+  "created_unix": 1788944178.2908945,
+  "existing_emogator": {
+    "clips": 28871,
+    "contributors": 324,
+    "emotion_counts": {
+      "Adoration": 960,
+      "Amusement": 961,
+      "Anger": 959,
+      "Awe": 964,
+      "Confusion": 963,
+      "Contempt": 962,
+      "Contentment": 961,
+      "Desire": 963,
+      "Disappointment": 961,
+      "Disgust": 962,
+      "Distress": 964,
+      "Ecstasy": 962,
+      "Elation": 963,
+      "Embarrassment": 964,
+      "Fear": 961,
+      "Guilt": 965,
+      "Interest": 962,
+      "Neutral": 963,
+      "Pain": 962,
+      "Pride": 962,
+      "Realization": 962,
+      "Relief": 965,
+      "Romantic Love": 961,
+      "Sadness": 962,
+      "Serenity": 962,
+      "Shame": 962,
+      "Surprise (Negative)": 963,
+      "Surprise (Positive)": 964,
+      "Sympathy": 963,
+      "Triumph": 963
+    },
+    "emotion_seconds": {
+      "Adoration": 1794.1605625000163,
+      "Amusement": 1792.9765000000164,
+      "Anger": 1787.4017500000173,
+      "Awe": 1812.8306875000183,
+      "Confusion": 1801.772375000017,
+      "Contempt": 1799.3105000000173,
+      "Contentment": 1813.807812500017,
+      "Desire": 1815.5459375000187,
+      "Disappointment": 1806.4786875000175,
+      "Disgust": 1790.2055000000166,
+      "Distress": 1808.3420000000172,
+      "Ecstasy": 1822.855500000018,
+      "Elation": 1806.3955625000185,
+      "Embarrassment": 1812.084625000018,
+      "Fear": 1792.0433125000172,
+      "Guilt": 1814.4982500000178,
+      "Interest": 1804.2946875000173,
+      "Neutral": 1809.4349375000172,
+      "Pain": 1809.060625000017,
+      "Pride": 1808.1907500000168,
+      "Realization": 1808.5806875000171,
+      "Relief": 1813.9387500000175,
+      "Romantic Love": 1809.0175625000181,
+      "Sadness": 1814.216062500018,
+      "Serenity": 1816.041312500018,
+      "Shame": 1804.9305625000163,
+      "Surprise (Negative)": 1789.7844375000175,
+      "Surprise (Positive)": 1798.3319375000171,
+      "Sympathy": 1806.6391875000163,
+      "Triumph": 1810.259250000018
+    },
+    "hours": 15.048175086805555,
+    "label_limit": "Not counted as verified laugh/cry/giggle/shout/whistle seconds",
+    "why_omitted": "Current planner accepts known speech language or explicit action label. EmoGator language und with emotion-only annotations has no action mapping; omission was conservative classification, not missing download. Explicit generic emotional_nonverbal is staged for a deliberate new continuation planner category."
+  },
+  "free_bytes": 6451400704,
+  "fresh_fsd": {
+    "dev": {
+      "clips": 3,
+      "conditions": {
+        "Breathing": {
+          "clips": 3,
+          "seconds": 17.8329375
+        }
+      },
+      "contributors": 2,
+      "seconds": 17.8329375
+    },
+    "train": {
+      "clips": 282,
+      "conditions": {
+        "Breathing": {
+          "clips": 161,
+          "seconds": 457.0233125
+        },
+        "Whispering": {
+          "clips": 70,
+          "seconds": 251.65725
+        },
+        "Yell": {
+          "clips": 51,
+          "seconds": 330.5835
+        }
+      },
+      "contributors": 72,
+      "seconds": 1039.2640625
+    }
+  },
+  "fresh_quarantined": [
+    {
+      "reason": "prior/reserved original audio hash",
+      "source_id": "freesound:353288"
+    }
+  ],
+  "historical_holdout_sources": 5631,
+  "manifest_sha256": {
+    "emogator-conditions.json": "0e21abf738db472855a0dd83d3336d3dfec7ee0930d687f5fd4d0c3cb4970935",
+    "emogator-train.jsonl": "86bce35986884647263624c23c8a011a97aa938d9722c94916fc6c2e62279b34",
+    "fresh-conditions.json": "eaa6842437f310d2d03361f29eb277626b5a3c8bad0167444d075afbc7522ea1",
+    "fresh-dev.jsonl": "20dbbf2da75c79d0ff35e86fa98b27292a3e6d92caccc2bce3b71e34d5240c38",
+    "fsd-reviewed-selection.json": "af4b132c0efe132bb7d69e8347a0d51299eaddc84b4e3d736040ed22b2d0dcba",
+    "new-dev-contributor-reservation.json": "7a090946d8b83a0b8f64000ee8c171caf8d904be60b5fa346c98a895c31729da",
+    "train-candidates.jsonl": "2a17fc2548547f87503c56ef9548498bb589a65b632e8768a4fa247e1bb92a75"
+  },
+  "next_step": "Root must explicitly integrate candidates at a resumable checkpoint using preserved exposure ledger and before final allocation incorporate fresh-dev contributors into all split guards. Existing active schedule unchanged.",
+  "no_new_strict_candidates_for": [
+    "Crying_and_sobbing",
+    "Giggle",
+    "Shout",
+    "human_whistling"
+  ],
+  "planned_current_source_exclusions": 70353,
+  "state": "verified_staged_not_trained",
+  "storage_bytes": 362972598,
+  "teacher_precomputation_performed": false
+}

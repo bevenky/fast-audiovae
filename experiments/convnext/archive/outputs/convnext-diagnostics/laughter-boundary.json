@@ -1,0 +1,196 @@
+{
+  "archive_projection_version": 1,
+  "original_relative_path": "outputs/convnext-diagnostics/laughter-boundary.json",
+  "original_sha256": "32628d0f7763b3644ecca124bd1793fef3607bc7ae7c7e23e5e9f01946d85c24",
+  "omitted_field_paths": [
+    "cases[0].checks.full.per_frame_max_abs",
+    "cases[0].checks.full.frames_over_1e_4",
+    "cases[0].checks.prefix64.per_frame_max_abs",
+    "cases[0].checks.prefix64.frames_over_1e_4",
+    "cases[1].checks.full.per_frame_max_abs",
+    "cases[1].checks.full.frames_over_1e_4",
+    "cases[1].checks.prefix64.per_frame_max_abs",
+    "cases[1].checks.prefix64.frames_over_1e_4"
+  ],
+  "note": "Labelled projection. Omitted numerical payloads and listed bulk report collections remain outside Git; configuration metadata is retained.",
+  "report": {
+    "cases": [
+      {
+        "source_id": "freesound:119459",
+        "source": {
+          "source_id": "freesound:119459",
+          "audio_sha256": "3aa3dc951bec8a3198a48d5c45c918d7966a1d32c4b95b0e769236dce0e0cbba",
+          "prepared_samples16k": 88697,
+          "source_split": "dev",
+          "sample_rate_hz": 16000,
+          "reader_source_sha256": "b6ee04dd7d560f5f395c624324076528ce405aaebb6d0320e873fd3034fb92eb",
+          "reader": "Original SourceCorpus.read_native_16k; prepared mono16k bytes, no new resampling, gain or channel change",
+          "scope": "Complete supplied source-manifest recording segment; not necessarily the entire parent recording",
+          "gain_policy": "no-additional-gain-normalization",
+          "raw_source_verified": true
+        },
+        "cached_z_sha256": "8e88aa3c6d73355096e7280c5dd4bcafa71fa9460d2a5f5c17f6d5f20232e4a2",
+        "cache_key": "734488e5ca6e03a63b8f275151094106e1b0d433f70f10fdfbff979c1d274c4b",
+        "checks": {
+          "full": {
+            "vs_cached": {
+              "samples": 4096,
+              "mae": 0.005682687144371812,
+              "mse": 0.00284416049126945,
+              "residual_rms": 0.05333067120587786,
+              "max_abs_error": 1.0348803997039795,
+              "prediction_rms": 0.9418807849444615,
+              "target_rms": 0.9385169895422392,
+              "prediction_peak": 4.045453071594238,
+              "target_peak": 4.045453071594238,
+              "residual_dc": 0.0030070842449276824,
+              "cosine": 0.9983976595436584,
+              "snr_db": 24.90930178456296,
+              "equal_values": false
+            },
+            "latent_sha256": "efa5fd38c3916beb94d041d32eec30c8ea91d10eb214917c83d2ae9f28479354"
+          },
+          "prefix64": {
+            "vs_cached": {
+              "samples": 4096,
+              "mae": 0.005682925668509142,
+              "mse": 0.0028441581531559305,
+              "residual_rms": 0.05333064928496493,
+              "max_abs_error": 1.0348784923553467,
+              "prediction_rms": 0.9418808054049753,
+              "target_rms": 0.9385169895422392,
+              "prediction_peak": 4.045447826385498,
+              "target_peak": 4.045453071594238,
+              "residual_dc": 0.0030070628736780236,
+              "cosine": 0.9983976609788308,
+              "snr_db": 24.909305354791226,
+              "equal_values": false
+            },
+            "latent_sha256": "5335636221e4e93cd120326522d5c6f703aaeb4ff2714fcf7af740f73304fa67"
+          },
+          "full_vs_prefix64": {
+            "samples": 4096,
+            "mae": 8.850898325363232e-07,
+            "mse": 1.764768795220281e-12,
+            "residual_rms": 1.3284460076421177e-06,
+            "max_abs_error": 1.2278556823730469e-05,
+            "prediction_rms": 0.9418807849444615,
+            "target_rms": 0.9418808054049753,
+            "prediction_peak": 4.045453071594238,
+            "target_peak": 4.045447826385498,
+            "residual_dc": 2.1371249658841407e-08,
+            "cosine": 0.9999999999990057,
+            "snr_db": 117.01304077060033,
+            "equal_values": false
+          },
+          "cached_z_decode_vs_cached_target": {
+            "samples": 122880,
+            "mae": 1.3960973592001362e-08,
+            "mse": 7.471247339867204e-16,
+            "residual_rms": 2.733358253114144e-08,
+            "max_abs_error": 3.986060619354248e-07,
+            "prediction_rms": 0.02870747107689849,
+            "target_rms": 0.02870747070240702,
+            "prediction_peak": 0.18006616830825806,
+            "target_peak": 0.18006618320941925,
+            "residual_dc": 2.055425459464762e-11,
+            "cosine": 0.9999999999995467,
+            "snr_db": 120.42596746338695,
+            "equal_values": false
+          }
+        }
+      },
+      {
+        "source_id": "freesound:386521",
+        "source": {
+          "source_id": "freesound:386521",
+          "audio_sha256": "ed733d640a7f5a5432635dcbb1e7c79295b6a7cbc507a36924dd94ff5f839dfb",
+          "prepared_samples16k": 88000,
+          "source_split": "dev",
+          "sample_rate_hz": 16000,
+          "reader_source_sha256": "b6ee04dd7d560f5f395c624324076528ce405aaebb6d0320e873fd3034fb92eb",
+          "reader": "Original SourceCorpus.read_native_16k; prepared mono16k bytes, no new resampling, gain or channel change",
+          "scope": "Complete supplied source-manifest recording segment; not necessarily the entire parent recording",
+          "gain_policy": "no-additional-gain-normalization",
+          "raw_source_verified": true
+        },
+        "cached_z_sha256": "90f0a685de75e28eb547266549b3fc9c184d675695fafd7ae4dbba6c337ed8c0",
+        "cache_key": "d67cad8b579075c4cfc00ea625a23ad466a16a730c1f7ca30197fcb8e113f993",
+        "checks": {
+          "full": {
+            "vs_cached": {
+              "samples": 4096,
+              "mae": 0.005810564044779198,
+              "mse": 0.003383847760522259,
+              "residual_rms": 0.05817084974901311,
+              "max_abs_error": 1.3657867908477783,
+              "prediction_rms": 0.9578580604128125,
+              "target_rms": 0.9537875487364237,
+              "prediction_peak": 4.635777950286865,
+              "target_peak": 4.635775089263916,
+              "residual_dc": 0.0027663838049392098,
+              "cosine": 0.9981571233809545,
+              "snr_db": 24.29492481358664,
+              "equal_values": false
+            },
+            "latent_sha256": "7a2200fe9289158b25b0186000e3b15be94fffa0df392003be0a8effff4f7c30"
+          },
+          "prefix64": {
+            "vs_cached": {
+              "samples": 4096,
+              "mae": 0.005810564044779198,
+              "mse": 0.003383847760522259,
+              "residual_rms": 0.05817084974901311,
+              "max_abs_error": 1.3657867908477783,
+              "prediction_rms": 0.9578580604128125,
+              "target_rms": 0.9537875487364237,
+              "prediction_peak": 4.635777950286865,
+              "target_peak": 4.635775089263916,
+              "residual_dc": 0.0027663838049392098,
+              "cosine": 0.9981571233809545,
+              "snr_db": 24.29492481358664,
+              "equal_values": false
+            },
+            "latent_sha256": "7a2200fe9289158b25b0186000e3b15be94fffa0df392003be0a8effff4f7c30"
+          },
+          "full_vs_prefix64": {
+            "samples": 4096,
+            "mae": 0.0,
+            "mse": 0.0,
+            "residual_rms": 0.0,
+            "max_abs_error": 0.0,
+            "prediction_rms": 0.9578580604128125,
+            "target_rms": 0.9578580604128125,
+            "prediction_peak": 4.635777950286865,
+            "target_peak": 4.635777950286865,
+            "residual_dc": 0.0,
+            "cosine": 1.0,
+            "snr_db": null,
+            "equal_values": true
+          },
+          "cached_z_decode_vs_cached_target": {
+            "samples": 122880,
+            "mae": 0.0,
+            "mse": 0.0,
+            "residual_rms": 0.0,
+            "max_abs_error": 0.0,
+            "prediction_rms": 0.05239566853212268,
+            "target_rms": 0.05239566853212268,
+            "prediction_peak": 0.9590966701507568,
+            "target_peak": 0.9590966701507568,
+            "residual_dc": 0.0,
+            "cosine": 1.0,
+            "snr_db": null,
+            "equal_values": true
+          }
+        }
+      }
+    ],
+    "parameter_updates": 0,
+    "encoder_calls": 4,
+    "student_calls": 0,
+    "files": {
+      "retained_checkpoint_hashes_unchanged": true
+    }
+  }
+}

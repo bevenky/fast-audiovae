@@ -1,0 +1,89 @@
+{
+  "format_version": 1,
+  "minimum_train_hours": 500,
+  "maximum_utterance_seconds": 180,
+  "fleurs_plan": "/workspace/fast-audiovae-convnext-20260908-r1/data-expanded-core/provenance/acquisition-plan.json",
+  "minimum_indic_hours_per_language": 2,
+  "initial_source_names": [
+    "core",
+    "indic",
+    "expressive",
+    "emogator",
+    "fsd_vocal",
+    "human_whistling"
+  ],
+  "sources": [
+    {
+      "name": "core",
+      "kind": "acquire",
+      "manifests": [
+        "/workspace/fast-audiovae-convnext-20260908-r1/data-expanded-core/train.jsonl",
+        "/workspace/fast-audiovae-convnext-20260908-r1/data-expanded-core/dev.jsonl"
+      ],
+      "readiness": "/workspace/fast-audiovae-convnext-20260908-r1/data-expanded-core/provenance/sources.json",
+      "launch_record": "/workspace/fast-audiovae-convnext-20260908-r1/corpus-core-440h.launch.json"
+    },
+    {
+      "name": "indic",
+      "kind": "indic",
+      "manifests": [
+        "/workspace/fast-audiovae-convnext-20260908-r1/data-expanded-indic/train.jsonl"
+      ],
+      "readiness": "/workspace/fast-audiovae-convnext-20260908-r1/data-expanded-indic/progress.json",
+      "launch_record": "/workspace/fast-audiovae-convnext-20260908-r1/corpus-indic-44h.launch.json"
+    },
+    {
+      "name": "expressive",
+      "kind": "expressive",
+      "manifests": [
+        "/workspace/fast-audiovae-convnext-20260908-r1/data-expressive-originals/prepared/train.jsonl",
+        "/workspace/fast-audiovae-convnext-20260908-r1/data-expressive-originals/prepared/dev.jsonl"
+      ],
+      "readiness": "/workspace/fast-audiovae-convnext-20260908-r1/data-expressive-originals/prepared/provenance/expressive-complete.json",
+      "launch_record": "/workspace/fast-audiovae-convnext-20260908-r1/expressive-preparation.launch.json"
+    },
+    {
+      "name": "emogator",
+      "kind": "expressive",
+      "preparation_version": 1,
+      "manifests": [
+        "/workspace/fast-audiovae-convnext-20260908-r1/data-emogator/prepared/train.jsonl",
+        "/workspace/fast-audiovae-convnext-20260908-r1/data-emogator/prepared/dev.jsonl"
+      ],
+      "readiness": "/workspace/fast-audiovae-convnext-20260908-r1/data-emogator/prepared/provenance/complete.json",
+      "launch_record": "/workspace/fast-audiovae-convnext-20260908-r1/emogator-acquisition.launch.json"
+    },
+    {
+      "name": "fsd_vocal",
+      "kind": "expressive",
+      "preparation_version": 2,
+      "manifests": [
+        "/workspace/fast-audiovae-convnext-20260908-r1/data-fsd-vocal/prepared/train.jsonl",
+        "/workspace/fast-audiovae-convnext-20260908-r1/data-fsd-vocal/prepared/dev.jsonl"
+      ],
+      "readiness": "/workspace/fast-audiovae-convnext-20260908-r1/data-fsd-vocal/prepared/provenance/complete.json",
+      "launch_record": "/workspace/fast-audiovae-convnext-20260908-r1/corpus-fsd-vocal.launch.json"
+    },
+    {
+      "name": "human_whistling",
+      "kind": "expressive",
+      "preparation_version": 1,
+      "manifests": [
+        "/workspace/fast-audiovae-convnext-20260908-r1/data-human-whistling/prepared/train.jsonl",
+        "/workspace/fast-audiovae-convnext-20260908-r1/data-human-whistling/prepared/dev.jsonl"
+      ],
+      "readiness": "/workspace/fast-audiovae-convnext-20260908-r1/data-human-whistling/prepared/provenance/complete.json",
+      "launch_record": "/workspace/fast-audiovae-convnext-20260908-r1/corpus-human-whistling.launch.json"
+    }
+  ],
+  "dev_manifests": [
+    "/workspace/fast-audiovae-convnext-20260908-r1/data-bootstrap/dev.jsonl"
+  ],
+  "prior_training_manifests": [
+    "/workspace/fast-audiovae-convnext-20260908-r1/data-bootstrap/train.jsonl"
+  ],
+  "reserved_manifests": [],
+  "legacy_evaluation_manifests": [
+    "/workspace/fast-audiovae-convnext-20260908-r1/reserved-evaluation.json"
+  ]
+}

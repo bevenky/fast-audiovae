@@ -1,0 +1,36 @@
+{
+  "kind": "corrected_decoder_implementation_checks",
+  "local_cpu": {
+    "tests_passed": 349,
+    "tests_skipped": 7,
+    "subtests_passed": 72,
+    "note": "Full experimental suite before the new runner and final planner integration."
+  },
+  "runpod_cpu": {
+    "tests_passed": 72,
+    "gpu_hidden_for_tests": true,
+    "scope": [
+      "distillation_training",
+      "norm",
+      "model",
+      "optimizers",
+      "losses_distillation",
+      "discriminators",
+      "gradient_balancer",
+      "restart_data"
+    ]
+  },
+  "quality_claim": "No real-audio quality pass implied by these correctness checks.",
+  "committed": false,
+  "runpod_cpu_final": {
+    "tests_passed": 384,
+    "tests_skipped": 2,
+    "subtests_passed": 72,
+    "gpu_hidden_for_tests": true,
+    "note": "Full suite passed382tests; two failed solely because configs/data-mixture.json was absent from the staging archive. After adding the unchanged fixture, both targeted checks passed.",
+    "skips": [
+      "local pinned assets not supplied to asset-specific unit test",
+      "GPU smoke requires explicit opt-in; this test suite deliberately hid GPUs"
+    ]
+  }
+}

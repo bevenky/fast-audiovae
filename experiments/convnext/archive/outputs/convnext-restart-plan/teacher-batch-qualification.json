@@ -1,0 +1,511 @@
+{
+  "source_corpus_identity_sha256": "c158011b96029a9c299d1c87f73ee7e8152a18a1ac069e670e13c10cb6e05836",
+  "report": {
+    "format_version": 1,
+    "config": {
+      "max_batch_size": 8,
+      "max_total_input_samples": 1920000,
+      "max_abs_error": 0.001,
+      "minimum_snr_db": 70.0
+    },
+    "requested_row_ids": [
+      "crema_d:1055_TIE_NEU_XX.wav",
+      "emogator:000089-15-3.mp3",
+      "ja_jp:train:1183737051165118468.wav",
+      "assamese:2533274790429284_chunk_1.flac",
+      "jvnv:M1_anger_free_01.wav",
+      "103-1241-0018",
+      "thorsten_emotional:drunk/29df50889144d8e39a5d2f6c62e41060.wav",
+      "crema_d:1063_IEO_SAD_HI.wav",
+      "emogator:000179-20-3.mp3",
+      "de_de:train:11921739093164668713.wav",
+      "tamil:3096224743896032_chunk_1.flac",
+      "jvnv:F1_disgust_regular_11.wav",
+      "1246-124548-0038",
+      "thorsten_emotional:disgusted/996ed69d01448907d81f0268d58628b6.wav",
+      "crema_d:1082_IOM_ANG_XX.wav",
+      "emogator:000213-17-2.mp3",
+      "assamese:2533274790425556_chunk_1.flac",
+      "4481-17499-0006",
+      "bengali:1407374883863214_chunk_1.flac",
+      "4193-48169-0000",
+      "gujarati:3377699720718177_chunk_1.flac",
+      "6254-61739-0033",
+      "hindi:5348024557843750_chunk_1.flac",
+      "4280-185518-0100",
+      "kannada:6192449488314183_chunk_1.flac",
+      "6549-71115-0026",
+      "malayalam:2814749767245802_chunk_1.flac",
+      "307-127535-0012",
+      "marathi:562949953721639_chunk_1.flac",
+      "5487-41940-0028",
+      "nepali:b1366af7-ad9b-444d-847c-a11281c089c4_0_chunk_5.flac",
+      "1034-121119-0033"
+    ],
+    "cache_hits": 0,
+    "cache_misses": 32,
+    "batched_utterances": 31,
+    "serial_utterances": 1,
+    "batches": [
+      {
+        "mode": "batch",
+        "row_ids": [
+          "emogator:000089-15-3.mp3",
+          "emogator:000179-20-3.mp3",
+          "emogator:000213-17-2.mp3",
+          "crema_d:1055_TIE_NEU_XX.wav",
+          "crema_d:1082_IOM_ANG_XX.wav",
+          "crema_d:1063_IEO_SAD_HI.wav",
+          "ja_jp:train:1183737051165118468.wav",
+          "4280-185518-0100"
+        ],
+        "input_samples": [
+          30720,
+          30720,
+          30720,
+          36303,
+          38972,
+          40040,
+          78720,
+          84480
+        ],
+        "padded_input_samples": 675840
+      },
+      {
+        "mode": "batch",
+        "row_ids": [
+          "tamil:3096224743896032_chunk_1.flac",
+          "jvnv:M1_anger_free_01.wav",
+          "thorsten_emotional:disgusted/996ed69d01448907d81f0268d58628b6.wav",
+          "bengali:1407374883863214_chunk_1.flac",
+          "de_de:train:11921739093164668713.wav",
+          "malayalam:2814749767245802_chunk_1.flac",
+          "gujarati:3377699720718177_chunk_1.flac",
+          "jvnv:F1_disgust_regular_11.wav"
+        ],
+        "input_samples": [
+          106992,
+          112104,
+          126400,
+          128608,
+          128640,
+          144016,
+          148480,
+          149938
+        ],
+        "padded_input_samples": 1203200
+      },
+      {
+        "mode": "batch",
+        "row_ids": [
+          "103-1241-0018",
+          "1246-124548-0038",
+          "thorsten_emotional:drunk/29df50889144d8e39a5d2f6c62e41060.wav",
+          "assamese:2533274790429284_chunk_1.flac",
+          "marathi:562949953721639_chunk_1.flac",
+          "6549-71115-0026",
+          "hindi:5348024557843750_chunk_1.flac",
+          "4481-17499-0006"
+        ],
+        "input_samples": [
+          150960,
+          154960,
+          156000,
+          165376,
+          177648,
+          183040,
+          185648,
+          209199
+        ],
+        "padded_input_samples": 1674240
+      },
+      {
+        "mode": "batch",
+        "row_ids": [
+          "kannada:6192449488314183_chunk_1.flac",
+          "4193-48169-0000",
+          "5487-41940-0028",
+          "307-127535-0012",
+          "6254-61739-0033",
+          "nepali:b1366af7-ad9b-444d-847c-a11281c089c4_0_chunk_5.flac",
+          "1034-121119-0033"
+        ],
+        "input_samples": [
+          209920,
+          213360,
+          214400,
+          216640,
+          220160,
+          229888,
+          234800
+        ],
+        "padded_input_samples": 1644160
+      },
+      {
+        "mode": "serial",
+        "row_ids": [
+          "assamese:2533274790425556_chunk_1.flac"
+        ],
+        "input_samples": [
+          242384
+        ]
+      }
+    ],
+    "qualification": {
+      "passed": true,
+      "policy": "serial_vs_right_padded_whole_utterance_fp32_v1",
+      "max_abs_error": 0.001,
+      "minimum_snr_db": 70.0,
+      "max_relative_rms": 0.00031622776601683794,
+      "batch_size": 7,
+      "padded_input_samples": 1697920,
+      "teacher": {
+        "autocast": false,
+        "checkpoint_sha256": "94b5d51e107e0507d4acc976cfdadb64edd6fd06d1f751dadbf2fd1594274bf1",
+        "config": {
+          "cond_dim": 128,
+          "cond_out_layer": false,
+          "cond_type": "scale_bias",
+          "decoder_dim": 2048,
+          "decoder_rates": [
+            8,
+            6,
+            5,
+            2,
+            2,
+            2
+          ],
+          "depthwise": true,
+          "encoder_dim": 128,
+          "encoder_rates": [
+            2,
+            5,
+            8,
+            8
+          ],
+          "latent_dim": 64,
+          "out_sample_rate": 48000,
+          "sample_rate": 16000,
+          "sr_bin_boundaries": [
+            20000,
+            30000,
+            40000
+          ],
+          "use_noise_block": false
+        },
+        "decoder_hop": 1920,
+        "device": "cuda:0",
+        "dtype": "float32",
+        "encoder_hop": 640,
+        "input_padding": "right_zero_to_multiple_of_640",
+        "latent_channels": 64,
+        "latent_rate": 25,
+        "model_repo": "openbmb/VoxCPM2",
+        "model_revision": "32279effe8c19989596f05d353d1447f51d9e915",
+        "posterior": "raw_mu",
+        "reconstruct_trim": "right_trim_to_3_times_original_input_samples",
+        "sample_rate_in": 16000,
+        "sample_rate_out": 48000,
+        "source_repo": "OpenBMB/VoxCPM",
+        "source_revision": "f772e498a45fbb5fb8e13fbf9b9c48be9fe33e69",
+        "source_sha256": "2efdff1708d8ec1471624aae6f232d0f933de26b788b6901c434246847e2d3a8",
+        "sr_cond": 48000,
+        "target_preparation_policy": {
+          "cublas_workspace_config": ":4096:8",
+          "cuda_matmul_allow_tf32": false,
+          "cudnn_allow_tf32": false,
+          "cudnn_benchmark": false,
+          "cudnn_deterministic": true,
+          "deterministic_algorithms": true,
+          "jit_optimized_execution": true,
+          "warmup_encode_decode_passes": 2,
+          "warmup_input_policy": "first_selected_complete_utterance_including_resume",
+          "warmup_source_sha256": "8602d7ca96162b981a7c5ebaa9ade19c507c75222130a460f0eec54519d1c989"
+        },
+        "tf32": false,
+        "torch_version": "2.11.0+cu128",
+        "weight_norm": "original_retained"
+      },
+      "clips": [
+        {
+          "source_id": "emogator:000089-15-3.mp3",
+          "input_samples": 30720,
+          "prepared_audio_sha256": "4105cf7984d14e55f26da51b3a82c57546f3eccc103a74d0ff6c99775170b1f7",
+          "latent_frames": 48,
+          "raw_output_samples": 92160,
+          "valid_output_samples": 92160,
+          "latents": {
+            "passed": true,
+            "max_abs": 9.5367431640625e-06,
+            "reference_rms": 0.869355328651078,
+            "error_rms": 1.0217149482429059e-06,
+            "relative_rms": 1.1752558643980873e-06,
+            "snr_db": 118.59735146104777,
+            "exact": false
+          },
+          "raw_waveform": {
+            "passed": true,
+            "max_abs": 5.159527063369751e-07,
+            "reference_rms": 0.02503489340297242,
+            "error_rms": 5.838108163176286e-08,
+            "relative_rms": 2.331988424797176e-06,
+            "snr_db": 112.64547219197566,
+            "exact": false
+          },
+          "valid_waveform": {
+            "passed": true,
+            "max_abs": 5.159527063369751e-07,
+            "reference_rms": 0.02503489340297242,
+            "error_rms": 5.838108163176286e-08,
+            "relative_rms": 2.331988424797176e-06,
+            "snr_db": 112.64547219197566,
+            "exact": false
+          },
+          "passed": true
+        },
+        {
+          "source_id": "crema_d:1063_IEO_SAD_HI.wav",
+          "input_samples": 40040,
+          "prepared_audio_sha256": "35178f05de91856bb2bb984c8d552bddccf2e5e81c61ffe473780aebb6efa8a2",
+          "latent_frames": 63,
+          "raw_output_samples": 120960,
+          "valid_output_samples": 120120,
+          "latents": {
+            "passed": true,
+            "max_abs": 0.0,
+            "reference_rms": 1.0115775993035434,
+            "error_rms": 0.0,
+            "relative_rms": 0.0,
+            "snr_db": null,
+            "exact": true
+          },
+          "raw_waveform": {
+            "passed": true,
+            "max_abs": 1.7508864402770996e-07,
+            "reference_rms": 0.007623636825305055,
+            "error_rms": 1.014109977307965e-08,
+            "relative_rms": 1.330218110524154e-06,
+            "snr_db": 117.5215428734269,
+            "exact": false
+          },
+          "valid_waveform": {
+            "passed": true,
+            "max_abs": 1.7508864402770996e-07,
+            "reference_rms": 0.007650246407339196,
+            "error_rms": 1.0175875837187529e-08,
+            "relative_rms": 1.330137004139552e-06,
+            "snr_db": 117.52207248776442,
+            "exact": false
+          },
+          "passed": true
+        },
+        {
+          "source_id": "thorsten_emotional:disgusted/996ed69d01448907d81f0268d58628b6.wav",
+          "input_samples": 126400,
+          "prepared_audio_sha256": "ff709eba37e4c0e42d4c4acd64a41d79b3da73bc484cebb807bbd978347921df",
+          "latent_frames": 198,
+          "raw_output_samples": 380160,
+          "valid_output_samples": 379200,
+          "latents": {
+            "passed": true,
+            "max_abs": 1.52587890625e-05,
+            "reference_rms": 1.3842356142683165,
+            "error_rms": 1.6359494470000066e-06,
+            "relative_rms": 1.1818431993347764e-06,
+            "snr_db": 118.5488027902608,
+            "exact": false
+          },
+          "raw_waveform": {
+            "passed": true,
+            "max_abs": 2.4139881134033203e-06,
+            "reference_rms": 0.10653324449526409,
+            "error_rms": 1.7115572516447816e-07,
+            "relative_rms": 1.606594504611064e-06,
+            "snr_db": 115.88187445766232,
+            "exact": false
+          },
+          "valid_waveform": {
+            "passed": true,
+            "max_abs": 2.4139881134033203e-06,
+            "reference_rms": 0.1066680013349323,
+            "error_rms": 1.7137214297796322e-07,
+            "relative_rms": 1.6065937378901764e-06,
+            "snr_db": 115.88187860286175,
+            "exact": false
+          },
+          "passed": true
+        },
+        {
+          "source_id": "jvnv:F1_disgust_regular_11.wav",
+          "input_samples": 149938,
+          "prepared_audio_sha256": "c6667dd9c97dac8bd88fc865eb7529926558a7bd129bd59be5e61b6b4dc58c56",
+          "latent_frames": 235,
+          "raw_output_samples": 451200,
+          "valid_output_samples": 449814,
+          "latents": {
+            "passed": true,
+            "max_abs": 1.239776611328125e-05,
+            "reference_rms": 1.1158144472797318,
+            "error_rms": 1.323779398495189e-06,
+            "relative_rms": 1.186379511147628e-06,
+            "snr_db": 118.51552724418488,
+            "exact": false
+          },
+          "raw_waveform": {
+            "passed": true,
+            "max_abs": 9.387731552124023e-07,
+            "reference_rms": 0.02998720031051646,
+            "error_rms": 6.460568752560835e-08,
+            "relative_rms": 2.154442123860134e-06,
+            "snr_db": 113.33330336291897,
+            "exact": false
+          },
+          "valid_waveform": {
+            "passed": true,
+            "max_abs": 9.387731552124023e-07,
+            "reference_rms": 0.030033364139371417,
+            "error_rms": 6.470511387298611e-08,
+            "relative_rms": 2.154441093336018e-06,
+            "snr_db": 113.3333075176005,
+            "exact": false
+          },
+          "passed": true
+        },
+        {
+          "source_id": "marathi:562949953721639_chunk_1.flac",
+          "input_samples": 177648,
+          "prepared_audio_sha256": "a77e9c586f3909cfa969917de25cbe0962147665b1faeeb972514802a3b5cd78",
+          "latent_frames": 278,
+          "raw_output_samples": 533760,
+          "valid_output_samples": 532944,
+          "latents": {
+            "passed": true,
+            "max_abs": 0.0,
+            "reference_rms": 1.5101041556428487,
+            "error_rms": 0.0,
+            "relative_rms": 0.0,
+            "snr_db": null,
+            "exact": true
+          },
+          "raw_waveform": {
+            "passed": true,
+            "max_abs": 1.8104910850524902e-06,
+            "reference_rms": 0.22119041980001986,
+            "error_rms": 1.4534713880143455e-07,
+            "relative_rms": 6.571131739468832e-07,
+            "snr_db": 123.64719651785202,
+            "exact": false
+          },
+          "valid_waveform": {
+            "passed": true,
+            "max_abs": 1.8104910850524902e-06,
+            "reference_rms": 0.22135968917948354,
+            "error_rms": 1.454583486060308e-07,
+            "relative_rms": 6.571130866021853e-07,
+            "snr_db": 123.64719767239662,
+            "exact": false
+          },
+          "passed": true
+        },
+        {
+          "source_id": "4193-48169-0000",
+          "input_samples": 213360,
+          "prepared_audio_sha256": "ab569ab9b0ffbede6cc2d1a785e898af0bffad57518b11be965c179c24cf8ee2",
+          "latent_frames": 334,
+          "raw_output_samples": 641280,
+          "valid_output_samples": 640080,
+          "latents": {
+            "passed": true,
+            "max_abs": 0.0,
+            "reference_rms": 1.1569467506056361,
+            "error_rms": 0.0,
+            "relative_rms": 0.0,
+            "snr_db": null,
+            "exact": true
+          },
+          "raw_waveform": {
+            "passed": true,
+            "max_abs": 8.436618372797966e-07,
+            "reference_rms": 0.03155687164605434,
+            "error_rms": 4.110852377339345e-08,
+            "relative_rms": 1.3026805772914242e-06,
+            "snr_db": 117.70324124102277,
+            "exact": false
+          },
+          "valid_waveform": {
+            "passed": true,
+            "max_abs": 8.436618372797966e-07,
+            "reference_rms": 0.03158643865713454,
+            "error_rms": 4.1147016408692586e-08,
+            "relative_rms": 1.3026798258371733e-06,
+            "snr_db": 117.7032462514994,
+            "exact": false
+          },
+          "passed": true
+        },
+        {
+          "source_id": "assamese:2533274790425556_chunk_1.flac",
+          "input_samples": 242384,
+          "prepared_audio_sha256": "722a3f5029097ecdd5419064dcd08cf87cdb2717a00fd697de4caaaacca05c34",
+          "latent_frames": 379,
+          "raw_output_samples": 727680,
+          "valid_output_samples": 727152,
+          "latents": {
+            "passed": true,
+            "max_abs": 0.0,
+            "reference_rms": 1.100083192951385,
+            "error_rms": 0.0,
+            "relative_rms": 0.0,
+            "snr_db": null,
+            "exact": true
+          },
+          "raw_waveform": {
+            "passed": true,
+            "max_abs": 0.0,
+            "reference_rms": 0.018710393462530766,
+            "error_rms": 0.0,
+            "relative_rms": 0.0,
+            "snr_db": null,
+            "exact": true
+          },
+          "valid_waveform": {
+            "passed": true,
+            "max_abs": 0.0,
+            "reference_rms": 0.018717185146916344,
+            "error_rms": 0.0,
+            "relative_rms": 0.0,
+            "snr_db": null,
+            "exact": true
+          },
+          "passed": true
+        }
+      ],
+      "wall_seconds": 3.278779551386833
+    },
+    "mode": "batched",
+    "wall_seconds": 7.079987317323685,
+    "cache_metrics": {
+      "memory_hits": 0,
+      "disk_hits": 0,
+      "cache_misses": 32,
+      "prepared_utterances": 32,
+      "prepared_input_samples": 4580236,
+      "source_bytes_read": 9998316,
+      "cache_bytes_read": 0,
+      "cache_bytes_written": 75415136,
+      "evictions": 0,
+      "evicted_bytes": 0,
+      "source_hash_seconds": 0.013918988406658173,
+      "audio_read_seconds": 0.06520729511976242,
+      "teacher_seconds": 3.5955155938863754,
+      "cache_load_seconds": 0,
+      "cache_write_seconds": 0.10769982635974884,
+      "disk_bytes": 75415136,
+      "disk_records": 32,
+      "memory_records": 4,
+      "max_disk_bytes": 1073741824,
+      "min_free_bytes": 4294967296,
+      "identity_sha256": "c158011b96029a9c299d1c87f73ee7e8152a18a1ac069e670e13c10cb6e05836"
+    }
+  }
+}

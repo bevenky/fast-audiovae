@@ -1,0 +1,267 @@
+{
+  "checkpoint_step": 4700,
+  "strict_engine_load_passed": true,
+  "metrics_prefix_matches_checkpoint": true,
+  "sampler_cursor": 150400,
+  "teacher_coverage": {
+    "valid_samples": 16723257417,
+    "windows": 17429331,
+    "partial_windows": 18426,
+    "partial_latent_crops": 23453,
+    "utterance_start_crops": 33819,
+    "exact_zero_samples": 27,
+    "clipped_samples": 0,
+    "quiet_transition_count": 570758,
+    "peak_abs": 0.9976707696914673,
+    "below_minus100/windows": 90715,
+    "below_minus100/samples": 86981613,
+    "minus100_to_minus80/windows": 509983,
+    "minus100_to_minus80/samples": 488701758,
+    "minus80_to_minus60/windows": 1785373,
+    "minus80_to_minus60/samples": 1711585419,
+    "minus60_to_minus40/windows": 4602427,
+    "minus60_to_minus40/samples": 4414005192,
+    "at_least_minus40/windows": 10440833,
+    "at_least_minus40/samples": 10021983435
+  },
+  "optimizer": "muon_adamw",
+  "discriminator_updates": 4200,
+  "balancer_updates": 4700,
+  "balancer_mel_cap": null,
+  "calibration_completed_step": 500,
+  "calibration_fixed_parameters": true,
+  "calibration_norm_buffers_unchanged": true,
+  "calibration_stem": {
+    "internal_frame_count": 122944,
+    "selected_latent_count": 30736,
+    "examples": 512,
+    "batches": 16,
+    "inputs_sha256": "6500cc38f702c7eb4b7858e2ac1d6be0562310837f1204eedca504768b17432c",
+    "fp64_moments_sha256": "02819a57fd324216ceb6822bcd0814da887607cc4672b4d7618db31f84c0244c"
+  },
+  "calibration_final": {
+    "internal_frame_count": 122944,
+    "selected_latent_count": 30736,
+    "examples": 512,
+    "batches": 16,
+    "inputs_sha256": "6500cc38f702c7eb4b7858e2ac1d6be0562310837f1204eedca504768b17432c",
+    "fp64_moments_sha256": "f8fe0e1b1ae98aa613d1828a77ad9df91111562786c883d4cc6f895ee30b6a80"
+  },
+  "statistics_frozen": {
+    "stem_norm": true,
+    "affine": true
+  },
+  "bound_implementation_changes": [],
+  "historical_1501_1700": {
+    "updates": 200,
+    "step_first": 1501,
+    "step_last": 1700,
+    "teacher_waveform": {
+      "mean": 0.015891718841157854,
+      "median": 0.016336988657712936,
+      "min": 0.005152617581188679,
+      "max": 0.031198611482977867
+    },
+    "teacher_mel": {
+      "mean": 1.3950799936056137,
+      "median": 1.3845431804656982,
+      "min": 1.1905561685562134,
+      "max": 1.6573548316955566
+    },
+    "feature_matching": {
+      "mean": 0.20357204869389534,
+      "median": 0.20283135771751404,
+      "min": 0.18191289901733398,
+      "max": 0.23246923089027405
+    },
+    "adversarial": {
+      "mean": 1.8173738771677017,
+      "median": 1.8241360187530518,
+      "min": 1.411074161529541,
+      "max": 2.1164164543151855
+    },
+    "discriminator": {
+      "mean": 1.4013818091154098,
+      "median": 1.3980714082717896,
+      "min": 1.226979374885559,
+      "max": 1.5923221111297607
+    },
+    "gradient_norm": {
+      "mean": 194.68034248352052,
+      "median": 186.2707290649414,
+      "min": 99.50463104248047,
+      "max": 569.53369140625
+    },
+    "discriminator_gradient_norm": {
+      "mean": 21.598060719966888,
+      "median": 19.53049659729004,
+      "min": 6.2586894035339355,
+      "max": 78.60195922851562
+    },
+    "learning_rate": {
+      "mean": 0.0002,
+      "median": 0.0002,
+      "min": 0.0002,
+      "max": 0.0002
+    },
+    "perceptual_fraction": {
+      "mean": 1.0,
+      "median": 1.0,
+      "min": 1.0,
+      "max": 1.0
+    },
+    "scaled_component_norm_fractions": {
+      "teacher_waveform": 0.1835035643112102,
+      "teacher_mel": 0.4892287859889016,
+      "feature_matching": 0.21117848707881784,
+      "adversarial": 0.11608916262107032
+    },
+    "teacher_waveform_coefficient_saturation_updates": 0.0,
+    "teacher_mel_coefficient_saturation_updates": 0.0,
+    "feature_matching_coefficient_saturation_updates": 0.0,
+    "adversarial_coefficient_saturation_updates": 0.0,
+    "nonfinite_numeric_values": 0
+  },
+  "historical_2801_3000": {
+    "updates": 200,
+    "step_first": 2801,
+    "step_last": 3000,
+    "teacher_waveform": {
+      "mean": 0.0111361689993646,
+      "median": 0.01149293314665556,
+      "min": 0.0032753588166087866,
+      "max": 0.028826575726270676
+    },
+    "teacher_mel": {
+      "mean": 1.2014413154125214,
+      "median": 1.202034592628479,
+      "min": 0.9947104454040527,
+      "max": 1.450134038925171
+    },
+    "feature_matching": {
+      "mean": 0.19473573721945286,
+      "median": 0.19528783857822418,
+      "min": 0.16508625447750092,
+      "max": 0.2215970903635025
+    },
+    "adversarial": {
+      "mean": 2.040351055264473,
+      "median": 2.036995530128479,
+      "min": 1.567199945449829,
+      "max": 2.7156925201416016
+    },
+    "discriminator": {
+      "mean": 1.2584701442718507,
+      "median": 1.2532803416252136,
+      "min": 1.016857624053955,
+      "max": 1.522998571395874
+    },
+    "gradient_norm": {
+      "mean": 303.1200881958008,
+      "median": 296.506103515625,
+      "min": 167.02783203125,
+      "max": 651.4398803710938
+    },
+    "discriminator_gradient_norm": {
+      "mean": 34.374333963394164,
+      "median": 32.58867263793945,
+      "min": 9.634319305419922,
+      "max": 107.91239929199219
+    },
+    "learning_rate": {
+      "mean": 0.0002,
+      "median": 0.0002,
+      "min": 0.0002,
+      "max": 0.0002
+    },
+    "perceptual_fraction": {
+      "mean": 1.0,
+      "median": 1.0,
+      "min": 1.0,
+      "max": 1.0
+    },
+    "scaled_component_norm_fractions": {
+      "teacher_waveform": 0.26350709887051893,
+      "teacher_mel": 0.42059319085426417,
+      "feature_matching": 0.2019178427883565,
+      "adversarial": 0.11398186748686041
+    },
+    "teacher_waveform_coefficient_saturation_updates": 0.0,
+    "teacher_mel_coefficient_saturation_updates": 0.0,
+    "feature_matching_coefficient_saturation_updates": 0.0,
+    "adversarial_coefficient_saturation_updates": 0.0,
+    "nonfinite_numeric_values": 0
+  },
+  "latest_200": {
+    "updates": 200,
+    "step_first": 4501,
+    "step_last": 4700,
+    "teacher_waveform": {
+      "mean": 0.009507608786225318,
+      "median": 0.009824424516409636,
+      "min": 0.00347590702585876,
+      "max": 0.02009345032274723
+    },
+    "teacher_mel": {
+      "mean": 1.1305651152133942,
+      "median": 1.132236897945404,
+      "min": 0.9118459224700928,
+      "max": 1.3466758728027344
+    },
+    "feature_matching": {
+      "mean": 0.17521358750760554,
+      "median": 0.1750260889530182,
+      "min": 0.1463276892900467,
+      "max": 0.20124176144599915
+    },
+    "adversarial": {
+      "mean": 2.1351674473285676,
+      "median": 2.1396291255950928,
+      "min": 1.5991144180297852,
+      "max": 2.7176430225372314
+    },
+    "discriminator": {
+      "mean": 1.190647115111351,
+      "median": 1.1865471005439758,
+      "min": 0.8812978863716125,
+      "max": 1.4569145441055298
+    },
+    "gradient_norm": {
+      "mean": 320.43070655822754,
+      "median": 311.5997619628906,
+      "min": 209.15989685058594,
+      "max": 775.2003173828125
+    },
+    "discriminator_gradient_norm": {
+      "mean": 34.319043712615965,
+      "median": 31.49781894683838,
+      "min": 11.320534706115723,
+      "max": 113.755859375
+    },
+    "learning_rate": {
+      "mean": 0.0002,
+      "median": 0.0002,
+      "min": 0.0002,
+      "max": 0.0002
+    },
+    "perceptual_fraction": {
+      "mean": 1.0,
+      "median": 1.0,
+      "min": 1.0,
+      "max": 1.0
+    },
+    "scaled_component_norm_fractions": {
+      "teacher_waveform": 0.3093032019125413,
+      "teacher_mel": 0.40147830177551425,
+      "feature_matching": 0.1864617087095135,
+      "adversarial": 0.10275678760243097
+    },
+    "teacher_waveform_coefficient_saturation_updates": 0.0,
+    "teacher_mel_coefficient_saturation_updates": 0.0,
+    "feature_matching_coefficient_saturation_updates": 0.0,
+    "adversarial_coefficient_saturation_updates": 0.0,
+    "nonfinite_numeric_values": 0
+  },
+  "optimizer_updates_performed": 0,
+  "model_inference_performed": false
+}

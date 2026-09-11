@@ -1,0 +1,34 @@
+The strongest next diagnostic is the exact original eight-recording batch. Both discrepant laughter caches came from that same batch, and neither recording was included in the separate five-recording serial-versus-batch qualification. This is an observed gap in qualification coverage, not yet proof of a faulty numerical backend.
+
+The frozen descriptor is `/workspace/fast-audiovae-convnext-20260909-r9/heldout-targets.json`, SHA256 `b007513b0e5b4583027d1d46d4cafa72d5b266b19bf94f4a2597db9d92868f9d`. Its relevant fields are retained in `historical-batch-membership.json` beside this note. The batch is ordered as follows:
+
+| Slot, zero based | Source | Real input samples |
+|---:|---|---:|
+| 0 | kannada:6192449488033510_chunk_1.flac | 83984 |
+| 1 | freesound:386521 | 88000 |
+| 2 | urdu:5910974511198452_chunk_1.flac | 88288 |
+| 3 | jvnv:M2_surprise_regular_56.wav | 88589 |
+| 4 | freesound:119459 | 88697 |
+| 5 | urdu:5910974511173186_chunk_1.flac | 88832 |
+| 6 | bengali:1407374883904482_chunk_1.flac | 90848 |
+| 7 | 2277-149896-0009 | 93040 |
+
+Every row was right-padded to 93440 samples, yielding encoder time lengths93440→46720→9344→1168→146. The actual qualification instead used batch5, padded length321280, including sources220658,220665,25794, Sindhi5629499534289894 and whistle457967. All84 development recordings were then generated through batched execution.
+
+The historical batch module at `/workspace/fast-audiovae-convnext-20260909-r6/audiovae_student/batched_teacher.py` is byte-identical to the current repository source, SHA256 `e433f873bc725e8a1236a7e8be0782fdfb59a08bbd65745729aaca292f12a4ad`. Lines245–258 qualify selected representative recordings once; lines259–274 apply the result to every other batch. Lines292–305 check record shape, finite values, hashes and provenance before publication, but do not perform a new serial numerical comparison for each row. A passing qualification therefore did not directly establish parity for the affected batch geometry or its recordings. The row/zip order and clone ownership are consistent in the reviewed source; no obvious source-to-output index swap appears there.
+
+Use these bounded checks in order, retaining the original caches:
+
+1. Recreate that exact batch and order using each stored original PCM, verify all PCM/file hashes, and apply the historical two-pass warmup from its recorded source. Compare all eight outputs with their saved full-cache latent tensors as well as each fresh serial output. For the two laughter rows, compare serial unpadded and serial right-padded-to93440 inputs. This distinguishes a batching dependency from padding/length-dependent execution and detects whether the issue extends to the other six recordings. It does not require new data, student inference, training or a timing campaign.
+2. If a batch discrepancy reproduces, trace only the first divergent encoder module. Preserve inputs and effective weights, then compare its output in batch8 versus the matching standalone padded row. Record per-channel and per-frame errors. A different result with identical local inputs/weights isolates execution arithmetic; different inputs identify an earlier divergence. If needed, replay only that operator with a canonical backend or an unscripted equivalent of the same Snake expression. Do not change several backends, precision flags and warmup policies together.
+3. Inspect effective weight-normalized weights after the existing pre-hook, while comparing both `weight_g`/`weight_v` and hook inventory. Only if effective weights differ should weight-hook state become the primary explanation. Snapshot the actual forward-used `.weight`, its dtype/device and hash, not merely the attribute left behind before the first forward.
+
+The pinned upstream file `audio_vae_v2.py` was read from the existing assets and matches SHA256 `2efdff1708d8ec1471624aae6f232d0f933de26b788b6901c434246847e2d3a8`. No input-dependent batch/time normalization, peak normalization, resampler or latent sampler occurs in its encoder. Its input preprocessing at lines442–450 only right-pads to a640-sample multiple. Lines489–501 return the encoder mean directly. Encoder operations are convolution, pointwise Snake and residual addition; weight normalization acts on weights, independently of input time and batch size.
+
+There is a precise within-frame lookahead worth distinguishing from arbitrary future dependence. Each stride-s encoder convolution uses kernel2s and left pads bys, so outputj reads input indices sj−s through sj+s−1 before accounting for earlier layers. With strides2,5,8,8, final latentj reaches sample640j+639, the end of its current640-sample input frame. Its earliest receptive sample through the mean head is640j−9272. It does not mathematically depend on samples after the current frame. Thus extending a correctly aligned64-frame input cannot change earlier latents through a hidden global reduction. The completed full-versus-prefix64 check already supports this: differences are at most1.23e-5 for119459 and exactly zero for386521, while both differ from cached latents on every frame0–63.
+
+The exact installed PyTorch weight-normalization source, retained as `weight_norm.py`, has SHA256 `3d9ed36dd676ce8efa4a6bd8db302fcd4b09f03b7c6225d57e0b4c0c1c847601`. Lines55–66 remove `weight` from registered parameters, retain `weight_g`/`weight_v`, set a computed plain `weight` attribute and install a pre-hook. Lines77–78 recompute that attribute for every normal module call. Therefore a state-dict fingerprint alone does not include that transient attribute, and the loader's state load/device move can leave it stale before first use. However the reviewed upstream convolution calls go through normal module invocation, so the pre-hook should refresh it before the convolution. There is no identified hook bypass or removal in the reviewed teacher path. This is a bounded inspection candidate, not an established cause.
+
+Historical metadata records PyTorch2.11.0+cu128, FP32, disabled TF32/autocast, deterministic algorithms, original weight normalization, no noise block and TorchScript optimized execution. Deterministic execution does not imply identical arithmetic across distinct batch/length/backend execution paths. Scripted Snake is pointwise and has no intended temporal or cross-sample coupling; any suspected execution difference must be localized with matched inputs rather than inferred from source-level naming.
+
+No models or GPU operations were run for this source audit. Remote access only read existing source and JSON descriptors. The earlier evidence still holds: original source PCM and cached prepared PCM are bitwise equal, cache/index hashes match, and cached latents decode consistently to their paired targets. Do not overwrite or discard all caches based on two observed fresh-encoder mismatches. Establish the affected execution scope, then create an explicitly versioned canonical target cache for recovery.

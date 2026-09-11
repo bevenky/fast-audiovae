@@ -1,0 +1,46 @@
+{
+  "scope": "Source-input20ms RMS windows on actual12800 scored training crops; no encoder/decoder forwards",
+  "cache_sha256": "1125b32246ebd102ef4a4c3ce9feca878c18b73a985afa77ee16ee5226df4f23",
+  "source_sha256": "304e1e450f4168a5953fdf6212c2bfd7dae7a645dc932457fc79547770c35ae8",
+  "crops": 12800,
+  "missing_inputs": 0,
+  "input_samples": 517119692,
+  "input_hours": 8.977772430555556,
+  "bins": {
+    "exact_zero": {
+      "samples": 3665412,
+      "seconds": 229.08825,
+      "sources": 807,
+      "duration_percent": 0.7088130768766006
+    },
+    "nonzero_le_1e-5": {
+      "samples": 1980342,
+      "seconds": 123.771375,
+      "sources": 483,
+      "duration_percent": 0.38295621509613675
+    },
+    "1e-5_to_1e-4": {
+      "samples": 13129334,
+      "seconds": 820.583375,
+      "sources": 1024,
+      "duration_percent": 2.538935221983386
+    },
+    "1e-4_to_1e-3": {
+      "samples": 56118496,
+      "seconds": 3507.406,
+      "sources": 2547,
+      "duration_percent": 10.85212898835034
+    },
+    "above_1e-3": {
+      "samples": 442226108,
+      "seconds": 27639.13175,
+      "sources": 3613,
+      "duration_percent": 85.51716649769354
+    }
+  },
+  "individual_exact_zero_samples": 5569234,
+  "longest_exact_zero_run_within_crop_seconds": 2.56,
+  "at_least_one_second_exact_zero_runs": 32,
+  "sources_with_such_runs": 26,
+  "limitations": "No joining separate crops; longest-run statistic is a within-crop lower bound. Source-input levels are distinct from teacher48k output quiet thresholds. Context and right-padding excluded."
+}

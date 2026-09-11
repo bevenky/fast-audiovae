@@ -1,0 +1,900 @@
+{
+  "checked_utc": "2026-09-08T20:18:15.686846+00:00",
+  "read_only": true,
+  "checkpoint": {
+    "step": 1000,
+    "identity": {
+      "training_config": {
+        "batch_size": 64,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "checkpoint_interval": 1000,
+        "context_frames": 29,
+        "grad_clip_norm": 1.0,
+        "learning_rate": 0.0002,
+        "optimizer": "muon_adamw",
+        "scored_frames": 64,
+        "seed": 7,
+        "total_steps": 10000,
+        "warmup_steps": 100,
+        "weight_decay": 0.01
+      },
+      "loss_config": {
+        "log_epsilon": 1e-05,
+        "reference_fft_sizes_16k": [
+          256,
+          512,
+          1024
+        ],
+        "reference_spectral_weight": 45.0,
+        "teacher_fft_sizes": [
+          1024,
+          2048,
+          4096
+        ],
+        "teacher_spectral_weight": 15.0,
+        "teacher_waveform_weight": 1.0
+      },
+      "optimizer_groups": "32191145d1f175839eadbb11ee00c4c81a33055f22070ba1d3a4863f8c390e2c",
+      "runtime": {
+        "cuda_device": "NVIDIA H100 NVL",
+        "cuda_runtime": "12.8",
+        "cudnn_version": 91900,
+        "default_dtype": "torch.float32",
+        "deterministic_algorithms": true,
+        "num_interop_threads": 96,
+        "num_threads": 1,
+        "numpy_version": "2.5.3",
+        "torch_version": "2.11.0+cu128"
+      },
+      "device_type": "cuda",
+      "matmul_tf32": false,
+      "cudnn_tf32": false
+    },
+    "optimizer_keys": [
+      "format_version",
+      "group_manifest",
+      "group_fingerprint",
+      "optimizers"
+    ]
+  },
+  "implementation_matches_checkpoint": {
+    "batching": true,
+    "cache": true,
+    "corpus_training": true,
+    "data": true,
+    "losses": true,
+    "model": true,
+    "optimizers": true,
+    "sampling": true,
+    "source_corpus": true,
+    "source_training": true,
+    "teacher": true,
+    "training": true
+  },
+  "model_finite": true,
+  "optimizer_structure": {
+    "format_version": 1,
+    "group_manifest": [
+      {
+        "optimizer": "muon",
+        "parameters": {
+          "count": 20,
+          "first": [
+            {
+              "name": "blocks.0.expand.weight",
+              "shape": [
+                2048,
+                512
+              ],
+              "dtype": "torch.float32"
+            },
+            {
+              "name": "blocks.0.project.weight",
+              "shape": [
+                512,
+                2048
+              ],
+              "dtype": "torch.float32"
+            },
+            {
+              "name": "blocks.1.expand.weight",
+              "shape": [
+                2048,
+                512
+              ],
+              "dtype": "torch.float32"
+            }
+          ]
+        }
+      },
+      {
+        "optimizer": "adamw",
+        "parameters": {
+          "count": 80,
+          "first": [
+            {
+              "name": "adapter.weight",
+              "shape": [
+                256,
+                64,
+                1
+              ],
+              "dtype": "torch.float32"
+            },
+            {
+              "name": "adapter.bias",
+              "shape": [
+                256
+              ],
+              "dtype": "torch.float32"
+            },
+            {
+              "name": "stem.conv.weight",
+              "shape": [
+                512,
+                64,
+                7
+              ],
+              "dtype": "torch.float32"
+            }
+          ]
+        }
+      }
+    ],
+    "group_fingerprint": "32191145d1f175839eadbb11ee00c4c81a33055f22070ba1d3a4863f8c390e2c",
+    "optimizers": {
+      "muon": {
+        "param_groups": [
+          {
+            "param_names": {
+              "count": 20,
+              "first": [
+                "blocks.0.expand.weight",
+                "blocks.0.project.weight",
+                "blocks.1.expand.weight"
+              ]
+            },
+            "lr": 0.0002,
+            "weight_decay": 0.01,
+            "momentum": 0.95,
+            "nesterov": true,
+            "ns_coefficients": [
+              3.4445,
+              -4.775,
+              2.0315
+            ],
+            "eps": 1e-07,
+            "ns_steps": 5,
+            "adjust_lr_fn": "match_rms_adamw",
+            "params": {
+              "count": 20,
+              "first": [
+                0,
+                1,
+                2
+              ]
+            }
+          }
+        ]
+      },
+      "adamw": {
+        "param_groups": [
+          {
+            "param_names": {
+              "count": 80,
+              "first": [
+                "adapter.weight",
+                "adapter.bias",
+                "stem.conv.weight"
+              ]
+            },
+            "lr": 0.0002,
+            "betas": [
+              0.9,
+              0.999
+            ],
+            "eps": 1e-08,
+            "weight_decay": 0.01,
+            "amsgrad": false,
+            "maximize": false,
+            "foreach": null,
+            "capturable": false,
+            "differentiable": false,
+            "fused": null,
+            "decoupled_weight_decay": true,
+            "params": {
+              "count": 80,
+              "first": [
+                0,
+                1,
+                2
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  "bootstrap_exact_model": true,
+  "bootstrap_exact_optimizer": true,
+  "runs": {
+    "warmup-speech-muon-v1": {
+      "tags": [
+        "validation/total",
+        "validation/teacher_spectral",
+        "validation/teacher_waveform",
+        "validation/reference_spectral",
+        "validation/examples",
+        "validation/reference_examples",
+        "validation/scored_samples",
+        "train/total",
+        "train/teacher_spectral",
+        "train/teacher_waveform",
+        "train/reference_spectral",
+        "train/examples",
+        "train/reference_examples",
+        "train/scored_samples",
+        "train/gradient_norm",
+        "train/learning_rate",
+        "train/step_seconds",
+        "exposure/scored_audio_hours",
+        "progress/completed_steps",
+        "progress/remaining_steps",
+        "progress/fraction",
+        "exposure/language_examples/ar_eg",
+        "exposure/language_examples/bn_in",
+        "exposure/language_examples/de_de",
+        "exposure/language_examples/en",
+        "exposure/language_examples/en_us",
+        "exposure/language_examples/es_419",
+        "exposure/language_examples/fr_fr",
+        "exposure/language_examples/gu_in",
+        "exposure/language_examples/hi_in",
+        "exposure/language_examples/mr_in",
+        "exposure/language_examples/pt_br",
+        "exposure/language_examples/ta_in",
+        "exposure/language_examples/te_in",
+        "learning_rate/muon",
+        "learning_rate/adamw"
+      ],
+      "metrics": {
+        "train/total": {
+          "points": 1000,
+          "finite": true,
+          "first": {
+            "first_step": 1,
+            "last_step": 50,
+            "n": 50,
+            "mean": 166.0934329223633,
+            "median": 164.8815460205078,
+            "min": 128.46803283691406,
+            "max": 214.40390014648438
+          },
+          "last": {
+            "first_step": 951,
+            "last_step": 1000,
+            "n": 50,
+            "mean": 31.115653228759765,
+            "median": 31.7819881439209,
+            "min": 21.64889907836914,
+            "max": 37.70665740966797
+          }
+        },
+        "train/teacher_spectral": {
+          "points": 1000,
+          "finite": true,
+          "first": {
+            "first_step": 1,
+            "last_step": 50,
+            "n": 50,
+            "mean": 3.431224718093872,
+            "median": 3.4279526472091675,
+            "min": 2.9448399543762207,
+            "max": 3.858792781829834
+          },
+          "last": {
+            "first_step": 951,
+            "last_step": 1000,
+            "n": 50,
+            "mean": 0.329767481982708,
+            "median": 0.3328646868467331,
+            "min": 0.21476389467716217,
+            "max": 0.42540422081947327
+          }
+        },
+        "train/teacher_waveform": {
+          "points": 1000,
+          "finite": true,
+          "first": {
+            "first_step": 1,
+            "last_step": 50,
+            "n": 50,
+            "mean": 0.039249003008008,
+            "median": 0.038869353011250496,
+            "min": 0.02379537746310234,
+            "max": 0.0617719329893589
+          },
+          "last": {
+            "first_step": 951,
+            "last_step": 1000,
+            "n": 50,
+            "mean": 0.024749285262078046,
+            "median": 0.02311932947486639,
+            "min": 0.006636409088969231,
+            "max": 0.04523850232362747
+          }
+        },
+        "train/reference_spectral": {
+          "points": 1000,
+          "finite": true,
+          "first": {
+            "first_step": 1,
+            "last_step": 50,
+            "n": 50,
+            "mean": 2.5463513779640197,
+            "median": 2.536231756210327,
+            "min": 1.8560360670089722,
+            "max": 3.4775705337524414
+          },
+          "last": {
+            "first_step": 951,
+            "last_step": 1000,
+            "n": 50,
+            "mean": 0.5809864860773086,
+            "median": 0.5945276618003845,
+            "min": 0.4038028419017792,
+            "max": 0.6955138444900513
+          }
+        },
+        "train/gradient_norm": {
+          "points": 1000,
+          "finite": true,
+          "first": {
+            "first_step": 1,
+            "last_step": 50,
+            "n": 50,
+            "mean": 64.55721237182617,
+            "median": 59.12784194946289,
+            "min": 43.05046463012695,
+            "max": 123.06320190429688
+          },
+          "last": {
+            "first_step": 951,
+            "last_step": 1000,
+            "n": 50,
+            "mean": 393.69082611083985,
+            "median": 345.04103088378906,
+            "min": 194.8718719482422,
+            "max": 945.9550170898438
+          }
+        },
+        "train/step_seconds": {
+          "points": 1000,
+          "finite": true,
+          "first": {
+            "first_step": 1,
+            "last_step": 50,
+            "n": 50,
+            "mean": 0.2118161365389824,
+            "median": 0.19780802726745605,
+            "min": 0.14774182438850403,
+            "max": 0.7206759452819824
+          },
+          "last": {
+            "first_step": 951,
+            "last_step": 1000,
+            "n": 50,
+            "mean": 0.14918894663453103,
+            "median": 0.13598498702049255,
+            "min": 0.1195865198969841,
+            "max": 0.20081914961338043
+          }
+        },
+        "train/learning_rate": {
+          "points": 1000,
+          "finite": true,
+          "first": {
+            "first_step": 1,
+            "last_step": 50,
+            "n": 50,
+            "mean": 5.100000008951611e-05,
+            "median": 5.0999999075429514e-05,
+            "min": 1.9999999949504854e-06,
+            "max": 9.999999747378752e-05
+          },
+          "last": {
+            "first_step": 951,
+            "last_step": 1000,
+            "n": 50,
+            "mean": 0.00019999999494757503,
+            "median": 0.00019999999494757503,
+            "min": 0.00019999999494757503,
+            "max": 0.00019999999494757503
+          }
+        },
+        "validation/total": {
+          "points": 12,
+          "finite": true,
+          "first": {
+            "first_step": 0,
+            "last_step": 1000,
+            "n": 12,
+            "mean": 74.10155010223389,
+            "median": 50.33544731140137,
+            "min": 40.894508361816406,
+            "max": 171.88558959960938
+          },
+          "last": {
+            "first_step": 0,
+            "last_step": 1000,
+            "n": 12,
+            "mean": 74.10155010223389,
+            "median": 50.33544731140137,
+            "min": 40.894508361816406,
+            "max": 171.88558959960938
+          }
+        }
+      },
+      "loss_windows": [
+        {
+          "first_step": 1,
+          "last_step": 100,
+          "n": 100,
+          "mean": 139.22606422424317,
+          "median": 131.83415985107422,
+          "min": 93.9278564453125,
+          "max": 214.40390014648438
+        },
+        {
+          "first_step": 101,
+          "last_step": 200,
+          "n": 100,
+          "mean": 89.49517120361328,
+          "median": 88.38911437988281,
+          "min": 70.70990753173828,
+          "max": 112.54218292236328
+        },
+        {
+          "first_step": 201,
+          "last_step": 300,
+          "n": 100,
+          "mean": 69.66704090118408,
+          "median": 69.05669021606445,
+          "min": 54.00053787231445,
+          "max": 81.8138427734375
+        },
+        {
+          "first_step": 301,
+          "last_step": 400,
+          "n": 100,
+          "mean": 53.15469184875488,
+          "median": 53.00360107421875,
+          "min": 39.722900390625,
+          "max": 65.66963958740234
+        },
+        {
+          "first_step": 401,
+          "last_step": 500,
+          "n": 100,
+          "mean": 41.57891355514526,
+          "median": 41.57552528381348,
+          "min": 30.77223014831543,
+          "max": 52.26168441772461
+        },
+        {
+          "first_step": 501,
+          "last_step": 600,
+          "n": 100,
+          "mean": 36.32223527908325,
+          "median": 36.588348388671875,
+          "min": 22.379430770874023,
+          "max": 45.89677429199219
+        },
+        {
+          "first_step": 601,
+          "last_step": 700,
+          "n": 100,
+          "mean": 33.9773299407959,
+          "median": 33.71921730041504,
+          "min": 23.542327880859375,
+          "max": 42.68124771118164
+        },
+        {
+          "first_step": 701,
+          "last_step": 800,
+          "n": 100,
+          "mean": 32.4590145111084,
+          "median": 32.477901458740234,
+          "min": 22.229310989379883,
+          "max": 40.86735534667969
+        },
+        {
+          "first_step": 801,
+          "last_step": 900,
+          "n": 100,
+          "mean": 32.01529281616211,
+          "median": 32.40079879760742,
+          "min": 21.737321853637695,
+          "max": 40.21410369873047
+        },
+        {
+          "first_step": 901,
+          "last_step": 1000,
+          "n": 100,
+          "mean": 30.36289197921753,
+          "median": 31.258584022521973,
+          "min": 19.240659713745117,
+          "max": 38.345252990722656
+        }
+      ],
+      "step_duplicates": 0,
+      "step_gaps": [],
+      "wall_seconds": 252.9546685218811
+    },
+    "warmup-speech-500h-v1": {
+      "tags": [
+        "train/total",
+        "train/teacher_spectral",
+        "train/teacher_waveform",
+        "train/reference_spectral",
+        "train/gradient_norm",
+        "train/examples",
+        "train/reference_examples",
+        "train/scored_samples",
+        "train/padded_latent_frames",
+        "train/learning_rate",
+        "train/step_seconds",
+        "train/prepare_seconds",
+        "train/student_seconds",
+        "exposure/unique_scored_hours",
+        "progress/fraction"
+      ],
+      "metrics": {
+        "train/total": {
+          "points": 541,
+          "finite": true,
+          "first": {
+            "first_step": 1001,
+            "last_step": 1050,
+            "n": 50,
+            "mean": 26.855244674682616,
+            "median": 26.7371187210083,
+            "min": 22.27737045288086,
+            "max": 29.73797607421875
+          },
+          "last": {
+            "first_step": 1492,
+            "last_step": 1541,
+            "n": 50,
+            "mean": 24.449936141967772,
+            "median": 24.480133056640625,
+            "min": 21.629981994628906,
+            "max": 27.20941162109375
+          }
+        },
+        "train/teacher_spectral": {
+          "points": 541,
+          "finite": true,
+          "first": {
+            "first_step": 1001,
+            "last_step": 1050,
+            "n": 50,
+            "mean": 0.2648284035921097,
+            "median": 0.2642730176448822,
+            "min": 0.20697888731956482,
+            "max": 0.3031909763813019
+          },
+          "last": {
+            "first_step": 1492,
+            "last_step": 1541,
+            "n": 50,
+            "mean": 0.23644135534763336,
+            "median": 0.23710453510284424,
+            "min": 0.20111310482025146,
+            "max": 0.2655276358127594
+          }
+        },
+        "train/teacher_waveform": {
+          "points": 541,
+          "finite": true,
+          "first": {
+            "first_step": 1001,
+            "last_step": 1050,
+            "n": 50,
+            "mean": 0.023216320909559728,
+            "median": 0.02354099228978157,
+            "min": 0.015055865049362183,
+            "max": 0.03690645843744278
+          },
+          "last": {
+            "first_step": 1492,
+            "last_step": 1541,
+            "n": 50,
+            "mean": 0.02408975075930357,
+            "median": 0.02434633206576109,
+            "min": 0.017138605937361717,
+            "max": 0.033256251364946365
+          }
+        },
+        "train/reference_spectral": {
+          "points": 541,
+          "finite": true,
+          "first": {
+            "first_step": 1001,
+            "last_step": 1050,
+            "n": 50,
+            "mean": 0.5079911601543426,
+            "median": 0.506239503622055,
+            "min": 0.4257061183452606,
+            "max": 0.5624073147773743
+          },
+          "last": {
+            "first_step": 1492,
+            "last_step": 1541,
+            "n": 50,
+            "mean": 0.46398280560970306,
+            "median": 0.46385762095451355,
+            "min": 0.4130447208881378,
+            "max": 0.5158476829528809
+          }
+        },
+        "train/gradient_norm": {
+          "points": 541,
+          "finite": true,
+          "first": {
+            "first_step": 1001,
+            "last_step": 1050,
+            "n": 50,
+            "mean": 368.1085711669922,
+            "median": 356.5622863769531,
+            "min": 134.24684143066406,
+            "max": 753.2284545898438
+          },
+          "last": {
+            "first_step": 1492,
+            "last_step": 1541,
+            "n": 50,
+            "mean": 397.1634887695312,
+            "median": 371.2436981201172,
+            "min": 172.76177978515625,
+            "max": 775.5
+          }
+        },
+        "train/step_seconds": {
+          "points": 541,
+          "finite": true,
+          "first": {
+            "first_step": 1001,
+            "last_step": 1050,
+            "n": 50,
+            "mean": 1.817227503657341,
+            "median": 1.6491879224777222,
+            "min": 0.31075984239578247,
+            "max": 12.629672050476074
+          },
+          "last": {
+            "first_step": 1492,
+            "last_step": 1541,
+            "n": 50,
+            "mean": 1.5645090210437775,
+            "median": 1.6172896027565002,
+            "min": 0.9240317940711975,
+            "max": 2.084475517272949
+          }
+        },
+        "train/prepare_seconds": {
+          "points": 541,
+          "finite": true,
+          "first": {
+            "first_step": 1001,
+            "last_step": 1050,
+            "n": 50,
+            "mean": 1.470179196447134,
+            "median": 1.3244367837905884,
+            "min": 0.01868443936109543,
+            "max": 12.039050102233887
+          },
+          "last": {
+            "first_step": 1492,
+            "last_step": 1541,
+            "n": 50,
+            "mean": 1.2389996004104615,
+            "median": 1.299363136291504,
+            "min": 0.6068314909934998,
+            "max": 1.766767144203186
+          }
+        },
+        "train/student_seconds": {
+          "points": 541,
+          "finite": true,
+          "first": {
+            "first_step": 1001,
+            "last_step": 1050,
+            "n": 50,
+            "mean": 0.34704830288887023,
+            "median": 0.3360850214958191,
+            "min": 0.28205716609954834,
+            "max": 0.590621292591095
+          },
+          "last": {
+            "first_step": 1492,
+            "last_step": 1541,
+            "n": 50,
+            "mean": 0.3255094134807587,
+            "median": 0.32399986684322357,
+            "min": 0.30537763237953186,
+            "max": 0.35078009963035583
+          }
+        },
+        "train/learning_rate": {
+          "points": 541,
+          "finite": true,
+          "first": {
+            "first_step": 1001,
+            "last_step": 1050,
+            "n": 50,
+            "mean": 0.00019999999494757503,
+            "median": 0.00019999999494757503,
+            "min": 0.00019999999494757503,
+            "max": 0.00019999999494757503
+          },
+          "last": {
+            "first_step": 1492,
+            "last_step": 1541,
+            "n": 50,
+            "mean": 0.00019999999494757503,
+            "median": 0.00019999999494757503,
+            "min": 0.00019999999494757503,
+            "max": 0.00019999999494757503
+          }
+        }
+      },
+      "loss_windows": [
+        {
+          "first_step": 1001,
+          "last_step": 1100,
+          "n": 100,
+          "mean": 26.51502603530884,
+          "median": 26.520853996276855,
+          "min": 22.27737045288086,
+          "max": 30.61163902282715
+        },
+        {
+          "first_step": 1101,
+          "last_step": 1200,
+          "n": 100,
+          "mean": 25.686842498779296,
+          "median": 25.779878616333008,
+          "min": 21.97348976135254,
+          "max": 29.62757110595703
+        },
+        {
+          "first_step": 1201,
+          "last_step": 1300,
+          "n": 100,
+          "mean": 25.661767578125,
+          "median": 25.69322967529297,
+          "min": 21.99496078491211,
+          "max": 28.827789306640625
+        },
+        {
+          "first_step": 1301,
+          "last_step": 1400,
+          "n": 100,
+          "mean": 25.49807191848755,
+          "median": 25.641244888305664,
+          "min": 21.91868782043457,
+          "max": 29.205951690673828
+        },
+        {
+          "first_step": 1401,
+          "last_step": 1500,
+          "n": 100,
+          "mean": 25.299134540557862,
+          "median": 25.414417266845703,
+          "min": 21.65394401550293,
+          "max": 29.15164566040039
+        },
+        {
+          "first_step": 1501,
+          "last_step": 1541,
+          "n": 41,
+          "mean": 24.403797428782394,
+          "median": 24.324678421020508,
+          "min": 21.629981994628906,
+          "max": 27.20941162109375
+        }
+      ],
+      "step_duplicates": 0,
+      "step_gaps": [],
+      "wall_seconds": 848.7808623313904
+    }
+  },
+  "live_status": {
+    "stage": "source_corpus_one_pass",
+    "state": "training",
+    "step": 1541,
+    "total_steps": 10000,
+    "batch_size": 64,
+    "run_name": "warmup-speech-500h-v1",
+    "train": {
+      "total": 23.831239700317383,
+      "teacher_spectral": 0.23018746078014374,
+      "teacher_waveform": 0.02669551968574524,
+      "reference_spectral": 0.4522607624530792,
+      "gradient_norm": 317.64892578125,
+      "examples": 64,
+      "reference_examples": 64,
+      "scored_samples": 6886047,
+      "padded_latent_frames": 796,
+      "learning_rate": 0.0002,
+      "step_seconds": 1.2397873476147652,
+      "prepare_seconds": 0.9116597920656204,
+      "student_seconds": 0.32812755554914474
+    },
+    "validation": {},
+    "checkpoint_step": 1000,
+    "lineage": {
+      "checkpoint_sha256": "ba999a89e8d87f9da91fd00fa1ddde04398a353a5a1ecc6e23aa36f9bd30605f",
+      "checkpoint_step": 1000,
+      "previous_data_fingerprint": "b4921381bbf566b3ae7593489d792bd0e10d1c874f253d6178c2718e973844e8",
+      "previous_effective_batch": 8,
+      "new_batch_size": 64,
+      "change": "new fixed source corpus; no-replacement scored segments; true model batches"
+    },
+    "unique_scored_hours_seen": 22.33067269097222,
+    "remaining_unique_segments": 763119,
+    "corpus_scored_hours": 510.85583296874995,
+    "seconds_in_training_loop": 858.8152958601713,
+    "cache": {
+      "memory_hits": 27667,
+      "disk_hits": 0,
+      "cache_misses": 6957,
+      "prepared_utterances": 6957,
+      "prepared_input_samples": 1294591627,
+      "source_bytes_read": 4704073880,
+      "cache_bytes_read": 0,
+      "cache_bytes_written": 21291500237,
+      "evictions": 2753,
+      "evicted_bytes": 8407802273,
+      "source_hash_seconds": 4.265940435230732,
+      "audio_read_seconds": 7.210700295865536,
+      "teacher_seconds": 617.9179971292615,
+      "cache_load_seconds": 0,
+      "cache_write_seconds": 36.054888501763344,
+      "disk_bytes": 12883697964,
+      "disk_records": 4204,
+      "memory_records": 256,
+      "max_disk_bytes": 12884901888,
+      "min_free_bytes": 4294967296,
+      "identity_sha256": "7f1f7387d488b6bde73bd5d04e8dc2d882421cdf1c2ab9260320e804bf3f2297"
+    },
+    "updated_at_unix": 1788898696.7390676,
+    "error": null
+  },
+  "final_snapshot": {
+    "checked_utc": "2026-09-08T20:18:52.482306+00:00",
+    "step": 1563,
+    "state": "training",
+    "error": null,
+    "process_matches_record": true,
+    "remaining_updates": 8437,
+    "remaining_unique_segments": 761711,
+    "required_unique_segments": 539968,
+    "unique_scored_hours_seen": 23.246197725694447,
+    "free_gib": {
+      "/workspace": 9.952850341796875,
+      "/tmp": 10.186222076416016
+    }
+  },
+  "teacher_freeze_code": {
+    "90": "self.model = model.float().requires_grad_(False)",
+    "196": "if any(p.requires_grad for p in self.model.parameters()):",
+    "216": "@torch.no_grad()",
+    "227": "@torch.no_grad()",
+    "239": "@torch.no_grad()"
+  }
+}

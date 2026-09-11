@@ -1,0 +1,32 @@
+{
+  "runtime": {
+    "cudnn": 91900,
+    "cudnn_tf32": false,
+    "deterministic": true,
+    "matmul_tf32": false,
+    "torch": "2.11.0+cu128"
+  },
+  "first_divergence": "encoder.fc_mu",
+  "hooked_execution_parity_passed": true,
+  "teacher_unchanged": true,
+  "projections": [
+    {
+      "name": "encoder.fc_mu",
+      "same_weights": true,
+      "input_max_error": 0.0,
+      "output_max_error": 1.1937507390975952,
+      "failed_channels": [
+        63
+      ]
+    },
+    {
+      "name": "encoder.fc_logvar",
+      "same_weights": true,
+      "input_max_error": 0.0,
+      "output_max_error": 7.134757995605469,
+      "failed_channels": [
+        63
+      ]
+    }
+  ]
+}

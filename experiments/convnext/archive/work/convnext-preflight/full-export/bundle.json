@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "architecture": {
+    "config": {
+      "hidden_channels": 512,
+      "expansion_channels": 2048,
+      "head_channels": 2048,
+      "dilations": [
+        1,
+        2,
+        4,
+        1,
+        2,
+        4,
+        1,
+        1,
+        1,
+        1
+      ],
+      "layer_norm_eps": 1e-06,
+      "layer_scale_init": 1e-06,
+      "prelu_init": 0.25
+    },
+    "initialization": "fresh",
+    "latent_channels": 64,
+    "latent_rate": 25,
+    "sample_rate": 48000,
+    "samples_per_latent": 1920,
+    "internal_rate": 100,
+    "history_internal_frames": 116,
+    "history_latent_frames": 29,
+    "history_seconds": 1.16,
+    "state_fp32_bytes_per_stream": 226817,
+    "conv_linear_macs_per_audio_second": 2536960000
+  },
+  "provenance": {
+    "qualification": "untrained_architecture_only",
+    "seed": 17
+  },
+  "torch_version": "2.8.0",
+  "onnx_version": "1.22.0",
+  "opset": 18,
+  "graphs": {
+    "decoder.onnx": "5be910ffd769fa307ad08b84cb9652863050632d6bedbc73d8b8bb699591e1e5",
+    "decoder-stream.onnx": "cdef629e46e9693634786f30aaa5f53c16ddf9266eb5601211853d7753f88836"
+  },
+  "states": [
+    {
+      "input": "history_0",
+      "output": "next_history_0",
+      "shape": [
+        1,
+        64,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "input": "history_1",
+      "output": "next_history_1",
+      "shape": [
+        1,
+        512,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "input": "history_2",
+      "output": "next_history_2",
+      "shape": [
+        1,
+        512,
+        12
+      ],
+      "dtype": "float32"
+    },
+    {
+      "input": "history_3",
+      "output": "next_history_3",
+      "shape": [
+        1,
+        512,
+        24
+      ],
+      "dtype": "float32"
+    },
+    {
+      "input": "history_4",
+      "output": "next_history_4",
+      "shape": [
+        1,
+        512,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "input": "history_5",
+      "output": "next_history_5",
+      "shape": [
+        1,
+        512,
+        12
+      ],
+      "dtype": "float32"
+    },
+    {
+      "input": "history_6",
+      "output": "next_history_6",
+      "shape": [
+        1,
+        512,
+        24
+      ],
+      "dtype": "float32"
+    },
+    {
+      "input": "history_7",
+      "output": "next_history_7",
+      "shape": [
+        1,
+        512,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "input": "history_8",
+      "output": "next_history_8",
+      "shape": [
+        1,
+        512,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "input": "history_9",
+      "output": "next_history_9",
+      "shape": [
+        1,
+        512,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "input": "history_10",
+      "output": "next_history_10",
+      "shape": [
+        1,
+        512,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "input": "history_11",
+      "output": "next_history_11",
+      "shape": [
+        1,
+        512,
+        2
+      ],
+      "dtype": "float32"
+    }
+  ],
+  "started": {
+    "input": "started",
+    "output": "next_started",
+    "shape": [
+      1
+    ],
+    "dtype": "bool"
+  },
+  "minimum_latent_frames": 1,
+  "batch_size": 1,
+  "default_mode": "streaming"
+}

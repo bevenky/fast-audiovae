@@ -1,0 +1,313 @@
+{
+  "format_version": 1,
+  "scope": "Existing checkpoint tensor statistics and analytical dependency arithmetic only. No model forward, gradient, optimizer update, inference benchmark, audio generation or checkpoint modification.",
+  "checkpoint": {
+    "path": "/workspace/fast-audiovae-convnext-20260909-r7/training-runs/quiet-phase-v1/latest.pt",
+    "sha256": "4854cd0deefe1199beadb2a2b3aaa692f655666d22180bf7d769e4ed92c9b215",
+    "selected_arm": "control",
+    "arm_experiment_step": 250,
+    "loader": "torch.load(map_location=\"cpu\", weights_only=True)",
+    "torch_threads": 1
+  },
+  "teacher_source": {
+    "path": "/workspace/fast-audiovae-convnext-20260908-r1/assets/audio_vae_v2.py",
+    "sha256": "2efdff1708d8ec1471624aae6f232d0f933de26b788b6901c434246847e2d3a8",
+    "verification": "sha256sum verified during this read-only audit before inspecting full source",
+    "source_revision": "f772e498a45fbb5fb8e13fbf9b9c48be9fe33e69",
+    "checkpoint_sha256": "94b5d51e107e0507d4acc976cfdadb64edd6fd06d1f751dadbf2fd1594274bf1"
+  },
+  "layer_scales": {
+    "initial_value": 1e-06,
+    "blocks": [
+      {
+        "block": 0,
+        "channels": 512,
+        "mean_absolute_value": 0.03369964823718874,
+        "median_absolute_value": 0.031801220029592514,
+        "absolute_below_1e-5": 0
+      },
+      {
+        "block": 1,
+        "channels": 512,
+        "mean_absolute_value": 0.032859962570455536,
+        "median_absolute_value": 0.03046303242444992,
+        "absolute_below_1e-5": 0
+      },
+      {
+        "block": 2,
+        "channels": 512,
+        "mean_absolute_value": 0.029414709646715664,
+        "median_absolute_value": 0.025603994727134705,
+        "absolute_below_1e-5": 0
+      },
+      {
+        "block": 3,
+        "channels": 512,
+        "mean_absolute_value": 0.03237917613120089,
+        "median_absolute_value": 0.029906675219535828,
+        "absolute_below_1e-5": 0
+      },
+      {
+        "block": 4,
+        "channels": 512,
+        "mean_absolute_value": 0.03513332361325183,
+        "median_absolute_value": 0.03315078467130661,
+        "absolute_below_1e-5": 0
+      },
+      {
+        "block": 5,
+        "channels": 512,
+        "mean_absolute_value": 0.0340776212922691,
+        "median_absolute_value": 0.02958899550139904,
+        "absolute_below_1e-5": 0
+      },
+      {
+        "block": 6,
+        "channels": 512,
+        "mean_absolute_value": 0.03527115972536876,
+        "median_absolute_value": 0.032734256237745285,
+        "absolute_below_1e-5": 0
+      },
+      {
+        "block": 7,
+        "channels": 512,
+        "mean_absolute_value": 0.03399216840230679,
+        "median_absolute_value": 0.03210386261343956,
+        "absolute_below_1e-5": 0
+      },
+      {
+        "block": 8,
+        "channels": 512,
+        "mean_absolute_value": 0.03531211545003998,
+        "median_absolute_value": 0.03321748226881027,
+        "absolute_below_1e-5": 0
+      },
+      {
+        "block": 9,
+        "channels": 512,
+        "mean_absolute_value": 0.037196960434144444,
+        "median_absolute_value": 0.035724759101867676,
+        "absolute_below_1e-5": 0
+      }
+    ],
+    "all_coefficients": 5120,
+    "all_absolute_below_1e-5": 0,
+    "interpretation": "The residual branch multipliers have moved substantially from initialization; they are not still near 1e-6. Coefficient magnitudes do not measure the effective receptive field or each branch contribution on real audio."
+  },
+  "adapter": {
+    "weight_shape": [
+      256,
+      64,
+      1
+    ],
+    "phase_order": "weight.reshape(64,4,64)[:,phase,:], matching [channel,phase] output ordering in model._phase_frames",
+    "precision": "Float64 SVD of saved FP32 weights; torch.linalg.matrix_rank with default Float64 threshold",
+    "combined": {
+      "shape": [
+        256,
+        64
+      ],
+      "rank": 64,
+      "singular_min": 0.02131390609333773,
+      "singular_max": 0.20430611697445894,
+      "condition_number": 9.585578358080532
+    },
+    "per_phase": [
+      {
+        "phase": 0,
+        "shape": [
+          64,
+          64
+        ],
+        "rank": 64,
+        "singular_min": 1.4436085728950845e-05,
+        "singular_max": 0.160711835979896,
+        "singular_mean": 0.05215948760691207,
+        "condition_number": 11132.646272500064
+      },
+      {
+        "phase": 1,
+        "shape": [
+          64,
+          64
+        ],
+        "rank": 64,
+        "singular_min": 4.966155279447758e-05,
+        "singular_max": 0.13655437446553462,
+        "singular_mean": 0.05028355673187663,
+        "condition_number": 2749.7000553055523
+      },
+      {
+        "phase": 2,
+        "shape": [
+          64,
+          64
+        ],
+        "rank": 64,
+        "singular_min": 3.398920684239205e-05,
+        "singular_max": 0.12210993439837567,
+        "singular_mean": 0.04190680250657338,
+        "condition_number": 3592.6091174942508
+      },
+      {
+        "phase": 3,
+        "shape": [
+          64,
+          64
+        ],
+        "rank": 64,
+        "singular_min": 0.00024874807898981135,
+        "singular_max": 0.1123062030154838,
+        "singular_mean": 0.02852696613996221,
+        "condition_number": 451.48570984575855
+      }
+    ],
+    "interpretation": "Combined adapter retains full column rank and is substantially better conditioned than individual phase matrices. At phase zero causal layers cannot access phases 1-3 from the current latent. Poor single-phase conditioning is a candidate optimization difficulty, not a proven information loss or measured causal explanation; latent covariance and downstream mappings were not probed."
+  },
+  "normalization": {
+    "stem_norm": {
+      "num_batches_tracked": 200,
+      "statistics_frozen": true,
+      "running_variance": {
+        "min": 0.00961012952029705,
+        "max": 0.04493703320622444,
+        "mean": 0.02162730656164058
+      },
+      "gamma": {
+        "min": 0.8424067497253418,
+        "max": 0.9749554991722107,
+        "mean": 0.9215016949456185
+      },
+      "fixed_scale": {
+        "min": 4.461671810183787,
+        "max": 9.17355004774623,
+        "mean": 6.470490179877244
+      },
+      "fixed_bias": {
+        "min": -0.13393412412914923,
+        "max": 0.13702641397668974,
+        "mean": -0.0017607015487146882
+      }
+    },
+    "affine": {
+      "num_batches_tracked": 200,
+      "statistics_frozen": true,
+      "running_variance": {
+        "min": 0.949373185634613,
+        "max": 1.0452531576156616,
+        "mean": 0.9863792861578986
+      },
+      "gamma": {
+        "min": 0.947998583316803,
+        "max": 1.0193469524383545,
+        "mean": 0.9782440197886899
+      },
+      "fixed_scale": {
+        "min": 0.9557687424720872,
+        "max": 1.044419871262023,
+        "mean": 0.9851171445856619
+      },
+      "fixed_bias": {
+        "min": -0.03671752406083579,
+        "max": 0.036859515216235594,
+        "mean": -0.0002980337586610039
+      }
+    },
+    "implementation": {
+      "source": "work/fast-audiovae/experiments/convnext/audiovae_student/model.py:114",
+      "fixed_scale_formula": "gamma / sqrt(running_var + 1e-5)",
+      "fixed_bias_formula": "beta - running_mean * fixed_scale",
+      "momentum": 0.1,
+      "freeze_setting_source": "work/fast-audiovae/experiments/convnext/audiovae_student/representative_pilot.py:374",
+      "freeze_after_updates": 200,
+      "ema_last_29_updates_weight": 0.9528987130275375,
+      "scored_mask": "Complete scored latents only; context, right padding and partially valid final latents excluded from statistic estimation."
+    },
+    "interpretation": "No near-zero variance or numerical explosion is evident in these buffers. After freezing, training and evaluation share fixed statistics and affine parameters remain trainable. The planned fixed-weight sequential calibration of the two sites was not performed by this freeze-at-200 implementation; its impact on quality is unproven."
+  },
+  "receptive_field": {
+    "teacher": {
+      "latent_rate_hz": 25,
+      "output_rate_hz": 48000,
+      "initial_convolution_history_latents": 6,
+      "upsampling_rates": [
+        8,
+        6,
+        5,
+        2,
+        2,
+        2
+      ],
+      "upsampling_output_rates_hz": [
+        200,
+        1200,
+        6000,
+        12000,
+        24000,
+        48000
+      ],
+      "residual_dilations_each_stage": [
+        1,
+        3,
+        9
+      ],
+      "residual_kernel": 7,
+      "residual_history_at_each_output_grid": 78,
+      "transpose_kernel_formula": "2 * stride",
+      "transpose_earliest_input_formula": "floor(output_index / stride) - 1",
+      "final_convolution_history_samples": 6,
+      "exact_backward_dependency": "q = output_sample_index - 6; for r in [2,2,2,5,6,8]: q = floor((q - 78) / r) - 1; earliest_latent = q - 6. Latest latent = floor(output_sample_index / 1920).",
+      "phase_counts_per_1920_sample_latent": {
+        "20_past_latents": 270,
+        "19_past_latents": 1650
+      },
+      "past_latents_min": 19,
+      "past_latents_max": 20,
+      "including_current_latents_min": 20,
+      "including_current_latents_max": 21,
+      "past_seconds_min": 0.76,
+      "past_seconds_max": 0.8,
+      "qualification": "Analytical structural support of the pinned convolution graph, away from true utterance startup. Does not estimate learned effective receptive field or include encoder history."
+    },
+    "student": {
+      "source": "work/fast-audiovae/experiments/convnext/audiovae_student/model.py:50",
+      "latent_rate_hz": 25,
+      "internal_rate_hz": 100,
+      "phases_per_latent": 4,
+      "samples_per_internal_frame": 480,
+      "stem_history_internal_frames": 6,
+      "block_dilations": [
+        1,
+        2,
+        4,
+        1,
+        2,
+        4,
+        1,
+        1,
+        1,
+        1
+      ],
+      "block_kernel": 7,
+      "head_history_internal_frames": 2,
+      "history_formula": "6 + 6 * sum([1,2,4,1,2,4,1,1,1,1]) + 2 = 116",
+      "past_internal_frames": 116,
+      "including_current_internal_frames": 117,
+      "latent_phase_formula": "internal t = 4*n+p, 0<=p<4; earliest latent = floor((t-116)/4) = n-29; latest latent = n.",
+      "past_latents": 29,
+      "including_current_latents": 30,
+      "past_seconds": 1.16,
+      "training_context_frames": 29,
+      "qualification": "Maximum graph support with fixed normalization. Four adapter phases do not add new input information or reduce external 40 ms latent arrival granularity."
+    },
+    "interpretation": "The actual 29-latent training context covers the student and exceeds teacher decoder support. Insufficient nominal history is not supported as the cause of current reconstruction errors."
+  },
+  "synthesis_qualifications": [
+    "The teacher contains 18 Snake residual units across progressively faster grids and a final sample-rate convolution plus tanh. The student instead has 10 low-rate GELU ConvNeXt blocks, kernel-3 PReLU head, bias-free 2048-to-480 projection and chronological flattening.",
+    "Released Supertonic 3 also uses GELU and PReLU; this is not evidence of a missing Supertonic Snake activation. Its native 24-channel ~86.13 Hz latent space differs from the frozen 64-channel 25 Hz AudioVAE2 space.",
+    "100 Hz hidden processing does not impose a 50 Hz audio bandwidth cap: the 2048-to-480 matrix can have rank 480 and produce arbitrary 480-sample blocks. Learning phase continuity and fine waveform detail is the concern.",
+    "An absent final bias does not guarantee silence. Upstream biases or normalization offsets can project to a repeated 480-sample template (100 Hz repetition); four phase-specific adapter biases can also induce a 1920-sample/25 Hz pattern. This is a possible mechanism, not a causal attribution from this static audit.",
+    "Student replicate startup padding differs from teacher zero padding. Saved earlier beginning/interior metrics did not localize the broad failure to crop starts.",
+    "The teacher condition is fixed to 48 kHz, so omission of a variable sample-rate embedding is not loss of changing conditioning information in this single-rate student."
+  ]
+}

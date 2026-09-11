@@ -1,0 +1,58 @@
+{
+  "canonical_panel": {
+    "cache_path": "/tmp/fast-audiovae-recovery-20260909/canonical-panel-v1/heldout.pt",
+    "cache_sha256": "6be63e6fc49d7a23c59b75cca1d1d294cf7aa83d2dbbb9c06e1622e92c574a19",
+    "contract_sha256": "bf372497cabec8f24b3e65887210a1808fa99d728cef212f6e5c80ed76068430",
+    "evaluation_policy": "Separate corrected encoder domain; original historical tensors, counts and masks remain unchanged",
+    "heldout_crops": 285,
+    "heldout_identity_sha256": "ef70f22f1e638257d139530b11750899da9c573abe95133525eabf3a6e6830dd",
+    "metadata_sha256": "c3fcab4a824c8a7bc79c8b8cd3e14d04b8ac56841ff9561872e2bb247be6922f",
+    "receipt_path": "/tmp/fast-audiovae-recovery-20260909/canonical-panel-v1/receipt.json",
+    "receipt_sha256": "5bf945d958085362ec14f9af2bfb45bf045f75184dc9bfc0b975f12fc86e5255",
+    "required_by_resolution": true
+  },
+  "checkpoint_sha256": "f7a91a2f3bef6fdec2a37643dc661a97b18a24b9e25b822df49c1c4017ddc948",
+  "cudnn": 92501,
+  "fit_count": 2048,
+  "inventory": "b6799950cda26492b13ba6a256d95b6635a2e001c49325d00f1e140b1e525672",
+  "policy": "Frozen body; training-only calibration selection. No GAN, optimizer update, automatic retention or production change.",
+  "restored_engine_sha256": "b241d0cf81923f20d29d09af7b581ddda5bb492775afbf24f3020dba7dd7febc",
+  "ridge_grid": [
+    0.001,
+    0.01,
+    0.1,
+    1.0
+  ],
+  "selection_sha256": "c3c2f0335b00761e1425d0c40a12d9882305bd5440c0f3758bc4d982d77ced7f",
+  "sources": {
+    "/tmp/fast-audiovae-recovery-20260909/code/canonical_evaluation.py": "a769555c36700604d95ef4ef2f7a20db7f71f75f8f0bad3488e8996cf2e851cb",
+    "/tmp/fast-audiovae-recovery-20260909/code/training_overlay.py": "503b832ed55451ad586a4cb32d0850d0c22fa1932aec4b0b45d9c49d16ec16c7",
+    "/tmp/fast-audiovae-recovery-20260909/code214/diagnostic_common.py": "81254f55310fb4ca1b4d49aace1e22203d07969ac0562c4ed26aeca2a32b567b",
+    "/tmp/fast-audiovae-recovery-20260909/head-experiments-code-v2/bounded_head.py": "f589fac0969fa90f0635eeefbbb44f30afa83c2117ebb165e11a13df8f2b85c6",
+    "/tmp/fast-audiovae-recovery-20260909/head-experiments-code-v2/fit_support.py": "45131cc5d6d84f4c4aef2a389178a825a4beaebcb76c43362675d327544ab79c",
+    "/tmp/fast-audiovae-recovery-20260909/head-experiments-code-v2/full_source_teacher_head.py": "673c695c9137835599e91b432f2b0911d009efa33b732d293b4785b3301b725f",
+    "/tmp/fast-audiovae-recovery-20260909/head-experiments-code-v2/head_calibration.py": "3d5f11528224ad81fc58f4c2300cf7d0fe8202679a159b117e6029c6035c87ab",
+    "/tmp/fast-audiovae-recovery-20260909/head-experiments-code-v2/run_heads.py": "357daf5c2f00a93bde335787117129ec217b900fcf8e942848d20ea49b1d131d",
+    "/tmp/fast-audiovae-recovery-20260909/optimizer-causal-code-v1/run_comparison.py": "d615ebfd1b65644070a25e8191f46d2594a3880ec55f8a5324daf0bda24b2748",
+    "/tmp/fast-audiovae-recovery-20260909/peak-silence-code-v1/native_chain.py": "bfed6fec148c57ef98c495edaf4c9eb1f66300c1d2b20d713230771a3c8fe928"
+  },
+  "teacher_state_sha256": "8da1691a055ac7eee3d06750846fc1ad1f887adfec13c31340cab7397fde1501",
+  "torch": "2.14.0+cu126",
+  "training_overlay": {
+    "cache_path": "/dev/shm/fast-audiovae-recovery-fresh12800-v1/pairs.pt",
+    "cache_sha256": "1125b32246ebd102ef4a4c3ce9feca878c18b73a985afa77ee16ee5226df4f23",
+    "contract_sha256": "b67946aa69a674e72b6caa91d1fecbd94733f13b6b337b357185ffd3760d110e",
+    "pool_contracts": {
+      "targeted_generator": {
+        "baseline_pool_prefix_identity_sha256": "83d8a48c17b3026c91e058e23b51410a806a9eed87f4dd091a70ee9827dd72ac",
+        "count": 12800,
+        "fresh_pool_identity_sha256": "20d69713cabdc82cb90d67e01bdcd519a2c653f41db02f2549f098a5ffa661b9",
+        "ordered_geometry_sha256": "2b75d33617b7638226392a4146c42d967b0384a4577572a4cf6d37ceca819082"
+      }
+    },
+    "receipt_path": "/dev/shm/fast-audiovae-recovery-fresh12800-v1/receipt.json",
+    "receipt_sha256": "b9072c77a94ead31aa36d546c2f94af996bd704ce8db161b467546be851a27a0"
+  },
+  "validation_count": 256,
+  "version": "head_calibration_v2"
+}

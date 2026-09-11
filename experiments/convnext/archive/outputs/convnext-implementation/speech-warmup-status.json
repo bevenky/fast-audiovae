@@ -1,0 +1,134 @@
+{
+  "stage": "reconstruction_warmup",
+  "state": "completed",
+  "step": 1000,
+  "total_steps": 1000,
+  "progress": 1.0,
+  "device": "cuda",
+  "optimizer": "muon_adamw",
+  "train_utterances": 230,
+  "dev_utterances": 25,
+  "train_examples_seen": 8000,
+  "sampling_policy": "uniform_manifest_language_then_utterance_then_eligible_frame_v1",
+  "language_exposure": {
+    "ar_eg": {
+      "examples": 572,
+      "scored_samples": 60874560
+    },
+    "bn_in": {
+      "examples": 633,
+      "scored_samples": 69575040
+    },
+    "de_de": {
+      "examples": 607,
+      "scored_samples": 67059840
+    },
+    "en": {
+      "examples": 621,
+      "scored_samples": 67422000
+    },
+    "en_us": {
+      "examples": 591,
+      "scored_samples": 63455040
+    },
+    "es_419": {
+      "examples": 643,
+      "scored_samples": 69932160
+    },
+    "fr_fr": {
+      "examples": 629,
+      "scored_samples": 69078720
+    },
+    "gu_in": {
+      "examples": 617,
+      "scored_samples": 65215680
+    },
+    "hi_in": {
+      "examples": 623,
+      "scored_samples": 67968960
+    },
+    "mr_in": {
+      "examples": 604,
+      "scored_samples": 66730560
+    },
+    "pt_br": {
+      "examples": 624,
+      "scored_samples": 67501440
+    },
+    "ta_in": {
+      "examples": 593,
+      "scored_samples": 64778880
+    },
+    "te_in": {
+      "examples": 643,
+      "scored_samples": 68630400
+    }
+  },
+  "last_training_sources": [
+    {
+      "source_id": "gu_in:train:1014287866430806347.wav",
+      "start_frame": 277
+    },
+    {
+      "source_id": "es_419:train:10005668950815513748.wav",
+      "start_frame": 121
+    },
+    {
+      "source_id": "374-180298-0022",
+      "start_frame": 214
+    },
+    {
+      "source_id": "mr_in:train:10008293359970161432.wav",
+      "start_frame": 352
+    },
+    {
+      "source_id": "gu_in:train:10003607193701653304.wav",
+      "start_frame": 217
+    },
+    {
+      "source_id": "hi_in:train:10131671647262812638.wav",
+      "start_frame": 130
+    },
+    {
+      "source_id": "ar_eg:train:10085545850363635382.wav",
+      "start_frame": 180
+    },
+    {
+      "source_id": "ar_eg:train:10078515386172471553.wav",
+      "start_frame": 285
+    }
+  ],
+  "scored_samples_seen": 868223280,
+  "scored_audio_hours_seen": 5.024440277777778,
+  "training_step_seconds_total": 165.9893187135458,
+  "mean_training_step_seconds": 0.1659893187135458,
+  "train": {
+    "total": 21.64889883995056,
+    "teacher_spectral": 0.21476389793679118,
+    "teacher_waveform": 0.0066364090071147075,
+    "reference_spectral": 0.4093511877581477,
+    "examples": 8,
+    "reference_examples": 8,
+    "scored_samples": 636480,
+    "gradient_norm": 844.2554321289062,
+    "learning_rate": 0.0002,
+    "step_seconds": 0.1340358853340149
+  },
+  "validation": {
+    "total": 40.89450653076172,
+    "teacher_spectral": 0.505852906703949,
+    "teacher_waveform": 0.038157305791974065,
+    "reference_spectral": 0.7393012380599976,
+    "examples": 25,
+    "reference_examples": 25,
+    "scored_samples": 3068880
+  },
+  "validation_step": 1000,
+  "validation_policy": "one fixed start crop per dev utterance; no parameter updates",
+  "data_fingerprint": "b4921381bbf566b3ae7593489d792bd0e10d1c874f253d6178c2718e973844e8",
+  "checkpoint": "training-runs/warmup-speech-muon-v1/latest.pt",
+  "checkpoint_step": 1000,
+  "run_name": "warmup-speech-muon-v1",
+  "error": null,
+  "updated_at_unix": 1788891019.17861
+}

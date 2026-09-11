@@ -1,0 +1,261 @@
+{
+  "qualification": "untrained_architecture_only",
+  "passed": true,
+  "checks": [
+    {
+      "name": "frames_1/full",
+      "passed": true,
+      "shape": [
+        1,
+        1,
+        1920
+      ],
+      "max_abs": 1.4901161193847656e-07
+    },
+    {
+      "name": "frames_1/stream_[1]",
+      "passed": true,
+      "shape": [
+        1,
+        1,
+        1920
+      ],
+      "max_abs": 1.4901161193847656e-07
+    },
+    {
+      "name": "frames_1/stream_[2]",
+      "passed": true,
+      "shape": [
+        1,
+        1,
+        1920
+      ],
+      "max_abs": 1.4901161193847656e-07
+    },
+    {
+      "name": "frames_1/stream_[4]",
+      "passed": true,
+      "shape": [
+        1,
+        1,
+        1920
+      ],
+      "max_abs": 1.4901161193847656e-07
+    },
+    {
+      "name": "frames_1/stream_[1, 4, 2, 9]",
+      "passed": true,
+      "shape": [
+        1,
+        1,
+        1920
+      ],
+      "max_abs": 1.4901161193847656e-07
+    },
+    {
+      "name": "frames_7/full",
+      "passed": true,
+      "shape": [
+        1,
+        1,
+        13440
+      ],
+      "max_abs": 2.2351741790771484e-07
+    },
+    {
+      "name": "frames_7/stream_[1]",
+      "passed": true,
+      "shape": [
+        1,
+        1,
+        13440
+      ],
+      "max_abs": 2.384185791015625e-07
+    },
+    {
+      "name": "frames_7/stream_[2]",
+      "passed": true,
+      "shape": [
+        1,
+        1,
+        13440
+      ],
+      "max_abs": 2.384185791015625e-07
+    },
+    {
+      "name": "frames_7/stream_[4]",
+      "passed": true,
+      "shape": [
+        1,
+        1,
+        13440
+      ],
+      "max_abs": 2.384185791015625e-07
+    },
+    {
+      "name": "frames_7/stream_[1, 4, 2, 9]",
+      "passed": true,
+      "shape": [
+        1,
+        1,
+        13440
+      ],
+      "max_abs": 2.384185791015625e-07
+    },
+    {
+      "name": "frames_33/full",
+      "passed": true,
+      "shape": [
+        1,
+        1,
+        63360
+      ],
+      "max_abs": 1.4901161193847656e-08
+    },
+    {
+      "name": "frames_33/stream_[1]",
+      "passed": true,
+      "shape": [
+        1,
+        1,
+        63360
+      ],
+      "max_abs": 2.682209014892578e-07
+    },
+    {
+      "name": "frames_33/stream_[2]",
+      "passed": true,
+      "shape": [
+        1,
+        1,
+        63360
+      ],
+      "max_abs": 2.682209014892578e-07
+    },
+    {
+      "name": "frames_33/stream_[4]",
+      "passed": true,
+      "shape": [
+        1,
+        1,
+        63360
+      ],
+      "max_abs": 2.682209014892578e-07
+    },
+    {
+      "name": "frames_33/stream_[1, 4, 2, 9]",
+      "passed": true,
+      "shape": [
+        1,
+        1,
+        63360
+      ],
+      "max_abs": 2.5331974029541016e-07
+    },
+    {
+      "name": "frames_67/full",
+      "passed": true,
+      "shape": [
+        1,
+        1,
+        128640
+      ],
+      "max_abs": 1.4901161193847656e-08
+    },
+    {
+      "name": "frames_67/stream_[1]",
+      "passed": true,
+      "shape": [
+        1,
+        1,
+        128640
+      ],
+      "max_abs": 2.980232238769531e-07
+    },
+    {
+      "name": "frames_67/stream_[2]",
+      "passed": true,
+      "shape": [
+        1,
+        1,
+        128640
+      ],
+      "max_abs": 2.980232238769531e-07
+    },
+    {
+      "name": "frames_67/stream_[4]",
+      "passed": true,
+      "shape": [
+        1,
+        1,
+        128640
+      ],
+      "max_abs": 2.980232238769531e-07
+    },
+    {
+      "name": "frames_67/stream_[1, 4, 2, 9]",
+      "passed": true,
+      "shape": [
+        1,
+        1,
+        128640
+      ],
+      "max_abs": 2.905726432800293e-07
+    }
+  ],
+  "atol": 1e-05,
+  "rtol": 0.0001,
+  "graphs": {
+    "decoder.onnx": "5be910ffd769fa307ad08b84cb9652863050632d6bedbc73d8b8bb699591e1e5",
+    "decoder-stream.onnx": "cdef629e46e9693634786f30aaa5f53c16ddf9266eb5601211853d7753f88836"
+  },
+  "architecture": {
+    "config": {
+      "hidden_channels": 512,
+      "expansion_channels": 2048,
+      "head_channels": 2048,
+      "dilations": [
+        1,
+        2,
+        4,
+        1,
+        2,
+        4,
+        1,
+        1,
+        1,
+        1
+      ],
+      "layer_norm_eps": 1e-06,
+      "layer_scale_init": 1e-06,
+      "prelu_init": 0.25
+    },
+    "initialization": "fresh",
+    "latent_channels": 64,
+    "latent_rate": 25,
+    "sample_rate": 48000,
+    "samples_per_latent": 1920,
+    "internal_rate": 100,
+    "history_internal_frames": 116,
+    "history_latent_frames": 29,
+    "history_seconds": 1.16,
+    "state_fp32_bytes_per_stream": 226817,
+    "conv_linear_macs_per_audio_second": 2536960000
+  },
+  "parameters": 25431809,
+  "hardware": {
+    "system": "Darwin",
+    "machine": "arm64"
+  },
+  "runtime": {
+    "torch": "2.8.0",
+    "onnxruntime": "1.29.0",
+    "providers": [
+      "CPUExecutionProvider"
+    ],
+    "intra_op_threads": 1,
+    "inter_op_threads": 1
+  },
+  "speech_quality_evaluated": false,
+  "rtf_measured": false
+}

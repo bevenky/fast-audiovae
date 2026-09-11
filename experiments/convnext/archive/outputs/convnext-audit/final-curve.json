@@ -1,0 +1,148 @@
+{
+  "windows": [
+    {
+      "start_step": 1001,
+      "end_step": 2000,
+      "train/total": 25.216537994384765,
+      "train/teacher_spectral": 0.24320898501574992,
+      "train/teacher_waveform": 0.024804595370776953,
+      "train/reference_spectral": 0.47874663630127906
+    },
+    {
+      "start_step": 2001,
+      "end_step": 3000,
+      "train/total": 23.879724239349365,
+      "train/teacher_spectral": 0.22661643126606942,
+      "train/teacher_waveform": 0.02465759976860136,
+      "train/reference_spectral": 0.4545737818479538
+    },
+    {
+      "start_step": 3001,
+      "end_step": 4000,
+      "train/total": 23.470359395980836,
+      "train/teacher_spectral": 0.22163000375032424,
+      "train/teacher_waveform": 0.02484883929602802,
+      "train/reference_spectral": 0.44713467732071877
+    },
+    {
+      "start_step": 4001,
+      "end_step": 5000,
+      "train/total": 22.96734661102295,
+      "train/teacher_spectral": 0.21604786421358585,
+      "train/teacher_waveform": 0.024850257834419607,
+      "train/reference_spectral": 0.4378172969222069
+    },
+    {
+      "start_step": 5001,
+      "end_step": 6000,
+      "train/total": 22.540427379608154,
+      "train/teacher_spectral": 0.20930572248995305,
+      "train/teacher_waveform": 0.024954761038534345,
+      "train/reference_spectral": 0.4305752610564232
+    },
+    {
+      "start_step": 6001,
+      "end_step": 7000,
+      "train/total": 22.002093492507935,
+      "train/teacher_spectral": 0.20352930879592895,
+      "train/teacher_waveform": 0.02431178451888263,
+      "train/reference_spectral": 0.42055204743146896
+    },
+    {
+      "start_step": 7001,
+      "end_step": 8000,
+      "train/total": 21.33938961791992,
+      "train/teacher_spectral": 0.1950012443512678,
+      "train/teacher_waveform": 0.02398314390424639,
+      "train/reference_spectral": 0.40867528426647187
+    },
+    {
+      "start_step": 8001,
+      "end_step": 9000,
+      "train/total": 21.24933867073059,
+      "train/teacher_spectral": 0.19442741037905217,
+      "train/teacher_waveform": 0.023500625223852694,
+      "train/reference_spectral": 0.4068761533498764
+    },
+    {
+      "start_step": 9001,
+      "end_step": 10000,
+      "train/total": 22.60680679512024,
+      "train/teacher_spectral": 0.20944200171530247,
+      "train/teacher_waveform": 0.027838920771144332,
+      "train/reference_spectral": 0.4319408395886421
+    }
+  ],
+  "logged_updates": 9000,
+  "unique_steps": 9000,
+  "missing_steps": [],
+  "final_status": {
+    "stage": "source_corpus_one_pass",
+    "state": "completed",
+    "step": 10000,
+    "total_steps": 10000,
+    "batch_size": 64,
+    "run_name": "warmup-speech-500h-v1",
+    "train": {
+      "total": 23.47628402709961,
+      "teacher_spectral": 0.2217157930135727,
+      "teacher_waveform": 0.03471389785408974,
+      "reference_spectral": 0.4470185339450836,
+      "gradient_norm": 300.7450866699219,
+      "examples": 64,
+      "reference_examples": 64,
+      "scored_samples": 6918720,
+      "padded_latent_frames": 867,
+      "learning_rate": 0.0002,
+      "step_seconds": 1.129137434065342,
+      "prepare_seconds": 0.8002181574702263,
+      "student_seconds": 0.32891927659511566
+    },
+    "validation": {
+      "total": 25.172464569087765,
+      "teacher_spectral": 0.24878905267678084,
+      "teacher_waveform": 0.029916594334913785,
+      "reference_spectral": 0.4757936042984446,
+      "examples": 2839,
+      "scored_samples": 293382780
+    },
+    "checkpoint_step": 10000,
+    "lineage": {
+      "checkpoint_sha256": "ba999a89e8d87f9da91fd00fa1ddde04398a353a5a1ecc6e23aa36f9bd30605f",
+      "checkpoint_step": 1000,
+      "previous_data_fingerprint": "b4921381bbf566b3ae7593489d792bd0e10d1c874f253d6178c2718e973844e8",
+      "previous_effective_batch": 8,
+      "new_batch_size": 64,
+      "change": "new fixed source corpus; no-replacement scored segments; true model batches"
+    },
+    "unique_scored_hours_seen": 371.69651281250003,
+    "remaining_unique_segments": 221743,
+    "corpus_scored_hours": 510.85583296874995,
+    "seconds_in_training_loop": 14323.782950334251,
+    "cache": {
+      "memory_hits": 459284,
+      "disk_hits": 0,
+      "cache_misses": 119555,
+      "prepared_utterances": 119555,
+      "prepared_input_samples": 21558289906,
+      "source_bytes_read": 78994375424,
+      "cache_bytes_read": 0,
+      "cache_bytes_written": 354578172835,
+      "evictions": 112036,
+      "evicted_bytes": 341694333220,
+      "source_hash_seconds": 84.81857123225927,
+      "audio_read_seconds": 133.5780192837119,
+      "teacher_seconds": 10316.785147480667,
+      "cache_load_seconds": 0,
+      "cache_write_seconds": 658.5086423158646,
+      "disk_bytes": 12883839615,
+      "disk_records": 7519,
+      "memory_records": 256,
+      "max_disk_bytes": 12884901888,
+      "min_free_bytes": 4294967296,
+      "identity_sha256": "7f1f7387d488b6bde73bd5d04e8dc2d882421cdf1c2ab9260320e804bf3f2297"
+    },
+    "updated_at_unix": 1788912377.4100664,
+    "error": null
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "archive_projection_version": 1,
+  "original_relative_path": "outputs/convnext-recovery/head-experiments/results/fit-accounting.json",
+  "original_sha256": "150d21017e5a023c84f649e58a4db4786a761aa27fdd6237bc4666faefda8306",
+  "omitted_field_paths": [
+    "crops"
+  ],
+  "note": "Labelled projection. Omitted numerical payloads and listed bulk report collections remain outside Git; configuration metadata is retained.",
+  "report": {
+    "summary": {
+      "post": {
+        "crops": 2048,
+        "definition": "A=mean(h*hT), B=mean(h*(teacher-W*h)T), FP64; equal weight per complete 480-sample block",
+        "feature_width": 2048,
+        "frames": 500347,
+        "samples": 240166560,
+        "target_mean_square": 0.006699969026723783,
+        "trace_scale": 0.002698320972385742
+      },
+      "pre": {
+        "crops": 2048,
+        "definition": "A=mean(h*hT), B=mean(h*(teacher-W*h)T), FP64; equal weight per complete 480-sample block",
+        "feature_width": 2048,
+        "frames": 500347,
+        "samples": 240166560,
+        "target_mean_square": 0.00956732165082942,
+        "trace_scale": 0.002698320972385742
+      }
+    }
+  }
+}

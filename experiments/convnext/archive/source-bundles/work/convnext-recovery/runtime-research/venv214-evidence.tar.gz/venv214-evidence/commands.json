@@ -1,0 +1,159 @@
+[
+  {
+    "argv": [
+      "/workspace/fast-audiovae-convnext-20260908-r1/.train-venv/bin/python",
+      "-m",
+      "venv",
+      "/tmp/fast-audiovae-recovery-20260909/venv214"
+    ],
+    "exit_code": 0,
+    "name": "create",
+    "wall_seconds": 2.2180659770965576
+  },
+  {
+    "argv": [
+      "/tmp/fast-audiovae-recovery-20260909/venv214/bin/python",
+      "-m",
+      "pip",
+      "install",
+      "--upgrade",
+      "--only-binary=:all:",
+      "--index-url",
+      "https://pypi.org/simple",
+      "--report",
+      "/tmp/fast-audiovae-recovery-20260909/venv214-evidence/packaging-report.json",
+      "pip",
+      "setuptools",
+      "wheel"
+    ],
+    "exit_code": 0,
+    "name": "packaging",
+    "wall_seconds": 1.8791790008544922
+  },
+  {
+    "argv": [
+      "/tmp/fast-audiovae-recovery-20260909/venv214/bin/python",
+      "-m",
+      "pip",
+      "install",
+      "--only-binary=:all:",
+      "--index-url",
+      "https://download.pytorch.org/whl/cu126",
+      "--report",
+      "/tmp/fast-audiovae-recovery-20260909/venv214-evidence/torch-official-report.json",
+      "torch==2.14.0+cu126"
+    ],
+    "exit_code": 0,
+    "name": "torch-official",
+    "wall_seconds": 65.79279971122742
+  },
+  {
+    "argv": [
+      "/tmp/fast-audiovae-recovery-20260909/venv214/bin/python",
+      "-m",
+      "pip",
+      "install",
+      "--upgrade",
+      "--upgrade-strategy",
+      "eager",
+      "--only-binary=:all:",
+      "--index-url",
+      "https://pypi.org/simple",
+      "--constraint",
+      "/tmp/fast-audiovae-recovery-20260909/venv214-evidence/official-torch-constraint.txt",
+      "--report",
+      "/tmp/fast-audiovae-recovery-20260909/venv214-evidence/application-report.json",
+      "numpy",
+      "tensorboard",
+      "pyarrow",
+      "huggingface-hub",
+      "soundfile",
+      "soxr",
+      "pydantic",
+      "pytest",
+      "onnx==1.22.0",
+      "onnxruntime==1.29.0",
+      "packaging",
+      "PyYAML",
+      "tqdm",
+      "pillow"
+    ],
+    "exit_code": 0,
+    "name": "application-dependencies",
+    "wall_seconds": 12.037042617797852
+  },
+  {
+    "argv": [
+      "/tmp/fast-audiovae-recovery-20260909/venv214/bin/python",
+      "-m",
+      "pip",
+      "check"
+    ],
+    "exit_code": 0,
+    "name": "official-pip-check",
+    "wall_seconds": 0.20663166046142578
+  },
+  {
+    "argv": [
+      "/tmp/fast-audiovae-recovery-20260909/venv214/bin/python",
+      "-m",
+      "pip",
+      "install",
+      "--upgrade",
+      "--no-deps",
+      "--only-binary=:all:",
+      "--index-url",
+      "https://pypi.org/simple",
+      "--report",
+      "/tmp/fast-audiovae-recovery-20260909/venv214-evidence/cudnn-override-report.json",
+      "nvidia-cudnn-cu12==9.25.1.1"
+    ],
+    "exit_code": 0,
+    "name": "cudnn-qualified-override",
+    "wall_seconds": 10.762251138687134
+  },
+  {
+    "argv": [
+      "/tmp/fast-audiovae-recovery-20260909/venv214/bin/python",
+      "-m",
+      "pip",
+      "check"
+    ],
+    "exit_code": 1,
+    "name": "final-pip-check",
+    "wall_seconds": 0.2083735466003418
+  },
+  {
+    "argv": [
+      "/tmp/fast-audiovae-recovery-20260909/venv214/bin/python",
+      "-m",
+      "pip",
+      "freeze",
+      "--all"
+    ],
+    "exit_code": 0,
+    "name": "freeze",
+    "wall_seconds": 0.18108463287353516
+  },
+  {
+    "argv": [
+      "/tmp/fast-audiovae-recovery-20260909/venv214/bin/python",
+      "-m",
+      "pip",
+      "inspect"
+    ],
+    "exit_code": 0,
+    "name": "inspect",
+    "wall_seconds": 0.3592050075531006
+  },
+  {
+    "argv": [
+      "/tmp/fast-audiovae-recovery-20260909/venv214/bin/python",
+      "-c",
+      "\nimport json,sys,importlib.metadata as m\nfrom pathlib import Path\nimport torch,numpy,onnx,onnxruntime,pyarrow,huggingface_hub,soundfile,soxr,pydantic,pytest\nfrom torch.utils.tensorboard import SummaryWriter\nassert torch.__version__ == '2.14.0+cu126'\nassert torch.version.cuda == '12.6'\nassert m.version('nvidia-cudnn-cu12') == '9.25.1.1'\nassert m.version('nvidia-nccl-cu12') == '2.29.3'\nassert not torch.cuda._initialized  # Read a Python flag only; no CUDA API calls.\nmapped=sorted({line.split()[-1] for line in Path('/proc/self/maps').read_text().splitlines()\n    if '/nvidia/' in line or '/torch/lib/' in line})\nassert all('/venv214/' in path for path in mapped),mapped\nprint(json.dumps({'python':sys.version,'executable':sys.executable,'torch':torch.__version__,\n 'torch_compiled_cuda':torch.version.cuda,'cuda_initialized':False,\n 'sys_path':sys.path,'mapped_libraries':mapped,\n 'packages':sorted([{'name':d.metadata['Name'],'version':d.version} for d in m.distributions()],key=lambda x:x['name'].lower())},indent=2))\n"
+    ],
+    "exit_code": 0,
+    "name": "import-only",
+    "wall_seconds": 1.8733572959899902
+  }
+]

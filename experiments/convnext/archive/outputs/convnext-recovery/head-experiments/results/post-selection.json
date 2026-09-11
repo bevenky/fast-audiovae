@@ -1,0 +1,62 @@
+{
+  "baseline": {
+    "mae": 0.008805016161500817,
+    "mse": 0.0007109944677161853,
+    "quiet_mse": 6.820485703240232e-08,
+    "quiet_samples": 4223169,
+    "valid_samples": 30291615
+  },
+  "candidates": [
+    {
+      "lambda": 0.001,
+      "mae": 0.00947828300565216,
+      "mae_qualified": false,
+      "mse": 0.0007083546287092455,
+      "qualified": false,
+      "quiet_mse": 1.220266019554774e-07,
+      "quiet_qualified": false,
+      "quiet_samples": 4223169,
+      "valid_samples": 30291615
+    },
+    {
+      "lambda": 0.01,
+      "mae": 0.009066393138751709,
+      "mae_qualified": false,
+      "mse": 0.0006945070103493193,
+      "qualified": false,
+      "quiet_mse": 9.295121942608573e-08,
+      "quiet_qualified": false,
+      "quiet_samples": 4223169,
+      "valid_samples": 30291615
+    },
+    {
+      "lambda": 0.1,
+      "mae": 0.008887407145445758,
+      "mae_qualified": true,
+      "mse": 0.000694263681445311,
+      "qualified": false,
+      "quiet_mse": 7.412715871941285e-08,
+      "quiet_qualified": false,
+      "quiet_samples": 4223169,
+      "valid_samples": 30291615
+    },
+    {
+      "lambda": 1.0,
+      "mae": 0.008824186575363505,
+      "mae_qualified": true,
+      "mse": 0.0006993871612257213,
+      "qualified": false,
+      "quiet_mse": 6.89641317452186e-08,
+      "quiet_qualified": false,
+      "quiet_samples": 4223169,
+      "valid_samples": 30291615
+    }
+  ],
+  "heldout_used": false,
+  "max_mae_ratio": 1.01,
+  "max_quiet_mse_ratio": 1.01,
+  "no_qualified_candidate": true,
+  "selected": null,
+  "selected_lambda": null,
+  "selection": "Lowest training-validation post-waveform MSE among qualified candidates; largest lambda breaks exact ties"
+}

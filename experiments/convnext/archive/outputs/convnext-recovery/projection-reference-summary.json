@@ -1,0 +1,68 @@
+{
+  "reference_policy": "CPU FP64 functional convolution with original FP32 input, effective weights and bias promoted to double; comparisons use one final FP32 rounding",
+  "comparisons": {
+    "captured_batch8": {
+      "max_abs_error": 1.1937512159347534,
+      "rms_error": 0.0552847671080953,
+      "within_tolerance": false
+    },
+    "captured_single_padded": {
+      "max_abs_error": 1.430511474609375e-06,
+      "rms_error": 1.956248336494972e-07,
+      "within_tolerance": true
+    },
+    "functional_cudnn_off_batch8_repeated_row_repeat0": {
+      "max_abs_error": 1.430511474609375e-06,
+      "rms_error": 1.3135457638882732e-07,
+      "within_tolerance": true
+    },
+    "functional_cudnn_off_batch8_repeated_row_repeat1": {
+      "max_abs_error": 1.430511474609375e-06,
+      "rms_error": 1.3135457638882732e-07,
+      "within_tolerance": true
+    },
+    "functional_cudnn_off_single_repeat0": {
+      "max_abs_error": 1.430511474609375e-06,
+      "rms_error": 1.3135457638882732e-07,
+      "within_tolerance": true
+    },
+    "functional_cudnn_off_single_repeat1": {
+      "max_abs_error": 1.430511474609375e-06,
+      "rms_error": 1.3135457638882732e-07,
+      "within_tolerance": true
+    },
+    "functional_cudnn_on_batch8_repeated_row_repeat0": {
+      "max_abs_error": 1.1682510375976562e-05,
+      "rms_error": 1.1555726831614188e-06,
+      "within_tolerance": true
+    },
+    "functional_cudnn_on_batch8_repeated_row_repeat1": {
+      "max_abs_error": 1.1682510375976562e-05,
+      "rms_error": 1.1555726831614188e-06,
+      "within_tolerance": true
+    },
+    "functional_cudnn_on_single_repeat0": {
+      "max_abs_error": 1.430511474609375e-06,
+      "rms_error": 1.956248336494972e-07,
+      "within_tolerance": true
+    },
+    "functional_cudnn_on_single_repeat1": {
+      "max_abs_error": 1.430511474609375e-06,
+      "rms_error": 1.956248336494972e-07,
+      "within_tolerance": true
+    },
+    "normal_initial_batch8_repeated_row": {
+      "max_abs_error": 1.1937512159347534,
+      "rms_error": 0.0552847671080953,
+      "within_tolerance": false
+    },
+    "normal_initial_single": {
+      "max_abs_error": 1.430511474609375e-06,
+      "rms_error": 1.956248336494972e-07,
+      "within_tolerance": true
+    }
+  },
+  "checkpoint_preservation": {
+    "retained_checkpoint_hashes_unchanged": true
+  }
+}

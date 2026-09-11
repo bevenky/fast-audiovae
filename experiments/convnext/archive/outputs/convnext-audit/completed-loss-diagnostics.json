@@ -1,0 +1,3746 @@
+{
+  "created_utc": "2026-09-09T03:51:58.699730+00:00",
+  "device": "cpu",
+  "threads": 1,
+  "training_updates": 0,
+  "checkpoint_step": 10000,
+  "selection": "up to four deterministic hash-ranked dev clips per dataset/language group, with start and interior crops; diagnostic panel, not population quality estimate",
+  "available_groups": {
+    "('librispeech', 'en')": 25,
+    "('crema_d', 'en')": 738,
+    "('emogator', 'und')": 1530,
+    "('fsd50k_vocal_cc0', 'und')": 3,
+    "('fsd50k_vocal_cc_by_3', 'und')": 10,
+    "('freesound_human_whistle_cc0', 'und')": 1,
+    "('freesound_human_whistle_cc_by_4', 'und')": 1,
+    "('jnv', 'ja')": 105,
+    "('jvnv', 'ja')": 426
+  },
+  "selected_rows": 29,
+  "results": [
+    {
+      "source_id": "crema_d:1040_IEO_FEA_HI.wav",
+      "dataset": "crema_d",
+      "language": "en",
+      "start_frame": 0,
+      "valid_samples_48k": 96096,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 41.14543151855469,
+            "teacher_spectral": 0.5983654260635376,
+            "teacher_waveform": 0.05372243747115135,
+            "reference_spectral": 0.7136939167976379
+          },
+          "waveform": {
+            "rms": 0.015286235164654239,
+            "target_rms": 0.11444207921602033,
+            "rms_ratio": 0.133571805662496,
+            "snr_db": -0.07397153049734721,
+            "si_sdr_db": -52.104971100295685,
+            "zero_lag_cosine": 0.0024817047251887146,
+            "peak": 0.10980667173862457
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 34.358062744140625,
+            "teacher_spectral": 0.42522701621055603,
+            "teacher_waveform": 0.05490489304065704,
+            "reference_spectral": 0.6205500364303589
+          },
+          "waveform": {
+            "rms": 0.022646376403419988,
+            "target_rms": 0.11444207921602033,
+            "rms_ratio": 0.19788504856393596,
+            "snr_db": -0.1276273164031607,
+            "si_sdr_db": -32.54401688491604,
+            "zero_lag_cosine": 0.023587304298735637,
+            "peak": 0.19181139767169952
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 31.270713806152344,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.6949047446250916
+      },
+      "silence_as_prediction": {
+        "total": 139.25230407714844,
+        "teacher_spectral": 1.4080907106399536,
+        "teacher_waveform": 0.052434954792261124,
+        "reference_spectral": 2.623966932296753
+      },
+      "weighted_output_gradient_l2": {
+        "teacher_spectral": 24.54850196838379,
+        "teacher_waveform": 0.0032260490115731955,
+        "reference_spectral": 114.56224060058594
+      },
+      "output_gradient_cosines": {
+        "teacher_spectral__reference_spectral": 0.0014663469046354294,
+        "teacher_waveform__reference_spectral": -0.005136868916451931,
+        "teacher_spectral__teacher_waveform": -0.0012306977296248078
+      }
+    },
+    {
+      "source_id": "crema_d:1040_IEO_FEA_HI.wav",
+      "dataset": "crema_d",
+      "language": "en",
+      "start_frame": 25,
+      "valid_samples_48k": 48096,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 40.25305938720703,
+            "teacher_spectral": 0.587609589099884,
+            "teacher_waveform": 0.037021227180957794,
+            "reference_spectral": 0.6978198885917664
+          },
+          "waveform": {
+            "rms": 0.014728213888364436,
+            "target_rms": 0.0790815942606725,
+            "rms_ratio": 0.18624073055250503,
+            "snr_db": -0.1285283155637275,
+            "si_sdr_db": -38.07498280456545,
+            "zero_lag_cosine": 0.012480070422427665,
+            "peak": 0.10302893817424774
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 33.253578186035156,
+            "teacher_spectral": 0.4098055362701416,
+            "teacher_waveform": 0.038256075233221054,
+            "reference_spectral": 0.6015163660049438
+          },
+          "waveform": {
+            "rms": 0.021756430343182493,
+            "target_rms": 0.0790815942606725,
+            "rms_ratio": 0.27511370435284743,
+            "snr_db": -0.23901582252199843,
+            "si_sdr_db": -29.18061412539865,
+            "zero_lag_cosine": 0.034730194506917694,
+            "peak": 0.1821901798248291
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 30.51535987854004,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.6781191229820251
+      },
+      "silence_as_prediction": {
+        "total": 135.8635711669922,
+        "teacher_spectral": 1.3913997411727905,
+        "teacher_waveform": 0.03541044518351555,
+        "reference_spectral": 2.5546035766601562
+      }
+    },
+    {
+      "source_id": "crema_d:1090_WSI_SAD_XX.wav",
+      "dataset": "crema_d",
+      "language": "en",
+      "start_frame": 0,
+      "valid_samples_48k": 122880,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 27.314775466918945,
+            "teacher_spectral": 0.30164042115211487,
+            "teacher_waveform": 0.006898947991430759,
+            "reference_spectral": 0.5062949061393738
+          },
+          "waveform": {
+            "rms": 0.0038626050698640996,
+            "target_rms": 0.010972433001670157,
+            "rms_ratio": 0.3520281298847901,
+            "snr_db": -0.5223569468150344,
+            "si_sdr_db": -45.162951577567476,
+            "zero_lag_cosine": -0.005518814634966596,
+            "peak": 0.04711377993226051
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 22.49642562866211,
+            "teacher_spectral": 0.23143498599529266,
+            "teacher_waveform": 0.008010676130652428,
+            "reference_spectral": 0.4225975275039673
+          },
+          "waveform": {
+            "rms": 0.007454109651918657,
+            "target_rms": 0.010972433001670157,
+            "rms_ratio": 0.6793488418461099,
+            "snr_db": -1.6780476986447055,
+            "si_sdr_db": -42.54492775535393,
+            "zero_lag_cosine": -0.007460046373345655,
+            "peak": 0.07272959500551224
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 21.196870803833008,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.47104158997535706
+      },
+      "silence_as_prediction": {
+        "total": 60.54503631591797,
+        "teacher_spectral": 0.5625262260437012,
+        "teacher_waveform": 0.006486852187663317,
+        "reference_spectral": 1.157792329788208
+      },
+      "weighted_output_gradient_l2": {
+        "teacher_spectral": 18.63540267944336,
+        "teacher_waveform": 0.0028527090325951576,
+        "reference_spectral": 127.7806625366211
+      },
+      "output_gradient_cosines": {
+        "teacher_spectral__reference_spectral": 0.025986697524785995,
+        "teacher_waveform__reference_spectral": -0.00522212591022253,
+        "teacher_spectral__teacher_waveform": -0.003475214820355177
+      }
+    },
+    {
+      "source_id": "crema_d:1090_WSI_SAD_XX.wav",
+      "dataset": "crema_d",
+      "language": "en",
+      "start_frame": 40,
+      "valid_samples_48k": 75351,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 30.940994262695312,
+            "teacher_spectral": 0.36885562539100647,
+            "teacher_waveform": 0.00782555527985096,
+            "reference_spectral": 0.5644518733024597
+          },
+          "waveform": {
+            "rms": 0.0035873495499031557,
+            "target_rms": 0.010730646574341434,
+            "rms_ratio": 0.3343087972425669,
+            "snr_db": -0.456841498855309,
+            "si_sdr_db": -58.02953385526733,
+            "zero_lag_cosine": 0.0012546510818276335,
+            "peak": 0.03224175050854683
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 25.582447052001953,
+            "teacher_spectral": 0.2816351652145386,
+            "teacher_waveform": 0.009010247886180878,
+            "reference_spectral": 0.4744202196598053
+          },
+          "waveform": {
+            "rms": 0.007180627172309797,
+            "target_rms": 0.010730646574341434,
+            "rms_ratio": 0.6691700376638757,
+            "snr_db": -1.6064539062763612,
+            "si_sdr_db": -76.54765315071555,
+            "zero_lag_cosine": 0.00014880493608558773,
+            "peak": 0.06560645252466202
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 23.689895629882812,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.5264421105384827
+      },
+      "silence_as_prediction": {
+        "total": 69.28780364990234,
+        "teacher_spectral": 0.6985569596290588,
+        "teacher_waveform": 0.00737471180036664,
+        "reference_spectral": 1.3067127466201782
+      }
+    },
+    {
+      "source_id": "crema_d:1010_DFA_DIS_XX.wav",
+      "dataset": "crema_d",
+      "language": "en",
+      "start_frame": 0,
+      "valid_samples_48k": 122880,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 32.95970153808594,
+            "teacher_spectral": 0.35516560077667236,
+            "teacher_waveform": 0.007441048510372639,
+            "reference_spectral": 0.613883912563324
+          },
+          "waveform": {
+            "rms": 0.002840308108208352,
+            "target_rms": 0.010380530317205696,
+            "rms_ratio": 0.273618786460317,
+            "snr_db": -0.26746480178088095,
+            "si_sdr_db": -33.665380961757066,
+            "zero_lag_cosine": 0.020731828142448123,
+            "peak": 0.02771991677582264
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 28.299898147583008,
+            "teacher_spectral": 0.2853339612483978,
+            "teacher_waveform": 0.008152966387569904,
+            "reference_spectral": 0.5335941314697266
+          },
+          "waveform": {
+            "rms": 0.00551938632148317,
+            "target_rms": 0.010380530317205696,
+            "rms_ratio": 0.5317056212759,
+            "snr_db": -0.8813680170876953,
+            "si_sdr_db": -25.2963668076432,
+            "zero_lag_cosine": 0.05426767578429288,
+            "peak": 0.03915487229824066
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 26.425426483154297,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.5872316956520081
+      },
+      "silence_as_prediction": {
+        "total": 69.36973571777344,
+        "teacher_spectral": 0.6411849856376648,
+        "teacher_waveform": 0.007159785367548466,
+        "reference_spectral": 1.3276621103286743
+      },
+      "weighted_output_gradient_l2": {
+        "teacher_spectral": 21.554319381713867,
+        "teacher_waveform": 0.0028527090325951576,
+        "reference_spectral": 149.1768798828125
+      },
+      "output_gradient_cosines": {
+        "teacher_spectral__reference_spectral": 0.030519260093569756,
+        "teacher_waveform__reference_spectral": -0.0046079764142632484,
+        "teacher_spectral__teacher_waveform": 0.00013430137187242508
+      }
+    },
+    {
+      "source_id": "crema_d:1010_DFA_DIS_XX.wav",
+      "dataset": "crema_d",
+      "language": "en",
+      "start_frame": 33,
+      "valid_samples_48k": 63165,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 33.89281463623047,
+            "teacher_spectral": 0.3839339315891266,
+            "teacher_waveform": 0.007592540234327316,
+            "reference_spectral": 0.6250269412994385
+          },
+          "waveform": {
+            "rms": 0.0032856000133087283,
+            "target_rms": 0.010410222844572457,
+            "rms_ratio": 0.31561284156580094,
+            "snr_db": -0.37048217258836513,
+            "si_sdr_db": -35.52881420290417,
+            "zero_lag_cosine": 0.01673009868261728,
+            "peak": 0.02771991677582264
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 29.14137840270996,
+            "teacher_spectral": 0.3045293390750885,
+            "teacher_waveform": 0.008330322802066803,
+            "reference_spectral": 0.545891284942627
+          },
+          "waveform": {
+            "rms": 0.005604407161210205,
+            "target_rms": 0.010410222844572457,
+            "rms_ratio": 0.5383561182969446,
+            "snr_db": -1.0071365961514696,
+            "si_sdr_db": -31.441547157654046,
+            "zero_lag_cosine": 0.02677730630224052,
+            "peak": 0.03341488167643547
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 27.22334098815918,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.6049631237983704
+      },
+      "silence_as_prediction": {
+        "total": 77.41416931152344,
+        "teacher_spectral": 0.7367704510688782,
+        "teacher_waveform": 0.007216430734843016,
+        "reference_spectral": 1.4745641946792603
+      }
+    },
+    {
+      "source_id": "crema_d:1030_TAI_NEU_XX.wav",
+      "dataset": "crema_d",
+      "language": "en",
+      "start_frame": 0,
+      "valid_samples_48k": 122880,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 35.595401763916016,
+            "teacher_spectral": 0.41370806097984314,
+            "teacher_waveform": 0.01059553399682045,
+            "reference_spectral": 0.652870774269104
+          },
+          "waveform": {
+            "rms": 0.004343983943925184,
+            "target_rms": 0.015114647069216438,
+            "rms_ratio": 0.2874022743655358,
+            "snr_db": -0.43013276455178173,
+            "si_sdr_db": -28.530577738010496,
+            "zero_lag_cosine": -0.03742542577931836,
+            "peak": 0.03877003863453865
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 30.491703033447266,
+            "teacher_spectral": 0.3235441744327545,
+            "teacher_waveform": 0.01222421694546938,
+            "reference_spectral": 0.5694736838340759
+          },
+          "waveform": {
+            "rms": 0.009455865498263877,
+            "target_rms": 0.015114647069216438,
+            "rms_ratio": 0.6256094141637196,
+            "snr_db": -1.6541566196940565,
+            "si_sdr_db": -24.762625480735476,
+            "zero_lag_cosine": -0.05769586351734861,
+            "peak": 0.06817397475242615
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 28.54302406311035,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.6342894434928894
+      },
+      "silence_as_prediction": {
+        "total": 84.49066162109375,
+        "teacher_spectral": 0.7941567897796631,
+        "teacher_waveform": 0.010053763166069984,
+        "reference_spectral": 1.6126278638839722
+      },
+      "weighted_output_gradient_l2": {
+        "teacher_spectral": 22.005130767822266,
+        "teacher_waveform": 0.0028527090325951576,
+        "reference_spectral": 127.32437133789062
+      },
+      "output_gradient_cosines": {
+        "teacher_spectral__reference_spectral": 0.022981839254498482,
+        "teacher_waveform__reference_spectral": -0.0056164441630244255,
+        "teacher_spectral__teacher_waveform": 4.9471622332930565e-05
+      }
+    },
+    {
+      "source_id": "crema_d:1030_TAI_NEU_XX.wav",
+      "dataset": "crema_d",
+      "language": "en",
+      "start_frame": 36,
+      "valid_samples_48k": 70218,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 34.23729705810547,
+            "teacher_spectral": 0.3857297897338867,
+            "teacher_waveform": 0.007897995412349701,
+            "reference_spectral": 0.6320767402648926
+          },
+          "waveform": {
+            "rms": 0.003894413982852162,
+            "target_rms": 0.010646088683972548,
+            "rms_ratio": 0.3658070206305078,
+            "snr_db": -0.5970682108578347,
+            "si_sdr_db": -34.63637702910613,
+            "zero_lag_cosine": -0.01853986196896589,
+            "peak": 0.03877003863453865
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 29.657163619995117,
+            "teacher_spectral": 0.3080272376537323,
+            "teacher_waveform": 0.009087050333619118,
+            "reference_spectral": 0.5561704039573669
+          },
+          "waveform": {
+            "rms": 0.007458429423281991,
+            "target_rms": 0.010646088683972548,
+            "rms_ratio": 0.7005793061362049,
+            "snr_db": -1.7694494066478312,
+            "si_sdr_db": -41.24501229595089,
+            "zero_lag_cosine": -0.00866429206182459,
+            "peak": 0.06817397475242615
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 27.982990264892578,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.6218442320823669
+      },
+      "silence_as_prediction": {
+        "total": 76.56037139892578,
+        "teacher_spectral": 0.7210513949394226,
+        "teacher_waveform": 0.007327164523303509,
+        "reference_spectral": 1.4608283042907715
+      }
+    },
+    {
+      "source_id": "emogator:000216-10-2.mp3",
+      "dataset": "emogator",
+      "language": "und",
+      "start_frame": 0,
+      "valid_samples_48k": 92160,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 38.196434020996094,
+            "teacher_spectral": 0.3341117799282074,
+            "teacher_waveform": 0.024631081148982048,
+            "reference_spectral": 0.7368916869163513
+          },
+          "waveform": {
+            "rms": 0.01028418942495724,
+            "target_rms": 0.05446412584004079,
+            "rms_ratio": 0.1888250158491764,
+            "snr_db": -0.17055616916550503,
+            "si_sdr_db": -38.67518305179637,
+            "zero_lag_cosine": -0.011646927958884633,
+            "peak": 0.07931242883205414
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 31.118141174316406,
+            "teacher_spectral": 0.22911222279071808,
+            "teacher_waveform": 0.025587337091565132,
+            "reference_spectral": 0.6145749092102051
+          },
+          "waveform": {
+            "rms": 0.01686222001036413,
+            "target_rms": 0.05446412584004079,
+            "rms_ratio": 0.30960232538915383,
+            "snr_db": -0.4642147935411144,
+            "si_sdr_db": -31.246149338611847,
+            "zero_lag_cosine": -0.02738606359340045,
+            "peak": 0.1968650072813034
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 27.294523239135742,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.6065449714660645
+      },
+      "silence_as_prediction": {
+        "total": 80.22393798828125,
+        "teacher_spectral": 0.5655521750450134,
+        "teacher_waveform": 0.023877954110503197,
+        "reference_spectral": 1.5937060117721558
+      },
+      "weighted_output_gradient_l2": {
+        "teacher_spectral": 23.73508071899414,
+        "teacher_waveform": 0.0032941726967692375,
+        "reference_spectral": 163.93190002441406
+      },
+      "output_gradient_cosines": {
+        "teacher_spectral__reference_spectral": 0.020180821418762207,
+        "teacher_waveform__reference_spectral": 0.008504850789904594,
+        "teacher_spectral__teacher_waveform": 0.00806396547704935
+      }
+    },
+    {
+      "source_id": "emogator:000216-10-2.mp3",
+      "dataset": "emogator",
+      "language": "und",
+      "start_frame": 24,
+      "valid_samples_48k": 46080,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 30.488571166992188,
+            "teacher_spectral": 0.2559477984905243,
+            "teacher_waveform": 0.012027938850224018,
+            "reference_spectral": 0.5919405817985535
+          },
+          "waveform": {
+            "rms": 0.008888657361802358,
+            "target_rms": 0.02954050105984827,
+            "rms_ratio": 0.3008973119242011,
+            "snr_db": -0.2794212817113595,
+            "si_sdr_db": -27.947002260663574,
+            "zero_lag_cosine": 0.040022276260326374,
+            "peak": 0.07931242883205414
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 25.92608070373535,
+            "teacher_spectral": 0.19637252390384674,
+            "teacher_waveform": 0.012568211182951927,
+            "reference_spectral": 0.5103983283042908
+          },
+          "waveform": {
+            "rms": 0.015411455650602205,
+            "target_rms": 0.02954050105984827,
+            "rms_ratio": 0.5217059663063605,
+            "snr_db": -0.8383539584119383,
+            "si_sdr_db": -24.90160614908678,
+            "zero_lag_cosine": 0.05678301013793559,
+            "peak": 0.1968650072813034
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 23.526378631591797,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.5228084325790405
+      },
+      "silence_as_prediction": {
+        "total": 64.3346939086914,
+        "teacher_spectral": 0.4697093963623047,
+        "teacher_waveform": 0.011439233087003231,
+        "reference_spectral": 1.2728358507156372
+      }
+    },
+    {
+      "source_id": "emogator:000057-09-1.mp3",
+      "dataset": "emogator",
+      "language": "und",
+      "start_frame": 0,
+      "valid_samples_48k": 92160,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 26.374248504638672,
+            "teacher_spectral": 0.2319096177816391,
+            "teacher_waveform": 0.016029395163059235,
+            "reference_spectral": 0.5084350109100342
+          },
+          "waveform": {
+            "rms": 0.003363234941691866,
+            "target_rms": 0.0300985647481338,
+            "rms_ratio": 0.11174070823095963,
+            "snr_db": -0.09073036207243348,
+            "si_sdr_db": -28.26296512176271,
+            "zero_lag_cosine": -0.03859473384736692,
+            "peak": 0.023782063275575638
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 19.982646942138672,
+            "teacher_spectral": 0.1622379869222641,
+            "teacher_waveform": 0.01646251603960991,
+            "reference_spectral": 0.38961365818977356
+          },
+          "waveform": {
+            "rms": 0.006738823967273162,
+            "target_rms": 0.0300985647481338,
+            "rms_ratio": 0.22389187071423364,
+            "snr_db": -0.337603674176452,
+            "si_sdr_db": -23.25534065080209,
+            "zero_lag_cosine": -0.06858185256849822,
+            "peak": 0.045991040766239166
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 17.204225540161133,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.38231611251831055
+      },
+      "silence_as_prediction": {
+        "total": 57.19091796875,
+        "teacher_spectral": 0.39247286319732666,
+        "teacher_waveform": 0.015748251229524612,
+        "reference_spectral": 1.1397351026535034
+      },
+      "weighted_output_gradient_l2": {
+        "teacher_spectral": 17.88489532470703,
+        "teacher_waveform": 0.0032941726967692375,
+        "reference_spectral": 116.34811401367188
+      },
+      "output_gradient_cosines": {
+        "teacher_spectral__reference_spectral": 0.1512443870306015,
+        "teacher_waveform__reference_spectral": 0.06481079012155533,
+        "teacher_spectral__teacher_waveform": 0.04092106595635414
+      }
+    },
+    {
+      "source_id": "emogator:000057-09-1.mp3",
+      "dataset": "emogator",
+      "language": "und",
+      "start_frame": 24,
+      "valid_samples_48k": 46080,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 24.135852813720703,
+            "teacher_spectral": 0.19386126101016998,
+            "teacher_waveform": 0.008213195018470287,
+            "reference_spectral": 0.4715493619441986
+          },
+          "waveform": {
+            "rms": 0.0021686708769555773,
+            "target_rms": 0.01579364966127861,
+            "rms_ratio": 0.13731283924022458,
+            "snr_db": -0.15755862604462811,
+            "si_sdr_db": -23.606915357435394,
+            "zero_lag_cosine": -0.06587337492540704,
+            "peak": 0.011099693365395069
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 19.047466278076172,
+            "teacher_spectral": 0.1416505128145218,
+            "teacher_waveform": 0.00875187199562788,
+            "reference_spectral": 0.3758656680583954
+          },
+          "waveform": {
+            "rms": 0.005387544251461319,
+            "target_rms": 0.01579364966127861,
+            "rms_ratio": 0.34112091676124706,
+            "snr_db": -0.7624682437303816,
+            "si_sdr_db": -19.059822760723854,
+            "zero_lag_cosine": -0.11074627847154823,
+            "peak": 0.024439195170998573
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 17.2052059173584,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.38233789801597595
+      },
+      "silence_as_prediction": {
+        "total": 52.621849060058594,
+        "teacher_spectral": 0.34407344460487366,
+        "teacher_waveform": 0.007986010052263737,
+        "reference_spectral": 1.0545058250427246
+      }
+    },
+    {
+      "source_id": "emogator:000269-15-1.mp3",
+      "dataset": "emogator",
+      "language": "und",
+      "start_frame": 0,
+      "valid_samples_48k": 92160,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 16.52911949157715,
+            "teacher_spectral": 0.15659871697425842,
+            "teacher_waveform": 0.019696082919836044,
+            "reference_spectral": 0.31467652320861816
+          },
+          "waveform": {
+            "rms": 0.0062975719494975275,
+            "target_rms": 0.06514776168985256,
+            "rms_ratio": 0.09666597571652932,
+            "snr_db": -0.008705866374134936,
+            "si_sdr_db": -28.40861255755279,
+            "zero_lag_cosine": 0.03795389453184961,
+            "peak": 0.06790018081665039
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 10.50583553314209,
+            "teacher_spectral": 0.09415280818939209,
+            "teacher_waveform": 0.019910061731934547,
+            "reference_spectral": 0.20163629949092865
+          },
+          "waveform": {
+            "rms": 0.008715191509080497,
+            "target_rms": 0.06514776168985256,
+            "rms_ratio": 0.13377576271262714,
+            "snr_db": -0.0899659800520606,
+            "si_sdr_db": -38.902894277303226,
+            "zero_lag_cosine": -0.011345596461650356,
+            "peak": 0.16658294200897217
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 8.927445411682129,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.19838768243789673
+      },
+      "silence_as_prediction": {
+        "total": 30.614349365234375,
+        "teacher_spectral": 0.23858283460140228,
+        "teacher_waveform": 0.0194462351500988,
+        "reference_spectral": 0.6003591418266296
+      },
+      "weighted_output_gradient_l2": {
+        "teacher_spectral": 13.543926239013672,
+        "teacher_waveform": 0.0032941726967692375,
+        "reference_spectral": 95.09484100341797
+      },
+      "output_gradient_cosines": {
+        "teacher_spectral__reference_spectral": 0.2552347481250763,
+        "teacher_waveform__reference_spectral": 0.16105115413665771,
+        "teacher_spectral__teacher_waveform": 0.08272267132997513
+      }
+    },
+    {
+      "source_id": "emogator:000269-15-1.mp3",
+      "dataset": "emogator",
+      "language": "und",
+      "start_frame": 24,
+      "valid_samples_48k": 46080,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 3.8943891525268555,
+            "teacher_spectral": 0.022240648046135902,
+            "teacher_waveform": 0.00022216718934942037,
+            "reference_spectral": 0.07912349700927734
+          },
+          "waveform": {
+            "rms": 0.0002627582752734204,
+            "target_rms": 0.00040464254033944786,
+            "rms_ratio": 0.6493589998051043,
+            "snr_db": -0.3042811602757846,
+            "si_sdr_db": -11.085825951457194,
+            "zero_lag_cosine": 0.26879662041703,
+            "peak": 0.0028869451489299536
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 1.1042897701263428,
+            "teacher_spectral": 0.004979882854968309,
+            "teacher_waveform": 0.00013631444016937166,
+            "reference_spectral": 0.022876782342791557
+          },
+          "waveform": {
+            "rms": 0.0003274056309590258,
+            "target_rms": 0.00040464254033944786,
+            "rms_ratio": 0.8091231106951106,
+            "snr_db": 1.4021595234645208,
+            "si_sdr_db": -3.061764857216358,
+            "zero_lag_cosine": 0.5750697088892418,
+            "peak": 0.005243631079792976
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 0.752434253692627,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.016720760613679886
+      },
+      "silence_as_prediction": {
+        "total": 1.5700682401657104,
+        "teacher_spectral": 0.007344590499997139,
+        "teacher_waveform": 0.00011567812907742336,
+        "reference_spectral": 0.032439637929201126
+      }
+    },
+    {
+      "source_id": "emogator:000216-24-3.mp3",
+      "dataset": "emogator",
+      "language": "und",
+      "start_frame": 0,
+      "valid_samples_48k": 92160,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 44.27552032470703,
+            "teacher_spectral": 0.4509377181529999,
+            "teacher_waveform": 0.0463695265352726,
+            "reference_spectral": 0.8325574398040771
+          },
+          "waveform": {
+            "rms": 0.010297754570552924,
+            "target_rms": 0.0915246495631165,
+            "rms_ratio": 0.11251345533370732,
+            "snr_db": -0.07214015964056,
+            "si_sdr_db": -34.80807468472037,
+            "zero_lag_cosine": -0.018177096254664776,
+            "peak": 0.07351502776145935
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 38.24268341064453,
+            "teacher_spectral": 0.349369078874588,
+            "teacher_waveform": 0.04700608178973198,
+            "reference_spectral": 0.7323364615440369
+          },
+          "waveform": {
+            "rms": 0.017313622982413675,
+            "target_rms": 0.0915246495631165,
+            "rms_ratio": 0.18916896229658867,
+            "snr_db": -0.1746275247282867,
+            "si_sdr_db": -37.16363695408341,
+            "zero_lag_cosine": -0.013860421319317905,
+            "peak": 0.14477531611919403
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 33.99650955200195,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.7554779648780823
+      },
+      "silence_as_prediction": {
+        "total": 107.33625793457031,
+        "teacher_spectral": 0.8713592886924744,
+        "teacher_waveform": 0.045402586460113525,
+        "reference_spectral": 2.0937881469726562
+      },
+      "weighted_output_gradient_l2": {
+        "teacher_spectral": 24.225570678710938,
+        "teacher_waveform": 0.0032941726967692375,
+        "reference_spectral": 95.88623046875
+      },
+      "output_gradient_cosines": {
+        "teacher_spectral__reference_spectral": -0.005101678427308798,
+        "teacher_waveform__reference_spectral": 0.01871941052377224,
+        "teacher_spectral__teacher_waveform": 0.005623942241072655
+      }
+    },
+    {
+      "source_id": "emogator:000216-24-3.mp3",
+      "dataset": "emogator",
+      "language": "und",
+      "start_frame": 24,
+      "valid_samples_48k": 46080,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 39.68724060058594,
+            "teacher_spectral": 0.3716680705547333,
+            "teacher_waveform": 0.014185432344675064,
+            "reference_spectral": 0.7577341198921204
+          },
+          "waveform": {
+            "rms": 0.007003011306174782,
+            "target_rms": 0.025556190541117317,
+            "rms_ratio": 0.27402406845056376,
+            "snr_db": -0.30884997695517685,
+            "si_sdr_db": -51.95277565515865,
+            "zero_lag_cosine": 0.002525572454164915,
+            "peak": 0.04329976439476013
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 34.53163146972656,
+            "teacher_spectral": 0.2927572727203369,
+            "teacher_waveform": 0.014278207905590534,
+            "reference_spectral": 0.669466495513916
+          },
+          "waveform": {
+            "rms": 0.00959683083353888,
+            "target_rms": 0.025556190541117317,
+            "rms_ratio": 0.37551883243703915,
+            "snr_db": -0.5379569623198208,
+            "si_sdr_db": -38.287380765547574,
+            "zero_lag_cosine": 0.012178638858153635,
+            "peak": 0.09194634109735489
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 32.68351364135742,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.7263002991676331
+      },
+      "silence_as_prediction": {
+        "total": 90.06439208984375,
+        "teacher_spectral": 0.7084832191467285,
+        "teacher_waveform": 0.013223882764577866,
+        "reference_spectral": 1.7649760246276855
+      }
+    },
+    {
+      "source_id": "freesound:457967",
+      "dataset": "freesound_human_whistle_cc0",
+      "language": "und",
+      "start_frame": 0,
+      "valid_samples_48k": 122880,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 44.464149475097656,
+            "teacher_spectral": 0.4022150933742523,
+            "teacher_waveform": 0.03549617528915405,
+            "reference_spectral": 0.8532317280769348
+          },
+          "waveform": {
+            "rms": 0.00642623049468519,
+            "target_rms": 0.07395710873458253,
+            "rms_ratio": 0.086891315853729,
+            "snr_db": 0.002388848757350778,
+            "si_sdr_db": -26.620979317214957,
+            "zero_lag_cosine": 0.0466099643775359,
+            "peak": 0.06348181515932083
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 16.523731231689453,
+            "teacher_spectral": 0.0988631322979927,
+            "teacher_waveform": 0.035322654992341995,
+            "reference_spectral": 0.3334546983242035
+          },
+          "waveform": {
+            "rms": 0.0017054581916752293,
+            "target_rms": 0.07395710873458253,
+            "rms_ratio": 0.023060098222549265,
+            "snr_db": 0.02137712336894195,
+            "si_sdr_db": -18.501860269894436,
+            "zero_lag_cosine": 0.11799468817500626,
+            "peak": 0.01606777496635914
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 12.227987289428711,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.27173304557800293
+      },
+      "silence_as_prediction": {
+        "total": 21.31584930419922,
+        "teacher_spectral": 0.16939473152160645,
+        "teacher_waveform": 0.035360582172870636,
+        "reference_spectral": 0.4164348542690277
+      }
+    },
+    {
+      "source_id": "freesound:457967",
+      "dataset": "freesound_human_whistle_cc0",
+      "language": "und",
+      "start_frame": 64,
+      "valid_samples_48k": 122880,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 29.46509552001953,
+            "teacher_spectral": 0.22731365263462067,
+            "teacher_waveform": 0.0156205203384161,
+            "reference_spectral": 0.5786615610122681
+          },
+          "waveform": {
+            "rms": 0.0029016120503608397,
+            "target_rms": 0.025962019452816117,
+            "rms_ratio": 0.1117637268408294,
+            "snr_db": -0.05278353080078548,
+            "si_sdr_db": -58.58369045174443,
+            "zero_lag_cosine": 0.00117710492431295,
+            "peak": 0.033448029309511185
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 10.895156860351562,
+            "teacher_spectral": 0.05643504485487938,
+            "teacher_waveform": 0.01555537711828947,
+            "reference_spectral": 0.22295725345611572
+          },
+          "waveform": {
+            "rms": 0.0010316818640152118,
+            "target_rms": 0.025962019452816117,
+            "rms_ratio": 0.039738120753287726,
+            "snr_db": -0.010487624338705872,
+            "si_sdr_db": -39.53249614096693,
+            "zero_lag_cosine": -0.010552394322969231,
+            "peak": 0.009341167286038399
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 6.821639537811279,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.15159198641777039
+      },
+      "silence_as_prediction": {
+        "total": 12.653399467468262,
+        "teacher_spectral": 0.09042736142873764,
+        "teacher_waveform": 0.015495329163968563,
+        "reference_spectral": 0.25069987773895264
+      }
+    },
+    {
+      "source_id": "freesound:539498",
+      "dataset": "freesound_human_whistle_cc_by_4",
+      "language": "und",
+      "start_frame": 0,
+      "valid_samples_48k": 122880,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 21.879194259643555,
+            "teacher_spectral": 0.20485977828502655,
+            "teacher_waveform": 0.02131265215575695,
+            "reference_spectral": 0.417444109916687
+          },
+          "waveform": {
+            "rms": 0.005553301652307088,
+            "target_rms": 0.05025130511981488,
+            "rms_ratio": 0.11051059547739653,
+            "snr_db": -0.04213277960067965,
+            "si_sdr_db": -39.055503330461235,
+            "zero_lag_cosine": 0.011148022718427469,
+            "peak": 0.07650510221719742
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 13.3909912109375,
+            "teacher_spectral": 0.09997117519378662,
+            "teacher_waveform": 0.021297108381986618,
+            "reference_spectral": 0.2637805938720703
+          },
+          "waveform": {
+            "rms": 0.0030651863973797373,
+            "target_rms": 0.05025130511981488,
+            "rms_ratio": 0.06099715002568333,
+            "snr_db": -0.013126611940394857,
+            "si_sdr_db": -44.90489686637208,
+            "zero_lag_cosine": 0.00568523129463116,
+            "peak": 0.036291420459747314
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 10.113924026489258,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.22475385665893555
+      },
+      "silence_as_prediction": {
+        "total": 31.52179718017578,
+        "teacher_spectral": 0.20996801555156708,
+        "teacher_waveform": 0.0211800429970026,
+        "reference_spectral": 0.6300243735313416
+      }
+    },
+    {
+      "source_id": "freesound:539498",
+      "dataset": "freesound_human_whistle_cc_by_4",
+      "language": "und",
+      "start_frame": 64,
+      "valid_samples_48k": 122880,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 19.24765968322754,
+            "teacher_spectral": 0.18378575146198273,
+            "teacher_waveform": 0.019709177315235138,
+            "reference_spectral": 0.3660258948802948
+          },
+          "waveform": {
+            "rms": 0.005139076468042437,
+            "target_rms": 0.04183593979124693,
+            "rms_ratio": 0.12283879586990067,
+            "snr_db": -0.09386584118154534,
+            "si_sdr_db": -31.205987175198764,
+            "zero_lag_cosine": -0.027512889722033498,
+            "peak": 0.05288360267877579
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 12.03931713104248,
+            "teacher_spectral": 0.08734535425901413,
+            "teacher_waveform": 0.019650090485811234,
+            "reference_spectral": 0.23798859119415283
+          },
+          "waveform": {
+            "rms": 0.0025736339044300097,
+            "target_rms": 0.04183593979124693,
+            "rms_ratio": 0.061517296307240475,
+            "snr_db": -0.0367436207347963,
+            "si_sdr_db": -28.32998124712234,
+            "zero_lag_cosine": -0.03829853812368346,
+            "peak": 0.023360390216112137
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 9.10517692565918,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.20233726501464844
+      },
+      "silence_as_prediction": {
+        "total": 28.217405319213867,
+        "teacher_spectral": 0.1790209263563156,
+        "teacher_waveform": 0.019544601440429688,
+        "reference_spectral": 0.566945493221283
+      }
+    },
+    {
+      "source_id": "freesound:119459",
+      "dataset": "fsd50k_vocal_cc0",
+      "language": "und",
+      "start_frame": 0,
+      "valid_samples_48k": 122880,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 40.34482955932617,
+            "teacher_spectral": 0.38988831639289856,
+            "teacher_waveform": 0.01690882071852684,
+            "reference_spectral": 0.7662132382392883
+          },
+          "waveform": {
+            "rms": 0.012207872552836056,
+            "target_rms": 0.028894535648276938,
+            "rms_ratio": 0.4224976203611026,
+            "snr_db": -0.6816278636746707,
+            "si_sdr_db": -39.88066865642386,
+            "zero_lag_cosine": 0.010137812360794802,
+            "peak": 0.0925888940691948
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 30.916648864746094,
+            "teacher_spectral": 0.2614904046058655,
+            "teacher_waveform": 0.016369299963116646,
+            "reference_spectral": 0.5995094180107117
+          },
+          "waveform": {
+            "rms": 0.009083277325357334,
+            "target_rms": 0.028894535648276938,
+            "rms_ratio": 0.31435969194746327,
+            "snr_db": -0.40189447668468165,
+            "si_sdr_db": -50.55361087938824,
+            "zero_lag_cosine": 0.0029669999872850646,
+            "peak": 0.09341619908809662
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 24.10527992248535,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.5356729030609131
+      },
+      "silence_as_prediction": {
+        "total": 103.62681579589844,
+        "teacher_spectral": 0.7359800934791565,
+        "teacher_waveform": 0.015361561439931393,
+        "reference_spectral": 2.05715012550354
+      }
+    },
+    {
+      "source_id": "freesound:119459",
+      "dataset": "fsd50k_vocal_cc0",
+      "language": "und",
+      "start_frame": 64,
+      "valid_samples_48k": 122880,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 34.59467697143555,
+            "teacher_spectral": 0.3222523629665375,
+            "teacher_waveform": 0.01371772587299347,
+            "reference_spectral": 0.6610483527183533
+          },
+          "waveform": {
+            "rms": 0.009445225230211176,
+            "target_rms": 0.024895977905280718,
+            "rms_ratio": 0.37938759691009116,
+            "snr_db": -0.5604511309599199,
+            "si_sdr_db": -41.76888501014756,
+            "zero_lag_cosine": 0.008157203558879129,
+            "peak": 0.07855020463466644
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 26.15277862548828,
+            "teacher_spectral": 0.2111586183309555,
+            "teacher_waveform": 0.013443839736282825,
+            "reference_spectral": 0.5104878544807434
+          },
+          "waveform": {
+            "rms": 0.00823176031472311,
+            "target_rms": 0.024895977905280718,
+            "rms_ratio": 0.33064619297308506,
+            "snr_db": -0.4215359377352479,
+            "si_sdr_db": -39.025095427485326,
+            "zero_lag_cosine": 0.011187113663241854,
+            "peak": 0.08892367035150528
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 20.852630615234375,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.4633917808532715
+      },
+      "silence_as_prediction": {
+        "total": 84.46199035644531,
+        "teacher_spectral": 0.5925970077514648,
+        "teacher_waveform": 0.012545180507004261,
+        "reference_spectral": 1.6791220903396606
+      }
+    },
+    {
+      "source_id": "freesound:240901",
+      "dataset": "fsd50k_vocal_cc0",
+      "language": "und",
+      "start_frame": 0,
+      "valid_samples_48k": 66804,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 42.164974212646484,
+            "teacher_spectral": 0.43204641342163086,
+            "teacher_waveform": 0.07383336126804352,
+            "reference_spectral": 0.7913432121276855
+          },
+          "waveform": {
+            "rms": 0.015075405068834426,
+            "target_rms": 0.11929198343636849,
+            "rms_ratio": 0.1263739996147838,
+            "snr_db": -0.0593111177554948,
+            "si_sdr_db": -41.12707635300304,
+            "zero_lag_cosine": 0.008782727976799054,
+            "peak": 0.11021675169467926
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 26.900314331054688,
+            "teacher_spectral": 0.19507212936878204,
+            "teacher_waveform": 0.07441755384206772,
+            "reference_spectral": 0.5311070084571838
+          },
+          "waveform": {
+            "rms": 0.022956467441864976,
+            "target_rms": 0.11929198343636849,
+            "rms_ratio": 0.19243931386311622,
+            "snr_db": -0.17210042612478968,
+            "si_sdr_db": -41.101258536901916,
+            "zero_lag_cosine": -0.008808870444625435,
+            "peak": 0.28180766105651855
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 19.86136817932129,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.44136372208595276
+      },
+      "silence_as_prediction": {
+        "total": 99.16425323486328,
+        "teacher_spectral": 0.6312816739082336,
+        "teacher_waveform": 0.07334613054990768,
+        "reference_spectral": 1.9915928840637207
+      }
+    },
+    {
+      "source_id": "freesound:240901",
+      "dataset": "fsd50k_vocal_cc0",
+      "language": "und",
+      "start_frame": 17,
+      "valid_samples_48k": 34164,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 34.484840393066406,
+            "teacher_spectral": 0.32923588156700134,
+            "teacher_waveform": 0.043181199580430984,
+            "reference_spectral": 0.6556249260902405
+          },
+          "waveform": {
+            "rms": 0.009912414802168541,
+            "target_rms": 0.06632780679024737,
+            "rms_ratio": 0.14944584001571468,
+            "snr_db": -0.12312615324277842,
+            "si_sdr_db": -33.354194527462575,
+            "zero_lag_cosine": -0.02148770281901856,
+            "peak": 0.07277069985866547
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 22.835716247558594,
+            "teacher_spectral": 0.15765498578548431,
+            "teacher_waveform": 0.04326796159148216,
+            "reference_spectral": 0.45394718647003174
+          },
+          "waveform": {
+            "rms": 0.01288775754650546,
+            "target_rms": 0.06632780679024737,
+            "rms_ratio": 0.19430399059117442,
+            "snr_db": -0.22819942834662,
+            "si_sdr_db": -27.594635930938452,
+            "zero_lag_cosine": -0.041676448856100584,
+            "peak": 0.10686738789081573
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 17.13262176513672,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.3807249069213867
+      },
+      "silence_as_prediction": {
+        "total": 83.26509857177734,
+        "teacher_spectral": 0.5140340924263,
+        "teacher_waveform": 0.042898379266262054,
+        "reference_spectral": 1.6780375242233276
+      }
+    },
+    {
+      "source_id": "freesound:180953",
+      "dataset": "fsd50k_vocal_cc0",
+      "language": "und",
+      "start_frame": 0,
+      "valid_samples_48k": 71976,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 18.142810821533203,
+            "teacher_spectral": 0.15180975198745728,
+            "teacher_waveform": 0.003334014443680644,
+            "reference_spectral": 0.3524962365627289
+          },
+          "waveform": {
+            "rms": 0.003193107156625225,
+            "target_rms": 0.009503481880357224,
+            "rms_ratio": 0.3359933966123583,
+            "snr_db": -0.5949450765203107,
+            "si_sdr_db": -25.9253610711632,
+            "zero_lag_cosine": -0.05048678896464665,
+            "peak": 0.038710273802280426
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 12.65116024017334,
+            "teacher_spectral": 0.0975828543305397,
+            "teacher_waveform": 0.0033945180475711823,
+            "reference_spectral": 0.24853384494781494
+          },
+          "waveform": {
+            "rms": 0.00476922651593262,
+            "target_rms": 0.009503481880357224,
+            "rms_ratio": 0.5018399125682713,
+            "snr_db": -1.1508761320282264,
+            "si_sdr_db": -25.76971096019285,
+            "zero_lag_cosine": -0.051397270923167024,
+            "peak": 0.08156058937311172
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 11.281254768371582,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.25069454312324524
+      },
+      "silence_as_prediction": {
+        "total": 36.92873001098633,
+        "teacher_spectral": 0.2633589208126068,
+        "teacher_waveform": 0.002958269091323018,
+        "reference_spectral": 0.7327863574028015
+      }
+    },
+    {
+      "source_id": "freesound:180953",
+      "dataset": "fsd50k_vocal_cc0",
+      "language": "und",
+      "start_frame": 19,
+      "valid_samples_48k": 35496,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 6.171638488769531,
+            "teacher_spectral": 0.03678978607058525,
+            "teacher_waveform": 0.0006995819858275354,
+            "reference_spectral": 0.1248687133193016
+          },
+          "waveform": {
+            "rms": 0.000866297832295699,
+            "target_rms": 0.002642529447141341,
+            "rms_ratio": 0.3278290174714421,
+            "snr_db": -0.5073352252197643,
+            "si_sdr_db": -32.01104745217501,
+            "zero_lag_cosine": -0.025079045756395062,
+            "peak": 0.011109759099781513
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 3.376028299331665,
+            "teacher_spectral": 0.01815398596227169,
+            "teacher_waveform": 0.0006322051049210131,
+            "reference_spectral": 0.06895747035741806
+          },
+          "waveform": {
+            "rms": 0.0013492041595024927,
+            "target_rms": 0.002642529447141341,
+            "rms_ratio": 0.5105729894370891,
+            "snr_db": -0.8644822105701083,
+            "si_sdr_db": -28.039480726408954,
+            "zero_lag_cosine": 0.03959908860255822,
+            "peak": 0.021859627217054367
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 2.763812303543091,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.06141805276274681
+      },
+      "silence_as_prediction": {
+        "total": 7.778654098510742,
+        "teacher_spectral": 0.04729926586151123,
+        "teacher_waveform": 0.0005578389391303062,
+        "reference_spectral": 0.15708015859127045
+      }
+    },
+    {
+      "source_id": "freesound:25794",
+      "dataset": "fsd50k_vocal_cc_by_3",
+      "language": "und",
+      "start_frame": 0,
+      "valid_samples_48k": 122880,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 30.628416061401367,
+            "teacher_spectral": 0.39199021458625793,
+            "teacher_waveform": 0.03511539474129677,
+            "reference_spectral": 0.5491877198219299
+          },
+          "waveform": {
+            "rms": 0.01677782002621254,
+            "target_rms": 0.09296018035662318,
+            "rms_ratio": 0.18048394443564744,
+            "snr_db": -0.15177425226442365,
+            "si_sdr_db": -41.633638255522165,
+            "zero_lag_cosine": -0.008285203514521118,
+            "peak": 0.14742043614387512
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 23.282928466796875,
+            "teacher_spectral": 0.27443039417266846,
+            "teacher_waveform": 0.03723554685711861,
+            "reference_spectral": 0.4250941276550293
+          },
+          "waveform": {
+            "rms": 0.035571205577539636,
+            "target_rms": 0.09296018035662318,
+            "rms_ratio": 0.3826499200095977,
+            "snr_db": -0.5866597853983373,
+            "si_sdr_db": -52.62581087522531,
+            "zero_lag_cosine": 0.0023372666917097387,
+            "peak": 0.4841881990432739
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 20.1907958984375,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.44868433475494385
+      },
+      "silence_as_prediction": {
+        "total": 104.60067749023438,
+        "teacher_spectral": 0.9329940676689148,
+        "teacher_waveform": 0.032865241169929504,
+        "reference_spectral": 2.0127310752868652
+      }
+    },
+    {
+      "source_id": "freesound:25794",
+      "dataset": "fsd50k_vocal_cc_by_3",
+      "language": "und",
+      "start_frame": 64,
+      "valid_samples_48k": 122880,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 18.555622100830078,
+            "teacher_spectral": 0.23820292949676514,
+            "teacher_waveform": 0.022405264899134636,
+            "reference_spectral": 0.332448273897171
+          },
+          "waveform": {
+            "rms": 0.012053122861474018,
+            "target_rms": 0.07191197577550616,
+            "rms_ratio": 0.16760939650860512,
+            "snr_db": -0.10512602303134826,
+            "si_sdr_db": -39.400790508828095,
+            "zero_lag_cosine": 0.010713602986098903,
+            "peak": 0.10972830653190613
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 12.251964569091797,
+            "teacher_spectral": 0.1531790941953659,
+            "teacher_waveform": 0.0245805811136961,
+            "reference_spectral": 0.22065995633602142
+          },
+          "waveform": {
+            "rms": 0.03350793804623946,
+            "target_rms": 0.07191197577550616,
+            "rms_ratio": 0.46595768903421714,
+            "snr_db": -0.829382322163461,
+            "si_sdr_db": -42.878004131170435,
+            "zero_lag_cosine": 0.0071794074362475915,
+            "peak": 0.4451359808444977
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 9.938011169433594,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.22084470093250275
+      },
+      "silence_as_prediction": {
+        "total": 54.85139846801758,
+        "teacher_spectral": 0.5277888178825378,
+        "teacher_waveform": 0.021800102666020393,
+        "reference_spectral": 1.0425058603286743
+      }
+    },
+    {
+      "source_id": "freesound:220658",
+      "dataset": "fsd50k_vocal_cc_by_3",
+      "language": "und",
+      "start_frame": 0,
+      "valid_samples_48k": 35109,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 40.516544342041016,
+            "teacher_spectral": 0.4599641263484955,
+            "teacher_waveform": 0.028936617076396942,
+            "reference_spectral": 0.7464032173156738
+          },
+          "waveform": {
+            "rms": 0.012819210894860092,
+            "target_rms": 0.058215029370989144,
+            "rms_ratio": 0.2202044907195119,
+            "snr_db": -0.21797039844691016,
+            "si_sdr_db": -43.391566196283094,
+            "zero_lag_cosine": -0.006767242595615834,
+            "peak": 0.08680763840675354
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 29.037450790405273,
+            "teacher_spectral": 0.2825033366680145,
+            "teacher_waveform": 0.028398385271430016,
+            "reference_spectral": 0.5504778027534485
+          },
+          "waveform": {
+            "rms": 0.008425103950068003,
+            "target_rms": 0.058215029370989144,
+            "rms_ratio": 0.1447238632549169,
+            "snr_db": -0.11607885916198296,
+            "si_sdr_db": -33.461059189556615,
+            "zero_lag_cosine": -0.021225073011699052,
+            "peak": 0.05854977294802666
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 25.038185119628906,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.5564041137695312
+      },
+      "silence_as_prediction": {
+        "total": 96.34517669677734,
+        "teacher_spectral": 0.8038492202758789,
+        "teacher_waveform": 0.027811529114842415,
+        "reference_spectral": 1.8724361658096313
+      }
+    },
+    {
+      "source_id": "freesound:220658",
+      "dataset": "fsd50k_vocal_cc_by_3",
+      "language": "und",
+      "start_frame": 9,
+      "valid_samples_48k": 17829,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 50.74039840698242,
+            "teacher_spectral": 0.6247056126594543,
+            "teacher_waveform": 0.04224216938018799,
+            "reference_spectral": 0.9183905124664307
+          },
+          "waveform": {
+            "rms": 0.015871719863543212,
+            "target_rms": 0.07349970903442789,
+            "rms_ratio": 0.21594262170628137,
+            "snr_db": -0.22551590626209952,
+            "si_sdr_db": -36.22695812891023,
+            "zero_lag_cosine": -0.015438330432618661,
+            "peak": 0.08680763840675354
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 39.300758361816406,
+            "teacher_spectral": 0.404043048620224,
+            "teacher_waveform": 0.04160917550325394,
+            "reference_spectral": 0.7377445101737976
+          },
+          "waveform": {
+            "rms": 0.010070748784171546,
+            "target_rms": 0.07349970903442789,
+            "rms_ratio": 0.13701753267423578,
+            "snr_db": -0.13132664754484755,
+            "si_sdr_db": -27.21717743364811,
+            "zero_lag_cosine": -0.043524058634686606,
+            "peak": 0.05422762781381607
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 35.13829040527344,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.780850887298584
+      },
+      "silence_as_prediction": {
+        "total": 138.03134155273438,
+        "teacher_spectral": 1.194783329963684,
+        "teacher_waveform": 0.04062324017286301,
+        "reference_spectral": 2.668199300765991
+      }
+    },
+    {
+      "source_id": "freesound:211566",
+      "dataset": "fsd50k_vocal_cc_by_3",
+      "language": "und",
+      "start_frame": 0,
+      "valid_samples_48k": 120999,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 41.058189392089844,
+            "teacher_spectral": 0.41548871994018555,
+            "teacher_waveform": 0.028448844328522682,
+            "reference_spectral": 0.7732757925987244
+          },
+          "waveform": {
+            "rms": 0.01390577375161712,
+            "target_rms": 0.0638261567684993,
+            "rms_ratio": 0.2178695139369595,
+            "snr_db": -0.14496360156698412,
+            "si_sdr_db": -30.15779705909018,
+            "zero_lag_cosine": 0.031038508864348942,
+            "peak": 0.11226560920476913
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 21.950096130371094,
+            "teacher_spectral": 0.16072772443294525,
+            "teacher_waveform": 0.02981242723762989,
+            "reference_spectral": 0.43354150652885437
+          },
+          "waveform": {
+            "rms": 0.02415937340475406,
+            "target_rms": 0.0638261567684993,
+            "rms_ratio": 0.3785183791087615,
+            "snr_db": -0.5431784860882576,
+            "si_sdr_db": -37.541085861408696,
+            "zero_lag_cosine": 0.013271116420906594,
+            "peak": 0.3548603653907776
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 13.839749336242676,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.30754998326301575
+      },
+      "silence_as_prediction": {
+        "total": 78.86359405517578,
+        "teacher_spectral": 0.5154674649238586,
+        "teacher_waveform": 0.02693495713174343,
+        "reference_spectral": 1.5801032781600952
+      }
+    },
+    {
+      "source_id": "freesound:211566",
+      "dataset": "fsd50k_vocal_cc_by_3",
+      "language": "und",
+      "start_frame": 32,
+      "valid_samples_48k": 59559,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 29.57952880859375,
+            "teacher_spectral": 0.259748637676239,
+            "teacher_waveform": 0.010962758213281631,
+            "reference_spectral": 0.5704963803291321
+          },
+          "waveform": {
+            "rms": 0.008175657626683246,
+            "target_rms": 0.030994791814164577,
+            "rms_ratio": 0.2637752069993573,
+            "snr_db": -0.1716209918763917,
+            "si_sdr_db": -25.103740531505604,
+            "zero_lag_cosine": 0.055480904788051066,
+            "peak": 0.09095948934555054
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 14.115748405456543,
+            "teacher_spectral": 0.09018397331237793,
+            "teacher_waveform": 0.011363373138010502,
+            "reference_spectral": 0.2833694517612457
+          },
+          "waveform": {
+            "rms": 0.012862075953175801,
+            "target_rms": 0.030994791814164577,
+            "rms_ratio": 0.41497539426278224,
+            "snr_db": -0.579955587399034,
+            "si_sdr_db": -29.027027201088053,
+            "zero_lag_cosine": 0.03534900009369947,
+            "peak": 0.15542006492614746
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 8.824070930480957,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.1960904747247696
+      },
+      "silence_as_prediction": {
+        "total": 42.575721740722656,
+        "teacher_spectral": 0.2774202525615692,
+        "teacher_waveform": 0.010039521381258965,
+        "reference_spectral": 0.8534305691719055
+      }
+    },
+    {
+      "source_id": "freesound:220649",
+      "dataset": "fsd50k_vocal_cc_by_3",
+      "language": "und",
+      "start_frame": 0,
+      "valid_samples_48k": 63528,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 60.223548889160156,
+            "teacher_spectral": 0.7873119711875916,
+            "teacher_waveform": 0.10402365773916245,
+            "reference_spectral": 1.073552131652832
+          },
+          "waveform": {
+            "rms": 0.029091688080014857,
+            "target_rms": 0.1419605590368837,
+            "rms_ratio": 0.204927962226863,
+            "snr_db": -0.19061075744791076,
+            "si_sdr_db": -43.0896870960119,
+            "zero_lag_cosine": -0.007006562248414862,
+            "peak": 0.11771869659423828
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 45.28672790527344,
+            "teacher_spectral": 0.5771946907043457,
+            "teacher_waveform": 0.10460516065359116,
+            "reference_spectral": 0.8116489052772522
+          },
+          "waveform": {
+            "rms": 0.03142729449260367,
+            "target_rms": 0.1419605590368837,
+            "rms_ratio": 0.22138046444603204,
+            "snr_db": -0.22580711373323442,
+            "si_sdr_db": -40.132991518251444,
+            "zero_lag_cosine": -0.009847576545180876,
+            "peak": 0.1622510403394699
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 34.729312896728516,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.7717625498771667
+      },
+      "silence_as_prediction": {
+        "total": 198.53526306152344,
+        "teacher_spectral": 1.7386354207992554,
+        "teacher_waveform": 0.1015387773513794,
+        "reference_spectral": 3.8300931453704834
+      }
+    },
+    {
+      "source_id": "freesound:220649",
+      "dataset": "fsd50k_vocal_cc_by_3",
+      "language": "und",
+      "start_frame": 17,
+      "valid_samples_48k": 30888,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 50.4870491027832,
+            "teacher_spectral": 0.6453441381454468,
+            "teacher_waveform": 0.07124530524015427,
+            "reference_spectral": 0.9052364826202393
+          },
+          "waveform": {
+            "rms": 0.02615872290485218,
+            "target_rms": 0.10446471935431387,
+            "rms_ratio": 0.25040724817466287,
+            "snr_db": -0.252970172577142,
+            "si_sdr_db": -45.284850693355935,
+            "zero_lag_cosine": 0.005441905984723917,
+            "peak": 0.11427175998687744
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 39.31281661987305,
+            "teacher_spectral": 0.4931919574737549,
+            "teacher_waveform": 0.07132301479578018,
+            "reference_spectral": 0.7076358795166016
+          },
+          "waveform": {
+            "rms": 0.027787172666984078,
+            "target_rms": 0.10446471935431387,
+            "rms_ratio": 0.2659957623849837,
+            "snr_db": -0.2566505897643039,
+            "si_sdr_db": -34.62437354207401,
+            "zero_lag_cosine": 0.01856549205859177,
+            "peak": 0.1622510403394699
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 29.398094177246094,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.6532909870147705
+      },
+      "silence_as_prediction": {
+        "total": 166.2574462890625,
+        "teacher_spectral": 1.412047028541565,
+        "teacher_waveform": 0.06896751374006271,
+        "reference_spectral": 3.2223949432373047
+      }
+    },
+    {
+      "source_id": "jnv:M2_sad_01_R.wav",
+      "dataset": "jnv",
+      "language": "ja",
+      "start_frame": 0,
+      "valid_samples_48k": 122880,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 28.05756187438965,
+            "teacher_spectral": 0.30908700823783875,
+            "teacher_waveform": 0.042000625282526016,
+            "reference_spectral": 0.5195389986038208
+          },
+          "waveform": {
+            "rms": 0.013544623594312332,
+            "target_rms": 0.09969165086717546,
+            "rms_ratio": 0.13586517503214549,
+            "snr_db": -0.06465565100762935,
+            "si_sdr_db": -37.89937954645381,
+            "zero_lag_cosine": 0.012734907750126924,
+            "peak": 0.0904882401227951
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 23.842105865478516,
+            "teacher_spectral": 0.23932982981204987,
+            "teacher_waveform": 0.0421094112098217,
+            "reference_spectral": 0.4491121768951416
+          },
+          "waveform": {
+            "rms": 0.013702475827409107,
+            "target_rms": 0.09969165086717546,
+            "rms_ratio": 0.1374485797779159,
+            "snr_db": -0.06642745137616515,
+            "si_sdr_db": -37.95349218401199,
+            "zero_lag_cosine": 0.012655829272175375,
+            "peak": 0.16068041324615479
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 20.352184295654297,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.4522707462310791
+      },
+      "silence_as_prediction": {
+        "total": 79.32640075683594,
+        "teacher_spectral": 0.6978678107261658,
+        "teacher_waveform": 0.0416564904153347,
+        "reference_spectral": 1.5292606353759766
+      }
+    },
+    {
+      "source_id": "jnv:M2_sad_01_R.wav",
+      "dataset": "jnv",
+      "language": "ja",
+      "start_frame": 58,
+      "valid_samples_48k": 112383,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 23.10914421081543,
+            "teacher_spectral": 0.2203398197889328,
+            "teacher_waveform": 0.017318829894065857,
+            "reference_spectral": 0.4397050440311432
+          },
+          "waveform": {
+            "rms": 0.010482328413015319,
+            "target_rms": 0.050393034188047935,
+            "rms_ratio": 0.20801145598614273,
+            "snr_db": 0.059390069603924595,
+            "si_sdr_db": -17.20575308111965,
+            "zero_lag_cosine": 0.1366529440932944,
+            "peak": 0.10133271664381027
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 19.562992095947266,
+            "teacher_spectral": 0.1687001734972,
+            "teacher_waveform": 0.01734502986073494,
+            "reference_spectral": 0.3781143128871918
+          },
+          "waveform": {
+            "rms": 0.015904932998921113,
+            "target_rms": 0.050393034188047935,
+            "rms_ratio": 0.3156176891347693,
+            "snr_db": -0.009739379781791579,
+            "si_sdr_db": -16.130789605134446,
+            "zero_lag_cosine": 0.15425218155454304,
+            "peak": 0.21568073332309723
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 17.016834259033203,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.37815186381340027
+      },
+      "silence_as_prediction": {
+        "total": 55.159645080566406,
+        "teacher_spectral": 0.44528698921203613,
+        "teacher_waveform": 0.01736536994576454,
+        "reference_spectral": 1.076954960823059
+      }
+    },
+    {
+      "source_id": "jnv:M2_angry_12_R.wav",
+      "dataset": "jnv",
+      "language": "ja",
+      "start_frame": 0,
+      "valid_samples_48k": 122880,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 22.61680793762207,
+            "teacher_spectral": 0.20078517496585846,
+            "teacher_waveform": 0.017465908080339432,
+            "reference_spectral": 0.4352792203426361
+          },
+          "waveform": {
+            "rms": 0.012245759471190602,
+            "target_rms": 0.0770675930288902,
+            "rms_ratio": 0.1588963530572449,
+            "snr_db": -0.11310176886384139,
+            "si_sdr_db": -48.93016256210318,
+            "zero_lag_cosine": -0.003576754184184595,
+            "peak": 0.13388670980930328
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 18.807859420776367,
+            "teacher_spectral": 0.154828742146492,
+            "teacher_waveform": 0.01773836277425289,
+            "reference_spectral": 0.3659486770629883
+          },
+          "waveform": {
+            "rms": 0.023031470134887697,
+            "target_rms": 0.0770675930288902,
+            "rms_ratio": 0.29884766384560535,
+            "snr_db": -0.31586517809582115,
+            "si_sdr_db": -32.686290329092735,
+            "zero_lag_cosine": 0.023204303189563263,
+            "peak": 0.42308253049850464
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 15.914093017578125,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.35364651679992676
+      },
+      "silence_as_prediction": {
+        "total": 52.48665237426758,
+        "teacher_spectral": 0.41475215554237366,
+        "teacher_waveform": 0.01681891642510891,
+        "reference_spectral": 1.0277456045150757
+      }
+    },
+    {
+      "source_id": "jnv:M2_angry_12_R.wav",
+      "dataset": "jnv",
+      "language": "ja",
+      "start_frame": 60,
+      "valid_samples_48k": 115968,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 15.516036987304688,
+            "teacher_spectral": 0.10828088968992233,
+            "teacher_waveform": 0.0027440537232905626,
+            "reference_spectral": 0.30864623188972473
+          },
+          "waveform": {
+            "rms": 0.0049770645108897175,
+            "target_rms": 0.018548862778141634,
+            "rms_ratio": 0.2683218141413388,
+            "snr_db": -0.34010398373288725,
+            "si_sdr_db": -35.071563867790175,
+            "zero_lag_cosine": -0.017634139471424056,
+            "peak": 0.11558866500854492
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 12.65692138671875,
+            "teacher_spectral": 0.07994434237480164,
+            "teacher_waveform": 0.002739596413448453,
+            "reference_spectral": 0.25455594062805176
+          },
+          "waveform": {
+            "rms": 0.006147047018908449,
+            "target_rms": 0.018548862778141634,
+            "rms_ratio": 0.3313975143614873,
+            "snr_db": -0.36565668064102297,
+            "si_sdr_db": -29.581184664074847,
+            "zero_lag_cosine": 0.033166662188438965,
+            "peak": 0.1422720104455948
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 11.859935760498047,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.2635541260242462
+      },
+      "silence_as_prediction": {
+        "total": 26.04623031616211,
+        "teacher_spectral": 0.1629386991262436,
+        "teacher_waveform": 0.0023932545445859432,
+        "reference_spectral": 0.5244390368461609
+      }
+    },
+    {
+      "source_id": "jnv:M2_happy_12_R.wav",
+      "dataset": "jnv",
+      "language": "ja",
+      "start_frame": 0,
+      "valid_samples_48k": 122880,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 25.819393157958984,
+            "teacher_spectral": 0.24977974593639374,
+            "teacher_waveform": 0.030528448522090912,
+            "reference_spectral": 0.489825963973999
+          },
+          "waveform": {
+            "rms": 0.015037801270198768,
+            "target_rms": 0.1081309908454941,
+            "rms_ratio": 0.13907022540546157,
+            "snr_db": -0.0669328557871396,
+            "si_sdr_db": -37.267581260028365,
+            "zero_lag_cosine": 0.013695572874489345,
+            "peak": 0.14253602921962738
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 19.399017333984375,
+            "teacher_spectral": 0.18002843856811523,
+            "teacher_waveform": 0.03243677318096161,
+            "reference_spectral": 0.370358943939209
+          },
+          "waveform": {
+            "rms": 0.03957409724101624,
+            "target_rms": 0.1081309908454941,
+            "rms_ratio": 0.36598293358434825,
+            "snr_db": -0.5200293588943654,
+            "si_sdr_db": -40.71827220128761,
+            "zero_lag_cosine": 0.009205936736565484,
+            "peak": 0.5492214560508728
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 16.01746940612793,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.3559437692165375
+      },
+      "silence_as_prediction": {
+        "total": 63.99413299560547,
+        "teacher_spectral": 0.5332304835319519,
+        "teacher_waveform": 0.03006768971681595,
+        "reference_spectral": 1.2436801195144653
+      }
+    },
+    {
+      "source_id": "jnv:M2_happy_12_R.wav",
+      "dataset": "jnv",
+      "language": "ja",
+      "start_frame": 64,
+      "valid_samples_48k": 122880,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 52.184471130371094,
+            "teacher_spectral": 0.6902157664299011,
+            "teacher_waveform": 0.12096143513917923,
+            "reference_spectral": 0.9268949627876282
+          },
+          "waveform": {
+            "rms": 0.02989099099631286,
+            "target_rms": 0.22620224247987875,
+            "rms_ratio": 0.13214277041913827,
+            "snr_db": -0.07122147242643662,
+            "si_sdr_db": -49.0983745794035,
+            "zero_lag_cosine": 0.0035081535871974512,
+            "peak": 0.14760883152484894
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 38.82011032104492,
+            "teacher_spectral": 0.4850534498691559,
+            "teacher_waveform": 0.12465449422597885,
+            "reference_spectral": 0.6982145309448242
+          },
+          "waveform": {
+            "rms": 0.05600360797018718,
+            "target_rms": 0.22620224247987875,
+            "rms_ratio": 0.2475820193301967,
+            "snr_db": -0.2743625232066645,
+            "si_sdr_db": -42.03865686091528,
+            "zero_lag_cosine": -0.007907761778853809,
+            "peak": 0.4386168420314789
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 26.66554832458496,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.5925677418708801
+      },
+      "silence_as_prediction": {
+        "total": 163.65829467773438,
+        "teacher_spectral": 1.6524429321289062,
+        "teacher_waveform": 0.11937996000051498,
+        "reference_spectral": 3.083383798599243
+      }
+    },
+    {
+      "source_id": "jnv:M2_happy_01_F.wav",
+      "dataset": "jnv",
+      "language": "ja",
+      "start_frame": 0,
+      "valid_samples_48k": 122880,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 35.398773193359375,
+            "teacher_spectral": 0.4252912700176239,
+            "teacher_waveform": 0.07412074506282806,
+            "reference_spectral": 0.6432284712791443
+          },
+          "waveform": {
+            "rms": 0.01787596377661083,
+            "target_rms": 0.17278638161424528,
+            "rms_ratio": 0.10345701790619044,
+            "snr_db": -0.04113431303210008,
+            "si_sdr_db": -44.82787042876537,
+            "zero_lag_cosine": 0.005735870455692876,
+            "peak": 0.1268686205148697
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 29.648040771484375,
+            "teacher_spectral": 0.34795260429382324,
+            "teacher_waveform": 0.07416738569736481,
+            "reference_spectral": 0.5412129759788513
+          },
+          "waveform": {
+            "rms": 0.019086053357561875,
+            "target_rms": 0.17278638161424528,
+            "rms_ratio": 0.11046040306679085,
+            "snr_db": -0.047037709695880024,
+            "si_sdr_db": -44.52721395023979,
+            "zero_lag_cosine": 0.0059378831376447555,
+            "peak": 0.19175662100315094
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 23.375497817993164,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.5194554924964905
+      },
+      "silence_as_prediction": {
+        "total": 95.9858169555664,
+        "teacher_spectral": 0.9328159689903259,
+        "teacher_waveform": 0.07354672998189926,
+        "reference_spectral": 1.8204450607299805
+      }
+    },
+    {
+      "source_id": "jnv:M2_happy_01_F.wav",
+      "dataset": "jnv",
+      "language": "ja",
+      "start_frame": 56,
+      "valid_samples_48k": 108543,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 16.183330535888672,
+            "teacher_spectral": 0.0935659408569336,
+            "teacher_waveform": 0.0006685504340566695,
+            "reference_spectral": 0.3284260928630829
+          },
+          "waveform": {
+            "rms": 0.0005326344431317602,
+            "target_rms": 0.0008491929695426643,
+            "rms_ratio": 0.6272242732044899,
+            "snr_db": -1.7519384594362375,
+            "si_sdr_db": -21.641146632425226,
+            "zero_lag_cosine": -0.08250107708880296,
+            "peak": 0.00463974941521883
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 14.410261154174805,
+            "teacher_spectral": 0.07738535851240158,
+            "teacher_waveform": 0.0006628143019042909,
+            "reference_spectral": 0.2944181561470032
+          },
+          "waveform": {
+            "rms": 0.0006393556009777659,
+            "target_rms": 0.0008491929695426643,
+            "rms_ratio": 0.7528978970729032,
+            "snr_db": -2.1791948319273824,
+            "si_sdr_db": -24.9735768337729,
+            "zero_lag_cosine": -0.0563159460926894,
+            "peak": 0.006874349899590015
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 13.71480941772461,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.3047735393047333
+      },
+      "silence_as_prediction": {
+        "total": 23.81008529663086,
+        "teacher_spectral": 0.12798213958740234,
+        "teacher_waveform": 0.000484840216813609,
+        "reference_spectral": 0.4864414930343628
+      }
+    },
+    {
+      "source_id": "jvnv:M2_anger_regular_61.wav",
+      "dataset": "jvnv",
+      "language": "ja",
+      "start_frame": 0,
+      "valid_samples_48k": 122880,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 29.829343795776367,
+            "teacher_spectral": 0.3932342529296875,
+            "teacher_waveform": 0.018454210832715034,
+            "reference_spectral": 0.531386137008667
+          },
+          "waveform": {
+            "rms": 0.011623117601595285,
+            "target_rms": 0.03923484514346613,
+            "rms_ratio": 0.29624476811605077,
+            "snr_db": -0.39753732585781054,
+            "si_sdr_db": -37.28776836089438,
+            "zero_lag_cosine": -0.013663785541957827,
+            "peak": 0.09275663644075394
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 22.249998092651367,
+            "teacher_spectral": 0.2677275836467743,
+            "teacher_waveform": 0.01944628916680813,
+            "reference_spectral": 0.40476974844932556
+          },
+          "waveform": {
+            "rms": 0.01749265214981647,
+            "target_rms": 0.03923484514346613,
+            "rms_ratio": 0.44584481182104424,
+            "snr_db": -0.8447332290096466,
+            "si_sdr_db": -34.956169236758086,
+            "zero_lag_cosine": -0.01786990257242005,
+            "peak": 0.1883026659488678
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 18.92608070373535,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.42057955265045166
+      },
+      "silence_as_prediction": {
+        "total": 94.69563293457031,
+        "teacher_spectral": 0.8807182312011719,
+        "teacher_waveform": 0.0171304140239954,
+        "reference_spectral": 1.8103939294815063
+      }
+    },
+    {
+      "source_id": "jvnv:M2_anger_regular_61.wav",
+      "dataset": "jvnv",
+      "language": "ja",
+      "start_frame": 64,
+      "valid_samples_48k": 122880,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 34.71709442138672,
+            "teacher_spectral": 0.4034360647201538,
+            "teacher_waveform": 0.029069121927022934,
+            "reference_spectral": 0.6363663077354431
+          },
+          "waveform": {
+            "rms": 0.01100950775845707,
+            "target_rms": 0.05124761054663252,
+            "rms_ratio": 0.2148296796869977,
+            "snr_db": -0.1829800374581049,
+            "si_sdr_db": -42.78222731687546,
+            "zero_lag_cosine": 0.007259006606787537,
+            "peak": 0.08484060317277908
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 26.769039154052734,
+            "teacher_spectral": 0.29362210631370544,
+            "teacher_waveform": 0.0301077701151371,
+            "reference_spectral": 0.49632444977760315
+          },
+          "waveform": {
+            "rms": 0.01597174532439971,
+            "target_rms": 0.05124761054663252,
+            "rms_ratio": 0.31165834180437146,
+            "snr_db": -0.41889696639898605,
+            "si_sdr_db": -43.57782116570904,
+            "zero_lag_cosine": -0.006623681093714589,
+            "peak": 0.1540570855140686
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 21.26873779296875,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.4726386070251465
+      },
+      "silence_as_prediction": {
+        "total": 103.35791015625,
+        "teacher_spectral": 0.8926742672920227,
+        "teacher_waveform": 0.02803303860127926,
+        "reference_spectral": 1.9986615180969238
+      }
+    },
+    {
+      "source_id": "jvnv:M2_sad_regular_26.wav",
+      "dataset": "jvnv",
+      "language": "ja",
+      "start_frame": 0,
+      "valid_samples_48k": 122880,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 23.070415496826172,
+            "teacher_spectral": 0.23576493561267853,
+            "teacher_waveform": 0.008232035674154758,
+            "reference_spectral": 0.43390464782714844
+          },
+          "waveform": {
+            "rms": 0.005981650560840649,
+            "target_rms": 0.01480683437622964,
+            "rms_ratio": 0.4039790281198374,
+            "snr_db": -0.6198502528422103,
+            "si_sdr_db": -38.335418101539645,
+            "zero_lag_cosine": 0.012111480651123475,
+            "peak": 0.05570560321211815
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 17.219938278198242,
+            "teacher_spectral": 0.163527712225914,
+            "teacher_waveform": 0.008211323991417885,
+            "reference_spectral": 0.3279735743999481
+          },
+          "waveform": {
+            "rms": 0.006048854227270146,
+            "target_rms": 0.01480683437622964,
+            "rms_ratio": 0.4085177205048473,
+            "snr_db": -0.6462497465981665,
+            "si_sdr_db": -42.065988660530536,
+            "zero_lag_cosine": 0.007882919161368806,
+            "peak": 0.04564720392227173
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 15.464705467224121,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.3436601161956787
+      },
+      "silence_as_prediction": {
+        "total": 58.43882751464844,
+        "teacher_spectral": 0.45307502150535583,
+        "teacher_waveform": 0.007562138605862856,
+        "reference_spectral": 1.1474475860595703
+      }
+    },
+    {
+      "source_id": "jvnv:M2_sad_regular_26.wav",
+      "dataset": "jvnv",
+      "language": "ja",
+      "start_frame": 64,
+      "valid_samples_48k": 122880,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 37.2618522644043,
+            "teacher_spectral": 0.36497342586517334,
+            "teacher_waveform": 0.017915600910782814,
+            "reference_spectral": 0.7059852480888367
+          },
+          "waveform": {
+            "rms": 0.006553971466244556,
+            "target_rms": 0.027411216883424457,
+            "rms_ratio": 0.23909815803207693,
+            "snr_db": -0.2701791287413343,
+            "si_sdr_db": -36.66570678944592,
+            "zero_lag_cosine": -0.014678033422540662,
+            "peak": 0.04408877342939377
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 29.69451904296875,
+            "teacher_spectral": 0.2579697370529175,
+            "teacher_waveform": 0.01868291385471821,
+            "reference_spectral": 0.5734730958938599
+          },
+          "waveform": {
+            "rms": 0.01036796028010733,
+            "target_rms": 0.027411216883424457,
+            "rms_ratio": 0.37823786970861656,
+            "snr_db": -0.659934336648163,
+            "si_sdr_db": -31.109748015530897,
+            "zero_lag_cosine": -0.027819190105910878,
+            "peak": 0.10924795269966125
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 23.752559661865234,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.5278346538543701
+      },
+      "silence_as_prediction": {
+        "total": 101.36524963378906,
+        "teacher_spectral": 0.7495139241218567,
+        "teacher_waveform": 0.017113588750362396,
+        "reference_spectral": 2.002342700958252
+      }
+    },
+    {
+      "source_id": "jvnv:M2_sad_regular_56.wav",
+      "dataset": "jvnv",
+      "language": "ja",
+      "start_frame": 0,
+      "valid_samples_48k": 122880,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 25.682104110717773,
+            "teacher_spectral": 0.2923254668712616,
+            "teacher_waveform": 0.01465644408017397,
+            "reference_spectral": 0.472945898771286
+          },
+          "waveform": {
+            "rms": 0.008835835963398658,
+            "target_rms": 0.02963997706971941,
+            "rms_ratio": 0.2981053575923803,
+            "snr_db": -0.2827209843548972,
+            "si_sdr_db": -28.81232295975026,
+            "zero_lag_cosine": 0.03623252451611139,
+            "peak": 0.07105239480733871
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 19.126850128173828,
+            "teacher_spectral": 0.20102083683013916,
+            "teacher_waveform": 0.014621810987591743,
+            "reference_spectral": 0.35770925879478455
+          },
+          "waveform": {
+            "rms": 0.010466721540416932,
+            "target_rms": 0.02963997706971941,
+            "rms_ratio": 0.35312853028857005,
+            "snr_db": -0.2942024417763273,
+            "si_sdr_db": -22.207783070583588,
+            "zero_lag_cosine": 0.07732299367179918,
+            "peak": 0.08367449045181274
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 16.468225479125977,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.36596056818962097
+      },
+      "silence_as_prediction": {
+        "total": 74.3001708984375,
+        "teacher_spectral": 0.6149229407310486,
+        "teacher_waveform": 0.013966413214802742,
+        "reference_spectral": 1.4458303451538086
+      }
+    },
+    {
+      "source_id": "jvnv:M2_sad_regular_56.wav",
+      "dataset": "jvnv",
+      "language": "ja",
+      "start_frame": 64,
+      "valid_samples_48k": 122880,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 37.234134674072266,
+            "teacher_spectral": 0.399619460105896,
+            "teacher_waveform": 0.019328871741890907,
+            "reference_spectral": 0.6937891840934753
+          },
+          "waveform": {
+            "rms": 0.007961585365171553,
+            "target_rms": 0.031242389543631018,
+            "rms_ratio": 0.25483279228859684,
+            "snr_db": -0.3273360704125963,
+            "si_sdr_db": -31.63612464551944,
+            "zero_lag_cosine": -0.026184533082270752,
+            "peak": 0.06291958689689636
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 29.505146026611328,
+            "teacher_spectral": 0.2894939184188843,
+            "teacher_waveform": 0.02006339281797409,
+            "reference_spectral": 0.5587260723114014
+          },
+          "waveform": {
+            "rms": 0.012046011737233351,
+            "target_rms": 0.031242389543631018,
+            "rms_ratio": 0.3855662743213256,
+            "snr_db": -0.7009802386532138,
+            "si_sdr_db": -29.27206633914736,
+            "zero_lag_cosine": -0.034366876538681014,
+            "peak": 0.10953212529420853
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 23.28453826904297,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.5174341797828674
+      },
+      "silence_as_prediction": {
+        "total": 103.2315673828125,
+        "teacher_spectral": 0.837329089641571,
+        "teacher_waveform": 0.018468307331204414,
+        "reference_spectral": 2.014514684677124
+      }
+    },
+    {
+      "source_id": "jvnv:M2_fear_regular_32.wav",
+      "dataset": "jvnv",
+      "language": "ja",
+      "start_frame": 0,
+      "valid_samples_48k": 122880,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 28.427051544189453,
+            "teacher_spectral": 0.2899371087551117,
+            "teacher_waveform": 0.01786421611905098,
+            "reference_spectral": 0.5346695780754089
+          },
+          "waveform": {
+            "rms": 0.00713481037819905,
+            "target_rms": 0.03223457194573998,
+            "rms_ratio": 0.22134031716658065,
+            "snr_db": -0.23504153377918943,
+            "si_sdr_db": -36.50359731257292,
+            "zero_lag_cosine": -0.014954488628508037,
+            "peak": 0.05075037106871605
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 20.347042083740234,
+            "teacher_spectral": 0.19574598968029022,
+            "teacher_waveform": 0.018600378185510635,
+            "reference_spectral": 0.3864944875240326
+          },
+          "waveform": {
+            "rms": 0.012006848833920478,
+            "target_rms": 0.03223457194573998,
+            "rms_ratio": 0.3724835823516268,
+            "snr_db": -0.634526809284012,
+            "si_sdr_db": -32.06197573651472,
+            "zero_lag_cosine": -0.02493252055958558,
+            "peak": 0.10026418417692184
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 15.821342468261719,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.35158538818359375
+      },
+      "silence_as_prediction": {
+        "total": 71.37345123291016,
+        "teacher_spectral": 0.544061005115509,
+        "teacher_waveform": 0.017161671072244644,
+        "reference_spectral": 1.404341697692871
+      }
+    },
+    {
+      "source_id": "jvnv:M2_fear_regular_32.wav",
+      "dataset": "jvnv",
+      "language": "ja",
+      "start_frame": 64,
+      "valid_samples_48k": 122880,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 33.49516677856445,
+            "teacher_spectral": 0.35281726717948914,
+            "teacher_waveform": 0.020359907299280167,
+            "reference_spectral": 0.626278817653656
+          },
+          "waveform": {
+            "rms": 0.009196448405852573,
+            "target_rms": 0.03622663315804229,
+            "rms_ratio": 0.25385876644214084,
+            "snr_db": -0.29036921035157687,
+            "si_sdr_db": -40.667352652228246,
+            "zero_lag_cosine": -0.009260058844830972,
+            "peak": 0.07859240472316742
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 26.771404266357422,
+            "teacher_spectral": 0.26088133454322815,
+            "teacher_waveform": 0.020721862092614174,
+            "reference_spectral": 0.5074991583824158
+          },
+          "waveform": {
+            "rms": 0.011550926344558085,
+            "target_rms": 0.03622663315804229,
+            "rms_ratio": 0.3188517766518909,
+            "snr_db": -0.4082066658411927,
+            "si_sdr_db": -46.224965694568894,
+            "zero_lag_cosine": 0.004883672542875262,
+            "peak": 0.1270187348127365
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 20.71787452697754,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.46039721369743347
+      },
+      "silence_as_prediction": {
+        "total": 90.02063751220703,
+        "teacher_spectral": 0.7360652089118958,
+        "teacher_waveform": 0.019631031900644302,
+        "reference_spectral": 1.7546672821044922
+      }
+    },
+    {
+      "source_id": "2277-149896-0030",
+      "dataset": "librispeech",
+      "language": "en",
+      "start_frame": 0,
+      "valid_samples_48k": 122880,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 40.655250549316406,
+            "teacher_spectral": 0.4909249246120453,
+            "teacher_waveform": 0.03136549890041351,
+            "reference_spectral": 0.7391113638877869
+          },
+          "waveform": {
+            "rms": 0.010188888380987691,
+            "target_rms": 0.04783358668473779,
+            "rms_ratio": 0.21300699126203404,
+            "snr_db": -0.23702357161756854,
+            "si_sdr_db": -31.980621528414417,
+            "zero_lag_cosine": -0.025166993897612077,
+            "peak": 0.07080481201410294
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 32.325775146484375,
+            "teacher_spectral": 0.35569310188293457,
+            "teacher_waveform": 0.032517530024051666,
+            "reference_spectral": 0.5990635752677917
+          },
+          "waveform": {
+            "rms": 0.01627527161668829,
+            "target_rms": 0.04783358668473779,
+            "rms_ratio": 0.3402477786990041,
+            "snr_db": -0.5393630003038151,
+            "si_sdr_db": -32.32234257168307,
+            "zero_lag_cosine": -0.024196675432209925,
+            "peak": 0.10222478210926056
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 26.14168930053711,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.5809264183044434
+      },
+      "silence_as_prediction": {
+        "total": 114.60932159423828,
+        "teacher_spectral": 0.994269847869873,
+        "teacher_waveform": 0.030400527641177177,
+        "reference_spectral": 2.2147748470306396
+      }
+    },
+    {
+      "source_id": "2277-149896-0030",
+      "dataset": "librispeech",
+      "language": "en",
+      "start_frame": 64,
+      "valid_samples_48k": 122880,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 35.80091094970703,
+            "teacher_spectral": 0.4050018787384033,
+            "teacher_waveform": 0.028595836833119392,
+            "reference_spectral": 0.6599396467208862
+          },
+          "waveform": {
+            "rms": 0.01002981268557054,
+            "target_rms": 0.049493820184437674,
+            "rms_ratio": 0.20264777800934855,
+            "snr_db": -0.18064511457575455,
+            "si_sdr_db": -49.194763614174505,
+            "zero_lag_cosine": -0.0034694385956605686,
+            "peak": 0.0922931358218193
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 29.256216049194336,
+            "teacher_spectral": 0.3008904755115509,
+            "teacher_waveform": 0.029518289491534233,
+            "reference_spectral": 0.5491853356361389
+          },
+          "waveform": {
+            "rms": 0.015714732867376,
+            "target_rms": 0.049493820184437674,
+            "rms_ratio": 0.3175089901893889,
+            "snr_db": -0.394604959333258,
+            "si_sdr_db": -40.9454638214137,
+            "zero_lag_cosine": 0.008968283801263114,
+            "peak": 0.1327231377363205
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 24.062044143676758,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.5347120761871338
+      },
+      "silence_as_prediction": {
+        "total": 96.50524139404297,
+        "teacher_spectral": 0.8164698481559753,
+        "teacher_waveform": 0.027906006202101707,
+        "reference_spectral": 1.8717842102050781
+      }
+    },
+    {
+      "source_id": "2035-147960-0003",
+      "dataset": "librispeech",
+      "language": "en",
+      "start_frame": 0,
+      "valid_samples_48k": 122880,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 41.82770919799805,
+            "teacher_spectral": 0.5281001925468445,
+            "teacher_waveform": 0.03348671644926071,
+            "reference_spectral": 0.7527270913124084
+          },
+          "waveform": {
+            "rms": 0.01178985138394709,
+            "target_rms": 0.05702188160759956,
+            "rms_ratio": 0.20676012526348841,
+            "snr_db": -0.22165071015589624,
+            "si_sdr_db": -32.671276507033625,
+            "zero_lag_cosine": -0.02324442554092802,
+            "peak": 0.09246227145195007
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 35.05280303955078,
+            "teacher_spectral": 0.38841772079467773,
+            "teacher_waveform": 0.03415404260158539,
+            "reference_spectral": 0.6487196087837219
+          },
+          "waveform": {
+            "rms": 0.014654374209168267,
+            "target_rms": 0.05702188160759956,
+            "rms_ratio": 0.2569956268720395,
+            "snr_db": -0.33442358539381234,
+            "si_sdr_db": -31.293634459709743,
+            "zero_lag_cosine": -0.027236865564562833,
+            "peak": 0.15254688262939453
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 27.94825553894043,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.6210723519325256
+      },
+      "silence_as_prediction": {
+        "total": 117.33515167236328,
+        "teacher_spectral": 1.0507596731185913,
+        "teacher_waveform": 0.032246459275484085,
+        "reference_spectral": 2.2564780712127686
+      }
+    },
+    {
+      "source_id": "2035-147960-0003",
+      "dataset": "librispeech",
+      "language": "en",
+      "start_frame": 64,
+      "valid_samples_48k": 122880,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 41.57347106933594,
+            "teacher_spectral": 0.5158631205558777,
+            "teacher_waveform": 0.03405730798840523,
+            "reference_spectral": 0.7511436939239502
+          },
+          "waveform": {
+            "rms": 0.010128156928229026,
+            "target_rms": 0.053425995410501394,
+            "rms_ratio": 0.1895735746317651,
+            "snr_db": -0.11001920569817532,
+            "si_sdr_db": -31.331680845978745,
+            "zero_lag_cosine": 0.027117909871892117,
+            "peak": 0.06491298973560333
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 34.425559997558594,
+            "teacher_spectral": 0.3776520788669586,
+            "teacher_waveform": 0.034836120903491974,
+            "reference_spectral": 0.6383542418479919
+          },
+          "waveform": {
+            "rms": 0.01338064493652435,
+            "target_rms": 0.053425995410501394,
+            "rms_ratio": 0.2504519538421975,
+            "snr_db": -0.19814468154280926,
+            "si_sdr_db": -29.88390390895787,
+            "zero_lag_cosine": 0.03203184016156839,
+            "peak": 0.09983164817094803
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 26.98219871520996,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.5996044278144836
+      },
+      "silence_as_prediction": {
+        "total": 112.86419677734375,
+        "teacher_spectral": 1.0044950246810913,
+        "teacher_waveform": 0.03323672339320183,
+        "reference_spectral": 2.172523021697998
+      }
+    },
+    {
+      "source_id": "2277-149896-0027",
+      "dataset": "librispeech",
+      "language": "en",
+      "start_frame": 0,
+      "valid_samples_48k": 122880,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 42.17909622192383,
+            "teacher_spectral": 0.5299426317214966,
+            "teacher_waveform": 0.037994157522916794,
+            "reference_spectral": 0.7598214149475098
+          },
+          "waveform": {
+            "rms": 0.011839547023076163,
+            "target_rms": 0.06467925696107246,
+            "rms_ratio": 0.18305013971019882,
+            "snr_db": -0.14602121230914702,
+            "si_sdr_db": -54.534088996575434,
+            "zero_lag_cosine": -0.0018762676286657118,
+            "peak": 0.09140898287296295
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 33.725528717041016,
+            "teacher_spectral": 0.3739631175994873,
+            "teacher_waveform": 0.03956824168562889,
+            "reference_spectral": 0.6239225268363953
+          },
+          "waveform": {
+            "rms": 0.01953009019569985,
+            "target_rms": 0.06467925696107246,
+            "rms_ratio": 0.3019529152515486,
+            "snr_db": -0.40095217499191216,
+            "si_sdr_db": -40.74402952916533,
+            "zero_lag_cosine": -0.009178679986804108,
+            "peak": 0.2055222988128662
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 26.506059646606445,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.5890235304832458
+      },
+      "silence_as_prediction": {
+        "total": 120.02105712890625,
+        "teacher_spectral": 1.072798728942871,
+        "teacher_waveform": 0.037097226828336716,
+        "reference_spectral": 2.308710813522339
+      }
+    },
+    {
+      "source_id": "2277-149896-0027",
+      "dataset": "librispeech",
+      "language": "en",
+      "start_frame": 45,
+      "valid_samples_48k": 86160,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 36.55569839477539,
+            "teacher_spectral": 0.4468860328197479,
+            "teacher_waveform": 0.020577525720000267,
+            "reference_spectral": 0.6629295945167542
+          },
+          "waveform": {
+            "rms": 0.007095311797893909,
+            "target_rms": 0.03596955656275483,
+            "rms_ratio": 0.19725880649974004,
+            "snr_db": -0.17823752182116787,
+            "si_sdr_db": -42.426618754112354,
+            "zero_lag_cosine": -0.007562347736553081,
+            "peak": 0.08124763518571854
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 30.060630798339844,
+            "teacher_spectral": 0.3328005373477936,
+            "teacher_waveform": 0.02189931459724903,
+            "reference_spectral": 0.5565938353538513
+          },
+          "waveform": {
+            "rms": 0.012985339311904424,
+            "target_rms": 0.03596955656275483,
+            "rms_ratio": 0.36100915754269464,
+            "snr_db": -0.5838093206351331,
+            "si_sdr_db": -34.52833145831137,
+            "zero_lag_cosine": -0.018771842200909362,
+            "peak": 0.13351300358772278
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 25.623119354248047,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.5694026350975037
+      },
+      "silence_as_prediction": {
+        "total": 100.57945251464844,
+        "teacher_spectral": 0.9256782531738281,
+        "teacher_waveform": 0.020007716491818428,
+        "reference_spectral": 1.926094889640808
+      }
+    },
+    {
+      "source_id": "2035-147960-0001",
+      "dataset": "librispeech",
+      "language": "en",
+      "start_frame": 0,
+      "valid_samples_48k": 122880,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 41.973594665527344,
+            "teacher_spectral": 0.5436720848083496,
+            "teacher_waveform": 0.028012150898575783,
+            "reference_spectral": 0.7509000301361084
+          },
+          "waveform": {
+            "rms": 0.010365000153927405,
+            "target_rms": 0.0448643366052212,
+            "rms_ratio": 0.23102983211661157,
+            "snr_db": -0.2290848588083796,
+            "si_sdr_db": -55.341878674789484,
+            "zero_lag_cosine": -0.0017096429965957195,
+            "peak": 0.08962001651525497
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 34.69769287109375,
+            "teacher_spectral": 0.39617061614990234,
+            "teacher_waveform": 0.02881408855319023,
+            "reference_spectral": 0.6383626461029053
+          },
+          "waveform": {
+            "rms": 0.014275385299388023,
+            "target_rms": 0.0448643366052212,
+            "rms_ratio": 0.3181900453583591,
+            "snr_db": -0.42359325737481135,
+            "si_sdr_db": -54.44613700331403,
+            "zero_lag_cosine": -0.0018953628751213222,
+            "peak": 0.15020407736301422
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 28.228578567504883,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.6273017525672913
+      },
+      "silence_as_prediction": {
+        "total": 122.6875,
+        "teacher_spectral": 1.1219290494918823,
+        "teacher_waveform": 0.0268709659576416,
+        "reference_spectral": 2.3518154621124268
+      }
+    },
+    {
+      "source_id": "2035-147960-0001",
+      "dataset": "librispeech",
+      "language": "en",
+      "start_frame": 49,
+      "valid_samples_48k": 94320,
+      "models": {
+        "step1000": {
+          "loss": {
+            "total": 34.068328857421875,
+            "teacher_spectral": 0.3982105255126953,
+            "teacher_waveform": 0.01644187606871128,
+            "reference_spectral": 0.6239717602729797
+          },
+          "waveform": {
+            "rms": 0.007453142989827504,
+            "target_rms": 0.027786407417769523,
+            "rms_ratio": 0.26822981747043656,
+            "snr_db": -0.2947419775581725,
+            "si_sdr_db": -49.857744995420454,
+            "zero_lag_cosine": 0.0032144783603242776,
+            "peak": 0.05996251851320267
+          }
+        },
+        "step10000": {
+          "loss": {
+            "total": 28.81525421142578,
+            "teacher_spectral": 0.30706682801246643,
+            "teacher_waveform": 0.017038432881236076,
+            "reference_spectral": 0.5376047492027283
+          },
+          "waveform": {
+            "rms": 0.01050993713048853,
+            "target_rms": 0.027786407417769523,
+            "rms_ratio": 0.37824022992505973,
+            "snr_db": -0.47819396663189023,
+            "si_sdr_db": -29.051142698474827,
+            "zero_lag_cosine": 0.03525111522909992,
+            "peak": 0.07463642209768295
+          }
+        }
+      },
+      "teacher_as_prediction": {
+        "total": 24.858325958251953,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.5524072647094727
+      },
+      "silence_as_prediction": {
+        "total": 91.45252227783203,
+        "teacher_spectral": 0.7884214520454407,
+        "teacher_waveform": 0.0156028363853693,
+        "reference_spectral": 1.7691243886947632
+      }
+    }
+  ],
+  "checkpoint_sha256": "52d55d9ea17546a9ecd76b7ca0c2db13d2d4ad75c7037df1ea6fc0c4611155b2",
+  "summary": {
+    "crops": 58,
+    "teacher_as_prediction": {
+      "total": 20.70294433215569,
+      "teacher_spectral": 0.0,
+      "teacher_waveform": 0.0,
+      "reference_spectral": 0.4600654277822067
+    },
+    "silence_as_prediction": {
+      "total": 81.36275657908669,
+      "teacher_spectral": 0.6868648535796794,
+      "teacher_waveform": 0.025942776792362565,
+      "reference_spectral": 1.578529793704892
+    },
+    "step1000": {
+      "total": 32.68804758992688,
+      "teacher_spectral": 0.35867745143457735,
+      "teacher_waveform": 0.026720403809279026,
+      "reference_spectral": 0.6062481217086315,
+      "waveform_mean": {
+        "rms": 0.009616252121801568,
+        "target_rms": 0.05262918976209199,
+        "rms_ratio": 0.23554338048639067,
+        "snr_db": -0.2587236029042414,
+        "si_sdr_db": -37.52197223686099,
+        "zero_lag_cosine": 0.004251816136922737,
+        "peak": 0.07498090670460128
+      }
+    },
+    "step10000": {
+      "total": 24.847421942086054,
+      "teacher_spectral": 0.24577962489124258,
+      "teacher_waveform": 0.027338120592848382,
+      "reference_spectral": 0.46963086888065625,
+      "waveform_mean": {
+        "rms": 0.013901031543146813,
+        "target_rms": 0.05262918976209199,
+        "rms_ratio": 0.34174982597901704,
+        "snr_db": -0.5009055901266749,
+        "si_sdr_db": -34.54487751980586,
+        "zero_lag_cosine": 0.011280271012997887,
+        "peak": 0.1435771627704902
+      }
+    }
+  },
+  "summary_by_group": {
+    "('crema_d', 'en')": {
+      "crops": 8,
+      "teacher_as_prediction": {
+        "total": 27.105952739715576,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.6023545078933239
+      },
+      "silence_as_prediction": {
+        "total": 89.09795665740967,
+        "teacher_spectral": 0.8692171573638916,
+        "teacher_waveform": 0.01668301346944645,
+        "reference_spectral": 1.6898447573184967
+      },
+      "step1000": {
+        "total": 34.54243445396423,
+        "teacher_spectral": 0.42437605559825897,
+        "teacher_waveform": 0.01737441075965762,
+        "reference_spectral": 0.6257648691534996,
+        "waveform_mean": {
+          "rms": 0.0064785887151350445,
+          "target_rms": 0.03272228024595895,
+          "rms_ratio": 0.28107379829556495,
+          "snr_db": -0.35585578018878505,
+          "si_sdr_db": -40.71669865868422,
+          "zero_lag_cosine": -0.0009757186660926785,
+          "peak": 0.05314638139680028
+        }
+      },
+      "step10000": {
+        "total": 29.1600821018219,
+        "teacher_spectral": 0.32119217701256275,
+        "teacher_waveform": 0.018497056094929576,
+        "reference_spectral": 0.540526706725359,
+        "waveform_mean": {
+          "rms": 0.010884453996883772,
+          "target_rms": 0.03272228024595895,
+          "rms_ratio": 0.5272210115374423,
+          "snr_db": -1.1204069229284097,
+          "si_sdr_db": -37.94534545729597,
+          "zero_lag_cosine": 0.008211385484469183,
+          "peak": 0.09015691606327891
+        }
+      }
+    },
+    "('emogator', 'und')": {
+      "crops": 8,
+      "teacher_as_prediction": {
+        "total": 20.19877952337265,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.44886176520958543
+      },
+      "silence_as_prediction": {
+        "total": 60.494558319449425,
+        "teacher_spectral": 0.4496972265187651,
+        "teacher_waveform": 0.0171549788728953,
+        "reference_spectral": 1.1940432176925242
+      },
+      "step1000": {
+        "total": 27.94767200946808,
+        "teacher_spectral": 0.25215945136733353,
+        "teacher_waveform": 0.01767185239623359,
+        "reference_spectral": 0.5366135276854038,
+        "waveform_mean": {
+          "rms": 0.006070731088363212,
+          "target_rms": 0.03906626070546591,
+          "rms_ratio": 0.2339172968188083,
+          "snr_db": -0.17403045027994782,
+          "si_sdr_db": -30.593419330068382,
+          "zero_lag_cosine": 0.026875778834630944,
+          "peak": 0.04763856655335985
+        }
+      },
+      "step10000": {
+        "total": 22.557346910238266,
+        "teacher_spectral": 0.1838290361338295,
+        "teacher_waveform": 0.01808757527214766,
+        "reference_spectral": 0.43959607533179224,
+        "waveform_mean": {
+          "rms": 0.010044136854461611,
+          "target_rms": 0.03906626070546591,
+          "rms_ratio": 0.3629884684140451,
+          "snr_db": -0.2253789516869417,
+          "si_sdr_db": -26.984824469171894,
+          "zero_lag_cosine": 0.051513893183864484,
+          "peak": 0.10908856010064483
+        }
+      }
+    },
+    "('freesound_human_whistle_cc0', 'und')": {
+      "crops": 2,
+      "teacher_as_prediction": {
+        "total": 9.524813413619995,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.21166251599788666
+      },
+      "silence_as_prediction": {
+        "total": 16.98462438583374,
+        "teacher_spectral": 0.12991104647517204,
+        "teacher_waveform": 0.0254279556684196,
+        "reference_spectral": 0.3335673660039902
+      },
+      "step1000": {
+        "total": 36.964622497558594,
+        "teacher_spectral": 0.3147643730044365,
+        "teacher_waveform": 0.025558347813785076,
+        "reference_spectral": 0.7159466445446014,
+        "waveform_mean": {
+          "rms": 0.004663921272523015,
+          "target_rms": 0.049959564093699324,
+          "rms_ratio": 0.09932752134727921,
+          "snr_db": -0.02519734102171735,
+          "si_sdr_db": -42.602334884479696,
+          "zero_lag_cosine": 0.023893534650924426,
+          "peak": 0.04846492223441601
+        }
+      },
+      "step10000": {
+        "total": 13.709444046020508,
+        "teacher_spectral": 0.07764908857643604,
+        "teacher_waveform": 0.025439016055315733,
+        "reference_spectral": 0.2782059758901596,
+        "waveform_mean": {
+          "rms": 0.0013685700278452204,
+          "target_rms": 0.049959564093699324,
+          "rms_ratio": 0.03139910948791849,
+          "snr_db": 0.00544474951511804,
+          "si_sdr_db": -29.01717820543068,
+          "zero_lag_cosine": 0.053721146926018516,
+          "peak": 0.012704471126198769
+        }
+      }
+    },
+    "('freesound_human_whistle_cc_by_4', 'und')": {
+      "crops": 2,
+      "teacher_as_prediction": {
+        "total": 9.609550476074219,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.213545560836792
+      },
+      "silence_as_prediction": {
+        "total": 29.869601249694824,
+        "teacher_spectral": 0.19449447095394135,
+        "teacher_waveform": 0.020362322218716145,
+        "reference_spectral": 0.5984849333763123
+      },
+      "step1000": {
+        "total": 20.563426971435547,
+        "teacher_spectral": 0.19432276487350464,
+        "teacher_waveform": 0.020510914735496044,
+        "reference_spectral": 0.3917350023984909,
+        "waveform_mean": {
+          "rms": 0.005346189060174762,
+          "target_rms": 0.04604362245553091,
+          "rms_ratio": 0.1166746956736486,
+          "snr_db": -0.0679993103911125,
+          "si_sdr_db": -35.130745252829996,
+          "zero_lag_cosine": -0.008182433501803015,
+          "peak": 0.0646943524479866
+        }
+      },
+      "step10000": {
+        "total": 12.71515417098999,
+        "teacher_spectral": 0.09365826472640038,
+        "teacher_waveform": 0.020473599433898926,
+        "reference_spectral": 0.2508845925331116,
+        "waveform_mean": {
+          "rms": 0.0028194101509048733,
+          "target_rms": 0.04604362245553091,
+          "rms_ratio": 0.0612572231664619,
+          "snr_db": -0.024935116337595577,
+          "si_sdr_db": -36.61743905674721,
+          "zero_lag_cosine": -0.01630665341452615,
+          "peak": 0.029825905337929726
+        }
+      }
+    },
+    "('fsd50k_vocal_cc0', 'und')": {
+      "crops": 6,
+      "teacher_as_prediction": {
+        "total": 15.999494592348734,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.35554431813458603
+      },
+      "silence_as_prediction": {
+        "total": 69.20425701141357,
+        "teacher_spectral": 0.46409184237321216,
+        "teacher_waveform": 0.024611226632259786,
+        "reference_spectral": 1.3826281900207202
+      },
+      "step1000": {
+        "total": 29.31729507446289,
+        "teacher_spectral": 0.2770037520676851,
+        "teacher_waveform": 0.025279117311583832,
+        "reference_spectral": 0.5585991131762663,
+        "waveform_mean": {
+          "rms": 0.008450053773828521,
+          "target_rms": 0.041926052517945345,
+          "rms_ratio": 0.2902545784975821,
+          "snr_db": -0.42113276122882315,
+          "si_sdr_db": -35.67787217839587,
+          "zero_lag_cosine": -0.011662632273931215,
+          "peak": 0.06732443052654465
+        }
+      },
+      "step10000": {
+        "total": 20.472107768058777,
+        "teacher_spectral": 0.1568521630639831,
+        "teacher_waveform": 0.025254229714240257,
+        "reference_spectral": 0.4020904637873173,
+        "waveform_mean": {
+          "rms": 0.009879615550647666,
+          "target_rms": 0.041926052517945345,
+          "rms_ratio": 0.3406936818966999,
+          "snr_db": -0.5398481019149457,
+          "si_sdr_db": -35.34729874355262,
+          "zero_lag_cosine": -0.008021564661801317,
+          "peak": 0.11240585582951705
+        }
+      }
+    },
+    "('fsd50k_vocal_cc_by_3', 'und')": {
+      "crops": 8,
+      "teacher_as_prediction": {
+        "total": 22.13706374168396,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.49193475395441055
+      },
+      "silence_as_prediction": {
+        "total": 110.007577419281,
+        "teacher_spectral": 0.925373200327158,
+        "teacher_waveform": 0.04132261034101248,
+        "reference_spectral": 2.135236792266369
+      },
+      "step1000": {
+        "total": 40.22366213798523,
+        "teacher_spectral": 0.4778445437550545,
+        "teacher_waveform": 0.04292250145226717,
+        "reference_spectral": 0.7336238138377666,
+        "waveform_mean": {
+          "rms": 0.01685671450115716,
+          "target_rms": 0.07972914018892598,
+          "rms_ratio": 0.21515254808848605,
+          "snr_db": -0.18256901293415126,
+          "si_sdr_db": -38.036128558688404,
+          "zero_lag_cosine": 0.008147197979006544,
+          "peak": 0.10824744682759047
+        }
+      },
+      "step10000": {
+        "total": 28.06731140613556,
+        "teacher_spectral": 0.3044317774474621,
+        "teacher_waveform": 0.0436159580713138,
+        "reference_spectral": 0.5212715175002813,
+        "waveform_mean": {
+          "rms": 0.02297636410944203,
+          "target_rms": 0.07972914018892598,
+          "rms_ratio": 0.3014023756469409,
+          "snr_db": -0.40862992390668235,
+          "si_sdr_db": -37.188441219052834,
+          "zero_lag_cosine": 0.00026319681369857867,
+          "peak": 0.2346105114556849
+        }
+      }
+    },
+    "('jnv', 'ja')": {
+      "crops": 8,
+      "teacher_as_prediction": {
+        "total": 18.114546537399292,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.4025454744696617
+      },
+      "silence_as_prediction": {
+        "total": 70.05840730667114,
+        "teacher_spectral": 0.6209146473556757,
+        "teacher_waveform": 0.03771415640585474,
+        "reference_spectral": 1.3490438386797905
+      },
+      "step1000": {
+        "total": 27.360689878463745,
+        "teacher_spectral": 0.2871682019904256,
+        "teacher_waveform": 0.03822607451729709,
+        "reference_spectral": 0.5114431232213974,
+        "waveform_mean": {
+          "rms": 0.013073395809457773,
+          "target_rms": 0.094208743596427,
+          "rms_ratio": 0.22162363564401902,
+          "snr_db": -0.2987123043352934,
+          "si_sdr_db": -36.49272899476116,
+          "zero_lag_cosine": 0.008576934752048673,
+          "peak": 0.1078686952823773
+        }
+      },
+      "step10000": {
+        "total": 22.143413543701172,
+        "teacher_spectral": 0.21665286738425493,
+        "teacher_waveform": 0.03898173345805844,
+        "reference_spectral": 0.41899196431040764,
+        "waveform_mean": {
+          "rms": 0.021761130018733678,
+          "target_rms": 0.094208743596427,
+          "rms_ratio": 0.3200293375217521,
+          "snr_db": -0.47228913920238663,
+          "si_sdr_db": -33.5761845785662,
+          "zero_lag_cosine": 0.021774886025923458,
+          "peak": 0.2660231195623055
+        }
+      }
+    },
+    "('jvnv', 'ja')": {
+      "crops": 8,
+      "teacher_as_prediction": {
+        "total": 19.463008046150208,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.4325112849473953
+      },
+      "silence_as_prediction": {
+        "total": 87.09793090820312,
+        "teacher_spectral": 0.7135449610650539,
+        "teacher_waveform": 0.0173833254375495,
+        "reference_spectral": 1.6972749680280685
+      },
+      "step1000": {
+        "total": 31.214645385742188,
+        "teacher_spectral": 0.34151349775493145,
+        "teacher_waveform": 0.018235051073133945,
+        "reference_spectral": 0.5794157274067402,
+        "waveform_mean": {
+          "rms": 0.008537115937469924,
+          "target_rms": 0.03275550983336068,
+          "rms_ratio": 0.2727861084305827,
+          "snr_db": -0.325751817974715,
+          "si_sdr_db": -36.58631476735329,
+          "zero_lag_cosine": -0.002892235968260731,
+          "peak": 0.06758829671889544
+        }
+      },
+      "step10000": {
+        "total": 23.96049213409424,
+        "teacher_spectral": 0.24124865233898163,
+        "teacher_waveform": 0.018806967651471496,
+        "reference_spectral": 0.45162123069167137,
+        "waveform_mean": {
+          "rms": 0.011993965054715313,
+          "target_rms": 0.03275550983336068,
+          "rms_ratio": 0.3717861134315366,
+          "snr_db": -0.5759663042762135,
+          "si_sdr_db": -35.18456473991789,
+          "zero_lag_cosine": -0.002690323186783608,
+          "peak": 0.11471805535256863
+        }
+      }
+    },
+    "('librispeech', 'en')": {
+      "crops": 8,
+      "teacher_as_prediction": {
+        "total": 26.29378390312195,
+        "teacher_spectral": 0.0,
+        "teacher_waveform": 0.0,
+        "reference_spectral": 0.5843063071370125
+      },
+      "silence_as_prediction": {
+        "total": 109.50680541992188,
+        "teacher_spectral": 0.9718527346849442,
+        "teacher_waveform": 0.027921057771891356,
+        "reference_spectral": 2.1089132130146027
+      },
+      "step1000": {
+        "total": 39.32925748825073,
+        "teacher_spectral": 0.4823251739144325,
+        "teacher_waveform": 0.02881638379767537,
+        "reference_spectral": 0.712568074464798,
+        "waveform_mean": {
+          "rms": 0.009861213917932416,
+          "target_rms": 0.0476343551792618,
+          "rms_ratio": 0.2114446331204529,
+          "snr_db": -0.19967802156803272,
+          "si_sdr_db": -43.41733423956238,
+          "zero_lag_cosine": -0.004087091020474848,
+          "peak": 0.08033904526382685
+        }
+      },
+      "step10000": {
+        "total": 32.29493260383606,
+        "teacher_spectral": 0.35408180952072144,
+        "teacher_waveform": 0.029793257592245936,
+        "reference_spectral": 0.5989758148789406,
+        "waveform_mean": {
+          "rms": 0.014665721945904717,
+          "target_rms": 0.0476343551792618,
+          "rms_ratio": 0.3155745872100365,
+          "snr_db": -0.4191356182759302,
+          "si_sdr_db": -36.65187318137875,
+          "zero_lag_cosine": -0.000628523358459516,
+          "peak": 0.13140028156340122
+        }
+      }
+    }
+  },
+  "finished_utc": "2026-09-09T03:52:19.169764+00:00"
+}

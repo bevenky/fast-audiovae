@@ -1,0 +1,3395 @@
+{
+  "archive_projection_version": 1,
+  "original_relative_path": "outputs/convnext-recovery/head-experiments/cpu-heads.json",
+  "original_sha256": "998f7fb8a33fccdd91911e4e7ce30392b010d6282f7ec15963897b0770ca4178",
+  "omitted_field_paths": [
+    "identity.cpu.affinity_cpus"
+  ],
+  "note": "Labelled projection. Omitted numerical payloads and listed bulk report collections remain outside Git; configuration metadata is retained.",
+  "report": {
+    "all_runtime_tensors_cpu": true,
+    "all_streaming_checks_passed": false,
+    "checkpoint_promoted": false,
+    "complete": true,
+    "completion_means": "All diagnostics collected; not candidate qualification",
+    "cuda_initialized": false,
+    "identity": {
+      "bounded_head_sha256": "f589fac0969fa90f0635eeefbbb44f30afa83c2117ebb165e11a13df8f2b85c6",
+      "canonical_panel": {
+        "cache_path": "/tmp/fast-audiovae-recovery-20260909/canonical-panel-v1/heldout.pt",
+        "cache_sha256": "6be63e6fc49d7a23c59b75cca1d1d294cf7aa83d2dbbb9c06e1622e92c574a19",
+        "contract_sha256": "bf372497cabec8f24b3e65887210a1808fa99d728cef212f6e5c80ed76068430",
+        "evaluation_policy": "Separate corrected encoder domain; original historical tensors, counts and masks remain unchanged",
+        "heldout_crops": 285,
+        "heldout_identity_sha256": "ef70f22f1e638257d139530b11750899da9c573abe95133525eabf3a6e6830dd",
+        "metadata_sha256": "c3fcab4a824c8a7bc79c8b8cd3e14d04b8ac56841ff9561872e2bb247be6922f",
+        "receipt_path": "/tmp/fast-audiovae-recovery-20260909/canonical-panel-v1/receipt.json",
+        "receipt_sha256": "5bf945d958085362ec14f9af2bfb45bf045f75184dc9bfc0b975f12fc86e5255",
+        "required_by_resolution": true
+      },
+      "checkpoint_sha256": "f7a91a2f3bef6fdec2a37643dc661a97b18a24b9e25b822df49c1c4017ddc948",
+      "cpu": {
+        "affinity_cpu_count": 192,
+        "family": "25",
+        "flags": "fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good amd_lbr_v2 nopl nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba perfmon_v2 ibrs ibpb stibp ibrs_enhanced vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk avx512_bf16 clzero irperf xsaveerptr rdpru wbnoinvd amd_ppin cppc amd_ibpb_ret arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif x2avic v_spec_ctrl vnmi avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq la57 rdpid overflow_recov succor smca fsrm flush_l1d debug_swap",
+        "logical_cpu_count": 192,
+        "machine": "x86_64",
+        "model": "17",
+        "model_name": "AMD EPYC 9654 96-Core Processor",
+        "platform": "Linux-6.8.0-59-generic-x86_64-with-glibc2.39",
+        "processor": "x86_64",
+        "vendor": "AuthenticAMD"
+      },
+      "cuda_visible_devices": "",
+      "device": "cpu",
+      "encoder_forwards": 0,
+      "head_file_sha256": "d9a620302ef1db65df564218c9b44829219c960cb09afc7c7140a9c5a80cd8b2",
+      "interop_threads": 1,
+      "intraop_threads": 1,
+      "scope": "Experimental PyTorch student only; not production ONNX, a Mimi comparison or final deployment RTF",
+      "script_sha256": "68102ac704df639c437ddefae89a5b2e4e57dac8f14a0808f03c0f319297a83f",
+      "teacher_forwards": 0,
+      "torch": "2.14.0+cu126",
+      "torch_build": "PyTorch built with:\n  - GCC 13.3\n  - C++ Version: 202002\n  - Intel(R) oneAPI Math Kernel Library Version 2024.2-Product Build 20240605 for Intel(R) 64 architecture applications\n  - Intel(R) MKL-DNN v3.12.0 (Git Hash 80afa71049cd69a3df32adcccb623b12cd7baa22)\n  - OpenMP 201511 (a.k.a. OpenMP 4.5)\n  - LAPACK is enabled (usually provided by MKL)\n  - NNPACK is enabled\n  - CPU capability usage: AVX512\n  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, COMMIT_SHA=08187d9e0fba026dc8217405802ab5381dc88d90, CUDA_FLAGS= -DLIBCUDACXX_ENABLE_SIMPLIFIED_COMPLEX_OPERATIONS -Xfatbin -compress-all -DONNX_NAMESPACE=onnx_torch -gencode arch=compute_50,code=sm_50 -gencode arch=compute_60,code=sm_60 -gencode arch=compute_70,code=sm_70 -gencode arch=compute_75,code=sm_75 -gencode arch=compute_80,code=sm_80 -gencode arch=compute_86,code=sm_86 -gencode arch=compute_90,code=sm_90 -Xcudafe --diag_suppress=cc_clobber_ignored,--diag_suppress=field_without_dll_interface,--diag_suppress=base_class_has_different_dll_interface,--diag_suppress=dll_interface_conflict_none_assumed,--diag_suppress=dll_interface_conflict_dllexport_assumed,--diag_suppress=bad_friend_decl --expt-relaxed-constexpr --expt-extended-lambda -Xfatbin -compress-all --threads 2 -Wno-deprecated-gpu-targets --expt-extended-lambda -DCUB_WRAPPED_NAMESPACE=at_cuda_detail -DDISABLE_CUSPARSE_DEPRECATED -DCUDA_HAS_FP16=1 -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -DC10_NODEPRECATED, CUDA_VERSION=12.6, CUDNN_VERSION=9.10.2, CXX_COMPILER=/opt/rh/gcc-toolset-13/root/usr/bin/c++, CXX_FLAGS= -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DHAS_CUPTI -DUSE_FBGEMM -DUSE_PYTORCH_QNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -DC10_NODEPRECATED -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=range-loop-construct -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-unknown-pragmas -Wno-unused-parameter -Wno-strict-overflow -Wno-strict-aliasing -Wno-stringop-overflow -Wsuggest-override -Wno-psabi -Wno-error=old-style-cast -faligned-new -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-dangling-reference -Wno-error=dangling-reference -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, TORCH_VERSION=2.14.0, USE_CUDA=1, USE_CUDNN=ON, USE_CUSPARSELT=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_GLOO=ON, USE_HIPSPARSELT=OFF, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=ON, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, USE_ROCM_KERNEL_ASSERT=OFF, USE_XCCL=OFF, USE_XPU=OFF, \n"
+    },
+    "original_engine_state_restored": true,
+    "original_model_modes_restored": true,
+    "rng_restored": true,
+    "streaming_failure_count": 1,
+    "streaming_parity": [
+      {
+        "candidate": "baseline_raw",
+        "case": "encoded_zero",
+        "chunk_ms": 80,
+        "chunks": 75,
+        "emitted_samples": 288000,
+        "empty_calls_preserve_state": true,
+        "expected_samples": 288000,
+        "failure_reason": null,
+        "frames_per_chunk": 2,
+        "history_shapes": [
+          [
+            1,
+            64,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            2
+          ]
+        ],
+        "last_chunk_samples": 3840,
+        "latent_frames": 150,
+        "max_abs_batch_stream_difference": 1.6349076759070158e-08,
+        "passed": true,
+        "rms_batch_stream_difference": 3.865230365362509e-09,
+        "source_id": "encoded_zero",
+        "start_frame": 0,
+        "threshold_absolute": 2e-06,
+        "tolerance_relaxed": false
+      },
+      {
+        "candidate": "baseline_raw",
+        "case": "encoded_zero",
+        "chunk_ms": 160,
+        "chunks": 38,
+        "emitted_samples": 288000,
+        "empty_calls_preserve_state": true,
+        "expected_samples": 288000,
+        "failure_reason": null,
+        "frames_per_chunk": 4,
+        "history_shapes": [
+          [
+            1,
+            64,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            2
+          ]
+        ],
+        "last_chunk_samples": 3840,
+        "latent_frames": 150,
+        "max_abs_batch_stream_difference": 1.6916601452976465e-08,
+        "passed": true,
+        "rms_batch_stream_difference": 3.846446622681217e-09,
+        "source_id": "encoded_zero",
+        "start_frame": 0,
+        "threshold_absolute": 2e-06,
+        "tolerance_relaxed": false
+      },
+      {
+        "candidate": "baseline_raw",
+        "case": "first_speech_in_frozen_panel",
+        "chunk_ms": 80,
+        "chunks": 32,
+        "emitted_samples": 122880,
+        "empty_calls_preserve_state": true,
+        "expected_samples": 122880,
+        "failure_reason": null,
+        "frames_per_chunk": 2,
+        "history_shapes": [
+          [
+            1,
+            64,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            2
+          ]
+        ],
+        "last_chunk_samples": 3840,
+        "latent_frames": 64,
+        "max_abs_batch_stream_difference": 9.5367431640625e-07,
+        "passed": true,
+        "rms_batch_stream_difference": 5.02565676177565e-08,
+        "source_id": "2035-147960-0008",
+        "start_frame": 0,
+        "threshold_absolute": 2e-06,
+        "tolerance_relaxed": false
+      },
+      {
+        "candidate": "baseline_raw",
+        "case": "first_speech_in_frozen_panel",
+        "chunk_ms": 160,
+        "chunks": 16,
+        "emitted_samples": 122880,
+        "empty_calls_preserve_state": true,
+        "expected_samples": 122880,
+        "failure_reason": null,
+        "frames_per_chunk": 4,
+        "history_shapes": [
+          [
+            1,
+            64,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            2
+          ]
+        ],
+        "last_chunk_samples": 7680,
+        "latent_frames": 64,
+        "max_abs_batch_stream_difference": 1.1920928955078125e-07,
+        "passed": true,
+        "rms_batch_stream_difference": 8.229182251323404e-09,
+        "source_id": "2035-147960-0008",
+        "start_frame": 0,
+        "threshold_absolute": 2e-06,
+        "tolerance_relaxed": false
+      },
+      {
+        "candidate": "baseline_raw",
+        "case": "previously_identified_laughter_peak",
+        "chunk_ms": 80,
+        "chunks": 47,
+        "emitted_samples": 178560,
+        "empty_calls_preserve_state": true,
+        "expected_samples": 178560,
+        "failure_reason": null,
+        "frames_per_chunk": 2,
+        "history_shapes": [
+          [
+            1,
+            64,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            2
+          ]
+        ],
+        "last_chunk_samples": 1920,
+        "latent_frames": 93,
+        "max_abs_batch_stream_difference": 1.7881393432617188e-06,
+        "passed": true,
+        "rms_batch_stream_difference": 7.994956041375118e-08,
+        "source_id": "freesound:25794",
+        "start_frame": 45,
+        "threshold_absolute": 2e-06,
+        "tolerance_relaxed": false
+      },
+      {
+        "candidate": "baseline_raw",
+        "case": "previously_identified_laughter_peak",
+        "chunk_ms": 160,
+        "chunks": 24,
+        "emitted_samples": 178560,
+        "empty_calls_preserve_state": true,
+        "expected_samples": 178560,
+        "failure_reason": null,
+        "frames_per_chunk": 4,
+        "history_shapes": [
+          [
+            1,
+            64,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            2
+          ]
+        ],
+        "last_chunk_samples": 1920,
+        "latent_frames": 93,
+        "max_abs_batch_stream_difference": 5.960464477539062e-07,
+        "passed": true,
+        "rms_batch_stream_difference": 3.8632257338807115e-08,
+        "source_id": "freesound:25794",
+        "start_frame": 45,
+        "threshold_absolute": 2e-06,
+        "tolerance_relaxed": false
+      },
+      {
+        "candidate": "baseline_clamp",
+        "case": "encoded_zero",
+        "chunk_ms": 80,
+        "chunks": 75,
+        "emitted_samples": 288000,
+        "empty_calls_preserve_state": true,
+        "expected_samples": 288000,
+        "failure_reason": null,
+        "frames_per_chunk": 2,
+        "history_shapes": [
+          [
+            1,
+            64,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            2
+          ]
+        ],
+        "last_chunk_samples": 3840,
+        "latent_frames": 150,
+        "max_abs_batch_stream_difference": 1.6349076759070158e-08,
+        "passed": true,
+        "rms_batch_stream_difference": 3.865230365362509e-09,
+        "source_id": "encoded_zero",
+        "start_frame": 0,
+        "threshold_absolute": 2e-06,
+        "tolerance_relaxed": false
+      },
+      {
+        "candidate": "baseline_clamp",
+        "case": "encoded_zero",
+        "chunk_ms": 160,
+        "chunks": 38,
+        "emitted_samples": 288000,
+        "empty_calls_preserve_state": true,
+        "expected_samples": 288000,
+        "failure_reason": null,
+        "frames_per_chunk": 4,
+        "history_shapes": [
+          [
+            1,
+            64,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            2
+          ]
+        ],
+        "last_chunk_samples": 3840,
+        "latent_frames": 150,
+        "max_abs_batch_stream_difference": 1.6916601452976465e-08,
+        "passed": true,
+        "rms_batch_stream_difference": 3.846446622681217e-09,
+        "source_id": "encoded_zero",
+        "start_frame": 0,
+        "threshold_absolute": 2e-06,
+        "tolerance_relaxed": false
+      },
+      {
+        "candidate": "baseline_clamp",
+        "case": "first_speech_in_frozen_panel",
+        "chunk_ms": 80,
+        "chunks": 32,
+        "emitted_samples": 122880,
+        "empty_calls_preserve_state": true,
+        "expected_samples": 122880,
+        "failure_reason": null,
+        "frames_per_chunk": 2,
+        "history_shapes": [
+          [
+            1,
+            64,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            2
+          ]
+        ],
+        "last_chunk_samples": 3840,
+        "latent_frames": 64,
+        "max_abs_batch_stream_difference": 9.5367431640625e-07,
+        "passed": true,
+        "rms_batch_stream_difference": 5.02565676177565e-08,
+        "source_id": "2035-147960-0008",
+        "start_frame": 0,
+        "threshold_absolute": 2e-06,
+        "tolerance_relaxed": false
+      },
+      {
+        "candidate": "baseline_clamp",
+        "case": "first_speech_in_frozen_panel",
+        "chunk_ms": 160,
+        "chunks": 16,
+        "emitted_samples": 122880,
+        "empty_calls_preserve_state": true,
+        "expected_samples": 122880,
+        "failure_reason": null,
+        "frames_per_chunk": 4,
+        "history_shapes": [
+          [
+            1,
+            64,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            2
+          ]
+        ],
+        "last_chunk_samples": 7680,
+        "latent_frames": 64,
+        "max_abs_batch_stream_difference": 1.1920928955078125e-07,
+        "passed": true,
+        "rms_batch_stream_difference": 8.229182251323404e-09,
+        "source_id": "2035-147960-0008",
+        "start_frame": 0,
+        "threshold_absolute": 2e-06,
+        "tolerance_relaxed": false
+      },
+      {
+        "candidate": "baseline_clamp",
+        "case": "previously_identified_laughter_peak",
+        "chunk_ms": 80,
+        "chunks": 47,
+        "emitted_samples": 178560,
+        "empty_calls_preserve_state": true,
+        "expected_samples": 178560,
+        "failure_reason": null,
+        "frames_per_chunk": 2,
+        "history_shapes": [
+          [
+            1,
+            64,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            2
+          ]
+        ],
+        "last_chunk_samples": 1920,
+        "latent_frames": 93,
+        "max_abs_batch_stream_difference": 1.7881393432617188e-06,
+        "passed": true,
+        "rms_batch_stream_difference": 7.893623993649195e-08,
+        "source_id": "freesound:25794",
+        "start_frame": 45,
+        "threshold_absolute": 2e-06,
+        "tolerance_relaxed": false
+      },
+      {
+        "candidate": "baseline_clamp",
+        "case": "previously_identified_laughter_peak",
+        "chunk_ms": 160,
+        "chunks": 24,
+        "emitted_samples": 178560,
+        "empty_calls_preserve_state": true,
+        "expected_samples": 178560,
+        "failure_reason": null,
+        "frames_per_chunk": 4,
+        "history_shapes": [
+          [
+            1,
+            64,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            2
+          ]
+        ],
+        "last_chunk_samples": 1920,
+        "latent_frames": 93,
+        "max_abs_batch_stream_difference": 5.960464477539062e-07,
+        "passed": true,
+        "rms_batch_stream_difference": 3.842880285347478e-08,
+        "source_id": "freesound:25794",
+        "start_frame": 45,
+        "threshold_absolute": 2e-06,
+        "tolerance_relaxed": false
+      },
+      {
+        "candidate": "shared_anchor_raw",
+        "case": "encoded_zero",
+        "chunk_ms": 80,
+        "chunks": 75,
+        "emitted_samples": 288000,
+        "empty_calls_preserve_state": true,
+        "expected_samples": 288000,
+        "failure_reason": null,
+        "frames_per_chunk": 2,
+        "history_shapes": [
+          [
+            1,
+            64,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            2
+          ]
+        ],
+        "last_chunk_samples": 3840,
+        "latent_frames": 150,
+        "max_abs_batch_stream_difference": 1.6842022887431085e-08,
+        "passed": true,
+        "rms_batch_stream_difference": 3.857333396253546e-09,
+        "source_id": "encoded_zero",
+        "start_frame": 0,
+        "threshold_absolute": 2e-06,
+        "tolerance_relaxed": false
+      },
+      {
+        "candidate": "shared_anchor_raw",
+        "case": "encoded_zero",
+        "chunk_ms": 160,
+        "chunks": 38,
+        "emitted_samples": 288000,
+        "empty_calls_preserve_state": true,
+        "expected_samples": 288000,
+        "failure_reason": null,
+        "frames_per_chunk": 4,
+        "history_shapes": [
+          [
+            1,
+            64,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            2
+          ]
+        ],
+        "last_chunk_samples": 3840,
+        "latent_frames": 150,
+        "max_abs_batch_stream_difference": 1.6727426555007696e-08,
+        "passed": true,
+        "rms_batch_stream_difference": 3.84069080935522e-09,
+        "source_id": "encoded_zero",
+        "start_frame": 0,
+        "threshold_absolute": 2e-06,
+        "tolerance_relaxed": false
+      },
+      {
+        "candidate": "shared_anchor_raw",
+        "case": "first_speech_in_frozen_panel",
+        "chunk_ms": 80,
+        "chunks": 32,
+        "emitted_samples": 122880,
+        "empty_calls_preserve_state": true,
+        "expected_samples": 122880,
+        "failure_reason": null,
+        "frames_per_chunk": 2,
+        "history_shapes": [
+          [
+            1,
+            64,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            2
+          ]
+        ],
+        "last_chunk_samples": 3840,
+        "latent_frames": 64,
+        "max_abs_batch_stream_difference": 8.940696716308594e-07,
+        "passed": true,
+        "rms_batch_stream_difference": 5.0609162305813787e-08,
+        "source_id": "2035-147960-0008",
+        "start_frame": 0,
+        "threshold_absolute": 2e-06,
+        "tolerance_relaxed": false
+      },
+      {
+        "candidate": "shared_anchor_raw",
+        "case": "first_speech_in_frozen_panel",
+        "chunk_ms": 160,
+        "chunks": 16,
+        "emitted_samples": 122880,
+        "empty_calls_preserve_state": true,
+        "expected_samples": 122880,
+        "failure_reason": null,
+        "frames_per_chunk": 4,
+        "history_shapes": [
+          [
+            1,
+            64,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            2
+          ]
+        ],
+        "last_chunk_samples": 7680,
+        "latent_frames": 64,
+        "max_abs_batch_stream_difference": 1.4901161193847656e-07,
+        "passed": true,
+        "rms_batch_stream_difference": 8.27468612088997e-09,
+        "source_id": "2035-147960-0008",
+        "start_frame": 0,
+        "threshold_absolute": 2e-06,
+        "tolerance_relaxed": false
+      },
+      {
+        "candidate": "shared_anchor_raw",
+        "case": "previously_identified_laughter_peak",
+        "chunk_ms": 80,
+        "chunks": 47,
+        "emitted_samples": 178560,
+        "empty_calls_preserve_state": true,
+        "expected_samples": 178560,
+        "failure_reason": "Batch-versus-stream maximum absolute difference exceeds 2e-6",
+        "frames_per_chunk": 2,
+        "history_shapes": [
+          [
+            1,
+            64,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            2
+          ]
+        ],
+        "last_chunk_samples": 1920,
+        "latent_frames": 93,
+        "max_abs_batch_stream_difference": 2.1457672119140625e-06,
+        "passed": false,
+        "rms_batch_stream_difference": 7.86802521213754e-08,
+        "source_id": "freesound:25794",
+        "start_frame": 45,
+        "threshold_absolute": 2e-06,
+        "tolerance_relaxed": false
+      },
+      {
+        "candidate": "shared_anchor_raw",
+        "case": "previously_identified_laughter_peak",
+        "chunk_ms": 160,
+        "chunks": 24,
+        "emitted_samples": 178560,
+        "empty_calls_preserve_state": true,
+        "expected_samples": 178560,
+        "failure_reason": null,
+        "frames_per_chunk": 4,
+        "history_shapes": [
+          [
+            1,
+            64,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            2
+          ]
+        ],
+        "last_chunk_samples": 1920,
+        "latent_frames": 93,
+        "max_abs_batch_stream_difference": 5.811452865600586e-07,
+        "passed": true,
+        "rms_batch_stream_difference": 3.830416647630285e-08,
+        "source_id": "freesound:25794",
+        "start_frame": 45,
+        "threshold_absolute": 2e-06,
+        "tolerance_relaxed": false
+      },
+      {
+        "candidate": "shared_anchor_clamp",
+        "case": "encoded_zero",
+        "chunk_ms": 80,
+        "chunks": 75,
+        "emitted_samples": 288000,
+        "empty_calls_preserve_state": true,
+        "expected_samples": 288000,
+        "failure_reason": null,
+        "frames_per_chunk": 2,
+        "history_shapes": [
+          [
+            1,
+            64,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            2
+          ]
+        ],
+        "last_chunk_samples": 3840,
+        "latent_frames": 150,
+        "max_abs_batch_stream_difference": 1.6842022887431085e-08,
+        "passed": true,
+        "rms_batch_stream_difference": 3.857333396253546e-09,
+        "source_id": "encoded_zero",
+        "start_frame": 0,
+        "threshold_absolute": 2e-06,
+        "tolerance_relaxed": false
+      },
+      {
+        "candidate": "shared_anchor_clamp",
+        "case": "encoded_zero",
+        "chunk_ms": 160,
+        "chunks": 38,
+        "emitted_samples": 288000,
+        "empty_calls_preserve_state": true,
+        "expected_samples": 288000,
+        "failure_reason": null,
+        "frames_per_chunk": 4,
+        "history_shapes": [
+          [
+            1,
+            64,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            2
+          ]
+        ],
+        "last_chunk_samples": 3840,
+        "latent_frames": 150,
+        "max_abs_batch_stream_difference": 1.6727426555007696e-08,
+        "passed": true,
+        "rms_batch_stream_difference": 3.84069080935522e-09,
+        "source_id": "encoded_zero",
+        "start_frame": 0,
+        "threshold_absolute": 2e-06,
+        "tolerance_relaxed": false
+      },
+      {
+        "candidate": "shared_anchor_clamp",
+        "case": "first_speech_in_frozen_panel",
+        "chunk_ms": 80,
+        "chunks": 32,
+        "emitted_samples": 122880,
+        "empty_calls_preserve_state": true,
+        "expected_samples": 122880,
+        "failure_reason": null,
+        "frames_per_chunk": 2,
+        "history_shapes": [
+          [
+            1,
+            64,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            2
+          ]
+        ],
+        "last_chunk_samples": 3840,
+        "latent_frames": 64,
+        "max_abs_batch_stream_difference": 8.940696716308594e-07,
+        "passed": true,
+        "rms_batch_stream_difference": 5.0609162305813787e-08,
+        "source_id": "2035-147960-0008",
+        "start_frame": 0,
+        "threshold_absolute": 2e-06,
+        "tolerance_relaxed": false
+      },
+      {
+        "candidate": "shared_anchor_clamp",
+        "case": "first_speech_in_frozen_panel",
+        "chunk_ms": 160,
+        "chunks": 16,
+        "emitted_samples": 122880,
+        "empty_calls_preserve_state": true,
+        "expected_samples": 122880,
+        "failure_reason": null,
+        "frames_per_chunk": 4,
+        "history_shapes": [
+          [
+            1,
+            64,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            2
+          ]
+        ],
+        "last_chunk_samples": 7680,
+        "latent_frames": 64,
+        "max_abs_batch_stream_difference": 1.4901161193847656e-07,
+        "passed": true,
+        "rms_batch_stream_difference": 8.27468612088997e-09,
+        "source_id": "2035-147960-0008",
+        "start_frame": 0,
+        "threshold_absolute": 2e-06,
+        "tolerance_relaxed": false
+      },
+      {
+        "candidate": "shared_anchor_clamp",
+        "case": "previously_identified_laughter_peak",
+        "chunk_ms": 80,
+        "chunks": 47,
+        "emitted_samples": 178560,
+        "empty_calls_preserve_state": true,
+        "expected_samples": 178560,
+        "failure_reason": null,
+        "frames_per_chunk": 2,
+        "history_shapes": [
+          [
+            1,
+            64,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            2
+          ]
+        ],
+        "last_chunk_samples": 1920,
+        "latent_frames": 93,
+        "max_abs_batch_stream_difference": 1.8477439880371094e-06,
+        "passed": true,
+        "rms_batch_stream_difference": 7.720478535018424e-08,
+        "source_id": "freesound:25794",
+        "start_frame": 45,
+        "threshold_absolute": 2e-06,
+        "tolerance_relaxed": false
+      },
+      {
+        "candidate": "shared_anchor_clamp",
+        "case": "previously_identified_laughter_peak",
+        "chunk_ms": 160,
+        "chunks": 24,
+        "emitted_samples": 178560,
+        "empty_calls_preserve_state": true,
+        "expected_samples": 178560,
+        "failure_reason": null,
+        "frames_per_chunk": 4,
+        "history_shapes": [
+          [
+            1,
+            64,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            2
+          ]
+        ],
+        "last_chunk_samples": 1920,
+        "latent_frames": 93,
+        "max_abs_batch_stream_difference": 5.811452865600586e-07,
+        "passed": true,
+        "rms_batch_stream_difference": 3.8155319270298556e-08,
+        "source_id": "freesound:25794",
+        "start_frame": 45,
+        "threshold_absolute": 2e-06,
+        "tolerance_relaxed": false
+      },
+      {
+        "candidate": "full_anchor_raw",
+        "case": "encoded_zero",
+        "chunk_ms": 80,
+        "chunks": 75,
+        "emitted_samples": 288000,
+        "empty_calls_preserve_state": true,
+        "expected_samples": 288000,
+        "failure_reason": null,
+        "frames_per_chunk": 2,
+        "history_shapes": [
+          [
+            1,
+            64,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            2
+          ]
+        ],
+        "last_chunk_samples": 3840,
+        "latent_frames": 150,
+        "max_abs_batch_stream_difference": 1.64955054060556e-08,
+        "passed": true,
+        "rms_batch_stream_difference": 3.861879717244458e-09,
+        "source_id": "encoded_zero",
+        "start_frame": 0,
+        "threshold_absolute": 2e-06,
+        "tolerance_relaxed": false
+      },
+      {
+        "candidate": "full_anchor_raw",
+        "case": "encoded_zero",
+        "chunk_ms": 160,
+        "chunks": 38,
+        "emitted_samples": 288000,
+        "empty_calls_preserve_state": true,
+        "expected_samples": 288000,
+        "failure_reason": null,
+        "frames_per_chunk": 4,
+        "history_shapes": [
+          [
+            1,
+            64,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            2
+          ]
+        ],
+        "last_chunk_samples": 3840,
+        "latent_frames": 150,
+        "max_abs_batch_stream_difference": 1.6749254427850246e-08,
+        "passed": true,
+        "rms_batch_stream_difference": 3.83854756820283e-09,
+        "source_id": "encoded_zero",
+        "start_frame": 0,
+        "threshold_absolute": 2e-06,
+        "tolerance_relaxed": false
+      },
+      {
+        "candidate": "full_anchor_raw",
+        "case": "first_speech_in_frozen_panel",
+        "chunk_ms": 80,
+        "chunks": 32,
+        "emitted_samples": 122880,
+        "empty_calls_preserve_state": true,
+        "expected_samples": 122880,
+        "failure_reason": null,
+        "frames_per_chunk": 2,
+        "history_shapes": [
+          [
+            1,
+            64,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            2
+          ]
+        ],
+        "last_chunk_samples": 3840,
+        "latent_frames": 64,
+        "max_abs_batch_stream_difference": 8.642673492431641e-07,
+        "passed": true,
+        "rms_batch_stream_difference": 4.99072194247752e-08,
+        "source_id": "2035-147960-0008",
+        "start_frame": 0,
+        "threshold_absolute": 2e-06,
+        "tolerance_relaxed": false
+      },
+      {
+        "candidate": "full_anchor_raw",
+        "case": "first_speech_in_frozen_panel",
+        "chunk_ms": 160,
+        "chunks": 16,
+        "emitted_samples": 122880,
+        "empty_calls_preserve_state": true,
+        "expected_samples": 122880,
+        "failure_reason": null,
+        "frames_per_chunk": 4,
+        "history_shapes": [
+          [
+            1,
+            64,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            2
+          ]
+        ],
+        "last_chunk_samples": 7680,
+        "latent_frames": 64,
+        "max_abs_batch_stream_difference": 8.940696716308594e-08,
+        "passed": true,
+        "rms_batch_stream_difference": 8.246240631647499e-09,
+        "source_id": "2035-147960-0008",
+        "start_frame": 0,
+        "threshold_absolute": 2e-06,
+        "tolerance_relaxed": false
+      },
+      {
+        "candidate": "full_anchor_raw",
+        "case": "previously_identified_laughter_peak",
+        "chunk_ms": 80,
+        "chunks": 47,
+        "emitted_samples": 178560,
+        "empty_calls_preserve_state": true,
+        "expected_samples": 178560,
+        "failure_reason": null,
+        "frames_per_chunk": 2,
+        "history_shapes": [
+          [
+            1,
+            64,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            2
+          ]
+        ],
+        "last_chunk_samples": 1920,
+        "latent_frames": 93,
+        "max_abs_batch_stream_difference": 1.9669532775878906e-06,
+        "passed": true,
+        "rms_batch_stream_difference": 7.910764833875122e-08,
+        "source_id": "freesound:25794",
+        "start_frame": 45,
+        "threshold_absolute": 2e-06,
+        "tolerance_relaxed": false
+      },
+      {
+        "candidate": "full_anchor_raw",
+        "case": "previously_identified_laughter_peak",
+        "chunk_ms": 160,
+        "chunks": 24,
+        "emitted_samples": 178560,
+        "empty_calls_preserve_state": true,
+        "expected_samples": 178560,
+        "failure_reason": null,
+        "frames_per_chunk": 4,
+        "history_shapes": [
+          [
+            1,
+            64,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            2
+          ]
+        ],
+        "last_chunk_samples": 1920,
+        "latent_frames": 93,
+        "max_abs_batch_stream_difference": 5.960464477539062e-07,
+        "passed": true,
+        "rms_batch_stream_difference": 3.8457831777901984e-08,
+        "source_id": "freesound:25794",
+        "start_frame": 45,
+        "threshold_absolute": 2e-06,
+        "tolerance_relaxed": false
+      },
+      {
+        "candidate": "full_anchor_clamp",
+        "case": "encoded_zero",
+        "chunk_ms": 80,
+        "chunks": 75,
+        "emitted_samples": 288000,
+        "empty_calls_preserve_state": true,
+        "expected_samples": 288000,
+        "failure_reason": null,
+        "frames_per_chunk": 2,
+        "history_shapes": [
+          [
+            1,
+            64,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            2
+          ]
+        ],
+        "last_chunk_samples": 3840,
+        "latent_frames": 150,
+        "max_abs_batch_stream_difference": 1.64955054060556e-08,
+        "passed": true,
+        "rms_batch_stream_difference": 3.861879717244458e-09,
+        "source_id": "encoded_zero",
+        "start_frame": 0,
+        "threshold_absolute": 2e-06,
+        "tolerance_relaxed": false
+      },
+      {
+        "candidate": "full_anchor_clamp",
+        "case": "encoded_zero",
+        "chunk_ms": 160,
+        "chunks": 38,
+        "emitted_samples": 288000,
+        "empty_calls_preserve_state": true,
+        "expected_samples": 288000,
+        "failure_reason": null,
+        "frames_per_chunk": 4,
+        "history_shapes": [
+          [
+            1,
+            64,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            2
+          ]
+        ],
+        "last_chunk_samples": 3840,
+        "latent_frames": 150,
+        "max_abs_batch_stream_difference": 1.6749254427850246e-08,
+        "passed": true,
+        "rms_batch_stream_difference": 3.83854756820283e-09,
+        "source_id": "encoded_zero",
+        "start_frame": 0,
+        "threshold_absolute": 2e-06,
+        "tolerance_relaxed": false
+      },
+      {
+        "candidate": "full_anchor_clamp",
+        "case": "first_speech_in_frozen_panel",
+        "chunk_ms": 80,
+        "chunks": 32,
+        "emitted_samples": 122880,
+        "empty_calls_preserve_state": true,
+        "expected_samples": 122880,
+        "failure_reason": null,
+        "frames_per_chunk": 2,
+        "history_shapes": [
+          [
+            1,
+            64,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            2
+          ]
+        ],
+        "last_chunk_samples": 3840,
+        "latent_frames": 64,
+        "max_abs_batch_stream_difference": 8.642673492431641e-07,
+        "passed": true,
+        "rms_batch_stream_difference": 4.99072194247752e-08,
+        "source_id": "2035-147960-0008",
+        "start_frame": 0,
+        "threshold_absolute": 2e-06,
+        "tolerance_relaxed": false
+      },
+      {
+        "candidate": "full_anchor_clamp",
+        "case": "first_speech_in_frozen_panel",
+        "chunk_ms": 160,
+        "chunks": 16,
+        "emitted_samples": 122880,
+        "empty_calls_preserve_state": true,
+        "expected_samples": 122880,
+        "failure_reason": null,
+        "frames_per_chunk": 4,
+        "history_shapes": [
+          [
+            1,
+            64,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            2
+          ]
+        ],
+        "last_chunk_samples": 7680,
+        "latent_frames": 64,
+        "max_abs_batch_stream_difference": 8.940696716308594e-08,
+        "passed": true,
+        "rms_batch_stream_difference": 8.246240631647499e-09,
+        "source_id": "2035-147960-0008",
+        "start_frame": 0,
+        "threshold_absolute": 2e-06,
+        "tolerance_relaxed": false
+      },
+      {
+        "candidate": "full_anchor_clamp",
+        "case": "previously_identified_laughter_peak",
+        "chunk_ms": 80,
+        "chunks": 47,
+        "emitted_samples": 178560,
+        "empty_calls_preserve_state": true,
+        "expected_samples": 178560,
+        "failure_reason": null,
+        "frames_per_chunk": 2,
+        "history_shapes": [
+          [
+            1,
+            64,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            2
+          ]
+        ],
+        "last_chunk_samples": 1920,
+        "latent_frames": 93,
+        "max_abs_batch_stream_difference": 1.9669532775878906e-06,
+        "passed": true,
+        "rms_batch_stream_difference": 7.805078022885622e-08,
+        "source_id": "freesound:25794",
+        "start_frame": 45,
+        "threshold_absolute": 2e-06,
+        "tolerance_relaxed": false
+      },
+      {
+        "candidate": "full_anchor_clamp",
+        "case": "previously_identified_laughter_peak",
+        "chunk_ms": 160,
+        "chunks": 24,
+        "emitted_samples": 178560,
+        "empty_calls_preserve_state": true,
+        "expected_samples": 178560,
+        "failure_reason": null,
+        "frames_per_chunk": 4,
+        "history_shapes": [
+          [
+            1,
+            64,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            12
+          ],
+          [
+            1,
+            512,
+            24
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            6
+          ],
+          [
+            1,
+            512,
+            2
+          ]
+        ],
+        "last_chunk_samples": 1920,
+        "latent_frames": 93,
+        "max_abs_batch_stream_difference": 5.960464477539062e-07,
+        "passed": true,
+        "rms_batch_stream_difference": 3.8279446883600066e-08,
+        "source_id": "freesound:25794",
+        "start_frame": 45,
+        "threshold_absolute": 2e-06,
+        "tolerance_relaxed": false
+      }
+    ],
+    "teacher_or_encoder_execution": false,
+    "timing": {
+      "concatenation_and_quality_checks_in_timing": false,
+      "conditions": {
+        "2_clamp": {
+          "chunk_ms": 80,
+          "frames_per_chunk": 2,
+          "measurements": [
+            {
+              "audio_seconds": 3.0,
+              "rtf": 0.2214434171716372,
+              "samples": 144000,
+              "seconds": 0.6643302515149117
+            },
+            {
+              "audio_seconds": 3.0,
+              "rtf": 0.2208267350991567,
+              "samples": 144000,
+              "seconds": 0.6624802052974701
+            },
+            {
+              "audio_seconds": 3.0,
+              "rtf": 0.22124970455964407,
+              "samples": 144000,
+              "seconds": 0.6637491136789322
+            },
+            {
+              "audio_seconds": 3.0,
+              "rtf": 0.2203498805562655,
+              "samples": 144000,
+              "seconds": 0.6610496416687965
+            },
+            {
+              "audio_seconds": 3.0,
+              "rtf": 0.22192785143852234,
+              "samples": 144000,
+              "seconds": 0.665783554315567
+            }
+          ],
+          "mode": "clamp",
+          "rtf_median": 0.22124970455964407,
+          "rtf_ratio_to_same_chunk_raw": 1.00197539652541,
+          "seconds_median": 0.6637491136789322
+        },
+        "2_raw": {
+          "chunk_ms": 80,
+          "frames_per_chunk": 2,
+          "measurements": [
+            {
+              "audio_seconds": 3.0,
+              "rtf": 0.22081351031859717,
+              "samples": 144000,
+              "seconds": 0.6624405309557915
+            },
+            {
+              "audio_seconds": 3.0,
+              "rtf": 0.22067133088906607,
+              "samples": 144000,
+              "seconds": 0.6620139926671982
+            },
+            {
+              "audio_seconds": 3.0,
+              "rtf": 0.22276072949171066,
+              "samples": 144000,
+              "seconds": 0.668282188475132
+            },
+            {
+              "audio_seconds": 3.0,
+              "rtf": 0.22115100175142288,
+              "samples": 144000,
+              "seconds": 0.6634530052542686
+            },
+            {
+              "audio_seconds": 3.0,
+              "rtf": 0.22071309884389242,
+              "samples": 144000,
+              "seconds": 0.6621392965316772
+            }
+          ],
+          "mode": "raw",
+          "rtf_median": 0.22081351031859717,
+          "rtf_ratio_to_same_chunk_raw": 1.0,
+          "seconds_median": 0.6624405309557915
+        },
+        "2_tanh": {
+          "chunk_ms": 80,
+          "frames_per_chunk": 2,
+          "measurements": [
+            {
+              "audio_seconds": 3.0,
+              "rtf": 0.2222946435213089,
+              "samples": 144000,
+              "seconds": 0.6668839305639267
+            },
+            {
+              "audio_seconds": 3.0,
+              "rtf": 0.22140107303857803,
+              "samples": 144000,
+              "seconds": 0.6642032191157341
+            },
+            {
+              "audio_seconds": 3.0,
+              "rtf": 0.22226272771755853,
+              "samples": 144000,
+              "seconds": 0.6667881831526756
+            },
+            {
+              "audio_seconds": 3.0,
+              "rtf": 0.22072137147188187,
+              "samples": 144000,
+              "seconds": 0.6621641144156456
+            },
+            {
+              "audio_seconds": 3.0,
+              "rtf": 0.22085407127936682,
+              "samples": 144000,
+              "seconds": 0.6625622138381004
+            }
+          ],
+          "mode": "tanh",
+          "rtf_median": 0.22140107303857803,
+          "rtf_ratio_to_same_chunk_raw": 1.0026609002281297,
+          "seconds_median": 0.6642032191157341
+        },
+        "4_clamp": {
+          "chunk_ms": 160,
+          "frames_per_chunk": 4,
+          "measurements": [
+            {
+              "audio_seconds": 3.0,
+              "rtf": 0.11703389634688695,
+              "samples": 144000,
+              "seconds": 0.35110168904066086
+            },
+            {
+              "audio_seconds": 3.0,
+              "rtf": 0.11687019467353821,
+              "samples": 144000,
+              "seconds": 0.3506105840206146
+            },
+            {
+              "audio_seconds": 3.0,
+              "rtf": 0.1174143801132838,
+              "samples": 144000,
+              "seconds": 0.3522431403398514
+            },
+            {
+              "audio_seconds": 3.0,
+              "rtf": 0.11500998834768932,
+              "samples": 144000,
+              "seconds": 0.34502996504306793
+            },
+            {
+              "audio_seconds": 3.0,
+              "rtf": 0.1169611985484759,
+              "samples": 144000,
+              "seconds": 0.3508835956454277
+            }
+          ],
+          "mode": "clamp",
+          "rtf_median": 0.1169611985484759,
+          "rtf_ratio_to_same_chunk_raw": 1.0319244088644164,
+          "seconds_median": 0.3508835956454277
+        },
+        "4_raw": {
+          "chunk_ms": 160,
+          "frames_per_chunk": 4,
+          "measurements": [
+            {
+              "audio_seconds": 3.0,
+              "rtf": 0.11119448145230611,
+              "samples": 144000,
+              "seconds": 0.33358344435691833
+            },
+            {
+              "audio_seconds": 3.0,
+              "rtf": 0.11403804272413254,
+              "samples": 144000,
+              "seconds": 0.3421141281723976
+            },
+            {
+              "audio_seconds": 3.0,
+              "rtf": 0.12216353168090184,
+              "samples": 144000,
+              "seconds": 0.36649059504270554
+            },
+            {
+              "audio_seconds": 3.0,
+              "rtf": 0.1116123100121816,
+              "samples": 144000,
+              "seconds": 0.3348369300365448
+            },
+            {
+              "audio_seconds": 3.0,
+              "rtf": 0.11334279676278432,
+              "samples": 144000,
+              "seconds": 0.34002839028835297
+            }
+          ],
+          "mode": "raw",
+          "rtf_median": 0.11334279676278432,
+          "rtf_ratio_to_same_chunk_raw": 1.0,
+          "seconds_median": 0.34002839028835297
+        },
+        "4_tanh": {
+          "chunk_ms": 160,
+          "frames_per_chunk": 4,
+          "measurements": [
+            {
+              "audio_seconds": 3.0,
+              "rtf": 0.11123060186704,
+              "samples": 144000,
+              "seconds": 0.33369180560112
+            },
+            {
+              "audio_seconds": 3.0,
+              "rtf": 0.11187174916267395,
+              "samples": 144000,
+              "seconds": 0.33561524748802185
+            },
+            {
+              "audio_seconds": 3.0,
+              "rtf": 0.11317013949155807,
+              "samples": 144000,
+              "seconds": 0.3395104184746742
+            },
+            {
+              "audio_seconds": 3.0,
+              "rtf": 0.11367401480674744,
+              "samples": 144000,
+              "seconds": 0.3410220444202423
+            },
+            {
+              "audio_seconds": 3.0,
+              "rtf": 0.11173777530590694,
+              "samples": 144000,
+              "seconds": 0.3352133259177208
+            }
+          ],
+          "mode": "tanh",
+          "rtf_median": 0.11187174916267395,
+          "rtf_ratio_to_same_chunk_raw": 0.9870212519707879,
+          "seconds_median": 0.33561524748802185
+        }
+      },
+      "initial_state_included_once_per_utterance": true,
+      "interleaved_order": [
+        {
+          "condition": "4_raw",
+          "repeat": 0
+        },
+        {
+          "condition": "4_tanh",
+          "repeat": 0
+        },
+        {
+          "condition": "2_raw",
+          "repeat": 0
+        },
+        {
+          "condition": "2_clamp",
+          "repeat": 0
+        },
+        {
+          "condition": "4_clamp",
+          "repeat": 0
+        },
+        {
+          "condition": "2_tanh",
+          "repeat": 0
+        },
+        {
+          "condition": "4_clamp",
+          "repeat": 1
+        },
+        {
+          "condition": "2_raw",
+          "repeat": 1
+        },
+        {
+          "condition": "4_raw",
+          "repeat": 1
+        },
+        {
+          "condition": "4_tanh",
+          "repeat": 1
+        },
+        {
+          "condition": "2_clamp",
+          "repeat": 1
+        },
+        {
+          "condition": "2_tanh",
+          "repeat": 1
+        },
+        {
+          "condition": "2_clamp",
+          "repeat": 2
+        },
+        {
+          "condition": "4_raw",
+          "repeat": 2
+        },
+        {
+          "condition": "2_tanh",
+          "repeat": 2
+        },
+        {
+          "condition": "2_raw",
+          "repeat": 2
+        },
+        {
+          "condition": "4_clamp",
+          "repeat": 2
+        },
+        {
+          "condition": "4_tanh",
+          "repeat": 2
+        },
+        {
+          "condition": "4_clamp",
+          "repeat": 3
+        },
+        {
+          "condition": "4_raw",
+          "repeat": 3
+        },
+        {
+          "condition": "2_clamp",
+          "repeat": 3
+        },
+        {
+          "condition": "2_raw",
+          "repeat": 3
+        },
+        {
+          "condition": "4_tanh",
+          "repeat": 3
+        },
+        {
+          "condition": "2_tanh",
+          "repeat": 3
+        },
+        {
+          "condition": "4_clamp",
+          "repeat": 4
+        },
+        {
+          "condition": "4_raw",
+          "repeat": 4
+        },
+        {
+          "condition": "4_tanh",
+          "repeat": 4
+        },
+        {
+          "condition": "2_tanh",
+          "repeat": 4
+        },
+        {
+          "condition": "2_clamp",
+          "repeat": 4
+        },
+        {
+          "condition": "2_raw",
+          "repeat": 4
+        }
+      ],
+      "latent_sha256": "4378ecec12d222cf42bcf268b5baac3a9ecf716945603bc87d44259fdbf5c23e",
+      "latent_shape": [
+        1,
+        64,
+        75
+      ],
+      "repeats": 5,
+      "source_id": "2035-147960-0008",
+      "start_frame": 46,
+      "warmup_per_condition": 2,
+      "weights": "unchanged baseline for every mode"
+    },
+    "version": 2
+  }
+}

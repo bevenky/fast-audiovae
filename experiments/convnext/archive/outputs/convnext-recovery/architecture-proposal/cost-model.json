@@ -1,0 +1,24 @@
+{
+  "scope": "Unselected earlier custom-head hypothesis, not the current recommendation. See literature-review.md. Analytical MAC counts only. No models instantiated or benchmarked. Bias, normalization, activation, padding, reshape and memory work excluded.",
+  "unchanged_mac_per_second": {
+    "adapter": 409600,
+    "stem": 22937600,
+    "ten_blocks": 2100736000
+  },
+  "current_head_mac_per_second": {
+    "head_causal": 314572800,
+    "output_linear": 98304000
+  },
+  "candidate_head_mac_per_second": {
+    "head_causal": 294912000,
+    "local_causal": 18432000,
+    "synthesis": 3072000
+  },
+  "current_decoder_mac_per_second": 2536960000,
+  "candidate_decoder_mac_per_second": 2440499200,
+  "head_reduction_percent": 23.363095238095237,
+  "decoder_reduction_percent": 3.802219979818365,
+  "additional_state_floats": 72,
+  "additional_state_bytes_fp32": 288,
+  "samples_per_latent": 1920
+}

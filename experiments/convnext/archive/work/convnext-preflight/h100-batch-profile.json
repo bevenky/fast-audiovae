@@ -1,0 +1,2230 @@
+{
+  "archive_projection_version": 1,
+  "original_relative_path": "work/convnext-preflight/h100-batch-profile.json",
+  "original_sha256": "569fe047da4766cb764f3815c13cd02b673f8f12af913b5b77261f3582113c41",
+  "omitted_field_paths": [
+    "cases[0].step_seconds",
+    "cases[0].loss_groups_per_update",
+    "cases[1].step_seconds",
+    "cases[1].loss_groups_per_update",
+    "cases[2].step_seconds",
+    "cases[2].loss_groups_per_update",
+    "cases[3].step_seconds",
+    "cases[3].loss_groups_per_update"
+  ],
+  "note": "Labelled projection. Omitted numerical payloads and listed bulk report collections remain outside Git; configuration metadata is retained.",
+  "report": {
+    "purpose": "Disposable student training throughput, no inference RTF and no quality evaluation",
+    "checkpoint_sha256": "ba999a89e8d87f9da91fd00fa1ddde04398a353a5a1ecc6e23aa36f9bd30605f",
+    "checkpoint_step": 1000,
+    "torch": "2.11.0+cu128",
+    "cuda": "12.8",
+    "device": "NVIDIA H100 NVL",
+    "threads": 1,
+    "device_total_memory_gib": 93.095947265625,
+    "tf32_matmul": false,
+    "tf32_cudnn": false,
+    "autocast": false,
+    "cudnn_deterministic": false,
+    "cudnn_benchmark": false,
+    "deterministic_algorithms": false,
+    "environment_cublas_workspace_config": ":4096:8",
+    "checkpoint_runtime": {
+      "cuda_device": "NVIDIA H100 NVL",
+      "cuda_runtime": "12.8",
+      "cudnn_benchmark": false,
+      "cudnn_deterministic": false,
+      "cudnn_tf32": false,
+      "default_dtype": "torch.float32",
+      "deterministic_algorithms": false,
+      "matmul_tf32": false,
+      "num_interop_threads": 96,
+      "num_threads": 1,
+      "numpy_version": "2.5.3",
+      "torch_version": "2.11.0+cu128"
+    },
+    "train_caches": 230,
+    "dev_caches": 25,
+    "data_fingerprint": "b4921381bbf566b3ae7593489d792bd0e10d1c874f253d6178c2718e973844e8",
+    "loss_config": {
+      "log_epsilon": 1e-05,
+      "reference_fft_sizes_16k": [
+        256,
+        512,
+        1024
+      ],
+      "reference_spectral_weight": 45.0,
+      "teacher_fft_sizes": [
+        1024,
+        2048,
+        4096
+      ],
+      "teacher_spectral_weight": 15.0,
+      "teacher_waveform_weight": 1.0
+    },
+    "training_config": {
+      "accumulation_steps": 8,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "checkpoint_interval": 100,
+      "context_frames": 29,
+      "grad_clip_norm": 1.0,
+      "learning_rate": 0.0002,
+      "max_cached_utterances": 8,
+      "optimizer": "muon_adamw",
+      "scored_frames": 64,
+      "seed": 7,
+      "total_steps": 1000,
+      "validation_interval": 100,
+      "warmup_steps": 100,
+      "weight_decay": 0.01
+    },
+    "optimizer": "same native Muon twenty hidden matrices plus complementary AdamW, restored step1000 state",
+    "load": {
+      "checkpoint_and_verified_index_seconds": 1.5079929009079933,
+      "preload_train_caches_seconds": 1.4635999873280525,
+      "prepare_fixed_crops_seconds": 2.985636256635189,
+      "fixed_crops": 4224
+    },
+    "timing_scope": "CPU crop tensors preloaded; includes CPU-to-CUDA transfers, model forward, losses, backward, gradient clipping, optimizer and checks; excludes disk reads, sampling, checkpoint writes, dev and TensorBoard",
+    "cases": [
+      {
+        "name": "serial8_existing_checks",
+        "status": "passed_finite_checks",
+        "batch_size": 8,
+        "model_microbatch": 1,
+        "warmup_updates": 2,
+        "measured_updates": 24,
+        "initial_adamw_steps": [
+          1000.0
+        ],
+        "first_update_loss_before_weight_change": {
+          "total": 35.16428351402283,
+          "teacher_spectral": 0.38555474393069744,
+          "teacher_waveform": 0.03369314654264599,
+          "reference_spectral": 0.6521615274250507
+        },
+        "mean_step_seconds": 0.13864566572010517,
+        "median_step_seconds": 0.13632015883922577,
+        "examples_per_second": 57.701046465817576,
+        "scored_audio_seconds_per_second": 135.63201971729407,
+        "baseline_allocated_gib": 0.3657841682434082,
+        "peak_allocated_gib": 0.6114888191223145,
+        "peak_reserved_gib": 0.6796875,
+        "actual_measured_scored_audio_seconds": 451.315,
+        "padded_latent_frames": 0,
+        "losses": [
+          {
+            "total": 29.74798983335495,
+            "teacher_spectral": 0.33430985547602177,
+            "teacher_waveform": 0.02792811192193767,
+            "reference_spectral": 0.5490091880783439
+          },
+          {
+            "total": 31.313835501670837,
+            "teacher_spectral": 0.3059167508035898,
+            "teacher_waveform": 0.01916047345730476,
+            "reference_spectral": 0.5934649854898453
+          },
+          {
+            "total": 25.9242841899395,
+            "teacher_spectral": 0.27094514202326536,
+            "teacher_waveform": 0.023641958943699137,
+            "reference_spectral": 0.4852547999471426
+          },
+          {
+            "total": 37.96664214134216,
+            "teacher_spectral": 0.42480073496699333,
+            "teacher_waveform": 0.03606739023234695,
+            "reference_spectral": 0.7013013884425163
+          },
+          {
+            "total": 36.17624568939209,
+            "teacher_spectral": 0.38920870050787926,
+            "teacher_waveform": 0.035185982822440565,
+            "reference_spectral": 0.6733984425663948
+          },
+          {
+            "total": 33.70687770843506,
+            "teacher_spectral": 0.35000173933804035,
+            "teacher_waveform": 0.023421146906912327,
+            "reference_spectral": 0.6318540051579475
+          },
+          {
+            "total": 25.92215323448181,
+            "teacher_spectral": 0.25869189063087106,
+            "teacher_waveform": 0.01495022552262526,
+            "reference_spectral": 0.48948499746620655
+          },
+          {
+            "total": 30.59661376476288,
+            "teacher_spectral": 0.33928379882127047,
+            "teacher_waveform": 0.02990300572128035,
+            "reference_spectral": 0.5661656372249126
+          },
+          {
+            "total": 33.15331172943115,
+            "teacher_spectral": 0.35919245332479477,
+            "teacher_waveform": 0.02497810634667985,
+            "reference_spectral": 0.6164543852210045
+          },
+          {
+            "total": 26.33293291926384,
+            "teacher_spectral": 0.3051760923117399,
+            "teacher_waveform": 0.022947610819755937,
+            "reference_spectral": 0.4829409774392843
+          },
+          {
+            "total": 33.125739097595215,
+            "teacher_spectral": 0.34022244065999985,
+            "teacher_waveform": 0.02705487059574807,
+            "reference_spectral": 0.6221188362687826
+          },
+          {
+            "total": 36.581092834472656,
+            "teacher_spectral": 0.41254238225519657,
+            "teacher_waveform": 0.03792742168297991,
+            "reference_spectral": 0.6745562106370926
+          },
+          {
+            "total": 34.21755677461624,
+            "teacher_spectral": 0.3674326390028,
+            "teacher_waveform": 0.03602974350360455,
+            "reference_spectral": 0.6371119469404221
+          },
+          {
+            "total": 29.74026894569397,
+            "teacher_spectral": 0.29635902075096965,
+            "teacher_waveform": 0.02575684545445256,
+            "reference_spectral": 0.5615361537784338
+          },
+          {
+            "total": 23.93962597846985,
+            "teacher_spectral": 0.2157436809502542,
+            "teacher_waveform": 0.014278424954682123,
+            "reference_spectral": 0.4597598426043987
+          },
+          {
+            "total": 32.695982694625854,
+            "teacher_spectral": 0.3427514676004648,
+            "teacher_waveform": 0.02452430408447981,
+            "reference_spectral": 0.6117819249629974
+          },
+          {
+            "total": 34.978750348091125,
+            "teacher_spectral": 0.3996934648603201,
+            "teacher_waveform": 0.04051718633854762,
+            "reference_spectral": 0.6431740205734968
+          },
+          {
+            "total": 30.310354709625244,
+            "teacher_spectral": 0.3007455198094249,
+            "teacher_waveform": 0.020281309669371694,
+            "reference_spectral": 0.572864219546318
+          },
+          {
+            "total": 24.02851152420044,
+            "teacher_spectral": 0.21620880044065416,
+            "teacher_waveform": 0.01363678672532842,
+            "reference_spectral": 0.4615942700766027
+          },
+          {
+            "total": 30.454266726970673,
+            "teacher_spectral": 0.3451388638932258,
+            "teacher_waveform": 0.02288766332458181,
+            "reference_spectral": 0.5612065782770514
+          },
+          {
+            "total": 31.259303629398346,
+            "teacher_spectral": 0.3200824735686183,
+            "teacher_waveform": 0.024852624133927748,
+            "reference_spectral": 0.5874047502875328
+          },
+          {
+            "total": 29.990797758102417,
+            "teacher_spectral": 0.3243719656020403,
+            "teacher_waveform": 0.02402040314336773,
+            "reference_spectral": 0.5578043907880783
+          },
+          {
+            "total": 29.441206991672516,
+            "teacher_spectral": 0.2793723503127694,
+            "teacher_waveform": 0.032339041856175754,
+            "reference_spectral": 0.5604062899947166
+          },
+          {
+            "total": 29.143385767936707,
+            "teacher_spectral": 0.26888373028486967,
+            "teacher_waveform": 0.02202952702282346,
+            "reference_spectral": 0.5575133301317692
+          }
+        ],
+        "utilization": {
+          "query_period_ms": 100,
+          "excluded_initial_measured_seconds": 1,
+          "samples": [
+            {
+              "time": 39998595.588974245,
+              "gpu_percent": 42.0,
+              "memory_percent": 2.0,
+              "memory_used_mib": 1411.0
+            },
+            {
+              "time": 39998595.689261176,
+              "gpu_percent": 42.0,
+              "memory_percent": 2.0,
+              "memory_used_mib": 1411.0
+            },
+            {
+              "time": 39998595.789528415,
+              "gpu_percent": 38.0,
+              "memory_percent": 2.0,
+              "memory_used_mib": 1411.0
+            },
+            {
+              "time": 39998595.88972923,
+              "gpu_percent": 38.0,
+              "memory_percent": 2.0,
+              "memory_used_mib": 1411.0
+            },
+            {
+              "time": 39998595.98995395,
+              "gpu_percent": 45.0,
+              "memory_percent": 2.0,
+              "memory_used_mib": 1411.0
+            },
+            {
+              "time": 39998596.09028178,
+              "gpu_percent": 45.0,
+              "memory_percent": 2.0,
+              "memory_used_mib": 1411.0
+            },
+            {
+              "time": 39998596.19051139,
+              "gpu_percent": 44.0,
+              "memory_percent": 2.0,
+              "memory_used_mib": 1411.0
+            },
+            {
+              "time": 39998596.29073828,
+              "gpu_percent": 44.0,
+              "memory_percent": 2.0,
+              "memory_used_mib": 1413.0
+            },
+            {
+              "time": 39998596.39097529,
+              "gpu_percent": 47.0,
+              "memory_percent": 2.0,
+              "memory_used_mib": 1413.0
+            },
+            {
+              "time": 39998596.49126427,
+              "gpu_percent": 47.0,
+              "memory_percent": 2.0,
+              "memory_used_mib": 1413.0
+            },
+            {
+              "time": 39998596.59149459,
+              "gpu_percent": 45.0,
+              "memory_percent": 2.0,
+              "memory_used_mib": 1413.0
+            },
+            {
+              "time": 39998596.691724055,
+              "gpu_percent": 45.0,
+              "memory_percent": 2.0,
+              "memory_used_mib": 1413.0
+            },
+            {
+              "time": 39998596.791954435,
+              "gpu_percent": 40.0,
+              "memory_percent": 2.0,
+              "memory_used_mib": 1413.0
+            },
+            {
+              "time": 39998596.89227029,
+              "gpu_percent": 40.0,
+              "memory_percent": 2.0,
+              "memory_used_mib": 1413.0
+            },
+            {
+              "time": 39998596.992509134,
+              "gpu_percent": 47.0,
+              "memory_percent": 2.0,
+              "memory_used_mib": 1413.0
+            },
+            {
+              "time": 39998597.092785664,
+              "gpu_percent": 47.0,
+              "memory_percent": 2.0,
+              "memory_used_mib": 1413.0
+            },
+            {
+              "time": 39998597.19298632,
+              "gpu_percent": 44.0,
+              "memory_percent": 2.0,
+              "memory_used_mib": 1413.0
+            },
+            {
+              "time": 39998597.293291576,
+              "gpu_percent": 44.0,
+              "memory_percent": 2.0,
+              "memory_used_mib": 1415.0
+            },
+            {
+              "time": 39998597.39354507,
+              "gpu_percent": 48.0,
+              "memory_percent": 2.0,
+              "memory_used_mib": 1415.0
+            },
+            {
+              "time": 39998597.49377568,
+              "gpu_percent": 48.0,
+              "memory_percent": 2.0,
+              "memory_used_mib": 1415.0
+            },
+            {
+              "time": 39998597.59404992,
+              "gpu_percent": 46.0,
+              "memory_percent": 2.0,
+              "memory_used_mib": 1415.0
+            },
+            {
+              "time": 39998597.69426414,
+              "gpu_percent": 46.0,
+              "memory_percent": 2.0,
+              "memory_used_mib": 1415.0
+            },
+            {
+              "time": 39998597.79451886,
+              "gpu_percent": 46.0,
+              "memory_percent": 2.0,
+              "memory_used_mib": 1415.0
+            }
+          ],
+          "gpu_percent_mean": 44.26086956521739,
+          "gpu_percent_median": 45.0,
+          "gpu_percent_max": 48.0,
+          "note": "nvidia-smi rolling utilization samples during measured updates, not an idle snapshot"
+        }
+      },
+      {
+        "name": "batch8_existing_checks",
+        "status": "passed_finite_checks",
+        "batch_size": 8,
+        "model_microbatch": 8,
+        "warmup_updates": 2,
+        "measured_updates": 64,
+        "initial_adamw_steps": [
+          1000.0
+        ],
+        "first_update_loss_before_weight_change": {
+          "total": 35.16427993774414,
+          "teacher_spectral": 0.385554701089859,
+          "teacher_waveform": 0.03369314596056938,
+          "reference_spectral": 0.6521614789962769
+        },
+        "mean_step_seconds": 0.06211130821611732,
+        "median_step_seconds": 0.06011327728629112,
+        "examples_per_second": 128.80102238651725,
+        "scored_audio_seconds_per_second": 295.54300218775035,
+        "baseline_allocated_gib": 0.668126106262207,
+        "peak_allocated_gib": 1.815603256225586,
+        "peak_reserved_gib": 2.142578125,
+        "actual_measured_scored_audio_seconds": 1174.82,
+        "padded_latent_frames": 899,
+        "losses": [
+          {
+            "total": 29.748027801513672,
+            "teacher_spectral": 0.33430948853492737,
+            "teacher_waveform": 0.02792811021208763,
+            "reference_spectral": 0.549010157585144
+          },
+          {
+            "total": 31.313941955566406,
+            "teacher_spectral": 0.3059190511703491,
+            "teacher_waveform": 0.019160477444529533,
+            "reference_spectral": 0.593466579914093
+          },
+          {
+            "total": 25.9242000579834,
+            "teacher_spectral": 0.2709481716156006,
+            "teacher_waveform": 0.02364194765686989,
+            "reference_spectral": 0.48525187373161316
+          },
+          {
+            "total": 37.96686553955078,
+            "teacher_spectral": 0.42481112480163574,
+            "teacher_waveform": 0.036067355424165726,
+            "reference_spectral": 0.7013028860092163
+          },
+          {
+            "total": 36.17693328857422,
+            "teacher_spectral": 0.3892159163951874,
+            "teacher_waveform": 0.03518600016832352,
+            "reference_spectral": 0.6734112501144409
+          },
+          {
+            "total": 33.70616149902344,
+            "teacher_spectral": 0.35000765323638916,
+            "teacher_waveform": 0.023421164602041245,
+            "reference_spectral": 0.6318361163139343
+          },
+          {
+            "total": 25.92173957824707,
+            "teacher_spectral": 0.2586812674999237,
+            "teacher_waveform": 0.014950263313949108,
+            "reference_spectral": 0.4894793629646301
+          },
+          {
+            "total": 30.594755172729492,
+            "teacher_spectral": 0.3392445147037506,
+            "teacher_waveform": 0.02990306168794632,
+            "reference_spectral": 0.566137433052063
+          },
+          {
+            "total": 33.15254592895508,
+            "teacher_spectral": 0.35915476083755493,
+            "teacher_waveform": 0.024978090077638626,
+            "reference_spectral": 0.6164498329162598
+          },
+          {
+            "total": 26.332740783691406,
+            "teacher_spectral": 0.3051512539386749,
+            "teacher_waveform": 0.022947583347558975,
+            "reference_spectral": 0.48294496536254883
+          },
+          {
+            "total": 33.13100814819336,
+            "teacher_spectral": 0.3402459919452667,
+            "teacher_waveform": 0.027054931968450546,
+            "reference_spectral": 0.6222279667854309
+          },
+          {
+            "total": 36.59183120727539,
+            "teacher_spectral": 0.4127345681190491,
+            "teacher_waveform": 0.03792713209986687,
+            "reference_spectral": 0.6747307777404785
+          },
+          {
+            "total": 34.2271614074707,
+            "teacher_spectral": 0.3674450218677521,
+            "teacher_waveform": 0.0360293984413147,
+            "reference_spectral": 0.6373211741447449
+          },
+          {
+            "total": 29.74591064453125,
+            "teacher_spectral": 0.2964017987251282,
+            "teacher_waveform": 0.025756416842341423,
+            "reference_spectral": 0.5616472959518433
+          },
+          {
+            "total": 23.95554542541504,
+            "teacher_spectral": 0.21588611602783203,
+            "teacher_waveform": 0.01427860651165247,
+            "reference_spectral": 0.4600660800933838
+          },
+          {
+            "total": 32.713871002197266,
+            "teacher_spectral": 0.34300684928894043,
+            "teacher_waveform": 0.02452465146780014,
+            "reference_spectral": 0.6120942831039429
+          },
+          {
+            "total": 34.98382568359375,
+            "teacher_spectral": 0.3999996483325958,
+            "teacher_waveform": 0.04051721468567848,
+            "reference_spectral": 0.6431846618652344
+          },
+          {
+            "total": 30.305828094482422,
+            "teacher_spectral": 0.30085504055023193,
+            "teacher_waveform": 0.020280903205275536,
+            "reference_spectral": 0.5727271437644958
+          },
+          {
+            "total": 24.016460418701172,
+            "teacher_spectral": 0.2161429524421692,
+            "teacher_waveform": 0.013636300340294838,
+            "reference_spectral": 0.4613484740257263
+          },
+          {
+            "total": 30.44744873046875,
+            "teacher_spectral": 0.34516000747680664,
+            "teacher_waveform": 0.02288717031478882,
+            "reference_spectral": 0.5610480308532715
+          },
+          {
+            "total": 31.275400161743164,
+            "teacher_spectral": 0.3204519748687744,
+            "teacher_waveform": 0.024852387607097626,
+            "reference_spectral": 0.5876392722129822
+          },
+          {
+            "total": 29.994155883789062,
+            "teacher_spectral": 0.3250495195388794,
+            "teacher_waveform": 0.02402019500732422,
+            "reference_spectral": 0.5576531291007996
+          },
+          {
+            "total": 29.444828033447266,
+            "teacher_spectral": 0.27950531244277954,
+            "teacher_waveform": 0.03233775123953819,
+            "reference_spectral": 0.5604425072669983
+          },
+          {
+            "total": 29.15254020690918,
+            "teacher_spectral": 0.2686251401901245,
+            "teacher_waveform": 0.022028423845767975,
+            "reference_spectral": 0.5578029155731201
+          },
+          {
+            "total": 26.416278839111328,
+            "teacher_spectral": 0.25981923937797546,
+            "teacher_waveform": 0.018804678693413734,
+            "reference_spectral": 0.5000041723251343
+          },
+          {
+            "total": 32.44173049926758,
+            "teacher_spectral": 0.3629394471645355,
+            "teacher_waveform": 0.028261587023735046,
+            "reference_spectral": 0.5993194580078125
+          },
+          {
+            "total": 30.82535743713379,
+            "teacher_spectral": 0.3122343122959137,
+            "teacher_waveform": 0.024504728615283966,
+            "reference_spectral": 0.5803853869438171
+          },
+          {
+            "total": 31.2004337310791,
+            "teacher_spectral": 0.3033376634120941,
+            "teacher_waveform": 0.021681267768144608,
+            "reference_spectral": 0.5917486548423767
+          },
+          {
+            "total": 33.48987579345703,
+            "teacher_spectral": 0.37118932604789734,
+            "teacher_waveform": 0.0171767920255661,
+            "reference_spectral": 0.6201079487800598
+          },
+          {
+            "total": 28.347557067871094,
+            "teacher_spectral": 0.28467652201652527,
+            "teacher_waveform": 0.021968591958284378,
+            "reference_spectral": 0.5345653295516968
+          },
+          {
+            "total": 36.354454040527344,
+            "teacher_spectral": 0.4017314910888672,
+            "teacher_waveform": 0.026800701394677162,
+            "reference_spectral": 0.6733707189559937
+          },
+          {
+            "total": 30.435440063476562,
+            "teacher_spectral": 0.2942771911621094,
+            "teacher_waveform": 0.021498460322618484,
+            "reference_spectral": 0.5777729749679565
+          },
+          {
+            "total": 29.99105453491211,
+            "teacher_spectral": 0.31924283504486084,
+            "teacher_waveform": 0.025846701115369797,
+            "reference_spectral": 0.5594792366027832
+          },
+          {
+            "total": 32.22499084472656,
+            "teacher_spectral": 0.3274117708206177,
+            "teacher_waveform": 0.031807590276002884,
+            "reference_spectral": 0.6062667965888977
+          },
+          {
+            "total": 28.026891708374023,
+            "teacher_spectral": 0.28196069598197937,
+            "teacher_waveform": 0.015616550110280514,
+            "reference_spectral": 0.528485894203186
+          },
+          {
+            "total": 37.28433609008789,
+            "teacher_spectral": 0.416648268699646,
+            "teacher_waveform": 0.038469571620225906,
+            "reference_spectral": 0.6888031959533691
+          },
+          {
+            "total": 27.566913604736328,
+            "teacher_spectral": 0.282734215259552,
+            "teacher_waveform": 0.020321764051914215,
+            "reference_spectral": 0.5179017186164856
+          },
+          {
+            "total": 30.393539428710938,
+            "teacher_spectral": 0.30308040976524353,
+            "teacher_waveform": 0.02987353503704071,
+            "reference_spectral": 0.5737213492393494
+          },
+          {
+            "total": 31.907855987548828,
+            "teacher_spectral": 0.3489845395088196,
+            "teacher_waveform": 0.03380732983350754,
+            "reference_spectral": 0.59198397397995
+          },
+          {
+            "total": 33.66282272338867,
+            "teacher_spectral": 0.38871172070503235,
+            "teacher_waveform": 0.036101289093494415,
+            "reference_spectral": 0.6176899075508118
+          },
+          {
+            "total": 33.21217727661133,
+            "teacher_spectral": 0.3630390465259552,
+            "teacher_waveform": 0.03119814395904541,
+            "reference_spectral": 0.6163420677185059
+          },
+          {
+            "total": 29.25518035888672,
+            "teacher_spectral": 0.2759148180484772,
+            "teacher_waveform": 0.017463350668549538,
+            "reference_spectral": 0.5577554106712341
+          },
+          {
+            "total": 32.231422424316406,
+            "teacher_spectral": 0.35396653413772583,
+            "teacher_waveform": 0.030819324776530266,
+            "reference_spectral": 0.5975801348686218
+          },
+          {
+            "total": 30.179935455322266,
+            "teacher_spectral": 0.2870602607727051,
+            "teacher_waveform": 0.02039906568825245,
+            "reference_spectral": 0.5745251178741455
+          },
+          {
+            "total": 22.02573585510254,
+            "teacher_spectral": 0.22496004402637482,
+            "teacher_waveform": 0.02390063926577568,
+            "reference_spectral": 0.41394299268722534
+          },
+          {
+            "total": 25.638513565063477,
+            "teacher_spectral": 0.25135254859924316,
+            "teacher_waveform": 0.026534827426075935,
+            "reference_spectral": 0.4853709042072296
+          },
+          {
+            "total": 27.576879501342773,
+            "teacher_spectral": 0.2747511565685272,
+            "teacher_waveform": 0.029256228357553482,
+            "reference_spectral": 0.5205856561660767
+          },
+          {
+            "total": 36.072200775146484,
+            "teacher_spectral": 0.38644546270370483,
+            "teacher_waveform": 0.03201564773917198,
+            "reference_spectral": 0.6720778346061707
+          },
+          {
+            "total": 32.01755905151367,
+            "teacher_spectral": 0.3266429901123047,
+            "teacher_waveform": 0.02183195762336254,
+            "reference_spectral": 0.6021351218223572
+          },
+          {
+            "total": 41.43480682373047,
+            "teacher_spectral": 0.4896194636821747,
+            "teacher_waveform": 0.0616418793797493,
+            "reference_spectral": 0.7561972141265869
+          },
+          {
+            "total": 18.799510955810547,
+            "teacher_spectral": 0.16620907187461853,
+            "teacher_waveform": 0.011606013402342796,
+            "reference_spectral": 0.36210599541664124
+          },
+          {
+            "total": 29.647174835205078,
+            "teacher_spectral": 0.2800321578979492,
+            "teacher_waveform": 0.020080290734767914,
+            "reference_spectral": 0.5650357604026794
+          },
+          {
+            "total": 30.814197540283203,
+            "teacher_spectral": 0.3295527398586273,
+            "teacher_waveform": 0.028129059821367264,
+            "reference_spectral": 0.5742839574813843
+          },
+          {
+            "total": 24.30698585510254,
+            "teacher_spectral": 0.22185155749320984,
+            "teacher_waveform": 0.023754794150590897,
+            "reference_spectral": 0.46567684412002563
+          },
+          {
+            "total": 26.005311965942383,
+            "teacher_spectral": 0.2656029164791107,
+            "teacher_waveform": 0.021388834342360497,
+            "reference_spectral": 0.4888862073421478
+          },
+          {
+            "total": 32.41522216796875,
+            "teacher_spectral": 0.3508738875389099,
+            "teacher_waveform": 0.030568331480026245,
+            "reference_spectral": 0.6027010679244995
+          },
+          {
+            "total": 31.5267333984375,
+            "teacher_spectral": 0.311407208442688,
+            "teacher_waveform": 0.03348761796951294,
+            "reference_spectral": 0.5960475206375122
+          },
+          {
+            "total": 27.47353744506836,
+            "teacher_spectral": 0.2869250774383545,
+            "teacher_waveform": 0.02153801918029785,
+            "reference_spectral": 0.5144027471542358
+          },
+          {
+            "total": 35.14086151123047,
+            "teacher_spectral": 0.34852728247642517,
+            "teacher_waveform": 0.02347777597606182,
+            "reference_spectral": 0.6642104983329773
+          },
+          {
+            "total": 28.02845001220703,
+            "teacher_spectral": 0.27857863903045654,
+            "teacher_waveform": 0.013248186558485031,
+            "reference_spectral": 0.529700517654419
+          },
+          {
+            "total": 27.593957901000977,
+            "teacher_spectral": 0.25235670804977417,
+            "teacher_waveform": 0.01757301762700081,
+            "reference_spectral": 0.5286896824836731
+          },
+          {
+            "total": 25.372182846069336,
+            "teacher_spectral": 0.24057498574256897,
+            "teacher_waveform": 0.011985218152403831,
+            "reference_spectral": 0.48336827754974365
+          },
+          {
+            "total": 26.811138153076172,
+            "teacher_spectral": 0.25811153650283813,
+            "teacher_waveform": 0.02777293510735035,
+            "reference_spectral": 0.5091487169265747
+          },
+          {
+            "total": 37.76703643798828,
+            "teacher_spectral": 0.40933144092559814,
+            "teacher_waveform": 0.038458894938230515,
+            "reference_spectral": 0.7019690275192261
+          }
+        ],
+        "utilization": {
+          "query_period_ms": 100,
+          "excluded_initial_measured_seconds": 1,
+          "samples": [
+            {
+              "time": 39998599.685293056,
+              "gpu_percent": 58.0,
+              "memory_percent": 5.0,
+              "memory_used_mib": 2899.0
+            },
+            {
+              "time": 39998599.78553896,
+              "gpu_percent": 58.0,
+              "memory_percent": 5.0,
+              "memory_used_mib": 2899.0
+            },
+            {
+              "time": 39998599.88578975,
+              "gpu_percent": 57.0,
+              "memory_percent": 5.0,
+              "memory_used_mib": 2899.0
+            },
+            {
+              "time": 39998599.98606727,
+              "gpu_percent": 57.0,
+              "memory_percent": 5.0,
+              "memory_used_mib": 2899.0
+            },
+            {
+              "time": 39998600.086261414,
+              "gpu_percent": 55.0,
+              "memory_percent": 4.0,
+              "memory_used_mib": 2899.0
+            },
+            {
+              "time": 39998600.186494015,
+              "gpu_percent": 55.0,
+              "memory_percent": 4.0,
+              "memory_used_mib": 2901.0
+            },
+            {
+              "time": 39998600.28669252,
+              "gpu_percent": 52.0,
+              "memory_percent": 4.0,
+              "memory_used_mib": 2901.0
+            },
+            {
+              "time": 39998600.38695862,
+              "gpu_percent": 52.0,
+              "memory_percent": 4.0,
+              "memory_used_mib": 2901.0
+            },
+            {
+              "time": 39998600.4872256,
+              "gpu_percent": 59.0,
+              "memory_percent": 5.0,
+              "memory_used_mib": 2901.0
+            },
+            {
+              "time": 39998600.58757815,
+              "gpu_percent": 59.0,
+              "memory_percent": 5.0,
+              "memory_used_mib": 2901.0
+            },
+            {
+              "time": 39998600.68772578,
+              "gpu_percent": 58.0,
+              "memory_percent": 5.0,
+              "memory_used_mib": 2903.0
+            },
+            {
+              "time": 39998600.7879612,
+              "gpu_percent": 58.0,
+              "memory_percent": 5.0,
+              "memory_used_mib": 2903.0
+            },
+            {
+              "time": 39998600.8882234,
+              "gpu_percent": 54.0,
+              "memory_percent": 4.0,
+              "memory_used_mib": 2903.0
+            },
+            {
+              "time": 39998600.98848043,
+              "gpu_percent": 54.0,
+              "memory_percent": 4.0,
+              "memory_used_mib": 2905.0
+            },
+            {
+              "time": 39998601.0886978,
+              "gpu_percent": 38.0,
+              "memory_percent": 3.0,
+              "memory_used_mib": 2905.0
+            },
+            {
+              "time": 39998601.18893661,
+              "gpu_percent": 38.0,
+              "memory_percent": 3.0,
+              "memory_used_mib": 2905.0
+            },
+            {
+              "time": 39998601.28921832,
+              "gpu_percent": 47.0,
+              "memory_percent": 4.0,
+              "memory_used_mib": 2905.0
+            },
+            {
+              "time": 39998601.389440045,
+              "gpu_percent": 47.0,
+              "memory_percent": 4.0,
+              "memory_used_mib": 2907.0
+            },
+            {
+              "time": 39998601.48958644,
+              "gpu_percent": 45.0,
+              "memory_percent": 3.0,
+              "memory_used_mib": 2907.0
+            },
+            {
+              "time": 39998601.58982728,
+              "gpu_percent": 45.0,
+              "memory_percent": 3.0,
+              "memory_used_mib": 2907.0
+            },
+            {
+              "time": 39998601.69002143,
+              "gpu_percent": 48.0,
+              "memory_percent": 4.0,
+              "memory_used_mib": 2907.0
+            },
+            {
+              "time": 39998601.79023121,
+              "gpu_percent": 48.0,
+              "memory_percent": 4.0,
+              "memory_used_mib": 2925.0
+            },
+            {
+              "time": 39998601.890494846,
+              "gpu_percent": 35.0,
+              "memory_percent": 2.0,
+              "memory_used_mib": 2925.0
+            },
+            {
+              "time": 39998601.99073496,
+              "gpu_percent": 35.0,
+              "memory_percent": 2.0,
+              "memory_used_mib": 2925.0
+            },
+            {
+              "time": 39998602.09096868,
+              "gpu_percent": 47.0,
+              "memory_percent": 3.0,
+              "memory_used_mib": 2925.0
+            },
+            {
+              "time": 39998602.19127568,
+              "gpu_percent": 47.0,
+              "memory_percent": 3.0,
+              "memory_used_mib": 2925.0
+            },
+            {
+              "time": 39998602.291515246,
+              "gpu_percent": 53.0,
+              "memory_percent": 4.0,
+              "memory_used_mib": 2927.0
+            },
+            {
+              "time": 39998602.39174715,
+              "gpu_percent": 53.0,
+              "memory_percent": 4.0,
+              "memory_used_mib": 2927.0
+            },
+            {
+              "time": 39998602.49199242,
+              "gpu_percent": 59.0,
+              "memory_percent": 5.0,
+              "memory_used_mib": 2927.0
+            },
+            {
+              "time": 39998602.59244612,
+              "gpu_percent": 59.0,
+              "memory_percent": 5.0,
+              "memory_used_mib": 2927.0
+            }
+          ],
+          "gpu_percent_mean": 51.0,
+          "gpu_percent_median": 53.0,
+          "gpu_percent_max": 59.0,
+          "note": "nvidia-smi rolling utilization samples during measured updates, not an idle snapshot"
+        }
+      },
+      {
+        "name": "batch8_aggregated_checks",
+        "status": "passed_finite_checks",
+        "batch_size": 8,
+        "model_microbatch": 8,
+        "warmup_updates": 2,
+        "measured_updates": 64,
+        "initial_adamw_steps": [
+          1000.0
+        ],
+        "first_update_loss_before_weight_change": {
+          "total": 35.16427993774414,
+          "teacher_spectral": 0.385554701089859,
+          "teacher_waveform": 0.03369314596056938,
+          "reference_spectral": 0.6521614789962769
+        },
+        "mean_step_seconds": 0.055763111216947436,
+        "median_step_seconds": 0.056571073830127716,
+        "examples_per_second": 143.46401815486675,
+        "scored_audio_seconds_per_second": 329.18827697011824,
+        "baseline_allocated_gib": 0.669590950012207,
+        "peak_allocated_gib": 1.815546989440918,
+        "peak_reserved_gib": 2.15625,
+        "actual_measured_scored_audio_seconds": 1174.82,
+        "padded_latent_frames": 899,
+        "losses": [
+          {
+            "total": 29.74793243408203,
+            "teacher_spectral": 0.33430933952331543,
+            "teacher_waveform": 0.02792811207473278,
+            "reference_spectral": 0.5490081310272217
+          },
+          {
+            "total": 31.313867568969727,
+            "teacher_spectral": 0.3059171438217163,
+            "teacher_waveform": 0.019160475581884384,
+            "reference_spectral": 0.5934655666351318
+          },
+          {
+            "total": 25.924448013305664,
+            "teacher_spectral": 0.2709472179412842,
+            "teacher_waveform": 0.023641958832740784,
+            "reference_spectral": 0.4852577745914459
+          },
+          {
+            "total": 37.96691131591797,
+            "teacher_spectral": 0.424807608127594,
+            "teacher_waveform": 0.03606740012764931,
+            "reference_spectral": 0.7013051509857178
+          },
+          {
+            "total": 36.1766471862793,
+            "teacher_spectral": 0.38921403884887695,
+            "teacher_waveform": 0.035186007618904114,
+            "reference_spectral": 0.6734055280685425
+          },
+          {
+            "total": 33.706214904785156,
+            "teacher_spectral": 0.3500072658061981,
+            "teacher_waveform": 0.02342112362384796,
+            "reference_spectral": 0.6318374872207642
+          },
+          {
+            "total": 25.922435760498047,
+            "teacher_spectral": 0.2586889863014221,
+            "teacher_waveform": 0.014950237236917019,
+            "reference_spectral": 0.4894922375679016
+          },
+          {
+            "total": 30.596803665161133,
+            "teacher_spectral": 0.33926358819007874,
+            "teacher_waveform": 0.02990303747355938,
+            "reference_spectral": 0.5661765336990356
+          },
+          {
+            "total": 33.15240478515625,
+            "teacher_spectral": 0.3591611385345459,
+            "teacher_waveform": 0.024978172034025192,
+            "reference_spectral": 0.6164446473121643
+          },
+          {
+            "total": 26.332443237304688,
+            "teacher_spectral": 0.3051646947860718,
+            "teacher_waveform": 0.022947615012526512,
+            "reference_spectral": 0.4829338788986206
+          },
+          {
+            "total": 33.12278366088867,
+            "teacher_spectral": 0.34021157026290894,
+            "teacher_waveform": 0.027054734528064728,
+            "reference_spectral": 0.6220567226409912
+          },
+          {
+            "total": 36.57331848144531,
+            "teacher_spectral": 0.4123811721801758,
+            "teacher_waveform": 0.037927642464637756,
+            "reference_spectral": 0.6744371056556702
+          },
+          {
+            "total": 34.20526885986328,
+            "teacher_spectral": 0.3673520088195801,
+            "teacher_waveform": 0.03602989390492439,
+            "reference_spectral": 0.6368657350540161
+          },
+          {
+            "total": 29.735610961914062,
+            "teacher_spectral": 0.2963438034057617,
+            "teacher_waveform": 0.025756975635886192,
+            "reference_spectral": 0.561437726020813
+          },
+          {
+            "total": 23.939685821533203,
+            "teacher_spectral": 0.21575716137886047,
+            "teacher_waveform": 0.014278610236942768,
+            "reference_spectral": 0.4597567021846771
+          },
+          {
+            "total": 32.71199417114258,
+            "teacher_spectral": 0.3428000211715698,
+            "teacher_waveform": 0.024524232372641563,
+            "reference_spectral": 0.6121215224266052
+          },
+          {
+            "total": 34.98100662231445,
+            "teacher_spectral": 0.3996606469154358,
+            "teacher_waveform": 0.04051707684993744,
+            "reference_spectral": 0.6432350873947144
+          },
+          {
+            "total": 30.309972763061523,
+            "teacher_spectral": 0.30068573355674744,
+            "teacher_waveform": 0.020281311124563217,
+            "reference_spectral": 0.5728756785392761
+          },
+          {
+            "total": 24.01793670654297,
+            "teacher_spectral": 0.2161560207605362,
+            "teacher_waveform": 0.01363673247396946,
+            "reference_spectral": 0.4613769054412842
+          },
+          {
+            "total": 30.44390106201172,
+            "teacher_spectral": 0.3451223075389862,
+            "teacher_waveform": 0.022888369858264923,
+            "reference_spectral": 0.5609817504882812
+          },
+          {
+            "total": 31.248506546020508,
+            "teacher_spectral": 0.3201134204864502,
+            "teacher_waveform": 0.024853339418768883,
+            "reference_spectral": 0.5871545076370239
+          },
+          {
+            "total": 29.99122428894043,
+            "teacher_spectral": 0.32449832558631897,
+            "teacher_waveform": 0.02402089536190033,
+            "reference_spectral": 0.5577717423439026
+          },
+          {
+            "total": 29.431562423706055,
+            "teacher_spectral": 0.2794082760810852,
+            "teacher_waveform": 0.03233901783823967,
+            "reference_spectral": 0.5601799488067627
+          },
+          {
+            "total": 29.13303565979004,
+            "teacher_spectral": 0.26870471239089966,
+            "teacher_waveform": 0.0220294538885355,
+            "reference_spectral": 0.5573429465293884
+          },
+          {
+            "total": 26.39492416381836,
+            "teacher_spectral": 0.25973406434059143,
+            "teacher_waveform": 0.01880580000579357,
+            "reference_spectral": 0.4995579421520233
+          },
+          {
+            "total": 32.447654724121094,
+            "teacher_spectral": 0.36241331696510315,
+            "teacher_waveform": 0.028265422210097313,
+            "reference_spectral": 0.5996264219284058
+          },
+          {
+            "total": 30.806533813476562,
+            "teacher_spectral": 0.31257888674736023,
+            "teacher_waveform": 0.024506989866495132,
+            "reference_spectral": 0.5798521041870117
+          },
+          {
+            "total": 31.22776985168457,
+            "teacher_spectral": 0.3034314215183258,
+            "teacher_waveform": 0.021683773025870323,
+            "reference_spectral": 0.5923247933387756
+          },
+          {
+            "total": 33.48896026611328,
+            "teacher_spectral": 0.3708949089050293,
+            "teacher_waveform": 0.01717996597290039,
+            "reference_spectral": 0.6201856136322021
+          },
+          {
+            "total": 28.417226791381836,
+            "teacher_spectral": 0.2840407192707062,
+            "teacher_waveform": 0.021973006427288055,
+            "reference_spectral": 0.5363253951072693
+          },
+          {
+            "total": 36.58905792236328,
+            "teacher_spectral": 0.4010244607925415,
+            "teacher_waveform": 0.02680482156574726,
+            "reference_spectral": 0.6788196563720703
+          },
+          {
+            "total": 30.42728042602539,
+            "teacher_spectral": 0.2941761612892151,
+            "teacher_waveform": 0.02149330824613571,
+            "reference_spectral": 0.5776253938674927
+          },
+          {
+            "total": 30.1889591217041,
+            "teacher_spectral": 0.3182360827922821,
+            "teacher_waveform": 0.025842975825071335,
+            "reference_spectral": 0.5642127394676208
+          },
+          {
+            "total": 32.54634094238281,
+            "teacher_spectral": 0.3275122046470642,
+            "teacher_waveform": 0.03180205076932907,
+            "reference_spectral": 0.6133745312690735
+          },
+          {
+            "total": 28.24761199951172,
+            "teacher_spectral": 0.2813979387283325,
+            "teacher_waveform": 0.015607226639986038,
+            "reference_spectral": 0.5335785746574402
+          },
+          {
+            "total": 37.41389465332031,
+            "teacher_spectral": 0.41866546869277954,
+            "teacher_waveform": 0.03846162557601929,
+            "reference_spectral": 0.691010057926178
+          },
+          {
+            "total": 28.07760238647461,
+            "teacher_spectral": 0.284434974193573,
+            "teacher_waveform": 0.02032865397632122,
+            "reference_spectral": 0.5286833047866821
+          },
+          {
+            "total": 30.93532371520996,
+            "teacher_spectral": 0.303164541721344,
+            "teacher_waveform": 0.02987833507359028,
+            "reference_spectral": 0.5857328176498413
+          },
+          {
+            "total": 32.48830795288086,
+            "teacher_spectral": 0.3493550717830658,
+            "teacher_waveform": 0.033810682594776154,
+            "reference_spectral": 0.6047593355178833
+          },
+          {
+            "total": 34.28644561767578,
+            "teacher_spectral": 0.3919999301433563,
+            "teacher_waveform": 0.03610243275761604,
+            "reference_spectral": 0.6304520964622498
+          },
+          {
+            "total": 33.20940017700195,
+            "teacher_spectral": 0.3640572130680084,
+            "teacher_waveform": 0.031186243519186974,
+            "reference_spectral": 0.6159411668777466
+          },
+          {
+            "total": 29.056011199951172,
+            "teacher_spectral": 0.2771396338939667,
+            "teacher_waveform": 0.017451496794819832,
+            "reference_spectral": 0.5529214143753052
+          },
+          {
+            "total": 32.877708435058594,
+            "teacher_spectral": 0.36043500900268555,
+            "teacher_waveform": 0.030816316604614258,
+            "reference_spectral": 0.6097859144210815
+          },
+          {
+            "total": 29.770288467407227,
+            "teacher_spectral": 0.29266268014907837,
+            "teacher_waveform": 0.020385943353176117,
+            "reference_spectral": 0.5635547041893005
+          },
+          {
+            "total": 21.982013702392578,
+            "teacher_spectral": 0.2290199249982834,
+            "teacher_waveform": 0.02389753796160221,
+            "reference_spectral": 0.411618173122406
+          },
+          {
+            "total": 26.717159271240234,
+            "teacher_spectral": 0.26261192560195923,
+            "teacher_waveform": 0.026526089757680893,
+            "reference_spectral": 0.5055878758430481
+          },
+          {
+            "total": 28.79357147216797,
+            "teacher_spectral": 0.2906007170677185,
+            "teacher_waveform": 0.02925403229892254,
+            "reference_spectral": 0.5423401594161987
+          },
+          {
+            "total": 36.64085388183594,
+            "teacher_spectral": 0.3932815492153168,
+            "teacher_waveform": 0.032024335116147995,
+            "reference_spectral": 0.6824357509613037
+          },
+          {
+            "total": 32.85065841674805,
+            "teacher_spectral": 0.3289242684841156,
+            "teacher_waveform": 0.02181616984307766,
+            "reference_spectral": 0.6198883056640625
+          },
+          {
+            "total": 42.56938552856445,
+            "teacher_spectral": 0.5091850757598877,
+            "teacher_waveform": 0.06156953051686287,
+            "reference_spectral": 0.7748897671699524
+          },
+          {
+            "total": 19.382822036743164,
+            "teacher_spectral": 0.17183317244052887,
+            "teacher_waveform": 0.011578455567359924,
+            "reference_spectral": 0.3731943368911743
+          },
+          {
+            "total": 29.97754669189453,
+            "teacher_spectral": 0.2831832766532898,
+            "teacher_waveform": 0.0199719350785017,
+            "reference_spectral": 0.5713294148445129
+          },
+          {
+            "total": 31.58489418029785,
+            "teacher_spectral": 0.33874064683914185,
+            "teacher_waveform": 0.02810618281364441,
+            "reference_spectral": 0.5883484482765198
+          },
+          {
+            "total": 25.505861282348633,
+            "teacher_spectral": 0.23725326359272003,
+            "teacher_waveform": 0.023802045732736588,
+            "reference_spectral": 0.4871835708618164
+          },
+          {
+            "total": 26.561500549316406,
+            "teacher_spectral": 0.278624564409256,
+            "teacher_waveform": 0.02142161689698696,
+            "reference_spectral": 0.4969046115875244
+          },
+          {
+            "total": 32.516845703125,
+            "teacher_spectral": 0.36123937368392944,
+            "teacher_waveform": 0.03053339570760727,
+            "reference_spectral": 0.6015049815177917
+          },
+          {
+            "total": 32.0283317565918,
+            "teacher_spectral": 0.31358036398887634,
+            "teacher_waveform": 0.033446189016103745,
+            "reference_spectral": 0.6064706444740295
+          },
+          {
+            "total": 27.545276641845703,
+            "teacher_spectral": 0.29250478744506836,
+            "teacher_waveform": 0.021503688767552376,
+            "reference_spectral": 0.5141378045082092
+          },
+          {
+            "total": 34.621681213378906,
+            "teacher_spectral": 0.3627853989601135,
+            "teacher_waveform": 0.02344486303627491,
+            "reference_spectral": 0.6479212045669556
+          },
+          {
+            "total": 28.320289611816406,
+            "teacher_spectral": 0.28638702630996704,
+            "teacher_waveform": 0.013205657713115215,
+            "reference_spectral": 0.53358393907547
+          },
+          {
+            "total": 27.8034610748291,
+            "teacher_spectral": 0.2609424889087677,
+            "teacher_waveform": 0.017589151859283447,
+            "reference_spectral": 0.5304830074310303
+          },
+          {
+            "total": 25.386070251464844,
+            "teacher_spectral": 0.249833345413208,
+            "teacher_waveform": 0.012025889940559864,
+            "reference_spectral": 0.4805898666381836
+          },
+          {
+            "total": 26.69286346435547,
+            "teacher_spectral": 0.27269211411476135,
+            "teacher_waveform": 0.02774086408317089,
+            "reference_spectral": 0.5016608834266663
+          },
+          {
+            "total": 37.976173400878906,
+            "teacher_spectral": 0.4186490476131439,
+            "teacher_waveform": 0.03845923766493797,
+            "reference_spectral": 0.7035106420516968
+          }
+        ],
+        "utilization": {
+          "query_period_ms": 100,
+          "excluded_initial_measured_seconds": 1,
+          "samples": [
+            {
+              "time": 39998604.4890391,
+              "gpu_percent": 60.0,
+              "memory_percent": 5.0,
+              "memory_used_mib": 2923.0
+            },
+            {
+              "time": 39998604.58925289,
+              "gpu_percent": 60.0,
+              "memory_percent": 5.0,
+              "memory_used_mib": 2923.0
+            },
+            {
+              "time": 39998604.689454794,
+              "gpu_percent": 63.0,
+              "memory_percent": 5.0,
+              "memory_used_mib": 2923.0
+            },
+            {
+              "time": 39998604.78977704,
+              "gpu_percent": 63.0,
+              "memory_percent": 5.0,
+              "memory_used_mib": 2923.0
+            },
+            {
+              "time": 39998604.89003078,
+              "gpu_percent": 59.0,
+              "memory_percent": 5.0,
+              "memory_used_mib": 2923.0
+            },
+            {
+              "time": 39998604.9902671,
+              "gpu_percent": 59.0,
+              "memory_percent": 5.0,
+              "memory_used_mib": 2923.0
+            },
+            {
+              "time": 39998605.090491526,
+              "gpu_percent": 54.0,
+              "memory_percent": 4.0,
+              "memory_used_mib": 2923.0
+            },
+            {
+              "time": 39998605.190730326,
+              "gpu_percent": 54.0,
+              "memory_percent": 4.0,
+              "memory_used_mib": 2923.0
+            },
+            {
+              "time": 39998605.29098839,
+              "gpu_percent": 58.0,
+              "memory_percent": 5.0,
+              "memory_used_mib": 2923.0
+            },
+            {
+              "time": 39998605.391309544,
+              "gpu_percent": 58.0,
+              "memory_percent": 5.0,
+              "memory_used_mib": 2923.0
+            },
+            {
+              "time": 39998605.4915521,
+              "gpu_percent": 60.0,
+              "memory_percent": 6.0,
+              "memory_used_mib": 2923.0
+            },
+            {
+              "time": 39998605.59179854,
+              "gpu_percent": 60.0,
+              "memory_percent": 6.0,
+              "memory_used_mib": 2923.0
+            },
+            {
+              "time": 39998605.69207039,
+              "gpu_percent": 57.0,
+              "memory_percent": 5.0,
+              "memory_used_mib": 2923.0
+            },
+            {
+              "time": 39998605.79229109,
+              "gpu_percent": 57.0,
+              "memory_percent": 5.0,
+              "memory_used_mib": 2923.0
+            },
+            {
+              "time": 39998605.892542996,
+              "gpu_percent": 54.0,
+              "memory_percent": 4.0,
+              "memory_used_mib": 2923.0
+            },
+            {
+              "time": 39998605.992782705,
+              "gpu_percent": 54.0,
+              "memory_percent": 4.0,
+              "memory_used_mib": 2923.0
+            },
+            {
+              "time": 39998606.093039386,
+              "gpu_percent": 56.0,
+              "memory_percent": 5.0,
+              "memory_used_mib": 2923.0
+            },
+            {
+              "time": 39998606.193269014,
+              "gpu_percent": 56.0,
+              "memory_percent": 5.0,
+              "memory_used_mib": 2937.0
+            },
+            {
+              "time": 39998606.29351291,
+              "gpu_percent": 50.0,
+              "memory_percent": 3.0,
+              "memory_used_mib": 2941.0
+            },
+            {
+              "time": 39998606.39375694,
+              "gpu_percent": 50.0,
+              "memory_percent": 3.0,
+              "memory_used_mib": 2941.0
+            },
+            {
+              "time": 39998606.49407673,
+              "gpu_percent": 60.0,
+              "memory_percent": 4.0,
+              "memory_used_mib": 2941.0
+            },
+            {
+              "time": 39998606.59433258,
+              "gpu_percent": 60.0,
+              "memory_percent": 4.0,
+              "memory_used_mib": 2941.0
+            },
+            {
+              "time": 39998606.694625914,
+              "gpu_percent": 61.0,
+              "memory_percent": 5.0,
+              "memory_used_mib": 2941.0
+            },
+            {
+              "time": 39998606.794848666,
+              "gpu_percent": 61.0,
+              "memory_percent": 5.0,
+              "memory_used_mib": 2941.0
+            },
+            {
+              "time": 39998606.8951264,
+              "gpu_percent": 61.0,
+              "memory_percent": 5.0,
+              "memory_used_mib": 2941.0
+            }
+          ],
+          "gpu_percent_mean": 57.8,
+          "gpu_percent_median": 59.0,
+          "gpu_percent_max": 63.0,
+          "note": "nvidia-smi rolling utilization samples during measured updates, not an idle snapshot"
+        }
+      },
+      {
+        "name": "batch32_aggregated_checks",
+        "status": "passed_finite_checks",
+        "batch_size": 32,
+        "model_microbatch": 32,
+        "warmup_updates": 2,
+        "measured_updates": 24,
+        "initial_adamw_steps": [
+          1000.0
+        ],
+        "first_update_loss_before_weight_change": {
+          "total": 31.423669815063477,
+          "teacher_spectral": 0.3196662962436676,
+          "teacher_waveform": 0.024491693824529648,
+          "reference_spectral": 0.5912041068077087
+        },
+        "mean_step_seconds": 0.13318140214929977,
+        "median_step_seconds": 0.13104233145713806,
+        "examples_per_second": 240.27378810839653,
+        "scored_audio_seconds_per_second": 546.9325958765855,
+        "baseline_allocated_gib": 0.6691675186157227,
+        "peak_allocated_gib": 5.098019123077393,
+        "peak_reserved_gib": 6.3203125,
+        "actual_measured_scored_audio_seconds": 1748.19,
+        "padded_latent_frames": 1371,
+        "losses": [
+          {
+            "total": 26.93035316467285,
+            "teacher_spectral": 0.26905277371406555,
+            "teacher_waveform": 0.02038981392979622,
+            "reference_spectral": 0.5083149075508118
+          },
+          {
+            "total": 31.931121826171875,
+            "teacher_spectral": 0.3348528742790222,
+            "teacher_waveform": 0.02645331807434559,
+            "reference_spectral": 0.5973750352859497
+          },
+          {
+            "total": 27.965702056884766,
+            "teacher_spectral": 0.28920724987983704,
+            "teacher_waveform": 0.024301784113049507,
+            "reference_spectral": 0.5245175361633301
+          },
+          {
+            "total": 33.69269943237305,
+            "teacher_spectral": 0.3507980704307556,
+            "teacher_waveform": 0.028203094378113747,
+            "reference_spectral": 0.6311671733856201
+          },
+          {
+            "total": 30.854591369628906,
+            "teacher_spectral": 0.3332103192806244,
+            "teacher_waveform": 0.02632235735654831,
+            "reference_spectral": 0.5740025043487549
+          },
+          {
+            "total": 29.506933212280273,
+            "teacher_spectral": 0.2986036539077759,
+            "teacher_waveform": 0.02370094694197178,
+            "reference_spectral": 0.5556483864784241
+          },
+          {
+            "total": 29.130308151245117,
+            "teacher_spectral": 0.305113285779953,
+            "teacher_waveform": 0.02101745456457138,
+            "reference_spectral": 0.5451687574386597
+          },
+          {
+            "total": 29.709394454956055,
+            "teacher_spectral": 0.31124940514564514,
+            "teacher_waveform": 0.02836894989013672,
+            "reference_spectral": 0.5558285117149353
+          },
+          {
+            "total": 30.968273162841797,
+            "teacher_spectral": 0.3267442584037781,
+            "teacher_waveform": 0.022349819540977478,
+            "reference_spectral": 0.5787724852561951
+          },
+          {
+            "total": 27.094467163085938,
+            "teacher_spectral": 0.28245699405670166,
+            "teacher_waveform": 0.017820391803979874,
+            "reference_spectral": 0.5075508952140808
+          },
+          {
+            "total": 31.333114624023438,
+            "teacher_spectral": 0.3067757487297058,
+            "teacher_waveform": 0.028962530195713043,
+            "reference_spectral": 0.5933892726898193
+          },
+          {
+            "total": 30.474048614501953,
+            "teacher_spectral": 0.3325560986995697,
+            "teacher_waveform": 0.028345774859189987,
+            "reference_spectral": 0.5657191872596741
+          },
+          {
+            "total": 30.74103355407715,
+            "teacher_spectral": 0.3158085346221924,
+            "teacher_waveform": 0.025370445102453232,
+            "reference_spectral": 0.5773008465766907
+          },
+          {
+            "total": 29.382442474365234,
+            "teacher_spectral": 0.30408820509910583,
+            "teacher_waveform": 0.028255721554160118,
+            "reference_spectral": 0.5509525537490845
+          },
+          {
+            "total": 29.223068237304688,
+            "teacher_spectral": 0.2941925823688507,
+            "teacher_waveform": 0.022460686042904854,
+            "reference_spectral": 0.5508382320404053
+          },
+          {
+            "total": 31.863554000854492,
+            "teacher_spectral": 0.3268809914588928,
+            "teacher_waveform": 0.027898123487830162,
+            "reference_spectral": 0.5984987020492554
+          },
+          {
+            "total": 27.842824935913086,
+            "teacher_spectral": 0.2750251293182373,
+            "teacher_waveform": 0.027065804228186607,
+            "reference_spectral": 0.526452898979187
+          },
+          {
+            "total": 30.89499855041504,
+            "teacher_spectral": 0.3066250681877136,
+            "teacher_waveform": 0.025393132120370865,
+            "reference_spectral": 0.5837829113006592
+          },
+          {
+            "total": 29.797016143798828,
+            "teacher_spectral": 0.29683876037597656,
+            "teacher_waveform": 0.02238447777926922,
+            "reference_spectral": 0.5627121925354004
+          },
+          {
+            "total": 30.187118530273438,
+            "teacher_spectral": 0.33310654759407043,
+            "teacher_waveform": 0.025567321106791496,
+            "reference_spectral": 0.5592212080955505
+          },
+          {
+            "total": 29.144880294799805,
+            "teacher_spectral": 0.275776207447052,
+            "teacher_waveform": 0.02267284132540226,
+            "reference_spectral": 0.5552347302436829
+          },
+          {
+            "total": 28.709293365478516,
+            "teacher_spectral": 0.2885752320289612,
+            "teacher_waveform": 0.02566482499241829,
+            "reference_spectral": 0.5412222146987915
+          },
+          {
+            "total": 29.242847442626953,
+            "teacher_spectral": 0.27692437171936035,
+            "teacher_waveform": 0.026280991733074188,
+            "reference_spectral": 0.5569488406181335
+          },
+          {
+            "total": 28.660247802734375,
+            "teacher_spectral": 0.26954928040504456,
+            "teacher_waveform": 0.024489639326930046,
+            "reference_spectral": 0.5465003848075867
+          }
+        ],
+        "utilization": {
+          "query_period_ms": 100,
+          "excluded_initial_measured_seconds": 1,
+          "samples": [
+            {
+              "time": 39998608.86454636,
+              "gpu_percent": 66.0,
+              "memory_percent": 11.0,
+              "memory_used_mib": 7195.0
+            },
+            {
+              "time": 39998608.96472918,
+              "gpu_percent": 61.0,
+              "memory_percent": 12.0,
+              "memory_used_mib": 7195.0
+            },
+            {
+              "time": 39998609.06495405,
+              "gpu_percent": 61.0,
+              "memory_percent": 12.0,
+              "memory_used_mib": 7195.0
+            },
+            {
+              "time": 39998609.16523337,
+              "gpu_percent": 80.0,
+              "memory_percent": 12.0,
+              "memory_used_mib": 7195.0
+            },
+            {
+              "time": 39998609.26543685,
+              "gpu_percent": 80.0,
+              "memory_percent": 12.0,
+              "memory_used_mib": 7195.0
+            },
+            {
+              "time": 39998609.36566504,
+              "gpu_percent": 79.0,
+              "memory_percent": 14.0,
+              "memory_used_mib": 7197.0
+            },
+            {
+              "time": 39998609.46588661,
+              "gpu_percent": 79.0,
+              "memory_percent": 14.0,
+              "memory_used_mib": 7197.0
+            },
+            {
+              "time": 39998609.56618389,
+              "gpu_percent": 57.0,
+              "memory_percent": 8.0,
+              "memory_used_mib": 7197.0
+            },
+            {
+              "time": 39998609.666383214,
+              "gpu_percent": 57.0,
+              "memory_percent": 8.0,
+              "memory_used_mib": 7197.0
+            },
+            {
+              "time": 39998609.766578466,
+              "gpu_percent": 79.0,
+              "memory_percent": 15.0,
+              "memory_used_mib": 7197.0
+            },
+            {
+              "time": 39998609.866775334,
+              "gpu_percent": 79.0,
+              "memory_percent": 15.0,
+              "memory_used_mib": 7197.0
+            },
+            {
+              "time": 39998609.966995634,
+              "gpu_percent": 59.0,
+              "memory_percent": 10.0,
+              "memory_used_mib": 7197.0
+            },
+            {
+              "time": 39998610.06722593,
+              "gpu_percent": 59.0,
+              "memory_percent": 10.0,
+              "memory_used_mib": 7197.0
+            },
+            {
+              "time": 39998610.16740653,
+              "gpu_percent": 70.0,
+              "memory_percent": 12.0,
+              "memory_used_mib": 7197.0
+            },
+            {
+              "time": 39998610.2676086,
+              "gpu_percent": 70.0,
+              "memory_percent": 12.0,
+              "memory_used_mib": 7197.0
+            },
+            {
+              "time": 39998610.36782952,
+              "gpu_percent": 64.0,
+              "memory_percent": 12.0,
+              "memory_used_mib": 7197.0
+            },
+            {
+              "time": 39998610.46806553,
+              "gpu_percent": 64.0,
+              "memory_percent": 12.0,
+              "memory_used_mib": 7199.0
+            },
+            {
+              "time": 39998610.56828069,
+              "gpu_percent": 62.0,
+              "memory_percent": 10.0,
+              "memory_used_mib": 7199.0
+            },
+            {
+              "time": 39998610.6684761,
+              "gpu_percent": 62.0,
+              "memory_percent": 10.0,
+              "memory_used_mib": 7199.0
+            },
+            {
+              "time": 39998610.76867086,
+              "gpu_percent": 81.0,
+              "memory_percent": 14.0,
+              "memory_used_mib": 7199.0
+            },
+            {
+              "time": 39998610.86890738,
+              "gpu_percent": 81.0,
+              "memory_percent": 14.0,
+              "memory_used_mib": 7199.0
+            },
+            {
+              "time": 39998610.9691851,
+              "gpu_percent": 76.0,
+              "memory_percent": 13.0,
+              "memory_used_mib": 7221.0
+            }
+          ],
+          "gpu_percent_mean": 69.36363636363636,
+          "gpu_percent_median": 68.0,
+          "gpu_percent_max": 81.0,
+          "note": "nvidia-smi rolling utilization samples during measured updates, not an idle snapshot"
+        }
+      },
+      {
+        "name": "batch64_aggregated_checks",
+        "status": "passed_finite_checks",
+        "batch_size": 64,
+        "model_microbatch": 64,
+        "warmup_updates": 2,
+        "measured_updates": 16,
+        "initial_adamw_steps": [
+          1000.0
+        ],
+        "first_update_loss_before_weight_change": {
+          "total": 31.09729766845703,
+          "teacher_spectral": 0.31902119517326355,
+          "teacher_waveform": 0.021843649446964264,
+          "reference_spectral": 0.5842252373695374
+        },
+        "step_seconds": [
+          0.24343761801719666,
+          0.24371735006570816,
+          0.21479853242635727,
+          0.21687304228544235,
+          0.2373703122138977,
+          0.2281961515545845,
+          0.23145852982997894,
+          0.21725700050592422,
+          0.21805261075496674,
+          0.22618594020605087,
+          0.21060040593147278,
+          0.21690496057271957,
+          0.22405846416950226,
+          0.21402552723884583,
+          0.2412715032696724,
+          0.22229788452386856
+        ],
+        "mean_step_seconds": 0.2254066145978868,
+        "median_step_seconds": 0.2231781743466854,
+        "examples_per_second": 283.93133056087345,
+        "scored_audio_seconds_per_second": 650.3663402315008,
+        "baseline_allocated_gib": 0.6670370101928711,
+        "peak_allocated_gib": 9.375929355621338,
+        "peak_reserved_gib": 12.19140625,
+        "actual_measured_scored_audio_seconds": 2345.55,
+        "padded_latent_frames": 1772,
+        "loss_groups_per_update": [
+          18,
+          17,
+          12,
+          12,
+          17,
+          13,
+          16,
+          13,
+          13,
+          14,
+          10,
+          11,
+          15,
+          11,
+          17,
+          15
+        ],
+        "losses": [
+          {
+            "total": 28.812284469604492,
+            "teacher_spectral": 0.28831303119659424,
+            "teacher_waveform": 0.023579908534884453,
+            "reference_spectral": 0.5436446666717529
+          },
+          {
+            "total": 31.765453338623047,
+            "teacher_spectral": 0.32092148065567017,
+            "teacher_waveform": 0.024859901517629623,
+            "reference_spectral": 0.5983726978302002
+          },
+          {
+            "total": 28.660037994384766,
+            "teacher_spectral": 0.29586395621299744,
+            "teacher_waveform": 0.023469017818570137,
+            "reference_spectral": 0.5377469658851624
+          },
+          {
+            "total": 33.003173828125,
+            "teacher_spectral": 0.35379722714424133,
+            "teacher_waveform": 0.028969692066311836,
+            "reference_spectral": 0.6148276329040527
+          },
+          {
+            "total": 28.58372688293457,
+            "teacher_spectral": 0.29723048210144043,
+            "teacher_waveform": 0.028369873762130737,
+            "reference_spectral": 0.5354866981506348
+          },
+          {
+            "total": 29.522153854370117,
+            "teacher_spectral": 0.3053646981716156,
+            "teacher_waveform": 0.024622486904263496,
+            "reference_spectral": 0.5537124276161194
+          },
+          {
+            "total": 29.73569107055664,
+            "teacher_spectral": 0.305748850107193,
+            "teacher_waveform": 0.021226849406957626,
+            "reference_spectral": 0.5584051609039307
+          },
+          {
+            "total": 30.230518341064453,
+            "teacher_spectral": 0.32061880826950073,
+            "teacher_waveform": 0.027120620012283325,
+            "reference_spectral": 0.5643136501312256
+          },
+          {
+            "total": 29.587730407714844,
+            "teacher_spectral": 0.29932859539985657,
+            "teacher_waveform": 0.025582831352949142,
+            "reference_spectral": 0.5571604371070862
+          },
+          {
+            "total": 28.698972702026367,
+            "teacher_spectral": 0.3015473484992981,
+            "teacher_waveform": 0.021740419790148735,
+            "reference_spectral": 0.5367560386657715
+          },
+          {
+            "total": 31.894250869750977,
+            "teacher_spectral": 0.3313576877117157,
+            "teacher_waveform": 0.030160246416926384,
+            "reference_spectral": 0.5976383686065674
+          },
+          {
+            "total": 30.541465759277344,
+            "teacher_spectral": 0.3272467255592346,
+            "teacher_waveform": 0.028681714087724686,
+            "reference_spectral": 0.5689796209335327
+          },
+          {
+            "total": 30.824462890625,
+            "teacher_spectral": 0.3076023459434509,
+            "teacher_waveform": 0.02757902443408966,
+            "reference_spectral": 0.5818411111831665
+          },
+          {
+            "total": 29.941713333129883,
+            "teacher_spectral": 0.31035786867141724,
+            "teacher_waveform": 0.026928450912237167,
+            "reference_spectral": 0.561320424079895
+          },
+          {
+            "total": 30.327680587768555,
+            "teacher_spectral": 0.31355881690979004,
+            "teacher_waveform": 0.0214743223041296,
+            "reference_spectral": 0.5689516663551331
+          },
+          {
+            "total": 29.606098175048828,
+            "teacher_spectral": 0.2956683337688446,
+            "teacher_waveform": 0.02379647083580494,
+            "reference_spectral": 0.5588284134864807
+          }
+        ],
+        "utilization": {
+          "query_period_ms": 100,
+          "excluded_initial_measured_seconds": 1,
+          "samples": [
+            {
+              "time": 39998613.129801735,
+              "gpu_percent": 68.0,
+              "memory_percent": 18.0,
+              "memory_used_mib": 13237.0
+            },
+            {
+              "time": 39998613.23005671,
+              "gpu_percent": 56.0,
+              "memory_percent": 10.0,
+              "memory_used_mib": 13237.0
+            },
+            {
+              "time": 39998613.33022403,
+              "gpu_percent": 56.0,
+              "memory_percent": 10.0,
+              "memory_used_mib": 13237.0
+            },
+            {
+              "time": 39998613.430437475,
+              "gpu_percent": 68.0,
+              "memory_percent": 13.0,
+              "memory_used_mib": 13237.0
+            },
+            {
+              "time": 39998613.53061324,
+              "gpu_percent": 68.0,
+              "memory_percent": 13.0,
+              "memory_used_mib": 13237.0
+            },
+            {
+              "time": 39998613.630805254,
+              "gpu_percent": 79.0,
+              "memory_percent": 16.0,
+              "memory_used_mib": 13237.0
+            },
+            {
+              "time": 39998613.731059834,
+              "gpu_percent": 79.0,
+              "memory_percent": 16.0,
+              "memory_used_mib": 13237.0
+            },
+            {
+              "time": 39998613.83128597,
+              "gpu_percent": 86.0,
+              "memory_percent": 15.0,
+              "memory_used_mib": 13237.0
+            },
+            {
+              "time": 39998613.93151872,
+              "gpu_percent": 86.0,
+              "memory_percent": 15.0,
+              "memory_used_mib": 13237.0
+            },
+            {
+              "time": 39998614.031739414,
+              "gpu_percent": 86.0,
+              "memory_percent": 14.0,
+              "memory_used_mib": 13237.0
+            },
+            {
+              "time": 39998614.13196701,
+              "gpu_percent": 86.0,
+              "memory_percent": 14.0,
+              "memory_used_mib": 13237.0
+            },
+            {
+              "time": 39998614.23224707,
+              "gpu_percent": 94.0,
+              "memory_percent": 14.0,
+              "memory_used_mib": 13239.0
+            },
+            {
+              "time": 39998614.3324855,
+              "gpu_percent": 94.0,
+              "memory_percent": 14.0,
+              "memory_used_mib": 13239.0
+            },
+            {
+              "time": 39998614.432666406,
+              "gpu_percent": 91.0,
+              "memory_percent": 21.0,
+              "memory_used_mib": 13239.0
+            },
+            {
+              "time": 39998614.53289937,
+              "gpu_percent": 91.0,
+              "memory_percent": 21.0,
+              "memory_used_mib": 13239.0
+            },
+            {
+              "time": 39998614.63317648,
+              "gpu_percent": 86.0,
+              "memory_percent": 20.0,
+              "memory_used_mib": 13239.0
+            },
+            {
+              "time": 39998614.73340708,
+              "gpu_percent": 86.0,
+              "memory_percent": 20.0,
+              "memory_used_mib": 13239.0
+            },
+            {
+              "time": 39998614.83364911,
+              "gpu_percent": 75.0,
+              "memory_percent": 17.0,
+              "memory_used_mib": 13239.0
+            },
+            {
+              "time": 39998614.93385559,
+              "gpu_percent": 75.0,
+              "memory_percent": 17.0,
+              "memory_used_mib": 13239.0
+            },
+            {
+              "time": 39998615.034077115,
+              "gpu_percent": 66.0,
+              "memory_percent": 16.0,
+              "memory_used_mib": 13239.0
+            },
+            {
+              "time": 39998615.13432344,
+              "gpu_percent": 66.0,
+              "memory_percent": 16.0,
+              "memory_used_mib": 13239.0
+            },
+            {
+              "time": 39998615.23455866,
+              "gpu_percent": 73.0,
+              "memory_percent": 21.0,
+              "memory_used_mib": 13239.0
+            },
+            {
+              "time": 39998615.33475604,
+              "gpu_percent": 73.0,
+              "memory_percent": 21.0,
+              "memory_used_mib": 13243.0
+            },
+            {
+              "time": 39998615.43498549,
+              "gpu_percent": 67.0,
+              "memory_percent": 12.0,
+              "memory_used_mib": 13243.0
+            },
+            {
+              "time": 39998615.53527283,
+              "gpu_percent": 67.0,
+              "memory_percent": 12.0,
+              "memory_used_mib": 13243.0
+            },
+            {
+              "time": 39998615.63550601,
+              "gpu_percent": 80.0,
+              "memory_percent": 16.0,
+              "memory_used_mib": 13243.0
+            }
+          ],
+          "gpu_percent_mean": 77.0,
+          "gpu_percent_median": 77.0,
+          "gpu_percent_max": 94.0,
+          "note": "nvidia-smi rolling utilization samples during measured updates, not an idle snapshot"
+        }
+      }
+    ],
+    "checkpoint_unchanged": true
+  }
+}

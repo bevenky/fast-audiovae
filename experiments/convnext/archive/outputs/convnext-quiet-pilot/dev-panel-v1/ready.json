@@ -1,0 +1,190 @@
+{
+  "by_dataset": {
+    "emogator": 12,
+    "fleurs": 6,
+    "freesound_human_whistle_cc0": 1,
+    "freesound_human_whistle_cc_by_4": 1,
+    "fsd50k_vocal_cc0": 3,
+    "fsd50k_vocal_cc_by_3": 10,
+    "indicvoices": 37,
+    "jvnv": 10,
+    "librispeech": 4
+  },
+  "by_language": {
+    "as": 3,
+    "bn": 3,
+    "en": 4,
+    "es": 2,
+    "fr": 2,
+    "gu": 1,
+    "hi": 3,
+    "ja": 10,
+    "kn": 3,
+    "ml": 3,
+    "mr": 3,
+    "ne": 3,
+    "pa": 3,
+    "pt": 2,
+    "sd": 3,
+    "ta": 3,
+    "te": 3,
+    "und": 27,
+    "ur": 3
+  },
+  "created_utc": "2026-09-09T05:44:11.526606+00:00",
+  "files_sha256": {
+    "groups.json": "b8211d97776ef7399bb07215885dd1f941cfcca84596d69fcf056baab1ffe7c8",
+    "input-sample-counts.json": "0e1a698a929e9ef9c6087896520d322d848732ca3f07b8b6042a0e872ecc8318",
+    "manifest.jsonl": "fb42d6c8d8ffd358b310df1b79e4d50aef61949fb0e3c92760b38c5bc843ec1c",
+    "source-checks.json": "5910de372c0d674f1df696c5994f494a4dd3790cab8e9006c05bf1326001cf00",
+    "windows.jsonl": "361ced88586146a1053c999bd79b4a8bc4c71fd7b81357355c79028c2905365f"
+  },
+  "fleurs_identity_caveat": "No speaker/session identities in FLEURS; language-wide unknown placeholder retained. Old training shares three unknown groups; this is unverified identity, not evidence of same or different speakers. Original test split and original filename/text-ID exclusions retained.",
+  "groups": {
+    "event:Laughter": 6,
+    "event:Screaming": 7,
+    "event:human_whistling_source_description": 2,
+    "generic_emotion_nonverbal": 12,
+    "jvnv_verbal_and_nonverbal": 6,
+    "speech:as": 3,
+    "speech:bn": 3,
+    "speech:en": 4,
+    "speech:es": 2,
+    "speech:fr": 2,
+    "speech:gu": 1,
+    "speech:hi": 3,
+    "speech:ja": 4,
+    "speech:kn": 3,
+    "speech:ml": 3,
+    "speech:mr": 3,
+    "speech:ne": 3,
+    "speech:pa": 3,
+    "speech:pt": 2,
+    "speech:sd": 3,
+    "speech:ta": 3,
+    "speech:te": 3,
+    "speech:ur": 3
+  },
+  "heldout_policy": "Development only, never a new sealed test. Existing dev and historical benchmark files have informed earlier audits. Source/file/parent identities excluded from old and new training.",
+  "identity_sha256": "a0f683bb590d72994ee4bb701d348d67061dec32c0721b01e1c7ed6c3edbfd18",
+  "missing_explicit_vocal_events": [
+    "Crying_and_sobbing",
+    "Giggle",
+    "Shout",
+    "explicit_whisper_style"
+  ],
+  "missing_indic_languages": [
+    "brx",
+    "doi",
+    "kok",
+    "ks",
+    "mai",
+    "mni",
+    "or",
+    "sa",
+    "sat"
+  ],
+  "missing_requested_language_coverage": [
+    "Chinese Mandarin",
+    "Chinese Cantonese",
+    "Arabic"
+  ],
+  "old_ledger_identity": "58a38d2124c787ea4306bc3cf3b0abfde024bc5158441d4410383d23826df3c2",
+  "other_pilot_language_without_heldout_panel": [
+    "German"
+  ],
+  "overlap_checks": {
+    "diagnostic_and_sentinel": {
+      "audio_sha256": {
+        "count": 0,
+        "values": []
+      },
+      "parent_recording_id": {
+        "count": 0,
+        "values": []
+      },
+      "session_id": {
+        "count": 0,
+        "values": []
+      },
+      "source_id": {
+        "count": 0,
+        "values": []
+      },
+      "speaker_id": {
+        "count": 0,
+        "values": []
+      }
+    },
+    "old_training_ledger": {
+      "audio_sha256": {
+        "count": 0,
+        "values": []
+      },
+      "parent_recording_id": {
+        "count": 0,
+        "values": []
+      },
+      "session_id": {
+        "count": 3,
+        "values": [
+          "fleurs:unknown-session-group:es_419",
+          "fleurs:unknown-session-group:fr_fr",
+          "fleurs:unknown-session-group:pt_br"
+        ]
+      },
+      "source_id": {
+        "count": 0,
+        "values": []
+      },
+      "speaker_id": {
+        "count": 0,
+        "values": []
+      }
+    },
+    "prepared_pilot": {
+      "audio_sha256": {
+        "count": 0,
+        "values": []
+      },
+      "parent_recording_id": {
+        "count": 0,
+        "values": []
+      },
+      "session_id": {
+        "count": 0,
+        "values": []
+      },
+      "source_id": {
+        "count": 0,
+        "values": []
+      },
+      "speaker_id": {
+        "count": 0,
+        "values": []
+      }
+    }
+  },
+  "rows": 84,
+  "scored_minutes": 5.717333333333333,
+  "selection_policy": "Deterministic source-metadata ranking before decoding or model scoring; retain all 15 available explicit event dev files; no model-output selection",
+  "source_energy_20ms_input_seconds": {
+    "-100:-80": 7.632625,
+    "-60:-40": 137.668,
+    "-80:-60": 44.9699375,
+    "<-100": 3.76,
+    ">=-40": 394.79175
+  },
+  "source_energy_note": "Input16k energy measured only after selection; teacher48k silence coverage still must be measured during target creation.",
+  "source_manifests_sha256": {
+    "/workspace/fast-audiovae-convnext-20260908-r1/reserved-evaluation.json": "4974b3860296ab387c90bf8c8b975c15489fd25c37142d77e9e12c46a1d4e712",
+    "/workspace/fast-audiovae-convnext-20260909-r2/data/selection-v1/dev-reserve.jsonl": "bfddf81569e63730c2ebd233d7a4c2e5d9ad1ac92f954da348123411cc1c9769",
+    "/workspace/fast-audiovae-convnext-20260909-r2/data/selection-v1/diagnostic.jsonl": "c98cb8a8f3a716033b4d9933dcfc6da9c079238149e1377b38e645ab7a72fdc0",
+    "/workspace/fast-audiovae-convnext-20260909-r2/data/selection-v1/sentinel.jsonl": "c387adac3a0c0be1800c72774ff6258ef95143c02900141d3ce60507fd050806",
+    "/workspace/fast-audiovae-convnext-20260909-r2/data/selection-v1/train-manifest.jsonl": "40a27d5c88593849a911be0f0c6a097a3f5b2d913547cbf6b8e349145152d1fa"
+  },
+  "source_validation": "All selected exact file bytes SHA256 verified, decoded finite mono16k and exact counts, no resampling/gain changes",
+  "state": "ready",
+  "whole_source_minutes": 9.813705208333333,
+  "windows": 167
+}

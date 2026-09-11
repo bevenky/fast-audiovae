@@ -1,0 +1,1997 @@
+{
+  "checkpoint": "/workspace/fast-audiovae-convnext-20260909-r5/training-runs/representative-reconstruction-v1/latest.pt",
+  "checkpoint_sha256": "955d12a84245765331b8697747e1565a3a90f3f2e1f6d8819e1c4f62d99ac104",
+  "step": 1009,
+  "policy": "12-crop maximum no-update diagnostic; no RTF measurements; unshifted acceptance unchanged",
+  "target_regeneration_note": "Byte mismatches are reported, never silently treated as original saved targets.",
+  "frozen_files_unchanged": true,
+  "model_and_teacher_unchanged": true,
+  "clips": [
+    {
+      "samples": 30720,
+      "teacher_rms": 0.0008240974953489235,
+      "student_rms": 0.001065896936571246,
+      "student_to_teacher_db": 2.2347323965151014,
+      "cosine": 0.08206744426059707,
+      "l1": 0.0010161596130254203,
+      "error_rms": 0.0012927089322240187,
+      "error_snr_db": -3.910443109093296,
+      "student_dc": 4.587375996387624e-05,
+      "student_dc_power_fraction": 0.0018522442169961874,
+      "error_after_dc_removal_rms": 0.001291378064066063,
+      "teacher_projection_gain": 0.10614695217895878,
+      "orthogonal_error_rms": 0.0010623014295568212,
+      "error_power_from_projection_gain_fraction": 0.32470422507437574,
+      "lag_diagnostic": {
+        "search_samples_each_direction": 960,
+        "best_lag_samples": 0,
+        "best_lag_ms": 0.0,
+        "best_cosine": 0.08206744426059466,
+        "interpretation": "positive lag means student delayed relative to teacher; diagnostic only"
+      },
+      "bands": [
+        {
+          "hz": [
+            0,
+            300
+          ],
+          "teacher_rms": 0.0002448331083034352,
+          "student_rms": 0.0006875395404923728,
+          "student_to_teacher_db": 8.96855066630314,
+          "cosine": 0.05089828230737447,
+          "residual_rms": 0.0007179959653603529
+        },
+        {
+          "hz": [
+            300,
+            3000
+          ],
+          "teacher_rms": 0.0007320360467792228,
+          "student_rms": 0.0005902778528393469,
+          "student_to_teacher_db": -1.8695195637119308,
+          "cosine": 0.13033515356871225,
+          "residual_rms": 0.0008784462768790814
+        },
+        {
+          "hz": [
+            3000,
+            8000
+          ],
+          "teacher_rms": 0.0002702305440280575,
+          "student_rms": 0.00028528004374611866,
+          "student_to_teacher_db": 0.47073913743389695,
+          "cosine": 0.08028402335908519,
+          "residual_rms": 0.0003768697888552139
+        },
+        {
+          "hz": [
+            8000,
+            16000
+          ],
+          "teacher_rms": 0.00010107452214680947,
+          "student_rms": 0.00033121103680650683,
+          "student_to_teacher_db": 10.3092620676796,
+          "cosine": 0.027931063124770474,
+          "residual_rms": 0.0003435792684103879
+        },
+        {
+          "hz": [
+            16000,
+            24000
+          ],
+          "teacher_rms": 8.720732869947249e-06,
+          "student_rms": 0.00035201173536779254,
+          "student_to_teacher_db": 32.12008317346403,
+          "cosine": 0.025335302064790923,
+          "residual_rms": 0.0003518987984948324
+        }
+      ],
+      "quiet": {
+        "windows": 26,
+        "complete_windows": 32,
+        "teacher_rms": 0.0006207023097268966,
+        "student_rms": 0.001046736326463998,
+        "residual_rms": 0.00117981355018878,
+        "student_to_teacher_db": 4.539078698796119,
+        "student_phase480": {
+          "head_blocks": 52,
+          "rms": 0.001046736326463998,
+          "dc": 6.690635550499224e-05,
+          "dc_power_fraction": 0.004085640546070937,
+          "phase480_template_rms": 0.0007527640486206848,
+          "phase480_explained_ac_power_fraction": 0.5193033828763949,
+          "residual_after_phase_template_rms": 0.0007242421997071007
+        },
+        "teacher_phase480": {
+          "head_blocks": 52,
+          "rms": 0.0006207023097268966,
+          "dc": -1.0170003960169174e-05,
+          "dc_power_fraction": 0.00026845748740474823,
+          "phase480_template_rms": 0.00012924491064928418,
+          "phase480_explained_ac_power_fraction": 0.04336873789469332,
+          "residual_after_phase_template_rms": 0.0006070120932823437
+        },
+        "residual_phase480": {
+          "head_blocks": 52,
+          "rms": 0.00117981355018878,
+          "dc": 7.70763594651614e-05,
+          "dc_power_fraction": 0.004267913684321157,
+          "phase480_template_rms": 0.0007753363768971272,
+          "phase480_explained_ac_power_fraction": 0.43372160826658845,
+          "residual_after_phase_template_rms": 0.0008859304434777521
+        }
+      },
+      "source_id": "emogator:000216-25-1.mp3",
+      "start_frame": 0,
+      "metadata": {
+        "dataset": "emogator",
+        "language": "und",
+        "condition": "generic_emotion_nonverbal",
+        "coverage_group": "generic_emotion_nonverbal"
+      },
+      "selection_reason": "two lowest teacher-RMS saved dev crops",
+      "target_origin": "regenerated serial whole-utterance frozen original FP32 teacher; old dev cache evicted",
+      "crop_identity": {
+        "source_id": "emogator:000216-25-1.mp3",
+        "cache_key": "94be247d7977a9843b85b4d3d363c2ef48d6c2805f04390102dee37b8fcbd0b0",
+        "start_frame": 0,
+        "context_frames": 0,
+        "scored_frames": 16,
+        "valid_scored_samples": 30720,
+        "latents_sha256": "d763c9ef9784ee37a69714fe1531ca19e66f8752660af8fed48e55f584faaed9",
+        "teacher_sha256": "bcf1b9c47982cd98c67fb8a5071f259c18d5f2f4646799a5b8a866060cfae572"
+      },
+      "saved_crop_identity": {
+        "cache_key": "94be247d7977a9843b85b4d3d363c2ef48d6c2805f04390102dee37b8fcbd0b0",
+        "context_frames": 0,
+        "latents_sha256": "6ae68b1496e74e0417fa367befd6ff9522352c07aa1deff9c396aa47fa4a63be",
+        "scored_frames": 16,
+        "source_id": "emogator:000216-25-1.mp3",
+        "start_frame": 0,
+        "teacher_sha256": "e8afce03c114dc9698c9cf3dee76ca9552acbdb794a208a9f3478c64bdf51fae",
+        "valid_scored_samples": 30720
+      },
+      "same_latent_bytes_as_saved": false,
+      "same_teacher_bytes_as_saved": false,
+      "saved_evaluation_cosine": 0.08206751197576523,
+      "saved_evaluation_student_rms": 0.0010658969404175878,
+      "saved_evaluation_teacher_rms": 0.0008240980678237975
+    },
+    {
+      "samples": 30720,
+      "teacher_rms": 0.0008461413773637589,
+      "student_rms": 0.0014251140316060384,
+      "student_to_teacher_db": 4.528133660722908,
+      "cosine": 0.49315907064807524,
+      "l1": 0.0010000100440535665,
+      "error_rms": 0.001248020642949749,
+      "error_snr_db": -3.3755767153412446,
+      "student_dc": 5.908431203072162e-05,
+      "student_dc_power_fraction": 0.0017188783194312092,
+      "error_after_dc_removal_rms": 0.0012465692814904526,
+      "teacher_projection_gain": 0.8306034076527926,
+      "orthogonal_error_rms": 0.0012397624944971944,
+      "error_power_from_projection_gain_fraction": 0.013190208717459706,
+      "lag_diagnostic": {
+        "search_samples_each_direction": 960,
+        "best_lag_samples": 0,
+        "best_lag_ms": 0.0,
+        "best_cosine": 0.4931590706480599,
+        "interpretation": "positive lag means student delayed relative to teacher; diagnostic only"
+      },
+      "bands": [
+        {
+          "hz": [
+            0,
+            300
+          ],
+          "teacher_rms": 0.0008065103960790296,
+          "student_rms": 0.0010697644906599107,
+          "student_to_teacher_db": 2.4535641619120248,
+          "cosine": 0.6294670274093991,
+          "residual_rms": 0.0008418294161543199
+        },
+        {
+          "hz": [
+            300,
+            3000
+          ],
+          "teacher_rms": 0.00021859900381917763,
+          "student_rms": 0.000669509115143518,
+          "student_to_teacher_db": 9.722166313493801,
+          "cosine": 0.3432030031774807,
+          "residual_rms": 0.0006289433181872677
+        },
+        {
+          "hz": [
+            3000,
+            8000
+          ],
+          "teacher_rms": 0.0001279003223058326,
+          "student_rms": 0.0003125288571812918,
+          "student_to_teacher_db": 7.7603696996649845,
+          "cosine": 0.030198080093477582,
+          "residual_rms": 0.00033409368595296694
+        },
+        {
+          "hz": [
+            8000,
+            16000
+          ],
+          "teacher_rms": 3.622379796704211e-05,
+          "student_rms": 0.00040379346425508815,
+          "student_to_teacher_db": 20.943306045393516,
+          "cosine": 0.0058014817523761855,
+          "residual_rms": 0.0004052056385910862
+        },
+        {
+          "hz": [
+            16000,
+            24000
+          ],
+          "teacher_rms": 6.327009376942695e-06,
+          "student_rms": 0.00042141195284084204,
+          "student_to_teacher_db": 36.470167431586745,
+          "cosine": 0.024229240358151754,
+          "residual_rms": 0.0004213061372611626
+        }
+      ],
+      "quiet": {
+        "windows": 24,
+        "complete_windows": 32,
+        "teacher_rms": 0.0007440207582350315,
+        "student_rms": 0.0013884621749422916,
+        "residual_rms": 0.001244631144313656,
+        "student_to_teacher_db": 5.418980009098686,
+        "student_phase480": {
+          "head_blocks": 48,
+          "rms": 0.0013884621749422916,
+          "dc": 6.16885721403874e-05,
+          "dc_power_fraction": 0.0019739735545392777,
+          "phase480_template_rms": 0.0007553371462825578,
+          "phase480_explained_ac_power_fraction": 0.29653210006365305,
+          "residual_after_phase_template_rms": 0.001163394828404562
+        },
+        "teacher_phase480": {
+          "head_blocks": 48,
+          "rms": 0.0007440207582350315,
+          "dc": 3.6608717429942318e-06,
+          "dc_power_fraction": 2.4210230403229153e-05,
+          "phase480_template_rms": 5.96961950994026e-05,
+          "phase480_explained_ac_power_fraction": 0.006437744129430079,
+          "residual_after_phase_template_rms": 0.0007416130062191241
+        },
+        "residual_phase480": {
+          "head_blocks": 48,
+          "rms": 0.001244631144313656,
+          "dc": 5.802770039739317e-05,
+          "dc_power_fraction": 0.00217364888109685,
+          "phase480_template_rms": 0.0007647130609388251,
+          "phase480_explained_ac_power_fraction": 0.3783212348504922,
+          "residual_after_phase_template_rms": 0.0009802823092414164
+        }
+      },
+      "source_id": "emogator:000298-30-1.mp3",
+      "start_frame": 0,
+      "metadata": {
+        "dataset": "emogator",
+        "language": "und",
+        "condition": "generic_emotion_nonverbal",
+        "coverage_group": "generic_emotion_nonverbal"
+      },
+      "selection_reason": "two lowest teacher-RMS saved dev crops",
+      "target_origin": "regenerated serial whole-utterance frozen original FP32 teacher; old dev cache evicted",
+      "crop_identity": {
+        "source_id": "emogator:000298-30-1.mp3",
+        "cache_key": "f03e5acad41d22a731e8dab8e9b6cbcb1f8fe54d0d3b70054bf3d37bdcd7d84e",
+        "start_frame": 0,
+        "context_frames": 0,
+        "scored_frames": 16,
+        "valid_scored_samples": 30720,
+        "latents_sha256": "b3e3ce8492386d2f251397b640a3334b67d968f81a7924c4024340c38b2c9377",
+        "teacher_sha256": "9afe0e83c1d7d3af2825d98bbdabcf9ff5f22ed496de610bc74e43b74ea877ef"
+      },
+      "saved_crop_identity": {
+        "cache_key": "f03e5acad41d22a731e8dab8e9b6cbcb1f8fe54d0d3b70054bf3d37bdcd7d84e",
+        "context_frames": 0,
+        "latents_sha256": "da2503c65048f953eda83ace0b72d99c1079e72a6c0a64a2501f5b64d80cd884",
+        "scored_frames": 16,
+        "source_id": "emogator:000298-30-1.mp3",
+        "start_frame": 0,
+        "teacher_sha256": "34229b80e6a4cbb6847ff5cd97d4510dc352e150fff48603b331a3a9b871cd86",
+        "valid_scored_samples": 30720
+      },
+      "same_latent_bytes_as_saved": false,
+      "same_teacher_bytes_as_saved": false,
+      "saved_evaluation_cosine": 0.49315908551216125,
+      "saved_evaluation_student_rms": 0.0014251142274588346,
+      "saved_evaluation_teacher_rms": 0.0008461411343887448
+    },
+    {
+      "samples": 122880,
+      "teacher_rms": 0.05301919956750808,
+      "student_rms": 0.01942036334075423,
+      "student_to_teacher_db": -8.723516318203048,
+      "cosine": 0.5129585566297825,
+      "l1": 0.021758684371329086,
+      "error_rms": 0.046171942831405875,
+      "error_snr_db": 1.2011003526313537,
+      "student_dc": -0.0003535984457681094,
+      "student_dc_power_fraction": 0.000331517144419273,
+      "error_after_dc_removal_rms": 0.0461712279738017,
+      "teacher_projection_gain": 0.187891209783638,
+      "orthogonal_error_rms": 0.01667069960288126,
+      "error_power_from_projection_gain_fraction": 0.8696378984281856,
+      "lag_diagnostic": {
+        "search_samples_each_direction": 960,
+        "best_lag_samples": 0,
+        "best_lag_ms": 0.0,
+        "best_cosine": 0.5129585566297515,
+        "interpretation": "positive lag means student delayed relative to teacher; diagnostic only"
+      },
+      "bands": [
+        {
+          "hz": [
+            0,
+            300
+          ],
+          "teacher_rms": 0.02619492727474563,
+          "student_rms": 0.01710101423184835,
+          "student_to_teacher_db": -3.703906572635834,
+          "cosine": 0.9120634003378392,
+          "residual_rms": 0.012707611178733355
+        },
+        {
+          "hz": [
+            300,
+            3000
+          ],
+          "teacher_rms": 0.04520296338681968,
+          "student_rms": 0.008546464503642147,
+          "student_to_teacher_db": -14.46760827495859,
+          "cosine": 0.30556501548764914,
+          "residual_rms": 0.04336190524190944
+        },
+        {
+          "hz": [
+            3000,
+            8000
+          ],
+          "teacher_rms": 0.007171193148206843,
+          "student_rms": 0.0021620994055378557,
+          "student_to_teacher_db": -10.41431525065166,
+          "cosine": 0.038453591864190624,
+          "residual_rms": 0.007410010257143018
+        },
+        {
+          "hz": [
+            8000,
+            16000
+          ],
+          "teacher_rms": 0.0054748211558337985,
+          "student_rms": 0.0019125469548886423,
+          "student_to_teacher_db": -9.13515660962971,
+          "cosine": 0.091407432446678,
+          "residual_rms": 0.005631809216619607
+        },
+        {
+          "hz": [
+            16000,
+            24000
+          ],
+          "teacher_rms": 0.0003920855042236735,
+          "student_rms": 0.0018251737788316691,
+          "student_to_teacher_db": 13.358468691695528,
+          "cosine": 0.0002939255861301385,
+          "residual_rms": 0.001866700212954156
+        }
+      ],
+      "quiet": {
+        "windows": 1,
+        "complete_windows": 128,
+        "teacher_rms": 0.0009433173898807751,
+        "student_rms": 0.0011949050214269507,
+        "residual_rms": 0.001161794073878518,
+        "student_to_teacher_db": 2.053510910922806,
+        "student_phase480": {
+          "head_blocks": 2,
+          "rms": 0.0011949050214269507,
+          "dc": 1.0651592307719947e-05,
+          "dc_power_fraction": 7.946251351862842e-05,
+          "phase480_template_rms": 0.0009907417342893484,
+          "phase480_explained_ac_power_fraction": 0.6875252529989004,
+          "residual_after_phase_template_rms": 0.0006679186849834238
+        },
+        "teacher_phase480": {
+          "head_blocks": 2,
+          "rms": 0.0009433173898807751,
+          "dc": -1.3508346908489936e-05,
+          "dc_power_fraction": 0.00020506367168188517,
+          "phase480_template_rms": 0.0007065085371651293,
+          "phase480_explained_ac_power_fraction": 0.5610585874312213,
+          "residual_after_phase_template_rms": 0.0006249087209569627
+        },
+        "residual_phase480": {
+          "head_blocks": 2,
+          "rms": 0.001161794073878518,
+          "dc": 2.4159939216209885e-05,
+          "dc_power_fraction": 0.00043244747021720656,
+          "phase480_template_rms": 0.000976376328492181,
+          "phase480_explained_ac_power_fraction": 0.7065843593864547,
+          "residual_after_phase_template_rms": 0.0006291828292288666
+        }
+      },
+      "source_id": "2035-147960-0008",
+      "start_frame": 0,
+      "metadata": {
+        "dataset": "librispeech",
+        "language": "en",
+        "condition": "speech",
+        "coverage_group": "speech:en"
+      },
+      "selection_reason": "median speech cosine:en",
+      "target_origin": "regenerated serial whole-utterance frozen original FP32 teacher; old dev cache evicted",
+      "crop_identity": {
+        "source_id": "2035-147960-0008",
+        "cache_key": "fb3035c57c58c5cae9bb9d5d6c9d0fc4e43274ae3b81eac45973b6932e1a1eaa",
+        "start_frame": 0,
+        "context_frames": 0,
+        "scored_frames": 64,
+        "valid_scored_samples": 122880,
+        "latents_sha256": "6d81c8cbcf5e269d79139cb0006204e7b0bf22a501ee3e0c7e80ad6c99b9f26c",
+        "teacher_sha256": "5fa7606fe60abf78e2f12c0cf945b7f3ee6ad9f2fad0e987466f08a8ab102ece"
+      },
+      "saved_crop_identity": {
+        "cache_key": "fb3035c57c58c5cae9bb9d5d6c9d0fc4e43274ae3b81eac45973b6932e1a1eaa",
+        "context_frames": 0,
+        "latents_sha256": "ea36f08d31b1c7c7f801014f6b16c2c45d89994387da209d75674897677a646c",
+        "scored_frames": 64,
+        "source_id": "2035-147960-0008",
+        "start_frame": 0,
+        "teacher_sha256": "51c159de8a208ca60ebe7a13e42db01ab0edf464925da5f91341637ccc65f151",
+        "valid_scored_samples": 122880
+      },
+      "same_latent_bytes_as_saved": false,
+      "same_teacher_bytes_as_saved": false,
+      "saved_evaluation_cosine": 0.5129584074020386,
+      "saved_evaluation_student_rms": 0.01942037045955658,
+      "saved_evaluation_teacher_rms": 0.053019240498542786
+    },
+    {
+      "samples": 122880,
+      "teacher_rms": 0.07417061401349874,
+      "student_rms": 0.023492587386405014,
+      "student_to_teacher_db": -9.986020465850823,
+      "cosine": 0.7396280703530553,
+      "l1": 0.024352983540543167,
+      "error_rms": 0.058954537873172695,
+      "error_snr_db": 1.9942926974835244,
+      "student_dc": -8.22818020586729e-05,
+      "student_dc_power_fraction": 1.226721246709942e-05,
+      "error_after_dc_removal_rms": 0.0589544456957778,
+      "teacher_projection_gain": 0.2342676720061257,
+      "orthogonal_error_rms": 0.01581088337525219,
+      "error_power_from_projection_gain_fraction": 0.9280753442992561,
+      "lag_diagnostic": {
+        "search_samples_each_direction": 960,
+        "best_lag_samples": 0,
+        "best_lag_ms": 0.0,
+        "best_cosine": 0.7396280703530335,
+        "interpretation": "positive lag means student delayed relative to teacher; diagnostic only"
+      },
+      "bands": [
+        {
+          "hz": [
+            0,
+            300
+          ],
+          "teacher_rms": 0.05498499241853582,
+          "student_rms": 0.02111282419442924,
+          "student_to_teacher_db": -8.313956762847337,
+          "cosine": 0.9182969325907779,
+          "residual_rms": 0.03656528516763755
+        },
+        {
+          "hz": [
+            300,
+            3000
+          ],
+          "teacher_rms": 0.04950861397969118,
+          "student_rms": 0.009626718950178898,
+          "student_to_teacher_db": -14.224049506398842,
+          "cosine": 0.4666840829065423,
+          "residual_rms": 0.045814060756659856
+        },
+        {
+          "hz": [
+            3000,
+            8000
+          ],
+          "teacher_rms": 0.005005386958961734,
+          "student_rms": 0.002086893881587118,
+          "student_to_teacher_db": -7.598745839733136,
+          "cosine": 0.020296216379573195,
+          "residual_rms": 0.005383772640400692
+        },
+        {
+          "hz": [
+            8000,
+            16000
+          ],
+          "teacher_rms": 0.0013197781457171085,
+          "student_rms": 0.0021487916392280504,
+          "student_to_teacher_db": 4.233867458912272,
+          "cosine": 0.029966583384674807,
+          "residual_rms": 0.0024878009772218933
+        },
+        {
+          "hz": [
+            16000,
+            24000
+          ],
+          "teacher_rms": 0.00017894334310897223,
+          "student_rms": 0.0021223023619276666,
+          "student_to_teacher_db": 21.481834212178853,
+          "cosine": 0.027722099274267845,
+          "residual_rms": 0.0021248839704755148
+        }
+      ],
+      "quiet": {
+        "windows": 4,
+        "complete_windows": 128,
+        "teacher_rms": 0.0009134598738633563,
+        "student_rms": 0.0013593563715014769,
+        "residual_rms": 0.0012120672373502307,
+        "student_to_teacher_db": 3.4528770513363263,
+        "student_phase480": {
+          "head_blocks": 8,
+          "rms": 0.0013593563715014769,
+          "dc": 0.00018924620249736735,
+          "dc_power_fraction": 0.01938151370888739,
+          "phase480_template_rms": 0.0008895497794411376,
+          "phase480_explained_ac_power_fraction": 0.43669053828330323,
+          "residual_after_phase_template_rms": 0.0010103152030323062
+        },
+        "teacher_phase480": {
+          "head_blocks": 8,
+          "rms": 0.0009134598738633563,
+          "dc": 0.00010795003320869985,
+          "dc_power_fraction": 0.013965825502277776,
+          "phase480_template_rms": 0.00032148039264493113,
+          "phase480_explained_ac_power_fraction": 0.12561400534778114,
+          "residual_after_phase_template_rms": 0.0008481780995955746
+        },
+        "residual_phase480": {
+          "head_blocks": 8,
+          "rms": 0.0012120672373502307,
+          "dc": 8.129616928866749e-05,
+          "dc_power_fraction": 0.0044986969605588095,
+          "phase480_template_rms": 0.0007812156362841981,
+          "phase480_explained_ac_power_fraction": 0.4172982824316095,
+          "residual_after_phase_template_rms": 0.000923146819493998
+        }
+      },
+      "source_id": "hindi:5348024557759780_chunk_1.flac",
+      "start_frame": 45,
+      "metadata": {
+        "dataset": "indicvoices",
+        "language": "hi",
+        "condition": "speech",
+        "coverage_group": "speech:hi"
+      },
+      "selection_reason": "median speech cosine:hi",
+      "target_origin": "regenerated serial whole-utterance frozen original FP32 teacher; old dev cache evicted",
+      "crop_identity": {
+        "source_id": "hindi:5348024557759780_chunk_1.flac",
+        "cache_key": "4f0b7454e81f99b7903cdac5629453f65cf80eae7a2367aa93d91c93f9c466f2",
+        "start_frame": 45,
+        "context_frames": 29,
+        "scored_frames": 64,
+        "valid_scored_samples": 122880,
+        "latents_sha256": "fa6ac0d11bfaf334b1b1ff40214531cfbfff8cc57cb289734ffde760b2703be8",
+        "teacher_sha256": "647b0b9b65af52e84b5d8a08d2fb4db760761733efc1937fa6cb055453353009"
+      },
+      "saved_crop_identity": {
+        "cache_key": "4f0b7454e81f99b7903cdac5629453f65cf80eae7a2367aa93d91c93f9c466f2",
+        "context_frames": 29,
+        "latents_sha256": "8026270855596a47c7cd46272594c376a33cdcb6507522815f9cb336960adad4",
+        "scored_frames": 64,
+        "source_id": "hindi:5348024557759780_chunk_1.flac",
+        "start_frame": 45,
+        "teacher_sha256": "d80b5605306ce0c6d3d6bffbc8b371e297acc65611b58d8eee3389d8c52339b2",
+        "valid_scored_samples": 122880
+      },
+      "same_latent_bytes_as_saved": false,
+      "same_teacher_bytes_as_saved": false,
+      "saved_evaluation_cosine": 0.7396280169487,
+      "saved_evaluation_student_rms": 0.023492587730288506,
+      "saved_evaluation_teacher_rms": 0.07417061924934387
+    },
+    {
+      "samples": 122880,
+      "teacher_rms": 0.11544806557291121,
+      "student_rms": 0.030966053506013665,
+      "student_to_teacher_db": -11.430016009704651,
+      "cosine": 0.6670211434275523,
+      "l1": 0.0622214299502261,
+      "error_rms": 0.09756018582601034,
+      "error_snr_db": 1.4622808299318881,
+      "student_dc": 0.00041849225505272456,
+      "student_dc_power_fraction": 0.00018264304131508045,
+      "error_after_dc_removal_rms": 0.09755838765793426,
+      "teacher_projection_gain": 0.17891172376530926,
+      "orthogonal_error_rms": 0.02307091094408825,
+      "error_power_from_projection_gain_fraction": 0.9440778000703595,
+      "lag_diagnostic": {
+        "search_samples_each_direction": 960,
+        "best_lag_samples": 2,
+        "best_lag_ms": 0.041666666666666664,
+        "best_cosine": 0.6687065467051748,
+        "interpretation": "positive lag means student delayed relative to teacher; diagnostic only"
+      },
+      "bands": [
+        {
+          "hz": [
+            0,
+            300
+          ],
+          "teacher_rms": 0.052738674968318446,
+          "student_rms": 0.023852863309394016,
+          "student_to_teacher_db": -6.891773894891661,
+          "cosine": 0.9200119120785935,
+          "residual_rms": 0.032181284778266574
+        },
+        {
+          "hz": [
+            300,
+            3000
+          ],
+          "teacher_rms": 0.1022640234685852,
+          "student_rms": 0.019141871622487896,
+          "student_to_teacher_db": -14.554769526576074,
+          "cosine": 0.6263958036939311,
+          "residual_rms": 0.09149847590770817
+        },
+        {
+          "hz": [
+            3000,
+            8000
+          ],
+          "teacher_rms": 0.008793273638420746,
+          "student_rms": 0.003036278592926376,
+          "student_to_teacher_db": -9.236179411595515,
+          "cosine": 0.01882966785901981,
+          "residual_rms": 0.00924852360260105
+        },
+        {
+          "hz": [
+            8000,
+            16000
+          ],
+          "teacher_rms": 0.0034087674417659004,
+          "student_rms": 0.0027561124022802133,
+          "student_to_teacher_db": -1.8460089547401803,
+          "cosine": 0.05832951991367094,
+          "residual_rms": 0.0042567411996117036
+        },
+        {
+          "hz": [
+            16000,
+            24000
+          ],
+          "teacher_rms": 0.0001270998730624103,
+          "student_rms": 0.002590557700764957,
+          "student_to_teacher_db": 26.18496306342137,
+          "cosine": -0.0022731994194029816,
+          "residual_rms": 0.0025939623212343104
+        }
+      ],
+      "quiet": {
+        "windows": 0,
+        "complete_windows": 128
+      },
+      "source_id": "es_419:test:5179176991301857058.wav",
+      "start_frame": 71,
+      "metadata": {
+        "dataset": "fleurs",
+        "language": "es",
+        "condition": "speech",
+        "coverage_group": "speech:es"
+      },
+      "selection_reason": "median speech cosine:es",
+      "target_origin": "regenerated serial whole-utterance frozen original FP32 teacher; old dev cache evicted",
+      "crop_identity": {
+        "source_id": "es_419:test:5179176991301857058.wav",
+        "cache_key": "002b93c648b6321751f1c033d19d1a2c5d085a1c6b845182347377868acb7cb1",
+        "start_frame": 71,
+        "context_frames": 29,
+        "scored_frames": 64,
+        "valid_scored_samples": 122880,
+        "latents_sha256": "1a16b8a7ec500a926b5e0d374e2dba8bb0940de50e1dd65d2a9dede7e05b8b17",
+        "teacher_sha256": "3d43fec41ece2feaad2b6a04f8e26c877c0559ae3d046ebb83b6098d3946cc40"
+      },
+      "saved_crop_identity": {
+        "cache_key": "002b93c648b6321751f1c033d19d1a2c5d085a1c6b845182347377868acb7cb1",
+        "context_frames": 29,
+        "latents_sha256": "5d74876ffd40821b62f5bba087b8c8f5749ca90d0e821c848a03d198f4d9a6e7",
+        "scored_frames": 64,
+        "source_id": "es_419:test:5179176991301857058.wav",
+        "start_frame": 71,
+        "teacher_sha256": "9b47be0745be5aa8e7885d5910c7c270453d5ae9226984a38895d38b343acef1",
+        "valid_scored_samples": 122880
+      },
+      "same_latent_bytes_as_saved": false,
+      "same_teacher_bytes_as_saved": false,
+      "saved_evaluation_cosine": 0.6670211553573608,
+      "saved_evaluation_student_rms": 0.030966058373451233,
+      "saved_evaluation_teacher_rms": 0.11544809490442276
+    },
+    {
+      "samples": 122880,
+      "teacher_rms": 0.02429374009187205,
+      "student_rms": 0.014526041007610778,
+      "student_to_teacher_db": -4.466942299828329,
+      "cosine": 0.6405459709922906,
+      "l1": 0.01161106933728007,
+      "error_rms": 0.018684345067876442,
+      "error_snr_db": 2.280330029681386,
+      "student_dc": 5.023959858872936e-05,
+      "student_dc_power_fraction": 1.1961834511988802e-05,
+      "error_after_dc_removal_rms": 0.01868405530809046,
+      "teacher_projection_gain": 0.38300389346006525,
+      "orthogonal_error_rms": 0.011154834881914199,
+      "error_power_from_projection_gain_fraction": 0.6435730507150168,
+      "lag_diagnostic": {
+        "search_samples_each_direction": 960,
+        "best_lag_samples": 2,
+        "best_lag_ms": 0.041666666666666664,
+        "best_cosine": 0.6438947100755867,
+        "interpretation": "positive lag means student delayed relative to teacher; diagnostic only"
+      },
+      "bands": [
+        {
+          "hz": [
+            0,
+            300
+          ],
+          "teacher_rms": 0.013256588065023072,
+          "student_rms": 0.012854758777581856,
+          "student_to_teacher_db": -0.2673565962067983,
+          "cosine": 0.8863213444476902,
+          "residual_rms": 0.0062374258419821485
+        },
+        {
+          "hz": [
+            300,
+            3000
+          ],
+          "teacher_rms": 0.019381782403804566,
+          "student_rms": 0.00634672384280149,
+          "student_to_teacher_db": -9.696882234072978,
+          "cosine": 0.6044684299387584,
+          "residual_rms": 0.016346928690770694
+        },
+        {
+          "hz": [
+            3000,
+            8000
+          ],
+          "teacher_rms": 0.006199680837014058,
+          "student_rms": 0.0015973270967621787,
+          "student_to_teacher_db": -11.77950946680076,
+          "cosine": 0.05922370863567892,
+          "residual_rms": 0.006309874899835153
+        },
+        {
+          "hz": [
+            8000,
+            16000
+          ],
+          "teacher_rms": 0.0005992161945001364,
+          "student_rms": 0.001289512497124449,
+          "student_to_teacher_db": 6.6568402648734555,
+          "cosine": 0.08088584882384482,
+          "residual_rms": 0.0013772806756552295
+        },
+        {
+          "hz": [
+            16000,
+            24000
+          ],
+          "teacher_rms": 9.425958848171144e-06,
+          "student_rms": 0.0011250974419562236,
+          "student_to_teacher_db": 41.53729195760744,
+          "cosine": 0.007758212815404971,
+          "residual_rms": 0.0011250637977496692
+        }
+      ],
+      "quiet": {
+        "windows": 1,
+        "complete_windows": 128,
+        "teacher_rms": 0.0009602400090876974,
+        "student_rms": 0.0012948997469835481,
+        "residual_rms": 0.001357772971713189,
+        "student_to_teacher_db": 2.5971269761875933,
+        "student_phase480": {
+          "head_blocks": 2,
+          "rms": 0.0012948997469835481,
+          "dc": -0.00025739950089137173,
+          "dc_power_fraction": 0.03951328244701091,
+          "phase480_template_rms": 0.0010836783348563289,
+          "phase480_explained_ac_power_fraction": 0.7291839929005988,
+          "residual_after_phase_template_rms": 0.0006604181389407347
+        },
+        "teacher_phase480": {
+          "head_blocks": 2,
+          "rms": 0.0009602400090876974,
+          "dc": -0.000194354382038379,
+          "dc_power_fraction": 0.040966520583968546,
+          "phase480_template_rms": 0.0006668865768856623,
+          "phase480_explained_ac_power_fraction": 0.5029335284602477,
+          "residual_after_phase_template_rms": 0.0006629853262365198
+        },
+        "residual_phase480": {
+          "head_blocks": 2,
+          "rms": 0.001357772971713189,
+          "dc": -6.304511885299272e-05,
+          "dc_power_fraction": 0.0021559993082330073,
+          "phase480_template_rms": 0.0011012569404968485,
+          "phase480_explained_ac_power_fraction": 0.6592654980523288,
+          "residual_after_phase_template_rms": 0.0007917107468711014
+        }
+      },
+      "source_id": "fr_fr:test:11295389174145067264.wav",
+      "start_frame": 90,
+      "metadata": {
+        "dataset": "fleurs",
+        "language": "fr",
+        "condition": "speech",
+        "coverage_group": "speech:fr"
+      },
+      "selection_reason": "median speech cosine:fr",
+      "target_origin": "regenerated serial whole-utterance frozen original FP32 teacher; old dev cache evicted",
+      "crop_identity": {
+        "source_id": "fr_fr:test:11295389174145067264.wav",
+        "cache_key": "5b1a4928abe16ee8c659d84c98c58b6db58ac7534745c84a01b76f1848f83688",
+        "start_frame": 90,
+        "context_frames": 29,
+        "scored_frames": 64,
+        "valid_scored_samples": 122880,
+        "latents_sha256": "da2af896f720974423e6be64637078bab36f3fc9fae2f95a9018a122473f3d27",
+        "teacher_sha256": "6de0db0bf754693036c80a74a35c72d8780d8e61b54380e401ee7596ab620215"
+      },
+      "saved_crop_identity": {
+        "cache_key": "5b1a4928abe16ee8c659d84c98c58b6db58ac7534745c84a01b76f1848f83688",
+        "context_frames": 29,
+        "latents_sha256": "b28c625447c7ae64895ec864ef88422e828a21c7685ebc8f9decb4fb47caf29f",
+        "scored_frames": 64,
+        "source_id": "fr_fr:test:11295389174145067264.wav",
+        "start_frame": 90,
+        "teacher_sha256": "685db4ac360e3093a2d556bd06ab24b3ccaa915e23e721f0929081ad5963d5ef",
+        "valid_scored_samples": 122880
+      },
+      "same_latent_bytes_as_saved": false,
+      "same_teacher_bytes_as_saved": false,
+      "saved_evaluation_cosine": 0.6405460238456726,
+      "saved_evaluation_student_rms": 0.014526046812534332,
+      "saved_evaluation_teacher_rms": 0.02429375611245632
+    },
+    {
+      "samples": 30720,
+      "teacher_rms": 0.07153775610022747,
+      "student_rms": 0.01576561020799264,
+      "student_to_teacher_db": -13.13649057769931,
+      "cosine": 0.40667758742825,
+      "l1": 0.027500380225973665,
+      "error_rms": 0.06669987600277859,
+      "error_snr_db": 0.6082057422728293,
+      "student_dc": 0.0004052117480882421,
+      "student_dc_power_fraction": 0.0006606059586841484,
+      "error_after_dc_removal_rms": 0.06669852122719641,
+      "teacher_projection_gain": 0.08962428615649931,
+      "orthogonal_error_rms": 0.014403016085836988,
+      "error_power_from_projection_gain_fraction": 0.9533709209105069,
+      "lag_diagnostic": {
+        "search_samples_each_direction": 960,
+        "best_lag_samples": 11,
+        "best_lag_ms": 0.22916666666666666,
+        "best_cosine": 0.4404052556435028,
+        "interpretation": "positive lag means student delayed relative to teacher; diagnostic only"
+      },
+      "bands": [
+        {
+          "hz": [
+            0,
+            300
+          ],
+          "teacher_rms": 0.029413994031154755,
+          "student_rms": 0.011006333484516465,
+          "student_to_teacher_db": -8.53822664898132,
+          "cosine": 0.7485287920939094,
+          "residual_rms": 0.022397871748755325
+        },
+        {
+          "hz": [
+            300,
+            3000
+          ],
+          "teacher_rms": 0.06510185148928055,
+          "student_rms": 0.010778142512511763,
+          "student_to_teacher_db": -15.62098836664944,
+          "cosine": 0.30781829511598807,
+          "residual_rms": 0.06262939698896539
+        },
+        {
+          "hz": [
+            3000,
+            8000
+          ],
+          "teacher_rms": 0.003769049608775182,
+          "student_rms": 0.0021259782908488434,
+          "student_to_teacher_db": -4.973460565313456,
+          "cosine": 0.043418795234045515,
+          "residual_rms": 0.004246138973894301
+        },
+        {
+          "hz": [
+            8000,
+            16000
+          ],
+          "teacher_rms": 9.889954571338461e-05,
+          "student_rms": 0.0018729778281960728,
+          "student_to_teacher_db": 25.546766792762682,
+          "cosine": 0.0023654952708622146,
+          "residual_rms": 0.00187535348992857
+        },
+        {
+          "hz": [
+            16000,
+            24000
+          ],
+          "teacher_rms": 3.0324658853414534e-05,
+          "student_rms": 0.001794130095585425,
+          "student_to_teacher_db": 35.441160149674054,
+          "cosine": -0.008854000518019316,
+          "residual_rms": 0.0017946547893976765
+        }
+      ],
+      "quiet": {
+        "windows": 1,
+        "complete_windows": 32,
+        "teacher_rms": 0.0009609355346321712,
+        "student_rms": 0.002436185507552254,
+        "residual_rms": 0.002589135057155657,
+        "student_to_teacher_db": 8.080322035562462,
+        "student_phase480": {
+          "head_blocks": 2,
+          "rms": 0.002436185507552254,
+          "dc": 0.0005009150945445147,
+          "dc_power_fraction": 0.04227732759018358,
+          "phase480_template_rms": 0.0017665315753138244,
+          "phase480_explained_ac_power_fraction": 0.5490126226286465,
+          "residual_after_phase_template_rms": 0.0016010777897042829
+        },
+        "teacher_phase480": {
+          "head_blocks": 2,
+          "rms": 0.0009609355346321712,
+          "dc": -5.5084933721142684e-05,
+          "dc_power_fraction": 0.0032860726088640804,
+          "phase480_template_rms": 0.0006234263795737312,
+          "phase480_explained_ac_power_fraction": 0.42229050446693983,
+          "residual_after_phase_template_rms": 0.0007291791968009948
+        },
+        "residual_phase480": {
+          "head_blocks": 2,
+          "rms": 0.002589135057155657,
+          "dc": 0.0005560000282656575,
+          "dc_power_fraction": 0.046114788063621,
+          "phase480_template_rms": 0.0019243989124252763,
+          "phase480_explained_ac_power_fraction": 0.5791414902298143,
+          "residual_after_phase_template_rms": 0.0016404795453212548
+        }
+      },
+      "source_id": "freesound:211566",
+      "start_frame": 24,
+      "metadata": {
+        "dataset": "fsd50k_vocal_cc_by_3",
+        "language": "und",
+        "condition": "Laughter",
+        "coverage_group": "event:Laughter"
+      },
+      "selection_reason": "median laughter",
+      "target_origin": "regenerated serial whole-utterance frozen original FP32 teacher; old dev cache evicted",
+      "crop_identity": {
+        "source_id": "freesound:211566",
+        "cache_key": "fe6d6da8957dcb38add0800eb8511382e730cd92855e9b20f61599dd7065b5a8",
+        "start_frame": 24,
+        "context_frames": 24,
+        "scored_frames": 16,
+        "valid_scored_samples": 30720,
+        "latents_sha256": "046f32ddf046f8b281fcc17722df978000f54a25300989e0a28bca65908eae4c",
+        "teacher_sha256": "0b3bab9b873d0f03e3d75fbe239bb9f041ac3a38f6c42a0cf10b8c96f37f5ceb"
+      },
+      "saved_crop_identity": {
+        "cache_key": "fe6d6da8957dcb38add0800eb8511382e730cd92855e9b20f61599dd7065b5a8",
+        "context_frames": 24,
+        "latents_sha256": "39afd41d7747f2ecba4208e08e0fe66546d94d514f2184768882abb824c97058",
+        "scored_frames": 16,
+        "source_id": "freesound:211566",
+        "start_frame": 24,
+        "teacher_sha256": "e159facf51d736159477b9fb9a0da78c878ab04015c0a273b8ac890d70bd50aa",
+        "valid_scored_samples": 30720
+      },
+      "same_latent_bytes_as_saved": false,
+      "same_teacher_bytes_as_saved": false,
+      "saved_evaluation_cosine": 0.40667763352394104,
+      "saved_evaluation_student_rms": 0.015765607357025146,
+      "saved_evaluation_teacher_rms": 0.07153772562742233
+    },
+    {
+      "samples": 122880,
+      "teacher_rms": 0.03648089105389005,
+      "student_rms": 0.009102457796992728,
+      "student_to_teacher_db": -12.058135269908405,
+      "cosine": 0.09452018584985547,
+      "l1": 0.017364589031052872,
+      "error_rms": 0.0367550855421756,
+      "error_snr_db": -0.06504000638713683,
+      "student_dc": 0.00027192899734599377,
+      "student_dc_power_fraction": 0.0008924701402804601,
+      "error_after_dc_removal_rms": 0.03675439232168121,
+      "teacher_projection_gain": 0.02358401831225215,
+      "orthogonal_error_rms": 0.009061705594836812,
+      "error_power_from_projection_gain_fraction": 0.9392165955682831,
+      "lag_diagnostic": {
+        "search_samples_each_direction": 960,
+        "best_lag_samples": -1,
+        "best_lag_ms": -0.020833333333333332,
+        "best_cosine": 0.09470786527750945,
+        "interpretation": "positive lag means student delayed relative to teacher; diagnostic only"
+      },
+      "bands": [
+        {
+          "hz": [
+            0,
+            300
+          ],
+          "teacher_rms": 0.002864035260548904,
+          "student_rms": 0.007706371121513552,
+          "student_to_teacher_db": 8.597431186895278,
+          "cosine": 0.19490064913567773,
+          "residual_rms": 0.007680327153344574
+        },
+        {
+          "hz": [
+            300,
+            3000
+          ],
+          "teacher_rms": 0.03490784095017145,
+          "student_rms": 0.004488596692919773,
+          "student_to_teacher_db": -17.816248067648978,
+          "cosine": 0.17003414016975985,
+          "residual_rms": 0.034429936201015615
+        },
+        {
+          "hz": [
+            3000,
+            8000
+          ],
+          "teacher_rms": 0.010184621827670874,
+          "student_rms": 0.0014538391805100736,
+          "student_to_teacher_db": -16.908570775277706,
+          "cosine": 0.029751492965864608,
+          "residual_rms": 0.010244955890064958
+        },
+        {
+          "hz": [
+            8000,
+            16000
+          ],
+          "teacher_rms": 0.0006068091348196215,
+          "student_rms": 0.0008291012093906043,
+          "student_to_teacher_db": 2.711108773370958,
+          "cosine": 0.004573944542390226,
+          "residual_rms": 0.0010251945093063767
+        },
+        {
+          "hz": [
+            16000,
+            24000
+          ],
+          "teacher_rms": 2.48034451277576e-05,
+          "student_rms": 0.00071973928171677,
+          "student_to_teacher_db": 29.25326397698629,
+          "cosine": 0.011303811202241098,
+          "residual_rms": 0.0007198862777895352
+        }
+      ],
+      "quiet": {
+        "windows": 0,
+        "complete_windows": 128
+      },
+      "source_id": "freesound:386521",
+      "start_frame": 37,
+      "metadata": {
+        "dataset": "fsd50k_vocal_cc_by_3",
+        "language": "und",
+        "condition": "Laughter",
+        "coverage_group": "event:Laughter"
+      },
+      "selection_reason": "lowest remaining laughter",
+      "target_origin": "regenerated serial whole-utterance frozen original FP32 teacher; old dev cache evicted",
+      "crop_identity": {
+        "source_id": "freesound:386521",
+        "cache_key": "d67cad8b579075c4cfc00ea625a23ad466a16a730c1f7ca30197fcb8e113f993",
+        "start_frame": 37,
+        "context_frames": 29,
+        "scored_frames": 64,
+        "valid_scored_samples": 122880,
+        "latents_sha256": "2a11f64c52820d00719d1c7b2edeace616e08ae0d4ea7ed88016ea8e5b54a8ed",
+        "teacher_sha256": "b9563410db10813b1b06e7a10069572db07ee0891c3161b37ec227acfdd4631f"
+      },
+      "saved_crop_identity": {
+        "cache_key": "d67cad8b579075c4cfc00ea625a23ad466a16a730c1f7ca30197fcb8e113f993",
+        "context_frames": 29,
+        "latents_sha256": "e93f9607f07cb2d01468b9a06959071c646a71f318ba139a644846b12ca482a6",
+        "scored_frames": 64,
+        "source_id": "freesound:386521",
+        "start_frame": 37,
+        "teacher_sha256": "b3cca927160d0c11a5685d81750f257dd04351064c91b0e9ec126a1f02caab27",
+        "valid_scored_samples": 122880
+      },
+      "same_latent_bytes_as_saved": false,
+      "same_teacher_bytes_as_saved": false,
+      "saved_evaluation_cosine": 0.09406524896621704,
+      "saved_evaluation_student_rms": 0.00905640609562397,
+      "saved_evaluation_teacher_rms": 0.03622038662433624
+    },
+    {
+      "samples": 30720,
+      "teacher_rms": 0.260185045198429,
+      "student_rms": 0.023893644946356197,
+      "student_to_teacher_db": -20.73999849718519,
+      "cosine": 0.0028094755730882904,
+      "l1": 0.22118464151498773,
+      "error_rms": 0.2612130017666148,
+      "error_snr_db": -0.034249184186728454,
+      "student_dc": -0.0017484979896621418,
+      "student_dc_power_fraction": 0.005355073830522083,
+      "error_after_dc_removal_rms": 0.2612089248027119,
+      "teacher_projection_gain": 0.00025800334441834213,
+      "orthogonal_error_rms": 0.023893550648072526,
+      "error_power_from_projection_gain_fraction": 0.9916329607958674,
+      "lag_diagnostic": {
+        "search_samples_each_direction": 960,
+        "best_lag_samples": -810,
+        "best_lag_ms": -16.875,
+        "best_cosine": 0.018112395439899814,
+        "interpretation": "positive lag means student delayed relative to teacher; diagnostic only"
+      },
+      "bands": [
+        {
+          "hz": [
+            0,
+            300
+          ],
+          "teacher_rms": 0.0012709488489048612,
+          "student_rms": 0.020359356528789486,
+          "student_to_teacher_db": 24.09271951175882,
+          "cosine": -0.03958554172839697,
+          "residual_rms": 0.020449139749780625
+        },
+        {
+          "hz": [
+            300,
+            3000
+          ],
+          "teacher_rms": 0.25795764629307216,
+          "student_rms": 0.011508726609575736,
+          "student_to_teacher_db": -27.0104226422575,
+          "cosine": 0.007444817909554094,
+          "residual_rms": 0.25812863896519767
+        },
+        {
+          "hz": [
+            3000,
+            8000
+          ],
+          "teacher_rms": 0.03378496901755287,
+          "student_rms": 0.004342416155712411,
+          "student_to_teacher_db": -17.81984166483201,
+          "cosine": -0.02423442571985335,
+          "residual_rms": 0.034167111335351184
+        },
+        {
+          "hz": [
+            8000,
+            16000
+          ],
+          "teacher_rms": 0.0031890450561558015,
+          "student_rms": 0.001778689362600677,
+          "student_to_teacher_db": -5.0712109478490754,
+          "cosine": -0.004652357878023036,
+          "residual_rms": 0.003658759837556977
+        },
+        {
+          "hz": [
+            16000,
+            24000
+          ],
+          "teacher_rms": 0.0009492170368681395,
+          "student_rms": 0.0013898807373987764,
+          "student_to_teacher_db": 3.312240230433182,
+          "cosine": -0.022708809542047338,
+          "residual_rms": 0.00170079418004521
+        }
+      ],
+      "quiet": {
+        "windows": 0,
+        "complete_windows": 32
+      },
+      "source_id": "freesound:220663",
+      "start_frame": 9,
+      "metadata": {
+        "dataset": "fsd50k_vocal_cc_by_3",
+        "language": "und",
+        "condition": "Screaming",
+        "coverage_group": "event:Screaming"
+      },
+      "selection_reason": "median screaming",
+      "target_origin": "regenerated serial whole-utterance frozen original FP32 teacher; old dev cache evicted",
+      "crop_identity": {
+        "source_id": "freesound:220663",
+        "cache_key": "b22b096ecf99b861afc221bb13a88ced6a5069df9db5bd6c25e7d3a3f2fface7",
+        "start_frame": 9,
+        "context_frames": 9,
+        "scored_frames": 16,
+        "valid_scored_samples": 30720,
+        "latents_sha256": "1674e59ac512bbb72abcfb71e51aa19bd7ce05315dc1854b0f9f221ce80490af",
+        "teacher_sha256": "4647753a7d2d2379faee5377ede5e6250337e07924591cf729df9f190b4a1c71"
+      },
+      "saved_crop_identity": {
+        "cache_key": "b22b096ecf99b861afc221bb13a88ced6a5069df9db5bd6c25e7d3a3f2fface7",
+        "context_frames": 9,
+        "latents_sha256": "77b31391371a6562bca2b4ad912584596bd06d2baaf647dc637e7442c988b0b3",
+        "scored_frames": 16,
+        "source_id": "freesound:220663",
+        "start_frame": 9,
+        "teacher_sha256": "213b9640aab427857ca3a92419841cf472a706093e67576e15c1fa3d92c510cc",
+        "valid_scored_samples": 30720
+      },
+      "same_latent_bytes_as_saved": false,
+      "same_teacher_bytes_as_saved": false,
+      "saved_evaluation_cosine": 0.0028094572480767965,
+      "saved_evaluation_student_rms": 0.02389364317059517,
+      "saved_evaluation_teacher_rms": 0.26018500328063965
+    },
+    {
+      "samples": 122880,
+      "teacher_rms": 0.07395710873458253,
+      "student_rms": 0.005684087166362909,
+      "student_to_teacher_db": -22.286383906228394,
+      "cosine": 0.03575041396143996,
+      "l1": 0.03564124974554216,
+      "error_rms": 0.07397232832343642,
+      "error_snr_db": -0.001787280100798797,
+      "student_dc": -0.0003520292611122196,
+      "student_dc_power_fraction": 0.003835624372666913,
+      "error_after_dc_removal_rms": 0.07397183047951875,
+      "teacher_projection_gain": 0.0027476529662572033,
+      "orthogonal_error_rms": 0.005680453611540263,
+      "error_power_from_projection_gain_fraction": 0.9941030498292334,
+      "lag_diagnostic": {
+        "search_samples_each_direction": 960,
+        "best_lag_samples": 485,
+        "best_lag_ms": 10.104166666666666,
+        "best_cosine": 0.07299267669371985,
+        "interpretation": "positive lag means student delayed relative to teacher; diagnostic only"
+      },
+      "bands": [
+        {
+          "hz": [
+            0,
+            300
+          ],
+          "teacher_rms": 0.0002543708268418592,
+          "student_rms": 0.0029342866083718485,
+          "student_to_teacher_db": 21.2407045980131,
+          "cosine": 0.1621861057809827,
+          "residual_rms": 0.0029038994474622423
+        },
+        {
+          "hz": [
+            300,
+            3000
+          ],
+          "teacher_rms": 0.07395524285231306,
+          "student_rms": 0.004613411663151271,
+          "student_to_teacher_db": -24.098935166049703,
+          "cosine": 0.0436416593210421,
+          "residual_rms": 0.07389777850460869
+        },
+        {
+          "hz": [
+            3000,
+            8000
+          ],
+          "teacher_rms": 0.0004258455346438192,
+          "student_rms": 0.0011617125404945177,
+          "student_to_teacher_db": 8.71693159729426,
+          "cosine": 0.03598974430538426,
+          "residual_rms": 0.0012228292874560255
+        },
+        {
+          "hz": [
+            8000,
+            16000
+          ],
+          "teacher_rms": 0.00017161130273291445,
+          "student_rms": 0.0007604177090889537,
+          "student_to_teacher_db": 12.930126686055454,
+          "cosine": -0.00028458851573890336,
+          "residual_rms": 0.0007795895118608585
+        },
+        {
+          "hz": [
+            16000,
+            24000
+          ],
+          "teacher_rms": 2.208298240005898e-05,
+          "student_rms": 0.0006981623894214387,
+          "student_to_teacher_db": 29.997974459740213,
+          "cosine": -0.0022059245571235267,
+          "residual_rms": 0.0006985602335033679
+        }
+      ],
+      "quiet": {
+        "windows": 36,
+        "complete_windows": 128,
+        "teacher_rms": 0.0003354139023267707,
+        "student_rms": 0.0013768803035185788,
+        "residual_rms": 0.001338821604639177,
+        "student_to_teacher_db": 12.266302558611098,
+        "student_phase480": {
+          "head_blocks": 72,
+          "rms": 0.0013768803035185788,
+          "dc": 1.8628358491336265e-05,
+          "dc_power_fraction": 0.00018304454866547592,
+          "phase480_template_rms": 0.0007400749391814481,
+          "phase480_explained_ac_power_fraction": 0.28896052929563326,
+          "residual_after_phase_template_rms": 0.0011609226670510433
+        },
+        "teacher_phase480": {
+          "head_blocks": 72,
+          "rms": 0.0003354139023267707,
+          "dc": -1.2528746013734455e-05,
+          "dc_power_fraction": 0.001395253406687989,
+          "phase480_template_rms": 3.6330230059413346e-05,
+          "phase480_explained_ac_power_fraction": 0.011748449412979829,
+          "residual_after_phase_template_rms": 0.00033320508816827205
+        },
+        "residual_phase480": {
+          "head_blocks": 72,
+          "rms": 0.001338821604639177,
+          "dc": 3.115710450507072e-05,
+          "dc_power_fraction": 0.0005415876569546327,
+          "phase480_template_rms": 0.0007400808518469918,
+          "phase480_explained_ac_power_fraction": 0.30573712963346017,
+          "residual_after_phase_template_rms": 0.0011152366818827795
+        }
+      },
+      "source_id": "freesound:457967",
+      "start_frame": 0,
+      "metadata": {
+        "dataset": "freesound_human_whistle_cc0",
+        "language": "und",
+        "condition": "human_whistling_source_description",
+        "coverage_group": "event:human_whistling_source_description"
+      },
+      "selection_reason": "one crop per human whistle source",
+      "target_origin": "regenerated serial whole-utterance frozen original FP32 teacher; old dev cache evicted",
+      "crop_identity": {
+        "source_id": "freesound:457967",
+        "cache_key": "397ef812cf7266b83d2f9e5493c91f6e848b94340291bd3a7c8c2ba039ea71f0",
+        "start_frame": 0,
+        "context_frames": 0,
+        "scored_frames": 64,
+        "valid_scored_samples": 122880,
+        "latents_sha256": "955b4e015668f04065fb6e9af5a54bdf546efc4e46d6f32c58fea4e6745deac0",
+        "teacher_sha256": "0c0b9f86e9fdf827a7d3122478d4418f3ad4a94831ee731f489345b7d92b8ff6"
+      },
+      "saved_crop_identity": {
+        "cache_key": "397ef812cf7266b83d2f9e5493c91f6e848b94340291bd3a7c8c2ba039ea71f0",
+        "context_frames": 0,
+        "latents_sha256": "955b4e015668f04065fb6e9af5a54bdf546efc4e46d6f32c58fea4e6745deac0",
+        "scored_frames": 64,
+        "source_id": "freesound:457967",
+        "start_frame": 0,
+        "teacher_sha256": "0c0b9f86e9fdf827a7d3122478d4418f3ad4a94831ee731f489345b7d92b8ff6",
+        "valid_scored_samples": 122880
+      },
+      "same_latent_bytes_as_saved": true,
+      "same_teacher_bytes_as_saved": true,
+      "saved_evaluation_cosine": 0.035750411450862885,
+      "saved_evaluation_student_rms": 0.00568408751860261,
+      "saved_evaluation_teacher_rms": 0.07395710796117783
+    },
+    {
+      "samples": 122880,
+      "teacher_rms": 0.05025130511981489,
+      "student_rms": 0.00518380610275703,
+      "student_to_teacher_db": -19.729971940789362,
+      "cosine": 0.09860781147899143,
+      "l1": 0.01968346313991427,
+      "error_rms": 0.05000692170405892,
+      "error_snr_db": 0.04234448683053061,
+      "student_dc": 7.882899088120243e-05,
+      "student_dc_power_fraction": 0.00023124611052709993,
+      "error_after_dc_removal_rms": 0.050006921264751106,
+      "teacher_projection_gain": 0.010172149234841471,
+      "orthogonal_error_rms": 0.005158542168693221,
+      "error_power_from_projection_gain_fraction": 0.9893587235121216,
+      "lag_diagnostic": {
+        "search_samples_each_direction": 960,
+        "best_lag_samples": 157,
+        "best_lag_ms": 3.2708333333333335,
+        "best_cosine": 0.13966304887687583,
+        "interpretation": "positive lag means student delayed relative to teacher; diagnostic only"
+      },
+      "bands": [
+        {
+          "hz": [
+            0,
+            300
+          ],
+          "teacher_rms": 0.011802044564569979,
+          "student_rms": 0.003680074946316053,
+          "student_to_teacher_db": -10.122011736911032,
+          "cosine": 0.5754268336569782,
+          "residual_rms": 0.010141344136360564
+        },
+        {
+          "hz": [
+            300,
+            3000
+          ],
+          "teacher_rms": 0.048840393134062146,
+          "student_rms": 0.003383789097544733,
+          "student_to_teacher_db": -23.187517285501492,
+          "cosine": 0.00446988485360172,
+          "residual_rms": 0.04894238034498333
+        },
+        {
+          "hz": [
+            3000,
+            8000
+          ],
+          "teacher_rms": 0.0006571128230489682,
+          "student_rms": 0.0010216725481599206,
+          "student_to_teacher_db": 3.8334356412743524,
+          "cosine": -0.06090535224250826,
+          "residual_rms": 0.001247954397283737
+        },
+        {
+          "hz": [
+            8000,
+            16000
+          ],
+          "teacher_rms": 0.0002991389643972327,
+          "student_rms": 0.0006732888105855873,
+          "student_to_teacher_db": 7.046568223036587,
+          "cosine": -0.016544751771980434,
+          "residual_rms": 0.0007412600066050257
+        },
+        {
+          "hz": [
+            16000,
+            24000
+          ],
+          "teacher_rms": 1.129020180084339e-05,
+          "student_rms": 0.0006178453088694536,
+          "student_to_teacher_db": 34.76356097960033,
+          "cosine": -0.0033489123533108093,
+          "residual_rms": 0.0006179862584902579
+        }
+      ],
+      "quiet": {
+        "windows": 0,
+        "complete_windows": 128
+      },
+      "source_id": "freesound:539498",
+      "start_frame": 0,
+      "metadata": {
+        "dataset": "freesound_human_whistle_cc_by_4",
+        "language": "und",
+        "condition": "human_whistling_source_description",
+        "coverage_group": "event:human_whistling_source_description"
+      },
+      "selection_reason": "one crop per human whistle source",
+      "target_origin": "regenerated serial whole-utterance frozen original FP32 teacher; old dev cache evicted",
+      "crop_identity": {
+        "source_id": "freesound:539498",
+        "cache_key": "dad54bd05637acbf50255454ed688ae1167c4737e4134f3a68263dc1ddaa9812",
+        "start_frame": 0,
+        "context_frames": 0,
+        "scored_frames": 64,
+        "valid_scored_samples": 122880,
+        "latents_sha256": "fe356cbd646a4fbb726a5b7a0387c08a380d9f3cb1559067efea7678356a935b",
+        "teacher_sha256": "0cc8a50a84b5b4217a4635e6948cd28f8e5a3968778c7948aa1b01a4b9b0e16f"
+      },
+      "saved_crop_identity": {
+        "cache_key": "dad54bd05637acbf50255454ed688ae1167c4737e4134f3a68263dc1ddaa9812",
+        "context_frames": 0,
+        "latents_sha256": "fe356cbd646a4fbb726a5b7a0387c08a380d9f3cb1559067efea7678356a935b",
+        "scored_frames": 64,
+        "source_id": "freesound:539498",
+        "start_frame": 0,
+        "teacher_sha256": "4a2ba1be3e80303475bcdbbbc958beeb4141b0dde2494fc5c501fca1fab20914",
+        "valid_scored_samples": 122880
+      },
+      "same_latent_bytes_as_saved": true,
+      "same_teacher_bytes_as_saved": false,
+      "saved_evaluation_cosine": 0.09860780835151672,
+      "saved_evaluation_student_rms": 0.005183806177228689,
+      "saved_evaluation_teacher_rms": 0.050251305103302
+    },
+    {
+      "samples": 30720,
+      "teacher_rms": 0.001899897598373561,
+      "student_rms": 0.001963270295678671,
+      "student_to_teacher_db": 0.28499803971177556,
+      "cosine": 0.5297756176201008,
+      "l1": 0.001447651463661071,
+      "error_rms": 0.001874006874446077,
+      "error_snr_db": 0.11918028160328567,
+      "student_dc": -6.701367573839999e-05,
+      "student_dc_power_fraction": 0.001165109352136864,
+      "error_after_dc_removal_rms": 0.0018733918050908643,
+      "teacher_projection_gain": 0.54744673309696,
+      "orthogonal_error_rms": 0.0016651238271438319,
+      "error_power_from_projection_gain_fraction": 0.2105025866661317,
+      "lag_diagnostic": {
+        "search_samples_each_direction": 960,
+        "best_lag_samples": 0,
+        "best_lag_ms": 0.0,
+        "best_cosine": 0.529775617620083,
+        "interpretation": "positive lag means student delayed relative to teacher; diagnostic only"
+      },
+      "bands": [
+        {
+          "hz": [
+            0,
+            300
+          ],
+          "teacher_rms": 0.0015443544218009747,
+          "student_rms": 0.0014677979009776556,
+          "student_to_teacher_db": -0.44161427199832454,
+          "cosine": 0.6541830189129572,
+          "residual_rms": 0.0012544548178078899
+        },
+        {
+          "hz": [
+            300,
+            3000
+          ],
+          "teacher_rms": 0.0010349569462907214,
+          "student_rms": 0.0010557777646678977,
+          "student_to_teacher_db": 0.17300455046341656,
+          "cosine": 0.438137069238034,
+          "residual_rms": 0.0011082920972230233
+        },
+        {
+          "hz": [
+            3000,
+            8000
+          ],
+          "teacher_rms": 0.000382797581084148,
+          "student_rms": 0.00039517574957798437,
+          "student_to_teacher_db": 0.2764220191644715,
+          "cosine": 0.082092604509852,
+          "residual_rms": 0.0005271253963615215
+        },
+        {
+          "hz": [
+            8000,
+            16000
+          ],
+          "teacher_rms": 8.222537276710614e-05,
+          "student_rms": 0.0004525944001101693,
+          "student_to_teacher_db": 14.814066503198603,
+          "cosine": 0.05073602335712162,
+          "residual_rms": 0.00045587986001916994
+        },
+        {
+          "hz": [
+            16000,
+            24000
+          ],
+          "teacher_rms": 1.2223889864551789e-05,
+          "student_rms": 0.0004736320548137075,
+          "student_to_teacher_db": 31.764633177731156,
+          "cosine": 0.019938619971234705,
+          "residual_rms": 0.0004735460616691167
+        }
+      ],
+      "quiet": {
+        "windows": 1,
+        "complete_windows": 32,
+        "teacher_rms": 0.000897669394826892,
+        "student_rms": 0.0010768178580419104,
+        "residual_rms": 0.0012379191995397277,
+        "student_to_teacher_db": 1.5805166146702132,
+        "student_phase480": {
+          "head_blocks": 2,
+          "rms": 0.0010768178580419104,
+          "dc": 7.788019466437035e-06,
+          "dc_power_fraction": 5.2308173808637026e-05,
+          "phase480_template_rms": 0.0007985237504807857,
+          "phase480_explained_ac_power_fraction": 0.5499382088993949,
+          "residual_after_phase_template_rms": 0.0007223820776215715
+        },
+        "teacher_phase480": {
+          "head_blocks": 2,
+          "rms": 0.000897669394826892,
+          "dc": 0.00011016319412722926,
+          "dc_power_fraction": 0.015060528143675365,
+          "phase480_template_rms": 0.0005680880668347262,
+          "phase480_explained_ac_power_fraction": 0.40662020390990805,
+          "residual_after_phase_template_rms": 0.0006862582322920056
+        },
+        "residual_phase480": {
+          "head_blocks": 2,
+          "rms": 0.0012379191995397277,
+          "dc": -0.00010237517466079223,
+          "dc_power_fraction": 0.0068391907083022695,
+          "phase480_template_rms": 0.0009403677509948247,
+          "phase480_explained_ac_power_fraction": 0.5810202687451139,
+          "residual_after_phase_template_rms": 0.0007985435248570912
+        }
+      },
+      "source_id": "emogator:000022-12-3.mp3",
+      "start_frame": 0,
+      "metadata": {
+        "dataset": "emogator",
+        "language": "und",
+        "condition": "generic_emotion_nonverbal",
+        "coverage_group": "generic_emotion_nonverbal"
+      },
+      "selection_reason": "median generic expressive",
+      "target_origin": "regenerated serial whole-utterance frozen original FP32 teacher; old dev cache evicted",
+      "crop_identity": {
+        "source_id": "emogator:000022-12-3.mp3",
+        "cache_key": "6dd20bec72cf6ae1cf6911b31cca680043fc8a7abdc637ec9e7b311c2e72e83e",
+        "start_frame": 0,
+        "context_frames": 0,
+        "scored_frames": 16,
+        "valid_scored_samples": 30720,
+        "latents_sha256": "65d9fa650c9b53e8025cf2d4e61990ca81c4917d55569b943853601a9d1d9e97",
+        "teacher_sha256": "52cee0a770de27deda7b9250700d8e7f2bf2ee9312011f1d5b1cd7c874ee5562"
+      },
+      "saved_crop_identity": {
+        "cache_key": "6dd20bec72cf6ae1cf6911b31cca680043fc8a7abdc637ec9e7b311c2e72e83e",
+        "context_frames": 0,
+        "latents_sha256": "e323f24dce4ecb8f2cbd4d564c1c1de013bedfdb92545bacd25ac1b16791949a",
+        "scored_frames": 16,
+        "source_id": "emogator:000022-12-3.mp3",
+        "start_frame": 0,
+        "teacher_sha256": "5661020b41a4a9d15e2bba46f3ff7a1663260dbe47d8a7ea0dd07f0d1fb5213c",
+        "valid_scored_samples": 30720
+      },
+      "same_latent_bytes_as_saved": false,
+      "same_teacher_bytes_as_saved": false,
+      "saved_evaluation_cosine": 0.5297756195068359,
+      "saved_evaluation_student_rms": 0.001963270828127861,
+      "saved_evaluation_teacher_rms": 0.001899897470138967
+    }
+  ],
+  "cross_clip_quiet_phase480_templates": [
+    {
+      "a": [
+        "emogator:000216-25-1.mp3",
+        0
+      ],
+      "b": [
+        "emogator:000298-30-1.mp3",
+        0
+      ],
+      "phase480_template_cosine": 0.9178232644744766
+    },
+    {
+      "a": [
+        "emogator:000216-25-1.mp3",
+        0
+      ],
+      "b": [
+        "2035-147960-0008",
+        0
+      ],
+      "phase480_template_cosine": 0.6563760541163003
+    },
+    {
+      "a": [
+        "emogator:000216-25-1.mp3",
+        0
+      ],
+      "b": [
+        "hindi:5348024557759780_chunk_1.flac",
+        45
+      ],
+      "phase480_template_cosine": 0.9264086156426903
+    },
+    {
+      "a": [
+        "emogator:000216-25-1.mp3",
+        0
+      ],
+      "b": [
+        "fr_fr:test:11295389174145067264.wav",
+        90
+      ],
+      "phase480_template_cosine": 0.632684563177392
+    },
+    {
+      "a": [
+        "emogator:000216-25-1.mp3",
+        0
+      ],
+      "b": [
+        "freesound:211566",
+        24
+      ],
+      "phase480_template_cosine": 0.51212174383376
+    },
+    {
+      "a": [
+        "emogator:000216-25-1.mp3",
+        0
+      ],
+      "b": [
+        "freesound:457967",
+        0
+      ],
+      "phase480_template_cosine": 0.8986600460323158
+    },
+    {
+      "a": [
+        "emogator:000216-25-1.mp3",
+        0
+      ],
+      "b": [
+        "emogator:000022-12-3.mp3",
+        0
+      ],
+      "phase480_template_cosine": 0.5690322264729871
+    },
+    {
+      "a": [
+        "emogator:000298-30-1.mp3",
+        0
+      ],
+      "b": [
+        "2035-147960-0008",
+        0
+      ],
+      "phase480_template_cosine": 0.7171227955970956
+    },
+    {
+      "a": [
+        "emogator:000298-30-1.mp3",
+        0
+      ],
+      "b": [
+        "hindi:5348024557759780_chunk_1.flac",
+        45
+      ],
+      "phase480_template_cosine": 0.863319260463056
+    },
+    {
+      "a": [
+        "emogator:000298-30-1.mp3",
+        0
+      ],
+      "b": [
+        "fr_fr:test:11295389174145067264.wav",
+        90
+      ],
+      "phase480_template_cosine": 0.7142500941760672
+    },
+    {
+      "a": [
+        "emogator:000298-30-1.mp3",
+        0
+      ],
+      "b": [
+        "freesound:211566",
+        24
+      ],
+      "phase480_template_cosine": 0.5173243519820675
+    },
+    {
+      "a": [
+        "emogator:000298-30-1.mp3",
+        0
+      ],
+      "b": [
+        "freesound:457967",
+        0
+      ],
+      "phase480_template_cosine": 0.8906072984215315
+    },
+    {
+      "a": [
+        "emogator:000298-30-1.mp3",
+        0
+      ],
+      "b": [
+        "emogator:000022-12-3.mp3",
+        0
+      ],
+      "phase480_template_cosine": 0.655028470150145
+    },
+    {
+      "a": [
+        "2035-147960-0008",
+        0
+      ],
+      "b": [
+        "hindi:5348024557759780_chunk_1.flac",
+        45
+      ],
+      "phase480_template_cosine": 0.6043019110407382
+    },
+    {
+      "a": [
+        "2035-147960-0008",
+        0
+      ],
+      "b": [
+        "fr_fr:test:11295389174145067264.wav",
+        90
+      ],
+      "phase480_template_cosine": 0.6067184551682585
+    },
+    {
+      "a": [
+        "2035-147960-0008",
+        0
+      ],
+      "b": [
+        "freesound:211566",
+        24
+      ],
+      "phase480_template_cosine": 0.266210754538154
+    },
+    {
+      "a": [
+        "2035-147960-0008",
+        0
+      ],
+      "b": [
+        "freesound:457967",
+        0
+      ],
+      "phase480_template_cosine": 0.6426254214584823
+    },
+    {
+      "a": [
+        "2035-147960-0008",
+        0
+      ],
+      "b": [
+        "emogator:000022-12-3.mp3",
+        0
+      ],
+      "phase480_template_cosine": 0.45210341076494376
+    },
+    {
+      "a": [
+        "hindi:5348024557759780_chunk_1.flac",
+        45
+      ],
+      "b": [
+        "fr_fr:test:11295389174145067264.wav",
+        90
+      ],
+      "phase480_template_cosine": 0.5112892903087094
+    },
+    {
+      "a": [
+        "hindi:5348024557759780_chunk_1.flac",
+        45
+      ],
+      "b": [
+        "freesound:211566",
+        24
+      ],
+      "phase480_template_cosine": 0.4540342380037771
+    },
+    {
+      "a": [
+        "hindi:5348024557759780_chunk_1.flac",
+        45
+      ],
+      "b": [
+        "freesound:457967",
+        0
+      ],
+      "phase480_template_cosine": 0.8115879346599739
+    },
+    {
+      "a": [
+        "hindi:5348024557759780_chunk_1.flac",
+        45
+      ],
+      "b": [
+        "emogator:000022-12-3.mp3",
+        0
+      ],
+      "phase480_template_cosine": 0.5413654192398627
+    },
+    {
+      "a": [
+        "fr_fr:test:11295389174145067264.wav",
+        90
+      ],
+      "b": [
+        "freesound:211566",
+        24
+      ],
+      "phase480_template_cosine": 0.2553096960488172
+    },
+    {
+      "a": [
+        "fr_fr:test:11295389174145067264.wav",
+        90
+      ],
+      "b": [
+        "freesound:457967",
+        0
+      ],
+      "phase480_template_cosine": 0.6481312976307492
+    },
+    {
+      "a": [
+        "fr_fr:test:11295389174145067264.wav",
+        90
+      ],
+      "b": [
+        "emogator:000022-12-3.mp3",
+        0
+      ],
+      "phase480_template_cosine": 0.6151920737408009
+    },
+    {
+      "a": [
+        "freesound:211566",
+        24
+      ],
+      "b": [
+        "freesound:457967",
+        0
+      ],
+      "phase480_template_cosine": 0.5040890137631263
+    },
+    {
+      "a": [
+        "freesound:211566",
+        24
+      ],
+      "b": [
+        "emogator:000022-12-3.mp3",
+        0
+      ],
+      "phase480_template_cosine": 0.3523830781483277
+    },
+    {
+      "a": [
+        "freesound:457967",
+        0
+      ],
+      "b": [
+        "emogator:000022-12-3.mp3",
+        0
+      ],
+      "phase480_template_cosine": 0.5545449909491602
+    }
+  ]
+}

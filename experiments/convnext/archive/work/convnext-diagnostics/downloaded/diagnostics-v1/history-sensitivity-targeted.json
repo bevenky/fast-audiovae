@@ -1,0 +1,3909 @@
+{
+  "checkpoint_sha256": "0d39c801ad9c25af579460c46dd189d12a2a03bb8676283aa23ea145dd95f8e4",
+  "model_state_unchanged": true,
+  "optimizer_updates": 0,
+  "parameter_updates": 0,
+  "rows": [
+    {
+      "amplitude": [
+        {
+          "gain": 1.0,
+          "input_rms": 0.004082461353391409,
+          "student_homogeneity_error": {
+            "cosine": 1.0,
+            "equal_values": true,
+            "mae": 0.0,
+            "max_abs_error": 0.0,
+            "mse": 0.0,
+            "prediction_peak": 0.0030637350864708424,
+            "prediction_rms": 0.0011863700984464035,
+            "residual_dc": 0.0,
+            "residual_rms": 0.0,
+            "samples": 61440,
+            "snr_db": null,
+            "target_peak": 0.0030637350864708424,
+            "target_rms": 0.0011863700984464035
+          },
+          "student_vs_reencoded_teacher": {
+            "phase1920": {
+              "available": true,
+              "cycles": 32,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 1920,
+              "phase_mean_variance": 1.5802244312279365e-08,
+              "phase_rms_max": 0.0005642036652691089,
+              "phase_rms_min": 0.00011269395182214359,
+              "phase_template_ac_fraction_of_residual_power": 0.13903673584414064,
+              "residual_dc": 5.6825992535081574e-05
+            },
+            "phase480": {
+              "available": true,
+              "cycles": 128,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 480,
+              "phase_mean_variance": 1.4268615900926236e-08,
+              "phase_rms_max": 0.000524701989467573,
+              "phase_rms_min": 0.000172847703277911,
+              "phase_template_ac_fraction_of_residual_power": 0.12554303937302103,
+              "residual_dc": 5.6825992535081574e-05
+            },
+            "raw_primary": {
+              "cosine": 0.9834985891033501,
+              "equal_values": false,
+              "mae": 0.0002824215247083744,
+              "max_abs_error": 0.00103704200591892,
+              "mse": 1.1365517333486301e-07,
+              "prediction_peak": 0.0030637350864708424,
+              "prediction_rms": 0.0011863700984464035,
+              "residual_dc": 5.6825992535081574e-05,
+              "residual_rms": 0.00033712782936871737,
+              "samples": 61440,
+              "snr_db": 8.594498696739027,
+              "target_peak": 0.002193903084844351,
+              "target_rms": 0.0009068167618764638
+            },
+            "secondary_lag_gain": {
+              "common_samples": 61344,
+              "diagnostic_only": true,
+              "does_not_replace_raw_primary": true,
+              "excluded_each_end_samples": 48,
+              "fit": {
+                "lag_samples": -1,
+                "lag_seconds": -2.0833333333333333e-05,
+                "mse": 2.95660600210213e-08,
+                "prediction_gain": 0.8,
+                "residual_rms": 0.00017194784098970625
+              },
+              "gain_bounds": [
+                0.8,
+                1.25
+              ],
+              "lag_convention": "compare prediction[t+lag] to target[t]",
+              "raw_common_grid": {
+                "cosine": 0.98351544940926,
+                "equal_values": false,
+                "mae": 0.0002826773793481489,
+                "max_abs_error": 0.00103704200591892,
+                "mse": 1.1380056912146945e-07,
+                "prediction_peak": 0.0030637350864708424,
+                "prediction_rms": 0.0011870787904875234,
+                "residual_dc": 5.675573897584348e-05,
+                "residual_rms": 0.00033734339940403376,
+                "samples": 61344,
+                "snr_db": 8.593289325249794,
+                "target_peak": 0.002193903084844351,
+                "target_rms": 0.0009072702770615043
+              }
+            }
+          }
+        },
+        {
+          "gain": 0.5,
+          "input_rms": 0.0020412306766957045,
+          "student_homogeneity_error": {
+            "cosine": 0.9967365355569614,
+            "equal_values": false,
+            "mae": 0.00013854433623091647,
+            "max_abs_error": 0.0005961952265352011,
+            "mse": 3.007161514837335e-08,
+            "prediction_peak": 0.002116734627634287,
+            "prediction_rms": 0.0007579187699886438,
+            "residual_dc": 3.6943108656114144e-05,
+            "residual_rms": 0.00017341169265183172,
+            "samples": 61440,
+            "snr_db": 10.682236381547657,
+            "target_peak": 0.0015318675432354212,
+            "target_rms": 0.0005931850492232018
+          },
+          "student_vs_reencoded_teacher": {
+            "phase1920": {
+              "available": true,
+              "cycles": 32,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 1920,
+              "phase_mean_variance": 1.4122152869532127e-08,
+              "phase_rms_max": 0.0005189788340484056,
+              "phase_rms_min": 0.0001177098843559496,
+              "phase_template_ac_fraction_of_residual_power": 0.13919920916439138,
+              "residual_dc": 6.37639832949272e-05
+            },
+            "phase480": {
+              "available": true,
+              "cycles": 128,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 480,
+              "phase_mean_variance": 1.3150554501228754e-08,
+              "phase_rms_max": 0.0004914764713690199,
+              "phase_rms_min": 0.00017936685716058194,
+              "phase_template_ac_fraction_of_residual_power": 0.1296223602418005,
+              "residual_dc": 6.37639832949272e-05
+            },
+            "raw_primary": {
+              "cosine": 0.9707198217151185,
+              "equal_values": false,
+              "mae": 0.00026509341720733285,
+              "max_abs_error": 0.0009675604524090886,
+              "mse": 1.0145282400889332e-07,
+              "prediction_peak": 0.002116734627634287,
+              "prediction_rms": 0.0007579187699886438,
+              "residual_dc": 6.37639832949272e-05,
+              "residual_rms": 0.0003185165992674374,
+              "samples": 61440,
+              "snr_db": 3.459756010923784,
+              "target_peak": 0.001218633376993239,
+              "target_rms": 0.0004743729000987899
+            }
+          }
+        },
+        {
+          "gain": 0.1,
+          "input_rms": 0.0004082461819052696,
+          "student_homogeneity_error": {
+            "cosine": 0.9106485391104853,
+            "equal_values": false,
+            "mae": 0.00014506295380945048,
+            "max_abs_error": 0.0006549751560669392,
+            "mse": 3.3129302128334136e-08,
+            "prediction_peak": 0.0009467883501201868,
+            "prediction_rms": 0.00028332630501209184,
+            "residual_dc": 7.236313309583547e-05,
+            "residual_rms": 0.00018201456570377585,
+            "samples": 61440,
+            "snr_db": -3.717718886908385,
+            "target_peak": 0.0003063735202886164,
+            "target_rms": 0.000118637011844516
+          },
+          "student_vs_reencoded_teacher": {
+            "phase1920": {
+              "available": true,
+              "cycles": 32,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 1920,
+              "phase_mean_variance": 1.2543801161054228e-08,
+              "phase_rms_max": 0.0004328889592334477,
+              "phase_rms_min": 7.453414724631975e-05,
+              "phase_template_ac_fraction_of_residual_power": 0.2883218162486594,
+              "residual_dc": 7.233768724935376e-05
+            },
+            "phase480": {
+              "available": true,
+              "cycles": 128,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 480,
+              "phase_mean_variance": 1.2164898093947298e-08,
+              "phase_rms_max": 0.0004173445684021706,
+              "phase_rms_min": 9.723720096844129e-05,
+              "phase_template_ac_fraction_of_residual_power": 0.2796126523287431,
+              "residual_dc": 7.233768724935376e-05
+            },
+            "raw_primary": {
+              "cosine": 0.8674614668645436,
+              "equal_values": false,
+              "mae": 0.00016697736130278303,
+              "max_abs_error": 0.0007168434094637632,
+              "mse": 4.3506250495578145e-08,
+              "prediction_peak": 0.0009467883501201868,
+              "prediction_rms": 0.00028332630501209184,
+              "residual_dc": 7.233768724935376e-05,
+              "residual_rms": 0.00020858152002413384,
+              "samples": 61440,
+              "snr_db": -7.106994713381084,
+              "target_peak": 0.0002693831629585475,
+              "target_rms": 9.202929442270785e-05
+            }
+          }
+        },
+        {
+          "gain": 0.01,
+          "input_rms": 4.082461236976087e-05,
+          "student_homogeneity_error": {
+            "cosine": 0.35602263081329577,
+            "equal_values": false,
+            "mae": 0.00011478316839388162,
+            "max_abs_error": 0.00047361719407490455,
+            "mse": 2.0771865698329738e-08,
+            "prediction_peak": 0.0005025371792726219,
+            "prediction_rms": 0.00014792120010592407,
+            "residual_dc": 9.066590371097084e-05,
+            "residual_rms": 0.0001441244798718446,
+            "samples": 61440,
+            "snr_db": -21.690351411470722,
+            "target_peak": 3.063735130126588e-05,
+            "target_rms": 1.1863700719971462e-05
+          },
+          "student_vs_reencoded_teacher": {
+            "phase1920": {
+              "available": true,
+              "cycles": 32,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 1920,
+              "phase_mean_variance": 1.131977249914905e-08,
+              "phase_rms_max": 0.0003962820239839401,
+              "phase_rms_min": 1.619296804764125e-05,
+              "phase_template_ac_fraction_of_residual_power": 0.579281421453657,
+              "residual_dc": 8.139019165298315e-05
+            },
+            "phase480": {
+              "available": true,
+              "cycles": 128,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 480,
+              "phase_mean_variance": 1.1167166447120913e-08,
+              "phase_rms_max": 0.00038617491178279773,
+              "phase_rms_min": 2.3363504605669637e-05,
+              "phase_template_ac_fraction_of_residual_power": 0.5714719137318424,
+              "residual_dc": 8.139019165298315e-05
+            },
+            "raw_primary": {
+              "cosine": 0.5925624037563755,
+              "equal_values": false,
+              "mae": 0.00011093392447433823,
+              "max_abs_error": 0.00046705518252565525,
+              "mse": 1.9541059112068625e-08,
+              "prediction_peak": 0.0005025371792726219,
+              "prediction_rms": 0.00014792120010592407,
+              "residual_dc": 8.139019165298315e-05,
+              "residual_rms": 0.00013978933833475507,
+              "samples": 61440,
+              "snr_db": -19.649625158744733,
+              "target_peak": 4.9777630920289084e-05,
+              "target_rms": 1.4554349221516302e-05
+            }
+          }
+        },
+        {
+          "gain": 0.0,
+          "input_rms": 0.0,
+          "student_homogeneity_error": {
+            "cosine": null,
+            "equal_values": false,
+            "mae": 0.00011423069949179262,
+            "max_abs_error": 0.00038561358815059066,
+            "mse": 2.0570669940072584e-08,
+            "prediction_peak": 0.00038561358815059066,
+            "prediction_rms": 0.00014342478844353435,
+            "residual_dc": 9.184041468746999e-05,
+            "residual_rms": 0.00014342478844353435,
+            "samples": 61440,
+            "snr_db": null,
+            "target_peak": 0.0,
+            "target_rms": 0.0
+          },
+          "student_vs_reencoded_teacher": {
+            "phase1920": {
+              "available": true,
+              "cycles": 32,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 1920,
+              "phase_mean_variance": 1.2141381534211404e-08,
+              "phase_rms_max": 0.000376094139937777,
+              "phase_rms_min": 1.2080818123649806e-08,
+              "phase_template_ac_fraction_of_residual_power": 0.6423890424966493,
+              "residual_dc": 8.221298178028487e-05
+            },
+            "phase480": {
+              "available": true,
+              "cycles": 128,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 480,
+              "phase_mean_variance": 1.1973897037385262e-08,
+              "phase_rms_max": 0.00035572103174634457,
+              "phase_rms_min": 6.153417777620241e-06,
+              "phase_template_ac_fraction_of_residual_power": 0.6335275957785789,
+              "residual_dc": 8.221298178028487e-05
+            },
+            "raw_primary": {
+              "cosine": 0.6382651693682273,
+              "equal_values": false,
+              "mae": 0.00010935483343180175,
+              "max_abs_error": 0.00037609413993777707,
+              "mse": 1.890035590741686e-08,
+              "prediction_peak": 0.00038561358815059066,
+              "prediction_rms": 0.00014342478844353435,
+              "residual_dc": 8.221298178028487e-05,
+              "residual_rms": 0.00013747856526534185,
+              "samples": 61440,
+              "snr_db": -23.092549297045007,
+              "target_peak": 1.0298725101165473e-05,
+              "target_rms": 9.6295840087303e-06
+            }
+          }
+        }
+      ],
+      "amplitude_secants": [
+        {
+          "gains": [
+            1.0,
+            0.5
+          ],
+          "interpretation": "Finite amplitude secant through full re-encoding, not a local JVP",
+          "student_vs_teacher_secant": {
+            "cosine": 0.9900030218422361,
+            "equal_values": false,
+            "mae": 9.96241230500979e-05,
+            "max_abs_error": 0.0004817764274775982,
+            "mse": 1.5105094229016486e-08,
+            "prediction_peak": 0.0020966429729014635,
+            "prediction_rms": 0.0008704926734610456,
+            "residual_dc": -1.3875981548242914e-05,
+            "residual_rms": 0.00012290278365039778,
+            "samples": 61440,
+            "snr_db": 16.97205975972198,
+            "target_peak": 0.00203086924739182,
+            "target_rms": 0.0008672907358548905
+          }
+        },
+        {
+          "gains": [
+            0.5,
+            0.1
+          ],
+          "interpretation": "Finite amplitude secant through full re-encoding, not a local JVP",
+          "student_vs_teacher_secant": {
+            "cosine": 0.9847520647673739,
+            "equal_values": false,
+            "mae": 0.00030210518977116563,
+            "max_abs_error": 0.0009487044299021363,
+            "mse": 1.255875296405036e-07,
+            "prediction_peak": 0.003092523431405425,
+            "prediction_rms": 0.0012556420400734098,
+            "residual_dc": -2.143425961174533e-05,
+            "residual_rms": 0.00035438330891917523,
+            "samples": 61440,
+            "snr_db": 8.632751883534217,
+            "target_peak": 0.002446720376610756,
+            "target_rms": 0.0009574384249299216
+          }
+        },
+        {
+          "gains": [
+            0.1,
+            0.01
+          ],
+          "interpretation": "Finite amplitude secant through full re-encoding, not a local JVP",
+          "student_vs_teacher_secant": {
+            "cosine": 0.9597442780946541,
+            "equal_values": false,
+            "mae": 0.001222342123791767,
+            "max_abs_error": 0.004860238404944539,
+            "mse": 2.258651977762008e-06,
+            "prediction_peak": 0.007123327348381281,
+            "prediction_rms": 0.0023541752077532218,
+            "residual_dc": -0.00010058337766916352,
+            "residual_rms": 0.0015028812254340022,
+            "samples": 61440,
+            "snr_db": -4.359541014945846,
+            "target_peak": 0.0026570595800876617,
+            "target_rms": 0.0009098035107747649
+          }
+        },
+        {
+          "gains": [
+            0.01,
+            0.0
+          ],
+          "interpretation": "Finite amplitude secant through full re-encoding, not a local JVP",
+          "student_vs_teacher_secant": {
+            "cosine": 0.6299913191318581,
+            "equal_values": false,
+            "mae": 0.003850484975307563,
+            "max_abs_error": 0.022158454405143857,
+            "mse": 2.569795117487472e-05,
+            "prediction_peak": 0.024413030594587326,
+            "prediction_rms": 0.005672547084142223,
+            "residual_dc": -8.227901614277962e-05,
+            "residual_rms": 0.005069314665206207,
+            "samples": 61440,
+            "snr_db": -13.548452534702502,
+            "target_peak": 0.004221771378070116,
+            "target_rms": 0.001065434174822139
+          }
+        }
+      ],
+      "future": {
+        "bitwise_equal": true,
+        "changed_latent_start_frame": 126,
+        "meaning": "Empirical future independence on this fixed input, not an analytical receptive-field proof",
+        "prefix_samples": 15360,
+        "raw_difference": {
+          "cosine": 1.0,
+          "equal_values": true,
+          "mae": 0.0,
+          "max_abs_error": 0.0,
+          "mse": 0.0,
+          "prediction_peak": 0.0030637425370514393,
+          "prediction_rms": 0.0016427181105384814,
+          "residual_dc": 0.0,
+          "residual_rms": 0.0,
+          "samples": 15360,
+          "snr_db": null,
+          "target_peak": 0.0030637425370514393,
+          "target_rms": 0.0016427181105384814
+        },
+        "scored_prefix_start_frame": 118,
+        "within_1e_5_absolute_1e_4_relative": true
+      },
+      "history": [
+        {
+          "prefix_frames": 0,
+          "same_history_student_vs_teacher": {
+            "phase1920": {
+              "available": true,
+              "cycles": 32,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 1920,
+              "phase_mean_variance": 6.810658858051078e-08,
+              "phase_rms_max": 0.001617236697595036,
+              "phase_rms_min": 0.0004486984511806511,
+              "phase_template_ac_fraction_of_residual_power": 0.05640982290921536,
+              "residual_dc": 5.6329692537573514e-05
+            },
+            "phase480": {
+              "available": true,
+              "cycles": 128,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 480,
+              "phase_mean_variance": 1.673364189396288e-08,
+              "phase_rms_max": 0.0012676403541515447,
+              "phase_rms_min": 0.0009587934692906618,
+              "phase_template_ac_fraction_of_residual_power": 0.013859771800914859,
+              "residual_dc": 5.6329692537573514e-05
+            },
+            "raw_primary": {
+              "cosine": 0.7135332885775225,
+              "equal_values": false,
+              "mae": 0.0004888441658863019,
+              "max_abs_error": 0.008758686250075698,
+              "mse": 1.2073533485492397e-06,
+              "prediction_peak": 0.0036447527818381786,
+              "prediction_rms": 0.0012231195282073018,
+              "residual_dc": 5.6329692537573514e-05,
+              "residual_rms": 0.001098796318044996,
+              "samples": 61440,
+              "snr_db": 3.0468600578807967,
+              "target_peak": 0.008724016137421131,
+              "target_rms": 0.0015604871557382473
+            }
+          },
+          "student_reset_vs_longest_history": {
+            "cosine": 0.9530185858244543,
+            "equal_values": false,
+            "mae": 0.0001134092050889617,
+            "max_abs_error": 0.003541567304637283,
+            "mse": 1.3769740783174113e-07,
+            "prediction_peak": 0.0036447527818381786,
+            "prediction_rms": 0.0012231195282073018,
+            "residual_dc": -2.2329031731177624e-06,
+            "residual_rms": 0.0003710760135494359,
+            "samples": 61440,
+            "snr_db": 10.095149217007044,
+            "target_peak": 0.0030637425370514393,
+            "target_rms": 0.0011863705112103847
+          },
+          "student_reset_vs_teacher_longest_history": {
+            "cosine": 0.9368761453795643,
+            "equal_values": false,
+            "mae": 0.0003657739924396715,
+            "max_abs_error": 0.0031717470847070217,
+            "mse": 2.4007452121865107e-07,
+            "prediction_peak": 0.0036447527818381786,
+            "prediction_rms": 0.0012231195282073018,
+            "residual_dc": 5.459323553494115e-05,
+            "residual_rms": 0.000489974000553755,
+            "samples": 61440,
+            "snr_db": 5.346929484928477,
+            "target_peak": 0.002193904248997569,
+            "target_rms": 0.0009068167009011445
+          }
+        },
+        {
+          "prefix_frames": 8,
+          "same_history_student_vs_teacher": {
+            "phase1920": {
+              "available": true,
+              "cycles": 32,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 1920,
+              "phase_mean_variance": 1.5794770201976604e-08,
+              "phase_rms_max": 0.0005646057538314208,
+              "phase_rms_min": 0.00011326964368356984,
+              "phase_template_ac_fraction_of_residual_power": 0.13804530984873808,
+              "residual_dc": 5.693911326801731e-05
+            },
+            "phase480": {
+              "available": true,
+              "cycles": 128,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 480,
+              "phase_mean_variance": 1.4235127237035357e-08,
+              "phase_rms_max": 0.0005253147016948276,
+              "phase_rms_min": 0.00017336951867216025,
+              "phase_template_ac_fraction_of_residual_power": 0.12441412727402894,
+              "residual_dc": 5.693911326801731e-05
+            },
+            "raw_primary": {
+              "cosine": 0.9836770956126009,
+              "equal_values": false,
+              "mae": 0.00028343974895226974,
+              "max_abs_error": 0.00105935032479465,
+              "mse": 1.1441728965137302e-07,
+              "prediction_peak": 0.003117069834843278,
+              "prediction_rms": 0.0011891171283449607,
+              "residual_dc": 5.693911326801731e-05,
+              "residual_rms": 0.00033825624850307353,
+              "samples": 61440,
+              "snr_db": 8.57420304545981,
+              "target_peak": 0.002210326259955764,
+              "target_rms": 0.0009077285187651028
+            }
+          },
+          "student_reset_vs_longest_history": {
+            "cosine": 0.9999844285253933,
+            "equal_values": false,
+            "mae": 1.7304653742579562e-06,
+            "max_abs_error": 0.00010008784011006355,
+            "mse": 5.1478307286046246e-11,
+            "prediction_peak": 0.003117069834843278,
+            "prediction_rms": 0.0011891171283449607,
+            "residual_dc": 2.270798526941148e-08,
+            "residual_rms": 7.174838485014575e-06,
+            "samples": 61440,
+            "snr_db": 44.368164284349575,
+            "target_peak": 0.0030637425370514393,
+            "target_rms": 0.0011863705112103847
+          },
+          "student_reset_vs_teacher_longest_history": {
+            "cosine": 0.9837460901822414,
+            "equal_values": false,
+            "mae": 0.00028387743589173187,
+            "max_abs_error": 0.001067527336999774,
+            "mse": 1.1474707965367876e-07,
+            "prediction_peak": 0.003117069834843278,
+            "prediction_rms": 0.0011891171283449607,
+            "residual_dc": 5.6848846693328325e-05,
+            "residual_rms": 0.0003387433831880392,
+            "samples": 61440,
+            "snr_db": 8.552973784847973,
+            "target_peak": 0.002193904248997569,
+            "target_rms": 0.0009068167009011445
+          }
+        },
+        {
+          "prefix_frames": 16,
+          "same_history_student_vs_teacher": {
+            "phase1920": {
+              "available": true,
+              "cycles": 32,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 1920,
+              "phase_mean_variance": 1.5802310960818795e-08,
+              "phase_rms_max": 0.0005642062001056542,
+              "phase_rms_min": 0.00011269495762311586,
+              "phase_template_ac_fraction_of_residual_power": 0.13903585926217898,
+              "residual_dc": 5.682619961253406e-05
+            },
+            "phase480": {
+              "available": true,
+              "cycles": 128,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 480,
+              "phase_mean_variance": 1.426865004078319e-08,
+              "phase_rms_max": 0.000524704420401521,
+              "phase_rms_min": 0.00017284874203904102,
+              "phase_template_ac_fraction_of_residual_power": 0.12554201874969448,
+              "residual_dc": 5.682619961253406e-05
+            },
+            "raw_primary": {
+              "cosine": 0.9834987879017427,
+              "equal_values": false,
+              "mae": 0.0002824231668501332,
+              "max_abs_error": 0.0010371225653216243,
+              "mse": 1.1365636926097234e-07,
+              "prediction_peak": 0.0030637907329946756,
+              "prediction_rms": 0.0011863727731194137,
+              "residual_dc": 5.682619961253406e-05,
+              "residual_rms": 0.0003371296030623421,
+              "samples": 61440,
+              "snr_db": 8.594452111030982,
+              "target_peak": 0.0021939037833362818,
+              "target_rms": 0.0009068166691984295
+            }
+          },
+          "student_reset_vs_longest_history": {
+            "cosine": 0.9999999999482808,
+            "equal_values": false,
+            "mae": 7.811653022528343e-09,
+            "max_abs_error": 2.1723099052906036e-07,
+            "mse": 1.5070341974273527e-16,
+            "prediction_peak": 0.0030637907329946756,
+            "prediction_rms": 0.0011863727731194137,
+            "residual_dc": 5.2466809774091386e-11,
+            "residual_rms": 1.227613211653961e-08,
+            "samples": 61440,
+            "snr_db": 99.70317579013737,
+            "target_peak": 0.0030637425370514393,
+            "target_rms": 0.0011863705112103847
+          },
+          "student_reset_vs_teacher_longest_history": {
+            "cosine": 0.9834987830724617,
+            "equal_values": false,
+            "mae": 0.0002824231548096017,
+            "max_abs_error": 0.0010371222160756588,
+            "mse": 1.1365636316775983e-07,
+            "prediction_peak": 0.0030637907329946756,
+            "prediction_rms": 0.0011863727731194137,
+            "residual_dc": 5.682619117486868e-05,
+            "residual_rms": 0.00033712959402544274,
+            "samples": 61440,
+            "snr_db": 8.594452647522441,
+            "target_peak": 0.002193904248997569,
+            "target_rms": 0.0009068167009011445
+          }
+        },
+        {
+          "prefix_frames": 29,
+          "same_history_student_vs_teacher": {
+            "phase1920": {
+              "available": true,
+              "cycles": 32,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 1920,
+              "phase_mean_variance": 1.5802269505353513e-08,
+              "phase_rms_max": 0.000564202179437963,
+              "phase_rms_min": 0.00011269243054754446,
+              "phase_template_ac_fraction_of_residual_power": 0.13903676247412095,
+              "residual_dc": 5.682593117895228e-05
+            },
+            "phase480": {
+              "available": true,
+              "cycles": 128,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 480,
+              "phase_mean_variance": 1.4268640583239119e-08,
+              "phase_rms_max": 0.0005247022588360686,
+              "phase_rms_min": 0.0001728468878948834,
+              "phase_template_ac_fraction_of_residual_power": 0.12554308043716908,
+              "residual_dc": 5.682593117895228e-05
+            },
+            "raw_primary": {
+              "cosine": 0.9834985862547764,
+              "equal_values": false,
+              "mae": 0.0002824217407508713,
+              "max_abs_error": 0.001037037349306047,
+              "mse": 1.1365533276348264e-07,
+              "prediction_peak": 0.003063745331019163,
+              "prediction_rms": 0.0011863702865241958,
+              "residual_dc": 5.682593117895228e-05,
+              "residual_rms": 0.0003371280658199235,
+              "samples": 61440,
+              "snr_db": 8.594491821518616,
+              "target_peak": 0.0021939037833362818,
+              "target_rms": 0.0009068166801091069
+            }
+          },
+          "student_reset_vs_longest_history": {
+            "cosine": 0.9999999999769132,
+            "equal_values": false,
+            "mae": 6.414700335378535e-09,
+            "max_abs_error": 3.341119736433029e-08,
+            "mse": 6.503842064250198e-17,
+            "prediction_peak": 0.003063745331019163,
+            "prediction_rms": 0.0011863702865241958,
+            "residual_dc": -2.103616260351604e-10,
+            "residual_rms": 8.064640143397719e-09,
+            "samples": 61440,
+            "snr_db": 103.35270699851078,
+            "target_peak": 0.0030637425370514393,
+            "target_rms": 0.0011863705112103847
+          },
+          "student_reset_vs_teacher_longest_history": {
+            "cosine": 0.9834985819801327,
+            "equal_values": false,
+            "mae": 0.0002824217335402837,
+            "max_abs_error": 0.0010370372328907251,
+            "mse": 1.136553311500856e-07,
+            "prediction_peak": 0.003063745331019163,
+            "prediction_rms": 0.0011863702865241958,
+            "residual_dc": 5.6825928346432875e-05,
+            "residual_rms": 0.0003371280634270686,
+            "samples": 61440,
+            "snr_db": 8.594492082324289,
+            "target_peak": 0.002193904248997569,
+            "target_rms": 0.0009068167009011445
+          }
+        },
+        {
+          "prefix_frames": 30,
+          "same_history_student_vs_teacher": {
+            "phase1920": {
+              "available": true,
+              "cycles": 32,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 1920,
+              "phase_mean_variance": 1.5802269698934313e-08,
+              "phase_rms_max": 0.0005642021385547391,
+              "phase_rms_min": 0.00011269249560891431,
+              "phase_template_ac_fraction_of_residual_power": 0.1390367780813518,
+              "residual_dc": 5.682592574395168e-05
+            },
+            "phase480": {
+              "available": true,
+              "cycles": 128,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 480,
+              "phase_mean_variance": 1.4268640112513729e-08,
+              "phase_rms_max": 0.0005247023409531121,
+              "phase_rms_min": 0.0001728468462234704,
+              "phase_template_ac_fraction_of_residual_power": 0.12554308885008053,
+              "residual_dc": 5.682592574395168e-05
+            },
+            "raw_primary": {
+              "cosine": 0.9834985836884239,
+              "equal_values": false,
+              "mae": 0.00028242171924013743,
+              "max_abs_error": 0.0010370372328907251,
+              "mse": 1.1365532139768262e-07,
+              "prediction_peak": 0.003063745331019163,
+              "prediction_rms": 0.0011863702865241958,
+              "residual_dc": 5.682592574395168e-05,
+              "residual_rms": 0.00033712804896312415,
+              "samples": 61440,
+              "snr_db": 8.594492566923247,
+              "target_peak": 0.0021939040161669254,
+              "target_rms": 0.0009068167125882916
+            }
+          },
+          "student_reset_vs_longest_history": {
+            "cosine": 0.9999999999769132,
+            "equal_values": false,
+            "mae": 6.414700335378535e-09,
+            "max_abs_error": 3.341119736433029e-08,
+            "mse": 6.503842064250198e-17,
+            "prediction_peak": 0.003063745331019163,
+            "prediction_rms": 0.0011863702865241958,
+            "residual_dc": -2.103616260351604e-10,
+            "residual_rms": 8.064640143397719e-09,
+            "samples": 61440,
+            "snr_db": 103.35270699851078,
+            "target_peak": 0.0030637425370514393,
+            "target_rms": 0.0011863705112103847
+          },
+          "student_reset_vs_teacher_longest_history": {
+            "cosine": 0.9834985819801327,
+            "equal_values": false,
+            "mae": 0.0002824217335402837,
+            "max_abs_error": 0.0010370372328907251,
+            "mse": 1.136553311500856e-07,
+            "prediction_peak": 0.003063745331019163,
+            "prediction_rms": 0.0011863702865241958,
+            "residual_dc": 5.6825928346432875e-05,
+            "residual_rms": 0.0003371280634270686,
+            "samples": 61440,
+            "snr_db": 8.594492082324289,
+            "target_peak": 0.002193904248997569,
+            "target_rms": 0.0009068167009011445
+          }
+        },
+        {
+          "prefix_frames": 40,
+          "same_history_student_vs_teacher": {
+            "phase1920": {
+              "available": true,
+              "cycles": 32,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 1920,
+              "phase_mean_variance": 1.5802232486698765e-08,
+              "phase_rms_max": 0.0005642028078265936,
+              "phase_rms_min": 0.00011269466086064826,
+              "phase_template_ac_fraction_of_residual_power": 0.13903632052575182,
+              "residual_dc": 5.682613610557772e-05
+            },
+            "phase480": {
+              "available": true,
+              "cycles": 128,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 480,
+              "phase_mean_variance": 1.4268599737963985e-08,
+              "phase_rms_max": 0.0005247030613661038,
+              "phase_rms_min": 0.00017284842139015782,
+              "phase_template_ac_fraction_of_residual_power": 0.12554261610130665,
+              "residual_dc": 5.682613610557772e-05
+            },
+            "raw_primary": {
+              "cosine": 0.9834985957549816,
+              "equal_values": false,
+              "mae": 0.0002824218350198362,
+              "max_abs_error": 0.00103702861815691,
+              "mse": 1.1365542778278522e-07,
+              "prediction_peak": 0.0030637425370514393,
+              "prediction_rms": 0.0011863705112103847,
+              "residual_dc": 5.682613610557772e-05,
+              "residual_rms": 0.00033712820674453394,
+              "samples": 61440,
+              "snr_db": 8.594488501786584,
+              "target_peak": 0.0021939040161669254,
+              "target_rms": 0.0009068167125882916
+            }
+          },
+          "student_reset_vs_longest_history": {
+            "cosine": 1.0,
+            "equal_values": true,
+            "mae": 0.0,
+            "max_abs_error": 0.0,
+            "mse": 0.0,
+            "prediction_peak": 0.0030637425370514393,
+            "prediction_rms": 0.0011863705112103847,
+            "residual_dc": 0.0,
+            "residual_rms": 0.0,
+            "samples": 61440,
+            "snr_db": null,
+            "target_peak": 0.0030637425370514393,
+            "target_rms": 0.0011863705112103847
+          },
+          "student_reset_vs_teacher_longest_history": {
+            "cosine": 0.9834985940466258,
+            "equal_values": false,
+            "mae": 0.00028242184931998244,
+            "max_abs_error": 0.00103702861815691,
+            "mse": 1.1365543753533343e-07,
+            "prediction_peak": 0.0030637425370514393,
+            "prediction_rms": 0.0011863705112103847,
+            "residual_dc": 5.682613870805891e-05,
+            "residual_rms": 0.00033712822120868707,
+            "samples": 61440,
+            "snr_db": 8.594488017182424,
+            "target_peak": 0.002193904248997569,
+            "target_rms": 0.0009068167009011445
+          }
+        }
+      ],
+      "history_log_error_slope_per_frame": -0.34672446401080714,
+      "longest_history_student_vs_teacher": {
+        "phase1920": {
+          "available": true,
+          "cycles": 32,
+          "discarded_tail_samples": 0,
+          "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+          "period_samples": 1920,
+          "phase_mean_variance": 1.580223279786307e-08,
+          "phase_rms_max": 0.0005642028248072686,
+          "phase_rms_min": 0.00011269470046864163,
+          "phase_template_ac_fraction_of_residual_power": 0.13903631133310662,
+          "residual_dc": 5.682613870805891e-05
+        },
+        "phase480": {
+          "available": true,
+          "cycles": 128,
+          "discarded_tail_samples": 0,
+          "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+          "period_samples": 480,
+          "phase_mean_variance": 1.4268600513860146e-08,
+          "phase_rms_max": 0.0005247030638813413,
+          "phase_rms_min": 0.00017284850349550142,
+          "phase_template_ac_fraction_of_residual_power": 0.12554261215548349,
+          "residual_dc": 5.682613870805891e-05
+        },
+        "raw_primary": {
+          "cosine": 0.9834985940466258,
+          "equal_values": false,
+          "mae": 0.00028242184931998244,
+          "max_abs_error": 0.00103702861815691,
+          "mse": 1.1365543753533343e-07,
+          "prediction_peak": 0.0030637425370514393,
+          "prediction_rms": 0.0011863705112103847,
+          "residual_dc": 5.682613870805891e-05,
+          "residual_rms": 0.00033712822120868707,
+          "samples": 61440,
+          "snr_db": 8.594488017182424,
+          "target_peak": 0.002193904248997569,
+          "target_rms": 0.0009068167009011445
+        },
+        "secondary_lag_gain": {
+          "common_samples": 61344,
+          "diagnostic_only": true,
+          "does_not_replace_raw_primary": true,
+          "excluded_each_end_samples": 48,
+          "fit": {
+            "lag_samples": -1,
+            "lag_seconds": -2.0833333333333333e-05,
+            "mse": 2.9566091416242718e-08,
+            "prediction_gain": 0.8,
+            "residual_rms": 0.00017194793228254512
+          },
+          "gain_bounds": [
+            0.8,
+            1.25
+          ],
+          "lag_convention": "compare prediction[t+lag] to target[t]",
+          "raw_common_grid": {
+            "cosine": 0.9835154546817534,
+            "equal_values": false,
+            "mae": 0.0002826777061856093,
+            "max_abs_error": 0.00103702861815691,
+            "mse": 1.1380083423532054e-07,
+            "prediction_peak": 0.0030637425370514393,
+            "prediction_rms": 0.0011870792045700926,
+            "residual_dc": 5.675588812467184e-05,
+            "residual_rms": 0.0003373437923473923,
+            "samples": 61344,
+            "snr_db": 8.59327861261294,
+            "target_peak": 0.002193904248997569,
+            "target_rms": 0.0009072702148940049
+          }
+        }
+      },
+      "source_id": "encoded_fade",
+      "start_frame": 0,
+      "student_log_rms_vs_log_gain_slope": 0.45167606374271335,
+      "teacher_log_rms_vs_log_gain_slope": 0.9018741514699664
+    },
+    {
+      "amplitude": [
+        {
+          "gain": 1.0,
+          "input_rms": 9.972870429919567e-06,
+          "student_homogeneity_error": {
+            "cosine": 1.0,
+            "equal_values": true,
+            "mae": 0.0,
+            "max_abs_error": 0.0,
+            "mse": 0.0,
+            "prediction_peak": 0.0003862052399199456,
+            "prediction_rms": 0.00014412234763710934,
+            "residual_dc": 0.0,
+            "residual_rms": 0.0,
+            "samples": 61440,
+            "snr_db": null,
+            "target_peak": 0.0003862052399199456,
+            "target_rms": 0.00014412234763710934
+          },
+          "student_vs_reencoded_teacher": {
+            "phase1920": {
+              "available": true,
+              "cycles": 32,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 1920,
+              "phase_mean_variance": 1.1726692252020754e-08,
+              "phase_rms_max": 0.0003739803598606653,
+              "phase_rms_min": 1.0582996360200247e-05,
+              "phase_template_ac_fraction_of_residual_power": 0.5948625772799748,
+              "residual_dc": 8.712576895581584e-05
+            },
+            "phase480": {
+              "available": true,
+              "cycles": 128,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 480,
+              "phase_mean_variance": 1.1508226981355457e-08,
+              "phase_rms_max": 0.000347027800739765,
+              "phase_rms_min": 1.6922669905317506e-05,
+              "phase_template_ac_fraction_of_residual_power": 0.5837804399507777,
+              "residual_dc": 8.712576895581584e-05
+            },
+            "raw_primary": {
+              "cosine": 0.2520981373639614,
+              "equal_values": false,
+              "mae": 0.00011447771740646738,
+              "max_abs_error": 0.00040371573413722217,
+              "mse": 1.971327950337937e-08,
+              "prediction_peak": 0.0003862052399199456,
+              "prediction_rms": 0.00014412234763710934,
+              "residual_dc": 8.712576895581584e-05,
+              "residual_rms": 0.00014040398677879262,
+              "samples": 61440,
+              "snr_db": -16.86508193757131,
+              "target_peak": 0.00014461421233136207,
+              "target_rms": 2.0143055201440868e-05
+            },
+            "secondary_lag_gain": {
+              "common_samples": 61344,
+              "diagnostic_only": true,
+              "does_not_replace_raw_primary": true,
+              "excluded_each_end_samples": 48,
+              "fit": {
+                "lag_samples": -7,
+                "lag_seconds": -0.00014583333333333335,
+                "mse": 1.2509534240686203e-08,
+                "prediction_gain": 0.8,
+                "residual_rms": 0.00011184602916816583
+              },
+              "gain_bounds": [
+                0.8,
+                1.25
+              ],
+              "lag_convention": "compare prediction[t+lag] to target[t]",
+              "raw_common_grid": {
+                "cosine": 0.2521445869087955,
+                "equal_values": false,
+                "mae": 0.00011447103621931781,
+                "max_abs_error": 0.00040371573413722217,
+                "mse": 1.9711689357926787e-08,
+                "prediction_peak": 0.0003862052399199456,
+                "prediction_rms": 0.00014411721027847316,
+                "residual_dc": 8.71048171169439e-05,
+                "residual_rms": 0.0001403983239142362,
+                "samples": 61344,
+                "snr_db": -16.866171378191158,
+                "target_peak": 0.00014461421233136207,
+                "target_rms": 2.013971656637602e-05
+              }
+            }
+          }
+        },
+        {
+          "gain": 0.5,
+          "input_rms": 4.9864352149597835e-06,
+          "student_homogeneity_error": {
+            "cosine": 0.9796112638008374,
+            "equal_values": false,
+            "mae": 5.7164915371364174e-05,
+            "max_abs_error": 0.0002239983296021819,
+            "mse": 5.1461932867009034e-09,
+            "prediction_peak": 0.00041364989010617137,
+            "prediction_rms": 0.00014085289515212586,
+            "residual_dc": 3.9972169671032625e-05,
+            "residual_rms": 7.173697294074307e-05,
+            "samples": 61440,
+            "snr_db": 0.03916570386931366,
+            "target_peak": 0.0001931026199599728,
+            "target_rms": 7.206117381855467e-05
+          },
+          "student_vs_reencoded_teacher": {
+            "phase1920": {
+              "available": true,
+              "cycles": 32,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 1920,
+              "phase_mean_variance": 1.2054338127736433e-08,
+              "phase_rms_max": 0.0003753823826578988,
+              "phase_rms_min": 9.241785979048103e-06,
+              "phase_template_ac_fraction_of_residual_power": 0.6521898880839188,
+              "residual_dc": 7.869115295721678e-05
+            },
+            "phase480": {
+              "available": true,
+              "cycles": 128,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 480,
+              "phase_mean_variance": 1.1890043576732559e-08,
+              "phase_rms_max": 0.00036762370703846947,
+              "phase_rms_min": 1.511199983361145e-05,
+              "phase_template_ac_fraction_of_residual_power": 0.643300868736978,
+              "residual_dc": 7.869115295721678e-05
+            },
+            "raw_primary": {
+              "cosine": 0.492768945417886,
+              "equal_values": false,
+              "mae": 0.00010956755567955431,
+              "max_abs_error": 0.0004075909273524303,
+              "mse": 1.84828657235872e-08,
+              "prediction_peak": 0.00041364989010617137,
+              "prediction_rms": 0.00014085289515212586,
+              "residual_dc": 7.869115295721678e-05,
+              "residual_rms": 0.00013595170364356308,
+              "samples": 61440,
+              "snr_db": -22.17842006800785,
+              "target_peak": 3.834593735518865e-05,
+              "target_rms": 1.0579463652349881e-05
+            }
+          }
+        },
+        {
+          "gain": 0.1,
+          "input_rms": 9.972870884666918e-07,
+          "student_homogeneity_error": {
+            "cosine": 0.9487630060766207,
+            "equal_values": false,
+            "mae": 9.835325630832745e-05,
+            "max_abs_error": 0.00038143189522088505,
+            "mse": 1.5287530628461806e-08,
+            "prediction_peak": 0.0004177087394054979,
+            "prediction_rms": 0.00013723265098635916,
+            "residual_dc": 7.630879482726568e-05,
+            "residual_rms": 0.0001236427540475454,
+            "samples": 61440,
+            "snr_db": -18.668746698593452,
+            "target_peak": 3.862052471959032e-05,
+            "target_rms": 1.4412235006960591e-05
+          },
+          "student_vs_reencoded_teacher": {
+            "phase1920": {
+              "available": true,
+              "cycles": 32,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 1920,
+              "phase_mean_variance": 1.130341994147347e-08,
+              "phase_rms_max": 0.0003813380808089745,
+              "phase_rms_min": 6.386899492262155e-06,
+              "phase_template_ac_fraction_of_residual_power": 0.6476588189859054,
+              "residual_dc": 7.721085043611771e-05
+            },
+            "phase480": {
+              "available": true,
+              "cycles": 128,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 480,
+              "phase_mean_variance": 1.113807414616351e-08,
+              "phase_rms_max": 0.00037113417721770163,
+              "phase_rms_min": 1.2417352701554282e-05,
+              "phase_template_ac_fraction_of_residual_power": 0.6381849019705942,
+              "residual_dc": 7.721085043611771e-05
+            },
+            "raw_primary": {
+              "cosine": 0.6142407208526647,
+              "equal_values": false,
+              "mae": 0.00010524630934205329,
+              "max_abs_error": 0.0004084120628249366,
+              "mse": 1.7452738401944712e-08,
+              "prediction_peak": 0.0004177087394054979,
+              "prediction_rms": 0.00013723265098635916,
+              "residual_dc": 7.721085043611771e-05,
+              "residual_rms": 0.00013210881273383965,
+              "samples": 61440,
+              "snr_db": -23.70090377339048,
+              "target_peak": 4.9259495426667854e-05,
+              "target_rms": 8.627532439060788e-06
+            }
+          }
+        },
+        {
+          "gain": 0.01,
+          "input_rms": 9.972870884666918e-08,
+          "student_homogeneity_error": {
+            "cosine": 0.9368780190521546,
+            "equal_values": false,
+            "mae": 0.00011294497292099696,
+            "max_abs_error": 0.00038342116476997035,
+            "mse": 2.0114885210887922e-08,
+            "prediction_peak": 0.00038689241046085954,
+            "prediction_rms": 0.00014317631045035736,
+            "residual_dc": 9.069402366937735e-05,
+            "residual_rms": 0.00014182695516328314,
+            "samples": 61440,
+            "snr_db": -39.86054922233754,
+            "target_peak": 3.862052381009562e-06,
+            "target_rms": 1.4412234442996152e-06
+          },
+          "student_vs_reencoded_teacher": {
+            "phase1920": {
+              "available": true,
+              "cycles": 32,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 1920,
+              "phase_mean_variance": 1.2105756098239685e-08,
+              "phase_rms_max": 0.00037504884754471904,
+              "phase_rms_min": 8.993857825076247e-07,
+              "phase_template_ac_fraction_of_residual_power": 0.6427086928039294,
+              "residual_dc": 8.202269690533222e-05
+            },
+            "phase480": {
+              "available": true,
+              "cycles": 128,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 480,
+              "phase_mean_variance": 1.1939091212495198e-08,
+              "phase_rms_max": 0.0003559528467200897,
+              "phase_rms_min": 6.1456319464229216e-06,
+              "phase_template_ac_fraction_of_residual_power": 0.6338602598779818,
+              "residual_dc": 8.202269690533222e-05
+            },
+            "raw_primary": {
+              "cosine": 0.6378612258234165,
+              "equal_values": false,
+              "mae": 0.00010917777686317987,
+              "max_abs_error": 0.0003773935604840517,
+              "mse": 1.883552569582683e-08,
+              "prediction_peak": 0.00038689241046085954,
+              "prediction_rms": 0.00014317631045035736,
+              "residual_dc": 8.202269690533222e-05,
+              "residual_rms": 0.00013724257974778392,
+              "samples": 61440,
+              "snr_db": -23.089865491308565,
+              "target_peak": 1.0297157132299617e-05,
+              "target_rms": 9.616025322717641e-06
+            }
+          }
+        },
+        {
+          "gain": 0.0,
+          "input_rms": 0.0,
+          "student_homogeneity_error": {
+            "cosine": null,
+            "equal_values": false,
+            "mae": 0.00011423069949179262,
+            "max_abs_error": 0.00038561358815059066,
+            "mse": 2.0570669940072584e-08,
+            "prediction_peak": 0.00038561358815059066,
+            "prediction_rms": 0.00014342478844353435,
+            "residual_dc": 9.184041468746999e-05,
+            "residual_rms": 0.00014342478844353435,
+            "samples": 61440,
+            "snr_db": null,
+            "target_peak": 0.0,
+            "target_rms": 0.0
+          },
+          "student_vs_reencoded_teacher": {
+            "phase1920": {
+              "available": true,
+              "cycles": 32,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 1920,
+              "phase_mean_variance": 1.2141381534211404e-08,
+              "phase_rms_max": 0.000376094139937777,
+              "phase_rms_min": 1.2080818123649806e-08,
+              "phase_template_ac_fraction_of_residual_power": 0.6423890424966493,
+              "residual_dc": 8.221298178028487e-05
+            },
+            "phase480": {
+              "available": true,
+              "cycles": 128,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 480,
+              "phase_mean_variance": 1.1973897037385262e-08,
+              "phase_rms_max": 0.00035572103174634457,
+              "phase_rms_min": 6.153417777620241e-06,
+              "phase_template_ac_fraction_of_residual_power": 0.6335275957785789,
+              "residual_dc": 8.221298178028487e-05
+            },
+            "raw_primary": {
+              "cosine": 0.6382651693682273,
+              "equal_values": false,
+              "mae": 0.00010935483343180175,
+              "max_abs_error": 0.00037609413993777707,
+              "mse": 1.890035590741686e-08,
+              "prediction_peak": 0.00038561358815059066,
+              "prediction_rms": 0.00014342478844353435,
+              "residual_dc": 8.221298178028487e-05,
+              "residual_rms": 0.00013747856526534185,
+              "samples": 61440,
+              "snr_db": -23.092549297045007,
+              "target_peak": 1.0298725101165473e-05,
+              "target_rms": 9.6295840087303e-06
+            }
+          }
+        }
+      ],
+      "amplitude_secants": [
+        {
+          "gains": [
+            1.0,
+            0.5
+          ],
+          "interpretation": "Finite amplitude secant through full re-encoding, not a local JVP",
+          "student_vs_teacher_secant": {
+            "cosine": 0.028401077779179072,
+            "equal_values": false,
+            "mae": 5.2573172303034084e-05,
+            "max_abs_error": 0.00028143739473307505,
+            "mse": 4.315408447535246e-09,
+            "prediction_peak": 0.00019835711282212287,
+            "prediction_rms": 5.7912832595083146e-05,
+            "residual_dc": 1.6869231990793154e-05,
+            "residual_rms": 6.569176849145749e-05,
+            "samples": 61440,
+            "snr_db": -6.060156523322417,
+            "target_peak": 0.0002544606104493141,
+            "target_rms": 3.26966401437666e-05
+          }
+        },
+        {
+          "gains": [
+            0.5,
+            0.1
+          ],
+          "interpretation": "Finite amplitude secant through full re-encoding, not a local JVP",
+          "student_vs_teacher_secant": {
+            "cosine": 0.005514321605498199,
+            "equal_values": false,
+            "mae": 6.53579323038256e-05,
+            "max_abs_error": 0.00032475931220687926,
+            "mse": 6.638624877362046e-09,
+            "prediction_peak": 0.000304755027173087,
+            "prediction_rms": 7.996957951669157e-05,
+            "residual_dc": 3.7007562583183524e-06,
+            "residual_rms": 8.147775694851967e-05,
+            "samples": 61440,
+            "snr_db": -14.110515744348376,
+            "target_peak": 0.00010999020742019638,
+            "target_rms": 1.6051413299619222e-05
+          }
+        },
+        {
+          "gains": [
+            0.1,
+            0.01
+          ],
+          "interpretation": "Finite amplitude secant through full re-encoding, not a local JVP",
+          "student_vs_teacher_secant": {
+            "cosine": 0.11193648730825102,
+            "equal_values": false,
+            "mae": 0.00025202703444607554,
+            "max_abs_error": 0.0012098561637685634,
+            "mse": 9.484931418795246e-08,
+            "prediction_peak": 0.001139481901191175,
+            "prediction_rms": 0.000309531460951614,
+            "residual_dc": -5.346495863534227e-05,
+            "residual_rms": 0.00030797615847326956,
+            "samples": 61440,
+            "snr_db": -24.125204158877725,
+            "target_peak": 0.00044264268944971263,
+            "target_rms": 1.9153885617254663e-05
+          }
+        },
+        {
+          "gains": [
+            0.01,
+            0.0
+          ],
+          "interpretation": "Finite amplitude secant through full re-encoding, not a local JVP",
+          "student_vs_teacher_secant": {
+            "cosine": 0.08216480068179928,
+            "equal_values": false,
+            "mae": 0.00012074244009154985,
+            "max_abs_error": 0.0008296250598505139,
+            "mse": 2.455254426082876e-08,
+            "prediction_peak": 0.0008301285561174154,
+            "prediction_rms": 0.00015683394127084002,
+            "residual_dc": -1.902848751727156e-05,
+            "residual_rms": 0.00015669251501213694,
+            "samples": 61440,
+            "snr_db": -38.53960903135122,
+            "target_peak": 8.416827768087387e-06,
+            "target_rms": 1.8538210094864017e-06
+          }
+        }
+      ],
+      "future": {
+        "bitwise_equal": true,
+        "changed_latent_start_frame": 126,
+        "meaning": "Empirical future independence on this fixed input, not an analytical receptive-field proof",
+        "prefix_samples": 15360,
+        "raw_difference": {
+          "cosine": 1.0,
+          "equal_values": true,
+          "mae": 0.0,
+          "max_abs_error": 0.0,
+          "mse": 0.0,
+          "prediction_peak": 0.00038262084126472473,
+          "prediction_rms": 0.00014395830988507837,
+          "residual_dc": 0.0,
+          "residual_rms": 0.0,
+          "samples": 15360,
+          "snr_db": null,
+          "target_peak": 0.00038262084126472473,
+          "target_rms": 0.00014395830988507837
+        },
+        "scored_prefix_start_frame": 118,
+        "within_1e_5_absolute_1e_4_relative": true
+      },
+      "history": [
+        {
+          "prefix_frames": 0,
+          "same_history_student_vs_teacher": {
+            "phase1920": {
+              "available": true,
+              "cycles": 32,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 1920,
+              "phase_mean_variance": 1.1572981182766548e-08,
+              "phase_rms_max": 0.00037082238047826877,
+              "phase_rms_min": 1.3500034014334487e-05,
+              "phase_template_ac_fraction_of_residual_power": 0.574093728962943,
+              "residual_dc": 8.563881065981884e-05
+            },
+            "phase480": {
+              "available": true,
+              "cycles": 128,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 480,
+              "phase_mean_variance": 1.1324066863760765e-08,
+              "phase_rms_max": 0.00034423693959361015,
+              "phase_rms_min": 2.5505784532298356e-05,
+              "phase_template_ac_fraction_of_residual_power": 0.5617459900931091,
+              "residual_dc": 8.563881065981884e-05
+            },
+            "raw_primary": {
+              "cosine": 0.1487342392423521,
+              "equal_values": false,
+              "mae": 0.00011525317831854189,
+              "max_abs_error": 0.0011138012923765928,
+              "mse": 2.015869639208961e-08,
+              "prediction_peak": 0.00038637081161141396,
+              "prediction_rms": 0.00014297027790449206,
+              "residual_dc": 8.563881065981884e-05,
+              "residual_rms": 0.00014198132409612755,
+              "samples": 61440,
+              "snr_db": -12.334317774513133,
+              "target_peak": 0.0013269298942759633,
+              "target_rms": 3.431747557850659e-05
+            }
+          },
+          "student_reset_vs_longest_history": {
+            "cosine": 0.9938679007270312,
+            "equal_values": false,
+            "mae": 5.421154861772569e-06,
+            "max_abs_error": 0.00019744607561733574,
+            "mse": 2.540336768698671e-10,
+            "prediction_peak": 0.00038637081161141396,
+            "prediction_rms": 0.00014297027790449206,
+            "residual_dc": -1.6531696845606541e-06,
+            "residual_rms": 1.5938433952865855e-05,
+            "samples": 61440,
+            "snr_db": 19.125713614163814,
+            "target_peak": 0.0003862052399199456,
+            "target_rms": 0.00014412234763710934
+          },
+          "student_reset_vs_teacher_longest_history": {
+            "cosine": 0.2503054892513221,
+            "equal_values": false,
+            "mae": 0.00011362716737961554,
+            "max_abs_error": 0.00040372268995270133,
+            "mse": 1.9404554405487355e-08,
+            "prediction_peak": 0.00038637081161141396,
+            "prediction_rms": 0.00014297027790449206,
+            "residual_dc": 8.547259927125518e-05,
+            "residual_rms": 0.00013930023117528326,
+            "samples": 61440,
+            "snr_db": -16.796529885021673,
+            "target_peak": 0.00014461421233136207,
+            "target_rms": 2.0143055201440868e-05
+          }
+        },
+        {
+          "prefix_frames": 8,
+          "same_history_student_vs_teacher": {
+            "phase1920": {
+              "available": true,
+              "cycles": 32,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 1920,
+              "phase_mean_variance": 1.1715069863722024e-08,
+              "phase_rms_max": 0.0003741959075360948,
+              "phase_rms_min": 1.0309009830028626e-05,
+              "phase_template_ac_fraction_of_residual_power": 0.5943108668658121,
+              "residual_dc": 8.718997934574123e-05
+            },
+            "phase480": {
+              "available": true,
+              "cycles": 128,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 480,
+              "phase_mean_variance": 1.1496794340179004e-08,
+              "phase_rms_max": 0.00034708080610409384,
+              "phase_rms_min": 1.6880959229579205e-05,
+              "phase_template_ac_fraction_of_residual_power": 0.5832376494525592,
+              "residual_dc": 8.718997934574123e-05
+            },
+            "raw_primary": {
+              "cosine": 0.2527433790628831,
+              "equal_values": false,
+              "mae": 0.00011448241806878698,
+              "max_abs_error": 0.0004037152866658289,
+              "mse": 1.9712023651028308e-08,
+              "prediction_peak": 0.0003861965087708086,
+              "prediction_rms": 0.0001441267629124715,
+              "residual_dc": 8.718997934574123e-05,
+              "residual_rms": 0.00014039951442589932,
+              "samples": 61440,
+              "snr_db": -16.881520784984627,
+              "target_peak": 0.00014458723308052868,
+              "target_rms": 2.010432825095509e-05
+            }
+          },
+          "student_reset_vs_longest_history": {
+            "cosine": 0.9999880752552568,
+            "equal_values": false,
+            "mae": 1.8795291990971096e-07,
+            "max_abs_error": 1.1957046808674932e-05,
+            "mse": 4.95418405485546e-13,
+            "prediction_peak": 0.0003861965087708086,
+            "prediction_rms": 0.0001441267629124715,
+            "residual_dc": 6.43671021685704e-08,
+            "residual_rms": 7.038596489965496e-07,
+            "samples": 61440,
+            "snr_db": 46.224905184358434,
+            "target_peak": 0.0003862052399199456,
+            "target_rms": 0.00014412234763710934
+          },
+          "student_reset_vs_teacher_longest_history": {
+            "cosine": 0.25225909711581934,
+            "equal_values": false,
+            "mae": 0.000114486943137554,
+            "max_abs_error": 0.0004037144535686821,
+            "mse": 1.9713572779120158e-08,
+            "prediction_peak": 0.0003861965087708086,
+            "prediction_rms": 0.0001441267629124715,
+            "residual_dc": 8.71901360579844e-05,
+            "residual_rms": 0.00014040503117452793,
+            "samples": 61440,
+            "snr_db": -16.865146547363132,
+            "target_peak": 0.00014461421233136207,
+            "target_rms": 2.0143055201440868e-05
+          }
+        },
+        {
+          "prefix_frames": 16,
+          "same_history_student_vs_teacher": {
+            "phase1920": {
+              "available": true,
+              "cycles": 32,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 1920,
+              "phase_mean_variance": 1.1726657619896223e-08,
+              "phase_rms_max": 0.0003739786339952995,
+              "phase_rms_min": 1.0583230488622481e-05,
+              "phase_template_ac_fraction_of_residual_power": 0.5948618003549748,
+              "residual_dc": 8.712577692827915e-05
+            },
+            "phase480": {
+              "available": true,
+              "cycles": 128,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 480,
+              "phase_mean_variance": 1.1508193464375849e-08,
+              "phase_rms_max": 0.0003470267477560858,
+              "phase_rms_min": 1.6921431116380496e-05,
+              "phase_template_ac_fraction_of_residual_power": 0.5837797013393622,
+              "residual_dc": 8.712577692827915e-05
+            },
+            "raw_primary": {
+              "cosine": 0.2520981485186383,
+              "equal_values": false,
+              "mae": 0.00011447766018244029,
+              "max_abs_error": 0.00040372352304984815,
+              "mse": 1.9713247031324782e-08,
+              "prediction_peak": 0.00038619281258434057,
+              "prediction_rms": 0.00014412223257449205,
+              "residual_dc": 8.712577692827915e-05,
+              "residual_rms": 0.0001404038711408086,
+              "samples": 61440,
+              "snr_db": -16.86506932776946,
+              "target_peak": 0.0001446132082492113,
+              "target_rms": 2.0143067854260073e-05
+            }
+          },
+          "student_reset_vs_longest_history": {
+            "cosine": 0.9999999983002632,
+            "equal_values": false,
+            "mae": 6.447514180908563e-09,
+            "max_abs_error": 8.459028322249651e-08,
+            "mse": 7.062450005422778e-17,
+            "prediction_peak": 0.00038619281258434057,
+            "prediction_rms": 0.00014412223257449205,
+            "residual_dc": 1.6303364962309137e-12,
+            "residual_rms": 8.403838411953658e-09,
+            "samples": 61440,
+            "snr_db": 84.6850726913294,
+            "target_peak": 0.0003862052399199456,
+            "target_rms": 0.00014412234763710934
+          },
+          "student_reset_vs_teacher_longest_history": {
+            "cosine": 0.2520986043165006,
+            "equal_values": false,
+            "mae": 0.0001144776501787091,
+            "max_abs_error": 0.00040372268995270133,
+            "mse": 1.971324479460121e-08,
+            "prediction_peak": 0.00038619281258434057,
+            "prediction_rms": 0.00014412223257449205,
+            "residual_dc": 8.712577058615233e-05,
+            "residual_rms": 0.0001404038631754882,
+            "samples": 61440,
+            "snr_db": -16.86507429102823,
+            "target_peak": 0.00014461421233136207,
+            "target_rms": 2.0143055201440868e-05
+          }
+        },
+        {
+          "prefix_frames": 29,
+          "same_history_student_vs_teacher": {
+            "phase1920": {
+              "available": true,
+              "cycles": 32,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 1920,
+              "phase_mean_variance": 1.1726700781608409e-08,
+              "phase_rms_max": 0.00037397962534524665,
+              "phase_rms_min": 1.0584153425007795e-05,
+              "phase_template_ac_fraction_of_residual_power": 0.5948623104284565,
+              "residual_dc": 8.712584695398422e-05
+            },
+            "phase480": {
+              "available": true,
+              "cycles": 128,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 480,
+              "phase_mean_variance": 1.1508236985794088e-08,
+              "phase_rms_max": 0.00034702785922703443,
+              "phase_rms_min": 1.6922771386800293e-05,
+              "phase_template_ac_fraction_of_residual_power": 0.5837802609463981,
+              "residual_dc": 8.712584695398422e-05
+            },
+            "raw_primary": {
+              "cosine": 0.2520979578669264,
+              "equal_values": false,
+              "mae": 0.00011447778848460635,
+              "max_abs_error": 0.0004037152866658289,
+              "mse": 1.9713302685393054e-08,
+              "prediction_peak": 0.0003861981676891446,
+              "prediction_rms": 0.0001441224274387552,
+              "residual_dc": 8.712584695398422e-05,
+              "residual_rms": 0.0001404040693334529,
+              "samples": 61440,
+              "snr_db": -16.865086350766276,
+              "target_peak": 0.0001446132082492113,
+              "target_rms": 2.014305681069862e-05
+            }
+          },
+          "student_reset_vs_longest_history": {
+            "cosine": 0.9999999986300535,
+            "equal_values": false,
+            "mae": 5.979216353735632e-09,
+            "max_abs_error": 3.342574927955866e-08,
+            "mse": 5.691739821082054e-17,
+            "prediction_peak": 0.0003861981676891446,
+            "prediction_rms": 0.0001441224274387552,
+            "residual_dc": 7.241960856047639e-11,
+            "residual_rms": 7.544362014830714e-09,
+            "samples": 61440,
+            "snr_db": 85.62217616090776,
+            "target_peak": 0.0003862052399199456,
+            "target_rms": 0.00014412234763710934
+          },
+          "student_reset_vs_teacher_longest_history": {
+            "cosine": 0.25209822598492393,
+            "equal_values": false,
+            "mae": 0.00011447778176195428,
+            "max_abs_error": 0.0004037144535686821,
+            "mse": 1.9713301180772054e-08,
+            "prediction_peak": 0.0003861981676891446,
+            "prediction_rms": 0.0001441224274387552,
+            "residual_dc": 8.712584137542439e-05,
+            "residual_rms": 0.0001404040639752712,
+            "samples": 61440,
+            "snr_db": -16.865086713218535,
+            "target_peak": 0.00014461421233136207,
+            "target_rms": 2.0143055201440868e-05
+          }
+        },
+        {
+          "prefix_frames": 30,
+          "same_history_student_vs_teacher": {
+            "phase1920": {
+              "available": true,
+              "cycles": 32,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 1920,
+              "phase_mean_variance": 1.172670021057719e-08,
+              "phase_rms_max": 0.00037397964169632366,
+              "phase_rms_min": 1.0584175034889815e-05,
+              "phase_template_ac_fraction_of_residual_power": 0.5948623268646233,
+              "residual_dc": 8.712584137542439e-05
+            },
+            "phase480": {
+              "available": true,
+              "cycles": 128,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 480,
+              "phase_mean_variance": 1.1508236526691546e-08,
+              "phase_rms_max": 0.0003470278207669889,
+              "phase_rms_min": 1.692275858318406e-05,
+              "phase_template_ac_fraction_of_residual_power": 0.5837802822145507,
+              "residual_dc": 8.712584137542439e-05
+            },
+            "raw_primary": {
+              "cosine": 0.25209822598492393,
+              "equal_values": false,
+              "mae": 0.00011447778176195428,
+              "max_abs_error": 0.0004037144535686821,
+              "mse": 1.9713301180772054e-08,
+              "prediction_peak": 0.0003861981676891446,
+              "prediction_rms": 0.0001441224274387552,
+              "residual_dc": 8.712584137542439e-05,
+              "residual_rms": 0.0001404040639752712,
+              "samples": 61440,
+              "snr_db": -16.865086713218535,
+              "target_peak": 0.00014461421233136207,
+              "target_rms": 2.0143055201440868e-05
+            }
+          },
+          "student_reset_vs_longest_history": {
+            "cosine": 0.9999999986300535,
+            "equal_values": false,
+            "mae": 5.979216353735632e-09,
+            "max_abs_error": 3.342574927955866e-08,
+            "mse": 5.691739821082054e-17,
+            "prediction_peak": 0.0003861981676891446,
+            "prediction_rms": 0.0001441224274387552,
+            "residual_dc": 7.241960856047639e-11,
+            "residual_rms": 7.544362014830714e-09,
+            "samples": 61440,
+            "snr_db": 85.62217616090776,
+            "target_peak": 0.0003862052399199456,
+            "target_rms": 0.00014412234763710934
+          },
+          "student_reset_vs_teacher_longest_history": {
+            "cosine": 0.25209822598492393,
+            "equal_values": false,
+            "mae": 0.00011447778176195428,
+            "max_abs_error": 0.0004037144535686821,
+            "mse": 1.9713301180772054e-08,
+            "prediction_peak": 0.0003861981676891446,
+            "prediction_rms": 0.0001441224274387552,
+            "residual_dc": 8.712584137542439e-05,
+            "residual_rms": 0.0001404040639752712,
+            "samples": 61440,
+            "snr_db": -16.865086713218535,
+            "target_peak": 0.00014461421233136207,
+            "target_rms": 2.0143055201440868e-05
+          }
+        },
+        {
+          "prefix_frames": 40,
+          "same_history_student_vs_teacher": {
+            "phase1920": {
+              "available": true,
+              "cycles": 32,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 1920,
+              "phase_mean_variance": 1.1726692252020754e-08,
+              "phase_rms_max": 0.0003739803598606653,
+              "phase_rms_min": 1.0582996360200247e-05,
+              "phase_template_ac_fraction_of_residual_power": 0.5948625772799748,
+              "residual_dc": 8.712576895581584e-05
+            },
+            "phase480": {
+              "available": true,
+              "cycles": 128,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 480,
+              "phase_mean_variance": 1.1508226981355457e-08,
+              "phase_rms_max": 0.000347027800739765,
+              "phase_rms_min": 1.6922669905317506e-05,
+              "phase_template_ac_fraction_of_residual_power": 0.5837804399507777,
+              "residual_dc": 8.712576895581584e-05
+            },
+            "raw_primary": {
+              "cosine": 0.2520981373639614,
+              "equal_values": false,
+              "mae": 0.00011447771740646738,
+              "max_abs_error": 0.00040371573413722217,
+              "mse": 1.971327950337937e-08,
+              "prediction_peak": 0.0003862052399199456,
+              "prediction_rms": 0.00014412234763710934,
+              "residual_dc": 8.712576895581584e-05,
+              "residual_rms": 0.00014040398677879262,
+              "samples": 61440,
+              "snr_db": -16.86508193757131,
+              "target_peak": 0.00014461421233136207,
+              "target_rms": 2.0143055201440868e-05
+            }
+          },
+          "student_reset_vs_longest_history": {
+            "cosine": 1.0,
+            "equal_values": true,
+            "mae": 0.0,
+            "max_abs_error": 0.0,
+            "mse": 0.0,
+            "prediction_peak": 0.0003862052399199456,
+            "prediction_rms": 0.00014412234763710934,
+            "residual_dc": 0.0,
+            "residual_rms": 0.0,
+            "samples": 61440,
+            "snr_db": null,
+            "target_peak": 0.0003862052399199456,
+            "target_rms": 0.00014412234763710934
+          },
+          "student_reset_vs_teacher_longest_history": {
+            "cosine": 0.2520981373639614,
+            "equal_values": false,
+            "mae": 0.00011447771740646738,
+            "max_abs_error": 0.00040371573413722217,
+            "mse": 1.971327950337937e-08,
+            "prediction_peak": 0.0003862052399199456,
+            "prediction_rms": 0.00014412234763710934,
+            "residual_dc": 8.712576895581584e-05,
+            "residual_rms": 0.00014040398677879262,
+            "samples": 61440,
+            "snr_db": -16.86508193757131,
+            "target_peak": 0.00014461421233136207,
+            "target_rms": 2.0143055201440868e-05
+          }
+        }
+      ],
+      "history_log_error_slope_per_frame": -0.2432038217822471,
+      "longest_history_student_vs_teacher": {
+        "phase1920": {
+          "available": true,
+          "cycles": 32,
+          "discarded_tail_samples": 0,
+          "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+          "period_samples": 1920,
+          "phase_mean_variance": 1.1726692252020754e-08,
+          "phase_rms_max": 0.0003739803598606653,
+          "phase_rms_min": 1.0582996360200247e-05,
+          "phase_template_ac_fraction_of_residual_power": 0.5948625772799748,
+          "residual_dc": 8.712576895581584e-05
+        },
+        "phase480": {
+          "available": true,
+          "cycles": 128,
+          "discarded_tail_samples": 0,
+          "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+          "period_samples": 480,
+          "phase_mean_variance": 1.1508226981355457e-08,
+          "phase_rms_max": 0.000347027800739765,
+          "phase_rms_min": 1.6922669905317506e-05,
+          "phase_template_ac_fraction_of_residual_power": 0.5837804399507777,
+          "residual_dc": 8.712576895581584e-05
+        },
+        "raw_primary": {
+          "cosine": 0.2520981373639614,
+          "equal_values": false,
+          "mae": 0.00011447771740646738,
+          "max_abs_error": 0.00040371573413722217,
+          "mse": 1.971327950337937e-08,
+          "prediction_peak": 0.0003862052399199456,
+          "prediction_rms": 0.00014412234763710934,
+          "residual_dc": 8.712576895581584e-05,
+          "residual_rms": 0.00014040398677879262,
+          "samples": 61440,
+          "snr_db": -16.86508193757131,
+          "target_peak": 0.00014461421233136207,
+          "target_rms": 2.0143055201440868e-05
+        },
+        "secondary_lag_gain": {
+          "common_samples": 61344,
+          "diagnostic_only": true,
+          "does_not_replace_raw_primary": true,
+          "excluded_each_end_samples": 48,
+          "fit": {
+            "lag_samples": -7,
+            "lag_seconds": -0.00014583333333333335,
+            "mse": 1.2509534240686203e-08,
+            "prediction_gain": 0.8,
+            "residual_rms": 0.00011184602916816583
+          },
+          "gain_bounds": [
+            0.8,
+            1.25
+          ],
+          "lag_convention": "compare prediction[t+lag] to target[t]",
+          "raw_common_grid": {
+            "cosine": 0.2521445869087955,
+            "equal_values": false,
+            "mae": 0.00011447103621931781,
+            "max_abs_error": 0.00040371573413722217,
+            "mse": 1.9711689357926787e-08,
+            "prediction_peak": 0.0003862052399199456,
+            "prediction_rms": 0.00014411721027847316,
+            "residual_dc": 8.71048171169439e-05,
+            "residual_rms": 0.0001403983239142362,
+            "samples": 61344,
+            "snr_db": -16.866171378191158,
+            "target_peak": 0.00014461421233136207,
+            "target_rms": 2.013971656637602e-05
+          }
+        }
+      },
+      "source_id": "encoded_quiet_noise",
+      "start_frame": 0,
+      "student_log_rms_vs_log_gain_slope": 0.0007831188667065004,
+      "teacher_log_rms_vs_log_gain_slope": 0.12465473361540226
+    },
+    {
+      "amplitude": [
+        {
+          "gain": 1.0,
+          "input_rms": 0.0,
+          "student_homogeneity_error": {
+            "cosine": 1.0,
+            "equal_values": true,
+            "mae": 0.0,
+            "max_abs_error": 0.0,
+            "mse": 0.0,
+            "prediction_peak": 0.00038561358815059066,
+            "prediction_rms": 0.00014342478844353435,
+            "residual_dc": 0.0,
+            "residual_rms": 0.0,
+            "samples": 61440,
+            "snr_db": null,
+            "target_peak": 0.00038561358815059066,
+            "target_rms": 0.00014342478844353435
+          },
+          "student_vs_reencoded_teacher": {
+            "phase1920": {
+              "available": true,
+              "cycles": 32,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 1920,
+              "phase_mean_variance": 1.2141381534211404e-08,
+              "phase_rms_max": 0.000376094139937777,
+              "phase_rms_min": 1.2080818123649806e-08,
+              "phase_template_ac_fraction_of_residual_power": 0.6423890424966493,
+              "residual_dc": 8.221298178028487e-05
+            },
+            "phase480": {
+              "available": true,
+              "cycles": 128,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 480,
+              "phase_mean_variance": 1.1973897037385262e-08,
+              "phase_rms_max": 0.00035572103174634457,
+              "phase_rms_min": 6.153417777620241e-06,
+              "phase_template_ac_fraction_of_residual_power": 0.6335275957785789,
+              "residual_dc": 8.221298178028487e-05
+            },
+            "raw_primary": {
+              "cosine": 0.6382651693682273,
+              "equal_values": false,
+              "mae": 0.00010935483343180175,
+              "max_abs_error": 0.00037609413993777707,
+              "mse": 1.890035590741686e-08,
+              "prediction_peak": 0.00038561358815059066,
+              "prediction_rms": 0.00014342478844353435,
+              "residual_dc": 8.221298178028487e-05,
+              "residual_rms": 0.00013747856526534185,
+              "samples": 61440,
+              "snr_db": -23.092549297045007,
+              "target_peak": 1.0298725101165473e-05,
+              "target_rms": 9.6295840087303e-06
+            },
+            "secondary_lag_gain": {
+              "common_samples": 61344,
+              "diagnostic_only": true,
+              "does_not_replace_raw_primary": true,
+              "excluded_each_end_samples": 48,
+              "fit": {
+                "lag_samples": -20,
+                "lag_seconds": -0.0004166666666666667,
+                "mse": 1.1843581142293567e-08,
+                "prediction_gain": 0.8,
+                "residual_rms": 0.0001088282185018829
+              },
+              "gain_bounds": [
+                0.8,
+                1.25
+              ],
+              "lag_convention": "compare prediction[t+lag] to target[t]",
+              "raw_common_grid": {
+                "cosine": 0.6382068393737251,
+                "equal_values": false,
+                "mae": 0.00010936448137353572,
+                "max_abs_error": 0.00037609413993777707,
+                "mse": 1.8904764051987326e-08,
+                "prediction_peak": 0.00038561358815059066,
+                "prediction_rms": 0.00014344027252269744,
+                "residual_dc": 8.221577366835124e-05,
+                "residual_rms": 0.00013749459644650522,
+                "samples": 61344,
+                "snr_db": -23.09353732077852,
+                "target_peak": 1.0298725101165473e-05,
+                "target_rms": 9.629611466104862e-06
+              }
+            }
+          }
+        },
+        {
+          "gain": 0.5,
+          "input_rms": 0.0,
+          "student_homogeneity_error": {
+            "cosine": 1.0,
+            "equal_values": false,
+            "mae": 5.711534974589631e-05,
+            "max_abs_error": 0.00019280679407529533,
+            "mse": 5.142667485018146e-09,
+            "prediction_peak": 0.00038561358815059066,
+            "prediction_rms": 0.00014342478844353435,
+            "residual_dc": 4.5920207343734996e-05,
+            "residual_rms": 7.171239422176718e-05,
+            "samples": 61440,
+            "snr_db": 0.0,
+            "target_peak": 0.00019280679407529533,
+            "target_rms": 7.171239422176718e-05
+          },
+          "student_vs_reencoded_teacher": {
+            "phase1920": {
+              "available": true,
+              "cycles": 32,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 1920,
+              "phase_mean_variance": 1.2141381534211404e-08,
+              "phase_rms_max": 0.000376094139937777,
+              "phase_rms_min": 1.2080818123649806e-08,
+              "phase_template_ac_fraction_of_residual_power": 0.6423890424966493,
+              "residual_dc": 8.221298178028487e-05
+            },
+            "phase480": {
+              "available": true,
+              "cycles": 128,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 480,
+              "phase_mean_variance": 1.1973897037385262e-08,
+              "phase_rms_max": 0.00035572103174634457,
+              "phase_rms_min": 6.153417777620241e-06,
+              "phase_template_ac_fraction_of_residual_power": 0.6335275957785789,
+              "residual_dc": 8.221298178028487e-05
+            },
+            "raw_primary": {
+              "cosine": 0.6382651693682273,
+              "equal_values": false,
+              "mae": 0.00010935483343180175,
+              "max_abs_error": 0.00037609413993777707,
+              "mse": 1.890035590741686e-08,
+              "prediction_peak": 0.00038561358815059066,
+              "prediction_rms": 0.00014342478844353435,
+              "residual_dc": 8.221298178028487e-05,
+              "residual_rms": 0.00013747856526534185,
+              "samples": 61440,
+              "snr_db": -23.092549297045007,
+              "target_peak": 1.0298725101165473e-05,
+              "target_rms": 9.6295840087303e-06
+            }
+          }
+        },
+        {
+          "gain": 0.1,
+          "input_rms": 0.0,
+          "student_homogeneity_error": {
+            "cosine": 0.9999999999999996,
+            "equal_values": false,
+            "mae": 0.0001028076293507522,
+            "max_abs_error": 0.00034705222788034007,
+            "mse": 1.6662242589984962e-08,
+            "prediction_peak": 0.00038561358815059066,
+            "prediction_rms": 0.00014342478844353435,
+            "residual_dc": 8.265637306531561e-05,
+            "residual_rms": 0.0001290823093610622,
+            "samples": 61440,
+            "snr_db": -19.084850028557504,
+            "target_peak": 3.856136027025059e-05,
+            "target_rms": 1.4342479082472147e-05
+          },
+          "student_vs_reencoded_teacher": {
+            "phase1920": {
+              "available": true,
+              "cycles": 32,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 1920,
+              "phase_mean_variance": 1.2141381534211404e-08,
+              "phase_rms_max": 0.000376094139937777,
+              "phase_rms_min": 1.2080818123649806e-08,
+              "phase_template_ac_fraction_of_residual_power": 0.6423890424966493,
+              "residual_dc": 8.221298178028487e-05
+            },
+            "phase480": {
+              "available": true,
+              "cycles": 128,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 480,
+              "phase_mean_variance": 1.1973897037385262e-08,
+              "phase_rms_max": 0.00035572103174634457,
+              "phase_rms_min": 6.153417777620241e-06,
+              "phase_template_ac_fraction_of_residual_power": 0.6335275957785789,
+              "residual_dc": 8.221298178028487e-05
+            },
+            "raw_primary": {
+              "cosine": 0.6382651693682273,
+              "equal_values": false,
+              "mae": 0.00010935483343180175,
+              "max_abs_error": 0.00037609413993777707,
+              "mse": 1.890035590741686e-08,
+              "prediction_peak": 0.00038561358815059066,
+              "prediction_rms": 0.00014342478844353435,
+              "residual_dc": 8.221298178028487e-05,
+              "residual_rms": 0.00013747856526534185,
+              "samples": 61440,
+              "snr_db": -23.092549297045007,
+              "target_peak": 1.0298725101165473e-05,
+              "target_rms": 9.6295840087303e-06
+            }
+          }
+        },
+        {
+          "gain": 0.01,
+          "input_rms": 0.0,
+          "student_homogeneity_error": {
+            "cosine": 0.9999999999999996,
+            "equal_values": false,
+            "mae": 0.00011308839252335624,
+            "max_abs_error": 0.0003817574524873635,
+            "mse": 2.0161313618099183e-08,
+            "prediction_peak": 0.00038561358815059066,
+            "prediction_rms": 0.00014342478844353435,
+            "residual_dc": 9.092201056184677e-05,
+            "residual_rms": 0.00014199054059372822,
+            "samples": 61440,
+            "snr_db": -39.91270410378599,
+            "target_peak": 3.856135663227178e-06,
+            "target_rms": 1.4342478498061155e-06
+          },
+          "student_vs_reencoded_teacher": {
+            "phase1920": {
+              "available": true,
+              "cycles": 32,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 1920,
+              "phase_mean_variance": 1.2141381534211404e-08,
+              "phase_rms_max": 0.000376094139937777,
+              "phase_rms_min": 1.2080818123649806e-08,
+              "phase_template_ac_fraction_of_residual_power": 0.6423890424966493,
+              "residual_dc": 8.221298178028487e-05
+            },
+            "phase480": {
+              "available": true,
+              "cycles": 128,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 480,
+              "phase_mean_variance": 1.1973897037385262e-08,
+              "phase_rms_max": 0.00035572103174634457,
+              "phase_rms_min": 6.153417777620241e-06,
+              "phase_template_ac_fraction_of_residual_power": 0.6335275957785789,
+              "residual_dc": 8.221298178028487e-05
+            },
+            "raw_primary": {
+              "cosine": 0.6382651693682273,
+              "equal_values": false,
+              "mae": 0.00010935483343180175,
+              "max_abs_error": 0.00037609413993777707,
+              "mse": 1.890035590741686e-08,
+              "prediction_peak": 0.00038561358815059066,
+              "prediction_rms": 0.00014342478844353435,
+              "residual_dc": 8.221298178028487e-05,
+              "residual_rms": 0.00013747856526534185,
+              "samples": 61440,
+              "snr_db": -23.092549297045007,
+              "target_peak": 1.0298725101165473e-05,
+              "target_rms": 9.6295840087303e-06
+            }
+          }
+        },
+        {
+          "gain": 0.0,
+          "input_rms": 0.0,
+          "student_homogeneity_error": {
+            "cosine": null,
+            "equal_values": false,
+            "mae": 0.00011423069949179262,
+            "max_abs_error": 0.00038561358815059066,
+            "mse": 2.0570669940072584e-08,
+            "prediction_peak": 0.00038561358815059066,
+            "prediction_rms": 0.00014342478844353435,
+            "residual_dc": 9.184041468746999e-05,
+            "residual_rms": 0.00014342478844353435,
+            "samples": 61440,
+            "snr_db": null,
+            "target_peak": 0.0,
+            "target_rms": 0.0
+          },
+          "student_vs_reencoded_teacher": {
+            "phase1920": {
+              "available": true,
+              "cycles": 32,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 1920,
+              "phase_mean_variance": 1.2141381534211404e-08,
+              "phase_rms_max": 0.000376094139937777,
+              "phase_rms_min": 1.2080818123649806e-08,
+              "phase_template_ac_fraction_of_residual_power": 0.6423890424966493,
+              "residual_dc": 8.221298178028487e-05
+            },
+            "phase480": {
+              "available": true,
+              "cycles": 128,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 480,
+              "phase_mean_variance": 1.1973897037385262e-08,
+              "phase_rms_max": 0.00035572103174634457,
+              "phase_rms_min": 6.153417777620241e-06,
+              "phase_template_ac_fraction_of_residual_power": 0.6335275957785789,
+              "residual_dc": 8.221298178028487e-05
+            },
+            "raw_primary": {
+              "cosine": 0.6382651693682273,
+              "equal_values": false,
+              "mae": 0.00010935483343180175,
+              "max_abs_error": 0.00037609413993777707,
+              "mse": 1.890035590741686e-08,
+              "prediction_peak": 0.00038561358815059066,
+              "prediction_rms": 0.00014342478844353435,
+              "residual_dc": 8.221298178028487e-05,
+              "residual_rms": 0.00013747856526534185,
+              "samples": 61440,
+              "snr_db": -23.092549297045007,
+              "target_peak": 1.0298725101165473e-05,
+              "target_rms": 9.6295840087303e-06
+            }
+          }
+        }
+      ],
+      "amplitude_secants": [
+        {
+          "gains": [
+            1.0,
+            0.5
+          ],
+          "interpretation": "Finite amplitude secant through full re-encoding, not a local JVP",
+          "student_vs_teacher_secant": {
+            "cosine": null,
+            "equal_values": true,
+            "mae": 0.0,
+            "max_abs_error": 0.0,
+            "mse": 0.0,
+            "prediction_peak": 0.0,
+            "prediction_rms": 0.0,
+            "residual_dc": 0.0,
+            "residual_rms": 0.0,
+            "samples": 61440,
+            "snr_db": null,
+            "target_peak": 0.0,
+            "target_rms": 0.0
+          }
+        },
+        {
+          "gains": [
+            0.5,
+            0.1
+          ],
+          "interpretation": "Finite amplitude secant through full re-encoding, not a local JVP",
+          "student_vs_teacher_secant": {
+            "cosine": null,
+            "equal_values": true,
+            "mae": 0.0,
+            "max_abs_error": 0.0,
+            "mse": 0.0,
+            "prediction_peak": 0.0,
+            "prediction_rms": 0.0,
+            "residual_dc": 0.0,
+            "residual_rms": 0.0,
+            "samples": 61440,
+            "snr_db": null,
+            "target_peak": 0.0,
+            "target_rms": 0.0
+          }
+        },
+        {
+          "gains": [
+            0.1,
+            0.01
+          ],
+          "interpretation": "Finite amplitude secant through full re-encoding, not a local JVP",
+          "student_vs_teacher_secant": {
+            "cosine": null,
+            "equal_values": true,
+            "mae": 0.0,
+            "max_abs_error": 0.0,
+            "mse": 0.0,
+            "prediction_peak": 0.0,
+            "prediction_rms": 0.0,
+            "residual_dc": 0.0,
+            "residual_rms": 0.0,
+            "samples": 61440,
+            "snr_db": null,
+            "target_peak": 0.0,
+            "target_rms": 0.0
+          }
+        },
+        {
+          "gains": [
+            0.01,
+            0.0
+          ],
+          "interpretation": "Finite amplitude secant through full re-encoding, not a local JVP",
+          "student_vs_teacher_secant": {
+            "cosine": null,
+            "equal_values": true,
+            "mae": 0.0,
+            "max_abs_error": 0.0,
+            "mse": 0.0,
+            "prediction_peak": 0.0,
+            "prediction_rms": 0.0,
+            "residual_dc": 0.0,
+            "residual_rms": 0.0,
+            "samples": 61440,
+            "snr_db": null,
+            "target_peak": 0.0,
+            "target_rms": 0.0
+          }
+        }
+      ],
+      "future": {
+        "bitwise_equal": true,
+        "changed_latent_start_frame": 126,
+        "meaning": "Empirical future independence on this fixed input, not an analytical receptive-field proof",
+        "prefix_samples": 15360,
+        "raw_difference": {
+          "cosine": 1.0,
+          "equal_values": true,
+          "mae": 0.0,
+          "max_abs_error": 0.0,
+          "mse": 0.0,
+          "prediction_peak": 0.0003856131515931338,
+          "prediction_rms": 0.00014342481271490025,
+          "residual_dc": 0.0,
+          "residual_rms": 0.0,
+          "samples": 15360,
+          "snr_db": null,
+          "target_peak": 0.0003856131515931338,
+          "target_rms": 0.00014342481271490025
+        },
+        "scored_prefix_start_frame": 118,
+        "within_1e_5_absolute_1e_4_relative": true
+      },
+      "history": [
+        {
+          "prefix_frames": 0,
+          "same_history_student_vs_teacher": {
+            "phase1920": {
+              "available": true,
+              "cycles": 32,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 1920,
+              "phase_mean_variance": 1.1918242933853666e-08,
+              "phase_rms_max": 0.00037496170961348884,
+              "phase_rms_min": 1.06886895528559e-06,
+              "phase_template_ac_fraction_of_residual_power": 0.6249538322071209,
+              "residual_dc": 7.994682926882414e-05
+            },
+            "phase480": {
+              "available": true,
+              "cycles": 128,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 480,
+              "phase_mean_variance": 1.175998807499802e-08,
+              "phase_rms_max": 0.0003535623981055976,
+              "phase_rms_min": 1.4645773609839072e-05,
+              "phase_template_ac_fraction_of_residual_power": 0.6166554629713081,
+              "residual_dc": 7.994682926882414e-05
+            },
+            "raw_primary": {
+              "cosine": 0.2498299844692868,
+              "equal_values": false,
+              "mae": 0.00010977220340157535,
+              "max_abs_error": 0.001186415523989126,
+              "mse": 1.9070597409991955e-08,
+              "prediction_peak": 0.0004035805759485811,
+              "prediction_rms": 0.00014231265780159235,
+              "residual_dc": 7.994682926882414e-05,
+              "residual_rms": 0.00013809633380358784,
+              "samples": 61440,
+              "snr_db": -14.335379238956804,
+              "target_peak": 0.0011810153955593705,
+              "target_rms": 2.651021116509525e-05
+            }
+          },
+          "student_reset_vs_longest_history": {
+            "cosine": 0.9952810731827122,
+            "equal_values": false,
+            "mae": 4.71831637530738e-06,
+            "max_abs_error": 0.0001795259231585078,
+            "mse": 1.9387414982441006e-10,
+            "prediction_peak": 0.0004035805759485811,
+            "prediction_rms": 0.00014231265780159235,
+            "residual_dc": -1.2941529504694469e-06,
+            "residual_rms": 1.3923869786248724e-05,
+            "samples": 61440,
+            "snr_db": 20.25728101543765,
+            "target_peak": 0.00038561434485018253,
+            "target_rms": 0.0001434247177693601
+          },
+          "student_reset_vs_teacher_longest_history": {
+            "cosine": 0.6343171151799243,
+            "equal_values": false,
+            "mae": 0.00010873428624694484,
+            "max_abs_error": 0.00039419005042873323,
+            "mse": 1.8607079372082546e-08,
+            "prediction_peak": 0.0004035805759485811,
+            "prediction_rms": 0.00014231265780159235,
+            "residual_dc": 8.091860801787972e-05,
+            "residual_rms": 0.00013640776873801046,
+            "samples": 61440,
+            "snr_db": -23.024682456560186,
+            "target_peak": 1.0299743735231459e-05,
+            "target_rms": 9.629527600042514e-06
+          }
+        },
+        {
+          "prefix_frames": 8,
+          "same_history_student_vs_teacher": {
+            "phase1920": {
+              "available": true,
+              "cycles": 32,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 1920,
+              "phase_mean_variance": 1.2133573537840774e-08,
+              "phase_rms_max": 0.00037609178471739263,
+              "phase_rms_min": 3.492238090264998e-07,
+              "phase_template_ac_fraction_of_residual_power": 0.641970886767355,
+              "residual_dc": 8.225880250938627e-05
+            },
+            "phase480": {
+              "available": true,
+              "cycles": 128,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 480,
+              "phase_mean_variance": 1.196622775717079e-08,
+              "phase_rms_max": 0.00035572897465837233,
+              "phase_rms_min": 6.203355283025136e-06,
+              "phase_template_ac_fraction_of_residual_power": 0.6331168489294138,
+              "residual_dc": 8.225880250938627e-05
+            },
+            "raw_primary": {
+              "cosine": 0.6385686376317495,
+              "equal_values": false,
+              "mae": 0.00010936891290317417,
+              "max_abs_error": 0.00037697661537094973,
+              "mse": 1.8900504349876977e-08,
+              "prediction_peak": 0.0003865526814479381,
+              "prediction_rms": 0.00014342928153851945,
+              "residual_dc": 8.225880250938627e-05,
+              "residual_rms": 0.00013747910513920643,
+              "samples": 61440,
+              "snr_db": -23.09122482973317,
+              "target_peak": 1.0329640645068139e-05,
+              "target_rms": 9.631090308004518e-06
+            }
+          },
+          "student_reset_vs_longest_history": {
+            "cosine": 0.9999884738625532,
+            "equal_values": false,
+            "mae": 1.8995056854084179e-07,
+            "max_abs_error": 1.1902851838385686e-05,
+            "mse": 4.74236187895347e-13,
+            "prediction_peak": 0.0003865526814479381,
+            "prediction_rms": 0.00014342928153851945,
+            "residual_dc": 4.7598116231755094e-08,
+            "residual_rms": 6.886480871209525e-07,
+            "samples": 61440,
+            "snr_db": 46.37253316964043,
+            "target_peak": 0.00038561434485018253,
+            "target_rms": 0.0001434247177693601
+          },
+          "student_reset_vs_teacher_longest_history": {
+            "cosine": 0.6385762772097828,
+            "equal_values": false,
+            "mae": 0.00010936967966570912,
+            "max_abs_error": 0.00037703433918068185,
+            "mse": 1.890073940335159e-08,
+            "prediction_peak": 0.0003865526814479381,
+            "prediction_rms": 0.00014342928153851945,
+            "residual_dc": 8.226035908458093e-05,
+            "residual_rms": 0.00013747996000636453,
+            "samples": 61440,
+            "snr_db": -23.092688297087676,
+            "target_peak": 1.0299743735231459e-05,
+            "target_rms": 9.629527600042514e-06
+          }
+        },
+        {
+          "prefix_frames": 16,
+          "same_history_student_vs_teacher": {
+            "phase1920": {
+              "available": true,
+              "cycles": 32,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 1920,
+              "phase_mean_variance": 1.2141442176850778e-08,
+              "phase_rms_max": 0.0003760940926674222,
+              "phase_rms_min": 2.1392080261008292e-08,
+              "phase_template_ac_fraction_of_residual_power": 0.6423904104026535,
+              "residual_dc": 8.221294215295781e-05
+            },
+            "phase480": {
+              "available": true,
+              "cycles": 128,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 480,
+              "phase_mean_variance": 1.1973961322709466e-08,
+              "phase_rms_max": 0.0003557228527195449,
+              "phase_rms_min": 6.143742678664493e-06,
+              "phase_template_ac_fraction_of_residual_power": 0.6335291818056459,
+              "residual_dc": 8.221294215295781e-05
+            },
+            "raw_primary": {
+              "cosine": 0.6382603534005532,
+              "equal_values": false,
+              "mae": 0.00010935502365919456,
+              "max_abs_error": 0.0003761024636332877,
+              "mse": 1.8900410062535743e-08,
+              "prediction_peak": 0.00038562188274227083,
+              "prediction_rms": 0.0001434249026577615,
+              "residual_dc": 8.221294215295781e-05,
+              "residual_rms": 0.00013747876222360944,
+              "samples": 61440,
+              "snr_db": -23.09261401301159,
+              "target_peak": 1.0298957931809127e-05,
+              "target_rms": 9.629526057539208e-06
+            }
+          },
+          "student_reset_vs_longest_history": {
+            "cosine": 0.9999999982420181,
+            "equal_values": false,
+            "mae": 6.447996561687042e-09,
+            "max_abs_error": 8.213419278035872e-08,
+            "mse": 7.235994021138312e-17,
+            "prediction_peak": 0.00038562188274227083,
+            "prediction_rms": 0.0001434249026577615,
+            "residual_dc": 1.7921918821680223e-10,
+            "residual_rms": 8.506464612950736e-09,
+            "samples": 61440,
+            "snr_db": 84.53749808559614,
+            "target_peak": 0.00038561434485018253,
+            "target_rms": 0.0001434247177693601
+          },
+          "student_reset_vs_teacher_longest_history": {
+            "cosine": 0.63826052942685,
+            "equal_values": false,
+            "mae": 0.00010935502288618326,
+            "max_abs_error": 0.0003761019979720004,
+            "mse": 1.8900409323609118e-08,
+            "prediction_peak": 0.00038562188274227083,
+            "prediction_rms": 0.0001434249026577615,
+            "residual_dc": 8.22129401875374e-05,
+            "residual_rms": 0.0001374787595361884,
+            "samples": 61440,
+            "snr_db": -23.09261245187367,
+            "target_peak": 1.0299743735231459e-05,
+            "target_rms": 9.629527600042514e-06
+          }
+        },
+        {
+          "prefix_frames": 29,
+          "same_history_student_vs_teacher": {
+            "phase1920": {
+              "available": true,
+              "cycles": 32,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 1920,
+              "phase_mean_variance": 1.2141538137449378e-08,
+              "phase_rms_max": 0.0003760905092475225,
+              "phase_rms_min": 2.2375798073457758e-08,
+              "phase_template_ac_fraction_of_residual_power": 0.6423922480774232,
+              "residual_dc": 8.221293829292741e-05
+            },
+            "phase480": {
+              "available": true,
+              "cycles": 128,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 480,
+              "phase_mean_variance": 1.1974050180451541e-08,
+              "phase_rms_max": 0.0003557234120733756,
+              "phase_rms_min": 6.144741569683316e-06,
+              "phase_template_ac_fraction_of_residual_power": 0.633530688363677,
+              "residual_dc": 8.221293829292741e-05
+            },
+            "raw_primary": {
+              "cosine": 0.6382588024255004,
+              "equal_values": false,
+              "mae": 0.00010935527280008725,
+              "max_abs_error": 0.00037610013532685116,
+              "mse": 1.8900505374694434e-08,
+              "prediction_peak": 0.0003856192925013602,
+              "prediction_rms": 0.0001434252358939859,
+              "residual_dc": 8.221293829292741e-05,
+              "residual_rms": 0.0001374791088663817,
+              "samples": 61440,
+              "snr_db": -23.09263335569188,
+              "target_peak": 1.0298957931809127e-05,
+              "target_rms": 9.629528893591546e-06
+            }
+          },
+          "student_reset_vs_longest_history": {
+            "cosine": 0.9999999986590604,
+            "equal_values": false,
+            "mae": 5.921995156349854e-09,
+            "max_abs_error": 3.036996076843934e-08,
+            "mse": 5.5436651459896424e-17,
+            "prediction_peak": 0.0003856192925013602,
+            "prediction_rms": 0.0001434252358939859,
+            "residual_dc": 1.7819558519732713e-10,
+            "residual_rms": 7.445579323323097e-09,
+            "samples": 61440,
+            "snr_db": 85.69451018198384,
+            "target_peak": 0.00038561434485018253,
+            "target_rms": 0.0001434247177693601
+          },
+          "student_reset_vs_teacher_longest_history": {
+            "cosine": 0.6382590059226936,
+            "equal_values": false,
+            "mae": 0.00010935527407077451,
+            "max_abs_error": 0.00037610049912473187,
+            "mse": 1.8900505024504146e-08,
+            "prediction_peak": 0.0003856192925013602,
+            "prediction_rms": 0.0001434252358939859,
+            "residual_dc": 8.221293916393438e-05,
+            "residual_rms": 0.00013747910759276898,
+            "samples": 61440,
+            "snr_db": -23.092634442014038,
+            "target_peak": 1.0299743735231459e-05,
+            "target_rms": 9.629527600042514e-06
+          }
+        },
+        {
+          "prefix_frames": 30,
+          "same_history_student_vs_teacher": {
+            "phase1920": {
+              "available": true,
+              "cycles": 32,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 1920,
+              "phase_mean_variance": 1.2141537643901706e-08,
+              "phase_rms_max": 0.0003760907748202916,
+              "phase_rms_min": 2.227284407126455e-08,
+              "phase_template_ac_fraction_of_residual_power": 0.64239223386679,
+              "residual_dc": 8.221293916393438e-05
+            },
+            "phase480": {
+              "available": true,
+              "cycles": 128,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 480,
+              "phase_mean_variance": 1.1974049595805782e-08,
+              "phase_rms_max": 0.0003557234719015216,
+              "phase_rms_min": 6.144375057879806e-06,
+              "phase_template_ac_fraction_of_residual_power": 0.63353066916898,
+              "residual_dc": 8.221293916393438e-05
+            },
+            "raw_primary": {
+              "cosine": 0.6382590059226936,
+              "equal_values": false,
+              "mae": 0.00010935527407077451,
+              "max_abs_error": 0.00037610049912473187,
+              "mse": 1.8900505024504146e-08,
+              "prediction_peak": 0.0003856192925013602,
+              "prediction_rms": 0.0001434252358939859,
+              "residual_dc": 8.221293916393438e-05,
+              "residual_rms": 0.00013747910759276898,
+              "samples": 61440,
+              "snr_db": -23.092634442014038,
+              "target_peak": 1.0299743735231459e-05,
+              "target_rms": 9.629527600042514e-06
+            }
+          },
+          "student_reset_vs_longest_history": {
+            "cosine": 0.9999999986590604,
+            "equal_values": false,
+            "mae": 5.921995156349854e-09,
+            "max_abs_error": 3.036996076843934e-08,
+            "mse": 5.5436651459896424e-17,
+            "prediction_peak": 0.0003856192925013602,
+            "prediction_rms": 0.0001434252358939859,
+            "residual_dc": 1.7819558519732713e-10,
+            "residual_rms": 7.445579323323097e-09,
+            "samples": 61440,
+            "snr_db": 85.69451018198384,
+            "target_peak": 0.00038561434485018253,
+            "target_rms": 0.0001434247177693601
+          },
+          "student_reset_vs_teacher_longest_history": {
+            "cosine": 0.6382590059226936,
+            "equal_values": false,
+            "mae": 0.00010935527407077451,
+            "max_abs_error": 0.00037610049912473187,
+            "mse": 1.8900505024504146e-08,
+            "prediction_peak": 0.0003856192925013602,
+            "prediction_rms": 0.0001434252358939859,
+            "residual_dc": 8.221293916393438e-05,
+            "residual_rms": 0.00013747910759276898,
+            "samples": 61440,
+            "snr_db": -23.092634442014038,
+            "target_peak": 1.0299743735231459e-05,
+            "target_rms": 9.629527600042514e-06
+          }
+        },
+        {
+          "prefix_frames": 40,
+          "same_history_student_vs_teacher": {
+            "phase1920": {
+              "available": true,
+              "cycles": 32,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 1920,
+              "phase_mean_variance": 1.2141421657042762e-08,
+              "phase_rms_max": 0.00037608881213797466,
+              "phase_rms_min": 1.8963712271951102e-08,
+              "phase_template_ac_fraction_of_residual_power": 0.6423910349335095,
+              "residual_dc": 8.221276096834918e-05
+            },
+            "phase480": {
+              "available": true,
+              "cycles": 128,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 480,
+              "phase_mean_variance": 1.1973945267493586e-08,
+              "phase_rms_max": 0.00035571977927558254,
+              "phase_rms_min": 6.1494137907048705e-06,
+              "phase_template_ac_fraction_of_residual_power": 0.6335300189628619,
+              "residual_dc": 8.221276096834918e-05
+            },
+            "raw_primary": {
+              "cosine": 0.6382601009310876,
+              "equal_values": false,
+              "mae": 0.00010935494377136544,
+              "max_abs_error": 0.0003760971812880598,
+              "mse": 1.8900359744745592e-08,
+              "prediction_peak": 0.00038561434485018253,
+              "prediction_rms": 0.0001434247177693601,
+              "residual_dc": 8.221276096834918e-05,
+              "residual_rms": 0.0001374785792214394,
+              "samples": 61440,
+              "snr_db": -23.092601059604476,
+              "target_peak": 1.0299743735231459e-05,
+              "target_rms": 9.629527600042514e-06
+            }
+          },
+          "student_reset_vs_longest_history": {
+            "cosine": 1.0,
+            "equal_values": true,
+            "mae": 0.0,
+            "max_abs_error": 0.0,
+            "mse": 0.0,
+            "prediction_peak": 0.00038561434485018253,
+            "prediction_rms": 0.0001434247177693601,
+            "residual_dc": 0.0,
+            "residual_rms": 0.0,
+            "samples": 61440,
+            "snr_db": null,
+            "target_peak": 0.00038561434485018253,
+            "target_rms": 0.0001434247177693601
+          },
+          "student_reset_vs_teacher_longest_history": {
+            "cosine": 0.6382601009310876,
+            "equal_values": false,
+            "mae": 0.00010935494377136544,
+            "max_abs_error": 0.0003760971812880598,
+            "mse": 1.8900359744745592e-08,
+            "prediction_peak": 0.00038561434485018253,
+            "prediction_rms": 0.0001434247177693601,
+            "residual_dc": 8.221276096834918e-05,
+            "residual_rms": 0.0001374785792214394,
+            "samples": 61440,
+            "snr_db": -23.092601059604476,
+            "target_peak": 1.0299743735231459e-05,
+            "target_rms": 9.629527600042514e-06
+          }
+        }
+      ],
+      "history_log_error_slope_per_frame": -0.24015389801238116,
+      "longest_history_student_vs_teacher": {
+        "phase1920": {
+          "available": true,
+          "cycles": 32,
+          "discarded_tail_samples": 0,
+          "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+          "period_samples": 1920,
+          "phase_mean_variance": 1.2141421657042762e-08,
+          "phase_rms_max": 0.00037608881213797466,
+          "phase_rms_min": 1.8963712271951102e-08,
+          "phase_template_ac_fraction_of_residual_power": 0.6423910349335095,
+          "residual_dc": 8.221276096834918e-05
+        },
+        "phase480": {
+          "available": true,
+          "cycles": 128,
+          "discarded_tail_samples": 0,
+          "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+          "period_samples": 480,
+          "phase_mean_variance": 1.1973945267493586e-08,
+          "phase_rms_max": 0.00035571977927558254,
+          "phase_rms_min": 6.1494137907048705e-06,
+          "phase_template_ac_fraction_of_residual_power": 0.6335300189628619,
+          "residual_dc": 8.221276096834918e-05
+        },
+        "raw_primary": {
+          "cosine": 0.6382601009310876,
+          "equal_values": false,
+          "mae": 0.00010935494377136544,
+          "max_abs_error": 0.0003760971812880598,
+          "mse": 1.8900359744745592e-08,
+          "prediction_peak": 0.00038561434485018253,
+          "prediction_rms": 0.0001434247177693601,
+          "residual_dc": 8.221276096834918e-05,
+          "residual_rms": 0.0001374785792214394,
+          "samples": 61440,
+          "snr_db": -23.092601059604476,
+          "target_peak": 1.0299743735231459e-05,
+          "target_rms": 9.629527600042514e-06
+        },
+        "secondary_lag_gain": {
+          "common_samples": 61344,
+          "diagnostic_only": true,
+          "does_not_replace_raw_primary": true,
+          "excluded_each_end_samples": 48,
+          "fit": {
+            "lag_samples": -20,
+            "lag_seconds": -0.0004166666666666667,
+            "mse": 1.1843590847453792e-08,
+            "prediction_gain": 0.8,
+            "residual_rms": 0.00010882826309122916
+          },
+          "gain_bounds": [
+            0.8,
+            1.25
+          ],
+          "lag_convention": "compare prediction[t+lag] to target[t]",
+          "raw_common_grid": {
+            "cosine": 0.6382018093773982,
+            "equal_values": false,
+            "mae": 0.00010936459322605411,
+            "max_abs_error": 0.0003760971812880598,
+            "mse": 1.8904769033633626e-08,
+            "prediction_peak": 0.00038561434485018253,
+            "prediction_rms": 0.00014344020649751583,
+            "residual_dc": 8.221556246139454e-05,
+            "residual_rms": 0.0001374946145622934,
+            "samples": 61344,
+            "snr_db": -23.093589205441027,
+            "target_peak": 1.0299743735231459e-05,
+            "target_rms": 9.629555213101076e-06
+          }
+        }
+      },
+      "source_id": "encoded_zero",
+      "start_frame": 0,
+      "student_log_rms_vs_log_gain_slope": 0.0,
+      "teacher_log_rms_vs_log_gain_slope": 0.0
+    },
+    {
+      "amplitude": [
+        {
+          "gain": 1.0,
+          "input_rms": 0.2793091833591461,
+          "student_homogeneity_error": {
+            "cosine": 1.0,
+            "equal_values": true,
+            "mae": 0.0,
+            "max_abs_error": 0.0,
+            "mse": 0.0,
+            "prediction_peak": 0.019761379808187485,
+            "prediction_rms": 0.0010276397860162498,
+            "residual_dc": 0.0,
+            "residual_rms": 0.0,
+            "samples": 61440,
+            "snr_db": null,
+            "target_peak": 0.019761379808187485,
+            "target_rms": 0.0010276397860162498
+          },
+          "student_vs_reencoded_teacher": {
+            "phase1920": {
+              "available": true,
+              "cycles": 32,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 1920,
+              "phase_mean_variance": 6.40685185486133e-08,
+              "phase_rms_max": 0.010691814509426995,
+              "phase_rms_min": 0.00014741283098756042,
+              "phase_template_ac_fraction_of_residual_power": 0.03605427199629114,
+              "residual_dc": 0.00010354354162115817
+            },
+            "phase480": {
+              "available": true,
+              "cycles": 128,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 480,
+              "phase_mean_variance": 2.688467531856032e-08,
+              "phase_rms_max": 0.005650973121990326,
+              "phase_rms_min": 0.0004242149144780347,
+              "phase_template_ac_fraction_of_residual_power": 0.015129230680304665,
+              "residual_dc": 0.00010354354162115817
+            },
+            "raw_primary": {
+              "cosine": 0.6411652078515356,
+              "equal_values": false,
+              "mae": 0.0004148290890497389,
+              "max_abs_error": 0.060383426025509834,
+              "mse": 1.7770021415271943e-06,
+              "prediction_peak": 0.019761379808187485,
+              "prediction_rms": 0.0010276397860162498,
+              "residual_dc": 0.00010354354162115817,
+              "residual_rms": 0.0013330424380068305,
+              "samples": 61440,
+              "snr_db": 2.2822901310533994,
+              "target_peak": 0.07587238401174545,
+              "target_rms": 0.001733638256807544
+            },
+            "secondary_lag_gain": {
+              "common_samples": 61344,
+              "diagnostic_only": true,
+              "does_not_replace_raw_primary": true,
+              "excluded_each_end_samples": 48,
+              "fit": {
+                "lag_samples": 0,
+                "lag_seconds": 0.0,
+                "mse": 1.7726629078999795e-06,
+                "prediction_gain": 1.081710543347925,
+                "residual_rms": 0.0013314138755097828
+              },
+              "gain_bounds": [
+                0.8,
+                1.25
+              ],
+              "lag_convention": "compare prediction[t+lag] to target[t]",
+              "raw_common_grid": {
+                "cosine": 0.6411828169458252,
+                "equal_values": false,
+                "mae": 0.00041521362037263526,
+                "max_abs_error": 0.060383426025509834,
+                "mse": 1.7797243562261304e-06,
+                "prediction_peak": 0.019761379808187485,
+                "prediction_rms": 0.001028415927881623,
+                "residual_dc": 0.000103472369863331,
+                "residual_rms": 0.001334063100541399,
+                "samples": 61344,
+                "snr_db": 2.282432197494543,
+                "target_peak": 0.07587238401174545,
+                "target_rms": 0.001734994018454009
+              }
+            }
+          }
+        },
+        {
+          "gain": 0.5,
+          "input_rms": 0.13965459167957306,
+          "student_homogeneity_error": {
+            "cosine": 0.9505133125597872,
+            "equal_values": false,
+            "mae": 8.915350275678941e-05,
+            "max_abs_error": 0.0029370952397584915,
+            "mse": 2.5864748080147097e-08,
+            "prediction_peak": 0.009614435024559498,
+            "prediction_rms": 0.000507918139565915,
+            "residual_dc": 4.687927747501224e-05,
+            "residual_rms": 0.00016082520971584988,
+            "samples": 61440,
+            "snr_db": 10.089135759451759,
+            "target_peak": 0.009880689904093742,
+            "target_rms": 0.0005138198930081249
+          },
+          "student_vs_reencoded_teacher": {
+            "phase1920": {
+              "available": true,
+              "cycles": 32,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 1920,
+              "phase_mean_variance": 2.6112627535161273e-08,
+              "phase_rms_max": 0.006304020246528172,
+              "phase_rms_min": 8.047149733141128e-05,
+              "phase_template_ac_fraction_of_residual_power": 0.05480579631742363,
+              "residual_dc": 9.458306450513773e-05
+            },
+            "phase480": {
+              "available": true,
+              "cycles": 128,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 480,
+              "phase_mean_variance": 1.676285230824192e-08,
+              "phase_rms_max": 0.0032375755768991737,
+              "phase_rms_min": 0.00024962907606669506,
+              "phase_template_ac_fraction_of_residual_power": 0.035182268351490395,
+              "residual_dc": 9.458306450513773e-05
+            },
+            "raw_primary": {
+              "cosine": 0.6234669455543086,
+              "equal_values": false,
+              "mae": 0.00026210641305222227,
+              "max_abs_error": 0.035583723336458206,
+              "mse": 4.76457405780995e-07,
+              "prediction_peak": 0.009614435024559498,
+              "prediction_rms": 0.000507918139565915,
+              "residual_dc": 9.458306450513773e-05,
+              "residual_rms": 0.0006902589411090558,
+              "samples": 61440,
+              "snr_db": 2.1217957552726836,
+              "target_peak": 0.04189800098538399,
+              "target_rms": 0.0008812554759803711
+            }
+          }
+        },
+        {
+          "gain": 0.1,
+          "input_rms": 0.027930917218327522,
+          "student_homogeneity_error": {
+            "cosine": 0.5778660659108439,
+            "equal_values": false,
+            "mae": 0.00011605939402028459,
+            "max_abs_error": 0.0017204118776135147,
+            "mse": 2.258471931169756e-08,
+            "prediction_peak": 0.002221641829237342,
+            "prediction_rms": 0.00018408634861210018,
+            "residual_dc": 8.251443108723763e-05,
+            "residual_rms": 0.00015028213237673187,
+            "samples": 61440,
+            "snr_db": -3.3013286360867475,
+            "target_peak": 0.0019761379808187485,
+            "target_rms": 0.000102763980228279
+          },
+          "student_vs_reencoded_teacher": {
+            "phase1920": {
+              "available": true,
+              "cycles": 32,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 1920,
+              "phase_mean_variance": 1.3201620436905323e-08,
+              "phase_rms_max": 0.0011451405512588682,
+              "phase_rms_min": 3.4150645414051003e-05,
+              "phase_template_ac_fraction_of_residual_power": 0.290394106119207,
+              "residual_dc": 8.535673577105973e-05
+            },
+            "phase480": {
+              "available": true,
+              "cycles": 128,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 480,
+              "phase_mean_variance": 1.2283257661607847e-08,
+              "phase_rms_max": 0.0005974264201577835,
+              "phase_rms_min": 7.08199837689025e-05,
+              "phase_template_ac_fraction_of_residual_power": 0.27019301501071424,
+              "residual_dc": 8.535673577105973e-05
+            },
+            "raw_primary": {
+              "cosine": 0.3130249590071079,
+              "equal_values": false,
+              "mae": 0.00014156122714920332,
+              "max_abs_error": 0.006464010220952332,
+              "mse": 4.546104813672095e-08,
+              "prediction_peak": 0.002221641829237342,
+              "prediction_rms": 0.00018408634861210018,
+              "residual_dc": 8.535673577105973e-05,
+              "residual_rms": 0.00021321596595171046,
+              "samples": 61440,
+              "snr_db": -1.4871944983243024,
+              "target_peak": 0.007928140461444855,
+              "target_rms": 0.00017966355852109395
+            }
+          }
+        },
+        {
+          "gain": 0.01,
+          "input_rms": 0.0027930918149650097,
+          "student_homogeneity_error": {
+            "cosine": 0.1754669829105046,
+            "equal_values": false,
+            "mae": 0.00011217374627108299,
+            "max_abs_error": 0.00046462044031159166,
+            "mse": 1.9786069203106336e-08,
+            "prediction_peak": 0.0004721820296254009,
+            "prediction_rms": 0.00014210183659066895,
+            "residual_dc": 8.780593020647821e-05,
+            "residual_rms": 0.00014066296315344112,
+            "samples": 61440,
+            "snr_db": -22.726777227623774,
+            "target_peak": 0.00019761378644034266,
+            "target_rms": 1.0276397634167705e-05
+          },
+          "student_vs_reencoded_teacher": {
+            "phase1920": {
+              "available": true,
+              "cycles": 32,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 1920,
+              "phase_mean_variance": 1.1472990661397056e-08,
+              "phase_rms_max": 0.0003682645943115687,
+              "phase_rms_min": 1.8064356639304763e-05,
+              "phase_template_ac_fraction_of_residual_power": 0.6067420048052203,
+              "residual_dc": 7.936605033790935e-05
+            },
+            "phase480": {
+              "available": true,
+              "cycles": 128,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 480,
+              "phase_mean_variance": 1.1305176032619779e-08,
+              "phase_rms_max": 0.000359669301433062,
+              "phase_rms_min": 2.416503907293201e-05,
+              "phase_template_ac_fraction_of_residual_power": 0.5978672321060181,
+              "residual_dc": 7.936605033790935e-05
+            },
+            "raw_primary": {
+              "cosine": 0.28728000111142116,
+              "equal_values": false,
+              "mae": 0.00010943753919058879,
+              "max_abs_error": 0.0007877902171458118,
+              "mse": 1.89091748560909e-08,
+              "prediction_peak": 0.0004721820296254009,
+              "prediction_rms": 0.00014210183659066895,
+              "residual_dc": 7.936605033790935e-05,
+              "residual_rms": 0.0001375106354290129,
+              "samples": 61440,
+              "snr_db": -16.215981885331324,
+              "target_peak": 0.0008198175928555429,
+              "target_rms": 2.1258724053589497e-05
+            }
+          }
+        },
+        {
+          "gain": 0.0,
+          "input_rms": 0.0,
+          "student_homogeneity_error": {
+            "cosine": null,
+            "equal_values": false,
+            "mae": 0.00011423069949179262,
+            "max_abs_error": 0.00038561358815059066,
+            "mse": 2.0570669940072584e-08,
+            "prediction_peak": 0.00038561358815059066,
+            "prediction_rms": 0.00014342478844353435,
+            "residual_dc": 9.184041468746999e-05,
+            "residual_rms": 0.00014342478844353435,
+            "samples": 61440,
+            "snr_db": null,
+            "target_peak": 0.0,
+            "target_rms": 0.0
+          },
+          "student_vs_reencoded_teacher": {
+            "phase1920": {
+              "available": true,
+              "cycles": 32,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 1920,
+              "phase_mean_variance": 1.2141381534211404e-08,
+              "phase_rms_max": 0.000376094139937777,
+              "phase_rms_min": 1.2080818123649806e-08,
+              "phase_template_ac_fraction_of_residual_power": 0.6423890424966493,
+              "residual_dc": 8.221298178028487e-05
+            },
+            "phase480": {
+              "available": true,
+              "cycles": 128,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 480,
+              "phase_mean_variance": 1.1973897037385262e-08,
+              "phase_rms_max": 0.00035572103174634457,
+              "phase_rms_min": 6.153417777620241e-06,
+              "phase_template_ac_fraction_of_residual_power": 0.6335275957785789,
+              "residual_dc": 8.221298178028487e-05
+            },
+            "raw_primary": {
+              "cosine": 0.6382651693682273,
+              "equal_values": false,
+              "mae": 0.00010935483343180175,
+              "max_abs_error": 0.00037609413993777707,
+              "mse": 1.890035590741686e-08,
+              "prediction_peak": 0.00038561358815059066,
+              "prediction_rms": 0.00014342478844353435,
+              "residual_dc": 8.221298178028487e-05,
+              "residual_rms": 0.00013747856526534185,
+              "samples": 61440,
+              "snr_db": -23.092549297045007,
+              "target_peak": 1.0298725101165473e-05,
+              "target_rms": 9.6295840087303e-06
+            }
+          }
+        }
+      ],
+      "amplitude_secants": [
+        {
+          "gains": [
+            1.0,
+            0.5
+          ],
+          "interpretation": "Finite amplitude secant through full re-encoding, not a local JVP",
+          "student_vs_teacher_secant": {
+            "cosine": 0.5708074688209884,
+            "equal_values": false,
+            "mae": 0.00041026181575069316,
+            "max_abs_error": 0.049599405378103256,
+            "mse": 2.592156354930246e-06,
+            "prediction_peak": 0.0245247483253479,
+            "prediction_rms": 0.001134496231881842,
+            "residual_dc": 1.79209543125155e-05,
+            "residual_rms": 0.001610017501436008,
+            "samples": 61440,
+            "snr_db": 1.7118575593875238,
+            "target_peak": 0.06794876605272293,
+            "target_rms": 0.001960755649247592
+          }
+        },
+        {
+          "gains": [
+            0.5,
+            0.1
+          ],
+          "interpretation": "Finite amplitude secant through full re-encoding, not a local JVP",
+          "student_vs_teacher_secant": {
+            "cosine": 0.6178933829576813,
+            "equal_values": false,
+            "mae": 0.0004346351237612747,
+            "max_abs_error": 0.07279928494244814,
+            "mse": 2.451395330445837e-06,
+            "prediction_peak": 0.01886730268597603,
+            "prediction_rms": 0.0010013834843129146,
+            "residual_dc": 2.3065821521899936e-05,
+            "residual_rms": 0.00156569324276687,
+            "samples": 61440,
+            "snr_db": 2.0043064782865248,
+            "target_peak": 0.08492465317249298,
+            "target_rms": 0.0019720685228460026
+          }
+        },
+        {
+          "gains": [
+            0.1,
+            0.01
+          ],
+          "interpretation": "Finite amplitude secant through full re-encoding, not a local JVP",
+          "student_vs_teacher_secant": {
+            "cosine": 0.4386535872673198,
+            "equal_values": false,
+            "mae": 0.0007697943157020786,
+            "max_abs_error": 0.06744929682463408,
+            "mse": 3.134851413612513e-06,
+            "prediction_peak": 0.022809334099292755,
+            "prediction_rms": 0.001238852988367883,
+            "residual_dc": 6.656316872089746e-05,
+            "residual_rms": 0.0017705511609700842,
+            "samples": 61440,
+            "snr_db": 0.704603432476109,
+            "target_peak": 0.08292194455862045,
+            "target_rms": 0.001920165454406556
+          }
+        },
+        {
+          "gains": [
+            0.01,
+            0.0
+          ],
+          "interpretation": "Finite amplitude secant through full re-encoding, not a local JVP",
+          "student_vs_teacher_secant": {
+            "cosine": 0.16239485136943457,
+            "equal_values": false,
+            "mae": 0.0022449257491305627,
+            "max_abs_error": 0.08681735396385193,
+            "mse": 1.3755751420660184e-05,
+            "prediction_peak": 0.04049975052475929,
+            "prediction_rms": 0.0034962111158550004,
+            "residual_dc": -0.00028469315093539264,
+            "residual_rms": 0.003708874683871131,
+            "samples": 61440,
+            "snr_db": -5.675450639153644,
+            "target_peak": 0.08101135492324829,
+            "target_rms": 0.001929610384092512
+          }
+        }
+      ],
+      "future": {
+        "bitwise_equal": true,
+        "changed_latent_start_frame": 154,
+        "meaning": "Empirical future independence on this fixed input, not an analytical receptive-field proof",
+        "prefix_samples": 15360,
+        "raw_difference": {
+          "cosine": 1.0,
+          "equal_values": true,
+          "mae": 0.0,
+          "max_abs_error": 0.0,
+          "mse": 0.0,
+          "prediction_peak": 0.0007301014265976846,
+          "prediction_rms": 0.00014540975312084075,
+          "residual_dc": 0.0,
+          "residual_rms": 0.0,
+          "samples": 15360,
+          "snr_db": null,
+          "target_peak": 0.0007301014265976846,
+          "target_rms": 0.00014540975312084075
+        },
+        "scored_prefix_start_frame": 146,
+        "within_1e_5_absolute_1e_4_relative": true
+      },
+      "history": [
+        {
+          "prefix_frames": 0,
+          "same_history_student_vs_teacher": {
+            "phase1920": {
+              "available": true,
+              "cycles": 32,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 1920,
+              "phase_mean_variance": 6.500056435460545e-08,
+              "phase_rms_max": 0.01069151366877884,
+              "phase_rms_min": 0.00016075865810785675,
+              "phase_template_ac_fraction_of_residual_power": 0.036132066080514905,
+              "residual_dc": 9.991426936467692e-05
+            },
+            "phase480": {
+              "available": true,
+              "cycles": 128,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 480,
+              "phase_mean_variance": 2.665513112576308e-08,
+              "phase_rms_max": 0.005651720782135299,
+              "phase_rms_min": 0.00043696304071671815,
+              "phase_template_ac_fraction_of_residual_power": 0.014816870726948124,
+              "residual_dc": 9.991426936467692e-05
+            },
+            "raw_primary": {
+              "cosine": 0.6394763791921615,
+              "equal_values": false,
+              "mae": 0.00043043265931831713,
+              "max_abs_error": 0.060380673967301846,
+              "mse": 1.7989717003661352e-06,
+              "prediction_peak": 0.019761884585022926,
+              "prediction_rms": 0.0010326511364781197,
+              "residual_dc": 9.991426936467692e-05,
+              "residual_rms": 0.0013412575071052295,
+              "samples": 61440,
+              "snr_db": 2.2677673547536026,
+              "target_peak": 0.07586997002363205,
+              "target_rms": 0.001741407992874735
+            }
+          },
+          "student_reset_vs_longest_history": {
+            "cosine": 0.9953287367696512,
+            "equal_values": false,
+            "mae": 2.6080107358487722e-05,
+            "max_abs_error": 0.0013603877159766853,
+            "mse": 9.939340986722666e-09,
+            "prediction_peak": 0.019761884585022926,
+            "prediction_rms": 0.0010326511364781197,
+            "residual_dc": -7.005012122877076e-06,
+            "residual_rms": 9.969624359384192e-05,
+            "samples": 61440,
+            "snr_db": 20.26324229957748,
+            "target_peak": 0.019761379808187485,
+            "target_rms": 0.0010276397860162498
+          },
+          "student_reset_vs_teacher_longest_history": {
+            "cosine": 0.6388142665738582,
+            "equal_values": false,
+            "mae": 0.00042437474482897957,
+            "max_abs_error": 0.06038308795541525,
+            "mse": 1.784603777640431e-06,
+            "prediction_peak": 0.019761884585022926,
+            "prediction_rms": 0.0010326511364781197,
+            "residual_dc": 9.65385294982811e-05,
+            "residual_rms": 0.0013358906308678234,
+            "samples": 61440,
+            "snr_db": 2.2637515633101093,
+            "target_peak": 0.07587238401174545,
+            "target_rms": 0.001733638256807544
+          }
+        },
+        {
+          "prefix_frames": 8,
+          "same_history_student_vs_teacher": {
+            "phase1920": {
+              "available": true,
+              "cycles": 32,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 1920,
+              "phase_mean_variance": 6.400115242012575e-08,
+              "phase_rms_max": 0.010691790825380007,
+              "phase_rms_min": 0.00014728645898142264,
+              "phase_template_ac_fraction_of_residual_power": 0.03601554554801514,
+              "residual_dc": 0.00010387973820363431
+            },
+            "phase480": {
+              "available": true,
+              "cycles": 128,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 480,
+              "phase_mean_variance": 2.683795638165968e-08,
+              "phase_rms_max": 0.0056509403167113205,
+              "phase_rms_min": 0.00042432054235604083,
+              "phase_template_ac_fraction_of_residual_power": 0.015102597436594856,
+              "residual_dc": 0.00010387973820363431
+            },
+            "raw_primary": {
+              "cosine": 0.6411523782826121,
+              "equal_values": false,
+              "mae": 0.0004149369417088055,
+              "max_abs_error": 0.0603833245113492,
+              "mse": 1.7770424256048213e-06,
+              "prediction_peak": 0.01976136490702629,
+              "prediction_rms": 0.001027659186055327,
+              "residual_dc": 0.00010387973820363431,
+              "residual_rms": 0.001333057547746841,
+              "samples": 61440,
+              "snr_db": 2.282186610092534,
+              "target_peak": 0.07587232440710068,
+              "target_rms": 0.0017336372450957851
+            }
+          },
+          "student_reset_vs_longest_history": {
+            "cosine": 0.9999963963214753,
+            "equal_values": false,
+            "mae": 7.803800380740337e-07,
+            "max_abs_error": 3.659324374893913e-05,
+            "mse": 7.611802828346889e-12,
+            "prediction_peak": 0.01976136490702629,
+            "prediction_rms": 0.001027659186055327,
+            "residual_dc": 3.409041896987144e-07,
+            "residual_rms": 2.758949587858917e-06,
+            "samples": 61440,
+            "snr_db": 51.421942900050375,
+            "target_peak": 0.019761379808187485,
+            "target_rms": 0.0010276397860162498
+          },
+          "student_reset_vs_teacher_longest_history": {
+            "cosine": 0.641152461570153,
+            "equal_values": false,
+            "mae": 0.000414959655501245,
+            "max_abs_error": 0.06038338411599398,
+            "mse": 1.7770443035141447e-06,
+            "prediction_peak": 0.01976136490702629,
+            "prediction_rms": 0.001027659186055327,
+            "residual_dc": 0.00010388444581085687,
+            "residual_rms": 0.0013330582521083407,
+            "samples": 61440,
+            "snr_db": 2.2821870895284064,
+            "target_peak": 0.07587238401174545,
+            "target_rms": 0.001733638256807544
+          }
+        },
+        {
+          "prefix_frames": 16,
+          "same_history_student_vs_teacher": {
+            "phase1920": {
+              "available": true,
+              "cycles": 32,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 1920,
+              "phase_mean_variance": 6.406851908456571e-08,
+              "phase_rms_max": 0.010691800088800737,
+              "phase_rms_min": 0.00014741399722571161,
+              "phase_template_ac_fraction_of_residual_power": 0.036054276124989036,
+              "residual_dc": 0.00010354407179628215
+            },
+            "phase480": {
+              "available": true,
+              "cycles": 128,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 480,
+              "phase_mean_variance": 2.6884655176515583e-08,
+              "phase_rms_max": 0.005650966065780383,
+              "phase_rms_min": 0.0004242149178206168,
+              "phase_template_ac_fraction_of_residual_power": 0.01512922095139729,
+              "residual_dc": 0.00010354407179628215
+            },
+            "raw_primary": {
+              "cosine": 0.6411651116696866,
+              "equal_values": false,
+              "mae": 0.0004148294745132326,
+              "max_abs_error": 0.060383341275155544,
+              "mse": 1.777001952901785e-06,
+              "prediction_peak": 0.01976134441792965,
+              "prediction_rms": 0.001027639893984924,
+              "residual_dc": 0.00010354407179628215,
+              "residual_rms": 0.0013330423672568645,
+              "samples": 61440,
+              "snr_db": 2.28228939581633,
+              "target_peak": 0.07587232440710068,
+              "target_rms": 0.0017336380180485577
+            }
+          },
+          "student_reset_vs_longest_history": {
+            "cosine": 0.9999999998824095,
+            "equal_values": false,
+            "mae": 8.787328263991465e-09,
+            "max_abs_error": 2.6311317924410105e-07,
+            "mse": 2.4837334831908505e-16,
+            "prediction_peak": 0.01976134441792965,
+            "prediction_rms": 0.001027639893984924,
+            "residual_dc": 5.407163215191639e-10,
+            "residual_rms": 1.5759865111068846e-08,
+            "samples": 61440,
+            "snr_db": 96.28576827985083,
+            "target_peak": 0.019761379808187485,
+            "target_rms": 0.0010276397860162498
+          },
+          "student_reset_vs_teacher_longest_history": {
+            "cosine": 0.6411651003992261,
+            "equal_values": false,
+            "mae": 0.0004148294560082129,
+            "max_abs_error": 0.06038340087980032,
+            "mse": 1.7770025062727513e-06,
+            "prediction_peak": 0.01976134441792965,
+            "prediction_rms": 0.001027639893984924,
+            "residual_dc": 0.00010354408233747969,
+            "residual_rms": 0.0013330425748162551,
+            "samples": 61440,
+            "snr_db": 2.282289239625287,
+            "target_peak": 0.07587238401174545,
+            "target_rms": 0.001733638256807544
+          }
+        },
+        {
+          "prefix_frames": 29,
+          "same_history_student_vs_teacher": {
+            "phase1920": {
+              "available": true,
+              "cycles": 32,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 1920,
+              "phase_mean_variance": 6.406854848947807e-08,
+              "phase_rms_max": 0.01069180019721162,
+              "phase_rms_min": 0.0001474139643235178,
+              "phase_template_ac_fraction_of_residual_power": 0.03605429383854993,
+              "residual_dc": 0.0001035435332737537
+            },
+            "phase480": {
+              "available": true,
+              "cycles": 128,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 480,
+              "phase_mean_variance": 2.688471793402196e-08,
+              "phase_rms_max": 0.005650966369614444,
+              "phase_rms_min": 0.00042421593387723827,
+              "phase_template_ac_fraction_of_residual_power": 0.01512925675722074,
+              "residual_dc": 0.0001035435332737537
+            },
+            "raw_primary": {
+              "cosine": 0.6411651146316838,
+              "equal_values": false,
+              "mae": 0.0004148293034416241,
+              "max_abs_error": 0.060383343137800694,
+              "mse": 1.777001895429575e-06,
+              "prediction_peak": 0.01976137049496174,
+              "prediction_rms": 0.0010276401790720057,
+              "residual_dc": 0.0001035435332737537,
+              "residual_rms": 0.0013330423457000812,
+              "samples": 61440,
+              "snr_db": 2.282289538430569,
+              "target_peak": 0.07587232440710068,
+              "target_rms": 0.001733638018478421
+            }
+          },
+          "student_reset_vs_longest_history": {
+            "cosine": 0.9999999999627179,
+            "equal_values": false,
+            "mae": 6.7477039415770665e-09,
+            "max_abs_error": 6.705522537231445e-08,
+            "mse": 7.889742789962146e-17,
+            "prediction_peak": 0.01976137049496174,
+            "prediction_rms": 0.0010276401790720057,
+            "residual_dc": -1.775742745482751e-12,
+            "residual_rms": 8.882422411685985e-09,
+            "samples": 61440,
+            "snr_db": 101.26618974860861,
+            "target_peak": 0.019761379808187485,
+            "target_rms": 0.0010276397860162498
+          },
+          "student_reset_vs_teacher_longest_history": {
+            "cosine": 0.6411651042028375,
+            "equal_values": false,
+            "mae": 0.0004148292757191183,
+            "max_abs_error": 0.06038340274244547,
+            "mse": 1.7770024448777051e-06,
+            "prediction_peak": 0.01976137049496174,
+            "prediction_rms": 0.0010276401790720057,
+            "residual_dc": 0.00010354353984541542,
+            "residual_rms": 0.001333042551788091,
+            "samples": 61440,
+            "snr_db": 2.2822893896730787,
+            "target_peak": 0.07587238401174545,
+            "target_rms": 0.001733638256807544
+          }
+        },
+        {
+          "prefix_frames": 30,
+          "same_history_student_vs_teacher": {
+            "phase1920": {
+              "available": true,
+              "cycles": 32,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 1920,
+              "phase_mean_variance": 6.406856515345382e-08,
+              "phase_rms_max": 0.010691810383749119,
+              "phase_rms_min": 0.00014741216625811874,
+              "phase_template_ac_fraction_of_residual_power": 0.036054292068159244,
+              "residual_dc": 0.00010354353984541542
+            },
+            "phase480": {
+              "available": true,
+              "cycles": 128,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 480,
+              "phase_mean_variance": 2.6884724734216543e-08,
+              "phase_rms_max": 0.005650971024632884,
+              "phase_rms_min": 0.0004242162271250421,
+              "phase_template_ac_fraction_of_residual_power": 0.01512925590604169,
+              "residual_dc": 0.00010354353984541542
+            },
+            "raw_primary": {
+              "cosine": 0.6411651042028375,
+              "equal_values": false,
+              "mae": 0.0004148292757191183,
+              "max_abs_error": 0.06038340274244547,
+              "mse": 1.7770024448777051e-06,
+              "prediction_peak": 0.01976137049496174,
+              "prediction_rms": 0.0010276401790720057,
+              "residual_dc": 0.00010354353984541542,
+              "residual_rms": 0.001333042551788091,
+              "samples": 61440,
+              "snr_db": 2.2822893896730787,
+              "target_peak": 0.07587238401174545,
+              "target_rms": 0.001733638256807544
+            }
+          },
+          "student_reset_vs_longest_history": {
+            "cosine": 0.9999999999627179,
+            "equal_values": false,
+            "mae": 6.7477039415770665e-09,
+            "max_abs_error": 6.705522537231445e-08,
+            "mse": 7.889742789962146e-17,
+            "prediction_peak": 0.01976137049496174,
+            "prediction_rms": 0.0010276401790720057,
+            "residual_dc": -1.775742745482751e-12,
+            "residual_rms": 8.882422411685985e-09,
+            "samples": 61440,
+            "snr_db": 101.26618974860861,
+            "target_peak": 0.019761379808187485,
+            "target_rms": 0.0010276397860162498
+          },
+          "student_reset_vs_teacher_longest_history": {
+            "cosine": 0.6411651042028375,
+            "equal_values": false,
+            "mae": 0.0004148292757191183,
+            "max_abs_error": 0.06038340274244547,
+            "mse": 1.7770024448777051e-06,
+            "prediction_peak": 0.01976137049496174,
+            "prediction_rms": 0.0010276401790720057,
+            "residual_dc": 0.00010354353984541542,
+            "residual_rms": 0.001333042551788091,
+            "samples": 61440,
+            "snr_db": 2.2822893896730787,
+            "target_peak": 0.07587238401174545,
+            "target_rms": 0.001733638256807544
+          }
+        },
+        {
+          "prefix_frames": 40,
+          "same_history_student_vs_teacher": {
+            "phase1920": {
+              "available": true,
+              "cycles": 32,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 1920,
+              "phase_mean_variance": 6.40685185486133e-08,
+              "phase_rms_max": 0.010691814509426995,
+              "phase_rms_min": 0.00014741283098756042,
+              "phase_template_ac_fraction_of_residual_power": 0.03605427199629114,
+              "residual_dc": 0.00010354354162115817
+            },
+            "phase480": {
+              "available": true,
+              "cycles": 128,
+              "discarded_tail_samples": 0,
+              "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+              "period_samples": 480,
+              "phase_mean_variance": 2.688467531856032e-08,
+              "phase_rms_max": 0.005650973121990326,
+              "phase_rms_min": 0.0004242149144780347,
+              "phase_template_ac_fraction_of_residual_power": 0.015129230680304665,
+              "residual_dc": 0.00010354354162115817
+            },
+            "raw_primary": {
+              "cosine": 0.6411652078515356,
+              "equal_values": false,
+              "mae": 0.0004148290890497389,
+              "max_abs_error": 0.060383426025509834,
+              "mse": 1.7770021415271943e-06,
+              "prediction_peak": 0.019761379808187485,
+              "prediction_rms": 0.0010276397860162498,
+              "residual_dc": 0.00010354354162115817,
+              "residual_rms": 0.0013330424380068305,
+              "samples": 61440,
+              "snr_db": 2.2822901310533994,
+              "target_peak": 0.07587238401174545,
+              "target_rms": 0.001733638256807544
+            }
+          },
+          "student_reset_vs_longest_history": {
+            "cosine": 1.0,
+            "equal_values": true,
+            "mae": 0.0,
+            "max_abs_error": 0.0,
+            "mse": 0.0,
+            "prediction_peak": 0.019761379808187485,
+            "prediction_rms": 0.0010276397860162498,
+            "residual_dc": 0.0,
+            "residual_rms": 0.0,
+            "samples": 61440,
+            "snr_db": null,
+            "target_peak": 0.019761379808187485,
+            "target_rms": 0.0010276397860162498
+          },
+          "student_reset_vs_teacher_longest_history": {
+            "cosine": 0.6411652078515356,
+            "equal_values": false,
+            "mae": 0.0004148290890497389,
+            "max_abs_error": 0.060383426025509834,
+            "mse": 1.7770021415271943e-06,
+            "prediction_peak": 0.019761379808187485,
+            "prediction_rms": 0.0010276397860162498,
+            "residual_dc": 0.00010354354162115817,
+            "residual_rms": 0.0013330424380068305,
+            "samples": 61440,
+            "snr_db": 2.2822901310533994,
+            "target_peak": 0.07587238401174545,
+            "target_rms": 0.001733638256807544
+          }
+        }
+      ],
+      "history_log_error_slope_per_frame": -0.2993323047895096,
+      "longest_history_student_vs_teacher": {
+        "phase1920": {
+          "available": true,
+          "cycles": 32,
+          "discarded_tail_samples": 0,
+          "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+          "period_samples": 1920,
+          "phase_mean_variance": 6.40685185486133e-08,
+          "phase_rms_max": 0.010691814509426995,
+          "phase_rms_min": 0.00014741283098756042,
+          "phase_template_ac_fraction_of_residual_power": 0.03605427199629114,
+          "residual_dc": 0.00010354354162115817
+        },
+        "phase480": {
+          "available": true,
+          "cycles": 128,
+          "discarded_tail_samples": 0,
+          "interpretation": "Descriptive grid dependence, not proof of a tone or architectural cause",
+          "period_samples": 480,
+          "phase_mean_variance": 2.688467531856032e-08,
+          "phase_rms_max": 0.005650973121990326,
+          "phase_rms_min": 0.0004242149144780347,
+          "phase_template_ac_fraction_of_residual_power": 0.015129230680304665,
+          "residual_dc": 0.00010354354162115817
+        },
+        "raw_primary": {
+          "cosine": 0.6411652078515356,
+          "equal_values": false,
+          "mae": 0.0004148290890497389,
+          "max_abs_error": 0.060383426025509834,
+          "mse": 1.7770021415271943e-06,
+          "prediction_peak": 0.019761379808187485,
+          "prediction_rms": 0.0010276397860162498,
+          "residual_dc": 0.00010354354162115817,
+          "residual_rms": 0.0013330424380068305,
+          "samples": 61440,
+          "snr_db": 2.2822901310533994,
+          "target_peak": 0.07587238401174545,
+          "target_rms": 0.001733638256807544
+        },
+        "secondary_lag_gain": {
+          "common_samples": 61344,
+          "diagnostic_only": true,
+          "does_not_replace_raw_primary": true,
+          "excluded_each_end_samples": 48,
+          "fit": {
+            "lag_samples": 0,
+            "lag_seconds": 0.0,
+            "mse": 1.7726629078999795e-06,
+            "prediction_gain": 1.081710543347925,
+            "residual_rms": 0.0013314138755097828
+          },
+          "gain_bounds": [
+            0.8,
+            1.25
+          ],
+          "lag_convention": "compare prediction[t+lag] to target[t]",
+          "raw_common_grid": {
+            "cosine": 0.6411828169458252,
+            "equal_values": false,
+            "mae": 0.00041521362037263526,
+            "max_abs_error": 0.060383426025509834,
+            "mse": 1.7797243562261304e-06,
+            "prediction_peak": 0.019761379808187485,
+            "prediction_rms": 0.001028415927881623,
+            "residual_dc": 0.000103472369863331,
+            "residual_rms": 0.001334063100541399,
+            "samples": 61344,
+            "snr_db": 2.282432197494543,
+            "target_peak": 0.07587238401174545,
+            "target_rms": 0.001734994018454009
+          }
+        }
+      },
+      "source_id": "freesound:266716",
+      "start_frame": 0,
+      "student_log_rms_vs_log_gain_slope": 0.41389533249771765,
+      "teacher_log_rms_vs_log_gain_slope": 0.9564720045382339
+    }
+  ],
+  "step": 8490
+}

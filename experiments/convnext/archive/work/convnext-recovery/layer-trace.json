@@ -1,0 +1,6265 @@
+{
+  "archive_projection_version": 1,
+  "original_relative_path": "work/convnext-recovery/layer-trace.json",
+  "original_sha256": "33fdc5edf9eff3d915564672e75dfb78d112b7fb9e60200a3e43492a0f607a99",
+  "omitted_field_paths": [
+    "final_latents_batch_vs_single.per_channel_max_abs",
+    "final_latents_batch_vs_single.per_time_max_abs",
+    "hooked_vs_unhooked.batch8.per_channel_max_abs",
+    "hooked_vs_unhooked.batch8.per_time_max_abs",
+    "hooked_vs_unhooked.single_padded.per_channel_max_abs",
+    "hooked_vs_unhooked.single_padded.per_time_max_abs",
+    "layers[0].input.per_time_max_abs",
+    "layers[0].output.per_channel_max_abs",
+    "layers[0].output.per_time_max_abs",
+    "layers[1].input.per_channel_max_abs",
+    "layers[1].input.per_time_max_abs",
+    "layers[1].output.per_channel_max_abs",
+    "layers[1].output.per_time_max_abs",
+    "layers[2].input.per_channel_max_abs",
+    "layers[2].input.per_time_max_abs",
+    "layers[2].output.per_channel_max_abs",
+    "layers[2].output.per_time_max_abs",
+    "layers[3].input.per_channel_max_abs",
+    "layers[3].input.per_time_max_abs",
+    "layers[3].output.per_channel_max_abs",
+    "layers[3].output.per_time_max_abs",
+    "layers[4].input.per_channel_max_abs",
+    "layers[4].input.per_time_max_abs",
+    "layers[4].output.per_channel_max_abs",
+    "layers[4].output.per_time_max_abs",
+    "layers[5].input.per_channel_max_abs",
+    "layers[5].input.per_time_max_abs",
+    "layers[5].output.per_channel_max_abs",
+    "layers[5].output.per_time_max_abs",
+    "layers[6].input.per_channel_max_abs",
+    "layers[6].input.per_time_max_abs",
+    "layers[6].output.per_channel_max_abs",
+    "layers[6].output.per_time_max_abs",
+    "layers[7].input.per_channel_max_abs",
+    "layers[7].input.per_time_max_abs",
+    "layers[7].output.per_channel_max_abs",
+    "layers[7].output.per_time_max_abs",
+    "layers[8].input.per_channel_max_abs",
+    "layers[8].input.per_time_max_abs",
+    "layers[8].output.per_channel_max_abs",
+    "layers[8].output.per_time_max_abs",
+    "layers[9].input.per_channel_max_abs",
+    "layers[9].input.per_time_max_abs",
+    "layers[9].output.per_channel_max_abs",
+    "layers[9].output.per_time_max_abs",
+    "layers[10].input.per_channel_max_abs",
+    "layers[10].input.per_time_max_abs",
+    "layers[10].output.per_channel_max_abs",
+    "layers[10].output.per_time_max_abs",
+    "layers[11].input.per_channel_max_abs",
+    "layers[11].input.per_time_max_abs",
+    "layers[11].output.per_channel_max_abs",
+    "layers[11].output.per_time_max_abs",
+    "layers[12].input.per_channel_max_abs",
+    "layers[12].input.per_time_max_abs",
+    "layers[12].output.per_channel_max_abs",
+    "layers[12].output.per_time_max_abs",
+    "layers[13].input.per_channel_max_abs",
+    "layers[13].input.per_time_max_abs",
+    "layers[13].output.per_channel_max_abs",
+    "layers[13].output.per_time_max_abs",
+    "layers[14].input.per_channel_max_abs",
+    "layers[14].input.per_time_max_abs",
+    "layers[14].output.per_channel_max_abs",
+    "layers[14].output.per_time_max_abs",
+    "layers[15].input.per_channel_max_abs",
+    "layers[15].input.per_time_max_abs",
+    "layers[15].output.per_channel_max_abs",
+    "layers[15].output.per_time_max_abs",
+    "layers[16].input.per_channel_max_abs",
+    "layers[16].input.per_time_max_abs",
+    "layers[16].output.per_channel_max_abs",
+    "layers[16].output.per_time_max_abs",
+    "layers[17].input.per_channel_max_abs",
+    "layers[17].input.per_time_max_abs",
+    "layers[17].output.per_channel_max_abs",
+    "layers[17].output.per_time_max_abs",
+    "layers[18].input.per_channel_max_abs",
+    "layers[18].input.per_time_max_abs",
+    "layers[18].output.per_channel_max_abs",
+    "layers[18].output.per_time_max_abs",
+    "layers[19].input.per_channel_max_abs",
+    "layers[19].input.per_time_max_abs",
+    "layers[19].output.per_channel_max_abs",
+    "layers[19].output.per_time_max_abs",
+    "layers[20].input.per_channel_max_abs",
+    "layers[20].input.per_time_max_abs",
+    "layers[20].output.per_channel_max_abs",
+    "layers[20].output.per_time_max_abs",
+    "layers[21].input.per_channel_max_abs",
+    "layers[21].input.per_time_max_abs",
+    "layers[21].output.per_channel_max_abs",
+    "layers[21].output.per_time_max_abs",
+    "layers[22].input.per_channel_max_abs",
+    "layers[22].input.per_time_max_abs",
+    "layers[22].output.per_channel_max_abs",
+    "layers[22].output.per_time_max_abs",
+    "layers[23].input.per_channel_max_abs",
+    "layers[23].input.per_time_max_abs",
+    "layers[23].output.per_channel_max_abs",
+    "layers[23].output.per_time_max_abs",
+    "layers[24].input.per_channel_max_abs",
+    "layers[24].input.per_time_max_abs",
+    "layers[24].output.per_channel_max_abs",
+    "layers[24].output.per_time_max_abs",
+    "layers[25].input.per_channel_max_abs",
+    "layers[25].input.per_time_max_abs",
+    "layers[25].output.per_channel_max_abs",
+    "layers[25].output.per_time_max_abs",
+    "layers[26].input.per_channel_max_abs",
+    "layers[26].input.per_time_max_abs",
+    "layers[26].output.per_channel_max_abs",
+    "layers[26].output.per_time_max_abs",
+    "layers[27].input.per_channel_max_abs",
+    "layers[27].input.per_time_max_abs",
+    "layers[27].output.per_channel_max_abs",
+    "layers[27].output.per_time_max_abs",
+    "layers[28].input.per_channel_max_abs",
+    "layers[28].input.per_time_max_abs",
+    "layers[28].output.per_channel_max_abs",
+    "layers[28].output.per_time_max_abs",
+    "layers[29].input.per_channel_max_abs",
+    "layers[29].input.per_time_max_abs",
+    "layers[29].output.per_channel_max_abs",
+    "layers[29].output.per_time_max_abs",
+    "layers[30].input.per_channel_max_abs",
+    "layers[30].input.per_time_max_abs",
+    "layers[30].output.per_channel_max_abs",
+    "layers[30].output.per_time_max_abs",
+    "layers[31].input.per_channel_max_abs",
+    "layers[31].input.per_time_max_abs",
+    "layers[31].output.per_channel_max_abs",
+    "layers[31].output.per_time_max_abs",
+    "layers[32].input.per_channel_max_abs",
+    "layers[32].input.per_time_max_abs",
+    "layers[32].output.per_channel_max_abs",
+    "layers[32].output.per_time_max_abs",
+    "layers[33].input.per_channel_max_abs",
+    "layers[33].input.per_time_max_abs",
+    "layers[33].output.per_channel_max_abs",
+    "layers[33].output.per_time_max_abs",
+    "layers[34].input.per_channel_max_abs",
+    "layers[34].input.per_time_max_abs",
+    "layers[34].output.per_channel_max_abs",
+    "layers[34].output.per_time_max_abs",
+    "layers[35].input.per_channel_max_abs",
+    "layers[35].input.per_time_max_abs",
+    "layers[35].output.per_channel_max_abs",
+    "layers[35].output.per_time_max_abs",
+    "layers[36].input.per_channel_max_abs",
+    "layers[36].input.per_time_max_abs",
+    "layers[36].output.per_channel_max_abs",
+    "layers[36].output.per_time_max_abs",
+    "layers[37].input.per_channel_max_abs",
+    "layers[37].input.per_time_max_abs",
+    "layers[37].output.per_channel_max_abs",
+    "layers[37].output.per_time_max_abs",
+    "layers[38].input.per_channel_max_abs",
+    "layers[38].input.per_time_max_abs",
+    "layers[38].output.per_channel_max_abs",
+    "layers[38].output.per_time_max_abs",
+    "layers[39].input.per_channel_max_abs",
+    "layers[39].input.per_time_max_abs",
+    "layers[39].output.per_channel_max_abs",
+    "layers[39].output.per_time_max_abs",
+    "layers[40].input.per_channel_max_abs",
+    "layers[40].input.per_time_max_abs",
+    "layers[40].output.per_channel_max_abs",
+    "layers[40].output.per_time_max_abs",
+    "layers[41].input.per_channel_max_abs",
+    "layers[41].input.per_time_max_abs",
+    "layers[41].output.per_channel_max_abs",
+    "layers[41].output.per_time_max_abs",
+    "layers[42].input.per_channel_max_abs",
+    "layers[42].input.per_time_max_abs",
+    "layers[42].output.per_channel_max_abs",
+    "layers[42].output.per_time_max_abs",
+    "layers[43].input.per_channel_max_abs",
+    "layers[43].input.per_time_max_abs",
+    "layers[43].output.per_channel_max_abs",
+    "layers[43].output.per_time_max_abs",
+    "layers[44].input.per_channel_max_abs",
+    "layers[44].input.per_time_max_abs",
+    "layers[44].output.per_channel_max_abs",
+    "layers[44].output.per_time_max_abs",
+    "layers[45].input.per_channel_max_abs",
+    "layers[45].input.per_time_max_abs",
+    "layers[45].output.per_channel_max_abs",
+    "layers[45].output.per_time_max_abs",
+    "layers[46].input.per_channel_max_abs",
+    "layers[46].input.per_time_max_abs",
+    "layers[46].output.per_channel_max_abs",
+    "layers[46].output.per_time_max_abs",
+    "layers[47].input.per_channel_max_abs",
+    "layers[47].input.per_time_max_abs",
+    "layers[47].output.per_channel_max_abs",
+    "layers[47].output.per_time_max_abs",
+    "layers[48].input.per_channel_max_abs",
+    "layers[48].input.per_time_max_abs",
+    "layers[48].output.per_channel_max_abs",
+    "layers[48].output.per_time_max_abs",
+    "layers[49].input.per_channel_max_abs",
+    "layers[49].input.per_time_max_abs",
+    "layers[49].output.per_channel_max_abs",
+    "layers[49].output.per_time_max_abs",
+    "layers[50].input.per_channel_max_abs",
+    "layers[50].input.per_time_max_abs",
+    "layers[50].output.per_channel_max_abs",
+    "layers[50].output.per_time_max_abs",
+    "layers[51].input.per_channel_max_abs",
+    "layers[51].input.per_time_max_abs",
+    "layers[51].output.per_channel_max_abs",
+    "layers[51].output.per_time_max_abs",
+    "layers[52].input.per_channel_max_abs",
+    "layers[52].input.per_time_max_abs",
+    "layers[52].output.per_channel_max_abs",
+    "layers[52].output.per_time_max_abs",
+    "layers[53].input.per_channel_max_abs",
+    "layers[53].input.per_time_max_abs",
+    "layers[53].output.per_channel_max_abs",
+    "layers[53].output.per_time_max_abs",
+    "layers[54].input.per_channel_max_abs",
+    "layers[54].input.per_time_max_abs",
+    "layers[54].output.per_channel_max_abs",
+    "layers[54].output.per_time_max_abs",
+    "layers[55].input.per_channel_max_abs",
+    "layers[55].input.per_time_max_abs",
+    "layers[55].output.per_channel_max_abs",
+    "layers[55].output.per_time_max_abs",
+    "layers[56].input.per_channel_max_abs",
+    "layers[56].input.per_time_max_abs",
+    "layers[56].output.per_channel_max_abs",
+    "layers[56].output.per_time_max_abs",
+    "layers[57].input.per_channel_max_abs",
+    "layers[57].input.per_time_max_abs",
+    "layers[57].output.per_channel_max_abs",
+    "layers[57].output.per_time_max_abs",
+    "layers[58].input.per_channel_max_abs",
+    "layers[58].input.per_time_max_abs",
+    "layers[58].output.per_channel_max_abs",
+    "layers[58].output.per_time_max_abs",
+    "sources"
+  ],
+  "note": "Labelled projection. Omitted numerical payloads and listed bulk report collections remain outside Git; configuration metadata is retained.",
+  "report": {
+    "batch_input_sha256": "0daf8ca3f051487f486330f9e90511d5e5ab7bb98d97a6dbd1390f31093b8227",
+    "capture_file": {
+      "bytes": 686753003,
+      "name": "captured-prefixes.pt",
+      "scope": "Only selected row input/output prefixes, with final selected-row latents; no source PCM or full weight tensors",
+      "sha256": "9e3e7dd251cca97e03bb1ebac0a1f6d8fb421836fba5b9df8515322342f0241a"
+    },
+    "checkpoint_preservation": {
+      "retained_checkpoint_hashes_unchanged": true
+    },
+    "final_latents_batch_vs_single": {
+      "actual_rms": 0.9674138630703777,
+      "atol": 1e-05,
+      "bitwise_equal": false,
+      "failed_samples": 146,
+      "max_abs_error": 1.1937507390975952,
+      "max_error_index": [
+        0,
+        63,
+        108
+      ],
+      "reference_rms": 0.9704394740911989,
+      "rms_error": 0.055284761253498266,
+      "rtol": 0.0001,
+      "samples": 9344,
+      "shape": [
+        1,
+        64,
+        146
+      ],
+      "within_tolerance": false
+    },
+    "first_bitwise_difference": "encoder.fc_mu",
+    "first_output_max_abs_over_1e_3": "encoder.fc_mu",
+    "first_tolerance_failure": "encoder.fc_mu",
+    "format_version": 1,
+    "historical_ids": [
+      "kannada:6192449488033510_chunk_1.flac",
+      "freesound:386521",
+      "urdu:5910974511198452_chunk_1.flac",
+      "jvnv:M2_surprise_regular_56.wav",
+      "freesound:119459",
+      "urdu:5910974511173186_chunk_1.flac",
+      "bengali:1407374883904482_chunk_1.flac",
+      "2277-149896-0009"
+    ],
+    "historical_lengths": [
+      83984,
+      88000,
+      88288,
+      88589,
+      88697,
+      88832,
+      90848,
+      93040
+    ],
+    "hooked_execution_parity_passed": true,
+    "hooked_vs_unhooked": {
+      "batch8": {
+        "actual_rms": 0.9674138630703777,
+        "atol": 1e-05,
+        "bitwise_equal": true,
+        "failed_samples": 0,
+        "max_abs_error": 0.0,
+        "max_error_index": [
+          0,
+          0,
+          0
+        ],
+        "reference_rms": 0.9674138630703777,
+        "rms_error": 0.0,
+        "rtol": 0.0001,
+        "samples": 9344,
+        "shape": [
+          1,
+          64,
+          146
+        ],
+        "within_tolerance": true
+      },
+      "single_padded": {
+        "actual_rms": 0.9704394740911989,
+        "atol": 1e-05,
+        "bitwise_equal": true,
+        "failed_samples": 0,
+        "max_abs_error": 0.0,
+        "max_error_index": [
+          0,
+          0,
+          0
+        ],
+        "reference_rms": 0.9704394740911989,
+        "rms_error": 0.0,
+        "rtol": 0.0001,
+        "samples": 9344,
+        "shape": [
+          1,
+          64,
+          146
+        ],
+        "within_tolerance": true
+      }
+    },
+    "layers": [
+      {
+        "batch_input_shape": [
+          8,
+          1,
+          93440
+        ],
+        "batch_output_shape": [
+          8,
+          128,
+          93440
+        ],
+        "batch_weight": {
+          "bias_sha256": "f069b01461c288b82de7e4716fa2d8f2a5a2f1aca48a0e15154b11f940346511",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "2e2449411fd91ec83044587999e96438116d3b72f1225ba494e1b9fde3c3dc18",
+          "effective_weight_shape": [
+            128,
+            1,
+            7
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "b52f670d367348c3c43cdf3e6f284b6bc852bb36015b61f7939d626e24d998c5",
+          "weight_v_sha256": "c1e37dbbcf34046bc4b4fb62752ae0842b5371d4ad2ea74694bce3e203bd9aa8"
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.003873610509325664,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "per_channel_max_abs": [
+            0.0
+          ],
+          "reference_rms": 0.003873610509325664,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 2048,
+          "shape": [
+            1,
+            1,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.0",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.028824458662512993,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.028824458662512993,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 262144,
+          "shape": [
+            1,
+            128,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          1,
+          93440
+        ],
+        "single_output_shape": [
+          1,
+          128,
+          93440
+        ],
+        "single_weight": {
+          "bias_sha256": "f069b01461c288b82de7e4716fa2d8f2a5a2f1aca48a0e15154b11f940346511",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "2e2449411fd91ec83044587999e96438116d3b72f1225ba494e1b9fde3c3dc18",
+          "effective_weight_shape": [
+            128,
+            1,
+            7
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "b52f670d367348c3c43cdf3e6f284b6bc852bb36015b61f7939d626e24d998c5",
+          "weight_v_sha256": "c1e37dbbcf34046bc4b4fb62752ae0842b5371d4ad2ea74694bce3e203bd9aa8"
+        },
+        "type": "CausalConv1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          128,
+          93440
+        ],
+        "batch_output_shape": [
+          8,
+          128,
+          93440
+        ],
+        "batch_weight": {
+          "alpha_sha256": "fb2c15b6bc58ff4add140db8bf281dbbc82b85f3c15d0be895228cc479c5dc56",
+          "hooks": []
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.028824458662512993,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.028824458662512993,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 262144,
+          "shape": [
+            1,
+            128,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.1.block.0.block.0",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.03143230648977428,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.03143230648977428,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 262144,
+          "shape": [
+            1,
+            128,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          128,
+          93440
+        ],
+        "single_output_shape": [
+          1,
+          128,
+          93440
+        ],
+        "single_weight": {
+          "alpha_sha256": "fb2c15b6bc58ff4add140db8bf281dbbc82b85f3c15d0be895228cc479c5dc56",
+          "hooks": []
+        },
+        "type": "Snake1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          128,
+          93440
+        ],
+        "batch_output_shape": [
+          8,
+          128,
+          93440
+        ],
+        "batch_weight": {
+          "bias_sha256": "93be354f98fde2a23795eb18b87362d21ae8a678d81b6fb9b2051c02c58372e4",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "6f1ce4268528ad1ede502054a2f41149d895d43219af3dc0e5cb4494d0bf9f39",
+          "effective_weight_shape": [
+            128,
+            1,
+            7
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "eef716b32d1da27acb53247e600fcf84cfd16b00fd44ff2930b794278478e011",
+          "weight_v_sha256": "24f06b045a55d0bc0d50829bdbca80dce5adc92005605a871fda200a6e56aa50"
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.03143230648977428,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.03143230648977428,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 262144,
+          "shape": [
+            1,
+            128,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.1.block.0.block.1",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.00769739225597149,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.00769739225597149,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 262144,
+          "shape": [
+            1,
+            128,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          128,
+          93440
+        ],
+        "single_output_shape": [
+          1,
+          128,
+          93440
+        ],
+        "single_weight": {
+          "bias_sha256": "93be354f98fde2a23795eb18b87362d21ae8a678d81b6fb9b2051c02c58372e4",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "6f1ce4268528ad1ede502054a2f41149d895d43219af3dc0e5cb4494d0bf9f39",
+          "effective_weight_shape": [
+            128,
+            1,
+            7
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "eef716b32d1da27acb53247e600fcf84cfd16b00fd44ff2930b794278478e011",
+          "weight_v_sha256": "24f06b045a55d0bc0d50829bdbca80dce5adc92005605a871fda200a6e56aa50"
+        },
+        "type": "CausalConv1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          128,
+          93440
+        ],
+        "batch_output_shape": [
+          8,
+          128,
+          93440
+        ],
+        "batch_weight": {
+          "alpha_sha256": "fbcfb52e329e612d05c6fbad1923f177095ffe20963d436fe3e5ca0027404cd3",
+          "hooks": []
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.00769739225597149,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.00769739225597149,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 262144,
+          "shape": [
+            1,
+            128,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.1.block.0.block.2",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.0077529625806883745,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.0077529625806883745,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 262144,
+          "shape": [
+            1,
+            128,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          128,
+          93440
+        ],
+        "single_output_shape": [
+          1,
+          128,
+          93440
+        ],
+        "single_weight": {
+          "alpha_sha256": "fbcfb52e329e612d05c6fbad1923f177095ffe20963d436fe3e5ca0027404cd3",
+          "hooks": []
+        },
+        "type": "Snake1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          128,
+          93440
+        ],
+        "batch_output_shape": [
+          8,
+          128,
+          93440
+        ],
+        "batch_weight": {
+          "bias_sha256": "fa391953cc795f925b0a01dc526cca5f9133f362f5b1248c16604195db12b9b8",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "611a00d31278b86596d3372f94458a6ca21b5e1df2da6264f1b70cff38e8528c",
+          "effective_weight_shape": [
+            128,
+            128,
+            1
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "b72120f4b43c415221c690655dcc0fd6040c998a22bc8169418c46d3493d513f",
+          "weight_v_sha256": "84f1bfc97ce3d7f98ce7bed93f19a9ec43a12d1128b3ded9e679f90439421741"
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.0077529625806883745,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.0077529625806883745,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 262144,
+          "shape": [
+            1,
+            128,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.1.block.0.block.3",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.03835375723877098,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.03835375723877098,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 262144,
+          "shape": [
+            1,
+            128,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          128,
+          93440
+        ],
+        "single_output_shape": [
+          1,
+          128,
+          93440
+        ],
+        "single_weight": {
+          "bias_sha256": "fa391953cc795f925b0a01dc526cca5f9133f362f5b1248c16604195db12b9b8",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "611a00d31278b86596d3372f94458a6ca21b5e1df2da6264f1b70cff38e8528c",
+          "effective_weight_shape": [
+            128,
+            128,
+            1
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "b72120f4b43c415221c690655dcc0fd6040c998a22bc8169418c46d3493d513f",
+          "weight_v_sha256": "84f1bfc97ce3d7f98ce7bed93f19a9ec43a12d1128b3ded9e679f90439421741"
+        },
+        "type": "CausalConv1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          128,
+          93440
+        ],
+        "batch_output_shape": [
+          8,
+          128,
+          93440
+        ],
+        "batch_weight": {
+          "alpha_sha256": "cd36bd9372c970a7d789ff3c446b24bd955d8991282adcf1d6e0d5e00b55046e",
+          "hooks": []
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.059200360745983026,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.059200360745983026,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 262144,
+          "shape": [
+            1,
+            128,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.1.block.1.block.0",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.06436395425696034,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.06436395425696034,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 262144,
+          "shape": [
+            1,
+            128,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          128,
+          93440
+        ],
+        "single_output_shape": [
+          1,
+          128,
+          93440
+        ],
+        "single_weight": {
+          "alpha_sha256": "cd36bd9372c970a7d789ff3c446b24bd955d8991282adcf1d6e0d5e00b55046e",
+          "hooks": []
+        },
+        "type": "Snake1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          128,
+          93440
+        ],
+        "batch_output_shape": [
+          8,
+          128,
+          93440
+        ],
+        "batch_weight": {
+          "bias_sha256": "c8d71c33b435abf9d292bfee9e8baf0b2871382d87a244b833b640829b6dce8a",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "bf9e7a93107a371263d2c256236765f4235988b97393a6f71ae6aa7dabfe2120",
+          "effective_weight_shape": [
+            128,
+            1,
+            7
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "23946d576d991589d30d62d470407a7d4c4b62f84606334e7035c645cd8b00de",
+          "weight_v_sha256": "2016557debd087399cebaa35c33391a4f00020cb1057936fffbc89555aa8532c"
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.06436395425696034,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.06436395425696034,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 262144,
+          "shape": [
+            1,
+            128,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.1.block.1.block.1",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.034970859443075174,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.034970859443075174,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 262144,
+          "shape": [
+            1,
+            128,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          128,
+          93440
+        ],
+        "single_output_shape": [
+          1,
+          128,
+          93440
+        ],
+        "single_weight": {
+          "bias_sha256": "c8d71c33b435abf9d292bfee9e8baf0b2871382d87a244b833b640829b6dce8a",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "bf9e7a93107a371263d2c256236765f4235988b97393a6f71ae6aa7dabfe2120",
+          "effective_weight_shape": [
+            128,
+            1,
+            7
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "23946d576d991589d30d62d470407a7d4c4b62f84606334e7035c645cd8b00de",
+          "weight_v_sha256": "2016557debd087399cebaa35c33391a4f00020cb1057936fffbc89555aa8532c"
+        },
+        "type": "CausalConv1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          128,
+          93440
+        ],
+        "batch_output_shape": [
+          8,
+          128,
+          93440
+        ],
+        "batch_weight": {
+          "alpha_sha256": "eeed550854763727d463ef37b596ebdec1b55e83e7f50393504be10182012873",
+          "hooks": []
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.034970859443075174,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.034970859443075174,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 262144,
+          "shape": [
+            1,
+            128,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.1.block.1.block.2",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.038719590217640806,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.038719590217640806,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 262144,
+          "shape": [
+            1,
+            128,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          128,
+          93440
+        ],
+        "single_output_shape": [
+          1,
+          128,
+          93440
+        ],
+        "single_weight": {
+          "alpha_sha256": "eeed550854763727d463ef37b596ebdec1b55e83e7f50393504be10182012873",
+          "hooks": []
+        },
+        "type": "Snake1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          128,
+          93440
+        ],
+        "batch_output_shape": [
+          8,
+          128,
+          93440
+        ],
+        "batch_weight": {
+          "bias_sha256": "7f8174c957ba29c1026c9816ee540b6cefc509d02bf87dffaf704eeaf1cef82a",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "8618bde70310aa80392db730d1d369020fc3b85108b86943ffd0d849810c3e26",
+          "effective_weight_shape": [
+            128,
+            128,
+            1
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "6c7ff04e9fa0ce8397f287777e7557062730a4ab3582413b1aac2e32e165fd03",
+          "weight_v_sha256": "32de0fe5884f4ee442a64890388a2b84ec1553f420673f9b0791f8a90e7b7be7"
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.038719590217640806,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.038719590217640806,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 262144,
+          "shape": [
+            1,
+            128,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.1.block.1.block.3",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.06227888706687971,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.06227888706687971,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 262144,
+          "shape": [
+            1,
+            128,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          128,
+          93440
+        ],
+        "single_output_shape": [
+          1,
+          128,
+          93440
+        ],
+        "single_weight": {
+          "bias_sha256": "7f8174c957ba29c1026c9816ee540b6cefc509d02bf87dffaf704eeaf1cef82a",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "8618bde70310aa80392db730d1d369020fc3b85108b86943ffd0d849810c3e26",
+          "effective_weight_shape": [
+            128,
+            128,
+            1
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "6c7ff04e9fa0ce8397f287777e7557062730a4ab3582413b1aac2e32e165fd03",
+          "weight_v_sha256": "32de0fe5884f4ee442a64890388a2b84ec1553f420673f9b0791f8a90e7b7be7"
+        },
+        "type": "CausalConv1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          128,
+          93440
+        ],
+        "batch_output_shape": [
+          8,
+          128,
+          93440
+        ],
+        "batch_weight": {
+          "alpha_sha256": "a052edd5ead239839c7097da5193977458ed9c7d783528790c840a0a8a87f165",
+          "hooks": []
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.10506144968861672,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.10506144968861672,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 262144,
+          "shape": [
+            1,
+            128,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.1.block.2.block.0",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.12145742351432733,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.12145742351432733,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 262144,
+          "shape": [
+            1,
+            128,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          128,
+          93440
+        ],
+        "single_output_shape": [
+          1,
+          128,
+          93440
+        ],
+        "single_weight": {
+          "alpha_sha256": "a052edd5ead239839c7097da5193977458ed9c7d783528790c840a0a8a87f165",
+          "hooks": []
+        },
+        "type": "Snake1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          128,
+          93440
+        ],
+        "batch_output_shape": [
+          8,
+          128,
+          93440
+        ],
+        "batch_weight": {
+          "bias_sha256": "892c3d81d62b2aa91858592433574f22aae2dc4bf8d74639c2e3a80a841232f9",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "51f50a7e0a06b2698c8e0936fb0cd2096af1c70a06853f828ca8bc0e0037398e",
+          "effective_weight_shape": [
+            128,
+            1,
+            7
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "437a5c51393ad82e84b44927c90700e62a7934b912b23364730cd11afd81e8ea",
+          "weight_v_sha256": "2b6f0da54d92f910825d269275baf891d36847203eda5ca227c7a82a7f6f993e"
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.12145742351432733,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.12145742351432733,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 262144,
+          "shape": [
+            1,
+            128,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.1.block.2.block.1",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.11041755894563289,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.11041755894563289,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 262144,
+          "shape": [
+            1,
+            128,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          128,
+          93440
+        ],
+        "single_output_shape": [
+          1,
+          128,
+          93440
+        ],
+        "single_weight": {
+          "bias_sha256": "892c3d81d62b2aa91858592433574f22aae2dc4bf8d74639c2e3a80a841232f9",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "51f50a7e0a06b2698c8e0936fb0cd2096af1c70a06853f828ca8bc0e0037398e",
+          "effective_weight_shape": [
+            128,
+            1,
+            7
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "437a5c51393ad82e84b44927c90700e62a7934b912b23364730cd11afd81e8ea",
+          "weight_v_sha256": "2b6f0da54d92f910825d269275baf891d36847203eda5ca227c7a82a7f6f993e"
+        },
+        "type": "CausalConv1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          128,
+          93440
+        ],
+        "batch_output_shape": [
+          8,
+          128,
+          93440
+        ],
+        "batch_weight": {
+          "alpha_sha256": "b8fdb2ff21f945f2714a66d8a5f0be796872fa72d615d9aed4f8a404c28cf11b",
+          "hooks": []
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.11041755894563289,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.11041755894563289,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 262144,
+          "shape": [
+            1,
+            128,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.1.block.2.block.2",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.1496012928098006,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.1496012928098006,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 262144,
+          "shape": [
+            1,
+            128,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          128,
+          93440
+        ],
+        "single_output_shape": [
+          1,
+          128,
+          93440
+        ],
+        "single_weight": {
+          "alpha_sha256": "b8fdb2ff21f945f2714a66d8a5f0be796872fa72d615d9aed4f8a404c28cf11b",
+          "hooks": []
+        },
+        "type": "Snake1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          128,
+          93440
+        ],
+        "batch_output_shape": [
+          8,
+          128,
+          93440
+        ],
+        "batch_weight": {
+          "bias_sha256": "3ab7ce223cc767613f9ef75b702f22a4aa31bf2859eba44c4b44df5e0b8fc4fb",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "e33e763f04c0a3755c1cc2fbdd4fbc79416035b627d5d95a1cb05c68bf6d3e2a",
+          "effective_weight_shape": [
+            128,
+            128,
+            1
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "16c3e611c4728599741859c1f41b355555476347fd5ba701c400d51fbacd3b33",
+          "weight_v_sha256": "95c262bf4b69a0a4d4b4498b260ebd64394683d51f598e2736d74ca89e3eecc2"
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.1496012928098006,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.1496012928098006,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 262144,
+          "shape": [
+            1,
+            128,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.1.block.2.block.3",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.11103398288028968,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.11103398288028968,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 262144,
+          "shape": [
+            1,
+            128,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          128,
+          93440
+        ],
+        "single_output_shape": [
+          1,
+          128,
+          93440
+        ],
+        "single_weight": {
+          "bias_sha256": "3ab7ce223cc767613f9ef75b702f22a4aa31bf2859eba44c4b44df5e0b8fc4fb",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "e33e763f04c0a3755c1cc2fbdd4fbc79416035b627d5d95a1cb05c68bf6d3e2a",
+          "effective_weight_shape": [
+            128,
+            128,
+            1
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "16c3e611c4728599741859c1f41b355555476347fd5ba701c400d51fbacd3b33",
+          "weight_v_sha256": "95c262bf4b69a0a4d4b4498b260ebd64394683d51f598e2736d74ca89e3eecc2"
+        },
+        "type": "CausalConv1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          128,
+          93440
+        ],
+        "batch_output_shape": [
+          8,
+          128,
+          93440
+        ],
+        "batch_weight": {
+          "alpha_sha256": "45d8b4dcf3a139dc1ffcfc93a7c05e98c6156e0b3e9ed5964daa09d46b33d82a",
+          "hooks": []
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.14327508096383054,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.14327508096383054,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 262144,
+          "shape": [
+            1,
+            128,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.1.block.3",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.17987875093970987,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.17987875093970987,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 262144,
+          "shape": [
+            1,
+            128,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          128,
+          93440
+        ],
+        "single_output_shape": [
+          1,
+          128,
+          93440
+        ],
+        "single_weight": {
+          "alpha_sha256": "45d8b4dcf3a139dc1ffcfc93a7c05e98c6156e0b3e9ed5964daa09d46b33d82a",
+          "hooks": []
+        },
+        "type": "Snake1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          128,
+          93440
+        ],
+        "batch_output_shape": [
+          8,
+          256,
+          46720
+        ],
+        "batch_weight": {
+          "bias_sha256": "d07c9979c9deeb845f8535e4bb4f7f7a6cdf3db2a20774daca13b26a2addfed5",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "0f9c0c997c52dae0f425a9dab1e5b0a52b9ef26e407aed7b5d319951b2641d08",
+          "effective_weight_shape": [
+            256,
+            128,
+            4
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "a8e26da67f62bcabda90f27ef941545623b785ec1bb9cd271ba06711bd69a3e3",
+          "weight_v_sha256": "7f800d220153cc1ba8bbfd8572406408ac925765209d24c89ba56da115f84a56"
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.17987875093970987,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.17987875093970987,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 262144,
+          "shape": [
+            1,
+            128,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.1.block.4",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.3381258435416295,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.3381258435416295,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 524288,
+          "shape": [
+            1,
+            256,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          128,
+          93440
+        ],
+        "single_output_shape": [
+          1,
+          256,
+          46720
+        ],
+        "single_weight": {
+          "bias_sha256": "d07c9979c9deeb845f8535e4bb4f7f7a6cdf3db2a20774daca13b26a2addfed5",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "0f9c0c997c52dae0f425a9dab1e5b0a52b9ef26e407aed7b5d319951b2641d08",
+          "effective_weight_shape": [
+            256,
+            128,
+            4
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "a8e26da67f62bcabda90f27ef941545623b785ec1bb9cd271ba06711bd69a3e3",
+          "weight_v_sha256": "7f800d220153cc1ba8bbfd8572406408ac925765209d24c89ba56da115f84a56"
+        },
+        "type": "CausalConv1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          256,
+          46720
+        ],
+        "batch_output_shape": [
+          8,
+          256,
+          46720
+        ],
+        "batch_weight": {
+          "alpha_sha256": "40f1ffd3a9868fb36a6d3892a862241d71caa4be974d1d465d5a78c5a0acb107",
+          "hooks": []
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.3381258435416295,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.3381258435416295,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 524288,
+          "shape": [
+            1,
+            256,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.2.block.0.block.0",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.4937969005057753,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.4937969005057753,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 524288,
+          "shape": [
+            1,
+            256,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          256,
+          46720
+        ],
+        "single_output_shape": [
+          1,
+          256,
+          46720
+        ],
+        "single_weight": {
+          "alpha_sha256": "40f1ffd3a9868fb36a6d3892a862241d71caa4be974d1d465d5a78c5a0acb107",
+          "hooks": []
+        },
+        "type": "Snake1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          256,
+          46720
+        ],
+        "batch_output_shape": [
+          8,
+          256,
+          46720
+        ],
+        "batch_weight": {
+          "bias_sha256": "d1acdbfd38a9f0b85235f03d820b0a08846de2fe9746786830e9d68ce683ad79",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "2228c56cfaab876d348949e32e8351821745f8473c8d30c19cf1a6646e88fcd8",
+          "effective_weight_shape": [
+            256,
+            1,
+            7
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "a123811146a61ef5362002acf6c6b4b85e08e768c79001c8eefb464a3ebf2dd8",
+          "weight_v_sha256": "56716b015a21e4dd01b799b5c042a34c0fda820fdf630b762d6f859e07377e75"
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.4937969005057753,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.4937969005057753,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 524288,
+          "shape": [
+            1,
+            256,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.2.block.0.block.1",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.29690671520157225,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.29690671520157225,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 524288,
+          "shape": [
+            1,
+            256,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          256,
+          46720
+        ],
+        "single_output_shape": [
+          1,
+          256,
+          46720
+        ],
+        "single_weight": {
+          "bias_sha256": "d1acdbfd38a9f0b85235f03d820b0a08846de2fe9746786830e9d68ce683ad79",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "2228c56cfaab876d348949e32e8351821745f8473c8d30c19cf1a6646e88fcd8",
+          "effective_weight_shape": [
+            256,
+            1,
+            7
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "a123811146a61ef5362002acf6c6b4b85e08e768c79001c8eefb464a3ebf2dd8",
+          "weight_v_sha256": "56716b015a21e4dd01b799b5c042a34c0fda820fdf630b762d6f859e07377e75"
+        },
+        "type": "CausalConv1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          256,
+          46720
+        ],
+        "batch_output_shape": [
+          8,
+          256,
+          46720
+        ],
+        "batch_weight": {
+          "alpha_sha256": "6aeeea1064332a0ecada06308d93f47c91c93b467c5496e0f2d636e8ba6e8b7c",
+          "hooks": []
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.29690671520157225,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.29690671520157225,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 524288,
+          "shape": [
+            1,
+            256,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.2.block.0.block.2",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.4075495170833806,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.4075495170833806,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 524288,
+          "shape": [
+            1,
+            256,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          256,
+          46720
+        ],
+        "single_output_shape": [
+          1,
+          256,
+          46720
+        ],
+        "single_weight": {
+          "alpha_sha256": "6aeeea1064332a0ecada06308d93f47c91c93b467c5496e0f2d636e8ba6e8b7c",
+          "hooks": []
+        },
+        "type": "Snake1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          256,
+          46720
+        ],
+        "batch_output_shape": [
+          8,
+          256,
+          46720
+        ],
+        "batch_weight": {
+          "bias_sha256": "8e79e0c5a60499e30e93d91cc014213763f8c02e140ab109fc5113792c6d9a82",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "bd3c13345fc0831f5d0a0e8e852492271c328d8eee519a095e4e14fef0f76660",
+          "effective_weight_shape": [
+            256,
+            256,
+            1
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "c00ebfae5cf03c18ff23d0c2e201f243f1a22f72f4525ba9794519d8cbfd5116",
+          "weight_v_sha256": "a55559f41f1aabd5ccc86c3615465615684298ea5f52602a69d78ba5205341f2"
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.4075495170833806,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.4075495170833806,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 524288,
+          "shape": [
+            1,
+            256,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.2.block.0.block.3",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.43357788060027763,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.43357788060027763,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 524288,
+          "shape": [
+            1,
+            256,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          256,
+          46720
+        ],
+        "single_output_shape": [
+          1,
+          256,
+          46720
+        ],
+        "single_weight": {
+          "bias_sha256": "8e79e0c5a60499e30e93d91cc014213763f8c02e140ab109fc5113792c6d9a82",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "bd3c13345fc0831f5d0a0e8e852492271c328d8eee519a095e4e14fef0f76660",
+          "effective_weight_shape": [
+            256,
+            256,
+            1
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "c00ebfae5cf03c18ff23d0c2e201f243f1a22f72f4525ba9794519d8cbfd5116",
+          "weight_v_sha256": "a55559f41f1aabd5ccc86c3615465615684298ea5f52602a69d78ba5205341f2"
+        },
+        "type": "CausalConv1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          256,
+          46720
+        ],
+        "batch_output_shape": [
+          8,
+          256,
+          46720
+        ],
+        "batch_weight": {
+          "alpha_sha256": "94569acc37edd4d228d0c856fb1994f6d9970d22d13bcb0dd96f08e1677a58bf",
+          "hooks": []
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.5694266630016906,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.5694266630016906,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 524288,
+          "shape": [
+            1,
+            256,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.2.block.1.block.0",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.7638217198990706,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.7638217198990706,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 524288,
+          "shape": [
+            1,
+            256,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          256,
+          46720
+        ],
+        "single_output_shape": [
+          1,
+          256,
+          46720
+        ],
+        "single_weight": {
+          "alpha_sha256": "94569acc37edd4d228d0c856fb1994f6d9970d22d13bcb0dd96f08e1677a58bf",
+          "hooks": []
+        },
+        "type": "Snake1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          256,
+          46720
+        ],
+        "batch_output_shape": [
+          8,
+          256,
+          46720
+        ],
+        "batch_weight": {
+          "bias_sha256": "0a9d0733a34eab3f58f43fe31dc90a60b54f62d9339d2c0c5869785098492a76",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "363d343732b212512c2cea70557129d8d1f26d33b4a6b67c4ba2d856e8127cbf",
+          "effective_weight_shape": [
+            256,
+            1,
+            7
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "c2c3b471307fa37e08509d185d5051f94aef3a4eb6860ff19db64625a8a234a0",
+          "weight_v_sha256": "065eedbc0bdac80d1dc5a2ad35d22b841071057e72332895f6d2c774fd895c5d"
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.7638217198990706,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.7638217198990706,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 524288,
+          "shape": [
+            1,
+            256,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.2.block.1.block.1",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.5112454447459784,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.5112454447459784,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 524288,
+          "shape": [
+            1,
+            256,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          256,
+          46720
+        ],
+        "single_output_shape": [
+          1,
+          256,
+          46720
+        ],
+        "single_weight": {
+          "bias_sha256": "0a9d0733a34eab3f58f43fe31dc90a60b54f62d9339d2c0c5869785098492a76",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "363d343732b212512c2cea70557129d8d1f26d33b4a6b67c4ba2d856e8127cbf",
+          "effective_weight_shape": [
+            256,
+            1,
+            7
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "c2c3b471307fa37e08509d185d5051f94aef3a4eb6860ff19db64625a8a234a0",
+          "weight_v_sha256": "065eedbc0bdac80d1dc5a2ad35d22b841071057e72332895f6d2c774fd895c5d"
+        },
+        "type": "CausalConv1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          256,
+          46720
+        ],
+        "batch_output_shape": [
+          8,
+          256,
+          46720
+        ],
+        "batch_weight": {
+          "alpha_sha256": "e53125e7340f0b8076f04c12c94b760692a607fcf2e16f1b5b2d73cd58db68e8",
+          "hooks": []
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.5112454447459784,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.5112454447459784,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 524288,
+          "shape": [
+            1,
+            256,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.2.block.1.block.2",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.5843543126735518,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.5843543126735518,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 524288,
+          "shape": [
+            1,
+            256,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          256,
+          46720
+        ],
+        "single_output_shape": [
+          1,
+          256,
+          46720
+        ],
+        "single_weight": {
+          "alpha_sha256": "e53125e7340f0b8076f04c12c94b760692a607fcf2e16f1b5b2d73cd58db68e8",
+          "hooks": []
+        },
+        "type": "Snake1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          256,
+          46720
+        ],
+        "batch_output_shape": [
+          8,
+          256,
+          46720
+        ],
+        "batch_weight": {
+          "bias_sha256": "297088736d87453a033edd1bdef90265e9f347e8e5a1143b65bb9cdc004e38c5",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "655a16457a8e411df10f342ab23e365476a1a8179ef0a90e767b4885a0209b51",
+          "effective_weight_shape": [
+            256,
+            256,
+            1
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "fca6e8f7c097d1ad4fdb0902098213c2a62e9318416d374285582238f8803b91",
+          "weight_v_sha256": "14ca2bb5547443bc43cbcef28dc9119cd2c1643831cf286bdae2b0dd090aa6b3"
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.5843543126735518,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.5843543126735518,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 524288,
+          "shape": [
+            1,
+            256,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.2.block.1.block.3",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.48907185923110585,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.48907185923110585,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 524288,
+          "shape": [
+            1,
+            256,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          256,
+          46720
+        ],
+        "single_output_shape": [
+          1,
+          256,
+          46720
+        ],
+        "single_weight": {
+          "bias_sha256": "297088736d87453a033edd1bdef90265e9f347e8e5a1143b65bb9cdc004e38c5",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "655a16457a8e411df10f342ab23e365476a1a8179ef0a90e767b4885a0209b51",
+          "effective_weight_shape": [
+            256,
+            256,
+            1
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "fca6e8f7c097d1ad4fdb0902098213c2a62e9318416d374285582238f8803b91",
+          "weight_v_sha256": "14ca2bb5547443bc43cbcef28dc9119cd2c1643831cf286bdae2b0dd090aa6b3"
+        },
+        "type": "CausalConv1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          256,
+          46720
+        ],
+        "batch_output_shape": [
+          8,
+          256,
+          46720
+        ],
+        "batch_weight": {
+          "alpha_sha256": "8b22bee978463be33ef2f11e1fa7562a413cf18a1b14c8053d425817b4fa5faf",
+          "hooks": []
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.7050043389166587,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.7050043389166587,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 524288,
+          "shape": [
+            1,
+            256,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.2.block.2.block.0",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.8220346584899328,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.8220346584899328,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 524288,
+          "shape": [
+            1,
+            256,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          256,
+          46720
+        ],
+        "single_output_shape": [
+          1,
+          256,
+          46720
+        ],
+        "single_weight": {
+          "alpha_sha256": "8b22bee978463be33ef2f11e1fa7562a413cf18a1b14c8053d425817b4fa5faf",
+          "hooks": []
+        },
+        "type": "Snake1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          256,
+          46720
+        ],
+        "batch_output_shape": [
+          8,
+          256,
+          46720
+        ],
+        "batch_weight": {
+          "bias_sha256": "01ec4b9944c9e83ecc39372872f3dd6974a6dd63c470c72e364f8dcb4f945d09",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "de8d04bb08bc9127fb6455c30b1c7a30bb9cedb53dc1faa4de1ab67f5ad96c39",
+          "effective_weight_shape": [
+            256,
+            1,
+            7
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "0407b6f5c5656f682399252d6169d9f2201da1b58c4a8ac8d7f937668eebe2ae",
+          "weight_v_sha256": "14ba171bebb78d873dd337db6f00add2d0c45112c9e49943f75a52eb1721e83d"
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.8220346584899328,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.8220346584899328,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 524288,
+          "shape": [
+            1,
+            256,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.2.block.2.block.1",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.5122983207558613,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.5122983207558613,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 524288,
+          "shape": [
+            1,
+            256,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          256,
+          46720
+        ],
+        "single_output_shape": [
+          1,
+          256,
+          46720
+        ],
+        "single_weight": {
+          "bias_sha256": "01ec4b9944c9e83ecc39372872f3dd6974a6dd63c470c72e364f8dcb4f945d09",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "de8d04bb08bc9127fb6455c30b1c7a30bb9cedb53dc1faa4de1ab67f5ad96c39",
+          "effective_weight_shape": [
+            256,
+            1,
+            7
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "0407b6f5c5656f682399252d6169d9f2201da1b58c4a8ac8d7f937668eebe2ae",
+          "weight_v_sha256": "14ba171bebb78d873dd337db6f00add2d0c45112c9e49943f75a52eb1721e83d"
+        },
+        "type": "CausalConv1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          256,
+          46720
+        ],
+        "batch_output_shape": [
+          8,
+          256,
+          46720
+        ],
+        "batch_weight": {
+          "alpha_sha256": "0b884d67ffcd9357f95a008b5b5b5690c3f1123985296f9622e4df78d97912a9",
+          "hooks": []
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.5122983207558613,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.5122983207558613,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 524288,
+          "shape": [
+            1,
+            256,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.2.block.2.block.2",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.5793010731732015,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.5793010731732015,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 524288,
+          "shape": [
+            1,
+            256,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          256,
+          46720
+        ],
+        "single_output_shape": [
+          1,
+          256,
+          46720
+        ],
+        "single_weight": {
+          "alpha_sha256": "0b884d67ffcd9357f95a008b5b5b5690c3f1123985296f9622e4df78d97912a9",
+          "hooks": []
+        },
+        "type": "Snake1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          256,
+          46720
+        ],
+        "batch_output_shape": [
+          8,
+          256,
+          46720
+        ],
+        "batch_weight": {
+          "bias_sha256": "a42e8028619d8dc1973353e4ffbc70348ec4b906c63e87fb0366b2ea620b7bfe",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "41fea49d8728ae3f3f8c5120ea4769312e0e3f773616b690fffb14a1bd22f74c",
+          "effective_weight_shape": [
+            256,
+            256,
+            1
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "6e142ac0972664374d50bf3433df2e7f28bd08f032b8e9bcf80170c1ea8a402c",
+          "weight_v_sha256": "a8f875ec93a32de8026333c2019230dae5662b0507790ef317efd10c98cfba95"
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.5793010731732015,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.5793010731732015,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 524288,
+          "shape": [
+            1,
+            256,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.2.block.2.block.3",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.4532542157801071,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.4532542157801071,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 524288,
+          "shape": [
+            1,
+            256,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          256,
+          46720
+        ],
+        "single_output_shape": [
+          1,
+          256,
+          46720
+        ],
+        "single_weight": {
+          "bias_sha256": "a42e8028619d8dc1973353e4ffbc70348ec4b906c63e87fb0366b2ea620b7bfe",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "41fea49d8728ae3f3f8c5120ea4769312e0e3f773616b690fffb14a1bd22f74c",
+          "effective_weight_shape": [
+            256,
+            256,
+            1
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "6e142ac0972664374d50bf3433df2e7f28bd08f032b8e9bcf80170c1ea8a402c",
+          "weight_v_sha256": "a8f875ec93a32de8026333c2019230dae5662b0507790ef317efd10c98cfba95"
+        },
+        "type": "CausalConv1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          256,
+          46720
+        ],
+        "batch_output_shape": [
+          8,
+          256,
+          46720
+        ],
+        "batch_weight": {
+          "alpha_sha256": "24ce3f1905b3650df8ed3ae14437bf4a657c727f778035cb3f637b8d4c31564e",
+          "hooks": []
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.832242443676381,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.832242443676381,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 524288,
+          "shape": [
+            1,
+            256,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.2.block.3",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.7957423168370337,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.7957423168370337,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 524288,
+          "shape": [
+            1,
+            256,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          256,
+          46720
+        ],
+        "single_output_shape": [
+          1,
+          256,
+          46720
+        ],
+        "single_weight": {
+          "alpha_sha256": "24ce3f1905b3650df8ed3ae14437bf4a657c727f778035cb3f637b8d4c31564e",
+          "hooks": []
+        },
+        "type": "Snake1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          256,
+          46720
+        ],
+        "batch_output_shape": [
+          8,
+          512,
+          9344
+        ],
+        "batch_weight": {
+          "bias_sha256": "73c49dc5de2801fe4be57d76311b15ebd8b44d2733e29b1b29c632d39fcc705f",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "4d2a761820befbc8c0246c65e325ea31993820ccdb2dfaec91da0895aa99c102",
+          "effective_weight_shape": [
+            512,
+            256,
+            10
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "8df19047b6218fc945bb5592c3cff413288d28622151d854864ed908f1ddab6c",
+          "weight_v_sha256": "8b36c2c99c27905d8ea2679c8eeea1d935a29274f1f3d77ec14eda0d927928e4"
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.7957423168370337,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.7957423168370337,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 524288,
+          "shape": [
+            1,
+            256,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.2.block.4",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.5275863770171956,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.5275863770171956,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1048576,
+          "shape": [
+            1,
+            512,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          256,
+          46720
+        ],
+        "single_output_shape": [
+          1,
+          512,
+          9344
+        ],
+        "single_weight": {
+          "bias_sha256": "73c49dc5de2801fe4be57d76311b15ebd8b44d2733e29b1b29c632d39fcc705f",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "4d2a761820befbc8c0246c65e325ea31993820ccdb2dfaec91da0895aa99c102",
+          "effective_weight_shape": [
+            512,
+            256,
+            10
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "8df19047b6218fc945bb5592c3cff413288d28622151d854864ed908f1ddab6c",
+          "weight_v_sha256": "8b36c2c99c27905d8ea2679c8eeea1d935a29274f1f3d77ec14eda0d927928e4"
+        },
+        "type": "CausalConv1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          512,
+          9344
+        ],
+        "batch_output_shape": [
+          8,
+          512,
+          9344
+        ],
+        "batch_weight": {
+          "alpha_sha256": "17070ec6f79d38a2967e2cb41a987e7c479dd9e6329a9219b8375a33bf47d95e",
+          "hooks": []
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.5275863770171956,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.5275863770171956,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1048576,
+          "shape": [
+            1,
+            512,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.3.block.0.block.0",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.5966245513089468,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.5966245513089468,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1048576,
+          "shape": [
+            1,
+            512,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          512,
+          9344
+        ],
+        "single_output_shape": [
+          1,
+          512,
+          9344
+        ],
+        "single_weight": {
+          "alpha_sha256": "17070ec6f79d38a2967e2cb41a987e7c479dd9e6329a9219b8375a33bf47d95e",
+          "hooks": []
+        },
+        "type": "Snake1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          512,
+          9344
+        ],
+        "batch_output_shape": [
+          8,
+          512,
+          9344
+        ],
+        "batch_weight": {
+          "bias_sha256": "52516662a9d4e70cec25c28fe9b05f7533e84b9da4febf22c6e480617242f646",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "a09c87bbdf31f1317638db9b340b78eada33be951da8244c35fc190a6c2c9304",
+          "effective_weight_shape": [
+            512,
+            1,
+            7
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "fa5d1c22453686486b696232bb2de9e0740fdd5e4ee3254d6af03e7ac0e89e9c",
+          "weight_v_sha256": "50d931447ccfdad1449cf78d7175dea0f48116e493f7a298f47284891945528f"
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.5966245513089468,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.5966245513089468,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1048576,
+          "shape": [
+            1,
+            512,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.3.block.0.block.1",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.39049283187944867,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.39049283187944867,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1048576,
+          "shape": [
+            1,
+            512,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          512,
+          9344
+        ],
+        "single_output_shape": [
+          1,
+          512,
+          9344
+        ],
+        "single_weight": {
+          "bias_sha256": "52516662a9d4e70cec25c28fe9b05f7533e84b9da4febf22c6e480617242f646",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "a09c87bbdf31f1317638db9b340b78eada33be951da8244c35fc190a6c2c9304",
+          "effective_weight_shape": [
+            512,
+            1,
+            7
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "fa5d1c22453686486b696232bb2de9e0740fdd5e4ee3254d6af03e7ac0e89e9c",
+          "weight_v_sha256": "50d931447ccfdad1449cf78d7175dea0f48116e493f7a298f47284891945528f"
+        },
+        "type": "CausalConv1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          512,
+          9344
+        ],
+        "batch_output_shape": [
+          8,
+          512,
+          9344
+        ],
+        "batch_weight": {
+          "alpha_sha256": "57025001beb9b4ac0c2a79d5f177814080d1687126405c576a5c53c072ad5700",
+          "hooks": []
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.39049283187944867,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.39049283187944867,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1048576,
+          "shape": [
+            1,
+            512,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.3.block.0.block.2",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.4111649253179046,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.4111649253179046,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1048576,
+          "shape": [
+            1,
+            512,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          512,
+          9344
+        ],
+        "single_output_shape": [
+          1,
+          512,
+          9344
+        ],
+        "single_weight": {
+          "alpha_sha256": "57025001beb9b4ac0c2a79d5f177814080d1687126405c576a5c53c072ad5700",
+          "hooks": []
+        },
+        "type": "Snake1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          512,
+          9344
+        ],
+        "batch_output_shape": [
+          8,
+          512,
+          9344
+        ],
+        "batch_weight": {
+          "bias_sha256": "95db474d12669971663abd6f103a07b6a1969af84448e5a1a32fb0ce5ff8b229",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "d744d487feaa6ed81a5069485bf115021920b3026327c56d4521f4552c16066f",
+          "effective_weight_shape": [
+            512,
+            512,
+            1
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "cceb1145492956b0ec145c0386ed4f98db999695f271ac20944b2bbab1939a5b",
+          "weight_v_sha256": "4692a911843a42e2e2a2b383423748775267b41c712c354345e8231f0a868663"
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.4111649253179046,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.4111649253179046,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1048576,
+          "shape": [
+            1,
+            512,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.3.block.0.block.3",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.32388177982755967,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.32388177982755967,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1048576,
+          "shape": [
+            1,
+            512,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          512,
+          9344
+        ],
+        "single_output_shape": [
+          1,
+          512,
+          9344
+        ],
+        "single_weight": {
+          "bias_sha256": "95db474d12669971663abd6f103a07b6a1969af84448e5a1a32fb0ce5ff8b229",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "d744d487feaa6ed81a5069485bf115021920b3026327c56d4521f4552c16066f",
+          "effective_weight_shape": [
+            512,
+            512,
+            1
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "cceb1145492956b0ec145c0386ed4f98db999695f271ac20944b2bbab1939a5b",
+          "weight_v_sha256": "4692a911843a42e2e2a2b383423748775267b41c712c354345e8231f0a868663"
+        },
+        "type": "CausalConv1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          512,
+          9344
+        ],
+        "batch_output_shape": [
+          8,
+          512,
+          9344
+        ],
+        "batch_weight": {
+          "alpha_sha256": "0dfbfc3a784f8f8b0a03b258a364d733ce7356517fd75fb9af04cac37ac8125f",
+          "hooks": []
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.5979205077467297,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.5979205077467297,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1048576,
+          "shape": [
+            1,
+            512,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.3.block.1.block.0",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.6149107225058472,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.6149107225058472,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1048576,
+          "shape": [
+            1,
+            512,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          512,
+          9344
+        ],
+        "single_output_shape": [
+          1,
+          512,
+          9344
+        ],
+        "single_weight": {
+          "alpha_sha256": "0dfbfc3a784f8f8b0a03b258a364d733ce7356517fd75fb9af04cac37ac8125f",
+          "hooks": []
+        },
+        "type": "Snake1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          512,
+          9344
+        ],
+        "batch_output_shape": [
+          8,
+          512,
+          9344
+        ],
+        "batch_weight": {
+          "bias_sha256": "8c279d044f4ad0ce953697313c4338169c5d0d0f9012d0c47d942e9d68bdcffa",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "eb748fb0bf53f8c5fc81a6600ed133f8560b738c68767fe007d47f5ad6f04c23",
+          "effective_weight_shape": [
+            512,
+            1,
+            7
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "0607a304f6bf16bd198e658f52b433cc70f58921cc750aef7354a4afce0ad2de",
+          "weight_v_sha256": "daea21e2d3881e70fe5be3874105cc1372f82606e90154990588d32b8767d104"
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.6149107225058472,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.6149107225058472,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1048576,
+          "shape": [
+            1,
+            512,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.3.block.1.block.1",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.3412577374720792,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.3412577374720792,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1048576,
+          "shape": [
+            1,
+            512,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          512,
+          9344
+        ],
+        "single_output_shape": [
+          1,
+          512,
+          9344
+        ],
+        "single_weight": {
+          "bias_sha256": "8c279d044f4ad0ce953697313c4338169c5d0d0f9012d0c47d942e9d68bdcffa",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "eb748fb0bf53f8c5fc81a6600ed133f8560b738c68767fe007d47f5ad6f04c23",
+          "effective_weight_shape": [
+            512,
+            1,
+            7
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "0607a304f6bf16bd198e658f52b433cc70f58921cc750aef7354a4afce0ad2de",
+          "weight_v_sha256": "daea21e2d3881e70fe5be3874105cc1372f82606e90154990588d32b8767d104"
+        },
+        "type": "CausalConv1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          512,
+          9344
+        ],
+        "batch_output_shape": [
+          8,
+          512,
+          9344
+        ],
+        "batch_weight": {
+          "alpha_sha256": "452f2588844d46646729529a0c824667da07e106f3bc16e590837aee964ce583",
+          "hooks": []
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.3412577374720792,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.3412577374720792,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1048576,
+          "shape": [
+            1,
+            512,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.3.block.1.block.2",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.36460574069412444,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.36460574069412444,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1048576,
+          "shape": [
+            1,
+            512,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          512,
+          9344
+        ],
+        "single_output_shape": [
+          1,
+          512,
+          9344
+        ],
+        "single_weight": {
+          "alpha_sha256": "452f2588844d46646729529a0c824667da07e106f3bc16e590837aee964ce583",
+          "hooks": []
+        },
+        "type": "Snake1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          512,
+          9344
+        ],
+        "batch_output_shape": [
+          8,
+          512,
+          9344
+        ],
+        "batch_weight": {
+          "bias_sha256": "851c0a6dac957183b070c7451a0412e6c6922fa53e8cfc930a12eb4af6f776fd",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "8ced9a0db8aa8d4b255b2c4b79609cea8428124060379de99a279fb3759f9f76",
+          "effective_weight_shape": [
+            512,
+            512,
+            1
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "9fec94a8cef4b0f137d5454a6dd356ba2f769994be3c8da23dd29a32135d2b81",
+          "weight_v_sha256": "6b2b6be3e73754bc632ccdf2e09e4e60157beac8f9afdb9a24b60890a193059f"
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.36460574069412444,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.36460574069412444,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1048576,
+          "shape": [
+            1,
+            512,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.3.block.1.block.3",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.2782927728273876,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.2782927728273876,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1048576,
+          "shape": [
+            1,
+            512,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          512,
+          9344
+        ],
+        "single_output_shape": [
+          1,
+          512,
+          9344
+        ],
+        "single_weight": {
+          "bias_sha256": "851c0a6dac957183b070c7451a0412e6c6922fa53e8cfc930a12eb4af6f776fd",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "8ced9a0db8aa8d4b255b2c4b79609cea8428124060379de99a279fb3759f9f76",
+          "effective_weight_shape": [
+            512,
+            512,
+            1
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "9fec94a8cef4b0f137d5454a6dd356ba2f769994be3c8da23dd29a32135d2b81",
+          "weight_v_sha256": "6b2b6be3e73754bc632ccdf2e09e4e60157beac8f9afdb9a24b60890a193059f"
+        },
+        "type": "CausalConv1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          512,
+          9344
+        ],
+        "batch_output_shape": [
+          8,
+          512,
+          9344
+        ],
+        "batch_weight": {
+          "alpha_sha256": "6d02a8c0b82cb30bbfe9e7c98b8a04026e8560fe7e16dc4b19aae463fe4dc73e",
+          "hooks": []
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.6271091860398681,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.6271091860398681,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1048576,
+          "shape": [
+            1,
+            512,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.3.block.2.block.0",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.5773247134142467,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.5773247134142467,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1048576,
+          "shape": [
+            1,
+            512,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          512,
+          9344
+        ],
+        "single_output_shape": [
+          1,
+          512,
+          9344
+        ],
+        "single_weight": {
+          "alpha_sha256": "6d02a8c0b82cb30bbfe9e7c98b8a04026e8560fe7e16dc4b19aae463fe4dc73e",
+          "hooks": []
+        },
+        "type": "Snake1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          512,
+          9344
+        ],
+        "batch_output_shape": [
+          8,
+          512,
+          9344
+        ],
+        "batch_weight": {
+          "bias_sha256": "48b0bdaab90d4af0ffa4e8c1b2e066b0162c924641001989217efd09bab3051d",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "4d7ddd75825d62fb4745f8f0979ffbd61d244b14397f648fd2885642f1c26c37",
+          "effective_weight_shape": [
+            512,
+            1,
+            7
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "f15774fccf4535ed581b347b907ae02fe0ace147b02edb35839b987d0fd8656c",
+          "weight_v_sha256": "aab57a91603eb383d1d3b34bda6e1d6ecd24a91e0cd77dc0fd9aee383ab071f0"
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.5773247134142467,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.5773247134142467,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1048576,
+          "shape": [
+            1,
+            512,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.3.block.2.block.1",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.3166299926043134,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.3166299926043134,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1048576,
+          "shape": [
+            1,
+            512,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          512,
+          9344
+        ],
+        "single_output_shape": [
+          1,
+          512,
+          9344
+        ],
+        "single_weight": {
+          "bias_sha256": "48b0bdaab90d4af0ffa4e8c1b2e066b0162c924641001989217efd09bab3051d",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "4d7ddd75825d62fb4745f8f0979ffbd61d244b14397f648fd2885642f1c26c37",
+          "effective_weight_shape": [
+            512,
+            1,
+            7
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "f15774fccf4535ed581b347b907ae02fe0ace147b02edb35839b987d0fd8656c",
+          "weight_v_sha256": "aab57a91603eb383d1d3b34bda6e1d6ecd24a91e0cd77dc0fd9aee383ab071f0"
+        },
+        "type": "CausalConv1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          512,
+          9344
+        ],
+        "batch_output_shape": [
+          8,
+          512,
+          9344
+        ],
+        "batch_weight": {
+          "alpha_sha256": "4f7bc03d88ca2a592c7adcc9a52a0f92dd474c17c59e8be52f3c2bbf01e01a52",
+          "hooks": []
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.3166299926043134,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.3166299926043134,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1048576,
+          "shape": [
+            1,
+            512,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.3.block.2.block.2",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.37026127501537986,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.37026127501537986,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1048576,
+          "shape": [
+            1,
+            512,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          512,
+          9344
+        ],
+        "single_output_shape": [
+          1,
+          512,
+          9344
+        ],
+        "single_weight": {
+          "alpha_sha256": "4f7bc03d88ca2a592c7adcc9a52a0f92dd474c17c59e8be52f3c2bbf01e01a52",
+          "hooks": []
+        },
+        "type": "Snake1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          512,
+          9344
+        ],
+        "batch_output_shape": [
+          8,
+          512,
+          9344
+        ],
+        "batch_weight": {
+          "bias_sha256": "1ca7eae00bac351ca424fe3e3dbca74bbb2a18af43ee1dc2c6aa0e804dbc908f",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "9a99ef04b98bcecb1357f02786d50d39cdc5d64839f65c87e876116606722473",
+          "effective_weight_shape": [
+            512,
+            512,
+            1
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "5b1d29a013a0dec8c5e11559c3352bb2b3b24b0c600b1eff4a0272d00760076b",
+          "weight_v_sha256": "739dc82057c1ae7bcdf039ea330b37cc26de32550f231ca7dc29bd1fcf6c9154"
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.37026127501537986,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.37026127501537986,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1048576,
+          "shape": [
+            1,
+            512,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.3.block.2.block.3",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.3522515751218675,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.3522515751218675,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1048576,
+          "shape": [
+            1,
+            512,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          512,
+          9344
+        ],
+        "single_output_shape": [
+          1,
+          512,
+          9344
+        ],
+        "single_weight": {
+          "bias_sha256": "1ca7eae00bac351ca424fe3e3dbca74bbb2a18af43ee1dc2c6aa0e804dbc908f",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "9a99ef04b98bcecb1357f02786d50d39cdc5d64839f65c87e876116606722473",
+          "effective_weight_shape": [
+            512,
+            512,
+            1
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "5b1d29a013a0dec8c5e11559c3352bb2b3b24b0c600b1eff4a0272d00760076b",
+          "weight_v_sha256": "739dc82057c1ae7bcdf039ea330b37cc26de32550f231ca7dc29bd1fcf6c9154"
+        },
+        "type": "CausalConv1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          512,
+          9344
+        ],
+        "batch_output_shape": [
+          8,
+          512,
+          9344
+        ],
+        "batch_weight": {
+          "alpha_sha256": "60489e25b311472ca47cf6b49619402be5a6e7f18a5f1fe178f3686fe74b0713",
+          "hooks": []
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.7089115776234162,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.7089115776234162,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1048576,
+          "shape": [
+            1,
+            512,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.3.block.3",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.5529135340718343,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.5529135340718343,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1048576,
+          "shape": [
+            1,
+            512,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          512,
+          9344
+        ],
+        "single_output_shape": [
+          1,
+          512,
+          9344
+        ],
+        "single_weight": {
+          "alpha_sha256": "60489e25b311472ca47cf6b49619402be5a6e7f18a5f1fe178f3686fe74b0713",
+          "hooks": []
+        },
+        "type": "Snake1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          512,
+          9344
+        ],
+        "batch_output_shape": [
+          8,
+          1024,
+          1168
+        ],
+        "batch_weight": {
+          "bias_sha256": "68a023c65ee798e2194f7520ba1fc8e9ca96b4d8fa1505023d4b8e0bdfedad80",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "a894fa33628ec6d6c2a06528401b9ee4da03b2f6f2a39792a7c3791c890fe006",
+          "effective_weight_shape": [
+            1024,
+            512,
+            16
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "e5a9df67ac110551186a4d8055a4796d9eefdb23ea7dcf7e6f0c2f245c2cea21",
+          "weight_v_sha256": "43982eeeb49702cb6d84a6b6f22a977b8ad56af770651a6d2e94cceed67c3fe2"
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.5529135340718343,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.5529135340718343,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1048576,
+          "shape": [
+            1,
+            512,
+            2048
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.3.block.4",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.6197996846996415,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.6197996846996415,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1196032,
+          "shape": [
+            1,
+            1024,
+            1168
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          512,
+          9344
+        ],
+        "single_output_shape": [
+          1,
+          1024,
+          1168
+        ],
+        "single_weight": {
+          "bias_sha256": "68a023c65ee798e2194f7520ba1fc8e9ca96b4d8fa1505023d4b8e0bdfedad80",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "a894fa33628ec6d6c2a06528401b9ee4da03b2f6f2a39792a7c3791c890fe006",
+          "effective_weight_shape": [
+            1024,
+            512,
+            16
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "e5a9df67ac110551186a4d8055a4796d9eefdb23ea7dcf7e6f0c2f245c2cea21",
+          "weight_v_sha256": "43982eeeb49702cb6d84a6b6f22a977b8ad56af770651a6d2e94cceed67c3fe2"
+        },
+        "type": "CausalConv1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          1024,
+          1168
+        ],
+        "batch_output_shape": [
+          8,
+          1024,
+          1168
+        ],
+        "batch_weight": {
+          "alpha_sha256": "a929a5b5546656fdbda48de3f531eea144d757158f629d50f7d05fd46c3c2d8f",
+          "hooks": []
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.6197996846996415,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.6197996846996415,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1196032,
+          "shape": [
+            1,
+            1024,
+            1168
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.4.block.0.block.0",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.6606827678472316,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.6606827678472316,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1196032,
+          "shape": [
+            1,
+            1024,
+            1168
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          1024,
+          1168
+        ],
+        "single_output_shape": [
+          1,
+          1024,
+          1168
+        ],
+        "single_weight": {
+          "alpha_sha256": "a929a5b5546656fdbda48de3f531eea144d757158f629d50f7d05fd46c3c2d8f",
+          "hooks": []
+        },
+        "type": "Snake1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          1024,
+          1168
+        ],
+        "batch_output_shape": [
+          8,
+          1024,
+          1168
+        ],
+        "batch_weight": {
+          "bias_sha256": "922dfd24e1eb8f3bcae53c93691f44fde3f306e18fbd0f4c63f012d90c937ee0",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "e03516ee45c253e6b994e8c9f2f96c729fb7a70f952950b677cfa5104f371f4c",
+          "effective_weight_shape": [
+            1024,
+            1,
+            7
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "5277558e90366a736055338f1d9a1d58434a858cb85883b7648cfbc27d00865d",
+          "weight_v_sha256": "8302addc4103e710fba2105c73b41039cef2ba29723d36b09d80a3c9dd59d5fa"
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.6606827678472316,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.6606827678472316,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1196032,
+          "shape": [
+            1,
+            1024,
+            1168
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.4.block.0.block.1",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.3631284202655703,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.3631284202655703,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1196032,
+          "shape": [
+            1,
+            1024,
+            1168
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          1024,
+          1168
+        ],
+        "single_output_shape": [
+          1,
+          1024,
+          1168
+        ],
+        "single_weight": {
+          "bias_sha256": "922dfd24e1eb8f3bcae53c93691f44fde3f306e18fbd0f4c63f012d90c937ee0",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "e03516ee45c253e6b994e8c9f2f96c729fb7a70f952950b677cfa5104f371f4c",
+          "effective_weight_shape": [
+            1024,
+            1,
+            7
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "5277558e90366a736055338f1d9a1d58434a858cb85883b7648cfbc27d00865d",
+          "weight_v_sha256": "8302addc4103e710fba2105c73b41039cef2ba29723d36b09d80a3c9dd59d5fa"
+        },
+        "type": "CausalConv1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          1024,
+          1168
+        ],
+        "batch_output_shape": [
+          8,
+          1024,
+          1168
+        ],
+        "batch_weight": {
+          "alpha_sha256": "b57bf99ff29a6bc038f9db709b5fceb9cdf14288048009492a75f02015ef4fa1",
+          "hooks": []
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.3631284202655703,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.3631284202655703,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1196032,
+          "shape": [
+            1,
+            1024,
+            1168
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.4.block.0.block.2",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.42581956984338704,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.42581956984338704,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1196032,
+          "shape": [
+            1,
+            1024,
+            1168
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          1024,
+          1168
+        ],
+        "single_output_shape": [
+          1,
+          1024,
+          1168
+        ],
+        "single_weight": {
+          "alpha_sha256": "b57bf99ff29a6bc038f9db709b5fceb9cdf14288048009492a75f02015ef4fa1",
+          "hooks": []
+        },
+        "type": "Snake1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          1024,
+          1168
+        ],
+        "batch_output_shape": [
+          8,
+          1024,
+          1168
+        ],
+        "batch_weight": {
+          "bias_sha256": "15aa8781af81dcf15fa09ddf70d85bb84e14a34e90d6fab17ca0c3fd2344090b",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "9833692f13f2cb1dd4b2965736451035c6999b62d32c9e18b6befc359cd79ddc",
+          "effective_weight_shape": [
+            1024,
+            1024,
+            1
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "057fdf7f838196a2b401e8ddc130887acb895ae5f9ffc46608ba7ca1893d5158",
+          "weight_v_sha256": "6d35f4e74e0caa1771a597f0bd26471066d4b2bd4c8d8194c38b9e919588c9f6"
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.42581956984338704,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.42581956984338704,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1196032,
+          "shape": [
+            1,
+            1024,
+            1168
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.4.block.0.block.3",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.37234340314895553,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.37234340314895553,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1196032,
+          "shape": [
+            1,
+            1024,
+            1168
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          1024,
+          1168
+        ],
+        "single_output_shape": [
+          1,
+          1024,
+          1168
+        ],
+        "single_weight": {
+          "bias_sha256": "15aa8781af81dcf15fa09ddf70d85bb84e14a34e90d6fab17ca0c3fd2344090b",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "9833692f13f2cb1dd4b2965736451035c6999b62d32c9e18b6befc359cd79ddc",
+          "effective_weight_shape": [
+            1024,
+            1024,
+            1
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "057fdf7f838196a2b401e8ddc130887acb895ae5f9ffc46608ba7ca1893d5158",
+          "weight_v_sha256": "6d35f4e74e0caa1771a597f0bd26471066d4b2bd4c8d8194c38b9e919588c9f6"
+        },
+        "type": "CausalConv1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          1024,
+          1168
+        ],
+        "batch_output_shape": [
+          8,
+          1024,
+          1168
+        ],
+        "batch_weight": {
+          "alpha_sha256": "d5b1a6192d56dfcf6c5dfd7d24c4f5ebca90276145c81d4e540dd47c4a5c31c3",
+          "hooks": []
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.6609625711925248,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.6609625711925248,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1196032,
+          "shape": [
+            1,
+            1024,
+            1168
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.4.block.1.block.0",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.6561328401681453,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.6561328401681453,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1196032,
+          "shape": [
+            1,
+            1024,
+            1168
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          1024,
+          1168
+        ],
+        "single_output_shape": [
+          1,
+          1024,
+          1168
+        ],
+        "single_weight": {
+          "alpha_sha256": "d5b1a6192d56dfcf6c5dfd7d24c4f5ebca90276145c81d4e540dd47c4a5c31c3",
+          "hooks": []
+        },
+        "type": "Snake1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          1024,
+          1168
+        ],
+        "batch_output_shape": [
+          8,
+          1024,
+          1168
+        ],
+        "batch_weight": {
+          "bias_sha256": "b0df314c01accb2d20372ed980dfa77761488036cf831923af9fb8965df91ad5",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "adfbf9d0b079030f0b81b07bff6f2f3ead987cbe985c6fadd8259385d5687199",
+          "effective_weight_shape": [
+            1024,
+            1,
+            7
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "731f9e02a71d7200fd49a49483d0778b3bf021129ee27eb50129f88db47a222f",
+          "weight_v_sha256": "3b43de27e2d3663ac92d0c81e70ae437ddbe203e7e06794b48ac140f67e40d8c"
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.6561328401681453,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.6561328401681453,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1196032,
+          "shape": [
+            1,
+            1024,
+            1168
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.4.block.1.block.1",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.3349720795542801,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.3349720795542801,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1196032,
+          "shape": [
+            1,
+            1024,
+            1168
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          1024,
+          1168
+        ],
+        "single_output_shape": [
+          1,
+          1024,
+          1168
+        ],
+        "single_weight": {
+          "bias_sha256": "b0df314c01accb2d20372ed980dfa77761488036cf831923af9fb8965df91ad5",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "adfbf9d0b079030f0b81b07bff6f2f3ead987cbe985c6fadd8259385d5687199",
+          "effective_weight_shape": [
+            1024,
+            1,
+            7
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "731f9e02a71d7200fd49a49483d0778b3bf021129ee27eb50129f88db47a222f",
+          "weight_v_sha256": "3b43de27e2d3663ac92d0c81e70ae437ddbe203e7e06794b48ac140f67e40d8c"
+        },
+        "type": "CausalConv1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          1024,
+          1168
+        ],
+        "batch_output_shape": [
+          8,
+          1024,
+          1168
+        ],
+        "batch_weight": {
+          "alpha_sha256": "fb9e22317fa01a9c444c4d3ebe21e373d806eb47207a3f4c28173d5d2773b2bc",
+          "hooks": []
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.3349720795542801,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.3349720795542801,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1196032,
+          "shape": [
+            1,
+            1024,
+            1168
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.4.block.1.block.2",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.4059216230191394,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.4059216230191394,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1196032,
+          "shape": [
+            1,
+            1024,
+            1168
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          1024,
+          1168
+        ],
+        "single_output_shape": [
+          1,
+          1024,
+          1168
+        ],
+        "single_weight": {
+          "alpha_sha256": "fb9e22317fa01a9c444c4d3ebe21e373d806eb47207a3f4c28173d5d2773b2bc",
+          "hooks": []
+        },
+        "type": "Snake1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          1024,
+          1168
+        ],
+        "batch_output_shape": [
+          8,
+          1024,
+          1168
+        ],
+        "batch_weight": {
+          "bias_sha256": "2d7b4a258aaae6f3aa22ba1ebe220d3600123c1bbd40d1bcab586230eb44f4a6",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "a95433b1ec3532648a0694543e0ba983f64bbac881f060f99bd801ae272d5bd9",
+          "effective_weight_shape": [
+            1024,
+            1024,
+            1
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "07f38c33c574f261dc01bd558a4e0bceec3ce2cfd4e60dc38aa8739bcca4c076",
+          "weight_v_sha256": "254d4ce4fbc51afedd72dacacb341de8999786b7900dd1728d95695c69e85a52"
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.4059216230191394,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.4059216230191394,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1196032,
+          "shape": [
+            1,
+            1024,
+            1168
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.4.block.1.block.3",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.39583842241352496,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.39583842241352496,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1196032,
+          "shape": [
+            1,
+            1024,
+            1168
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          1024,
+          1168
+        ],
+        "single_output_shape": [
+          1,
+          1024,
+          1168
+        ],
+        "single_weight": {
+          "bias_sha256": "2d7b4a258aaae6f3aa22ba1ebe220d3600123c1bbd40d1bcab586230eb44f4a6",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "a95433b1ec3532648a0694543e0ba983f64bbac881f060f99bd801ae272d5bd9",
+          "effective_weight_shape": [
+            1024,
+            1024,
+            1
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "07f38c33c574f261dc01bd558a4e0bceec3ce2cfd4e60dc38aa8739bcca4c076",
+          "weight_v_sha256": "254d4ce4fbc51afedd72dacacb341de8999786b7900dd1728d95695c69e85a52"
+        },
+        "type": "CausalConv1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          1024,
+          1168
+        ],
+        "batch_output_shape": [
+          8,
+          1024,
+          1168
+        ],
+        "batch_weight": {
+          "alpha_sha256": "896feb74ed729b21f4eeaf0e3a6948b828f73a622a057d9d7f7d0e4379f49813",
+          "hooks": []
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.7264178946362276,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.7264178946362276,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1196032,
+          "shape": [
+            1,
+            1024,
+            1168
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.4.block.2.block.0",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.6733730860875067,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.6733730860875067,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1196032,
+          "shape": [
+            1,
+            1024,
+            1168
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          1024,
+          1168
+        ],
+        "single_output_shape": [
+          1,
+          1024,
+          1168
+        ],
+        "single_weight": {
+          "alpha_sha256": "896feb74ed729b21f4eeaf0e3a6948b828f73a622a057d9d7f7d0e4379f49813",
+          "hooks": []
+        },
+        "type": "Snake1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          1024,
+          1168
+        ],
+        "batch_output_shape": [
+          8,
+          1024,
+          1168
+        ],
+        "batch_weight": {
+          "bias_sha256": "06531cdd31d5bdd3b7bc57c33792a1f6de03abdfa03caa82d320867a2e245f53",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "a714ba48bd834637afb89d10dc6a5a4d98499167ea4b7b3ac58d62188d9c01f8",
+          "effective_weight_shape": [
+            1024,
+            1,
+            7
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "75c8d8b5158d095d5b0bc1fbf1d47724fc4cb629ca4403242989e37ca4dd8e28",
+          "weight_v_sha256": "ca391ddf32d3dc83bc6c97aebf019ac9cd588491c8037cf35f8170dcc55ed13f"
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.6733730860875067,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.6733730860875067,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1196032,
+          "shape": [
+            1,
+            1024,
+            1168
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.4.block.2.block.1",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.3295518766595543,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.3295518766595543,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1196032,
+          "shape": [
+            1,
+            1024,
+            1168
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          1024,
+          1168
+        ],
+        "single_output_shape": [
+          1,
+          1024,
+          1168
+        ],
+        "single_weight": {
+          "bias_sha256": "06531cdd31d5bdd3b7bc57c33792a1f6de03abdfa03caa82d320867a2e245f53",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "a714ba48bd834637afb89d10dc6a5a4d98499167ea4b7b3ac58d62188d9c01f8",
+          "effective_weight_shape": [
+            1024,
+            1,
+            7
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "75c8d8b5158d095d5b0bc1fbf1d47724fc4cb629ca4403242989e37ca4dd8e28",
+          "weight_v_sha256": "ca391ddf32d3dc83bc6c97aebf019ac9cd588491c8037cf35f8170dcc55ed13f"
+        },
+        "type": "CausalConv1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          1024,
+          1168
+        ],
+        "batch_output_shape": [
+          8,
+          1024,
+          1168
+        ],
+        "batch_weight": {
+          "alpha_sha256": "373095137a63375c110aa76640a68343666a57ee99ef9b0519d99b5a9cf5fd4d",
+          "hooks": []
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.3295518766595543,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.3295518766595543,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1196032,
+          "shape": [
+            1,
+            1024,
+            1168
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.4.block.2.block.2",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.39655338218262637,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.39655338218262637,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1196032,
+          "shape": [
+            1,
+            1024,
+            1168
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          1024,
+          1168
+        ],
+        "single_output_shape": [
+          1,
+          1024,
+          1168
+        ],
+        "single_weight": {
+          "alpha_sha256": "373095137a63375c110aa76640a68343666a57ee99ef9b0519d99b5a9cf5fd4d",
+          "hooks": []
+        },
+        "type": "Snake1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          1024,
+          1168
+        ],
+        "batch_output_shape": [
+          8,
+          1024,
+          1168
+        ],
+        "batch_weight": {
+          "bias_sha256": "ee476bcfd89760626aabbe9516a5e49239de6b1d73a9514018485a2e4f1d3687",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "9b3465204d13dfd82c89992c735dd1e30a6795707e1586adeff2b3138c49b74c",
+          "effective_weight_shape": [
+            1024,
+            1024,
+            1
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "0a3c0c2c3a25c65cafb9e4138f8cb273b29384882d61379c26d5f3da0b568398",
+          "weight_v_sha256": "eb698c2e9e09b66b8c1f7fd3cff9204071d7d8d1f6527b6198e1952d9cb8dcb7"
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.39655338218262637,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.39655338218262637,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1196032,
+          "shape": [
+            1,
+            1024,
+            1168
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.4.block.2.block.3",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.4774510937137612,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.4774510937137612,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1196032,
+          "shape": [
+            1,
+            1024,
+            1168
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          1024,
+          1168
+        ],
+        "single_output_shape": [
+          1,
+          1024,
+          1168
+        ],
+        "single_weight": {
+          "bias_sha256": "ee476bcfd89760626aabbe9516a5e49239de6b1d73a9514018485a2e4f1d3687",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "9b3465204d13dfd82c89992c735dd1e30a6795707e1586adeff2b3138c49b74c",
+          "effective_weight_shape": [
+            1024,
+            1024,
+            1
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "0a3c0c2c3a25c65cafb9e4138f8cb273b29384882d61379c26d5f3da0b568398",
+          "weight_v_sha256": "eb698c2e9e09b66b8c1f7fd3cff9204071d7d8d1f6527b6198e1952d9cb8dcb7"
+        },
+        "type": "CausalConv1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          1024,
+          1168
+        ],
+        "batch_output_shape": [
+          8,
+          1024,
+          1168
+        ],
+        "batch_weight": {
+          "alpha_sha256": "d0b62cdb0c1a2e6623948be06782c0b2722736a7d3b542b86d05b78e9327e1b1",
+          "hooks": []
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.8498625730501896,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.8498625730501896,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1196032,
+          "shape": [
+            1,
+            1024,
+            1168
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.4.block.3",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.6248147835874929,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.6248147835874929,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1196032,
+          "shape": [
+            1,
+            1024,
+            1168
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          1024,
+          1168
+        ],
+        "single_output_shape": [
+          1,
+          1024,
+          1168
+        ],
+        "single_weight": {
+          "alpha_sha256": "d0b62cdb0c1a2e6623948be06782c0b2722736a7d3b542b86d05b78e9327e1b1",
+          "hooks": []
+        },
+        "type": "Snake1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          1024,
+          1168
+        ],
+        "batch_output_shape": [
+          8,
+          2048,
+          146
+        ],
+        "batch_weight": {
+          "bias_sha256": "099ae7519fcabd3c6f5395ca7ff8cefe42711dee0db9d12c44a1a1b6572dbf3f",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "673291a068db67dd29d4dc96626972333559e1acb79d2bc292509415968ef3bf",
+          "effective_weight_shape": [
+            2048,
+            1024,
+            16
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "8ea23afca55588336e73176f449ca83ae28ce46750123645f1c11eed859c712a",
+          "weight_v_sha256": "3077d7aff9d8d861d1bf1d5a1dcae6ecfb184e99e31c06fa5e49a8359e54a278"
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.6248147835874929,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.6248147835874929,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 1196032,
+          "shape": [
+            1,
+            1024,
+            1168
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.block.4.block.4",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.8129405151524494,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.8129405151524494,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 299008,
+          "shape": [
+            1,
+            2048,
+            146
+          ],
+          "within_tolerance": true
+        },
+        "single_input_shape": [
+          1,
+          1024,
+          1168
+        ],
+        "single_output_shape": [
+          1,
+          2048,
+          146
+        ],
+        "single_weight": {
+          "bias_sha256": "099ae7519fcabd3c6f5395ca7ff8cefe42711dee0db9d12c44a1a1b6572dbf3f",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "673291a068db67dd29d4dc96626972333559e1acb79d2bc292509415968ef3bf",
+          "effective_weight_shape": [
+            2048,
+            1024,
+            16
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "8ea23afca55588336e73176f449ca83ae28ce46750123645f1c11eed859c712a",
+          "weight_v_sha256": "3077d7aff9d8d861d1bf1d5a1dcae6ecfb184e99e31c06fa5e49a8359e54a278"
+        },
+        "type": "CausalConv1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          2048,
+          146
+        ],
+        "batch_output_shape": [
+          8,
+          64,
+          146
+        ],
+        "batch_weight": {
+          "bias_sha256": "646a998500eaeeaf3dc3ecbbe4fe77efb130d1572452b73b2ca6dfc88b275caf",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "e5550903eaa5b78d516889dce18d7c8204a66ce37a9405733ce8dd8c7d88c86b",
+          "effective_weight_shape": [
+            64,
+            2048,
+            3
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "39eb88b07077359a41dbefb8994cdd79ed6312534f1306d10fad5a77ad83ac7f",
+          "weight_v_sha256": "c42d25520d5e856b6d64e3c752833fe7bd5a19b121619537e9c3efa4943bff10"
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.8129405151524494,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.8129405151524494,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 299008,
+          "shape": [
+            1,
+            2048,
+            146
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.fc_mu",
+        "on_mu_path": true,
+        "output": {
+          "actual_rms": 0.9674138630703777,
+          "atol": 1e-05,
+          "bitwise_equal": false,
+          "failed_samples": 146,
+          "max_abs_error": 1.1937507390975952,
+          "max_error_index": [
+            0,
+            63,
+            108
+          ],
+          "reference_rms": 0.9704394740911989,
+          "rms_error": 0.055284761253498266,
+          "rtol": 0.0001,
+          "samples": 9344,
+          "shape": [
+            1,
+            64,
+            146
+          ],
+          "within_tolerance": false
+        },
+        "single_input_shape": [
+          1,
+          2048,
+          146
+        ],
+        "single_output_shape": [
+          1,
+          64,
+          146
+        ],
+        "single_weight": {
+          "bias_sha256": "646a998500eaeeaf3dc3ecbbe4fe77efb130d1572452b73b2ca6dfc88b275caf",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "e5550903eaa5b78d516889dce18d7c8204a66ce37a9405733ce8dd8c7d88c86b",
+          "effective_weight_shape": [
+            64,
+            2048,
+            3
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "39eb88b07077359a41dbefb8994cdd79ed6312534f1306d10fad5a77ad83ac7f",
+          "weight_v_sha256": "c42d25520d5e856b6d64e3c752833fe7bd5a19b121619537e9c3efa4943bff10"
+        },
+        "type": "CausalConv1d"
+      },
+      {
+        "batch_input_shape": [
+          8,
+          2048,
+          146
+        ],
+        "batch_output_shape": [
+          8,
+          64,
+          146
+        ],
+        "batch_weight": {
+          "bias_sha256": "f3983d9605bd1e753d545f87cbabf9008947dbc4dc523620dbc6b2955b634e52",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "5d84b3da65f9f7ae71cdf2b2966ef8228475d02bff223ff7f52fc34029e5c482",
+          "effective_weight_shape": [
+            64,
+            2048,
+            3
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "31eeb0a4c347995abb438c93cc6723a77e1a4a37244ff607b2d3eea5933aeefa",
+          "weight_v_sha256": "39d36992eb02f193839198b47195754543edcafadcdc664b08ec864a3ac30131"
+        },
+        "effective_weight_and_hooks_equal": true,
+        "input": {
+          "actual_rms": 0.8129405151524494,
+          "atol": 1e-05,
+          "bitwise_equal": true,
+          "failed_samples": 0,
+          "max_abs_error": 0.0,
+          "max_error_index": [
+            0,
+            0,
+            0
+          ],
+          "reference_rms": 0.8129405151524494,
+          "rms_error": 0.0,
+          "rtol": 0.0001,
+          "samples": 299008,
+          "shape": [
+            1,
+            2048,
+            146
+          ],
+          "within_tolerance": true
+        },
+        "name": "encoder.fc_logvar",
+        "on_mu_path": false,
+        "output": {
+          "actual_rms": 8.917844760775838,
+          "atol": 1e-05,
+          "bitwise_equal": false,
+          "failed_samples": 146,
+          "max_abs_error": 7.134757995605469,
+          "max_error_index": [
+            0,
+            63,
+            127
+          ],
+          "reference_rms": 8.97943191795863,
+          "rms_error": 0.705452813970348,
+          "rtol": 0.0001,
+          "samples": 9344,
+          "shape": [
+            1,
+            64,
+            146
+          ],
+          "within_tolerance": false
+        },
+        "single_input_shape": [
+          1,
+          2048,
+          146
+        ],
+        "single_output_shape": [
+          1,
+          64,
+          146
+        ],
+        "single_weight": {
+          "bias_sha256": "f3983d9605bd1e753d545f87cbabf9008947dbc4dc523620dbc6b2955b634e52",
+          "effective_weight_device": "cuda:0",
+          "effective_weight_dtype": "torch.float32",
+          "effective_weight_registered_buffer": false,
+          "effective_weight_registered_parameter": false,
+          "effective_weight_sha256": "5d84b3da65f9f7ae71cdf2b2966ef8228475d02bff223ff7f52fc34029e5c482",
+          "effective_weight_shape": [
+            64,
+            2048,
+            3
+          ],
+          "hooks": [
+            {
+              "dim": 0,
+              "name": "weight",
+              "type": "WeightNorm"
+            }
+          ],
+          "weight_g_sha256": "31eeb0a4c347995abb438c93cc6723a77e1a4a37244ff607b2d3eea5933aeefa",
+          "weight_v_sha256": "39d36992eb02f193839198b47195754543edcafadcdc664b08ec864a3ac30131"
+        },
+        "type": "CausalConv1d"
+      }
+    ],
+    "optimizer_updates": 0,
+    "parameter_updates": 0,
+    "prefix_cap": 2048,
+    "row": 4,
+    "runtime": {
+      "cudnn": 91900,
+      "cudnn_tf32": false,
+      "deterministic": true,
+      "matmul_tf32": false,
+      "torch": "2.11.0+cu128"
+    },
+    "scope": "Locate frozen AudioVAE2 encoder batch divergence without changing its weights.\n\nOnly row4 of the historical batch is retained, capped to2048 time positions per\nleaf input/output. All scalar comparisons and local references are diagnostic;\nthis does not change cache contents, teacher semantics or training state.\n",
+    "single_input_sha256": "e2f4d50e79d210e28784ffc2d17656e5510bfead5ecc63dda7d8646046a6171a",
+    "source_id": "freesound:119459",
+    "source_manifest_pins": {
+      "/workspace/fast-audiovae-convnext-20260909-r9/remediation/language-validation/manifest.jsonl": "323958e5020c8c2aff37e8652580708226c263986a5ae57a0a37fb73d8046b5b",
+      "/workspace/fast-audiovae-convnext-20260909-r9/remediation/language-validation/ready.json": "5f9a5f6d723f638ee23d2cb1d9f26dba9b1eff2848a364b2f5cd829e466e980b",
+      "/workspace/fast-audiovae-convnext-20260909-r9/remediation/validation-appendix/manifest.jsonl": "6d3cf3da2b4803ec810799ed43f67497c72474a6ea06d829982d3651065d2416",
+      "/workspace/fast-audiovae-convnext-20260909-r9/remediation/validation-appendix/ready.json": "087650f832268f35a9c09bb9595c0ab4c78785246e1118201528b08a021f66dc"
+    },
+    "source_provenance": [
+      {
+        "audio_sha256": "dc1532648fb5ee9e81dbc2c2e0de26d909dac048c756ba150c5ceb3d971fcfec",
+        "gain_policy": "none: preserve original amplitude",
+        "prepared_samples16k": 83984,
+        "raw_source_verified": true,
+        "reader": "Original SourceCorpus.read_native_16k; prepared mono16k bytes, no new resampling, gain or channel change",
+        "reader_source_sha256": "b6ee04dd7d560f5f395c624324076528ce405aaebb6d0320e873fd3034fb92eb",
+        "sample_rate_hz": 16000,
+        "scope": "Complete supplied source-manifest recording segment; not necessarily the entire parent recording",
+        "source_id": "kannada:6192449488033510_chunk_1.flac",
+        "source_split": "dev"
+      },
+      {
+        "audio_sha256": "ed733d640a7f5a5432635dcbb1e7c79295b6a7cbc507a36924dd94ff5f839dfb",
+        "gain_policy": "no-additional-gain-normalization",
+        "prepared_samples16k": 88000,
+        "raw_source_verified": true,
+        "reader": "Original SourceCorpus.read_native_16k; prepared mono16k bytes, no new resampling, gain or channel change",
+        "reader_source_sha256": "b6ee04dd7d560f5f395c624324076528ce405aaebb6d0320e873fd3034fb92eb",
+        "sample_rate_hz": 16000,
+        "scope": "Complete supplied source-manifest recording segment; not necessarily the entire parent recording",
+        "source_id": "freesound:386521",
+        "source_split": "dev"
+      },
+      {
+        "audio_sha256": "214bdd4a8413a37e544bdf3fbb917881a1b7e30e90903fcfd2730ff6245d0049",
+        "gain_policy": "none: preserve original amplitude",
+        "prepared_samples16k": 88288,
+        "raw_source_verified": true,
+        "reader": "Original SourceCorpus.read_native_16k; prepared mono16k bytes, no new resampling, gain or channel change",
+        "reader_source_sha256": "b6ee04dd7d560f5f395c624324076528ce405aaebb6d0320e873fd3034fb92eb",
+        "sample_rate_hz": 16000,
+        "scope": "Complete supplied source-manifest recording segment; not necessarily the entire parent recording",
+        "source_id": "urdu:5910974511198452_chunk_1.flac",
+        "source_split": "dev"
+      },
+      {
+        "audio_sha256": "abde760b810fdfc1d0f26dac57a4ce3868a5e3e15fc0b9f64d7c0b8b03fdb25f",
+        "gain_policy": "no-additional-gain-normalization",
+        "prepared_samples16k": 88589,
+        "raw_source_verified": true,
+        "reader": "Original SourceCorpus.read_native_16k; prepared mono16k bytes, no new resampling, gain or channel change",
+        "reader_source_sha256": "b6ee04dd7d560f5f395c624324076528ce405aaebb6d0320e873fd3034fb92eb",
+        "sample_rate_hz": 16000,
+        "scope": "Complete supplied source-manifest recording segment; not necessarily the entire parent recording",
+        "source_id": "jvnv:M2_surprise_regular_56.wav",
+        "source_split": "dev"
+      },
+      {
+        "audio_sha256": "3aa3dc951bec8a3198a48d5c45c918d7966a1d32c4b95b0e769236dce0e0cbba",
+        "gain_policy": "no-additional-gain-normalization",
+        "prepared_samples16k": 88697,
+        "raw_source_verified": true,
+        "reader": "Original SourceCorpus.read_native_16k; prepared mono16k bytes, no new resampling, gain or channel change",
+        "reader_source_sha256": "b6ee04dd7d560f5f395c624324076528ce405aaebb6d0320e873fd3034fb92eb",
+        "sample_rate_hz": 16000,
+        "scope": "Complete supplied source-manifest recording segment; not necessarily the entire parent recording",
+        "source_id": "freesound:119459",
+        "source_split": "dev"
+      },
+      {
+        "audio_sha256": "4c78fac49a8821f768885aec21990842941a94333247a61659a02761b0d187b9",
+        "gain_policy": "none: preserve original amplitude",
+        "prepared_samples16k": 88832,
+        "raw_source_verified": true,
+        "reader": "Original SourceCorpus.read_native_16k; prepared mono16k bytes, no new resampling, gain or channel change",
+        "reader_source_sha256": "b6ee04dd7d560f5f395c624324076528ce405aaebb6d0320e873fd3034fb92eb",
+        "sample_rate_hz": 16000,
+        "scope": "Complete supplied source-manifest recording segment; not necessarily the entire parent recording",
+        "source_id": "urdu:5910974511173186_chunk_1.flac",
+        "source_split": "dev"
+      },
+      {
+        "audio_sha256": "a992873964acf1fa62cd5379c6cd85c8ef910703cb12bfa47d8029b377db7d86",
+        "gain_policy": "none: preserve original amplitude",
+        "prepared_samples16k": 90848,
+        "raw_source_verified": true,
+        "reader": "Original SourceCorpus.read_native_16k; prepared mono16k bytes, no new resampling, gain or channel change",
+        "reader_source_sha256": "b6ee04dd7d560f5f395c624324076528ce405aaebb6d0320e873fd3034fb92eb",
+        "sample_rate_hz": 16000,
+        "scope": "Complete supplied source-manifest recording segment; not necessarily the entire parent recording",
+        "source_id": "bengali:1407374883904482_chunk_1.flac",
+        "source_split": "dev"
+      },
+      {
+        "audio_sha256": "91f02445f3a28cf518aaf8667368e1aba09997cca55208a40bddf1d2d1f2936e",
+        "gain_policy": "none: preserve original amplitude",
+        "prepared_samples16k": 93040,
+        "raw_source_verified": true,
+        "reader": "Original SourceCorpus.read_native_16k; prepared mono16k bytes, no new resampling, gain or channel change",
+        "reader_source_sha256": "b6ee04dd7d560f5f395c624324076528ce405aaebb6d0320e873fd3034fb92eb",
+        "sample_rate_hz": 16000,
+        "scope": "Complete supplied source-manifest recording segment; not necessarily the entire parent recording",
+        "source_id": "2277-149896-0009",
+        "source_split": "dev"
+      }
+    ],
+    "startup_caveat": "Fresh process required. B8 is deliberately the first encode shape; no generic teacher warmup is performed. This preserves the observed process-history-dependent failure. Optional references run last.",
+    "startup_order": [
+      "construct_fresh_teacher_without_encode",
+      "batch8_warmup1",
+      "batch8_warmup2",
+      "batch8_trace",
+      "single_padded_warmup1",
+      "single_padded_warmup2",
+      "single_padded_trace"
+    ],
+    "teacher": {
+      "autocast": false,
+      "checkpoint_sha256": "94b5d51e107e0507d4acc976cfdadb64edd6fd06d1f751dadbf2fd1594274bf1",
+      "config": {
+        "cond_dim": 128,
+        "cond_out_layer": false,
+        "cond_type": "scale_bias",
+        "decoder_dim": 2048,
+        "decoder_rates": [
+          8,
+          6,
+          5,
+          2,
+          2,
+          2
+        ],
+        "depthwise": true,
+        "encoder_dim": 128,
+        "encoder_rates": [
+          2,
+          5,
+          8,
+          8
+        ],
+        "latent_dim": 64,
+        "out_sample_rate": 48000,
+        "sample_rate": 16000,
+        "sr_bin_boundaries": [
+          20000,
+          30000,
+          40000
+        ],
+        "use_noise_block": false
+      },
+      "decoder_hop": 1920,
+      "device": "cuda:0",
+      "dtype": "float32",
+      "encoder_hop": 640,
+      "input_padding": "right_zero_to_multiple_of_640",
+      "latent_channels": 64,
+      "latent_rate": 25,
+      "model_repo": "openbmb/VoxCPM2",
+      "model_revision": "32279effe8c19989596f05d353d1447f51d9e915",
+      "posterior": "raw_mu",
+      "reconstruct_trim": "right_trim_to_3_times_original_input_samples",
+      "sample_rate_in": 16000,
+      "sample_rate_out": 48000,
+      "source_repo": "OpenBMB/VoxCPM",
+      "source_revision": "f772e498a45fbb5fb8e13fbf9b9c48be9fe33e69",
+      "source_sha256": "2efdff1708d8ec1471624aae6f232d0f933de26b788b6901c434246847e2d3a8",
+      "sr_cond": 48000,
+      "tf32": false,
+      "torch_version": "2.11.0+cu128",
+      "weight_norm": "original_retained"
+    },
+    "teacher_state_after": "8da1691a055ac7eee3d06750846fc1ad1f887adfec13c31340cab7397fde1501",
+    "teacher_state_before": "8da1691a055ac7eee3d06750846fc1ad1f887adfec13c31340cab7397fde1501",
+    "trace_source_sha256": "e4cf0932fcb0bf0931ee9888ae151d576f5acfeab19c976ccf4bd7b2621571d3",
+    "warmups_per_shape": 2
+  }
+}

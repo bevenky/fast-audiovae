@@ -1,0 +1,212 @@
+{
+  "checked_utc": "2026-09-08T20:21:03.488235+00:00",
+  "runs": {
+    "warmup-speech-muon-v1": {
+      "steps": 1000,
+      "first_step": 1,
+      "last_step": 1000,
+      "logged_wall_seconds": 252.9546685218811,
+      "metrics": {
+        "train/step_seconds": {
+          "n": 1000,
+          "total": 165.98931884765625,
+          "mean": 0.16598931884765625,
+          "last100_mean": 0.14254481308162212,
+          "last100_min": 0.1195865198969841,
+          "last100_max": 0.20081914961338043
+        },
+        "train/examples": {
+          "n": 1000,
+          "total": 8000.0,
+          "mean": 8.0,
+          "last100_mean": 8.0,
+          "last100_min": 8.0,
+          "last100_max": 8.0
+        },
+        "train/scored_samples": {
+          "n": 1000,
+          "total": 868223280.0,
+          "mean": 868223.28,
+          "last100_mean": 843878.4,
+          "last100_min": 587520.0,
+          "last100_max": 983040.0
+        },
+        "train/total": {
+          "n": 1000,
+          "total": 55825.864625930786,
+          "mean": 55.825864625930784,
+          "last100_mean": 30.36289197921753,
+          "last100_min": 19.240659713745117,
+          "last100_max": 38.345252990722656
+        },
+        "train/teacher_spectral": {
+          "n": 1000,
+          "total": 920.3308690786362,
+          "mean": 0.9203308690786361,
+          "last100_mean": 0.3146009548008442,
+          "last100_min": 0.17173795402050018,
+          "last100_max": 0.42540422081947327
+        },
+        "train/teacher_waveform": {
+          "n": 1000,
+          "total": 26.22218031156808,
+          "mean": 0.02622218031156808,
+          "last100_mean": 0.02387287247925997,
+          "last100_min": 0.006636409088969231,
+          "last100_max": 0.056439563632011414
+        },
+        "train/reference_spectral": {
+          "n": 1000,
+          "total": 933.2150964140892,
+          "mean": 0.9332150964140892,
+          "last100_mean": 0.5693334418535233,
+          "last100_min": 0.3684947192668915,
+          "last100_max": 0.7181757092475891
+        }
+      }
+    },
+    "warmup-speech-500h-v1": {
+      "steps": 646,
+      "first_step": 1001,
+      "last_step": 1646,
+      "logged_wall_seconds": 1015.1362807750702,
+      "metrics": {
+        "train/step_seconds": {
+          "n": 646,
+          "total": 1024.6802851259708,
+          "mean": 1.5861923918358682,
+          "last100_mean": 1.5766982424259186,
+          "last100_min": 0.9162520170211792,
+          "last100_max": 2.6983425617218018
+        },
+        "train/prepare_seconds": {
+          "n": 646,
+          "total": 811.9753254577518,
+          "mean": 1.2569277483866126,
+          "last100_mean": 1.2505074137449264,
+          "last100_min": 0.56122887134552,
+          "last100_max": 2.369344711303711
+        },
+        "train/student_seconds": {
+          "n": 646,
+          "total": 212.70495948195457,
+          "mean": 0.3292646431609204,
+          "last100_mean": 0.3261908200383186,
+          "last100_min": 0.29866254329681396,
+          "last100_max": 0.37027090787887573
+        },
+        "train/examples": {
+          "n": 646,
+          "total": 41344.0,
+          "mean": 64.0,
+          "last100_mean": 64.0,
+          "last100_min": 64.0,
+          "last100_max": 64.0
+        },
+        "train/scored_samples": {
+          "n": 646,
+          "total": 4610781948.0,
+          "mean": 7137433.356037152,
+          "last100_mean": 7160521.08,
+          "last100_min": 6468333.0,
+          "last100_max": 7659840.0
+        },
+        "train/total": {
+          "n": 646,
+          "total": 16405.135345458984,
+          "mean": 25.394946355199668,
+          "last100_mean": 24.213415603637696,
+          "last100_min": 20.873973846435547,
+          "last100_max": 28.2520809173584
+        },
+        "train/teacher_spectral": {
+          "n": 646,
+          "total": 158.58554889261723,
+          "mean": 0.24548846577804523,
+          "last100_mean": 0.2310580551624298,
+          "last100_min": 0.1905025839805603,
+          "last100_max": 0.2882203757762909
+        },
+        "train/teacher_waveform": {
+          "n": 646,
+          "total": 15.800213509239256,
+          "mean": 0.024458534844023615,
+          "last100_mean": 0.02411069082096219,
+          "last100_min": 0.014958051964640617,
+          "last100_max": 0.033307164907455444
+        },
+        "train/reference_spectral": {
+          "n": 646,
+          "total": 311.3455981016159,
+          "mean": 0.4819591301882599,
+          "last100_mean": 0.4605207559466362,
+          "last100_min": 0.39989200234413147,
+          "last100_max": 0.5310951471328735
+        }
+      }
+    }
+  },
+  "live_status": {
+    "stage": "source_corpus_one_pass",
+    "state": "training",
+    "step": 1646,
+    "total_steps": 10000,
+    "batch_size": 64,
+    "run_name": "warmup-speech-500h-v1",
+    "train": {
+      "total": 24.283369064331055,
+      "teacher_spectral": 0.22442734241485596,
+      "teacher_waveform": 0.02362547069787979,
+      "reference_spectral": 0.4642963111400604,
+      "gradient_norm": 338.13726806640625,
+      "examples": 64,
+      "reference_examples": 64,
+      "scored_samples": 6468333,
+      "padded_latent_frames": 983,
+      "learning_rate": 0.0002,
+      "step_seconds": 1.21921868622303,
+      "prepare_seconds": 0.848947785794735,
+      "student_seconds": 0.37027090042829514
+    },
+    "validation": {},
+    "checkpoint_step": 1000,
+    "lineage": {
+      "checkpoint_sha256": "ba999a89e8d87f9da91fd00fa1ddde04398a353a5a1ecc6e23aa36f9bd30605f",
+      "checkpoint_step": 1000,
+      "previous_data_fingerprint": "b4921381bbf566b3ae7593489d792bd0e10d1c874f253d6178c2718e973844e8",
+      "previous_effective_batch": 8,
+      "new_batch_size": 64,
+      "change": "new fixed source corpus; no-replacement scored segments; true model batches"
+    },
+    "unique_scored_hours_seen": 26.68276590277778,
+    "remaining_unique_segments": 756399,
+    "corpus_scored_hours": 510.85583296874995,
+    "seconds_in_training_loop": 1024.6802853494883,
+    "cache": {
+      "memory_hits": 33057,
+      "disk_hits": 0,
+      "cache_misses": 8287,
+      "prepared_utterances": 8287,
+      "prepared_input_samples": 1545648823,
+      "source_bytes_read": 5610715078,
+      "cache_bytes_read": 0,
+      "cache_bytes_written": 25420339199,
+      "evictions": 4103,
+      "evicted_bytes": 12537012007,
+      "source_hash_seconds": 5.136600852012634,
+      "audio_read_seconds": 8.684888951480389,
+      "teacher_seconds": 736.8388500362635,
+      "cache_load_seconds": 0,
+      "cache_write_seconds": 43.303172290325165,
+      "disk_bytes": 12883327192,
+      "disk_records": 4184,
+      "memory_records": 256,
+      "max_disk_bytes": 12884901888,
+      "min_free_bytes": 4294967296,
+      "identity_sha256": "7f1f7387d488b6bde73bd5d04e8dc2d882421cdf1c2ab9260320e804bf3f2297"
+    },
+    "updated_at_unix": 1788898863.0942767,
+    "error": null
+  },
+  "gpu_snapshot": "97 %, 68895 MiB, 95830 MiB, 67"
+}

@@ -1,0 +1,5818 @@
+{
+  "canonical_required_by_resolution": true,
+  "decision_policy": "Every included evaluation domain must pass its unchanged pilot gates; no automatic promotion",
+  "domains": {
+    "canonical": {
+      "canonical_target_cache_sha256": "6be63e6fc49d7a23c59b75cca1d1d294cf7aa83d2dbbb9c06e1622e92c574a19",
+      "checks": [
+        {
+          "comparison": "<",
+          "details": null,
+          "maximum": 1.0,
+          "name": "natural_quiet_vs_baseline",
+          "passed": true,
+          "value": 0.842784483716382
+        },
+        {
+          "comparison": "<",
+          "details": null,
+          "maximum": 1.0,
+          "name": "encoded_zero_steady_vs_baseline",
+          "passed": true,
+          "value": 0.3185440724964595
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.01,
+          "name": "natural_raw_mae_vs_baseline",
+          "passed": true,
+          "value": 0.924948088242021
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.01,
+          "name": "natural_mel_vs_baseline",
+          "passed": true,
+          "value": 0.9231014675116772
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 0.9,
+          "name": "natural_quiet_vs_control",
+          "passed": true,
+          "value": 0.8188076411682755
+        },
+        {
+          "comparison": "<",
+          "details": null,
+          "maximum": 1.0,
+          "name": "encoded_zero_steady_vs_control",
+          "passed": true,
+          "value": 0.2918761325934062
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.01,
+          "name": "natural_raw_mae_vs_control",
+          "passed": true,
+          "value": 0.9488493573989882
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.01,
+          "name": "natural_mel_vs_control",
+          "passed": true,
+          "value": 0.9296842957810824
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.02,
+          "name": "cohort/speech/raw_mae",
+          "passed": true,
+          "value": 0.9186066275091749
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.02,
+          "name": "cohort/speech/mel",
+          "passed": true,
+          "value": 0.9273154118583944
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.02,
+          "name": "cohort/expressive/raw_mae",
+          "passed": true,
+          "value": 0.9484807578172495
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.02,
+          "name": "cohort/expressive/mel",
+          "passed": true,
+          "value": 0.9205435102046993
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "condition/breathing/raw_mae",
+          "passed": true,
+          "value": 0.9768968726247286
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "condition/breathing/mel",
+          "passed": true,
+          "value": 0.923034030533643
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "condition/generic_emotion_nonverbal/raw_mae",
+          "passed": true,
+          "value": 0.920747054432123
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "condition/generic_emotion_nonverbal/mel",
+          "passed": true,
+          "value": 0.9249672641440793
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "condition/human_whistling_source_description/raw_mae",
+          "passed": true,
+          "value": 0.8235958255377772
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "condition/human_whistling_source_description/mel",
+          "passed": true,
+          "value": 0.9180453620722385
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "condition/jvnv_verbal_and_nonverbal/raw_mae",
+          "passed": true,
+          "value": 0.9357024363017112
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "condition/jvnv_verbal_and_nonverbal/mel",
+          "passed": true,
+          "value": 0.8616123129916564
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "condition/laughter/raw_mae",
+          "passed": true,
+          "value": 0.9378270729057087
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "condition/laughter/mel",
+          "passed": true,
+          "value": 0.9122792179818525
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "condition/screaming/raw_mae",
+          "passed": true,
+          "value": 0.9499119065896945
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "condition/screaming/mel",
+          "passed": true,
+          "value": 0.947626219220147
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "condition/speech/raw_mae",
+          "passed": true,
+          "value": 0.9186066275091749
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "condition/speech/mel",
+          "passed": true,
+          "value": 0.9273154118583944
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "condition/whispering/raw_mae",
+          "passed": true,
+          "value": 0.9703362072819033
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "condition/whispering/mel",
+          "passed": true,
+          "value": 0.8715753958512938
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/ar_eg/raw_mae",
+          "passed": true,
+          "value": 0.9207872622911314
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/ar_eg/mel",
+          "passed": true,
+          "value": 0.8629638149963459
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/as/raw_mae",
+          "passed": true,
+          "value": 0.9207971865623824
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/as/mel",
+          "passed": true,
+          "value": 0.9467279432220127
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/bn/raw_mae",
+          "passed": true,
+          "value": 0.9040301966014074
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/bn/mel",
+          "passed": true,
+          "value": 0.9518209723400348
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/brx/raw_mae",
+          "passed": true,
+          "value": 0.9133589880117506
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/brx/mel",
+          "passed": true,
+          "value": 0.9360190660441033
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/cmn_hans_cn/raw_mae",
+          "passed": true,
+          "value": 0.8760214142761664
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/cmn_hans_cn/mel",
+          "passed": true,
+          "value": 0.758929558289678
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/de_de/raw_mae",
+          "passed": true,
+          "value": 0.8142925892594151
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/de_de/mel",
+          "passed": true,
+          "value": 0.8611403190526554
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/doi/raw_mae",
+          "passed": true,
+          "value": 0.9053698405609177
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/doi/mel",
+          "passed": true,
+          "value": 0.9298368644394635
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/en/raw_mae",
+          "passed": true,
+          "value": 0.9408748381597151
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/en/mel",
+          "passed": true,
+          "value": 0.9227462241664884
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/es/raw_mae",
+          "passed": true,
+          "value": 0.9138658690383561
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/es/mel",
+          "passed": true,
+          "value": 0.9274021936954101
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/fr/raw_mae",
+          "passed": true,
+          "value": 0.9330088001222039
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/fr/mel",
+          "passed": true,
+          "value": 0.9403654990837129
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/hi/raw_mae",
+          "passed": true,
+          "value": 0.9153902143406558
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/hi/mel",
+          "passed": true,
+          "value": 0.9421567356007807
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/ja/raw_mae",
+          "passed": true,
+          "value": 0.9342124971079264
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/ja/mel",
+          "passed": true,
+          "value": 0.8675558399539613
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/kn/raw_mae",
+          "passed": true,
+          "value": 0.9290722830858147
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/kn/mel",
+          "passed": true,
+          "value": 0.9478186787319539
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/kok/raw_mae",
+          "passed": true,
+          "value": 0.9284039467003217
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/kok/mel",
+          "passed": true,
+          "value": 0.9503206435543575
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/ks/raw_mae",
+          "passed": true,
+          "value": 0.9424149195668607
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/ks/mel",
+          "passed": true,
+          "value": 0.9596761064727728
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/mai/raw_mae",
+          "passed": true,
+          "value": 0.911401813023544
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/mai/mel",
+          "passed": true,
+          "value": 0.932855288851823
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/ml/raw_mae",
+          "passed": true,
+          "value": 0.911261008475515
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/ml/mel",
+          "passed": true,
+          "value": 0.935748254248882
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/mni/raw_mae",
+          "passed": true,
+          "value": 0.9232507967124717
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/mni/mel",
+          "passed": true,
+          "value": 0.9411444612804895
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/mr/raw_mae",
+          "passed": true,
+          "value": 0.9173156732518275
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/mr/mel",
+          "passed": true,
+          "value": 0.9275439384864156
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/ne/raw_mae",
+          "passed": true,
+          "value": 0.8605947906097569
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/ne/mel",
+          "passed": true,
+          "value": 0.92693155581199
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/or/raw_mae",
+          "passed": true,
+          "value": 0.9376518352216616
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/or/mel",
+          "passed": true,
+          "value": 0.9453512613180475
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/pa/raw_mae",
+          "passed": true,
+          "value": 0.908391020360442
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/pa/mel",
+          "passed": true,
+          "value": 0.9470395036856953
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/pt/raw_mae",
+          "passed": true,
+          "value": 0.9307411314035238
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/pt/mel",
+          "passed": true,
+          "value": 0.939645524689136
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/sa/raw_mae",
+          "passed": true,
+          "value": 0.9304199902567736
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/sa/mel",
+          "passed": true,
+          "value": 0.9431700470497537
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/sat/raw_mae",
+          "passed": true,
+          "value": 0.8911242816665177
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/sat/mel",
+          "passed": true,
+          "value": 0.9403967709629918
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/sd/raw_mae",
+          "passed": true,
+          "value": 0.9009266427988809
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/sd/mel",
+          "passed": true,
+          "value": 0.9300884633716283
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/ta/raw_mae",
+          "passed": true,
+          "value": 0.8925491899009772
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/ta/mel",
+          "passed": true,
+          "value": 0.9384389621017691
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/te/raw_mae",
+          "passed": true,
+          "value": 0.9264554291876095
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/te/mel",
+          "passed": true,
+          "value": 0.9478360500535584
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/und/raw_mae",
+          "passed": true,
+          "value": 0.9378081006791398
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/und/mel",
+          "passed": true,
+          "value": 0.9213631651164658
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/ur/raw_mae",
+          "passed": true,
+          "value": 0.9368010841479517
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/ur/mel",
+          "passed": true,
+          "value": 0.9434796708800665
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/yue_hant_hk/raw_mae",
+          "passed": true,
+          "value": 0.8603199816196836
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/yue_hant_hk/mel",
+          "passed": true,
+          "value": 0.8681431812829408
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.01,
+          "name": "natural_maximum_peak_vs_baseline",
+          "passed": false,
+          "value": 1.0245954159067958
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.1,
+          "name": "natural_peak_excess_energy_vs_baseline",
+          "passed": false,
+          "value": 1.5371814395727148
+        }
+      ],
+      "evaluation_contract_sha256": "4d3473f605ae4d760baccedd57f6d420bae56fd0f6d3c96664addd20a861e52e",
+      "evaluation_domain": "canonical-encoder-cudnn-disabled-v1",
+      "format_version": 1,
+      "gates": {
+        "encoded_zero_steady_ratio_vs_baseline_max": 1.0,
+        "encoded_zero_steady_ratio_vs_control_max": 1.0,
+        "event_language_mae_and_mel_ratio_max": 1.05,
+        "maximum_peak_ratio_max": 1.01,
+        "minimum_sources_for_group_gate": 2,
+        "natural_mae_and_mel_ratio_max": 1.01,
+        "natural_quiet_ratio_vs_baseline_max": 1.0,
+        "natural_quiet_ratio_vs_control_max": 0.9,
+        "peak_excess_energy_ratio_max": 1.1,
+        "speech_expressive_mae_and_mel_ratio_max": 1.02
+      },
+      "gates_sha256": "6fe923d9c9e05a9e67619edd89d7979d6801cdf18c3b517237aa3174d96bdb1b",
+      "group_changes": [
+        {
+          "crops": 5,
+          "gated": true,
+          "group": "condition/breathing",
+          "ratios_vs_baseline": {
+            "mel": 0.923034030533643,
+            "raw_mae": 0.9768968726247286
+          },
+          "sources": 3
+        },
+        {
+          "crops": 24,
+          "gated": true,
+          "group": "condition/generic_emotion_nonverbal",
+          "ratios_vs_baseline": {
+            "mel": 0.9249672641440793,
+            "raw_mae": 0.920747054432123
+          },
+          "sources": 12
+        },
+        {
+          "crops": 4,
+          "gated": true,
+          "group": "condition/human_whistling_source_description",
+          "ratios_vs_baseline": {
+            "mel": 0.9180453620722385,
+            "raw_mae": 0.8235958255377772
+          },
+          "sources": 2
+        },
+        {
+          "crops": 12,
+          "gated": true,
+          "group": "condition/jvnv_verbal_and_nonverbal",
+          "ratios_vs_baseline": {
+            "mel": 0.8616123129916564,
+            "raw_mae": 0.9357024363017112
+          },
+          "sources": 6
+        },
+        {
+          "crops": 12,
+          "gated": true,
+          "group": "condition/laughter",
+          "ratios_vs_baseline": {
+            "mel": 0.9122792179818525,
+            "raw_mae": 0.9378270729057087
+          },
+          "sources": 6
+        },
+        {
+          "crops": 14,
+          "gated": true,
+          "group": "condition/screaming",
+          "ratios_vs_baseline": {
+            "mel": 0.947626219220147,
+            "raw_mae": 0.9499119065896945
+          },
+          "sources": 7
+        },
+        {
+          "crops": 203,
+          "gated": true,
+          "group": "condition/speech",
+          "ratios_vs_baseline": {
+            "mel": 0.9273154118583944,
+            "raw_mae": 0.9186066275091749
+          },
+          "sources": 103
+        },
+        {
+          "crops": 7,
+          "gated": true,
+          "group": "condition/whispering",
+          "ratios_vs_baseline": {
+            "mel": 0.8715753958512938,
+            "raw_mae": 0.9703362072819033
+          },
+          "sources": 4
+        },
+        {
+          "crops": 1,
+          "gated": false,
+          "group": "condition/yell",
+          "ratios_vs_baseline": {
+            "mel": 0.8763861584571817,
+            "raw_mae": 0.9190647164090658
+          },
+          "sources": 1
+        },
+        {
+          "crops": 8,
+          "gated": true,
+          "group": "language/ar_eg",
+          "ratios_vs_baseline": {
+            "mel": 0.8629638149963459,
+            "raw_mae": 0.9207872622911314
+          },
+          "sources": 4
+        },
+        {
+          "crops": 6,
+          "gated": true,
+          "group": "language/as",
+          "ratios_vs_baseline": {
+            "mel": 0.9467279432220127,
+            "raw_mae": 0.9207971865623824
+          },
+          "sources": 3
+        },
+        {
+          "crops": 6,
+          "gated": true,
+          "group": "language/bn",
+          "ratios_vs_baseline": {
+            "mel": 0.9518209723400348,
+            "raw_mae": 0.9040301966014074
+          },
+          "sources": 3
+        },
+        {
+          "crops": 8,
+          "gated": true,
+          "group": "language/brx",
+          "ratios_vs_baseline": {
+            "mel": 0.9360190660441033,
+            "raw_mae": 0.9133589880117506
+          },
+          "sources": 4
+        },
+        {
+          "crops": 8,
+          "gated": true,
+          "group": "language/cmn_hans_cn",
+          "ratios_vs_baseline": {
+            "mel": 0.758929558289678,
+            "raw_mae": 0.8760214142761664
+          },
+          "sources": 4
+        },
+        {
+          "crops": 8,
+          "gated": true,
+          "group": "language/de_de",
+          "ratios_vs_baseline": {
+            "mel": 0.8611403190526554,
+            "raw_mae": 0.8142925892594151
+          },
+          "sources": 4
+        },
+        {
+          "crops": 8,
+          "gated": true,
+          "group": "language/doi",
+          "ratios_vs_baseline": {
+            "mel": 0.9298368644394635,
+            "raw_mae": 0.9053698405609177
+          },
+          "sources": 4
+        },
+        {
+          "crops": 8,
+          "gated": true,
+          "group": "language/en",
+          "ratios_vs_baseline": {
+            "mel": 0.9227462241664884,
+            "raw_mae": 0.9408748381597151
+          },
+          "sources": 4
+        },
+        {
+          "crops": 4,
+          "gated": true,
+          "group": "language/es",
+          "ratios_vs_baseline": {
+            "mel": 0.9274021936954101,
+            "raw_mae": 0.9138658690383561
+          },
+          "sources": 2
+        },
+        {
+          "crops": 4,
+          "gated": true,
+          "group": "language/fr",
+          "ratios_vs_baseline": {
+            "mel": 0.9403654990837129,
+            "raw_mae": 0.9330088001222039
+          },
+          "sources": 2
+        },
+        {
+          "crops": 2,
+          "gated": false,
+          "group": "language/gu",
+          "ratios_vs_baseline": {
+            "mel": 0.9660412141107122,
+            "raw_mae": 0.94259070589759
+          },
+          "sources": 1
+        },
+        {
+          "crops": 6,
+          "gated": true,
+          "group": "language/hi",
+          "ratios_vs_baseline": {
+            "mel": 0.9421567356007807,
+            "raw_mae": 0.9153902143406558
+          },
+          "sources": 3
+        },
+        {
+          "crops": 20,
+          "gated": true,
+          "group": "language/ja",
+          "ratios_vs_baseline": {
+            "mel": 0.8675558399539613,
+            "raw_mae": 0.9342124971079264
+          },
+          "sources": 10
+        },
+        {
+          "crops": 6,
+          "gated": true,
+          "group": "language/kn",
+          "ratios_vs_baseline": {
+            "mel": 0.9478186787319539,
+            "raw_mae": 0.9290722830858147
+          },
+          "sources": 3
+        },
+        {
+          "crops": 8,
+          "gated": true,
+          "group": "language/kok",
+          "ratios_vs_baseline": {
+            "mel": 0.9503206435543575,
+            "raw_mae": 0.9284039467003217
+          },
+          "sources": 4
+        },
+        {
+          "crops": 7,
+          "gated": true,
+          "group": "language/ks",
+          "ratios_vs_baseline": {
+            "mel": 0.9596761064727728,
+            "raw_mae": 0.9424149195668607
+          },
+          "sources": 4
+        },
+        {
+          "crops": 8,
+          "gated": true,
+          "group": "language/mai",
+          "ratios_vs_baseline": {
+            "mel": 0.932855288851823,
+            "raw_mae": 0.911401813023544
+          },
+          "sources": 4
+        },
+        {
+          "crops": 5,
+          "gated": true,
+          "group": "language/ml",
+          "ratios_vs_baseline": {
+            "mel": 0.935748254248882,
+            "raw_mae": 0.911261008475515
+          },
+          "sources": 3
+        },
+        {
+          "crops": 7,
+          "gated": true,
+          "group": "language/mni",
+          "ratios_vs_baseline": {
+            "mel": 0.9411444612804895,
+            "raw_mae": 0.9232507967124717
+          },
+          "sources": 4
+        },
+        {
+          "crops": 6,
+          "gated": true,
+          "group": "language/mr",
+          "ratios_vs_baseline": {
+            "mel": 0.9275439384864156,
+            "raw_mae": 0.9173156732518275
+          },
+          "sources": 3
+        },
+        {
+          "crops": 6,
+          "gated": true,
+          "group": "language/ne",
+          "ratios_vs_baseline": {
+            "mel": 0.92693155581199,
+            "raw_mae": 0.8605947906097569
+          },
+          "sources": 3
+        },
+        {
+          "crops": 8,
+          "gated": true,
+          "group": "language/or",
+          "ratios_vs_baseline": {
+            "mel": 0.9453512613180475,
+            "raw_mae": 0.9376518352216616
+          },
+          "sources": 4
+        },
+        {
+          "crops": 6,
+          "gated": true,
+          "group": "language/pa",
+          "ratios_vs_baseline": {
+            "mel": 0.9470395036856953,
+            "raw_mae": 0.908391020360442
+          },
+          "sources": 3
+        },
+        {
+          "crops": 4,
+          "gated": true,
+          "group": "language/pt",
+          "ratios_vs_baseline": {
+            "mel": 0.939645524689136,
+            "raw_mae": 0.9307411314035238
+          },
+          "sources": 2
+        },
+        {
+          "crops": 8,
+          "gated": true,
+          "group": "language/sa",
+          "ratios_vs_baseline": {
+            "mel": 0.9431700470497537,
+            "raw_mae": 0.9304199902567736
+          },
+          "sources": 4
+        },
+        {
+          "crops": 8,
+          "gated": true,
+          "group": "language/sat",
+          "ratios_vs_baseline": {
+            "mel": 0.9403967709629918,
+            "raw_mae": 0.8911242816665177
+          },
+          "sources": 4
+        },
+        {
+          "crops": 6,
+          "gated": true,
+          "group": "language/sd",
+          "ratios_vs_baseline": {
+            "mel": 0.9300884633716283,
+            "raw_mae": 0.9009266427988809
+          },
+          "sources": 3
+        },
+        {
+          "crops": 6,
+          "gated": true,
+          "group": "language/ta",
+          "ratios_vs_baseline": {
+            "mel": 0.9384389621017691,
+            "raw_mae": 0.8925491899009772
+          },
+          "sources": 3
+        },
+        {
+          "crops": 6,
+          "gated": true,
+          "group": "language/te",
+          "ratios_vs_baseline": {
+            "mel": 0.9478360500535584,
+            "raw_mae": 0.9264554291876095
+          },
+          "sources": 3
+        },
+        {
+          "crops": 67,
+          "gated": true,
+          "group": "language/und",
+          "ratios_vs_baseline": {
+            "mel": 0.9213631651164658,
+            "raw_mae": 0.9378081006791398
+          },
+          "sources": 35
+        },
+        {
+          "crops": 6,
+          "gated": true,
+          "group": "language/ur",
+          "ratios_vs_baseline": {
+            "mel": 0.9434796708800665,
+            "raw_mae": 0.9368010841479517
+          },
+          "sources": 3
+        },
+        {
+          "crops": 8,
+          "gated": true,
+          "group": "language/yue_hant_hk",
+          "ratios_vs_baseline": {
+            "mel": 0.8681431812829408,
+            "raw_mae": 0.8603199816196836
+          },
+          "sources": 4
+        }
+      ],
+      "meaning": "Bounded pilot continuation screen; not final quality equivalence, no automatic deployment",
+      "promotion_requires_historical_panel_also_pass": true,
+      "retained_checkpoints_unchanged_by_reporting": true,
+      "screen_passed": false,
+      "source_changes": [
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9674277445158411,
+            "mel": 0.9186090355169555,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9580632058407386,
+            "raw_mae": 0.9045205653779874
+          },
+          "samples": 245754,
+          "source_id": "2035-147960-0008"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0232944945850382,
+            "mel": 0.9426004476482062,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9319451652113689
+          },
+          "samples": 245754,
+          "source_id": "2277-149896-0009"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0261848113320868,
+            "mel": 0.9414497116075685,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.92712337321398,
+            "raw_mae": 0.9534227312299425
+          },
+          "samples": 245754,
+          "source_id": "6087-63229-0005"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0279756661269484,
+            "mel": 0.8963880504123493,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.6670732100824104,
+            "raw_mae": 0.9516385983224187
+          },
+          "samples": 245754,
+          "source_id": "7502-100425-0018"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.106948827543166,
+            "mel": 0.8999040231422336,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.7851489252297466,
+            "raw_mae": 0.905611026737243
+          },
+          "samples": 152634,
+          "source_id": "ar_eg:validation:10013199422658976283.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0128237148531154,
+            "mel": 0.8837454063020244,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8940107253654263,
+            "raw_mae": 0.8571427014160016
+          },
+          "samples": 153594,
+          "source_id": "ar_eg:validation:10138255891586291976.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0275332244701059,
+            "mel": 0.7947193227743025,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.7472576872085654,
+            "raw_mae": 0.9563128204633884
+          },
+          "samples": 153594,
+          "source_id": "ar_eg:validation:10244002567270267663.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0004259102584503,
+            "mel": 0.9210636872527636,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8502553903091956,
+            "raw_mae": 0.9364094609644611
+          },
+          "samples": 153594,
+          "source_id": "ar_eg:validation:10267575737816936473.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0309873198681616,
+            "mel": 0.9521778903258776,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9573117061032687
+          },
+          "samples": 245754,
+          "source_id": "assamese:2533274790420699_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0161761584153488,
+            "mel": 0.9291842688058397,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9050771209246024
+          },
+          "samples": 245754,
+          "source_id": "assamese:2533274790551083_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.009448443449011,
+            "mel": 0.9532411235583957,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.6699483148963035,
+            "raw_mae": 0.8964624441594834
+          },
+          "samples": 245760,
+          "source_id": "assamese:97a272b3-bff3-402b-ac1e-fc440927372f_1_chunk_3.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0240379781266893,
+            "mel": 0.959352462006303,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.8984542927290617
+          },
+          "samples": 245760,
+          "source_id": "bengali:1407374883630096_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9632286672042012,
+            "mel": 0.9443640551618602,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9081372909866826,
+            "raw_mae": 0.9246577288147847
+          },
+          "samples": 245760,
+          "source_id": "bengali:1407374883861454_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0670547777535304,
+            "mel": 0.9522484626479352,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.8984532489603058
+          },
+          "samples": 245754,
+          "source_id": "bengali:1407374883904482_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0134069523405174,
+            "mel": 0.9371334211457439,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9205123571770348
+          },
+          "samples": 153258,
+          "source_id": "bodo:3659174697292403_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.043812137416012,
+            "mel": 0.9288143683140608,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.864838248392978
+          },
+          "samples": 152586,
+          "source_id": "bodo:3659174697300869_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.000287575976473,
+            "mel": 0.9358487388272392,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.5346509487094516,
+            "raw_mae": 0.889574381908646
+          },
+          "samples": 153210,
+          "source_id": "bodo:366a4cc8-359f-4a50-aa1b-28448220f097_0_chunk_4.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9920900011993505,
+            "mel": 0.9397231697567832,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9166401144290253,
+            "raw_mae": 0.9270547668589505
+          },
+          "samples": 153168,
+          "source_id": "bodo:c90f3ec1-e884-412f-a121-daea5c2d36e3_1_chunk_7.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.3114432624270793,
+            "mel": 0.7884394536933643,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9181282102724967,
+            "raw_mae": 0.8898467742941666
+          },
+          "samples": 152634,
+          "source_id": "cmn_hans_cn:validation:10116334326946811387.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0785622002291586,
+            "mel": 0.9125417568227346,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8589171013372113,
+            "raw_mae": 0.8873576963481725
+          },
+          "samples": 153594,
+          "source_id": "cmn_hans_cn:validation:10149760684641961155.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0613303516481865,
+            "mel": 0.6338626475399184,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.4195548722570293,
+            "raw_mae": 0.7894124651676949
+          },
+          "samples": 153594,
+          "source_id": "cmn_hans_cn:validation:10291819997967779677.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0065187366033521,
+            "mel": 0.7162796669766679,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8765359192642171,
+            "raw_mae": 0.8493579750559764
+          },
+          "samples": 152634,
+          "source_id": "cmn_hans_cn:validation:10312747577451821721.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9943747094183261,
+            "mel": 0.936488468482534,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.7797357064331895,
+            "raw_mae": 0.8392309432710366
+          },
+          "samples": 153594,
+          "source_id": "de_de:validation:10031412691154736538.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.969714745249753,
+            "mel": 0.7968186741957073,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.649710574176865,
+            "raw_mae": 0.7097390951974786
+          },
+          "samples": 152634,
+          "source_id": "de_de:validation:10128878214126221959.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9944731155324077,
+            "mel": 0.8242653975176387,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.6298238700678617,
+            "raw_mae": 0.8108119629580219
+          },
+          "samples": 153594,
+          "source_id": "de_de:validation:10249467818655484680.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0233740274033463,
+            "mel": 0.8548651687502884,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.6577527407174547,
+            "raw_mae": 0.8243927984459469
+          },
+          "samples": 153594,
+          "source_id": "de_de:validation:10271331673746997728.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9877350270813022,
+            "mel": 0.928247497689241,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.8805695300604213
+          },
+          "samples": 153546,
+          "source_id": "dogri:1125899906845811_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0088414620452444,
+            "mel": 0.9291881625458045,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9093937687345514
+          },
+          "samples": 152490,
+          "source_id": "dogri:1125899906861201_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9520436807295807,
+            "mel": 0.9349085911188565,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9245345924547125
+          },
+          "samples": 152970,
+          "source_id": "dogri:1125899906879685_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9642824764145729,
+            "mel": 0.9278457033259954,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9085914271316702
+          },
+          "samples": 152394,
+          "source_id": "dogri:1125899906881727_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9781257849583475,
+            "mel": 0.9309253650595688,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8079104681000366,
+            "raw_mae": 0.9260632116811869
+          },
+          "samples": 61440,
+          "source_id": "emogator:000014-27-1.mp3"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9898149113929616,
+            "mel": 0.9400652375900201,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9971001255567535,
+            "raw_mae": 0.9650970703079643
+          },
+          "samples": 61440,
+          "source_id": "emogator:000022-12-3.mp3"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0402904544874725,
+            "mel": 0.9235377264216439,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.6391856004051688,
+            "raw_mae": 0.9031251949589479
+          },
+          "samples": 61440,
+          "source_id": "emogator:000057-13-2.mp3"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9930450216392993,
+            "mel": 0.9008930258778153,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8384435354517382,
+            "raw_mae": 0.9003648801427782
+          },
+          "samples": 61440,
+          "source_id": "emogator:000084-24-1.mp3"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.060985221896838,
+            "mel": 0.9146137215647413,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8686009710703839,
+            "raw_mae": 0.9448072689481325
+          },
+          "samples": 61440,
+          "source_id": "emogator:000120-12-1.mp3"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0139931174079038,
+            "mel": 0.9537243379596256,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9686633830731955,
+            "raw_mae": 0.9431056466954691
+          },
+          "samples": 61440,
+          "source_id": "emogator:000191-18-2.mp3"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9995280539148993,
+            "mel": 0.8842742942013827,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9364463785511149,
+            "raw_mae": 0.8460925422826334
+          },
+          "samples": 61440,
+          "source_id": "emogator:000216-25-1.mp3"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9775698525074484,
+            "mel": 0.95895160562095,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.922188308226401
+          },
+          "samples": 61440,
+          "source_id": "emogator:000236-03-2.mp3"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0605873199117586,
+            "mel": 0.8983629453913602,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8609156431598034,
+            "raw_mae": 0.8810880211809232
+          },
+          "samples": 61440,
+          "source_id": "emogator:000269-24-1.mp3"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9951762472614762,
+            "mel": 0.9322589171125697,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8413302563919104,
+            "raw_mae": 0.905510708650194
+          },
+          "samples": 61440,
+          "source_id": "emogator:000282-30-3.mp3"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0077770378745938,
+            "mel": 0.8884331579538522,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.7978687838973229,
+            "raw_mae": 0.8777994654618713
+          },
+          "samples": 61440,
+          "source_id": "emogator:000298-30-1.mp3"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9705664334440591,
+            "mel": 0.9681411008284662,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9704970948651594
+          },
+          "samples": 61440,
+          "source_id": "emogator:000326-15-1.mp3"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0500776187390266,
+            "mel": 0.9204006616766468,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9497652172008582,
+            "raw_mae": 0.9022539467688124
+          },
+          "samples": 245754,
+          "source_id": "es_419:test:5179176991301857058.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.003569529909196,
+            "mel": 0.9328871467054928,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.6792087375341281,
+            "raw_mae": 0.9275656429586194
+          },
+          "samples": 245754,
+          "source_id": "es_419:test:6263626760446996949.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0402939551826769,
+            "mel": 0.9475631387061964,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8842440788968378,
+            "raw_mae": 0.9222916439451282
+          },
+          "samples": 245754,
+          "source_id": "fr_fr:test:11295389174145067264.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0682032784182542,
+            "mel": 0.929904793887637,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.929227208704189,
+            "raw_mae": 0.9481172480357986
+          },
+          "samples": 245754,
+          "source_id": "fr_fr:test:13292226229846030035.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0751542934657794,
+            "mel": 0.9599616419846522,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.7703817511085247,
+            "raw_mae": 0.9241772962055397
+          },
+          "samples": 245754,
+          "source_id": "freesound:119459"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9675716081295164,
+            "mel": 0.9659720367060438,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9725860851418681
+          },
+          "samples": 152544,
+          "source_id": "freesound:167448"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0121194640690612,
+            "mel": 0.8440506998906594,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9356285091413801,
+            "raw_mae": 0.966130339092611
+          },
+          "samples": 61440,
+          "source_id": "freesound:180953"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0528767022054186,
+            "mel": 0.9358752582704689,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.7685942480757046,
+            "raw_mae": 0.9389079187363755
+          },
+          "samples": 153594,
+          "source_id": "freesound:183929"
+        },
+        {
+          "crops": 1,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.025966672414647,
+            "mel": 0.9669402553022842,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9764679400528326
+          },
+          "samples": 30720,
+          "source_id": "freesound:183934"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9918802269981912,
+            "mel": 0.9513922252255173,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9537860452065423,
+            "raw_mae": 0.9518459307783883
+          },
+          "samples": 61440,
+          "source_id": "freesound:211566"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0226547119848641,
+            "mel": 0.9593148592214732,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 1.0401375292584416,
+            "raw_mae": 0.9160322801225523
+          },
+          "samples": 61440,
+          "source_id": "freesound:220649"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0516991671820208,
+            "mel": 0.9773818408274796,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.7589095079811493,
+            "raw_mae": 0.9926918295060315
+          },
+          "samples": 61440,
+          "source_id": "freesound:220655"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.077345885934025,
+            "mel": 0.948916262558198,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8196476090808212,
+            "raw_mae": 0.9359413122456122
+          },
+          "samples": 61440,
+          "source_id": "freesound:220657"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0793950106412527,
+            "mel": 0.8835851884347994,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8046341167261075,
+            "raw_mae": 0.9406032959085247
+          },
+          "samples": 61440,
+          "source_id": "freesound:220658"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0035443305524627,
+            "mel": 0.9527615092229712,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9571277198326875,
+            "raw_mae": 0.9378763405043599
+          },
+          "samples": 61440,
+          "source_id": "freesound:220660"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9222263281020496,
+            "mel": 0.9430731471922525,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8266559434170525,
+            "raw_mae": 0.8958222703814882
+          },
+          "samples": 61440,
+          "source_id": "freesound:220663"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9336362153531014,
+            "mel": 0.9471249236759057,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.968347345975093,
+            "raw_mae": 0.9530722090851136
+          },
+          "samples": 61440,
+          "source_id": "freesound:220665"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9117332837349663,
+            "mel": 0.955157990574777,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9105346114537275
+          },
+          "samples": 61440,
+          "source_id": "freesound:240901"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0272275114857863,
+            "mel": 0.784469336230026,
+            "peak_excess_energy": 1.5167229685366945,
+            "quiet_residual_rms": 0.5763002205973111,
+            "raw_mae": 0.954884877614612
+          },
+          "samples": 245754,
+          "source_id": "freesound:25794"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0873557819360538,
+            "mel": 0.7070227447320958,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.4382890473674967,
+            "raw_mae": 0.9730645032772889
+          },
+          "samples": 152967,
+          "source_id": "freesound:264051"
+        },
+        {
+          "crops": 1,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.961595018672116,
+            "mel": 0.8763861584571817,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.47100893618069284,
+            "raw_mae": 0.9190647164090658
+          },
+          "samples": 343158,
+          "source_id": "freesound:266716"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.1376423894789496,
+            "mel": 0.9598233899996315,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.983502734634844,
+            "raw_mae": 0.9769273194951719
+          },
+          "samples": 152214,
+          "source_id": "freesound:27895"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.025794196009919,
+            "mel": 0.8498612345518627,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.5722633662408422,
+            "raw_mae": 0.9776400615653063
+          },
+          "samples": 151770,
+          "source_id": "freesound:27896"
+        },
+        {
+          "crops": 1,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9910504911039949,
+            "mel": 0.9852747409752803,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9677175383457371,
+            "raw_mae": 0.9535431815794657
+          },
+          "samples": 30720,
+          "source_id": "freesound:372237"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0677294236694201,
+            "mel": 0.9423662999673782,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.7759309151507334,
+            "raw_mae": 0.9436024424632061
+          },
+          "samples": 245754,
+          "source_id": "freesound:386521"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0082433624762148,
+            "mel": 0.9198486357199944,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8427023427387181,
+            "raw_mae": 0.895245176654385
+          },
+          "samples": 245754,
+          "source_id": "freesound:457967"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9470143636559868,
+            "mel": 0.9143580415022917,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.7215945945205371
+          },
+          "samples": 245754,
+          "source_id": "freesound:539498"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0261905613848181,
+            "mel": 0.9660412141107122,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.94259070589759
+          },
+          "samples": 245754,
+          "source_id": "gujarati:3377699720734750_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9776982999854732,
+            "mel": 0.9330561535893898,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.8908008231837842
+          },
+          "samples": 245754,
+          "source_id": "hindi:5348024557671549_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0254188186148978,
+            "mel": 0.9268662430706167,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8596843403077065,
+            "raw_mae": 0.921050543875116
+          },
+          "samples": 245754,
+          "source_id": "hindi:5348024557759780_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.999244097713916,
+            "mel": 0.9642642572665123,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9291206374303312
+          },
+          "samples": 245754,
+          "source_id": "hindi:5348024557774912_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0477134207435694,
+            "mel": 0.8725369837119028,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8590203677367376,
+            "raw_mae": 0.9408363852593598
+          },
+          "samples": 245754,
+          "source_id": "jvnv:M2_anger_free_01.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0574009592502702,
+            "mel": 0.9051699385702076,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8099945122055571,
+            "raw_mae": 0.9349589840519471
+          },
+          "samples": 245754,
+          "source_id": "jvnv:M2_anger_regular_04.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0455153898228737,
+            "mel": 0.9020270325117118,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.7981157418149578,
+            "raw_mae": 0.9321026666951533
+          },
+          "samples": 245754,
+          "source_id": "jvnv:M2_anger_regular_17.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0341042617220446,
+            "mel": 0.8581472186031688,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.686052257128442,
+            "raw_mae": 0.9312133617139009
+          },
+          "samples": 245754,
+          "source_id": "jvnv:M2_fear_regular_12.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.044283382374786,
+            "mel": 0.8993932402211426,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8026713975799254,
+            "raw_mae": 0.9562001429012774
+          },
+          "samples": 245754,
+          "source_id": "jvnv:M2_happy_regular_12.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0215035507768997,
+            "mel": 0.8837109888530991,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.7848418294114377,
+            "raw_mae": 0.9306924319205595
+          },
+          "samples": 245754,
+          "source_id": "jvnv:M2_happy_regular_14.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.991936842253017,
+            "mel": 0.849805121759291,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.7814880757719694,
+            "raw_mae": 0.9249737467484324
+          },
+          "samples": 245754,
+          "source_id": "jvnv:M2_sad_regular_33.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9680939611355294,
+            "mel": 0.8333595176271862,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8409740440849224,
+            "raw_mae": 0.9151620167597198
+          },
+          "samples": 245754,
+          "source_id": "jvnv:M2_sad_regular_49.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.039446395452173,
+            "mel": 0.8190771557196361,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8175264571347278,
+            "raw_mae": 0.9337106065478145
+          },
+          "samples": 245754,
+          "source_id": "jvnv:M2_sad_regular_62.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9997568347154765,
+            "mel": 0.848605639809654,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.6149672098454005,
+            "raw_mae": 0.9238288329235745
+          },
+          "samples": 245754,
+          "source_id": "jvnv:M2_surprise_regular_56.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9960558399664056,
+            "mel": 0.9524607025811768,
+            "peak_excess_energy": 1.0753061305862126,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9053265056851675
+          },
+          "samples": 245754,
+          "source_id": "kannada:6192449487784949_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0818213636528098,
+            "mel": 0.9476374461377636,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.952495425066367
+          },
+          "samples": 245754,
+          "source_id": "kannada:6192449487924364_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.045734195492498,
+            "mel": 0.9434101629513826,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.928049262650814
+          },
+          "samples": 245754,
+          "source_id": "kannada:6192449488033510_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0131282142896305,
+            "mel": 0.9433591680377551,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9334091451039578
+          },
+          "samples": 153258,
+          "source_id": "kashmiri:1970324836980369_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0660860853569862,
+            "mel": 0.9694610809355899,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9443952810964024
+          },
+          "samples": 153546,
+          "source_id": "kashmiri:1970324836985872_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0279431764672209,
+            "mel": 0.9628720794909839,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.8745179877128026
+          },
+          "samples": 152847,
+          "source_id": "kashmiri:1970324836996031_chunk_1.flac"
+        },
+        {
+          "crops": 1,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.991866665882787,
+            "mel": 0.9608254415168875,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.5990028386111332,
+            "raw_mae": 0.9831359878898327
+          },
+          "samples": 30720,
+          "source_id": "kashmiri:f735ff21-b6fb-4abc-9c96-2c3cfdbd566a_1_chunk_4.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0243612677739395,
+            "mel": 0.9590939872252446,
+            "peak_excess_energy": 8.435753828284074,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9477823145184175
+          },
+          "samples": 152160,
+          "source_id": "konkani:4222124650663574_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9942694384723272,
+            "mel": 0.9331387209872642,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9047773759585235
+          },
+          "samples": 152442,
+          "source_id": "konkani:4222124650663798_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0006677367019132,
+            "mel": 0.9509013042721146,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.7839902304515844,
+            "raw_mae": 0.9180051663556681
+          },
+          "samples": 152832,
+          "source_id": "konkani:beedfbd9-329f-4fbe-94e8-7febe16bbc8d_1_chunk_4.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9682775083965143,
+            "mel": 0.9564582181038412,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9179773985174101,
+            "raw_mae": 0.9337482811884852
+          },
+          "samples": 152778,
+          "source_id": "konkani:ee0b5675-2794-457b-b58e-14104228b6ef_1_chunk_4.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9985061579529545,
+            "mel": 0.9256532466505693,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9147934749219917
+          },
+          "samples": 151722,
+          "source_id": "maithili:844424930147827_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0367030454618134,
+            "mel": 0.9110128789421742,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.8469721475844307
+          },
+          "samples": 153066,
+          "source_id": "maithili:844424930165063_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0597247543016628,
+            "mel": 0.9793307450252191,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9530286653246992
+          },
+          "samples": 152202,
+          "source_id": "maithili:844424930165482_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9977451955044324,
+            "mel": 0.9209039469218988,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.7114603386315879,
+            "raw_mae": 0.8800969947806305
+          },
+          "samples": 153162,
+          "source_id": "maithili:844424930270270_chunk_1.flac"
+        },
+        {
+          "crops": 1,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.099018802661972,
+            "mel": 0.9356185120755337,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9105948224761935
+          },
+          "samples": 122880,
+          "source_id": "malayalam:2814749767157712_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0005146912738698,
+            "mel": 0.9399750284532861,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9475946628238386
+          },
+          "samples": 245754,
+          "source_id": "malayalam:2814749767202105_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0476498165273418,
+            "mel": 0.9310902354667626,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.8932671006319054
+          },
+          "samples": 245754,
+          "source_id": "malayalam:2814749767210755_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.004754089800477,
+            "mel": 0.9692932825331233,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9493667284152779
+          },
+          "samples": 153018,
+          "source_id": "manipuri:6473924464348311_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9759452087883962,
+            "mel": 0.9157850463405977,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9767249495508306,
+            "raw_mae": 0.8972003491967458
+          },
+          "samples": 152490,
+          "source_id": "manipuri:6473924464383473_chunk_1.flac"
+        },
+        {
+          "crops": 1,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0283459878744978,
+            "mel": 0.9649433711822373,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9626660709731516
+          },
+          "samples": 30720,
+          "source_id": "manipuri:6473924464427006_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0400735772608378,
+            "mel": 0.9339920916477006,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9072576569712937,
+            "raw_mae": 0.9051161613891651
+          },
+          "samples": 153018,
+          "source_id": "manipuri:6473924464473013_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0504628807975491,
+            "mel": 0.9682963959870178,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9122068535137859
+          },
+          "samples": 245754,
+          "source_id": "marathi:562949953456108_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9961139588525447,
+            "mel": 0.9176335915371553,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9023576306846995
+          },
+          "samples": 245754,
+          "source_id": "marathi:562949953527567_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9766751507710257,
+            "mel": 0.913038241605954,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8280520939176159,
+            "raw_mae": 0.9384992764568241
+          },
+          "samples": 245760,
+          "source_id": "marathi:da1e4fd5-d4c1-436b-a7be-cb8080daa330_1_chunk_4.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0114404082850006,
+            "mel": 0.9409725759100022,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.8597733160382378
+          },
+          "samples": 245754,
+          "source_id": "nepali:3940649673952883_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0061238104469696,
+            "mel": 0.9231876115425455,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9468287504006074,
+            "raw_mae": 0.8587891416150006
+          },
+          "samples": 245754,
+          "source_id": "nepali:3940649674026233_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.019092380313545,
+            "mel": 0.9179633827787631,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9004825607133204,
+            "raw_mae": 0.8687642901740796
+          },
+          "samples": 245754,
+          "source_id": "nepali:3940649674030499_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9747663900181347,
+            "mel": 0.9460231933776718,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9310863381993977
+          },
+          "samples": 153162,
+          "source_id": "odia:1688849860265745_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0391433483470487,
+            "mel": 0.9186305951902057,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9968041678669272,
+            "raw_mae": 0.8871708596794675
+          },
+          "samples": 152874,
+          "source_id": "odia:1688849860614633_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0075033052880042,
+            "mel": 0.9506925064090703,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9825077784483177
+          },
+          "samples": 152874,
+          "source_id": "odia:1688849860681312_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0435060828471818,
+            "mel": 0.9521989829804005,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 1.3950263815222965,
+            "raw_mae": 0.911385335443682
+          },
+          "samples": 153600,
+          "source_id": "odia:b82da8bb-ec78-4b4e-b953-4cb86642f27a_1_chunk_2.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0580290276059754,
+            "mel": 0.9466601660678792,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8323804504313042,
+            "raw_mae": 0.930397924912005
+          },
+          "samples": 245754,
+          "source_id": "pt_br:test:10899619662660037352.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0474582261504823,
+            "mel": 0.9329402255875467,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9318880741194204
+          },
+          "samples": 245754,
+          "source_id": "pt_br:test:18401650931916642390.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0638041938853695,
+            "mel": 0.959353183101335,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9442029503431222
+          },
+          "samples": 245760,
+          "source_id": "punjabi:5066549580972243_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0092703628471646,
+            "mel": 0.9500081686335384,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9000361680383749
+          },
+          "samples": 245754,
+          "source_id": "punjabi:5066549581007234_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0281364157079356,
+            "mel": 0.933832099061654,
+            "peak_excess_energy": 2.1028399800547515,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.8678769696534865
+          },
+          "samples": 245754,
+          "source_id": "punjabi:5066549581061702_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0859106750605365,
+            "mel": 0.9058446401026311,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.7768507011048186,
+            "raw_mae": 0.8660757634056092
+          },
+          "samples": 152058,
+          "source_id": "sanskrit:2251799813688100_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0574511097661405,
+            "mel": 0.9515891037568148,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9073181641822732
+          },
+          "samples": 152826,
+          "source_id": "sanskrit:2251799813701620_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.047193823762677,
+            "mel": 0.9551788091159834,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9141168829622426
+          },
+          "samples": 153018,
+          "source_id": "sanskrit:2251799813705762_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0104029305242477,
+            "mel": 0.9722155762226653,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9467431786454191
+          },
+          "samples": 152010,
+          "source_id": "sanskrit:2251799813706128_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.010182852828932,
+            "mel": 0.9328018576748611,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8768417916684185,
+            "raw_mae": 0.8404485317901037
+          },
+          "samples": 152184,
+          "source_id": "santali:4785074604130235_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.980810846299304,
+            "mel": 0.9344005209946458,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9428735204555703,
+            "raw_mae": 0.8802432905835955
+          },
+          "samples": 151722,
+          "source_id": "santali:72e01d81-c30a-4a62-827b-9f5e2016c27e_0_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9885660600136771,
+            "mel": 0.9222641737673389,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.7987843754670334,
+            "raw_mae": 0.8579682752370911
+          },
+          "samples": 153594,
+          "source_id": "santali:9626bd39-53b4-4df9-bde4-10a3697420f2_1_chunk_2.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0770898772617303,
+            "mel": 0.9608816526988381,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9486133284456465,
+            "raw_mae": 0.9229677110151898
+          },
+          "samples": 153306,
+          "source_id": "santali:bf6e6f53-e42c-455a-8fe4-589e4952d0e3_1_chunk_2.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.026839168705131,
+            "mel": 0.9377072302805952,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.8992302747286046
+          },
+          "samples": 245754,
+          "source_id": "sindhi:5629499534289894_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9994117494513916,
+            "mel": 0.911594701902003,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9185306619016373,
+            "raw_mae": 0.8372492407300972
+          },
+          "samples": 245754,
+          "source_id": "sindhi:5629499534315141_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0245954159067958,
+            "mel": 0.9427224983057522,
+            "peak_excess_energy": 1.600281697342197,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9040027827825307
+          },
+          "samples": 245760,
+          "source_id": "sindhi:5629499534317154_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0337778099496617,
+            "mel": 0.9331002735003675,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.8677915294163963
+          },
+          "samples": 245754,
+          "source_id": "tamil:3096224744178397_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0536927056095513,
+            "mel": 0.9488832788973725,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.8974663331307688
+          },
+          "samples": 245760,
+          "source_id": "tamil:3096224744283752_chunk_2.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9921871358474246,
+            "mel": 0.9344288026934824,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9472436307447387,
+            "raw_mae": 0.9265361240046411
+          },
+          "samples": 245760,
+          "source_id": "tamil:3096224744342267_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0205262363892906,
+            "mel": 0.9479839099278063,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9037323141399157,
+            "raw_mae": 0.9201682661799042
+          },
+          "samples": 245760,
+          "source_id": "telugu:180b8c37-8e18-49e1-b92b-3bff06143657_1_chunk_3.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.043761060242266,
+            "mel": 0.9515284241429209,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9346849545620349
+          },
+          "samples": 245754,
+          "source_id": "telugu:4503599627392903_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.000919316678724,
+            "mel": 0.9429032111863602,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9091123743103787
+          },
+          "samples": 245754,
+          "source_id": "telugu:4503599627644935_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0093438854783179,
+            "mel": 0.9559430705152082,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9046644873580755
+          },
+          "samples": 245754,
+          "source_id": "urdu:5910974511156778_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0642442949421032,
+            "mel": 0.9510852579168516,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9573944755901992
+          },
+          "samples": 245754,
+          "source_id": "urdu:5910974511173186_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0827671419424492,
+            "mel": 0.9217980495390697,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.8621847573067617
+          },
+          "samples": 245754,
+          "source_id": "urdu:5910974511198452_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.063254880015496,
+            "mel": 0.8874710143436642,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8019098692091225,
+            "raw_mae": 0.8835482884818691
+          },
+          "samples": 153594,
+          "source_id": "yue_hant_hk:validation:10033329815200977556.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.190790823095627,
+            "mel": 0.7733030531127218,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.7143348450701048,
+            "raw_mae": 0.7754062938685568
+          },
+          "samples": 152634,
+          "source_id": "yue_hant_hk:validation:10085210971428056272.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9887116913263857,
+            "mel": 0.9578604346077498,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 1.103691226002438,
+            "raw_mae": 0.8432349797487269
+          },
+          "samples": 153594,
+          "source_id": "yue_hant_hk:validation:10172384069529710044.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9872669680046146,
+            "mel": 0.7741938819662363,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.7039409548664914,
+            "raw_mae": 0.8914889879135052
+          },
+          "samples": 153594,
+          "source_id": "yue_hant_hk:validation:1019891360787907522.wav"
+        }
+      ],
+      "undefined_ratio_policy": "None; never silently passes a required gate"
+    },
+    "historical": {
+      "checks": [
+        {
+          "comparison": "<",
+          "details": null,
+          "maximum": 1.0,
+          "name": "natural_quiet_vs_baseline",
+          "passed": true,
+          "value": 0.8427400462851983
+        },
+        {
+          "comparison": "<",
+          "details": null,
+          "maximum": 1.0,
+          "name": "encoded_zero_steady_vs_baseline",
+          "passed": true,
+          "value": 0.3185457129086953
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.01,
+          "name": "natural_raw_mae_vs_baseline",
+          "passed": true,
+          "value": 0.9250794513655746
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.01,
+          "name": "natural_mel_vs_baseline",
+          "passed": true,
+          "value": 0.9231190322343668
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 0.9,
+          "name": "natural_quiet_vs_control",
+          "passed": true,
+          "value": 0.8188745269555372
+        },
+        {
+          "comparison": "<",
+          "details": null,
+          "maximum": 1.0,
+          "name": "encoded_zero_steady_vs_control",
+          "passed": true,
+          "value": 0.2918770833783083
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.01,
+          "name": "natural_raw_mae_vs_control",
+          "passed": true,
+          "value": 0.9489591749886286
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.01,
+          "name": "natural_mel_vs_control",
+          "passed": true,
+          "value": 0.9297368063410618
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.02,
+          "name": "cohort/speech/raw_mae",
+          "passed": true,
+          "value": 0.9187769229447326
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.02,
+          "name": "cohort/speech/mel",
+          "passed": true,
+          "value": 0.9273410945019321
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.02,
+          "name": "cohort/expressive/raw_mae",
+          "passed": true,
+          "value": 0.9485635057626348
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.02,
+          "name": "cohort/expressive/mel",
+          "passed": true,
+          "value": 0.9205417618720956
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "condition/breathing/raw_mae",
+          "passed": true,
+          "value": 0.9768968769288032
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "condition/breathing/mel",
+          "passed": true,
+          "value": 0.9230336225270643
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "condition/generic_emotion_nonverbal/raw_mae",
+          "passed": true,
+          "value": 0.9207470086813867
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "condition/generic_emotion_nonverbal/mel",
+          "passed": true,
+          "value": 0.9249673313092452
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "condition/human_whistling_source_description/raw_mae",
+          "passed": true,
+          "value": 0.8235957077810313
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "condition/human_whistling_source_description/mel",
+          "passed": true,
+          "value": 0.9180453066526675
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "condition/jvnv_verbal_and_nonverbal/raw_mae",
+          "passed": true,
+          "value": 0.9357023242957355
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "condition/jvnv_verbal_and_nonverbal/mel",
+          "passed": true,
+          "value": 0.8616123054075395
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "condition/laughter/raw_mae",
+          "passed": true,
+          "value": 0.9385220914443089
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "condition/laughter/mel",
+          "passed": true,
+          "value": 0.9122688161366536
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "condition/screaming/raw_mae",
+          "passed": true,
+          "value": 0.9499119191555059
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "condition/screaming/mel",
+          "passed": true,
+          "value": 0.9476261895563554
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "condition/speech/raw_mae",
+          "passed": true,
+          "value": 0.9187769229447326
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "condition/speech/mel",
+          "passed": true,
+          "value": 0.9273410945019321
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "condition/whispering/raw_mae",
+          "passed": true,
+          "value": 0.9703361668967517
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "condition/whispering/mel",
+          "passed": true,
+          "value": 0.8715753157856081
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/ar_eg/raw_mae",
+          "passed": true,
+          "value": 0.9207873168824309
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/ar_eg/mel",
+          "passed": true,
+          "value": 0.8629636704323582
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/as/raw_mae",
+          "passed": true,
+          "value": 0.920797051113108
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/as/mel",
+          "passed": true,
+          "value": 0.9467279829367721
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/bn/raw_mae",
+          "passed": true,
+          "value": 0.9045049066311479
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/bn/mel",
+          "passed": true,
+          "value": 0.9518602953575661
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/brx/raw_mae",
+          "passed": true,
+          "value": 0.9133590829634423
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/brx/mel",
+          "passed": true,
+          "value": 0.93601903294863
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/cmn_hans_cn/raw_mae",
+          "passed": true,
+          "value": 0.8760214060790196
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/cmn_hans_cn/mel",
+          "passed": true,
+          "value": 0.7589295950065037
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/de_de/raw_mae",
+          "passed": true,
+          "value": 0.8142925283742585
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/de_de/mel",
+          "passed": true,
+          "value": 0.8611403922628388
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/doi/raw_mae",
+          "passed": true,
+          "value": 0.9053698049281133
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/doi/mel",
+          "passed": true,
+          "value": 0.9298368436007657
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/en/raw_mae",
+          "passed": true,
+          "value": 0.9408936630415657
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/en/mel",
+          "passed": true,
+          "value": 0.9228955835039485
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/es/raw_mae",
+          "passed": true,
+          "value": 0.913865878158179
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/es/mel",
+          "passed": true,
+          "value": 0.9274021936954101
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/fr/raw_mae",
+          "passed": true,
+          "value": 0.9330089142779936
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/fr/mel",
+          "passed": true,
+          "value": 0.9403655752528175
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/hi/raw_mae",
+          "passed": true,
+          "value": 0.9153903405626478
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/hi/mel",
+          "passed": true,
+          "value": 0.9421568740468144
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/ja/raw_mae",
+          "passed": true,
+          "value": 0.934691208426701
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/ja/mel",
+          "passed": true,
+          "value": 0.8675043622739738
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/kn/raw_mae",
+          "passed": true,
+          "value": 0.9293407286545631
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/kn/mel",
+          "passed": true,
+          "value": 0.9479527365222352
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/kok/raw_mae",
+          "passed": true,
+          "value": 0.9284038747501683
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/kok/mel",
+          "passed": true,
+          "value": 0.9503206940528351
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/ks/raw_mae",
+          "passed": true,
+          "value": 0.9424149188108433
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/ks/mel",
+          "passed": true,
+          "value": 0.9596760501122983
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/mai/raw_mae",
+          "passed": true,
+          "value": 0.9114017520320461
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/mai/mel",
+          "passed": true,
+          "value": 0.9328552762591747
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/ml/raw_mae",
+          "passed": true,
+          "value": 0.9112609452856223
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/ml/mel",
+          "passed": true,
+          "value": 0.9357482065061062
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/mni/raw_mae",
+          "passed": true,
+          "value": 0.9232508095312608
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/mni/mel",
+          "passed": true,
+          "value": 0.9411444833794613
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/mr/raw_mae",
+          "passed": true,
+          "value": 0.9173157079684146
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/mr/mel",
+          "passed": true,
+          "value": 0.9275439383797393
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/ne/raw_mae",
+          "passed": true,
+          "value": 0.8605948126427677
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/ne/mel",
+          "passed": true,
+          "value": 0.9269315360109054
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/or/raw_mae",
+          "passed": true,
+          "value": 0.9376518011251609
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/or/mel",
+          "passed": true,
+          "value": 0.945351290534791
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/pa/raw_mae",
+          "passed": true,
+          "value": 0.908390968511351
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/pa/mel",
+          "passed": true,
+          "value": 0.9470395066848979
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/pt/raw_mae",
+          "passed": true,
+          "value": 0.9307412060676707
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/pt/mel",
+          "passed": true,
+          "value": 0.9396454515596777
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/sa/raw_mae",
+          "passed": true,
+          "value": 0.9304199845564015
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/sa/mel",
+          "passed": true,
+          "value": 0.943170047210433
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/sat/raw_mae",
+          "passed": true,
+          "value": 0.8911242668945294
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/sat/mel",
+          "passed": true,
+          "value": 0.9403967123726062
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/sd/raw_mae",
+          "passed": true,
+          "value": 0.900926496610795
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/sd/mel",
+          "passed": true,
+          "value": 0.9300884866024001
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/ta/raw_mae",
+          "passed": true,
+          "value": 0.8925492269292233
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/ta/mel",
+          "passed": true,
+          "value": 0.9384390030780857
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/te/raw_mae",
+          "passed": true,
+          "value": 0.9264554773638861
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/te/mel",
+          "passed": true,
+          "value": 0.9478359880834804
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/und/raw_mae",
+          "passed": true,
+          "value": 0.9378789092213602
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/und/mel",
+          "passed": true,
+          "value": 0.9213621212744886
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/ur/raw_mae",
+          "passed": true,
+          "value": 0.9384788537449857
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/ur/mel",
+          "passed": true,
+          "value": 0.9440740620720325
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/yue_hant_hk/raw_mae",
+          "passed": true,
+          "value": 0.8603201373002024
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.05,
+          "name": "language/yue_hant_hk/mel",
+          "passed": true,
+          "value": 0.8681429658610823
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.01,
+          "name": "natural_maximum_peak_vs_baseline",
+          "passed": false,
+          "value": 1.024595050695494
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.1,
+          "name": "natural_peak_excess_energy_vs_baseline",
+          "passed": false,
+          "value": 1.5371802761715612
+        }
+      ],
+      "evaluation_contract_sha256": "05d341d83e4de1409bee5ffd062141ca2de2655e7d3845b26a36db8c3b7101e9",
+      "format_version": 1,
+      "gates": {
+        "encoded_zero_steady_ratio_vs_baseline_max": 1.0,
+        "encoded_zero_steady_ratio_vs_control_max": 1.0,
+        "event_language_mae_and_mel_ratio_max": 1.05,
+        "maximum_peak_ratio_max": 1.01,
+        "minimum_sources_for_group_gate": 2,
+        "natural_mae_and_mel_ratio_max": 1.01,
+        "natural_quiet_ratio_vs_baseline_max": 1.0,
+        "natural_quiet_ratio_vs_control_max": 0.9,
+        "peak_excess_energy_ratio_max": 1.1,
+        "speech_expressive_mae_and_mel_ratio_max": 1.02
+      },
+      "gates_sha256": "6fe923d9c9e05a9e67619edd89d7979d6801cdf18c3b517237aa3174d96bdb1b",
+      "group_changes": [
+        {
+          "crops": 5,
+          "gated": true,
+          "group": "condition/breathing",
+          "ratios_vs_baseline": {
+            "mel": 0.9230336225270643,
+            "raw_mae": 0.9768968769288032
+          },
+          "sources": 3
+        },
+        {
+          "crops": 24,
+          "gated": true,
+          "group": "condition/generic_emotion_nonverbal",
+          "ratios_vs_baseline": {
+            "mel": 0.9249673313092452,
+            "raw_mae": 0.9207470086813867
+          },
+          "sources": 12
+        },
+        {
+          "crops": 4,
+          "gated": true,
+          "group": "condition/human_whistling_source_description",
+          "ratios_vs_baseline": {
+            "mel": 0.9180453066526675,
+            "raw_mae": 0.8235957077810313
+          },
+          "sources": 2
+        },
+        {
+          "crops": 12,
+          "gated": true,
+          "group": "condition/jvnv_verbal_and_nonverbal",
+          "ratios_vs_baseline": {
+            "mel": 0.8616123054075395,
+            "raw_mae": 0.9357023242957355
+          },
+          "sources": 6
+        },
+        {
+          "crops": 12,
+          "gated": true,
+          "group": "condition/laughter",
+          "ratios_vs_baseline": {
+            "mel": 0.9122688161366536,
+            "raw_mae": 0.9385220914443089
+          },
+          "sources": 6
+        },
+        {
+          "crops": 14,
+          "gated": true,
+          "group": "condition/screaming",
+          "ratios_vs_baseline": {
+            "mel": 0.9476261895563554,
+            "raw_mae": 0.9499119191555059
+          },
+          "sources": 7
+        },
+        {
+          "crops": 203,
+          "gated": true,
+          "group": "condition/speech",
+          "ratios_vs_baseline": {
+            "mel": 0.9273410945019321,
+            "raw_mae": 0.9187769229447326
+          },
+          "sources": 103
+        },
+        {
+          "crops": 7,
+          "gated": true,
+          "group": "condition/whispering",
+          "ratios_vs_baseline": {
+            "mel": 0.8715753157856081,
+            "raw_mae": 0.9703361668967517
+          },
+          "sources": 4
+        },
+        {
+          "crops": 1,
+          "gated": false,
+          "group": "condition/yell",
+          "ratios_vs_baseline": {
+            "mel": 0.8763861108108278,
+            "raw_mae": 0.9190647411364631
+          },
+          "sources": 1
+        },
+        {
+          "crops": 8,
+          "gated": true,
+          "group": "language/ar_eg",
+          "ratios_vs_baseline": {
+            "mel": 0.8629636704323582,
+            "raw_mae": 0.9207873168824309
+          },
+          "sources": 4
+        },
+        {
+          "crops": 6,
+          "gated": true,
+          "group": "language/as",
+          "ratios_vs_baseline": {
+            "mel": 0.9467279829367721,
+            "raw_mae": 0.920797051113108
+          },
+          "sources": 3
+        },
+        {
+          "crops": 6,
+          "gated": true,
+          "group": "language/bn",
+          "ratios_vs_baseline": {
+            "mel": 0.9518602953575661,
+            "raw_mae": 0.9045049066311479
+          },
+          "sources": 3
+        },
+        {
+          "crops": 8,
+          "gated": true,
+          "group": "language/brx",
+          "ratios_vs_baseline": {
+            "mel": 0.93601903294863,
+            "raw_mae": 0.9133590829634423
+          },
+          "sources": 4
+        },
+        {
+          "crops": 8,
+          "gated": true,
+          "group": "language/cmn_hans_cn",
+          "ratios_vs_baseline": {
+            "mel": 0.7589295950065037,
+            "raw_mae": 0.8760214060790196
+          },
+          "sources": 4
+        },
+        {
+          "crops": 8,
+          "gated": true,
+          "group": "language/de_de",
+          "ratios_vs_baseline": {
+            "mel": 0.8611403922628388,
+            "raw_mae": 0.8142925283742585
+          },
+          "sources": 4
+        },
+        {
+          "crops": 8,
+          "gated": true,
+          "group": "language/doi",
+          "ratios_vs_baseline": {
+            "mel": 0.9298368436007657,
+            "raw_mae": 0.9053698049281133
+          },
+          "sources": 4
+        },
+        {
+          "crops": 8,
+          "gated": true,
+          "group": "language/en",
+          "ratios_vs_baseline": {
+            "mel": 0.9228955835039485,
+            "raw_mae": 0.9408936630415657
+          },
+          "sources": 4
+        },
+        {
+          "crops": 4,
+          "gated": true,
+          "group": "language/es",
+          "ratios_vs_baseline": {
+            "mel": 0.9274021936954101,
+            "raw_mae": 0.913865878158179
+          },
+          "sources": 2
+        },
+        {
+          "crops": 4,
+          "gated": true,
+          "group": "language/fr",
+          "ratios_vs_baseline": {
+            "mel": 0.9403655752528175,
+            "raw_mae": 0.9330089142779936
+          },
+          "sources": 2
+        },
+        {
+          "crops": 2,
+          "gated": false,
+          "group": "language/gu",
+          "ratios_vs_baseline": {
+            "mel": 0.9660411228775821,
+            "raw_mae": 0.94259065226226
+          },
+          "sources": 1
+        },
+        {
+          "crops": 6,
+          "gated": true,
+          "group": "language/hi",
+          "ratios_vs_baseline": {
+            "mel": 0.9421568740468144,
+            "raw_mae": 0.9153903405626478
+          },
+          "sources": 3
+        },
+        {
+          "crops": 20,
+          "gated": true,
+          "group": "language/ja",
+          "ratios_vs_baseline": {
+            "mel": 0.8675043622739738,
+            "raw_mae": 0.934691208426701
+          },
+          "sources": 10
+        },
+        {
+          "crops": 6,
+          "gated": true,
+          "group": "language/kn",
+          "ratios_vs_baseline": {
+            "mel": 0.9479527365222352,
+            "raw_mae": 0.9293407286545631
+          },
+          "sources": 3
+        },
+        {
+          "crops": 8,
+          "gated": true,
+          "group": "language/kok",
+          "ratios_vs_baseline": {
+            "mel": 0.9503206940528351,
+            "raw_mae": 0.9284038747501683
+          },
+          "sources": 4
+        },
+        {
+          "crops": 7,
+          "gated": true,
+          "group": "language/ks",
+          "ratios_vs_baseline": {
+            "mel": 0.9596760501122983,
+            "raw_mae": 0.9424149188108433
+          },
+          "sources": 4
+        },
+        {
+          "crops": 8,
+          "gated": true,
+          "group": "language/mai",
+          "ratios_vs_baseline": {
+            "mel": 0.9328552762591747,
+            "raw_mae": 0.9114017520320461
+          },
+          "sources": 4
+        },
+        {
+          "crops": 5,
+          "gated": true,
+          "group": "language/ml",
+          "ratios_vs_baseline": {
+            "mel": 0.9357482065061062,
+            "raw_mae": 0.9112609452856223
+          },
+          "sources": 3
+        },
+        {
+          "crops": 7,
+          "gated": true,
+          "group": "language/mni",
+          "ratios_vs_baseline": {
+            "mel": 0.9411444833794613,
+            "raw_mae": 0.9232508095312608
+          },
+          "sources": 4
+        },
+        {
+          "crops": 6,
+          "gated": true,
+          "group": "language/mr",
+          "ratios_vs_baseline": {
+            "mel": 0.9275439383797393,
+            "raw_mae": 0.9173157079684146
+          },
+          "sources": 3
+        },
+        {
+          "crops": 6,
+          "gated": true,
+          "group": "language/ne",
+          "ratios_vs_baseline": {
+            "mel": 0.9269315360109054,
+            "raw_mae": 0.8605948126427677
+          },
+          "sources": 3
+        },
+        {
+          "crops": 8,
+          "gated": true,
+          "group": "language/or",
+          "ratios_vs_baseline": {
+            "mel": 0.945351290534791,
+            "raw_mae": 0.9376518011251609
+          },
+          "sources": 4
+        },
+        {
+          "crops": 6,
+          "gated": true,
+          "group": "language/pa",
+          "ratios_vs_baseline": {
+            "mel": 0.9470395066848979,
+            "raw_mae": 0.908390968511351
+          },
+          "sources": 3
+        },
+        {
+          "crops": 4,
+          "gated": true,
+          "group": "language/pt",
+          "ratios_vs_baseline": {
+            "mel": 0.9396454515596777,
+            "raw_mae": 0.9307412060676707
+          },
+          "sources": 2
+        },
+        {
+          "crops": 8,
+          "gated": true,
+          "group": "language/sa",
+          "ratios_vs_baseline": {
+            "mel": 0.943170047210433,
+            "raw_mae": 0.9304199845564015
+          },
+          "sources": 4
+        },
+        {
+          "crops": 8,
+          "gated": true,
+          "group": "language/sat",
+          "ratios_vs_baseline": {
+            "mel": 0.9403967123726062,
+            "raw_mae": 0.8911242668945294
+          },
+          "sources": 4
+        },
+        {
+          "crops": 6,
+          "gated": true,
+          "group": "language/sd",
+          "ratios_vs_baseline": {
+            "mel": 0.9300884866024001,
+            "raw_mae": 0.900926496610795
+          },
+          "sources": 3
+        },
+        {
+          "crops": 6,
+          "gated": true,
+          "group": "language/ta",
+          "ratios_vs_baseline": {
+            "mel": 0.9384390030780857,
+            "raw_mae": 0.8925492269292233
+          },
+          "sources": 3
+        },
+        {
+          "crops": 6,
+          "gated": true,
+          "group": "language/te",
+          "ratios_vs_baseline": {
+            "mel": 0.9478359880834804,
+            "raw_mae": 0.9264554773638861
+          },
+          "sources": 3
+        },
+        {
+          "crops": 67,
+          "gated": true,
+          "group": "language/und",
+          "ratios_vs_baseline": {
+            "mel": 0.9213621212744886,
+            "raw_mae": 0.9378789092213602
+          },
+          "sources": 35
+        },
+        {
+          "crops": 6,
+          "gated": true,
+          "group": "language/ur",
+          "ratios_vs_baseline": {
+            "mel": 0.9440740620720325,
+            "raw_mae": 0.9384788537449857
+          },
+          "sources": 3
+        },
+        {
+          "crops": 8,
+          "gated": true,
+          "group": "language/yue_hant_hk",
+          "ratios_vs_baseline": {
+            "mel": 0.8681429658610823,
+            "raw_mae": 0.8603201373002024
+          },
+          "sources": 4
+        }
+      ],
+      "meaning": "Bounded pilot continuation screen; not final quality equivalence, no automatic deployment",
+      "retained_checkpoints_unchanged_by_reporting": true,
+      "screen_passed": false,
+      "source_changes": [
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9674290965942053,
+            "mel": 0.9186091116666413,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9580603935172769,
+            "raw_mae": 0.9045205619697104
+          },
+          "samples": 245754,
+          "source_id": "2035-147960-0008"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.027415578606806,
+            "mel": 0.9432728325796532,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9320678213007922
+          },
+          "samples": 245754,
+          "source_id": "2277-149896-0009"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0261845752623329,
+            "mel": 0.9414496560571258,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9271235130406281,
+            "raw_mae": 0.9534227131136668
+          },
+          "samples": 245754,
+          "source_id": "6087-63229-0005"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0279757050949074,
+            "mel": 0.8963875715404248,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.667073481717911,
+            "raw_mae": 0.9516386752230965
+          },
+          "samples": 245754,
+          "source_id": "7502-100425-0018"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.1069472169104664,
+            "mel": 0.8999043002356714,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.7851494236863586,
+            "raw_mae": 0.9056111961080051
+          },
+          "samples": 152634,
+          "source_id": "ar_eg:validation:10013199422658976283.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0128234886438283,
+            "mel": 0.8837452119714019,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8940115824732818,
+            "raw_mae": 0.8571427177859033
+          },
+          "samples": 153594,
+          "source_id": "ar_eg:validation:10138255891586291976.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0275334506630704,
+            "mel": 0.7947189424069098,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.7472578085027447,
+            "raw_mae": 0.9563129097432732
+          },
+          "samples": 153594,
+          "source_id": "ar_eg:validation:10244002567270267663.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0004260851648665,
+            "mel": 0.9210636260309772,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8502561930492962,
+            "raw_mae": 0.9364094404566057
+          },
+          "samples": 153594,
+          "source_id": "ar_eg:validation:10267575737816936473.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.030990639587357,
+            "mel": 0.9521779130543535,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9573116111204866
+          },
+          "samples": 245754,
+          "source_id": "assamese:2533274790420699_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0161750920157855,
+            "mel": 0.9291843023692355,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9050770395545207
+          },
+          "samples": 245754,
+          "source_id": "assamese:2533274790551083_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.009448122880676,
+            "mel": 0.9532411665833305,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.6699492229886611,
+            "raw_mae": 0.8964622529976806
+          },
+          "samples": 245760,
+          "source_id": "assamese:97a272b3-bff3-402b-ac1e-fc440927372f_1_chunk_3.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0240381732456676,
+            "mel": 0.9593523405865326,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.8984544462889559
+          },
+          "samples": 245760,
+          "source_id": "bengali:1407374883630096_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9632293985601489,
+            "mel": 0.9443639593064937,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9081350710778494,
+            "raw_mae": 0.9246578812872832
+          },
+          "samples": 245760,
+          "source_id": "bengali:1407374883861454_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0754330836790753,
+            "mel": 0.9523683693783535,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.8996372890510667
+          },
+          "samples": 245754,
+          "source_id": "bengali:1407374883904482_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.013406609922872,
+            "mel": 0.9371333336565795,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9205124631202463
+          },
+          "samples": 153258,
+          "source_id": "bodo:3659174697292403_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0438138443940488,
+            "mel": 0.9288143846713067,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.8648381767107197
+          },
+          "samples": 152586,
+          "source_id": "bodo:3659174697300869_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0002883094313761,
+            "mel": 0.9358488266053031,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.5346581233114602,
+            "raw_mae": 0.8895744352055384
+          },
+          "samples": 153210,
+          "source_id": "bodo:366a4cc8-359f-4a50-aa1b-28448220f097_0_chunk_4.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.992091053978782,
+            "mel": 0.9397230142851765,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9166404368125448,
+            "raw_mae": 0.9270549015932976
+          },
+          "samples": 153168,
+          "source_id": "bodo:c90f3ec1-e884-412f-a121-daea5c2d36e3_1_chunk_7.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.3114427037978693,
+            "mel": 0.7884392522680609,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9181282755777229,
+            "raw_mae": 0.8898469073142348
+          },
+          "samples": 152634,
+          "source_id": "cmn_hans_cn:validation:10116334326946811387.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0785608866301153,
+            "mel": 0.9125416450911022,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8589175987249863,
+            "raw_mae": 0.8873576425099481
+          },
+          "samples": 153594,
+          "source_id": "cmn_hans_cn:validation:10149760684641961155.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0613315312780083,
+            "mel": 0.6338627540723113,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.4195546567714047,
+            "raw_mae": 0.7894124625213592
+          },
+          "samples": 153594,
+          "source_id": "cmn_hans_cn:validation:10291819997967779677.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0065215762962523,
+            "mel": 0.7162799620084905,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8765361992765948,
+            "raw_mae": 0.8493583254270468
+          },
+          "samples": 152634,
+          "source_id": "cmn_hans_cn:validation:10312747577451821721.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9943736475233029,
+            "mel": 0.9364884712446067,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.7797367318604222,
+            "raw_mae": 0.8392313056659116
+          },
+          "samples": 153594,
+          "source_id": "de_de:validation:10031412691154736538.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9697148304907005,
+            "mel": 0.7968189199485518,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.6497117068794006,
+            "raw_mae": 0.7097395541120541
+          },
+          "samples": 152634,
+          "source_id": "de_de:validation:10128878214126221959.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9944726509953826,
+            "mel": 0.8242650511480962,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.6298243992888249,
+            "raw_mae": 0.810811727420254
+          },
+          "samples": 153594,
+          "source_id": "de_de:validation:10249467818655484680.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.023374570527328,
+            "mel": 0.8548654541200676,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.6577543062442167,
+            "raw_mae": 0.8243926581705003
+          },
+          "samples": 153594,
+          "source_id": "de_de:validation:10271331673746997728.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9877355826628793,
+            "mel": 0.9282473800059903,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.8805695153958839
+          },
+          "samples": 153546,
+          "source_id": "dogri:1125899906845811_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0088415627410492,
+            "mel": 0.9291881728239584,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9093937493785245
+          },
+          "samples": 152490,
+          "source_id": "dogri:1125899906861201_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9520424444257609,
+            "mel": 0.9349086674754563,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9245345507817881
+          },
+          "samples": 152970,
+          "source_id": "dogri:1125899906879685_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9642824260734365,
+            "mel": 0.9278456752208898,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9085913728997083
+          },
+          "samples": 152394,
+          "source_id": "dogri:1125899906881727_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9781252669559473,
+            "mel": 0.9309251320353285,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8079124123537138,
+            "raw_mae": 0.9260632346949188
+          },
+          "samples": 61440,
+          "source_id": "emogator:000014-27-1.mp3"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.98981431314778,
+            "mel": 0.9400653018052917,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9971023162256045,
+            "raw_mae": 0.9650968963794291
+          },
+          "samples": 61440,
+          "source_id": "emogator:000022-12-3.mp3"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.040290336983726,
+            "mel": 0.9235378074431398,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.6391856237824937,
+            "raw_mae": 0.9031252709273253
+          },
+          "samples": 61440,
+          "source_id": "emogator:000057-13-2.mp3"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9930444850612918,
+            "mel": 0.9008930890812612,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8384423038119659,
+            "raw_mae": 0.9003645512053821
+          },
+          "samples": 61440,
+          "source_id": "emogator:000084-24-1.mp3"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0609865220448476,
+            "mel": 0.9146141230137951,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8686008478986148,
+            "raw_mae": 0.9448072023061013
+          },
+          "samples": 61440,
+          "source_id": "emogator:000120-12-1.mp3"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0139930371346213,
+            "mel": 0.9537243444803938,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9686626800588248,
+            "raw_mae": 0.9431055215552271
+          },
+          "samples": 61440,
+          "source_id": "emogator:000191-18-2.mp3"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9995287466467994,
+            "mel": 0.8842742216039454,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9364461367449906,
+            "raw_mae": 0.8460926917081794
+          },
+          "samples": 61440,
+          "source_id": "emogator:000216-25-1.mp3"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9775710647692392,
+            "mel": 0.9589514671522639,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9221882217384697
+          },
+          "samples": 61440,
+          "source_id": "emogator:000236-03-2.mp3"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0605883587636948,
+            "mel": 0.8983634969381504,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8609154758946751,
+            "raw_mae": 0.8810881399469055
+          },
+          "samples": 61440,
+          "source_id": "emogator:000269-24-1.mp3"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.995174205715536,
+            "mel": 0.932258455776694,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8413299242945714,
+            "raw_mae": 0.9055107109088402
+          },
+          "samples": 61440,
+          "source_id": "emogator:000282-30-3.mp3"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0077788675860802,
+            "mel": 0.8884338088090794,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.7978686518044498,
+            "raw_mae": 0.8777991823911483
+          },
+          "samples": 61440,
+          "source_id": "emogator:000298-30-1.mp3"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9705663982252745,
+            "mel": 0.9681409395779641,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.97049700522613
+          },
+          "samples": 61440,
+          "source_id": "emogator:000326-15-1.mp3"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.050078037504056,
+            "mel": 0.9204007256509531,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9497663396736343,
+            "raw_mae": 0.9022539494358103
+          },
+          "samples": 245754,
+          "source_id": "es_419:test:5179176991301857058.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0035693206930896,
+            "mel": 0.9328870998697635,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.6792112801012722,
+            "raw_mae": 0.9275656630470122
+          },
+          "samples": 245754,
+          "source_id": "es_419:test:6263626760446996949.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.040294405372142,
+            "mel": 0.9475632219432072,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8842440638016366,
+            "raw_mae": 0.922291814025642
+          },
+          "samples": 245754,
+          "source_id": "fr_fr:test:11295389174145067264.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.068203334295709,
+            "mel": 0.9299048607336805,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9292272219714084,
+            "raw_mae": 0.94811728177346
+          },
+          "samples": 245754,
+          "source_id": "fr_fr:test:13292226229846030035.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0869861259194522,
+            "mel": 0.9597780034639222,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.7645494385435472,
+            "raw_mae": 0.9260323625505421
+          },
+          "samples": 245754,
+          "source_id": "freesound:119459"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9675722353383055,
+            "mel": 0.9659720415880744,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.972586028802908
+          },
+          "samples": 152544,
+          "source_id": "freesound:167448"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0121200754454727,
+            "mel": 0.8440510203183619,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9356285971033239,
+            "raw_mae": 0.9661302584234372
+          },
+          "samples": 61440,
+          "source_id": "freesound:180953"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0528772833320224,
+            "mel": 0.9358751053671441,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.7685949509750507,
+            "raw_mae": 0.9389079892832193
+          },
+          "samples": 153594,
+          "source_id": "freesound:183929"
+        },
+        {
+          "crops": 1,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.025967214023312,
+            "mel": 0.9669402553022842,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9764678788640099
+          },
+          "samples": 30720,
+          "source_id": "freesound:183934"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9918795566135714,
+            "mel": 0.9513922827283287,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9537866379350965,
+            "raw_mae": 0.9518460750800348
+          },
+          "samples": 61440,
+          "source_id": "freesound:211566"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0226550017300104,
+            "mel": 0.9593148819900207,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 1.0401373245582743,
+            "raw_mae": 0.9160323938151856
+          },
+          "samples": 61440,
+          "source_id": "freesound:220649"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.051698545074947,
+            "mel": 0.9773818037826024,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.7589110265955121,
+            "raw_mae": 0.9926919604039487
+          },
+          "samples": 61440,
+          "source_id": "freesound:220655"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0773479495773897,
+            "mel": 0.9489164393287092,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8196466300579309,
+            "raw_mae": 0.9359412427093837
+          },
+          "samples": 61440,
+          "source_id": "freesound:220657"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0793945743891995,
+            "mel": 0.8835849397482308,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8046343974435475,
+            "raw_mae": 0.9406031360335534
+          },
+          "samples": 61440,
+          "source_id": "freesound:220658"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0035437499955913,
+            "mel": 0.9527614919170858,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9571267914423126,
+            "raw_mae": 0.9378764107230642
+          },
+          "samples": 61440,
+          "source_id": "freesound:220660"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9222279025106174,
+            "mel": 0.9430732503643,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8266553893885966,
+            "raw_mae": 0.8958220809316476
+          },
+          "samples": 61440,
+          "source_id": "freesound:220663"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9336350188421199,
+            "mel": 0.9471247254847885,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9683476676218811,
+            "raw_mae": 0.9530721117206434
+          },
+          "samples": 61440,
+          "source_id": "freesound:220665"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9117345897399894,
+            "mel": 0.9551578601778054,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9105346088225402
+          },
+          "samples": 61440,
+          "source_id": "freesound:240901"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0272287423056243,
+            "mel": 0.7844699164666744,
+            "peak_excess_energy": 1.5167228192756144,
+            "quiet_residual_rms": 0.5763020281529213,
+            "raw_mae": 0.9548847562802792
+          },
+          "samples": 245754,
+          "source_id": "freesound:25794"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0873556029095708,
+            "mel": 0.7070221026070924,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.4382900273598232,
+            "raw_mae": 0.9730644999135333
+          },
+          "samples": 152967,
+          "source_id": "freesound:264051"
+        },
+        {
+          "crops": 1,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9615956801781079,
+            "mel": 0.8763861108108278,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.47100818329953414,
+            "raw_mae": 0.9190647411364631
+          },
+          "samples": 343158,
+          "source_id": "freesound:266716"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.137643624578594,
+            "mel": 0.9598234634848379,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9835018130814159,
+            "raw_mae": 0.9769272022078678
+          },
+          "samples": 152214,
+          "source_id": "freesound:27895"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0257947491571382,
+            "mel": 0.8498600946547101,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.5722632378706721,
+            "raw_mae": 0.977640217788324
+          },
+          "samples": 151770,
+          "source_id": "freesound:27896"
+        },
+        {
+          "crops": 1,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9910491395742186,
+            "mel": 0.9852747503536049,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9677170657696724,
+            "raw_mae": 0.9535431815794657
+          },
+          "samples": 30720,
+          "source_id": "freesound:372237"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0797063808645322,
+            "mel": 0.9426853518086049,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.7659371225004192,
+            "raw_mae": 0.9451028485297519
+          },
+          "samples": 245754,
+          "source_id": "freesound:386521"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0082441648385032,
+            "mel": 0.9198486030411476,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8427022596502362,
+            "raw_mae": 0.8952450958110366
+          },
+          "samples": 245754,
+          "source_id": "freesound:457967"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9470177787474722,
+            "mel": 0.914357938457922,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.7215943483992663
+          },
+          "samples": 245754,
+          "source_id": "freesound:539498"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.026193769574413,
+            "mel": 0.9660411228775821,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.94259065226226
+          },
+          "samples": 245754,
+          "source_id": "gujarati:3377699720734750_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9777006135414932,
+            "mel": 0.9330562743880608,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.8908008402916666
+          },
+          "samples": 245754,
+          "source_id": "hindi:5348024557671549_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0254192068209138,
+            "mel": 0.926866380972962,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8596845088368417,
+            "raw_mae": 0.9210507081037639
+          },
+          "samples": 245754,
+          "source_id": "hindi:5348024557759780_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9992437674619635,
+            "mel": 0.9642644081303927,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9291208137234609
+          },
+          "samples": 245754,
+          "source_id": "hindi:5348024557774912_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0477134325233444,
+            "mel": 0.8725369853656549,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8590206621730814,
+            "raw_mae": 0.9408362563601663
+          },
+          "samples": 245754,
+          "source_id": "jvnv:M2_anger_free_01.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.057397483840292,
+            "mel": 0.9051697806169269,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8099936578428296,
+            "raw_mae": 0.9349588854201646
+          },
+          "samples": 245754,
+          "source_id": "jvnv:M2_anger_regular_04.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0455145772447338,
+            "mel": 0.9020269436219654,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.7981154130328926,
+            "raw_mae": 0.9321026852809527
+          },
+          "samples": 245754,
+          "source_id": "jvnv:M2_anger_regular_17.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0341058065491513,
+            "mel": 0.8581469141785389,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.6860519106024359,
+            "raw_mae": 0.9312134004619307
+          },
+          "samples": 245754,
+          "source_id": "jvnv:M2_fear_regular_12.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0442804883556076,
+            "mel": 0.899393347700346,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8026717583653875,
+            "raw_mae": 0.9561997687449395
+          },
+          "samples": 245754,
+          "source_id": "jvnv:M2_happy_regular_12.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0215044010388785,
+            "mel": 0.8837109318112685,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.7848424572255411,
+            "raw_mae": 0.9306924907334253
+          },
+          "samples": 245754,
+          "source_id": "jvnv:M2_happy_regular_14.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9919369265079163,
+            "mel": 0.8498052591130116,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.781487682426309,
+            "raw_mae": 0.9249736062194577
+          },
+          "samples": 245754,
+          "source_id": "jvnv:M2_sad_regular_33.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9680944655425855,
+            "mel": 0.8333594629826524,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.840974263975883,
+            "raw_mae": 0.9151621516415951
+          },
+          "samples": 245754,
+          "source_id": "jvnv:M2_sad_regular_49.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0394456998936565,
+            "mel": 0.8190773585013098,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8175269552625474,
+            "raw_mae": 0.9337106015762211
+          },
+          "samples": 245754,
+          "source_id": "jvnv:M2_sad_regular_62.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0265771501181946,
+            "mel": 0.8480276014542825,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.6114685937341051,
+            "raw_mae": 0.9292213451570902
+          },
+          "samples": 245754,
+          "source_id": "jvnv:M2_surprise_regular_56.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9960554423368807,
+            "mel": 0.9524607053506436,
+            "peak_excess_energy": 1.0753141546502678,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9053265575468097
+          },
+          "samples": 245754,
+          "source_id": "kannada:6192449487784949_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0818208588564466,
+            "mel": 0.9476375278738705,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9524954845328581
+          },
+          "samples": 245754,
+          "source_id": "kannada:6192449487924364_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0492873298552132,
+            "mel": 0.9438514712627297,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.928979687463462
+          },
+          "samples": 245754,
+          "source_id": "kannada:6192449488033510_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.013128097065585,
+            "mel": 0.9433590538796084,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9334091618955989
+          },
+          "samples": 153258,
+          "source_id": "kashmiri:1970324836980369_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.066086300344591,
+            "mel": 0.9694609350768613,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.944395284806732
+          },
+          "samples": 153546,
+          "source_id": "kashmiri:1970324836985872_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0279429902492856,
+            "mel": 0.9628721430756383,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.8745181080447296
+          },
+          "samples": 152847,
+          "source_id": "kashmiri:1970324836996031_chunk_1.flac"
+        },
+        {
+          "crops": 1,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9918654005430216,
+            "mel": 0.9608254199337819,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.5989989364140367,
+            "raw_mae": 0.9831358839868765
+          },
+          "samples": 30720,
+          "source_id": "kashmiri:f735ff21-b6fb-4abc-9c96-2c3cfdbd566a_1_chunk_4.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.024361609663228,
+            "mel": 0.9590939803315583,
+            "peak_excess_energy": 8.435070964771409,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9477821503977635
+          },
+          "samples": 152160,
+          "source_id": "konkani:4222124650663574_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.994268397272977,
+            "mel": 0.9331386946171386,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9047772679864355
+          },
+          "samples": 152442,
+          "source_id": "konkani:4222124650663798_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.000668920460585,
+            "mel": 0.9509013912544717,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.783990775148743,
+            "raw_mae": 0.9180052479035601
+          },
+          "samples": 152832,
+          "source_id": "konkani:beedfbd9-329f-4fbe-94e8-7febe16bbc8d_1_chunk_4.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9682771439118918,
+            "mel": 0.9564583101231605,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9179766242738854,
+            "raw_mae": 0.9337480283894178
+          },
+          "samples": 152778,
+          "source_id": "konkani:ee0b5675-2794-457b-b58e-14104228b6ef_1_chunk_4.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9985070742200136,
+            "mel": 0.9256534088972996,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9147934657969682
+          },
+          "samples": 151722,
+          "source_id": "maithili:844424930147827_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0367026864528917,
+            "mel": 0.9110128716178664,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.8469720491271447
+          },
+          "samples": 153066,
+          "source_id": "maithili:844424930165063_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0597229047332641,
+            "mel": 0.9793306544914869,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9530286605086308
+          },
+          "samples": 152202,
+          "source_id": "maithili:844424930165482_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9977455370836145,
+            "mel": 0.920903845755118,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.7114606034178791,
+            "raw_mae": 0.8800966746601768
+          },
+          "samples": 153162,
+          "source_id": "maithili:844424930270270_chunk_1.flac"
+        },
+        {
+          "crops": 1,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.099017549402241,
+            "mel": 0.9356183217566436,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9105948437284083
+          },
+          "samples": 122880,
+          "source_id": "malayalam:2814749767157712_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0005150588941047,
+            "mel": 0.939975031687194,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9475947399293349
+          },
+          "samples": 245754,
+          "source_id": "malayalam:2814749767202105_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0476506677796327,
+            "mel": 0.9310902156871514,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.8932669303443491
+          },
+          "samples": 245754,
+          "source_id": "malayalam:2814749767210755_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0047533093830021,
+            "mel": 0.969293386291178,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9493666632157209
+          },
+          "samples": 153018,
+          "source_id": "manipuri:6473924464348311_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9759455917857013,
+            "mel": 0.9157849213920775,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9767253855851967,
+            "raw_mae": 0.8972004444645448
+          },
+          "samples": 152490,
+          "source_id": "manipuri:6473924464383473_chunk_1.flac"
+        },
+        {
+          "crops": 1,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0283463991931838,
+            "mel": 0.9649434208501673,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9626660846730928
+          },
+          "samples": 30720,
+          "source_id": "manipuri:6473924464427006_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0400724718721228,
+            "mel": 0.9339922081462196,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9072566795331559,
+            "raw_mae": 0.9051160148437792
+          },
+          "samples": 153018,
+          "source_id": "manipuri:6473924464473013_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0504641989448558,
+            "mel": 0.968296490529509,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9122068665218159
+          },
+          "samples": 245754,
+          "source_id": "marathi:562949953456108_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9961139596998383,
+            "mel": 0.9176336379126424,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9023577672031393
+          },
+          "samples": 245754,
+          "source_id": "marathi:562949953527567_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9766753910665508,
+            "mel": 0.913038165673498,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8280521046317463,
+            "raw_mae": 0.9384992297474989
+          },
+          "samples": 245760,
+          "source_id": "marathi:da1e4fd5-d4c1-436b-a7be-cb8080daa330_1_chunk_4.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0114402494662427,
+            "mel": 0.9409724924623851,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.8597734415178425
+          },
+          "samples": 245754,
+          "source_id": "nepali:3940649673952883_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.006119826415026,
+            "mel": 0.9231876892886133,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.946828950875545,
+            "raw_mae": 0.8587890161987382
+          },
+          "samples": 245754,
+          "source_id": "nepali:3940649674026233_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0190912774178464,
+            "mel": 0.9179633494096825,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9004826343468426,
+            "raw_mae": 0.8687641550350214
+          },
+          "samples": 245754,
+          "source_id": "nepali:3940649674030499_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9747658505186327,
+            "mel": 0.9460232348938074,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9310862508294051
+          },
+          "samples": 153162,
+          "source_id": "odia:1688849860265745_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.039142281532806,
+            "mel": 0.9186305924668013,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9968056438381622,
+            "raw_mae": 0.8871709226022022
+          },
+          "samples": 152874,
+          "source_id": "odia:1688849860614633_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.007502830759791,
+            "mel": 0.9506926729596707,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9825076719147396
+          },
+          "samples": 152874,
+          "source_id": "odia:1688849860681312_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.043508114032192,
+            "mel": 0.9521989457513851,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 1.3950254681386007,
+            "raw_mae": 0.9113853603136678
+          },
+          "samples": 153600,
+          "source_id": "odia:b82da8bb-ec78-4b4e-b953-4cb86642f27a_1_chunk_2.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0580287489799762,
+            "mel": 0.9466601059261176,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8323816899666896,
+            "raw_mae": 0.9303979753625687
+          },
+          "samples": 245754,
+          "source_id": "pt_br:test:10899619662660037352.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0474588494662276,
+            "mel": 0.9329401400600263,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9318882291552494
+          },
+          "samples": 245754,
+          "source_id": "pt_br:test:18401650931916642390.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0638044992306261,
+            "mel": 0.959353145539986,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9442029471657011
+          },
+          "samples": 245760,
+          "source_id": "punjabi:5066549580972243_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.009269445694969,
+            "mel": 0.9500082355476434,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.900036409535323
+          },
+          "samples": 245754,
+          "source_id": "punjabi:5066549581007234_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0281357204705974,
+            "mel": 0.9338320923514631,
+            "peak_excess_energy": 2.102783085375816,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.8678767778752656
+          },
+          "samples": 245754,
+          "source_id": "punjabi:5066549581061702_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0859113721801483,
+            "mel": 0.9058447765194902,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.7768499103448087,
+            "raw_mae": 0.866075780953809
+          },
+          "samples": 152058,
+          "source_id": "sanskrit:2251799813688100_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0574518467843266,
+            "mel": 0.9515891060249213,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9073181366738898
+          },
+          "samples": 152826,
+          "source_id": "sanskrit:2251799813701620_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.047193098187533,
+            "mel": 0.9551787409115096,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9141170471582502
+          },
+          "samples": 153018,
+          "source_id": "sanskrit:2251799813705762_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0104024780579595,
+            "mel": 0.9722154659340578,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9467431118390373
+          },
+          "samples": 152010,
+          "source_id": "sanskrit:2251799813706128_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.010183462266722,
+            "mel": 0.9328018233105871,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8768422583711445,
+            "raw_mae": 0.8404483962418485
+          },
+          "samples": 152184,
+          "source_id": "santali:4785074604130235_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9808101435839551,
+            "mel": 0.9344001893350672,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9428736106333756,
+            "raw_mae": 0.8802433644753928
+          },
+          "samples": 151722,
+          "source_id": "santali:72e01d81-c30a-4a62-827b-9f5e2016c27e_0_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9885662759531446,
+            "mel": 0.9222642596488078,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.7987840460630165,
+            "raw_mae": 0.8579684664047098
+          },
+          "samples": 153594,
+          "source_id": "santali:9626bd39-53b4-4df9-bde4-10a3697420f2_1_chunk_2.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0770912652744358,
+            "mel": 0.9608815920637087,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9486119310460094,
+            "raw_mae": 0.9229676190635812
+          },
+          "samples": 153306,
+          "source_id": "santali:bf6e6f53-e42c-455a-8fe4-589e4952d0e3_1_chunk_2.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0268394112364163,
+            "mel": 0.9377072340933946,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.8992302674734537
+          },
+          "samples": 245754,
+          "source_id": "sindhi:5629499534289894_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9994131838573388,
+            "mel": 0.9115946875687537,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9185305375441581,
+            "raw_mae": 0.8372492407269245
+          },
+          "samples": 245754,
+          "source_id": "sindhi:5629499534315141_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.024595050695494,
+            "mel": 0.9427225729511371,
+            "peak_excess_energy": 1.6002793336526977,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9040026114120656
+          },
+          "samples": 245760,
+          "source_id": "sindhi:5629499534317154_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0337782185167743,
+            "mel": 0.9331003275112556,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.8677916067145854
+          },
+          "samples": 245754,
+          "source_id": "tamil:3096224744178397_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.053692578057352,
+            "mel": 0.9488832047671815,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.8974663480505756
+          },
+          "samples": 245760,
+          "source_id": "tamil:3096224744283752_chunk_2.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9921868097742716,
+            "mel": 0.9344289337314694,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9472434641989739,
+            "raw_mae": 0.9265361664826535
+          },
+          "samples": 245760,
+          "source_id": "tamil:3096224744342267_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0205265949979314,
+            "mel": 0.9479838482206163,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.9037329250945901,
+            "raw_mae": 0.9201683373828897
+          },
+          "samples": 245760,
+          "source_id": "telugu:180b8c37-8e18-49e1-b92b-3bff06143657_1_chunk_3.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0437610777579684,
+            "mel": 0.9515283731495443,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9346849946514604
+          },
+          "samples": 245754,
+          "source_id": "telugu:4503599627392903_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0009190391054261,
+            "mel": 0.9429031365817785,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9091123743106109
+          },
+          "samples": 245754,
+          "source_id": "telugu:4503599627644935_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0093444218261471,
+            "mel": 0.9559432064563449,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.904664420806799
+          },
+          "samples": 245754,
+          "source_id": "urdu:5910974511156778_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.0679856218926382,
+            "mel": 0.9518675929362159,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.9594122213831175
+          },
+          "samples": 245754,
+          "source_id": "urdu:5910974511173186_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.1101998081671307,
+            "mel": 0.9225628064387953,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": null,
+            "raw_mae": 0.8652169202857958
+          },
+          "samples": 245754,
+          "source_id": "urdu:5910974511198452_chunk_1.flac"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.063255103851068,
+            "mel": 0.8874715091222649,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.8019106673811713,
+            "raw_mae": 0.8835484003713532
+          },
+          "samples": 153594,
+          "source_id": "yue_hant_hk:validation:10033329815200977556.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 1.1907880871201268,
+            "mel": 0.7733019615090594,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.7143359765304182,
+            "raw_mae": 0.7754070193377024
+          },
+          "samples": 152634,
+          "source_id": "yue_hant_hk:validation:10085210971428056272.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.9887122697613179,
+            "mel": 0.9578604750053988,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 1.1036943607515015,
+            "raw_mae": 0.8432351204556154
+          },
+          "samples": 153594,
+          "source_id": "yue_hant_hk:validation:10172384069529710044.wav"
+        },
+        {
+          "crops": 2,
+          "ratios_vs_baseline": {
+            "maximum_peak": 0.987266332062247,
+            "mel": 0.7741931527097122,
+            "peak_excess_energy": null,
+            "quiet_residual_rms": 0.7039411744178782,
+            "raw_mae": 0.891489011194691
+          },
+          "samples": 153594,
+          "source_id": "yue_hant_hk:validation:1019891360787907522.wav"
+        }
+      ],
+      "undefined_ratio_policy": "None; never silently passes a required gate"
+    }
+  },
+  "format_version": 2,
+  "fresh_training_overlay_preservation": {
+    "fresh_training_overlay_files_unchanged": true
+  },
+  "promoted": false,
+  "screen_passed": false,
+  "training_target_domain": "fresh_corrected_encoder_and_decoder"
+}

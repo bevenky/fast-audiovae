@@ -1,0 +1,671 @@
+{
+  "scope": "Saved-result metadata and arithmetic audit only. No model execution, training, benchmarks or tests.",
+  "audit_summary_sha256": "7a410e8c131ca6786f710ae7e609b399fec69c31e4aea8b9d167b4fd1b2a848e",
+  "integrity_checks": {
+    "runner_sha_matches_validated_manifest": true,
+    "calibration_manifest_sha_matches_preregistered_manifest": true,
+    "calibration_order_hash_valid": true,
+    "split_identity_matches_preregistered_and_previous_pooled_run": true,
+    "same_fit_sample_counts_as_previous_pooled_run": true,
+    "calibration_indices_map_to_previous_fixed_fit_order": true,
+    "calibration_has_72_distinct_sources": true,
+    "calibration_disjoint_from_selection_sources": true,
+    "coefficient_exact_median": true,
+    "canonical_identity_matches_previous_pooled_run": true,
+    "natural_counts_match_both_references": true,
+    "selection_counts_unchanged": true,
+    "regional_support_unchanged": true,
+    "regional_pooled_linear_log_match_sums": true,
+    "regional_windows_partition_all_windows": true,
+    "complete_comparisons_match": true,
+    "no_selected_checkpoint": true,
+    "no_promotion": true,
+    "preservation_receipts_pass": true
+  },
+  "all_integrity_checks_passed": true,
+  "exposure": {
+    "retained_updates": 256,
+    "batch_size": 8,
+    "distinct_fit_sources": 2048,
+    "reported_source_repeats": 0,
+    "valid_scored_samples": 240772977,
+    "valid_scored_audio_hours_at_48000": 1.3933621354166668,
+    "selection_sources": 256,
+    "canonical_natural_sources": 144,
+    "canonical_natural_crops": 282,
+    "canonical_all_sources_including_synthetic": 147,
+    "source_order_evidence": "Same preregistered split identity as previous pooled run; sampled calibration indices exactly match previous full FIT source list. Raw new training JSONL is not included in this local summary; no independent sample-by-sample reread of it was performed."
+  },
+  "qualification": {
+    "selected_step": null,
+    "promoted": false,
+    "canonical_quality_screen_passed": true,
+    "canonical_silence_target_passed": false,
+    "canonical_source_spectral_passed": false,
+    "canonical_legacy_source_spectral_passed": false,
+    "canonical_peak_protection_passed": false,
+    "selection": [
+      {
+        "step": 128,
+        "qualified": false,
+        "quiet_rms_ratio": 1.002894586859303,
+        "failed_checks": [
+          {
+            "name": "quiet/meaningful_reduction_or_already_perfect",
+            "passed": false
+          }
+        ],
+        "failed_source_ids": [
+          "1239-139609-0037",
+          "1646-121409-0042",
+          "5791-31920-0077",
+          "909-131041-0022",
+          "bodo:3659174697351239_chunk_1.flac",
+          "gl_es:train:11757417472312434557.wav",
+          "gu_in:train:1591339570658843053.wav",
+          "ka_ge:train:12082703835429188239.wav",
+          "pa_in:train:15872997602843185953.wav",
+          "ta_in:train:11634515469181464115.wav",
+          "umb_ao:train:14438885350846687575.wav"
+        ]
+      },
+      {
+        "step": 256,
+        "qualified": false,
+        "quiet_rms_ratio": 1.0031769043030396,
+        "failed_checks": [
+          {
+            "name": "quiet/meaningful_reduction_or_already_perfect",
+            "passed": false
+          }
+        ],
+        "failed_source_ids": [
+          "1646-121409-0042",
+          "pa_in:train:15872997602843185953.wav",
+          "umb_ao:train:14438885350846687575.wav"
+        ]
+      }
+    ]
+  },
+  "whole_source_failures": {
+    "versus_retained": {
+      "pooled_all": [
+        {
+          "baseline_mel": 0.9459850121124657,
+          "candidate_mel": 0.960051759352984,
+          "gate": true,
+          "passed": false,
+          "ratio": 1.0148699472617502,
+          "region": "all",
+          "source_id": "bengali:1407374883904482_chunk_1.flac"
+        },
+        {
+          "baseline_mel": 0.8185374527756181,
+          "candidate_mel": 0.8302689380804243,
+          "gate": true,
+          "passed": false,
+          "ratio": 1.0143322523178695,
+          "region": "all",
+          "source_id": "bodo:3659174697292403_chunk_1.flac"
+        },
+        {
+          "baseline_mel": 0.97874369220992,
+          "candidate_mel": 0.9894091046123534,
+          "gate": true,
+          "passed": false,
+          "ratio": 1.0108970433090116,
+          "region": "all",
+          "source_id": "maithili:844424930165482_chunk_1.flac"
+        }
+      ],
+      "legacy_equal_crop": [
+        {
+          "baseline_mel": 0.9459968507289886,
+          "candidate_mel": 0.9600591361522675,
+          "passed": false,
+          "ratio": 1.0148650446483436,
+          "source_id": "bengali:1407374883904482_chunk_1.flac"
+        },
+        {
+          "baseline_mel": 0.8342386782169342,
+          "candidate_mel": 0.8455891311168671,
+          "passed": false,
+          "ratio": 1.0136057619915115,
+          "source_id": "bodo:3659174697292403_chunk_1.flac"
+        },
+        {
+          "baseline_mel": 0.6949776709079742,
+          "candidate_mel": 0.7020779252052307,
+          "passed": false,
+          "ratio": 1.010216521471805,
+          "source_id": "maithili:844424930270270_chunk_1.flac"
+        }
+      ],
+      "union_source_ids": [
+        "bengali:1407374883904482_chunk_1.flac",
+        "bodo:3659174697292403_chunk_1.flac",
+        "maithili:844424930165482_chunk_1.flac",
+        "maithili:844424930270270_chunk_1.flac"
+      ],
+      "distinct_union_count": 4
+    },
+    "versus_original_8890": {
+      "pooled_all": [],
+      "legacy_equal_crop": [],
+      "union_source_ids": [],
+      "distinct_union_count": 0
+    }
+  },
+  "natural_region_support_and_failures": {
+    "versus_retained_candidate": {
+      "all": {
+        "sources_with_spectral_support": 144,
+        "element_counts": [
+          6276096,
+          6216576,
+          3048832
+        ],
+        "frame_observations": [
+          98064,
+          48567,
+          23819
+        ],
+        "pooled_mel_before": 1.0059267061789003,
+        "pooled_mel_after": 1.0048750740439403,
+        "changes_percent": {
+          "mel": -0.104543614211694,
+          "linear": -0.23431458536109506,
+          "log": -0.10258378533560819
+        },
+        "sources_over_one_percent": 3,
+        "failures": [
+          {
+            "source": "bengali:1407374883904482_chunk_1.flac",
+            "region": "all",
+            "baseline_mel": 0.9459850121124657,
+            "candidate_mel": 0.960051759352984,
+            "mel_change_percent": 1.4869947261750172,
+            "baseline_linear": 0.023649201395626623,
+            "candidate_linear": 0.023813215801864355,
+            "linear_change_percent": 0.6935304219958249,
+            "baseline_log": 0.922335810716839,
+            "candidate_log": 0.9362385435511197,
+            "log_change_percent": 1.5073395907153841,
+            "element_counts": [
+              60992,
+              60544,
+              29824
+            ],
+            "frame_observations": [
+              953,
+              473,
+              233
+            ]
+          },
+          {
+            "source": "bodo:3659174697292403_chunk_1.flac",
+            "region": "all",
+            "baseline_mel": 0.8185374527756181,
+            "candidate_mel": 0.8302689380804243,
+            "mel_change_percent": 1.4332252317869498,
+            "baseline_linear": 0.014047203467974579,
+            "candidate_linear": 0.014067283640050122,
+            "linear_change_percent": 0.14294782674233453,
+            "baseline_log": 0.8044902493076435,
+            "candidate_log": 0.8162016544403742,
+            "log_change_percent": 1.455754764313144,
+            "element_counts": [
+              37888,
+              37504,
+              18304
+            ],
+            "frame_observations": [
+              592,
+              293,
+              143
+            ]
+          },
+          {
+            "source": "maithili:844424930165482_chunk_1.flac",
+            "region": "all",
+            "baseline_mel": 0.97874369220992,
+            "candidate_mel": 0.9894091046123534,
+            "mel_change_percent": 1.0897043309011645,
+            "baseline_linear": 0.03272981252485906,
+            "candidate_linear": 0.03280529853825174,
+            "linear_change_percent": 0.23063380926897636,
+            "baseline_log": 0.9460138796850609,
+            "candidate_log": 0.9566038060741017,
+            "log_change_percent": 1.119426111651367,
+            "element_counts": [
+              37632,
+              37248,
+              18176
+            ],
+            "frame_observations": [
+              588,
+              291,
+              142
+            ]
+          }
+        ]
+      },
+      "quiet": {
+        "sources_with_spectral_support": 79,
+        "element_counts": [
+          707584,
+          629120,
+          256000
+        ],
+        "frame_observations": [
+          11056,
+          4915,
+          2000
+        ],
+        "pooled_mel_before": 0.5063793013329694,
+        "pooled_mel_after": 0.4989029939879404,
+        "changes_percent": {
+          "mel": -1.476424357265138,
+          "linear": -1.1699282537024236,
+          "log": -1.4765039242833677
+        },
+        "sources_over_one_percent": 1,
+        "failures": [
+          {
+            "source": "freesound:372237",
+            "region": "quiet",
+            "baseline_mel": 0.6288709768395409,
+            "candidate_mel": 0.6351705432839951,
+            "mel_change_percent": 1.0017263757525319,
+            "baseline_linear": 0.00011873779105986415,
+            "candidate_linear": 0.00011830748694752202,
+            "linear_change_percent": -0.36239861673457163,
+            "baseline_log": 0.628752239048481,
+            "candidate_log": 0.6350522357970476,
+            "log_change_percent": 1.0019839862678959,
+            "element_counts": [
+              256,
+              0,
+              0
+            ],
+            "frame_observations": [
+              4,
+              0,
+              0
+            ]
+          }
+        ]
+      },
+      "active": {
+        "sources_with_spectral_support": 144,
+        "element_counts": [
+          5362944,
+          5245440,
+          2520576
+        ],
+        "frame_observations": [
+          83796,
+          40980,
+          19692
+        ],
+        "pooled_mel_before": 1.082458632669282,
+        "pooled_mel_after": 1.082293165946981,
+        "changes_percent": {
+          "mel": -0.015286193606578458,
+          "linear": -0.23293610579711022,
+          "log": -0.011652374387294273
+        },
+        "sources_over_one_percent": 3,
+        "failures": [
+          {
+            "source": "bengali:1407374883904482_chunk_1.flac",
+            "region": "active",
+            "baseline_mel": 0.9459850121124657,
+            "candidate_mel": 0.960051759352984,
+            "mel_change_percent": 1.4869947261750172,
+            "baseline_linear": 0.023649201395626623,
+            "candidate_linear": 0.023813215801864355,
+            "linear_change_percent": 0.6935304219958249,
+            "baseline_log": 0.922335810716839,
+            "candidate_log": 0.9362385435511197,
+            "log_change_percent": 1.5073395907153841,
+            "element_counts": [
+              60992,
+              60544,
+              29824
+            ],
+            "frame_observations": [
+              953,
+              473,
+              233
+            ]
+          },
+          {
+            "source": "bodo:3659174697292403_chunk_1.flac",
+            "region": "active",
+            "baseline_mel": 0.8185374527756181,
+            "candidate_mel": 0.8302689380804243,
+            "mel_change_percent": 1.4332252317869498,
+            "baseline_linear": 0.014047203467974579,
+            "candidate_linear": 0.014067283640050122,
+            "linear_change_percent": 0.14294782674233453,
+            "baseline_log": 0.8044902493076435,
+            "candidate_log": 0.8162016544403742,
+            "log_change_percent": 1.455754764313144,
+            "element_counts": [
+              37888,
+              37504,
+              18304
+            ],
+            "frame_observations": [
+              592,
+              293,
+              143
+            ]
+          },
+          {
+            "source": "maithili:844424930165482_chunk_1.flac",
+            "region": "active",
+            "baseline_mel": 0.97874369220992,
+            "candidate_mel": 0.9894091046123534,
+            "mel_change_percent": 1.0897043309011645,
+            "baseline_linear": 0.03272981252485906,
+            "candidate_linear": 0.03280529853825174,
+            "linear_change_percent": 0.23063380926897636,
+            "baseline_log": 0.9460138796850609,
+            "candidate_log": 0.9566038060741017,
+            "log_change_percent": 1.119426111651367,
+            "element_counts": [
+              37632,
+              37248,
+              18176
+            ],
+            "frame_observations": [
+              588,
+              291,
+              142
+            ]
+          }
+        ]
+      },
+      "transition": {
+        "sources_with_spectral_support": 87,
+        "element_counts": [
+          205568,
+          342016,
+          272256
+        ],
+        "frame_observations": [
+          3212,
+          2672,
+          2127
+        ],
+        "pooled_mel_before": 0.7418798994133574,
+        "pooled_mel_after": 0.7387243379727083,
+        "changes_percent": {
+          "mel": -0.4253466690692598,
+          "linear": -0.3142444604619987,
+          "log": -0.4256054129082254
+        },
+        "sources_over_one_percent": 1,
+        "failures": [
+          {
+            "source": "freesound:220649",
+            "region": "transition",
+            "baseline_mel": 0.8586163948973002,
+            "candidate_mel": 0.8745217172451684,
+            "mel_change_percent": 1.8524363665069155,
+            "baseline_linear": 0.012603936575661834,
+            "candidate_linear": 0.012635272976420234,
+            "linear_change_percent": 0.24862391658579952,
+            "baseline_log": 0.8460124583216384,
+            "candidate_log": 0.8618864442687482,
+            "log_change_percent": 1.8763300458484178,
+            "element_counts": [
+              256,
+              256,
+              128
+            ],
+            "frame_observations": [
+              4,
+              2,
+              1
+            ]
+          }
+        ]
+      }
+    },
+    "versus_original_8890": {
+      "all": {
+        "sources_with_spectral_support": 144,
+        "element_counts": [
+          6276096,
+          6216576,
+          3048832
+        ],
+        "frame_observations": [
+          98064,
+          48567,
+          23819
+        ],
+        "pooled_mel_before": 1.035289208682003,
+        "pooled_mel_after": 1.0048750740439403,
+        "changes_percent": {
+          "mel": -2.937742843546298,
+          "linear": -1.0378459226440762,
+          "log": -2.965839399311898
+        },
+        "sources_over_one_percent": 0,
+        "failures": []
+      },
+      "quiet": {
+        "sources_with_spectral_support": 79,
+        "element_counts": [
+          707584,
+          629120,
+          256000
+        ],
+        "frame_observations": [
+          11056,
+          4915,
+          2000
+        ],
+        "pooled_mel_before": 0.599595179297215,
+        "pooled_mel_after": 0.4989029939879404,
+        "changes_percent": {
+          "mel": -16.79336138547608,
+          "linear": -11.059295255685242,
+          "log": -16.7947583013073
+        },
+        "sources_over_one_percent": 1,
+        "failures": [
+          {
+            "source": "freesound:220655",
+            "region": "quiet",
+            "baseline_mel": 0.6874788025292751,
+            "candidate_mel": 0.7316621763438482,
+            "mel_change_percent": 6.4268707125252345,
+            "baseline_linear": 9.697199717129124e-05,
+            "candidate_linear": 9.696165030192994e-05,
+            "linear_change_percent": -0.010669955928643837,
+            "baseline_log": 0.6873818305321038,
+            "candidate_log": 0.7315652146935463,
+            "log_change_percent": 6.4277788848797535,
+            "element_counts": [
+              512,
+              256,
+              0
+            ],
+            "frame_observations": [
+              8,
+              2,
+              0
+            ]
+          }
+        ]
+      },
+      "active": {
+        "sources_with_spectral_support": 144,
+        "element_counts": [
+          5362944,
+          5245440,
+          2520576
+        ],
+        "frame_observations": [
+          83796,
+          40980,
+          19692
+        ],
+        "pooled_mel_before": 1.1043543772572113,
+        "pooled_mel_after": 1.082293165946981,
+        "changes_percent": {
+          "mel": -1.9976568902657643,
+          "linear": -1.0285593125261006,
+          "log": -2.0136401685525884
+        },
+        "sources_over_one_percent": 0,
+        "failures": []
+      },
+      "transition": {
+        "sources_with_spectral_support": 87,
+        "element_counts": [
+          205568,
+          342016,
+          272256
+        ],
+        "frame_observations": [
+          3212,
+          2672,
+          2127
+        ],
+        "pooled_mel_before": 0.7710965920083035,
+        "pooled_mel_after": 0.7387243379727083,
+        "changes_percent": {
+          "mel": -4.19820997409448,
+          "linear": -1.1246004215003547,
+          "log": -4.2051527852098864
+        },
+        "sources_over_one_percent": 0,
+        "failures": []
+      }
+    }
+  },
+  "peak_comparisons": {
+    "versus_retained_candidate": {
+      "before_peak": 1.2926092147827148,
+      "after_peak": 1.2896616458892822,
+      "before_overshoot_observations": 589,
+      "after_overshoot_observations": 575,
+      "overshoot_sources_before": 6,
+      "overshoot_sources_after": 6,
+      "regressing_crops": 5,
+      "regressing_sources": 4,
+      "failures": [
+        {
+          "source": "freesound:25794",
+          "start_frame": 0,
+          "old_peak": 1.1998666524887085,
+          "new_peak": 1.1936688423156738,
+          "teacher_peak": 0.9935954809188843,
+          "old_count": 63,
+          "new_count": 65
+        },
+        {
+          "source": "freesound:25794",
+          "start_frame": 45,
+          "old_peak": 1.1998664140701294,
+          "new_peak": 1.1936688423156738,
+          "teacher_peak": 0.9947958588600159,
+          "old_count": 58,
+          "new_count": 60
+        },
+        {
+          "source": "kannada:6192449487784949_chunk_1.flac",
+          "start_frame": 0,
+          "old_peak": 1.201516032218933,
+          "new_peak": 1.2047621011734009,
+          "teacher_peak": 0.9931789040565491,
+          "old_count": 41,
+          "new_count": 41
+        },
+        {
+          "source": "punjabi:5066549581061702_chunk_1.flac",
+          "start_frame": 0,
+          "old_peak": 1.0915215015411377,
+          "new_peak": 1.1004409790039062,
+          "teacher_peak": 0.9929796457290649,
+          "old_count": 8,
+          "new_count": 8
+        },
+        {
+          "source": "konkani:4222124650663574_chunk_1.flac",
+          "start_frame": 0,
+          "old_peak": 1.0350133180618286,
+          "new_peak": 1.0433987379074097,
+          "teacher_peak": 0.9895743727684021,
+          "old_count": 10,
+          "new_count": 11
+        }
+      ]
+    },
+    "versus_original_8890": {
+      "before_peak": 1.2966324090957642,
+      "after_peak": 1.2896616458892822,
+      "before_overshoot_observations": 588,
+      "after_overshoot_observations": 575,
+      "overshoot_sources_before": 6,
+      "overshoot_sources_after": 6,
+      "regressing_crops": 4,
+      "regressing_sources": 3,
+      "failures": [
+        {
+          "source": "freesound:25794",
+          "start_frame": 0,
+          "old_peak": 1.1993056535720825,
+          "new_peak": 1.1936688423156738,
+          "teacher_peak": 0.9935954809188843,
+          "old_count": 63,
+          "new_count": 65
+        },
+        {
+          "source": "freesound:25794",
+          "start_frame": 45,
+          "old_peak": 1.199305772781372,
+          "new_peak": 1.1936688423156738,
+          "teacher_peak": 0.9947958588600159,
+          "old_count": 58,
+          "new_count": 60
+        },
+        {
+          "source": "punjabi:5066549581061702_chunk_1.flac",
+          "start_frame": 0,
+          "old_peak": 1.0924605131149292,
+          "new_peak": 1.1004409790039062,
+          "teacher_peak": 0.9929796457290649,
+          "old_count": 8,
+          "new_count": 8
+        },
+        {
+          "source": "konkani:4222124650663574_chunk_1.flac",
+          "start_frame": 0,
+          "old_peak": 1.0367116928100586,
+          "new_peak": 1.0433987379074097,
+          "teacher_peak": 0.9895743727684021,
+          "old_count": 11,
+          "new_count": 11
+        }
+      ]
+    }
+  },
+  "reporting_notes": [
+    "Canonical whole-source failure union has four distinct recordings versus retained: two common Bengali/Bodo sources and different Maithili sources under the two reductions.",
+    "audit-summary source_mel_failures uses legacy equal-crop source reduction. It is not the union of the pooled and legacy gates.",
+    "Canonical mel crop mean changes -0.1875%, equal-source mean -0.1857%, and pooled spectral-element mel -0.1045% versus retained; different reductions must be named.",
+    "Quiet spectral improvement (-1.4764%) coexists with quiet waveform residual RMS worsening (+0.3946%); these measure different errors.",
+    "Quiet regional regression versus retained uses only four smallest-resolution frame observations; transition regression uses 4/2/1 observations. These are sparse diagnostics, not additional whole-source gate failures.",
+    "Versus original, pooled quiet mel improves on aggregate, but freesound:220655 quiet log mel worsens 6.43% on 8/2/0 frame observations.",
+    "Peak overshoot counts and spectral windows are observations across overlapping scored crops, not deduplicated time samples.",
+    "Aggregate calibration directions improved both branches at 1e-6, but the isolated first actual update worsened mel. This is permitted by the preregistered aggregate rule.",
+    "No matched RTF or new perceptual-equivalence claim follows from this training run."
+  ]
+}

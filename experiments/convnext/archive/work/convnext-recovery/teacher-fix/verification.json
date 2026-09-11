@@ -1,0 +1,66 @@
+{
+  "scope": "CUDA training teacher encoder backend and mandatory actual-batch cache parity",
+  "status": "source_frozen_cpu_tests_passed_pending_real_cuda_requalification",
+  "files": [
+    {
+      "path": "experiments/convnext/audiovae_student/teacher.py",
+      "sha256": "2fb9b43b84f6f3d269085f6ebb95432f447e91d30364ed5851cc7bec6939c707",
+      "bytes": 12265
+    },
+    {
+      "path": "experiments/convnext/audiovae_student/batched_teacher.py",
+      "sha256": "6a6537a63fc4474452732c6c0c4c16b36d555c1f6a85b0c21b84cc45c24008a6",
+      "bytes": 20297
+    },
+    {
+      "path": "experiments/convnext/tests/test_teacher.py",
+      "sha256": "1d43a56113d30cb3c636bc505b4537cf3c7d2bdb83bde546c374ef8c7ddf2834",
+      "bytes": 12778
+    },
+    {
+      "path": "experiments/convnext/tests/test_batched_teacher.py",
+      "sha256": "0bc9462a731867ca8a545decc56d9133ef96bfa1997d593b8791b3ba65221c44",
+      "bytes": 17099
+    }
+  ],
+  "validation": {
+    "python": "3.12.14",
+    "torch": "2.8.0",
+    "pytest": "9.0.2",
+    "device": "cpu",
+    "tests": [
+      "test_teacher.py",
+      "test_batched_teacher.py",
+      "test_cache.py",
+      "test_source_corpus.py"
+    ],
+    "passed": 61,
+    "skipped": 1,
+    "subtests_passed": 23,
+    "skip_reason": "optional pinned asset integration not enabled",
+    "elapsed_seconds": 0.99
+  },
+  "behavior": {
+    "weights": "unchanged",
+    "source_encoder_math": "unchanged",
+    "cpu_math": "unchanged",
+    "cuda_encoder_cudnn_flags": {
+      "enabled": false,
+      "benchmark": false,
+      "deterministic": true,
+      "allow_tf32": false
+    },
+    "decoder_backend": "unchanged",
+    "provenance": "encoder_backend_policy version2; old cache identity rejected",
+    "actual_batch_gate": "raw_mu, raw_waveform and valid_3N_waveform vs serial for every newly generated batch before publication",
+    "parity_failure": "entire batch uses retained serial references; subsequent groups become serial",
+    "serial_reference_failure": "raise before publishing any member of pending batch"
+  },
+  "unchanged_assets": [
+    "remote historical preparation source",
+    "remote caches",
+    "checkpoints"
+  ],
+  "committed": false,
+  "remote_execution": false
+}

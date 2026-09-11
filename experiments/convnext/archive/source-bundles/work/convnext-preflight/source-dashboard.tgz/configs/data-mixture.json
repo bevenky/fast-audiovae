@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "commercial_checkpoint": true,
+  "status": "planned quotas; no data acquired or access terms accepted",
+  "unique_hours_after_filtering": {"pilot": 100, "main": 1000},
+  "excluded_sources": [{"dataset": "gigaspeech", "reason": "Audio access terms restrict use to noncommercial research and education."}],
+  "sources": [
+    {"dataset": "librispeech", "pilot_hours": 10, "main_hours": 60, "license": "CC-BY-4.0", "source": "https://www.openslr.org/12/", "selection": "Official train partitions; canonical LibriVox recording and reader IDs."},
+    {"dataset": "common_voice_scripted_26_en", "pilot_hours": 5, "main_hours": 50, "license": "CC0-1.0", "source": "https://github.com/common-voice/cv-dataset/blob/main/datasets/scripted-speech/cv-corpus-26.0-2026-06-12.json", "selection": "English train; preserve client/speaker IDs. Treat bandwidth conservatively until verified."},
+    {"dataset": "voxpopuli_en", "pilot_hours": 5, "main_hours": 50, "license": "CC0-1.0", "source": "https://github.com/facebookresearch/voxpopuli", "selection": "English transcribed train audio. CC0 applies to data; do not import noncommercial model/training code."},
+    {"dataset": "fleurs", "pilot_hours": 20, "main_hours": 200, "license": "CC-BY-4.0", "source": "https://huggingface.co/datasets/google/fleurs", "selection": "Train only; balance 102 language configurations; exclude regression, dev and test identities."},
+    {"dataset": "indicvoices", "pilot_hours": 20, "main_hours": 250, "license": "CC-BY-4.0", "source": "https://huggingface.co/datasets/ai4bharat/IndicVoices", "selection": "Verified original 44.1 kHz recordings. User access must be established before acquisition."},
+    {"dataset": "indicvoices_r", "pilot_hours": 5, "main_hours": 50, "license": "CC-BY-4.0", "source": "https://huggingface.co/datasets/ai4bharat/indicvoices_r", "selection": "Enhanced recordings with originals disjoint from the original allocation. Preserve shared canonical parent IDs."},
+    {"dataset": "hifi_tts", "pilot_hours": 20, "main_hours": 150, "license": "CC-BY-4.0", "source": "https://www.openslr.org/109/", "selection": "Train; 44.1 kHz originals. Cross-check LibriVox identities against LibriSpeech and MLS."},
+    {"dataset": "vctk_0_92", "pilot_hours": 5, "main_hours": 20, "license": "CC-BY-4.0", "source": "https://datashare.ed.ac.uk/items/30e7453c-9ea8-48b4-8e18-f96d0dc62928/full", "selection": "48 kHz originals; speaker-disjoint splits; select one microphone copy per segment."},
+    {"dataset": "mls_non_english", "pilot_hours": 5, "main_hours": 120, "license": "CC-BY-4.0", "source": "https://www.openslr.org/94/", "selection": "Non-English train; 16 kHz; preserve canonical LibriVox identities."},
+    {"dataset": "aishell_3", "pilot_hours": 5, "main_hours": 50, "license": "Apache-2.0", "source": "https://www.openslr.org/93/", "selection": "Mandarin train, 44.1 kHz originals."}
+  ],
+  "sampling_targets": {
+    "english_fraction": 0.30,
+    "indic_fraction": 0.30,
+    "other_languages_fraction": 0.40,
+    "minimum_native_fullband_batch_fraction": 0.40,
+    "difficult_condition_fraction_range": [0.05, 0.10],
+    "hindi_main_unique_hours_minimum_within_indic": 50,
+    "note": "Exposure targets are separate from unique-hour quotas. A sampler and availability checks are not implemented by manifest validation."
+  },
+  "main_bandwidth_allocation_hours": {"native_fullband": 470, "enhanced": 50, "speech_band_diversity": 480},
+  "identity_policy": "Canonical parent/speaker/session IDs must be shared across related datasets and variants. Exact file hashes and parent interval checks do not detect unknown re-encodings or replace acoustic fingerprinting.",
+  "bandwidth_policy": "Record native/enhanced provenance and externally established bandwidth evidence. A high sample-rate header alone is insufficient. Do not use 16 kHz originals as fullband real targets."
+}

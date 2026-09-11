@@ -1,0 +1,109 @@
+{
+  "recorded_at_unix": 1788895287.0399,
+  "audio_download_location": "Runpod only",
+  "cpu_only_acquisition": true,
+  "processes": {
+    "core": {
+      "pid": 900065,
+      "running": true,
+      "workers": 4
+    },
+    "indic": {
+      "pid": 900293,
+      "running": true,
+      "workers": 6
+    },
+    "human_whistling": {
+      "pid": 899266,
+      "running": true,
+      "workers": null
+    },
+    "pipeline": {
+      "pid": 901200,
+      "running": true,
+      "workers": null
+    }
+  },
+  "pipeline": {
+    "phase": "waiting_for_sources",
+    "started_at": 1788895253.509949,
+    "pid": 901200,
+    "target_training_hours": 500,
+    "target_step": 10000,
+    "batch_size": 64,
+    "sources": {
+      "core": {
+        "state": "acquiring",
+        "hours": 297.63912052083333
+      },
+      "indic": {
+        "state": "downloading",
+        "hours": 10.924855729166664
+      },
+      "expressive": {
+        "state": "ready",
+        "hours": 10.864887690972289
+      },
+      "emogator": {
+        "state": "ready",
+        "hours": 15.049775086804223
+      },
+      "fsd_vocal": {
+        "state": "ready",
+        "hours": 0.7394411805555551
+      },
+      "human_whistling": {
+        "state": "pending",
+        "hours": 0
+      }
+    },
+    "updated_at": 1788895253.5127668
+  },
+  "core": {
+    "state": "acquiring",
+    "fresh_training_hours": 354.49587210069444,
+    "execution": {
+      "prior_downloaded_bytes": 53153617920,
+      "transfer_accounting": "includes prior persisted transfer and reread archive prefixes; abrupt termination can lose transfer since last progress snapshot",
+      "workers": 4
+    },
+    "downloaded_bytes": 64856391680,
+    "audio_storage_bytes": 65469404350
+  },
+  "indic": {
+    "status": "downloading",
+    "hours": 11.526510347222219,
+    "rows": 4629,
+    "hours_by_language": {
+      "assamese": 2.000203680555554,
+      "bengali": 2.001954618055556,
+      "bodo": 2.001041614583331,
+      "dogri": 1.5159435416666658,
+      "gujarati": 1.608845555555557,
+      "hindi": 0.9700121180555555,
+      "kannada": 0.3823327256944444,
+      "kashmiri": 0.7108476388888886,
+      "konkani": 0.33532885416666686
+    }
+  },
+  "disk_free_gib": {
+    "/workspace": 25.161617279052734,
+    "/tmp": 26.278507232666016
+  },
+  "whistling": {
+    "error": null,
+    "hours": 0.01194826388888889,
+    "preparation_version": 1,
+    "quarantined": 6,
+    "rows": 4,
+    "selected": 40,
+    "state": "preparing",
+    "stored_bytes": 7909712,
+    "updated_at": 1788895259.7041585
+  },
+  "validation": {
+    "runpod_cpu_tests_passed": 188,
+    "runpod_subtests_passed": 23,
+    "gpu_or_perceptual_benchmark": false
+  }
+}

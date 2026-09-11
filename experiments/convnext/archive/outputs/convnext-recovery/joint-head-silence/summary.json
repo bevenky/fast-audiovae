@@ -1,0 +1,134 @@
+{
+  "retained_checkpoint": 8890,
+  "promoted": false,
+  "frozen_state_verified": {
+    "canonical_inputs_preserved": true,
+    "fresh_files": {
+      "fresh_training_overlay_files_unchanged": true
+    },
+    "original_checkpoint_preserved": true,
+    "original_engine_preserved": true,
+    "promoted": false
+  },
+  "arms": {
+    "quiet_preservation": {
+      "natural_mae_ratio": 0.9996378691276688,
+      "natural_mel_ratio": 1.0036022356620626,
+      "natural_quiet_ratio": 0.9659860281944197,
+      "steady_silence_ratio": 0.746828477548446,
+      "maximum_peak": 1.2967569828033447,
+      "overshoot_observations": 585,
+      "quality_screen_passed": true,
+      "silence_target_passed": false,
+      "no_new_peak_regression": {
+        "baseline_maximum_peak": 1.2966324090957642,
+        "baseline_overshoot_observations": 588,
+        "candidate_maximum_peak": 1.2967569828033447,
+        "candidate_overshoot_observations": 585,
+        "passed": false,
+        "regressing_crops": [
+          {
+            "baseline_overshoot_observations": 5,
+            "baseline_peak": 1.0464680194854736,
+            "candidate_overshoot_observations": 5,
+            "candidate_peak": 1.0466609001159668,
+            "source_id": "es_419:test:5179176991301857058.wav",
+            "start_frame": 0
+          },
+          {
+            "baseline_overshoot_observations": 8,
+            "baseline_peak": 1.0924605131149292,
+            "candidate_overshoot_observations": 8,
+            "candidate_peak": 1.0925109386444092,
+            "source_id": "punjabi:5066549581061702_chunk_1.flac",
+            "start_frame": 0
+          },
+          {
+            "baseline_overshoot_observations": 205,
+            "baseline_peak": 1.296631932258606,
+            "candidate_overshoot_observations": 205,
+            "candidate_peak": 1.296756625175476,
+            "source_id": "sindhi:5629499534317154_chunk_1.flac",
+            "start_frame": 0
+          },
+          {
+            "baseline_overshoot_observations": 196,
+            "baseline_peak": 1.2966324090957642,
+            "candidate_overshoot_observations": 196,
+            "candidate_peak": 1.2967569828033447,
+            "source_id": "sindhi:5629499534317154_chunk_1.flac",
+            "start_frame": 17
+          }
+        ]
+      }
+    },
+    "teacher_reconstruction": {
+      "natural_mae_ratio": 0.9993100663449889,
+      "natural_mel_ratio": 0.9984874615490851,
+      "natural_quiet_ratio": 0.9612543972620752,
+      "steady_silence_ratio": 0.6402660323871754,
+      "maximum_peak": 1.3042678833007812,
+      "overshoot_observations": 573,
+      "quality_screen_passed": true,
+      "silence_target_passed": false,
+      "no_new_peak_regression": {
+        "baseline_maximum_peak": 1.2966324090957642,
+        "baseline_overshoot_observations": 588,
+        "candidate_maximum_peak": 1.3042678833007812,
+        "candidate_overshoot_observations": 573,
+        "passed": false,
+        "regressing_crops": [
+          {
+            "baseline_overshoot_observations": 5,
+            "baseline_peak": 1.0464680194854736,
+            "candidate_overshoot_observations": 5,
+            "candidate_peak": 1.0534850358963013,
+            "source_id": "es_419:test:5179176991301857058.wav",
+            "start_frame": 0
+          },
+          {
+            "baseline_overshoot_observations": 63,
+            "baseline_peak": 1.1993056535720825,
+            "candidate_overshoot_observations": 65,
+            "candidate_peak": 1.2010172605514526,
+            "source_id": "freesound:25794",
+            "start_frame": 0
+          },
+          {
+            "baseline_overshoot_observations": 58,
+            "baseline_peak": 1.199305772781372,
+            "candidate_overshoot_observations": 60,
+            "candidate_peak": 1.2010170221328735,
+            "source_id": "freesound:25794",
+            "start_frame": 45
+          },
+          {
+            "baseline_overshoot_observations": 8,
+            "baseline_peak": 1.0924605131149292,
+            "candidate_overshoot_observations": 8,
+            "candidate_peak": 1.0981254577636719,
+            "source_id": "punjabi:5066549581061702_chunk_1.flac",
+            "start_frame": 0
+          },
+          {
+            "baseline_overshoot_observations": 205,
+            "baseline_peak": 1.296631932258606,
+            "candidate_overshoot_observations": 195,
+            "candidate_peak": 1.3042678833007812,
+            "source_id": "sindhi:5629499534317154_chunk_1.flac",
+            "start_frame": 0
+          },
+          {
+            "baseline_overshoot_observations": 196,
+            "baseline_peak": 1.2966324090957642,
+            "candidate_overshoot_observations": 189,
+            "candidate_peak": 1.3042676448822021,
+            "source_id": "sindhi:5629499534317154_chunk_1.flac",
+            "start_frame": 17
+          }
+        ]
+      }
+    }
+  },
+  "total_bounded_execution_seconds_excluding_initial_context_load": 48.89618279784918
+}

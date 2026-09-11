@@ -1,0 +1,2067 @@
+{
+  "additional_requested_languages": [
+    "en",
+    "es_419",
+    "pt_br",
+    "cmn_hans_cn",
+    "ja_jp",
+    "fr_fr",
+    "ar_eg"
+  ],
+  "all_rows_training_fit_only": true,
+  "batch_size": 8,
+  "fitting_order_unchanged": true,
+  "format_version": "teacher_l1_calibration_sources_v1",
+  "indic_languages": [
+    "as_in",
+    "bn_in",
+    "brx",
+    "doi",
+    "gu_in",
+    "hi_in",
+    "kn_in",
+    "kok",
+    "ks",
+    "mai",
+    "ml_in",
+    "mni",
+    "mr_in",
+    "ne_np",
+    "or_in",
+    "pa_in",
+    "sa",
+    "sat",
+    "sd_in",
+    "ta_in",
+    "te_in",
+    "ur_pk"
+  ],
+  "inputs": {
+    "outputs/convnext-recovery/head-experiments/selection.json": "acf339faff32e5660c64611b70a1c086ce4a63bb5809805754193185b38007e8",
+    "outputs/convnext-recovery/teacher-refinements/source-coverage.json": "7b01a7b16d76d8ac8746b39172c6d006895f025320753d52c60ea90a2221b1a2"
+  },
+  "label_counts": {
+    "Breathing": 2,
+    "Chuckle_and_chortle": 2,
+    "Crying_and_sobbing": 2,
+    "Giggle": 2,
+    "Laughter": 4,
+    "Screaming": 2,
+    "Shout": 2,
+    "Whispering": 3,
+    "Yell": 2,
+    "explicit_whisper_style": 3,
+    "human_whistling_source_description": 2
+  },
+  "policy": "Calibration only. Fixed source metadata and deterministic selection, no selection/canonical outcomes used. Short start-zero sources preferred to reduce event/crop uncertainty. Source labels are not dense event timestamps; scored active audio and whole-source coverage require separate verification. Original 2048 fitting sources/order and 256 selection sources unchanged.",
+  "rows": [
+    {
+      "audio_sha256": "ebc3862e7a107ebbcdfb9f3b8a64e9dcf4b84b3c0e1dfbd49e9ef2725c55addf",
+      "crop": {
+        "actual_scored_samples": 114243,
+        "context_start_frame": 0,
+        "declared_valid_scored_samples": 114243,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.3800625,
+        "start_frame": 0
+      },
+      "dataset": "fsd50k_vocal_cc_by_3",
+      "fit_order_index": 284,
+      "fsd_annotation_votes": {
+        "Shout": [
+          1.0,
+          1.0
+        ]
+      },
+      "fsd_raw_target_labels": [
+        "Shout"
+      ],
+      "fsd_release_split": "train",
+      "has_event_timestamps": false,
+      "language": "und",
+      "reasons": [
+        "expressive_source:Shout"
+      ],
+      "source_id": "freesound:421873",
+      "stored_condition": null,
+      "verified_labels": [
+        "Shout"
+      ]
+    },
+    {
+      "audio_sha256": "a833e366eedc5f877b6b364ae9846bbfca66274c32766ef57f1b4e4bd8dbcc29",
+      "crop": {
+        "actual_scored_samples": 100206,
+        "context_start_frame": 0,
+        "declared_valid_scored_samples": 100206,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.087625,
+        "start_frame": 0
+      },
+      "dataset": "fsd50k_vocal_cc_by_3",
+      "fit_order_index": 1474,
+      "fsd_annotation_votes": {
+        "Shout": [
+          1.0,
+          1.0
+        ]
+      },
+      "fsd_raw_target_labels": [
+        "Shout"
+      ],
+      "fsd_release_split": "train",
+      "has_event_timestamps": false,
+      "language": "und",
+      "reasons": [
+        "expressive_source:Shout"
+      ],
+      "source_id": "freesound:421872",
+      "stored_condition": null,
+      "verified_labels": [
+        "Shout"
+      ]
+    },
+    {
+      "audio_sha256": "9cf20de11af1e5dce34662b3b007daa19f1c12205803591f09f5eb49eb9a0681",
+      "crop": {
+        "actual_scored_samples": 122241,
+        "context_start_frame": 0,
+        "declared_valid_scored_samples": 122241,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.5466875,
+        "start_frame": 0
+      },
+      "dataset": "fsd50k_vocal_cc_by_3",
+      "fit_order_index": 241,
+      "fsd_annotation_votes": {
+        "Whispering": [
+          1.0,
+          1.0
+        ]
+      },
+      "fsd_raw_target_labels": [
+        "Whispering"
+      ],
+      "fsd_release_split": "train",
+      "has_event_timestamps": false,
+      "language": "und",
+      "reasons": [
+        "expressive_source:Whispering"
+      ],
+      "source_id": "freesound:108313",
+      "stored_condition": null,
+      "verified_labels": [
+        "Whispering"
+      ]
+    },
+    {
+      "audio_sha256": "ddba3295f2c6eedddc0d5c98ab0d5cc43b61ea3de70e752fcd22044cb486fe40",
+      "crop": {
+        "actual_scored_samples": 122874,
+        "context_start_frame": 34,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.559875,
+        "start_frame": 64
+      },
+      "dataset": "fleurs",
+      "fit_order_index": 70,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "or_in",
+      "reasons": [
+        "language:or_in"
+      ],
+      "source_id": "or_in:train:15390796039810471023.wav",
+      "stored_condition": null,
+      "verified_labels": []
+    },
+    {
+      "audio_sha256": "f25a8a1d7fc50ae0a237cb436379c5f9822561cda80a681620913dc4dda0ec33",
+      "crop": {
+        "actual_scored_samples": 122880,
+        "context_start_frame": 0,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.56,
+        "start_frame": 0
+      },
+      "dataset": "fleurs",
+      "fit_order_index": 3,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "mr_in",
+      "reasons": [
+        "retains_previous_calibration_anchor",
+        "language:mr_in"
+      ],
+      "source_id": "mr_in:train:14115534504672663133.wav",
+      "stored_condition": null,
+      "verified_labels": []
+    },
+    {
+      "audio_sha256": "480ee5787dd9ac8044f922718c8e5d9aad08bcc1fc1a1e7a6c38365921d7184f",
+      "crop": {
+        "actual_scored_samples": 122880,
+        "context_start_frame": 0,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.56,
+        "start_frame": 0
+      },
+      "dataset": "fleurs",
+      "fit_order_index": 19,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "bn_in",
+      "reasons": [
+        "retains_previous_calibration_anchor",
+        "language:bn_in"
+      ],
+      "source_id": "bn_in:train:10880725963672802654.wav",
+      "stored_condition": null,
+      "verified_labels": []
+    },
+    {
+      "audio_sha256": "a9344d5a57a495b8a68fc6f9ee3b5a867eb15f6b5c6213235f2859917a838580",
+      "crop": {
+        "actual_scored_samples": 122874,
+        "context_start_frame": 34,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.559875,
+        "start_frame": 64
+      },
+      "dataset": "fleurs",
+      "fit_order_index": 159,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "ar_eg",
+      "reasons": [
+        "language:ar_eg"
+      ],
+      "source_id": "ar_eg:train:13034826863551680266.wav",
+      "stored_condition": null,
+      "verified_labels": []
+    },
+    {
+      "audio_sha256": "eb6ce2bbe8d83d58a7fa28da39a0e14ccd090b34e919145e1e415ebb4470f63c",
+      "crop": {
+        "actual_scored_samples": 122874,
+        "context_start_frame": 34,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.559875,
+        "start_frame": 64
+      },
+      "dataset": "fleurs",
+      "fit_order_index": 153,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "ne_np",
+      "reasons": [
+        "language:ne_np"
+      ],
+      "source_id": "ne_np:train:13861235654098604901.wav",
+      "stored_condition": null,
+      "verified_labels": []
+    },
+    {
+      "audio_sha256": "79015650f97b725830ac9f6c97e3f0e2306268b113647c1cf0202d10a741e350",
+      "crop": {
+        "actual_scored_samples": 81774,
+        "context_start_frame": 0,
+        "declared_valid_scored_samples": 81774,
+        "event_seconds": null,
+        "scored_audio_seconds": 1.703625,
+        "start_frame": 0
+      },
+      "dataset": "fsd50k_vocal_cc_by_3",
+      "fit_order_index": 189,
+      "fsd_annotation_votes": {
+        "Giggle": [
+          1.0,
+          1.0,
+          0
+        ],
+        "Laughter": []
+      },
+      "fsd_raw_target_labels": [
+        "Giggle",
+        "Laughter"
+      ],
+      "fsd_release_split": "train",
+      "has_event_timestamps": false,
+      "language": "und",
+      "reasons": [
+        "expressive_source:Giggle"
+      ],
+      "source_id": "freesound:92386",
+      "stored_condition": null,
+      "verified_labels": [
+        "Giggle"
+      ]
+    },
+    {
+      "audio_sha256": "9c33ff35d7d9ab11b4f975d52e20a38da2a509e5f2bb27102b31a9ec70972f64",
+      "crop": {
+        "actual_scored_samples": 82755,
+        "context_start_frame": 0,
+        "declared_valid_scored_samples": 82755,
+        "event_seconds": null,
+        "scored_audio_seconds": 1.7240625,
+        "start_frame": 0
+      },
+      "dataset": "fsd50k_vocal_cc_by_3",
+      "fit_order_index": 217,
+      "fsd_annotation_votes": {
+        "Chuckle_and_chortle": [
+          1.0,
+          1.0
+        ],
+        "Laughter": []
+      },
+      "fsd_raw_target_labels": [
+        "Chuckle_and_chortle",
+        "Laughter"
+      ],
+      "fsd_release_split": "train",
+      "has_event_timestamps": false,
+      "language": "und",
+      "reasons": [
+        "expressive_source:Chuckle_and_chortle"
+      ],
+      "source_id": "freesound:277554",
+      "stored_condition": null,
+      "verified_labels": [
+        "Chuckle_and_chortle"
+      ]
+    },
+    {
+      "audio_sha256": "a8286235962283f5cce8c28cfc3b0cc1d72788edb9cc183d90d0312efff6fa97",
+      "crop": {
+        "actual_scored_samples": 120372,
+        "context_start_frame": 0,
+        "declared_valid_scored_samples": 120372,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.50775,
+        "start_frame": 0
+      },
+      "dataset": "fsd50k_vocal_cc0",
+      "fit_order_index": 246,
+      "fsd_annotation_votes": {
+        "Shout": [],
+        "Yell": [
+          1.0,
+          1.0,
+          0.5
+        ]
+      },
+      "fsd_raw_target_labels": [
+        "Yell",
+        "Shout"
+      ],
+      "fsd_release_split": "train",
+      "has_event_timestamps": false,
+      "language": "und",
+      "reasons": [
+        "expressive_source:Yell"
+      ],
+      "source_id": "freesound:343887",
+      "stored_condition": null,
+      "verified_labels": [
+        "Yell"
+      ]
+    },
+    {
+      "audio_sha256": "13d6ba23866487bd180033d3cc4df03cc4d953171bbe61b106ca30e4b1573962",
+      "crop": {
+        "actual_scored_samples": 122874,
+        "context_start_frame": 34,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.559875,
+        "start_frame": 64
+      },
+      "dataset": "indicvoices",
+      "fit_order_index": 26,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "mai",
+      "reasons": [
+        "retains_previous_calibration_anchor",
+        "language:mai"
+      ],
+      "source_id": "maithili:844424930133950_chunk_1.flac",
+      "stored_condition": null,
+      "verified_labels": []
+    },
+    {
+      "audio_sha256": "206a2f634b85953c303d98a93dfd28fac450002d235963b511b4c25cd3dfbcb4",
+      "crop": {
+        "actual_scored_samples": 122874,
+        "context_start_frame": 98,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.559875,
+        "start_frame": 128
+      },
+      "dataset": "fleurs",
+      "fit_order_index": 9,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "cs_cz",
+      "reasons": [
+        "retains_previous_calibration_anchor"
+      ],
+      "source_id": "cs_cz:train:14126852822859961802.wav",
+      "stored_condition": null,
+      "verified_labels": []
+    },
+    {
+      "audio_sha256": "8dfe6d3801dd0fcd6ed1acd7295689e89e8c0e2f7e89dd80887bb62c1148bdaa",
+      "crop": {
+        "actual_scored_samples": 122874,
+        "context_start_frame": 290,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.559875,
+        "start_frame": 320
+      },
+      "dataset": "fleurs",
+      "fit_order_index": 2,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "pa_in",
+      "reasons": [
+        "retains_previous_calibration_anchor",
+        "language:pa_in"
+      ],
+      "source_id": "pa_in:train:15241951700554259781.wav",
+      "stored_condition": null,
+      "verified_labels": []
+    },
+    {
+      "audio_sha256": "52d7da578e6212d79e5ae39ccc5e68c54760cf33dd6b38ebec26e7c00ea7f6e9",
+      "crop": {
+        "actual_scored_samples": 122874,
+        "context_start_frame": 162,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.559875,
+        "start_frame": 192
+      },
+      "dataset": "fleurs",
+      "fit_order_index": 14,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "kn_in",
+      "reasons": [
+        "retains_previous_calibration_anchor",
+        "language:kn_in"
+      ],
+      "source_id": "kn_in:train:12460983438985838069.wav",
+      "stored_condition": null,
+      "verified_labels": []
+    },
+    {
+      "audio_sha256": "e68ce93562f0306630886567c21ffc30ad023042ab9eabc51038acca6d8dae24",
+      "crop": {
+        "actual_scored_samples": 122880,
+        "context_start_frame": 0,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.56,
+        "start_frame": 0
+      },
+      "dataset": "fleurs",
+      "fit_order_index": 52,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "gu_in",
+      "reasons": [
+        "language:gu_in"
+      ],
+      "source_id": "gu_in:train:12698785575364508379.wav",
+      "stored_condition": null,
+      "verified_labels": []
+    },
+    {
+      "audio_sha256": "a8f25ee0076bdf0b4cf363c35deef1fe5baa838774f1752213ed0033ff0b9cc2",
+      "crop": {
+        "actual_scored_samples": 115062,
+        "context_start_frame": 0,
+        "declared_valid_scored_samples": 115062,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.397125,
+        "start_frame": 0
+      },
+      "dataset": "fsd50k_vocal_cc_by_3",
+      "fit_order_index": 944,
+      "fsd_annotation_votes": {
+        "Breathing": [
+          1.0,
+          1.0
+        ]
+      },
+      "fsd_raw_target_labels": [
+        "Breathing"
+      ],
+      "fsd_release_split": "train",
+      "has_event_timestamps": false,
+      "language": "und",
+      "reasons": [
+        "expressive_source:Breathing"
+      ],
+      "source_id": "freesound:428739",
+      "stored_condition": null,
+      "verified_labels": [
+        "Breathing"
+      ]
+    },
+    {
+      "audio_sha256": "64f6e258cc77e498402712a95b1689572c78d2067a3b9c43b5a389a3f6ea6c2b",
+      "crop": {
+        "actual_scored_samples": 118143,
+        "context_start_frame": 0,
+        "declared_valid_scored_samples": 118143,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.4613125,
+        "start_frame": 0
+      },
+      "dataset": "fsd50k_vocal_cc0",
+      "fit_order_index": 212,
+      "fsd_annotation_votes": {
+        "Laughter": [
+          1.0,
+          1.0
+        ]
+      },
+      "fsd_raw_target_labels": [
+        "Laughter"
+      ],
+      "fsd_release_split": "train",
+      "has_event_timestamps": false,
+      "language": "und",
+      "reasons": [
+        "expressive_source:Laughter"
+      ],
+      "source_id": "freesound:344024",
+      "stored_condition": null,
+      "verified_labels": [
+        "Laughter"
+      ]
+    },
+    {
+      "audio_sha256": "ef1e823c2dff5c46daf85ada10e9eb79c4816d8ff0d54cc2ae887e2a4f9f3d48",
+      "crop": {
+        "actual_scored_samples": 71898,
+        "context_start_frame": 0,
+        "declared_valid_scored_samples": 71898,
+        "event_seconds": null,
+        "scored_audio_seconds": 1.497875,
+        "start_frame": 0
+      },
+      "dataset": "fsd50k_vocal_cc_by_3",
+      "fit_order_index": 2035,
+      "fsd_annotation_votes": {
+        "Giggle": [
+          1.0,
+          1.0
+        ],
+        "Laughter": []
+      },
+      "fsd_raw_target_labels": [
+        "Giggle",
+        "Laughter"
+      ],
+      "fsd_release_split": "train",
+      "has_event_timestamps": false,
+      "language": "und",
+      "reasons": [
+        "expressive_source:Giggle"
+      ],
+      "source_id": "freesound:92395",
+      "stored_condition": null,
+      "verified_labels": [
+        "Giggle"
+      ]
+    },
+    {
+      "audio_sha256": "9fb63908ad75bb2ed859b08ae5d09535bbd4b632f09ad40171c39140e3bb59d7",
+      "crop": {
+        "actual_scored_samples": 122880,
+        "context_start_frame": 0,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.56,
+        "start_frame": 0
+      },
+      "dataset": "fleurs",
+      "fit_order_index": 127,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "es_419",
+      "reasons": [
+        "language:es_419"
+      ],
+      "source_id": "es_419:train:15163027318196006761.wav",
+      "stored_condition": null,
+      "verified_labels": []
+    },
+    {
+      "audio_sha256": "88c9319e0fe9039554753ac4a1e5e420731acacb259ad49160afd6fe8b4f97d4",
+      "crop": {
+        "actual_scored_samples": 122874,
+        "context_start_frame": 226,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.559875,
+        "start_frame": 256
+      },
+      "dataset": "indicvoices",
+      "fit_order_index": 101,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "doi",
+      "reasons": [
+        "language:doi"
+      ],
+      "source_id": "dogri:1125899907018502_chunk_1.flac",
+      "stored_condition": null,
+      "verified_labels": []
+    },
+    {
+      "audio_sha256": "cc406eaacda923cfe81c2dd4004ca7e50fbedd143c76d792b3cfac6662704b20",
+      "crop": {
+        "actual_scored_samples": 122874,
+        "context_start_frame": 226,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.559875,
+        "start_frame": 256
+      },
+      "dataset": "librispeech",
+      "fit_order_index": 32,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "en",
+      "reasons": [
+        "complete_calibration_batch"
+      ],
+      "source_id": "6199-64259-0016",
+      "stored_condition": null,
+      "verified_labels": []
+    },
+    {
+      "audio_sha256": "441e5547811e1dae60cbe3ff57f2f843300ddf75d72ee2471f2ae299c58b3143",
+      "crop": {
+        "actual_scored_samples": 122874,
+        "context_start_frame": 226,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.559875,
+        "start_frame": 256
+      },
+      "dataset": "fleurs",
+      "fit_order_index": 1,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "ml_in",
+      "reasons": [
+        "retains_previous_calibration_anchor",
+        "language:ml_in"
+      ],
+      "source_id": "ml_in:train:15335338211250641068.wav",
+      "stored_condition": null,
+      "verified_labels": []
+    },
+    {
+      "audio_sha256": "985c460bde7c0a5c2a0d1e930a6a45075423145d44ee152494cb50b6216d5778",
+      "crop": {
+        "actual_scored_samples": 122874,
+        "context_start_frame": 98,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.559875,
+        "start_frame": 128
+      },
+      "dataset": "indicvoices",
+      "fit_order_index": 166,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "sat",
+      "reasons": [
+        "language:sat"
+      ],
+      "source_id": "santali:4785074604159968_chunk_1.flac",
+      "stored_condition": null,
+      "verified_labels": []
+    },
+    {
+      "audio_sha256": "a09d68d78700e737219e7ca6094dfd8a98861d9817bc908fd220325de2b8352e",
+      "crop": {
+        "actual_scored_samples": 122880,
+        "context_start_frame": 0,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.56,
+        "start_frame": 0
+      },
+      "dataset": "fsd50k_vocal_cc_by_3",
+      "fit_order_index": 448,
+      "fsd_annotation_votes": {
+        "Chuckle_and_chortle": [
+          1.0,
+          1.0,
+          0.5,
+          0
+        ],
+        "Laughter": []
+      },
+      "fsd_raw_target_labels": [
+        "Chuckle_and_chortle",
+        "Laughter"
+      ],
+      "fsd_release_split": "train",
+      "has_event_timestamps": false,
+      "language": "und",
+      "reasons": [
+        "expressive_source:Chuckle_and_chortle"
+      ],
+      "source_id": "freesound:277549",
+      "stored_condition": null,
+      "verified_labels": [
+        "Chuckle_and_chortle"
+      ]
+    },
+    {
+      "audio_sha256": "6013ea92e9bcf374156ce43d77a095327af1280bf58e970e2c7c9f4029b50f45",
+      "crop": {
+        "actual_scored_samples": 106881,
+        "context_start_frame": 0,
+        "declared_valid_scored_samples": 106881,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.2266875,
+        "start_frame": 0
+      },
+      "dataset": "fsd50k_vocal_cc_by_3",
+      "fit_order_index": 916,
+      "fsd_annotation_votes": {
+        "Whispering": [
+          1.0,
+          1.0
+        ]
+      },
+      "fsd_raw_target_labels": [
+        "Whispering"
+      ],
+      "fsd_release_split": "train",
+      "has_event_timestamps": false,
+      "language": "und",
+      "reasons": [
+        "expressive_source:Whispering"
+      ],
+      "source_id": "freesound:108314",
+      "stored_condition": null,
+      "verified_labels": [
+        "Whispering"
+      ]
+    },
+    {
+      "audio_sha256": "b7bef13da182a5c6b0cbdf7ed70210f5681fc716806bf6c21a72bdb5e34c28f6",
+      "crop": {
+        "actual_scored_samples": 90111,
+        "context_start_frame": 0,
+        "declared_valid_scored_samples": 90111,
+        "event_seconds": null,
+        "scored_audio_seconds": 1.8773125,
+        "start_frame": 0
+      },
+      "dataset": "fsd50k_vocal_cc_by_3",
+      "fit_order_index": 526,
+      "fsd_annotation_votes": {
+        "Shout": [],
+        "Yell": [
+          1.0,
+          1.0,
+          0.5
+        ]
+      },
+      "fsd_raw_target_labels": [
+        "Yell",
+        "Shout"
+      ],
+      "fsd_release_split": "train",
+      "has_event_timestamps": false,
+      "language": "und",
+      "reasons": [
+        "expressive_source:Yell"
+      ],
+      "source_id": "freesound:108049",
+      "stored_condition": null,
+      "verified_labels": [
+        "Yell"
+      ]
+    },
+    {
+      "audio_sha256": "8317efea4a9aba74da44395d7e532b0ebf902918d00377d9dd747a3e805f130e",
+      "crop": {
+        "actual_scored_samples": 122874,
+        "context_start_frame": 34,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.559875,
+        "start_frame": 64
+      },
+      "dataset": "fleurs",
+      "fit_order_index": 5,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "kea_cv",
+      "reasons": [
+        "retains_previous_calibration_anchor"
+      ],
+      "source_id": "kea_cv:train:11703227461901683068.wav",
+      "stored_condition": null,
+      "verified_labels": []
+    },
+    {
+      "audio_sha256": "c15694c323ea4673514bef3c05267af8d5ed46d1a75146a19d781d285dc1de11",
+      "crop": {
+        "actual_scored_samples": 122874,
+        "context_start_frame": 162,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.559875,
+        "start_frame": 192
+      },
+      "dataset": "librispeech",
+      "fit_order_index": 21,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "en",
+      "reasons": [
+        "retains_previous_calibration_anchor"
+      ],
+      "source_id": "726-124445-0109",
+      "stored_condition": null,
+      "verified_labels": []
+    },
+    {
+      "audio_sha256": "cee38e18c5a867dfd55e52223a94ac57fd25d0db2282f61cfdaf08d4018d11bf",
+      "crop": {
+        "actual_scored_samples": 122874,
+        "context_start_frame": 98,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.559875,
+        "start_frame": 128
+      },
+      "dataset": "librispeech",
+      "fit_order_index": 4,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "en",
+      "reasons": [
+        "retains_previous_calibration_anchor",
+        "language:en"
+      ],
+      "source_id": "1970-10594-0002",
+      "stored_condition": null,
+      "verified_labels": []
+    },
+    {
+      "audio_sha256": "a06ae83ea83b4689026acf03971526172d262446ce7759160ff700ab24d88300",
+      "crop": {
+        "actual_scored_samples": 122880,
+        "context_start_frame": 0,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.56,
+        "start_frame": 0
+      },
+      "dataset": "indicvoices",
+      "fit_order_index": 0,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "brx",
+      "reasons": [
+        "retains_previous_calibration_anchor",
+        "language:brx"
+      ],
+      "source_id": "bodo:3659174697331870_chunk_1.flac",
+      "stored_condition": null,
+      "verified_labels": []
+    },
+    {
+      "audio_sha256": "9963640aa8233fae3f39f7a8840e0b59d2f8231a05f08fc9a23c698df3e5983e",
+      "crop": {
+        "actual_scored_samples": 122874,
+        "context_start_frame": 34,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.559875,
+        "start_frame": 64
+      },
+      "dataset": "fleurs",
+      "fit_order_index": 115,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "hi_in",
+      "reasons": [
+        "language:hi_in"
+      ],
+      "source_id": "hi_in:train:16824146597032057516.wav",
+      "stored_condition": null,
+      "verified_labels": []
+    },
+    {
+      "audio_sha256": "1526e0e017364431094ab71cf23d1790e0046faf9339cdcc7bcbf9ff0e503041",
+      "crop": {
+        "actual_scored_samples": 120372,
+        "context_start_frame": 0,
+        "declared_valid_scored_samples": 120372,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.50775,
+        "start_frame": 0
+      },
+      "dataset": "fsd50k_vocal_cc0",
+      "fit_order_index": 1230,
+      "fsd_annotation_votes": {
+        "Laughter": [
+          1.0,
+          1.0
+        ]
+      },
+      "fsd_raw_target_labels": [
+        "Laughter"
+      ],
+      "fsd_release_split": "train",
+      "has_event_timestamps": false,
+      "language": "und",
+      "reasons": [
+        "expressive_source:Laughter"
+      ],
+      "source_id": "freesound:235101",
+      "stored_condition": null,
+      "verified_labels": [
+        "Laughter"
+      ]
+    },
+    {
+      "audio_sha256": "3048a7bf8429090f4929289f2d3109aac9a1957c631b9ae3814ea294d45fd5dc",
+      "crop": {
+        "actual_scored_samples": 114000,
+        "context_start_frame": 0,
+        "declared_valid_scored_samples": 114000,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.375,
+        "start_frame": 0
+      },
+      "dataset": "fsd50k_vocal_cc_by_3",
+      "fit_order_index": 1518,
+      "fsd_annotation_votes": {
+        "Screaming": [
+          1.0,
+          1.0
+        ]
+      },
+      "fsd_raw_target_labels": [
+        "Screaming"
+      ],
+      "fsd_release_split": "train",
+      "has_event_timestamps": false,
+      "language": "und",
+      "reasons": [
+        "expressive_source:Screaming"
+      ],
+      "source_id": "freesound:9434",
+      "stored_condition": null,
+      "verified_labels": [
+        "Screaming"
+      ]
+    },
+    {
+      "audio_sha256": "a0167e7a696f744760addfb6b05a708b8d9652e5eb56cc05cef5647f2a621df6",
+      "crop": {
+        "actual_scored_samples": 113907,
+        "context_start_frame": 0,
+        "declared_valid_scored_samples": 113907,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.3730625,
+        "start_frame": 0
+      },
+      "dataset": "fsd50k_vocal_cc0",
+      "fit_order_index": 694,
+      "fsd_annotation_votes": {
+        "Breathing": [
+          1.0,
+          1.0
+        ]
+      },
+      "fsd_raw_target_labels": [
+        "Breathing"
+      ],
+      "fsd_release_split": "train",
+      "has_event_timestamps": false,
+      "language": "und",
+      "reasons": [
+        "expressive_source:Breathing"
+      ],
+      "source_id": "freesound:422342",
+      "stored_condition": null,
+      "verified_labels": [
+        "Breathing"
+      ]
+    },
+    {
+      "audio_sha256": "f940a4803c8e4d6290dbc5e7712feb9b2032230e327831567fa171f76cf1a78e",
+      "crop": {
+        "actual_scored_samples": 122874,
+        "context_start_frame": 98,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.559875,
+        "start_frame": 128
+      },
+      "dataset": "fleurs",
+      "fit_order_index": 28,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "ff_sn",
+      "reasons": [
+        "retains_previous_calibration_anchor"
+      ],
+      "source_id": "ff_sn:train:13060113589868771273.wav",
+      "stored_condition": null,
+      "verified_labels": []
+    },
+    {
+      "audio_sha256": "0725ddbc3c39af99a30c6ab4b30c5c3519bc6066133dab277b44d38a15d755ff",
+      "crop": {
+        "actual_scored_samples": 122874,
+        "context_start_frame": 34,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.559875,
+        "start_frame": 64
+      },
+      "dataset": "librispeech",
+      "fit_order_index": 29,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "en",
+      "reasons": [
+        "retains_previous_calibration_anchor"
+      ],
+      "source_id": "1624-142933-0041",
+      "stored_condition": null,
+      "verified_labels": []
+    },
+    {
+      "audio_sha256": "18c1e15a61ee3fea9890843a2fd4d2af447763a72d0f9719f3f06356069cd43b",
+      "crop": {
+        "actual_scored_samples": 122880,
+        "context_start_frame": 0,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.56,
+        "start_frame": 0
+      },
+      "dataset": "crema_d",
+      "fit_order_index": 6,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "en",
+      "reasons": [
+        "retains_previous_calibration_anchor"
+      ],
+      "source_id": "crema_d:1008_TSI_NEU_XX.wav",
+      "stored_condition": null,
+      "verified_labels": []
+    },
+    {
+      "audio_sha256": "d097e91eecc8f60cd55031b6ae0e64ffb53075c9b0608317fbde1bc2b44d65a2",
+      "crop": {
+        "actual_scored_samples": 122874,
+        "context_start_frame": 162,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.559875,
+        "start_frame": 192
+      },
+      "dataset": "librispeech",
+      "fit_order_index": 23,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "en",
+      "reasons": [
+        "retains_previous_calibration_anchor"
+      ],
+      "source_id": "150-126112-0029",
+      "stored_condition": null,
+      "verified_labels": []
+    },
+    {
+      "audio_sha256": "5853c50c93fba5fa0e48e78c5a134abf9bf979952ce7177d98f669f8d5d5cfe1",
+      "crop": {
+        "actual_scored_samples": 122874,
+        "context_start_frame": 34,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.559875,
+        "start_frame": 64
+      },
+      "dataset": "fleurs",
+      "fit_order_index": 15,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "it_it",
+      "reasons": [
+        "retains_previous_calibration_anchor"
+      ],
+      "source_id": "it_it:train:12574453037676220031.wav",
+      "stored_condition": null,
+      "verified_labels": []
+    },
+    {
+      "audio_sha256": "79680264ce5ddaa4b30fdf1f76a4c637c1ca2c139f533f723c490fdfc162dbf0",
+      "crop": {
+        "actual_scored_samples": 111354,
+        "context_start_frame": 290,
+        "declared_valid_scored_samples": 111360,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.319875,
+        "start_frame": 320
+      },
+      "dataset": "freesound_human_whistle_cc_by_3",
+      "fit_order_index": 1107,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "und",
+      "reasons": [
+        "expressive_source:human_whistling_source_description"
+      ],
+      "source_id": "freesound:120358",
+      "stored_condition": null,
+      "verified_labels": [
+        "human_whistling_source_description"
+      ],
+      "whistle_source_evidence": {
+        "source_evidence": {
+          "description": "whistling",
+          "duration_seconds": 15.12,
+          "license_url": "http://creativecommons.org/licenses/by/3.0/",
+          "sample_rate_hz": 48000.0,
+          "title": "whistling.wav"
+        },
+        "source_page_sha256": "c6921e703c4e31d652a8a3ccb05525ca4a9afb130c07c7342534e6bd9db3fa6b",
+        "source_url": "https://freesound.org/s/120358/",
+        "verified_at_utc": "2026-09-08T19:07:35.328433+00:00"
+      }
+    },
+    {
+      "audio_sha256": "53a1036a3aaba6c5c5a57d9419ceaa1c91f201d66506f903336cf35a699c8135",
+      "crop": {
+        "actual_scored_samples": 108186,
+        "context_start_frame": 0,
+        "declared_valid_scored_samples": 108186,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.253875,
+        "start_frame": 0
+      },
+      "dataset": "fsd50k_vocal_cc_by_3",
+      "fit_order_index": 98,
+      "fsd_annotation_votes": {
+        "Screaming": [
+          1.0,
+          1.0
+        ]
+      },
+      "fsd_raw_target_labels": [
+        "Screaming"
+      ],
+      "fsd_release_split": "train",
+      "has_event_timestamps": false,
+      "language": "und",
+      "reasons": [
+        "expressive_source:Screaming"
+      ],
+      "source_id": "freesound:220293",
+      "stored_condition": null,
+      "verified_labels": [
+        "Screaming"
+      ]
+    },
+    {
+      "audio_sha256": "57150afd5fff9d30a53f68717140559eecd4bb41c3b9d4cb3e07b0407ca95f5e",
+      "crop": {
+        "actual_scored_samples": 122880,
+        "context_start_frame": 0,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.56,
+        "start_frame": 0
+      },
+      "dataset": "fsd50k_vocal_cc_by_3",
+      "fit_order_index": 16,
+      "fsd_annotation_votes": {
+        "Laughter": [
+          1.0,
+          1.0
+        ]
+      },
+      "fsd_raw_target_labels": [
+        "Laughter"
+      ],
+      "fsd_release_split": "train",
+      "has_event_timestamps": false,
+      "language": "und",
+      "reasons": [
+        "retains_previous_calibration_anchor"
+      ],
+      "source_id": "freesound:253533",
+      "stored_condition": null,
+      "verified_labels": [
+        "Laughter"
+      ]
+    },
+    {
+      "audio_sha256": "819c921a330f083618ef61ab9a48c83bf7166ad86d036becd261e7f28fd35d0a",
+      "crop": {
+        "actual_scored_samples": 122880,
+        "context_start_frame": 0,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.56,
+        "start_frame": 0
+      },
+      "dataset": "fleurs",
+      "fit_order_index": 177,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "cmn_hans_cn",
+      "reasons": [
+        "language:cmn_hans_cn"
+      ],
+      "source_id": "cmn_hans_cn:train:10795996428718279122.wav",
+      "stored_condition": null,
+      "verified_labels": []
+    },
+    {
+      "audio_sha256": "18bba8782595a9f2ce056d1bc25bee586ac082257ed27fc362e4927646a84d9b",
+      "crop": {
+        "actual_scored_samples": 122874,
+        "context_start_frame": 98,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.559875,
+        "start_frame": 128
+      },
+      "dataset": "indicvoices",
+      "fit_order_index": 18,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "mni",
+      "reasons": [
+        "retains_previous_calibration_anchor",
+        "language:mni"
+      ],
+      "source_id": "manipuri:6473924464422818_chunk_4.flac",
+      "stored_condition": null,
+      "verified_labels": []
+    },
+    {
+      "audio_sha256": "71c5b0765e45369f8411e36f52e2e75ef6235ae7e1205e10c090677f00c38479",
+      "crop": {
+        "actual_scored_samples": 122874,
+        "context_start_frame": 34,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.559875,
+        "start_frame": 64
+      },
+      "dataset": "fleurs",
+      "fit_order_index": 404,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "ja_jp",
+      "reasons": [
+        "language:ja_jp"
+      ],
+      "source_id": "ja_jp:train:12880749590166424318.wav",
+      "stored_condition": null,
+      "verified_labels": []
+    },
+    {
+      "audio_sha256": "e5f04225d35e56c44a0a617920493316a947cd51d1f69b1d57d8ab465e18809b",
+      "crop": {
+        "actual_scored_samples": 122874,
+        "context_start_frame": 162,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.559875,
+        "start_frame": 192
+      },
+      "dataset": "fleurs",
+      "fit_order_index": 20,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "sd_in",
+      "reasons": [
+        "retains_previous_calibration_anchor",
+        "language:sd_in"
+      ],
+      "source_id": "sd_in:train:11967696188716773775.wav",
+      "stored_condition": null,
+      "verified_labels": []
+    },
+    {
+      "audio_sha256": "cad03245cd23056f09d57ddc1245a59a3eea01f128aad75f4fcbd0ff29ffbc17",
+      "crop": {
+        "actual_scored_samples": 122874,
+        "context_start_frame": 226,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.559875,
+        "start_frame": 256
+      },
+      "dataset": "librispeech",
+      "fit_order_index": 31,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "en",
+      "reasons": [
+        "retains_previous_calibration_anchor"
+      ],
+      "source_id": "1717-142305-0008",
+      "stored_condition": null,
+      "verified_labels": []
+    },
+    {
+      "audio_sha256": "cdb44128340de13cd7ba05fd35602419642120b3c96268c8422260d093794892",
+      "crop": {
+        "actual_scored_samples": 21114,
+        "context_start_frame": 34,
+        "declared_valid_scored_samples": 21120,
+        "event_seconds": null,
+        "scored_audio_seconds": 0.439875,
+        "start_frame": 64
+      },
+      "dataset": "fsd50k_vocal_cc_by_3",
+      "fit_order_index": 500,
+      "fsd_annotation_votes": {
+        "Crying_and_sobbing": [
+          1.0,
+          1.0,
+          0.5
+        ]
+      },
+      "fsd_raw_target_labels": [
+        "Crying_and_sobbing"
+      ],
+      "fsd_release_split": "train",
+      "has_event_timestamps": false,
+      "language": "und",
+      "reasons": [
+        "expressive_source:Crying_and_sobbing"
+      ],
+      "source_id": "freesound:9428",
+      "stored_condition": null,
+      "verified_labels": [
+        "Crying_and_sobbing"
+      ]
+    },
+    {
+      "audio_sha256": "3f747fc49d4a6b535c3c24128c1db53afb9cad693d1222a4cfe7ed9e690f92a8",
+      "crop": {
+        "actual_scored_samples": 121920,
+        "context_start_frame": 0,
+        "declared_valid_scored_samples": 121920,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.54,
+        "start_frame": 0
+      },
+      "dataset": "thorsten_emotional",
+      "fit_order_index": 577,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "de",
+      "reasons": [
+        "expressive_source:explicit_whisper_style"
+      ],
+      "source_id": "thorsten_emotional:whisper/5f1ee1e40c87aa7aa5f9b4b813dc48ad.wav",
+      "stored_condition": null,
+      "verified_labels": [
+        "explicit_whisper_style"
+      ]
+    },
+    {
+      "audio_sha256": "56821d9d22081eb429ead41952d79d955589798120905150005904130e096c7f",
+      "crop": {
+        "actual_scored_samples": 98292,
+        "context_start_frame": 0,
+        "declared_valid_scored_samples": 98292,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.04775,
+        "start_frame": 0
+      },
+      "dataset": "fsd50k_vocal_cc0",
+      "fit_order_index": 1557,
+      "fsd_annotation_votes": {
+        "Crying_and_sobbing": [
+          1.0,
+          1.0
+        ]
+      },
+      "fsd_raw_target_labels": [
+        "Crying_and_sobbing"
+      ],
+      "fsd_release_split": "train",
+      "has_event_timestamps": false,
+      "language": "und",
+      "reasons": [
+        "expressive_source:Crying_and_sobbing"
+      ],
+      "source_id": "freesound:162880",
+      "stored_condition": null,
+      "verified_labels": [
+        "Crying_and_sobbing"
+      ]
+    },
+    {
+      "audio_sha256": "5603a711b8e80dc4ef96da1e6fab6cb757c18cb41964398761d01948a91681a3",
+      "crop": {
+        "actual_scored_samples": 122874,
+        "context_start_frame": 34,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.559875,
+        "start_frame": 64
+      },
+      "dataset": "indicvoices",
+      "fit_order_index": 283,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "sa",
+      "reasons": [
+        "language:sa"
+      ],
+      "source_id": "sanskrit:2251799813701241_chunk_1.flac",
+      "stored_condition": null,
+      "verified_labels": []
+    },
+    {
+      "audio_sha256": "ecbfe2ab1d5a2db9fae0f9c0079d109d6e455676fa18f987fc7b854422766c3a",
+      "crop": {
+        "actual_scored_samples": 122880,
+        "context_start_frame": 0,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.56,
+        "start_frame": 0
+      },
+      "dataset": "indicvoices",
+      "fit_order_index": 22,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "ks",
+      "reasons": [
+        "retains_previous_calibration_anchor"
+      ],
+      "source_id": "kashmiri:1970324837048672_chunk_1.flac",
+      "stored_condition": null,
+      "verified_labels": []
+    },
+    {
+      "audio_sha256": "530ff507c87d12a9a3b5545c7534b7dd3bf9a844284fc9ddfd5d5c5c6a3bc11b",
+      "crop": {
+        "actual_scored_samples": 122874,
+        "context_start_frame": 98,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.559875,
+        "start_frame": 128
+      },
+      "dataset": "fleurs",
+      "fit_order_index": 8,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "yo_ng",
+      "reasons": [
+        "retains_previous_calibration_anchor"
+      ],
+      "source_id": "yo_ng:train:11885066674550407872.wav",
+      "stored_condition": null,
+      "verified_labels": []
+    },
+    {
+      "audio_sha256": "cacb6a8e3afb4ff1892c6906e6db7b33a84a42061b3ad8348f1c86ebeb6ed848",
+      "crop": {
+        "actual_scored_samples": 122874,
+        "context_start_frame": 162,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.559875,
+        "start_frame": 192
+      },
+      "dataset": "fleurs",
+      "fit_order_index": 100,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "as_in",
+      "reasons": [
+        "language:as_in"
+      ],
+      "source_id": "as_in:train:13631435816304806506.wav",
+      "stored_condition": null,
+      "verified_labels": []
+    },
+    {
+      "audio_sha256": "8e4a19a9cf2b129368a239926f54792482ee58905fa14e715f1f55d2aca149ce",
+      "crop": {
+        "actual_scored_samples": 122880,
+        "context_start_frame": 0,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.56,
+        "start_frame": 0
+      },
+      "dataset": "indicvoices",
+      "fit_order_index": 25,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "kok",
+      "reasons": [
+        "retains_previous_calibration_anchor",
+        "language:kok"
+      ],
+      "source_id": "konkani:4222124650689529_chunk_1.flac",
+      "stored_condition": null,
+      "verified_labels": []
+    },
+    {
+      "audio_sha256": "d81bc9de8bc3814767c8dda36085f55697ed2613a1f9a800a2ba75fa6bddb2b3",
+      "crop": {
+        "actual_scored_samples": 122880,
+        "context_start_frame": 0,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.56,
+        "start_frame": 0
+      },
+      "dataset": "thorsten_emotional",
+      "fit_order_index": 12,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "de",
+      "reasons": [
+        "retains_previous_calibration_anchor"
+      ],
+      "source_id": "thorsten_emotional:whisper/86d8d7dddf5ef0e777349c85c1da7545.wav",
+      "stored_condition": null,
+      "verified_labels": [
+        "explicit_whisper_style"
+      ]
+    },
+    {
+      "audio_sha256": "a5871a820920b5b50c5025454e73b0db6435fedac68ca45c85f8c954b139bb41",
+      "crop": {
+        "actual_scored_samples": 22242,
+        "context_start_frame": 0,
+        "declared_valid_scored_samples": 22242,
+        "event_seconds": null,
+        "scored_audio_seconds": 0.463375,
+        "start_frame": 0
+      },
+      "dataset": "fsd50k_vocal_cc_by_3",
+      "fit_order_index": 11,
+      "fsd_annotation_votes": {
+        "Whispering": [
+          1.0,
+          1.0
+        ]
+      },
+      "fsd_raw_target_labels": [
+        "Whispering"
+      ],
+      "fsd_release_split": "train",
+      "has_event_timestamps": false,
+      "language": "und",
+      "reasons": [
+        "retains_previous_calibration_anchor"
+      ],
+      "source_id": "freesound:236530",
+      "stored_condition": null,
+      "verified_labels": [
+        "Whispering"
+      ]
+    },
+    {
+      "audio_sha256": "e838863c065734d78c3ea86df8071228af01ff0d50af6bfce7892e21ea9e2c69",
+      "crop": {
+        "actual_scored_samples": 27864,
+        "context_start_frame": 0,
+        "declared_valid_scored_samples": 27864,
+        "event_seconds": null,
+        "scored_audio_seconds": 0.5805,
+        "start_frame": 0
+      },
+      "dataset": "fsd50k_vocal_cc0",
+      "fit_order_index": 27,
+      "fsd_annotation_votes": {
+        "Laughter": [
+          1.0,
+          1.0
+        ]
+      },
+      "fsd_raw_target_labels": [
+        "Laughter"
+      ],
+      "fsd_release_split": "train",
+      "has_event_timestamps": false,
+      "language": "und",
+      "reasons": [
+        "retains_previous_calibration_anchor"
+      ],
+      "source_id": "freesound:241529",
+      "stored_condition": null,
+      "verified_labels": [
+        "Laughter"
+      ]
+    },
+    {
+      "audio_sha256": "b07343e6ecbba8f9f14813a46902485fe6cce39f3634e04d5376afbe7dcd7c0c",
+      "crop": {
+        "actual_scored_samples": 122880,
+        "context_start_frame": 0,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.56,
+        "start_frame": 0
+      },
+      "dataset": "crema_d",
+      "fit_order_index": 13,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "en",
+      "reasons": [
+        "retains_previous_calibration_anchor"
+      ],
+      "source_id": "crema_d:1015_TAI_FEA_XX.wav",
+      "stored_condition": null,
+      "verified_labels": []
+    },
+    {
+      "audio_sha256": "61fa5dd062522d08758bb198515fd6e2324ab22469c1e94f5cec0cab6e7e79de",
+      "crop": {
+        "actual_scored_samples": 122874,
+        "context_start_frame": 98,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.559875,
+        "start_frame": 128
+      },
+      "dataset": "fleurs",
+      "fit_order_index": 33,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "mr_in",
+      "reasons": [
+        "complete_calibration_batch"
+      ],
+      "source_id": "mr_in:train:10144754069606263221.wav",
+      "stored_condition": null,
+      "verified_labels": []
+    },
+    {
+      "audio_sha256": "6f7b311e853e76f0203273352c85d88d6a7f9debdc24b4fd5f6c693301690c45",
+      "crop": {
+        "actual_scored_samples": 122874,
+        "context_start_frame": 290,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.559875,
+        "start_frame": 320
+      },
+      "dataset": "fleurs",
+      "fit_order_index": 30,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "ln_cd",
+      "reasons": [
+        "retains_previous_calibration_anchor"
+      ],
+      "source_id": "ln_cd:train:11150989891902242354.wav",
+      "stored_condition": null,
+      "verified_labels": []
+    },
+    {
+      "audio_sha256": "61a0550d4b0ade580f0e88c449639522cdace51817e596fd7464a551e9c7752f",
+      "crop": {
+        "actual_scored_samples": 122874,
+        "context_start_frame": 162,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.559875,
+        "start_frame": 192
+      },
+      "dataset": "indicvoices",
+      "fit_order_index": 10,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "ks",
+      "reasons": [
+        "retains_previous_calibration_anchor",
+        "language:ks"
+      ],
+      "source_id": "kashmiri:1970324837087069_chunk_1.flac",
+      "stored_condition": null,
+      "verified_labels": []
+    },
+    {
+      "audio_sha256": "59f0c54898f2cd023a7064b3837cc4de1bc1c306881d6c2a934f6cbf85f2515b",
+      "crop": {
+        "actual_scored_samples": 122874,
+        "context_start_frame": 98,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.559875,
+        "start_frame": 128
+      },
+      "dataset": "fleurs",
+      "fit_order_index": 17,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "ml_in",
+      "reasons": [
+        "retains_previous_calibration_anchor"
+      ],
+      "source_id": "ml_in:train:13403805018412819668.wav",
+      "stored_condition": null,
+      "verified_labels": []
+    },
+    {
+      "audio_sha256": "2512a8efff9654ead88263cd1056c78ece0b0a652d1a69b8367ad6b9d4ad67df",
+      "crop": {
+        "actual_scored_samples": 122400,
+        "context_start_frame": 0,
+        "declared_valid_scored_samples": 122400,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.55,
+        "start_frame": 0
+      },
+      "dataset": "thorsten_emotional",
+      "fit_order_index": 809,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "de",
+      "reasons": [
+        "expressive_source:explicit_whisper_style"
+      ],
+      "source_id": "thorsten_emotional:whisper/94f9d93990bfbfff3da2a95ebfa9b277.wav",
+      "stored_condition": null,
+      "verified_labels": [
+        "explicit_whisper_style"
+      ]
+    },
+    {
+      "audio_sha256": "64f8629e607d24b44005e0c488f9236e082d1e80f9645b9481f87fb8b1bcbe5e",
+      "crop": {
+        "actual_scored_samples": 53757,
+        "context_start_frame": 0,
+        "declared_valid_scored_samples": 53757,
+        "event_seconds": null,
+        "scored_audio_seconds": 1.1199375,
+        "start_frame": 0
+      },
+      "dataset": "freesound_human_whistle_cc0",
+      "fit_order_index": 642,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "und",
+      "reasons": [
+        "expressive_source:human_whistling_source_description"
+      ],
+      "source_id": "freesound:428920",
+      "stored_condition": null,
+      "verified_labels": [
+        "human_whistling_source_description"
+      ],
+      "whistle_source_evidence": {
+        "source_evidence": {
+          "description": "Gravado com Superlux Omni.\n\nGravado para a disciplina de Capta\u00e7\u00e3o e Edi\u00e7\u00e3o de \u00c1udio do curso R\u00e1dio, TV e Internet, Universidade Anhembi Morumbi. S\u00e3o Paulo-SP, Brasil.",
+          "duration_seconds": 1.11996,
+          "license_url": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "sample_rate_hz": 48000.0,
+          "title": "Assobio3.wav"
+        },
+        "source_page_sha256": "72a6b8a19f409251937f656cba8edfc145b1c03bf8d3b71136567001c06e3641",
+        "source_url": "https://freesound.org/s/428920/",
+        "verified_at_utc": "2026-09-08T19:07:39.394538+00:00"
+      }
+    },
+    {
+      "audio_sha256": "ae94df4639851886c431e31bf00da0a6266b02ccb69a72fcfa94b5c07c50baa0",
+      "crop": {
+        "actual_scored_samples": 122874,
+        "context_start_frame": 162,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.559875,
+        "start_frame": 192
+      },
+      "dataset": "fleurs",
+      "fit_order_index": 42,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "ur_pk",
+      "reasons": [
+        "language:ur_pk"
+      ],
+      "source_id": "ur_pk:train:11050539198969389785.wav",
+      "stored_condition": null,
+      "verified_labels": []
+    },
+    {
+      "audio_sha256": "95e8e8da5d2af6a113bd38e4ea3e6cd7ba578ef3c738e9422e4f54886bdd4c07",
+      "crop": {
+        "actual_scored_samples": 122880,
+        "context_start_frame": 0,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.56,
+        "start_frame": 0
+      },
+      "dataset": "fleurs",
+      "fit_order_index": 381,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "fr_fr",
+      "reasons": [
+        "language:fr_fr"
+      ],
+      "source_id": "fr_fr:train:1058050494562584250.wav",
+      "stored_condition": null,
+      "verified_labels": []
+    },
+    {
+      "audio_sha256": "0d2cdb01dffdd97313a22fc8e5945651bd940cfaf64c02e805929d6980098d13",
+      "crop": {
+        "actual_scored_samples": 122874,
+        "context_start_frame": 226,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.559875,
+        "start_frame": 256
+      },
+      "dataset": "fleurs",
+      "fit_order_index": 99,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "pt_br",
+      "reasons": [
+        "language:pt_br"
+      ],
+      "source_id": "pt_br:train:14459406077438019147.wav",
+      "stored_condition": null,
+      "verified_labels": []
+    },
+    {
+      "audio_sha256": "2dabb25cfe3ab78d6d0f372a6b2eb39b28674d410a7423192e3e1aed1ee967da",
+      "crop": {
+        "actual_scored_samples": 122874,
+        "context_start_frame": 34,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.559875,
+        "start_frame": 64
+      },
+      "dataset": "fleurs",
+      "fit_order_index": 24,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "ta_in",
+      "reasons": [
+        "retains_previous_calibration_anchor",
+        "language:ta_in"
+      ],
+      "source_id": "ta_in:train:16684127105266310187.wav",
+      "stored_condition": null,
+      "verified_labels": []
+    },
+    {
+      "audio_sha256": "d4eaa8b4523f87a404dac03b6149cfc39efecbaab1f21cce5b569dd3306bdf05",
+      "crop": {
+        "actual_scored_samples": 122874,
+        "context_start_frame": 98,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.559875,
+        "start_frame": 128
+      },
+      "dataset": "fleurs",
+      "fit_order_index": 76,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "te_in",
+      "reasons": [
+        "language:te_in"
+      ],
+      "source_id": "te_in:train:14823553304243265632.wav",
+      "stored_condition": null,
+      "verified_labels": []
+    },
+    {
+      "audio_sha256": "47fc4b6c7233a9dfdf159aa44ea1f6a35d51bd34912f8b78fc70f5118b9e3102",
+      "crop": {
+        "actual_scored_samples": 122874,
+        "context_start_frame": 34,
+        "declared_valid_scored_samples": 122880,
+        "event_seconds": null,
+        "scored_audio_seconds": 2.559875,
+        "start_frame": 64
+      },
+      "dataset": "fleurs",
+      "fit_order_index": 7,
+      "fsd_annotation_votes": {},
+      "fsd_raw_target_labels": [],
+      "has_event_timestamps": false,
+      "language": "ff_sn",
+      "reasons": [
+        "retains_previous_calibration_anchor"
+      ],
+      "source_id": "ff_sn:train:13663086814888702452.wav",
+      "stored_condition": null,
+      "verified_labels": []
+    }
+  ],
+  "selection_identity_sha256": "c3c2f0335b00761e1425d0c40a12d9882305bd5440c0f3758bc4d982d77ced7f",
+  "source_count": 72,
+  "source_ids": [
+    "freesound:421873",
+    "freesound:421872",
+    "freesound:108313",
+    "or_in:train:15390796039810471023.wav",
+    "mr_in:train:14115534504672663133.wav",
+    "bn_in:train:10880725963672802654.wav",
+    "ar_eg:train:13034826863551680266.wav",
+    "ne_np:train:13861235654098604901.wav",
+    "freesound:92386",
+    "freesound:277554",
+    "freesound:343887",
+    "maithili:844424930133950_chunk_1.flac",
+    "cs_cz:train:14126852822859961802.wav",
+    "pa_in:train:15241951700554259781.wav",
+    "kn_in:train:12460983438985838069.wav",
+    "gu_in:train:12698785575364508379.wav",
+    "freesound:428739",
+    "freesound:344024",
+    "freesound:92395",
+    "es_419:train:15163027318196006761.wav",
+    "dogri:1125899907018502_chunk_1.flac",
+    "6199-64259-0016",
+    "ml_in:train:15335338211250641068.wav",
+    "santali:4785074604159968_chunk_1.flac",
+    "freesound:277549",
+    "freesound:108314",
+    "freesound:108049",
+    "kea_cv:train:11703227461901683068.wav",
+    "726-124445-0109",
+    "1970-10594-0002",
+    "bodo:3659174697331870_chunk_1.flac",
+    "hi_in:train:16824146597032057516.wav",
+    "freesound:235101",
+    "freesound:9434",
+    "freesound:422342",
+    "ff_sn:train:13060113589868771273.wav",
+    "1624-142933-0041",
+    "crema_d:1008_TSI_NEU_XX.wav",
+    "150-126112-0029",
+    "it_it:train:12574453037676220031.wav",
+    "freesound:120358",
+    "freesound:220293",
+    "freesound:253533",
+    "cmn_hans_cn:train:10795996428718279122.wav",
+    "manipuri:6473924464422818_chunk_4.flac",
+    "ja_jp:train:12880749590166424318.wav",
+    "sd_in:train:11967696188716773775.wav",
+    "1717-142305-0008",
+    "freesound:9428",
+    "thorsten_emotional:whisper/5f1ee1e40c87aa7aa5f9b4b813dc48ad.wav",
+    "freesound:162880",
+    "sanskrit:2251799813701241_chunk_1.flac",
+    "kashmiri:1970324837048672_chunk_1.flac",
+    "yo_ng:train:11885066674550407872.wav",
+    "as_in:train:13631435816304806506.wav",
+    "konkani:4222124650689529_chunk_1.flac",
+    "thorsten_emotional:whisper/86d8d7dddf5ef0e777349c85c1da7545.wav",
+    "freesound:236530",
+    "freesound:241529",
+    "crema_d:1015_TAI_FEA_XX.wav",
+    "mr_in:train:10144754069606263221.wav",
+    "ln_cd:train:11150989891902242354.wav",
+    "kashmiri:1970324837087069_chunk_1.flac",
+    "ml_in:train:13403805018412819668.wav",
+    "thorsten_emotional:whisper/94f9d93990bfbfff3da2a95ebfa9b277.wav",
+    "freesound:428920",
+    "ur_pk:train:11050539198969389785.wav",
+    "fr_fr:train:1058050494562584250.wav",
+    "pt_br:train:14459406077438019147.wav",
+    "ta_in:train:16684127105266310187.wav",
+    "te_in:train:14823553304243265632.wav",
+    "ff_sn:train:13663086814888702452.wav"
+  ],
+  "sources_sha256": "b227d37476a11e37aa3563be5b57af2a98522ad1ad49030bf80213aa333d4085"
+}

@@ -1,0 +1,54 @@
+{
+  "evaluated_step": 1900,
+  "probe_examples": 32,
+  "probe_scored_samples": 983040,
+  "normalization_mode": "fixed_statistics",
+  "reconstruction_weights": {
+    "teacher_waveform": 1.0,
+    "teacher_mel": 0.0,
+    "feature_matching": 0.0,
+    "adversarial": 0.0
+  },
+  "balancer_state_source": "copy_of_training_state_updated_on_probe_batch",
+  "output_gradients": {
+    "teacher_waveform/raw_norm": 0.021388059481978416,
+    "teacher_waveform/target_share": 1.0,
+    "teacher_waveform/raw_share": 1.0,
+    "teacher_waveform/ema_norm": 0.021388060592368564,
+    "teacher_waveform/scale": 46.75505736863342,
+    "teacher_waveform/scaled_norm": 0.9999999480836449,
+    "teacher_waveform/saturated": 0.0,
+    "teacher_waveform/zero_norm": 0.0,
+    "combined_norm": 1.0,
+    "valid_samples_mean": 30720.0,
+    "teacher_mel/scale": 0.0,
+    "teacher_mel/scaled_norm": 0.0,
+    "teacher_mel/target_share": 0.0
+  },
+  "parameters": [
+    {
+      "parameter": "adapter.weight",
+      "waveform_raw_norm": 1.9231492280960083,
+      "mel_raw_norm": 19.54262924194336,
+      "waveform_scaled_norm": 89.91695404052734,
+      "mel_scaled_norm": 0.0,
+      "cosine": 0.7860260009765625
+    },
+    {
+      "parameter": "blocks.5.project.weight",
+      "waveform_raw_norm": 0.11336430162191391,
+      "mel_raw_norm": 1.2877565622329712,
+      "waveform_scaled_norm": 5.300354480743408,
+      "mel_scaled_norm": 0.0,
+      "cosine": 0.8587926626205444
+    },
+    {
+      "parameter": "output.weight",
+      "waveform_raw_norm": 1.3741670846939087,
+      "mel_raw_norm": 13.804115295410156,
+      "waveform_scaled_norm": 64.24925994873047,
+      "mel_scaled_norm": 0.0,
+      "cosine": 0.8870906829833984
+    }
+  ]
+}

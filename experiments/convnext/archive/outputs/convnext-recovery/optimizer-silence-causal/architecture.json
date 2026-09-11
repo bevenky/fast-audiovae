@@ -1,0 +1,736 @@
+{
+  "boundary_test": {
+    "after_receptive_field_difference_rms": 0.0,
+    "prefix_frames": 31,
+    "startup_difference_rms": 2.1713672772794628e-05,
+    "steady_difference_max_abs": 0.0
+  },
+  "encoded_latents": {
+    "exact_stationary_suffix_frame": 15,
+    "max_difference_from_reference": 3.6154942512512207,
+    "raw_zero_is_encoded_silence": false,
+    "steady_reference_rms": 0.6473929667364098
+  },
+  "engine_state_unchanged": true,
+  "expected_prediction_reproduced": null,
+  "format_version": 1,
+  "history_internal_frames": 116,
+  "history_samples": 55680,
+  "identity": {
+    "canonical_panel": {
+      "cache_path": "/tmp/fast-audiovae-recovery-20260909/canonical-panel-v1/heldout.pt",
+      "cache_sha256": "6be63e6fc49d7a23c59b75cca1d1d294cf7aa83d2dbbb9c06e1622e92c574a19",
+      "contract_sha256": "bf372497cabec8f24b3e65887210a1808fa99d728cef212f6e5c80ed76068430",
+      "evaluation_policy": "Separate corrected encoder domain; original historical tensors, counts and masks remain unchanged",
+      "heldout_crops": 285,
+      "heldout_identity_sha256": "ef70f22f1e638257d139530b11750899da9c573abe95133525eabf3a6e6830dd",
+      "metadata_sha256": "c3fcab4a824c8a7bc79c8b8cd3e14d04b8ac56841ff9561872e2bb247be6922f",
+      "receipt_path": "/tmp/fast-audiovae-recovery-20260909/canonical-panel-v1/receipt.json",
+      "receipt_sha256": "5bf945d958085362ec14f9af2bfb45bf045f75184dc9bfc0b975f12fc86e5255",
+      "required_by_resolution": true
+    },
+    "checkpoint_path": "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-update-400-reference-v1/quarter_rate/final.pt",
+    "checkpoint_sha256": "f7a91a2f3bef6fdec2a37643dc661a97b18a24b9e25b822df49c1c4017ddc948",
+    "cudnn": 92501,
+    "device": "cuda:0",
+    "model_config": {
+      "adapter_mode": "raw_repeat_phase_bias",
+      "batch_norm_eps": 1e-05,
+      "batch_norm_momentum": 0.1,
+      "dilations": [
+        1,
+        2,
+        4,
+        1,
+        2,
+        4,
+        1,
+        1,
+        1,
+        1
+      ],
+      "expansion_channels": 2048,
+      "head_channels": 2048,
+      "hidden_channels": 512,
+      "layer_norm_eps": 1e-06,
+      "layer_scale_init": 1e-06,
+      "normalization_mode": "masked_batch_norm",
+      "prelu_init": 0.25
+    },
+    "natural_selection": [
+      {
+        "metadata": {
+          "condition": "speech",
+          "coverage_group": "language:cmn_hans_cn",
+          "dataset": "fleurs",
+          "language": "cmn_hans_cn"
+        },
+        "source_id": "cmn_hans_cn:validation:10312747577451821721.wav",
+        "start_frame": 178,
+        "teacher_quiet_samples_after_history": 117120
+      },
+      {
+        "metadata": {
+          "condition": "speech",
+          "coverage_group": "language:cmn_hans_cn",
+          "dataset": "fleurs",
+          "language": "cmn_hans_cn"
+        },
+        "source_id": "cmn_hans_cn:validation:10116334326946811387.wav",
+        "start_frame": 396,
+        "teacher_quiet_samples_after_history": 110400
+      },
+      {
+        "metadata": {
+          "condition": "speech",
+          "coverage_group": "language:yue_hant_hk",
+          "dataset": "fleurs",
+          "language": "yue_hant_hk"
+        },
+        "source_id": "yue_hant_hk:validation:10085210971428056272.wav",
+        "start_frame": 211,
+        "teacher_quiet_samples_after_history": 100800
+      },
+      {
+        "metadata": {
+          "condition": "speech",
+          "coverage_group": "language:de_de",
+          "dataset": "fleurs",
+          "language": "de_de"
+        },
+        "source_id": "de_de:validation:10128878214126221959.wav",
+        "start_frame": 220,
+        "teacher_quiet_samples_after_history": 92160
+      },
+      {
+        "metadata": {
+          "condition": "speech",
+          "coverage_group": "language:yue_hant_hk",
+          "dataset": "fleurs",
+          "language": "yue_hant_hk"
+        },
+        "source_id": "yue_hant_hk:validation:1019891360787907522.wav",
+        "start_frame": 203,
+        "teacher_quiet_samples_after_history": 87360
+      },
+      {
+        "metadata": {
+          "condition": "Yell",
+          "dataset": "fsd50k_vocal_cc0",
+          "event": "Yell",
+          "group": "expressive",
+          "language": "und",
+          "semantic_event_verified": false,
+          "speech": false
+        },
+        "source_id": "freesound:266716",
+        "start_frame": 0,
+        "teacher_quiet_samples_after_history": 86838
+      }
+    ],
+    "restored_engine_sha256": "b241d0cf81923f20d29d09af7b581ddda5bb492775afbf24f3020dba7dd7febc",
+    "source_hashes": {
+      "/tmp/fast-audiovae-recovery-20260909/code214/diagnostic_common.py": "81254f55310fb4ca1b4d49aace1e22203d07969ac0562c4ed26aeca2a32b567b",
+      "/tmp/fast-audiovae-recovery-20260909/peak-silence-code-v1/native_chain.py": "bfed6fec148c57ef98c495edaf4c9eb1f66300c1d2b20d713230771a3c8fe928",
+      "/tmp/fast-audiovae-recovery-20260909/silence-architecture-code-v1/diagnose_architecture.py": "d490a869783935ca4c20ca23dada25df6dccd144f7ff5837681886d2ff52f15c",
+      "/tmp/fast-audiovae-recovery-20260909/silence-architecture-code-v1/run_architecture.py": "68ffd6fc49a8e7bbd5cf4d6117fa4aeea7d3aa0bc00c3579c10f6f0098dae428",
+      "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/fusion_architecture.py": "35b6e0e2838e21ba7aace8f7c69afba7c1a0a4d88c89dee42e603c4650c5a016",
+      "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/model.py": "f8a1e0d0a04211ea318f1103178be323061cadcd244e07d742512c3fc187c60b"
+    },
+    "torch": "2.14.0+cu126"
+  },
+  "interpretation": "A phase-invariant internal feature vector may still map to480 different output-channel values, producing a10ms repeating waveform. Four distinct feature phases permit additional40ms structure. Neither observation proves architecture impossibility; feasibility on silence alone does not establish global quality.",
+  "manual_stage_replay_matches_model_exactly": true,
+  "model_modes_parameters_buffers_and_grad_fields_preserved": true,
+  "natural_quiet_counterfactuals": [
+    {
+      "constant_latent_waveform_components": {
+        "complete_cycles": 63,
+        "component_fraction": {
+          "additional_1920_phase_pattern": 0.8409609436586208,
+          "cycle_varying": 0.0,
+          "dc": 0.013691380670764019,
+          "shared_480_pattern": 0.14534767567061527
+        },
+        "component_power": {
+          "additional_1920_phase_pattern": 6.113230104889792e-07,
+          "cycle_varying": 0.0,
+          "dc": 9.952728616609493e-09,
+          "shared_480_pattern": 1.0565815134288302e-07
+        },
+        "defined": true,
+        "power": 7.269338904484716e-07,
+        "power_partition_error": -1.0587911840678754e-22,
+        "rms": 0.0008526041815804516,
+        "steady_start_sample": 57600
+      },
+      "defined": true,
+      "input_variation_output_difference_rms": 0.0010084196758409598,
+      "original_teacher_residual_rms": 0.0003161345705167808,
+      "quiet_samples": 117120,
+      "reference_latent_index": 30,
+      "selected_by": "predefined teacher-only quiet coverage; reference is first eligible quiet sample",
+      "source_id": "cmn_hans_cn:validation:10312747577451821721.wav",
+      "start_frame": 178,
+      "stationary_counterfactual_teacher_residual_rms": 0.0010485295742425611,
+      "teacher_rms": 0.0006749689779311236,
+      "warning": "Counterfactual latents no longer encode the original teacher waveform; a smaller residual is not quality improvement or a valid replacement."
+    },
+    {
+      "constant_latent_waveform_components": {
+        "complete_cycles": 63,
+        "component_fraction": {
+          "additional_1920_phase_pattern": 0.7269579068252116,
+          "cycle_varying": 0.0,
+          "dc": 0.004687532675721924,
+          "shared_480_pattern": 0.2683545604990668
+        },
+        "component_power": {
+          "additional_1920_phase_pattern": 1.770035145473058e-07,
+          "cycle_varying": 0.0,
+          "dc": 1.141344980731616e-09,
+          "shared_480_pattern": 6.534037240281805e-08
+        },
+        "defined": true,
+        "power": 2.434852319308554e-07,
+        "power_partition_error": -5.293955920339377e-23,
+        "rms": 0.0004934422275513674,
+        "steady_start_sample": 57600
+      },
+      "defined": true,
+      "input_variation_output_difference_rms": 0.0007753083029191105,
+      "original_teacher_residual_rms": 0.00039799353470874725,
+      "quiet_samples": 110400,
+      "reference_latent_index": 30,
+      "selected_by": "predefined teacher-only quiet coverage; reference is first eligible quiet sample",
+      "source_id": "cmn_hans_cn:validation:10116334326946811387.wav",
+      "start_frame": 396,
+      "stationary_counterfactual_teacher_residual_rms": 0.0008378568553549818,
+      "teacher_rms": 0.0006993382882915655,
+      "warning": "Counterfactual latents no longer encode the original teacher waveform; a smaller residual is not quality improvement or a valid replacement."
+    },
+    {
+      "constant_latent_waveform_components": {
+        "complete_cycles": 63,
+        "component_fraction": {
+          "additional_1920_phase_pattern": 0.7000069573748655,
+          "cycle_varying": 0.0,
+          "dc": 1.5228257220742165e-05,
+          "shared_480_pattern": 0.29997781436791376
+        },
+        "component_power": {
+          "additional_1920_phase_pattern": 6.139713044583913e-06,
+          "cycle_varying": 0.0,
+          "dc": 1.33566000336766e-10,
+          "shared_480_pattern": 2.631084849309789e-06
+        },
+        "defined": true,
+        "power": 8.770931459894039e-06,
+        "power_partition_error": 0.0,
+        "rms": 0.002961575840645321,
+        "steady_start_sample": 57600
+      },
+      "defined": true,
+      "input_variation_output_difference_rms": 0.002956522825251359,
+      "original_teacher_residual_rms": 0.00018032097066128684,
+      "quiet_samples": 100800,
+      "reference_latent_index": 36,
+      "selected_by": "predefined teacher-only quiet coverage; reference is first eligible quiet sample",
+      "source_id": "yue_hant_hk:validation:10085210971428056272.wav",
+      "start_frame": 211,
+      "stationary_counterfactual_teacher_residual_rms": 0.0029682047388808717,
+      "teacher_rms": 0.00038073655471768976,
+      "warning": "Counterfactual latents no longer encode the original teacher waveform; a smaller residual is not quality improvement or a valid replacement."
+    },
+    {
+      "constant_latent_waveform_components": {
+        "complete_cycles": 63,
+        "component_fraction": {
+          "additional_1920_phase_pattern": 0.6595230556643162,
+          "cycle_varying": 0.0,
+          "dc": 0.24781117617005236,
+          "shared_480_pattern": 0.0926657681656317
+        },
+        "component_power": {
+          "additional_1920_phase_pattern": 7.628736287146145e-08,
+          "cycle_varying": 0.0,
+          "dc": 2.8664443127080962e-08,
+          "shared_480_pattern": 1.0718695913812539e-08
+        },
+        "defined": true,
+        "power": 1.1567050191235492e-07,
+        "power_partition_error": -2.6469779601696886e-23,
+        "rms": 0.0003401036634797616,
+        "steady_start_sample": 57600
+      },
+      "defined": true,
+      "input_variation_output_difference_rms": 0.0007172303420493525,
+      "original_teacher_residual_rms": 0.00016001188332054152,
+      "quiet_samples": 92160,
+      "reference_latent_index": 36,
+      "selected_by": "predefined teacher-only quiet coverage; reference is first eligible quiet sample",
+      "source_id": "de_de:validation:10128878214126221959.wav",
+      "start_frame": 220,
+      "stationary_counterfactual_teacher_residual_rms": 0.0006958496717290116,
+      "teacher_rms": 0.000639213061904349,
+      "warning": "Counterfactual latents no longer encode the original teacher waveform; a smaller residual is not quality improvement or a valid replacement."
+    },
+    {
+      "constant_latent_waveform_components": {
+        "complete_cycles": 63,
+        "component_fraction": {
+          "additional_1920_phase_pattern": 0.6087216408368378,
+          "cycle_varying": 0.0,
+          "dc": 0.013010546714578197,
+          "shared_480_pattern": 0.3782678124485842
+        },
+        "component_power": {
+          "additional_1920_phase_pattern": 2.6339677966544756e-07,
+          "cycle_varying": 0.0,
+          "dc": 5.629726095486927e-09,
+          "shared_480_pattern": 1.63678300500502e-07
+        },
+        "defined": true,
+        "power": 4.327048062614364e-07,
+        "power_partition_error": -5.293955920339377e-23,
+        "rms": 0.0006578030147859133,
+        "steady_start_sample": 57600
+      },
+      "defined": true,
+      "input_variation_output_difference_rms": 0.0007322782963634452,
+      "original_teacher_residual_rms": 0.00016340721228082857,
+      "quiet_samples": 87360,
+      "reference_latent_index": 30,
+      "selected_by": "predefined teacher-only quiet coverage; reference is first eligible quiet sample",
+      "source_id": "yue_hant_hk:validation:1019891360787907522.wav",
+      "start_frame": 203,
+      "stationary_counterfactual_teacher_residual_rms": 0.0007252721208604303,
+      "teacher_rms": 0.0003279957553329699,
+      "warning": "Counterfactual latents no longer encode the original teacher waveform; a smaller residual is not quality improvement or a valid replacement."
+    },
+    {
+      "constant_latent_waveform_components": {
+        "complete_cycles": 149,
+        "component_fraction": {
+          "additional_1920_phase_pattern": 0.08384895695367663,
+          "cycle_varying": 0.0,
+          "dc": 0.5534771106912314,
+          "shared_480_pattern": 0.362673932355092
+        },
+        "component_power": {
+          "additional_1920_phase_pattern": 6.482446489140137e-10,
+          "cycle_varying": 0.0,
+          "dc": 4.278986743987729e-09,
+          "shared_480_pattern": 2.8038683424491017e-09
+        },
+        "defined": true,
+        "power": 7.731099735350844e-09,
+        "power_partition_error": 0.0,
+        "rms": 8.792667249106408e-05,
+        "steady_start_sample": 57600
+      },
+      "defined": true,
+      "input_variation_output_difference_rms": 8.262788064102838e-05,
+      "original_teacher_residual_rms": 7.671360218217279e-05,
+      "quiet_samples": 86838,
+      "reference_latent_index": 40,
+      "selected_by": "predefined teacher-only quiet coverage; reference is first eligible quiet sample",
+      "source_id": "freesound:266716",
+      "start_frame": 0,
+      "stationary_counterfactual_teacher_residual_rms": 9.321509482881577e-05,
+      "teacher_rms": 7.686343164143637e-05,
+      "warning": "Counterfactual latents no longer encode the original teacher waveform; a smaller residual is not quality improvement or a valid replacement."
+    }
+  ],
+  "node_components": {
+    "adapter_phase_frames": {
+      "channel_dc_power": 0.4206414714006951,
+      "channels": 64,
+      "complete_cycles": 100,
+      "cycle_varying_fraction": 0.0,
+      "cycle_varying_max_abs": 0.0,
+      "cycle_varying_power": 0.0,
+      "period_frames": 4,
+      "phase_difference_fraction": 0.006446859282765833,
+      "phase_difference_power": 0.0027294125130118575,
+      "power_partition_error": -1.5612511283791264e-17,
+      "steady_start_frame": 200,
+      "total_power": 0.4233708839137069
+    },
+    "affine": {
+      "channel_dc_power": 5.081006751197596e-06,
+      "channels": 512,
+      "complete_cycles": 100,
+      "cycle_varying_fraction": 0.0,
+      "cycle_varying_max_abs": 0.0,
+      "cycle_varying_power": 0.0,
+      "period_frames": 4,
+      "phase_difference_fraction": 0.0021220411271579954,
+      "phase_difference_power": 1.0805034019979468e-08,
+      "power_partition_error": 5.707546226615891e-22,
+      "steady_start_frame": 200,
+      "total_power": 5.091811785217576e-06
+    },
+    "blocks.0": {
+      "channel_dc_power": 0.08524469604888482,
+      "channels": 512,
+      "complete_cycles": 100,
+      "cycle_varying_fraction": 0.0,
+      "cycle_varying_max_abs": 0.0,
+      "cycle_varying_power": 0.0,
+      "period_frames": 4,
+      "phase_difference_fraction": 0.010749929293068835,
+      "phase_difference_power": 0.0009263324636204502,
+      "power_partition_error": -6.505213034913027e-19,
+      "steady_start_frame": 200,
+      "total_power": 0.08617102851250527
+    },
+    "blocks.1": {
+      "channel_dc_power": 0.07260094322774382,
+      "channels": 512,
+      "complete_cycles": 100,
+      "cycle_varying_fraction": 0.0,
+      "cycle_varying_max_abs": 0.0,
+      "cycle_varying_power": 0.0,
+      "period_frames": 4,
+      "phase_difference_fraction": 0.016408127681604417,
+      "phase_difference_power": 0.0012111177204808376,
+      "power_partition_error": 1.734723475976807e-18,
+      "steady_start_frame": 200,
+      "total_power": 0.07381206094822466
+    },
+    "blocks.2": {
+      "channel_dc_power": 0.059173739539585865,
+      "channels": 512,
+      "complete_cycles": 100,
+      "cycle_varying_fraction": 0.0,
+      "cycle_varying_max_abs": 0.0,
+      "cycle_varying_power": 0.0,
+      "period_frames": 4,
+      "phase_difference_fraction": 0.020199267204962613,
+      "phase_difference_power": 0.001219907412262562,
+      "power_partition_error": -5.421010862427522e-18,
+      "steady_start_frame": 200,
+      "total_power": 0.06039364695184842
+    },
+    "blocks.3": {
+      "channel_dc_power": 0.03118433972474741,
+      "channels": 512,
+      "complete_cycles": 100,
+      "cycle_varying_fraction": 0.0,
+      "cycle_varying_max_abs": 0.0,
+      "cycle_varying_power": 0.0,
+      "period_frames": 4,
+      "phase_difference_fraction": 0.003392801613491096,
+      "phase_difference_power": 0.00010616246632080289,
+      "power_partition_error": -5.014435047745458e-18,
+      "steady_start_frame": 200,
+      "total_power": 0.03129050219106821
+    },
+    "blocks.4": {
+      "channel_dc_power": 0.020004639061183348,
+      "channels": 512,
+      "complete_cycles": 100,
+      "cycle_varying_fraction": 0.0,
+      "cycle_varying_max_abs": 0.0,
+      "cycle_varying_power": 0.0,
+      "period_frames": 4,
+      "phase_difference_fraction": 0.0016063552931622146,
+      "phase_difference_power": 3.2186260413513805e-05,
+      "power_partition_error": -3.584643432780199e-18,
+      "steady_start_frame": 200,
+      "total_power": 0.020036825321596858
+    },
+    "blocks.5": {
+      "channel_dc_power": 0.014624548834700086,
+      "channels": 512,
+      "complete_cycles": 100,
+      "cycle_varying_fraction": 0.0,
+      "cycle_varying_max_abs": 0.0,
+      "cycle_varying_power": 0.0,
+      "period_frames": 4,
+      "phase_difference_fraction": 0.0005851658587458969,
+      "phase_difference_power": 8.562797334283966e-06,
+      "power_partition_error": -1.4568966692773966e-19,
+      "steady_start_frame": 200,
+      "total_power": 0.01463311163203437
+    },
+    "blocks.6": {
+      "channel_dc_power": 0.009242879707887825,
+      "channels": 512,
+      "complete_cycles": 100,
+      "cycle_varying_fraction": 0.0,
+      "cycle_varying_max_abs": 0.0,
+      "cycle_varying_power": 0.0,
+      "period_frames": 4,
+      "phase_difference_fraction": 0.00027269209654655336,
+      "phase_difference_power": 2.521147742735196e-06,
+      "power_partition_error": -3.6253010142484055e-19,
+      "steady_start_frame": 200,
+      "total_power": 0.00924540085563056
+    },
+    "blocks.7": {
+      "channel_dc_power": 0.007286968013624424,
+      "channels": 512,
+      "complete_cycles": 100,
+      "cycle_varying_fraction": 0.0,
+      "cycle_varying_max_abs": 0.0,
+      "cycle_varying_power": 0.0,
+      "period_frames": 4,
+      "phase_difference_fraction": 9.07260547394008e-05,
+      "phase_difference_power": 6.611778449457052e-07,
+      "power_partition_error": 4.206577374301669e-19,
+      "steady_start_frame": 200,
+      "total_power": 0.00728762919146937
+    },
+    "blocks.8": {
+      "channel_dc_power": 0.0063132846668102205,
+      "channels": 512,
+      "complete_cycles": 100,
+      "cycle_varying_fraction": 0.0,
+      "cycle_varying_max_abs": 0.0,
+      "cycle_varying_power": 0.0,
+      "period_frames": 4,
+      "phase_difference_fraction": 2.413519329174256e-05,
+      "phase_difference_power": 1.5237602336403614e-07,
+      "power_partition_error": 9.778465980458863e-19,
+      "steady_start_frame": 200,
+      "total_power": 0.0063134370428335855
+    },
+    "blocks.9": {
+      "channel_dc_power": 0.006035363392466919,
+      "channels": 512,
+      "complete_cycles": 100,
+      "cycle_varying_fraction": 0.0,
+      "cycle_varying_max_abs": 0.0,
+      "cycle_varying_power": 0.0,
+      "period_frames": 4,
+      "phase_difference_fraction": 2.3830667709855513e-06,
+      "phase_difference_power": 1.4382708226364595e-08,
+      "power_partition_error": 2.935630906726193e-19,
+      "steady_start_frame": 200,
+      "total_power": 0.006035377775175146
+    },
+    "encoder_latents": {
+      "channel_dc_power": 0.41911765337977025,
+      "channels": 64,
+      "complete_cycles": 100,
+      "cycle_varying_fraction": 0.0,
+      "cycle_varying_max_abs": 0.0,
+      "cycle_varying_power": 0.0,
+      "period_frames": 1,
+      "phase_difference_fraction": 0.0,
+      "phase_difference_power": 0.0,
+      "power_partition_error": 0.0,
+      "steady_start_frame": 50,
+      "total_power": 0.41911765337977025
+    },
+    "head_after_prelu": {
+      "channel_dc_power": 1.5773517284024614e-07,
+      "channels": 2048,
+      "complete_cycles": 100,
+      "cycle_varying_fraction": 0.0,
+      "cycle_varying_max_abs": 0.0,
+      "cycle_varying_power": 0.0,
+      "period_frames": 4,
+      "phase_difference_fraction": 0.0009319527792970305,
+      "phase_difference_power": 1.471388591901297e-10,
+      "power_partition_error": -4.1876018510497026e-24,
+      "steady_start_frame": 200,
+      "total_power": 1.5788231169943627e-07
+    },
+    "head_before_prelu": {
+      "channel_dc_power": 5.078790265845508e-06,
+      "channels": 2048,
+      "complete_cycles": 100,
+      "cycle_varying_fraction": 0.0,
+      "cycle_varying_max_abs": 0.0,
+      "cycle_varying_power": 0.0,
+      "period_frames": 4,
+      "phase_difference_fraction": 0.0009319527640616442,
+      "phase_difference_power": 4.737607853077811e-09,
+      "power_partition_error": 2.812414082680294e-22,
+      "steady_start_frame": 200,
+      "total_power": 5.0835278736985865e-06
+    },
+    "output_480_channels": {
+      "channel_dc_power": 2.1826547330513914e-09,
+      "channels": 480,
+      "complete_cycles": 100,
+      "cycle_varying_fraction": 0.0,
+      "cycle_varying_max_abs": 0.0,
+      "cycle_varying_power": 0.0,
+      "period_frames": 4,
+      "phase_difference_fraction": 0.011547221285042764,
+      "phase_difference_power": 2.5498028569616052e-11,
+      "power_partition_error": -2.617251156906064e-25,
+      "steady_start_frame": 200,
+      "total_power": 2.208152761621007e-09
+    },
+    "stem": {
+      "channel_dc_power": 0.10544626770971577,
+      "channels": 512,
+      "complete_cycles": 100,
+      "cycle_varying_fraction": 0.0,
+      "cycle_varying_max_abs": 0.0,
+      "cycle_varying_power": 0.0,
+      "period_frames": 4,
+      "phase_difference_fraction": 0.008426083638297041,
+      "phase_difference_power": 0.0008960492570522823,
+      "power_partition_error": 2.3635607360183997e-17,
+      "steady_start_frame": 200,
+      "total_power": 0.10634231696676807
+    },
+    "stem_norm": {
+      "channel_dc_power": 0.09968386400867063,
+      "channels": 512,
+      "complete_cycles": 100,
+      "cycle_varying_fraction": 0.0,
+      "cycle_varying_max_abs": 0.0,
+      "cycle_varying_power": 0.0,
+      "period_frames": 4,
+      "phase_difference_fraction": 0.008623767600032433,
+      "phase_difference_power": 0.0008671283904022318,
+      "power_partition_error": -1.2576745200831851e-17,
+      "steady_start_frame": 200,
+      "total_power": 0.10055099239907285
+    }
+  },
+  "projection_feasibility": {
+    "actual_fp32_phase_projection_teacher_error_rms": 4.379314626776523e-05,
+    "all_four_phase_targets_representable_in_exact_linear_algebra": true,
+    "current_weight_frobenius_norm": 17.104289706193864,
+    "feature_shape": [
+      4,
+      2048
+    ],
+    "feature_singular_values": [
+      0.035948080813318274,
+      0.0006488015055489759,
+      0.00061927233908635,
+      0.0005504013602448648
+    ],
+    "fp64_rank": 4,
+    "phase_features_nonzero": true,
+    "rank_threshold": 1.6347294519309014e-14,
+    "retained_condition_number": 65.31248541487169,
+    "same_features_fp64_projection_teacher_error_rms": 4.379314698906755e-05,
+    "same_features_fp64_vs_actual_fp32_projection_rms": 1.3944617721838052e-10,
+    "scope": "One stationary signal and frozen phase features only. Feasibility/correction norm do not establish learning ease or preservation of other audio. No readout is installed or saved.",
+    "targets": {
+      "constant_waveform_1e-5": {
+        "best_frozen_feature_error_rms": 2.642064495470084e-20,
+        "current_target_error_rms": 4.371093141541792e-05,
+        "delta_norm_over_current_weight_norm": 0.021624926271798628,
+        "error_rms_at_relative_svd_cutoff_0.0001": 2.642064495470084e-20,
+        "error_rms_at_relative_svd_cutoff_1e-06": 2.642064495470084e-20,
+        "max_abs_unrepresentable_residual": 9.486769009248164e-20,
+        "minimum_delta_weight_frobenius_norm": 0.36987900382792654,
+        "relative_target_residual": 2.6420644954700776e-15,
+        "target_rms": 1.0000000000000003e-05
+      },
+      "teacher_phase_target": {
+        "best_frozen_feature_error_rms": 2.6411732656468193e-20,
+        "current_target_error_rms": 4.379314698906755e-05,
+        "delta_norm_over_current_weight_norm": 0.021685574224320877,
+        "error_rms_at_relative_svd_cutoff_0.0001": 2.6411732656468193e-20,
+        "error_rms_at_relative_svd_cutoff_1e-06": 2.6411732656468193e-20,
+        "max_abs_unrepresentable_residual": 9.486769009248164e-20,
+        "minimum_delta_weight_frobenius_norm": 0.37091634397795453,
+        "relative_target_residual": 2.742781133567142e-15,
+        "target_rms": 9.629544382244688e-06
+      },
+      "zero_waveform": {
+        "best_frozen_feature_error_rms": 2.8928665409262404e-20,
+        "current_target_error_rms": 4.6990987337703826e-05,
+        "delta_norm_over_current_weight_norm": 0.021665263420571398,
+        "error_rms_at_relative_svd_cutoff_0.0001": 2.8928665409262404e-20,
+        "error_rms_at_relative_svd_cutoff_1e-06": 2.8928665409262404e-20,
+        "max_abs_unrepresentable_residual": 1.3552527156068805e-19,
+        "minimum_delta_weight_frobenius_norm": 0.3705689421064578,
+        "relative_target_residual": null,
+        "target_rms": 0.0
+      }
+    }
+  },
+  "quiet_config": {
+    "absolute_rms_floor": 1e-05,
+    "amplitude_db_max": 1.0,
+    "loss_rms_floor": 0.001,
+    "quiet_teacher_rms_max": 0.001,
+    "residual_relative_limit": 0.1414213562373095,
+    "window_samples": 960
+  },
+  "seconds": 0.869691789150238,
+  "source_id": "encoded_zero",
+  "stationary_input_test": {
+    "comparison_samples": 192000,
+    "comparison_start_sample": 96000,
+    "output_difference_rms_after_input_and_decoder_settle": 0.0
+  },
+  "steady_start_sample": 96000,
+  "updates": 0,
+  "waveform_components": {
+    "residual": {
+      "complete_cycles": 100,
+      "component_fraction": {
+        "additional_1920_phase_pattern": 0.013376281101326125,
+        "cycle_varying": 0.0,
+        "dc": 0.05476001263116703,
+        "shared_480_pattern": 0.9318637062675069
+      },
+      "component_power": {
+        "additional_1920_phase_pattern": 2.5653562286167554e-11,
+        "cycle_varying": 0.0,
+        "dc": 1.050209235424706e-10,
+        "shared_480_pattern": 1.787165165703824e-09
+      },
+      "defined": true,
+      "power": 1.917839651532462e-09,
+      "power_partition_error": 0.0,
+      "rms": 4.379314617074756e-05,
+      "steady_start_sample": 96000
+    },
+    "student": {
+      "complete_cycles": 100,
+      "component_fraction": {
+        "additional_1920_phase_pattern": 0.011547221285042764,
+        "cycle_varying": 0.0,
+        "dc": 0.178896195304907,
+        "shared_480_pattern": 0.8095565834100503
+      },
+      "component_power": {
+        "additional_1920_phase_pattern": 2.5498028569616052e-11,
+        "cycle_varying": 0.0,
+        "dc": 3.9503012770602146e-10,
+        "shared_480_pattern": 1.7876246053453698e-09
+      },
+      "defined": true,
+      "power": 2.208152761621007e-09,
+      "power_partition_error": 0.0,
+      "rms": 4.6990985961362924e-05,
+      "steady_start_sample": 96000
+    },
+    "teacher": {
+      "complete_cycles": 100,
+      "component_fraction": {
+        "additional_1920_phase_pattern": 0.00013071930627378265,
+        "cycle_varying": 0.0,
+        "dc": 0.9995532560769522,
+        "shared_480_pattern": 0.00031602461677410714
+      },
+      "component_power": {
+        "additional_1920_phase_pattern": 1.2121356173326155e-14,
+        "cycle_varying": 0.0,
+        "dc": 9.268669928327659e-11,
+        "shared_480_pattern": 2.930437017034674e-14
+      },
+      "defined": true,
+      "power": 9.272812500962025e-11,
+      "power_partition_error": -1.2924697071141057e-26,
+      "rms": 9.629544382244688e-06,
+      "steady_start_sample": 96000
+    }
+  },
+  "weights_saved": false
+}

@@ -1,0 +1,145 @@
+{
+  "format_version": 1,
+  "inputs_matched": true,
+  "limits": [
+    "Ten timed steps in one trial per runtime; elapsed-time variation and longer-run overhead remain unmeasured.",
+    "Identical inputs and starting state do not require bitwise-identical evolving optimizer trajectories across versions.",
+    "No perceptual quality or convergence conclusion follows from finite losses, parameter deltas or faster throughput.",
+    "CPU inference RTF is not measured by this H100 training and target-preparation benchmark."
+  ],
+  "parameter_delta": {
+    "new": {
+      "final_postclip_gradient_norm": 0.9999999564700648,
+      "relative_update_l2": 0.008608668566940677,
+      "update_norm": 1.5267015187508495,
+      "update_rms": 0.00030282846879806297
+    },
+    "old": {
+      "final_postclip_gradient_norm": 0.9999999564700648,
+      "relative_update_l2": 0.008608668566940677,
+      "update_norm": 1.5267015187508495,
+      "update_rms": 0.00030282846879806297
+    }
+  },
+  "resume": {
+    "all_recorded_losses_finite": true,
+    "new_final_step": 8503,
+    "old_final_step": 8503
+  },
+  "runtimes": {
+    "new": {
+      "autocast": false,
+      "cuda": "12.6",
+      "cudnn": 92501,
+      "cudnn_benchmark": false,
+      "cudnn_enabled": true,
+      "deterministic": true,
+      "device": "cuda",
+      "dtype": "float32",
+      "gpu": "NVIDIA H100 NVL",
+      "label": "torch214-cudnn925",
+      "packages": {
+        "numpy": "2.5.3",
+        "nvidia-cublas-cu12": "12.6.4.1",
+        "nvidia-cuda-cupti-cu12": "12.6.80",
+        "nvidia-cuda-nvrtc-cu12": "12.6.85",
+        "nvidia-cuda-runtime-cu12": "12.6.77",
+        "nvidia-cudnn-cu12": "9.25.1.1",
+        "nvidia-cufft-cu12": "11.3.0.4",
+        "nvidia-cufile-cu12": "1.11.1.6",
+        "nvidia-curand-cu12": "10.3.7.77",
+        "nvidia-cusolver-cu12": "11.7.1.2",
+        "nvidia-cusparse-cu12": "12.5.4.2",
+        "nvidia-cusparselt-cu12": "0.7.1",
+        "nvidia-nccl-cu12": "2.29.3",
+        "nvidia-nvjitlink-cu12": "12.9.86",
+        "nvidia-nvshmem-cu12": "3.4.5",
+        "nvidia-nvtx-cu12": "12.6.77",
+        "onnx": "1.22.0",
+        "onnxruntime": "1.29.0",
+        "pydantic": "2.13.5",
+        "soundfile": "0.14.0",
+        "tensorboard": "2.21.0",
+        "torch": "2.14.0+cu126",
+        "triton": "3.8.0"
+      },
+      "script_sha256": "480f26c10094f943579e959d7cb0313f62c38f7f725c6139a447e4313abf355f",
+      "tf32": false,
+      "torch": "2.14.0+cu126",
+      "torch_num_threads": 1
+    },
+    "old": {
+      "autocast": false,
+      "cuda": "12.8",
+      "cudnn": 92501,
+      "cudnn_benchmark": false,
+      "cudnn_enabled": true,
+      "deterministic": true,
+      "device": "cuda",
+      "dtype": "float32",
+      "gpu": "NVIDIA H100 NVL",
+      "label": "torch211-cudnn925",
+      "packages": {
+        "numpy": "2.5.3",
+        "nvidia-cublas-cu12": "12.8.4.1",
+        "nvidia-cuda-cupti-cu12": "12.8.90",
+        "nvidia-cuda-nvrtc-cu12": "12.8.93",
+        "nvidia-cuda-runtime-cu12": "12.8.90",
+        "nvidia-cudnn-cu12": "9.19.0.56",
+        "nvidia-cufft-cu12": "11.3.3.83",
+        "nvidia-cufile-cu12": "1.13.1.3",
+        "nvidia-curand-cu12": "10.3.9.90",
+        "nvidia-cusolver-cu12": "11.7.3.90",
+        "nvidia-cusparse-cu12": "12.5.8.93",
+        "nvidia-cusparselt-cu12": "0.7.1",
+        "nvidia-nccl-cu12": "2.28.9",
+        "nvidia-nvjitlink-cu12": "12.8.93",
+        "nvidia-nvshmem-cu12": "3.4.5",
+        "nvidia-nvtx-cu12": "12.8.90",
+        "onnx": "1.22.0",
+        "onnxruntime": "1.29.0",
+        "pydantic": "2.13.5",
+        "soundfile": "0.14.0",
+        "tensorboard": "2.21.0",
+        "torch": "2.11.0+cu128",
+        "triton": "3.6.0"
+      },
+      "script_sha256": "480f26c10094f943579e959d7cb0313f62c38f7f725c6139a447e4313abf355f",
+      "tf32": false,
+      "torch": "2.11.0+cu128",
+      "torch_num_threads": 1
+    }
+  },
+  "timings": {
+    "teacher_decode": {
+      "new_cv": 0.03770215138896729,
+      "new_mean_seconds": 0.12409620881080627,
+      "new_median_seconds": 0.12216765061020851,
+      "old_cv": 0.03651433521678923,
+      "old_mean_seconds": 0.12323855385184287,
+      "old_median_seconds": 0.12248621135950089,
+      "speed_ratio_old_over_new": 0.9930887900026748,
+      "wall_time_reduction_percent": -0.6959307231034773
+    },
+    "teacher_encode": {
+      "new_cv": 0.03704346939734177,
+      "new_mean_seconds": 0.08437157273292542,
+      "new_median_seconds": 0.08314481377601624,
+      "old_cv": 0.03974403521186704,
+      "old_mean_seconds": 0.08417871817946435,
+      "old_median_seconds": 0.08220045641064644,
+      "speed_ratio_old_over_new": 0.9977142235564158,
+      "wall_time_reduction_percent": -0.2291013187560198
+    },
+    "training_step": {
+      "new_cv": 0.02910765939133253,
+      "new_mean_seconds": 0.32333521619439126,
+      "new_median_seconds": 0.32168813794851303,
+      "old_cv": 0.02669922560948986,
+      "old_mean_seconds": 0.33075982630252837,
+      "old_median_seconds": 0.3275933973491192,
+      "speed_ratio_old_over_new": 1.0229625779570926,
+      "wall_time_reduction_percent": 2.244713389511277
+    }
+  }
+}

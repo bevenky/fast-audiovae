@@ -1,0 +1,944 @@
+{
+  "canonical_contract_sha256": "bf372497cabec8f24b3e65887210a1808fa99d728cef212f6e5c80ed76068430",
+  "canonical_target_cache_sha256": "6be63e6fc49d7a23c59b75cca1d1d294cf7aa83d2dbbb9c06e1622e92c574a19",
+  "checkpoints": {
+    "corrected-screen/targeted_complex": {
+      "checkpoint_path": "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-screen/targeted_complex/final.pt",
+      "checkpoint_sha256": "0627f3a69d2e455863bea60947d7832a07f7f825e3fa23e8dcda140a8687c73a",
+      "data_plan_sha256": "90632c05076e51cb2bca78ae7cd25ef0a72440d34f51dcabf18a5dddbd918d5a",
+      "discriminator_only_updates": 64,
+      "experiment_identity_sha256": "5ff6044b99e43013b906710b4d754525d7fd227475bfcd943be29682bfb774c9",
+      "fusion_variant": "complex",
+      "generator_updates": 400,
+      "heldout_training_source_overlap": 0,
+      "historical_after_report_sha256": "bae7bff8af9df3e0ed3898ebe965c522e5574ee79ff82f7e15acf331c2ef3945",
+      "historical_panel_crop_count": 285,
+      "loss_config": {
+        "fft_sizes": [
+          1024,
+          2048,
+          4096
+        ],
+        "log_epsilon": 1e-05,
+        "mel_bands": [
+          64,
+          128,
+          128
+        ],
+        "mel_linear_weight": 1.0,
+        "mel_log_weight": 1.0,
+        "sample_rate": 48000,
+        "waveform_rms_floor": 0.001
+      },
+      "migration": {
+        "architecture": {
+          "causal_output_filter": false,
+          "terminal_tanh": false,
+          "zero_startup_padding": false
+        },
+        "balancer_preserved": true,
+        "calibration_preserved": true,
+        "crop_rng_preserved": true,
+        "discriminator_config": {
+          "amplitude_preprocessing": "none",
+          "bands": [
+            [
+              0.0,
+              0.1
+            ],
+            [
+              0.1,
+              0.25
+            ],
+            [
+              0.25,
+              0.5
+            ],
+            [
+              0.5,
+              0.75
+            ],
+            [
+              0.75,
+              1.0
+            ]
+          ],
+          "feature_reduction": "equal_band_layer_mean",
+          "fft_sizes": [
+            512,
+            1024,
+            2048
+          ],
+          "format_version": 1,
+          "log_epsilon": 1e-05,
+          "mpd_channels": [
+            16,
+            64,
+            256,
+            512,
+            512
+          ],
+          "mrd_channels": 32,
+          "periods": [
+            2,
+            3,
+            5,
+            7,
+            11
+          ],
+          "representation": "complex_real_imaginary",
+          "stft_padding": "valid_no_center"
+        },
+        "discriminator_migration": {
+          "fresh_spectral_optimizer_state": "empty",
+          "fresh_spectral_parameter_count": 234,
+          "preserved_period_optimizer_state_sha256": "7ca29b0dc09112e10b7cc99eddcc00159b24f07b566ab9909f58bf0a4cd0f345",
+          "preserved_period_parameter_count": 90
+        },
+        "discriminator_state_policy": "trained_periods_preserved_fresh_spectral_heads",
+        "discriminator_updates_preserved": true,
+        "format_version": 1,
+        "new_student_optimizer_groups": [],
+        "original_student_optimizers_preserved": true,
+        "original_student_state_preserved": true,
+        "original_student_state_sha256": "fb2d11fbde283abd861c14746b166b051b226c3847a4e8299e0023e27cdca61c",
+        "parent_engine_state_sha256": "85a6c898a878d90a0fb4a3b4f9275bc65265166404813e0766c0f1dad62da52c",
+        "parent_step": 8090,
+        "production_export_qualified": false,
+        "reconstruction_config": {
+          "fft_sizes": [
+            1024,
+            2048,
+            4096
+          ],
+          "format_version": 2,
+          "log_epsilon": 1e-05,
+          "mel_bands": [
+            64,
+            128,
+            128
+          ],
+          "mel_linear_weight": 1.0,
+          "mel_log_weight": 1.0,
+          "sample_rate": 48000
+        },
+        "required_context_latent_frames": 29,
+        "training_step_preserved": true,
+        "variant": "complex"
+      },
+      "model_config": {
+        "adapter_mode": "raw_repeat_phase_bias",
+        "batch_norm_eps": 1e-05,
+        "batch_norm_momentum": 0.1,
+        "dilations": [
+          1,
+          2,
+          4,
+          1,
+          2,
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        "expansion_channels": 2048,
+        "head_channels": 2048,
+        "hidden_channels": 512,
+        "layer_norm_eps": 1e-06,
+        "layer_scale_init": 1e-06,
+        "normalization_mode": "masked_batch_norm",
+        "prelu_init": 0.25
+      },
+      "parameter_state_sha256": "1e92f56b0854569bab987a29bfd46458f1a3529f2c4afab084a7fdea5c9fbaa3",
+      "parent_sha256": "e763256fdadbb8048e3c916f40de2dc2f05d3fe83e45418e317b1f3f7bbd4e82",
+      "step": 8490,
+      "training_target_identity_sha256": null
+    },
+    "corrected-screen/targeted_magnitude": {
+      "checkpoint_path": "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-screen/targeted_magnitude/final.pt",
+      "checkpoint_sha256": "52a38b56f6835d593c34d5969329345b52c1fb6ec51b4fd4fb82654222e97775",
+      "data_plan_sha256": "90632c05076e51cb2bca78ae7cd25ef0a72440d34f51dcabf18a5dddbd918d5a",
+      "discriminator_only_updates": 64,
+      "experiment_identity_sha256": "5ff6044b99e43013b906710b4d754525d7fd227475bfcd943be29682bfb774c9",
+      "fusion_variant": "fresh_magnitude",
+      "generator_updates": 400,
+      "heldout_training_source_overlap": 0,
+      "historical_after_report_sha256": "1a04fce5c696ceb5c630bdd170edf0e1b4a4cee06c8d9c8416ebc6edc0d8a668",
+      "historical_panel_crop_count": 285,
+      "loss_config": {
+        "fft_sizes": [
+          1024,
+          2048,
+          4096
+        ],
+        "log_epsilon": 1e-05,
+        "mel_bands": [
+          64,
+          128,
+          128
+        ],
+        "mel_linear_weight": 1.0,
+        "mel_log_weight": 1.0,
+        "sample_rate": 48000,
+        "waveform_rms_floor": 0.001
+      },
+      "migration": {
+        "architecture": {
+          "causal_output_filter": false,
+          "terminal_tanh": false,
+          "zero_startup_padding": false
+        },
+        "balancer_preserved": true,
+        "calibration_preserved": true,
+        "crop_rng_preserved": true,
+        "discriminator_config": {
+          "fft_sizes": [
+            512,
+            1024,
+            2048
+          ],
+          "log_epsilon": 1e-05,
+          "mpd_channels": [
+            16,
+            64,
+            256,
+            512,
+            512
+          ],
+          "mrd_channels": 16,
+          "periods": [
+            2,
+            3,
+            5,
+            7,
+            11
+          ]
+        },
+        "discriminator_migration": {
+          "fresh_spectral_optimizer_state": "empty",
+          "fresh_spectral_parameter_count": 54,
+          "preserved_period_optimizer_state_sha256": "7ca29b0dc09112e10b7cc99eddcc00159b24f07b566ab9909f58bf0a4cd0f345",
+          "preserved_period_parameter_count": 90
+        },
+        "discriminator_state_policy": "trained_periods_preserved_fresh_spectral_heads",
+        "discriminator_updates_preserved": true,
+        "format_version": 1,
+        "new_student_optimizer_groups": [],
+        "original_student_optimizers_preserved": true,
+        "original_student_state_preserved": true,
+        "original_student_state_sha256": "fb2d11fbde283abd861c14746b166b051b226c3847a4e8299e0023e27cdca61c",
+        "parent_engine_state_sha256": "85a6c898a878d90a0fb4a3b4f9275bc65265166404813e0766c0f1dad62da52c",
+        "parent_step": 8090,
+        "production_export_qualified": false,
+        "reconstruction_config": {
+          "fft_sizes": [
+            1024,
+            2048,
+            4096
+          ],
+          "format_version": 2,
+          "log_epsilon": 1e-05,
+          "mel_bands": [
+            64,
+            128,
+            128
+          ],
+          "mel_linear_weight": 1.0,
+          "mel_log_weight": 1.0,
+          "sample_rate": 48000
+        },
+        "required_context_latent_frames": 29,
+        "training_step_preserved": true,
+        "variant": "fresh_magnitude"
+      },
+      "model_config": {
+        "adapter_mode": "raw_repeat_phase_bias",
+        "batch_norm_eps": 1e-05,
+        "batch_norm_momentum": 0.1,
+        "dilations": [
+          1,
+          2,
+          4,
+          1,
+          2,
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        "expansion_channels": 2048,
+        "head_channels": 2048,
+        "hidden_channels": 512,
+        "layer_norm_eps": 1e-06,
+        "layer_scale_init": 1e-06,
+        "normalization_mode": "masked_batch_norm",
+        "prelu_init": 0.25
+      },
+      "parameter_state_sha256": "339f02cb90fa5a7939645542f7fcf49dcc0fbed4e662a4a6be3a80c9455eb80a",
+      "parent_sha256": "e763256fdadbb8048e3c916f40de2dc2f05d3fe83e45418e317b1f3f7bbd4e82",
+      "step": 8490,
+      "training_target_identity_sha256": null
+    },
+    "fusion-screen/complex": {
+      "checkpoint_path": "/workspace/fast-audiovae-convnext-20260909-r9/remediation/fusion-screen/complex/final.pt",
+      "checkpoint_sha256": "0c631a23a5a884cd8942b5e16a5d1c69cb61059ab4a68b6f1534abab48c5a9e0",
+      "data_plan_sha256": null,
+      "discriminator_only_updates": 20,
+      "experiment_identity_sha256": "16665722ecbf4cc8785dbb671903e84ed24f66841443774b6c37a43a3c7f0b2d",
+      "fusion_variant": "complex",
+      "generator_updates": 200,
+      "heldout_training_source_overlap": 0,
+      "historical_after_report_sha256": "dcb35fc271b9551361ab5a10679267b13b8ea4825548cb18c0d310cf4e5ae5bb",
+      "historical_panel_crop_count": 284,
+      "loss_config": {
+        "fft_sizes": [
+          1024,
+          2048,
+          4096
+        ],
+        "log_epsilon": 1e-05,
+        "mel_bands": [
+          64,
+          128,
+          128
+        ],
+        "mel_linear_weight": 1.0,
+        "mel_log_weight": 1.0,
+        "sample_rate": 48000,
+        "waveform_rms_floor": 0.001
+      },
+      "migration": {
+        "architecture": {
+          "causal_output_filter": false,
+          "terminal_tanh": false,
+          "zero_startup_padding": false
+        },
+        "balancer_preserved": true,
+        "calibration_preserved": true,
+        "crop_rng_preserved": true,
+        "discriminator_config": {
+          "amplitude_preprocessing": "none",
+          "bands": [
+            [
+              0.0,
+              0.1
+            ],
+            [
+              0.1,
+              0.25
+            ],
+            [
+              0.25,
+              0.5
+            ],
+            [
+              0.5,
+              0.75
+            ],
+            [
+              0.75,
+              1.0
+            ]
+          ],
+          "feature_reduction": "equal_band_layer_mean",
+          "fft_sizes": [
+            512,
+            1024,
+            2048
+          ],
+          "format_version": 1,
+          "log_epsilon": 1e-05,
+          "mpd_channels": [
+            16,
+            64,
+            256,
+            512,
+            512
+          ],
+          "mrd_channels": 32,
+          "periods": [
+            2,
+            3,
+            5,
+            7,
+            11
+          ],
+          "representation": "complex_real_imaginary",
+          "stft_padding": "valid_no_center"
+        },
+        "discriminator_migration": {
+          "fresh_spectral_optimizer_state": "empty",
+          "fresh_spectral_parameter_count": 234,
+          "preserved_period_optimizer_state_sha256": "7ca29b0dc09112e10b7cc99eddcc00159b24f07b566ab9909f58bf0a4cd0f345",
+          "preserved_period_parameter_count": 90
+        },
+        "discriminator_state_policy": "trained_periods_preserved_fresh_spectral_heads",
+        "discriminator_updates_preserved": true,
+        "format_version": 1,
+        "new_student_optimizer_groups": [],
+        "original_student_optimizers_preserved": true,
+        "original_student_state_preserved": true,
+        "original_student_state_sha256": "fb2d11fbde283abd861c14746b166b051b226c3847a4e8299e0023e27cdca61c",
+        "parent_engine_state_sha256": "85a6c898a878d90a0fb4a3b4f9275bc65265166404813e0766c0f1dad62da52c",
+        "parent_step": 8090,
+        "production_export_qualified": false,
+        "reconstruction_config": {
+          "fft_sizes": [
+            1024,
+            2048,
+            4096
+          ],
+          "format_version": 2,
+          "log_epsilon": 1e-05,
+          "mel_bands": [
+            64,
+            128,
+            128
+          ],
+          "mel_linear_weight": 1.0,
+          "mel_log_weight": 1.0,
+          "sample_rate": 48000
+        },
+        "required_context_latent_frames": 29,
+        "training_step_preserved": true,
+        "variant": "complex"
+      },
+      "model_config": {
+        "adapter_mode": "raw_repeat_phase_bias",
+        "batch_norm_eps": 1e-05,
+        "batch_norm_momentum": 0.1,
+        "dilations": [
+          1,
+          2,
+          4,
+          1,
+          2,
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        "expansion_channels": 2048,
+        "head_channels": 2048,
+        "hidden_channels": 512,
+        "layer_norm_eps": 1e-06,
+        "layer_scale_init": 1e-06,
+        "normalization_mode": "masked_batch_norm",
+        "prelu_init": 0.25
+      },
+      "parameter_state_sha256": "7a768867259ce342705f610acf6e0aad6b2fd02e736f047939867429cd21935a",
+      "parent_sha256": "e763256fdadbb8048e3c916f40de2dc2f05d3fe83e45418e317b1f3f7bbd4e82",
+      "step": 8290,
+      "training_target_identity_sha256": "8fa1ac81c07fbd6d0e08492dcbe0139d9f8168aa99c07631b0d425442d781187"
+    },
+    "fusion-screen/control": {
+      "checkpoint_path": "/workspace/fast-audiovae-convnext-20260909-r9/remediation/fusion-screen/control/final.pt",
+      "checkpoint_sha256": "3c073255c20beaa9cbc5e2227c2358ab4f1c767926632acb26177d04fbf4fa05",
+      "data_plan_sha256": null,
+      "discriminator_only_updates": 0,
+      "experiment_identity_sha256": "16665722ecbf4cc8785dbb671903e84ed24f66841443774b6c37a43a3c7f0b2d",
+      "fusion_variant": "control",
+      "generator_updates": 200,
+      "heldout_training_source_overlap": 0,
+      "historical_after_report_sha256": "8cfb77305891b8c9dc0b2a67bd808a945237b10a072f5096fdbfc1123abf8894",
+      "historical_panel_crop_count": 284,
+      "loss_config": {
+        "fft_sizes": [
+          1024,
+          2048,
+          4096
+        ],
+        "log_epsilon": 1e-05,
+        "mel_bands": [
+          64,
+          128,
+          128
+        ],
+        "mel_linear_weight": 1.0,
+        "mel_log_weight": 1.0,
+        "sample_rate": 48000,
+        "waveform_rms_floor": 0.001
+      },
+      "migration": {
+        "architecture": {
+          "causal_output_filter": false,
+          "terminal_tanh": false,
+          "zero_startup_padding": false
+        },
+        "balancer_preserved": true,
+        "calibration_preserved": true,
+        "crop_rng_preserved": true,
+        "discriminator_config": {
+          "fft_sizes": [
+            512,
+            1024,
+            2048
+          ],
+          "log_epsilon": 1e-05,
+          "mpd_channels": [
+            16,
+            64,
+            256,
+            512,
+            512
+          ],
+          "mrd_channels": 16,
+          "periods": [
+            2,
+            3,
+            5,
+            7,
+            11
+          ]
+        },
+        "discriminator_migration": null,
+        "discriminator_state_policy": "all_discriminators_and_moments_preserved",
+        "discriminator_updates_preserved": true,
+        "format_version": 1,
+        "new_student_optimizer_groups": [],
+        "original_student_optimizers_preserved": true,
+        "original_student_state_preserved": true,
+        "original_student_state_sha256": "fb2d11fbde283abd861c14746b166b051b226c3847a4e8299e0023e27cdca61c",
+        "parent_engine_state_sha256": "85a6c898a878d90a0fb4a3b4f9275bc65265166404813e0766c0f1dad62da52c",
+        "parent_step": 8090,
+        "production_export_qualified": false,
+        "reconstruction_config": {
+          "fft_sizes": [
+            1024,
+            2048,
+            4096
+          ],
+          "format_version": 2,
+          "log_epsilon": 1e-05,
+          "mel_bands": [
+            64,
+            128,
+            128
+          ],
+          "mel_linear_weight": 1.0,
+          "mel_log_weight": 1.0,
+          "sample_rate": 48000
+        },
+        "required_context_latent_frames": 29,
+        "training_step_preserved": true,
+        "variant": "control"
+      },
+      "model_config": {
+        "adapter_mode": "raw_repeat_phase_bias",
+        "batch_norm_eps": 1e-05,
+        "batch_norm_momentum": 0.1,
+        "dilations": [
+          1,
+          2,
+          4,
+          1,
+          2,
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        "expansion_channels": 2048,
+        "head_channels": 2048,
+        "hidden_channels": 512,
+        "layer_norm_eps": 1e-06,
+        "layer_scale_init": 1e-06,
+        "normalization_mode": "masked_batch_norm",
+        "prelu_init": 0.25
+      },
+      "parameter_state_sha256": "e665338d47cf3a10a2b1d8fd8e2151e546175917b774121290c5a7b8b6a77f5c",
+      "parent_sha256": "e763256fdadbb8048e3c916f40de2dc2f05d3fe83e45418e317b1f3f7bbd4e82",
+      "step": 8290,
+      "training_target_identity_sha256": "8fa1ac81c07fbd6d0e08492dcbe0139d9f8168aa99c07631b0d425442d781187"
+    },
+    "fusion-screen/fresh_magnitude": {
+      "checkpoint_path": "/workspace/fast-audiovae-convnext-20260909-r9/remediation/fusion-screen/fresh_magnitude/final.pt",
+      "checkpoint_sha256": "48b639dc945f47cbc6aa90b97873503bf173dae88c28992493be0023df7b6e0d",
+      "data_plan_sha256": null,
+      "discriminator_only_updates": 20,
+      "experiment_identity_sha256": "16665722ecbf4cc8785dbb671903e84ed24f66841443774b6c37a43a3c7f0b2d",
+      "fusion_variant": "fresh_magnitude",
+      "generator_updates": 200,
+      "heldout_training_source_overlap": 0,
+      "historical_after_report_sha256": "b8466bc547a8e1a2f23b78e70f1dc460761651654f6a90312f25719c2490deb7",
+      "historical_panel_crop_count": 284,
+      "loss_config": {
+        "fft_sizes": [
+          1024,
+          2048,
+          4096
+        ],
+        "log_epsilon": 1e-05,
+        "mel_bands": [
+          64,
+          128,
+          128
+        ],
+        "mel_linear_weight": 1.0,
+        "mel_log_weight": 1.0,
+        "sample_rate": 48000,
+        "waveform_rms_floor": 0.001
+      },
+      "migration": {
+        "architecture": {
+          "causal_output_filter": false,
+          "terminal_tanh": false,
+          "zero_startup_padding": false
+        },
+        "balancer_preserved": true,
+        "calibration_preserved": true,
+        "crop_rng_preserved": true,
+        "discriminator_config": {
+          "fft_sizes": [
+            512,
+            1024,
+            2048
+          ],
+          "log_epsilon": 1e-05,
+          "mpd_channels": [
+            16,
+            64,
+            256,
+            512,
+            512
+          ],
+          "mrd_channels": 16,
+          "periods": [
+            2,
+            3,
+            5,
+            7,
+            11
+          ]
+        },
+        "discriminator_migration": {
+          "fresh_spectral_optimizer_state": "empty",
+          "fresh_spectral_parameter_count": 54,
+          "preserved_period_optimizer_state_sha256": "7ca29b0dc09112e10b7cc99eddcc00159b24f07b566ab9909f58bf0a4cd0f345",
+          "preserved_period_parameter_count": 90
+        },
+        "discriminator_state_policy": "trained_periods_preserved_fresh_spectral_heads",
+        "discriminator_updates_preserved": true,
+        "format_version": 1,
+        "new_student_optimizer_groups": [],
+        "original_student_optimizers_preserved": true,
+        "original_student_state_preserved": true,
+        "original_student_state_sha256": "fb2d11fbde283abd861c14746b166b051b226c3847a4e8299e0023e27cdca61c",
+        "parent_engine_state_sha256": "85a6c898a878d90a0fb4a3b4f9275bc65265166404813e0766c0f1dad62da52c",
+        "parent_step": 8090,
+        "production_export_qualified": false,
+        "reconstruction_config": {
+          "fft_sizes": [
+            1024,
+            2048,
+            4096
+          ],
+          "format_version": 2,
+          "log_epsilon": 1e-05,
+          "mel_bands": [
+            64,
+            128,
+            128
+          ],
+          "mel_linear_weight": 1.0,
+          "mel_log_weight": 1.0,
+          "sample_rate": 48000
+        },
+        "required_context_latent_frames": 29,
+        "training_step_preserved": true,
+        "variant": "fresh_magnitude"
+      },
+      "model_config": {
+        "adapter_mode": "raw_repeat_phase_bias",
+        "batch_norm_eps": 1e-05,
+        "batch_norm_momentum": 0.1,
+        "dilations": [
+          1,
+          2,
+          4,
+          1,
+          2,
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        "expansion_channels": 2048,
+        "head_channels": 2048,
+        "hidden_channels": 512,
+        "layer_norm_eps": 1e-06,
+        "layer_scale_init": 1e-06,
+        "normalization_mode": "masked_batch_norm",
+        "prelu_init": 0.25
+      },
+      "parameter_state_sha256": "e9467cd51b6ca84ae7ffc3748d879057d025f0ef2203f3f642e19400e7450660",
+      "parent_sha256": "e763256fdadbb8048e3c916f40de2dc2f05d3fe83e45418e317b1f3f7bbd4e82",
+      "step": 8290,
+      "training_target_identity_sha256": "8fa1ac81c07fbd6d0e08492dcbe0139d9f8168aa99c07631b0d425442d781187"
+    },
+    "fusion-screen/short_mel": {
+      "checkpoint_path": "/workspace/fast-audiovae-convnext-20260909-r9/remediation/fusion-screen/short_mel/final.pt",
+      "checkpoint_sha256": "53c7a9ab2c494e68d6a90841356d46d7cc90421ef5bfc4776f15cf2c1306c348",
+      "data_plan_sha256": null,
+      "discriminator_only_updates": 0,
+      "experiment_identity_sha256": "16665722ecbf4cc8785dbb671903e84ed24f66841443774b6c37a43a3c7f0b2d",
+      "fusion_variant": "short_mel",
+      "generator_updates": 200,
+      "heldout_training_source_overlap": 0,
+      "historical_after_report_sha256": "88139afe5a8730fe3154750f086271a5ea4bced59aa49269585db6c5bf29f526",
+      "historical_panel_crop_count": 284,
+      "loss_config": {
+        "fft_sizes": [
+          1024,
+          2048,
+          4096
+        ],
+        "log_epsilon": 1e-05,
+        "mel_bands": [
+          64,
+          128,
+          128
+        ],
+        "mel_linear_weight": 1.0,
+        "mel_log_weight": 1.0,
+        "sample_rate": 48000,
+        "waveform_rms_floor": 0.001
+      },
+      "migration": {
+        "architecture": {
+          "causal_output_filter": false,
+          "terminal_tanh": false,
+          "zero_startup_padding": false
+        },
+        "balancer_preserved": true,
+        "calibration_preserved": true,
+        "crop_rng_preserved": true,
+        "discriminator_config": {
+          "fft_sizes": [
+            512,
+            1024,
+            2048
+          ],
+          "log_epsilon": 1e-05,
+          "mpd_channels": [
+            16,
+            64,
+            256,
+            512,
+            512
+          ],
+          "mrd_channels": 16,
+          "periods": [
+            2,
+            3,
+            5,
+            7,
+            11
+          ]
+        },
+        "discriminator_migration": null,
+        "discriminator_state_policy": "all_discriminators_and_moments_preserved",
+        "discriminator_updates_preserved": true,
+        "format_version": 1,
+        "new_student_optimizer_groups": [],
+        "original_student_optimizers_preserved": true,
+        "original_student_state_preserved": true,
+        "original_student_state_sha256": "fb2d11fbde283abd861c14746b166b051b226c3847a4e8299e0023e27cdca61c",
+        "parent_engine_state_sha256": "85a6c898a878d90a0fb4a3b4f9275bc65265166404813e0766c0f1dad62da52c",
+        "parent_step": 8090,
+        "production_export_qualified": false,
+        "reconstruction_config": {
+          "fft_sizes": [
+            256,
+            512,
+            1024,
+            2048,
+            4096
+          ],
+          "format_version": 2,
+          "log_epsilon": 1e-05,
+          "mel_bands": [
+            16,
+            32,
+            64,
+            128,
+            128
+          ],
+          "mel_linear_weight": 1.0,
+          "mel_log_weight": 1.0,
+          "sample_rate": 48000
+        },
+        "required_context_latent_frames": 29,
+        "training_step_preserved": true,
+        "variant": "short_mel"
+      },
+      "model_config": {
+        "adapter_mode": "raw_repeat_phase_bias",
+        "batch_norm_eps": 1e-05,
+        "batch_norm_momentum": 0.1,
+        "dilations": [
+          1,
+          2,
+          4,
+          1,
+          2,
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        "expansion_channels": 2048,
+        "head_channels": 2048,
+        "hidden_channels": 512,
+        "layer_norm_eps": 1e-06,
+        "layer_scale_init": 1e-06,
+        "normalization_mode": "masked_batch_norm",
+        "prelu_init": 0.25
+      },
+      "parameter_state_sha256": "1d122012f9c6d595f0dfc7082084da6f2c082f7435c0fe7221e5bd244110d954",
+      "parent_sha256": "e763256fdadbb8048e3c916f40de2dc2f05d3fe83e45418e317b1f3f7bbd4e82",
+      "step": 8290,
+      "training_target_identity_sha256": "8fa1ac81c07fbd6d0e08492dcbe0139d9f8168aa99c07631b0d425442d781187"
+    },
+    "fusion-screen/tanh": {
+      "checkpoint_path": "/workspace/fast-audiovae-convnext-20260909-r9/remediation/fusion-screen/tanh/final.pt",
+      "checkpoint_sha256": "7e9ddb14ed9a3daf83801ac835b714df497185297ae51e28bf548410ffa890f4",
+      "data_plan_sha256": null,
+      "discriminator_only_updates": 0,
+      "experiment_identity_sha256": "16665722ecbf4cc8785dbb671903e84ed24f66841443774b6c37a43a3c7f0b2d",
+      "fusion_variant": "tanh",
+      "generator_updates": 200,
+      "heldout_training_source_overlap": 0,
+      "historical_after_report_sha256": "fe447bef1cf72dc7cef7474f27f1507326219452f1be19a99b8a9c966cdb52fb",
+      "historical_panel_crop_count": 284,
+      "loss_config": {
+        "fft_sizes": [
+          1024,
+          2048,
+          4096
+        ],
+        "log_epsilon": 1e-05,
+        "mel_bands": [
+          64,
+          128,
+          128
+        ],
+        "mel_linear_weight": 1.0,
+        "mel_log_weight": 1.0,
+        "sample_rate": 48000,
+        "waveform_rms_floor": 0.001
+      },
+      "migration": {
+        "architecture": {
+          "causal_output_filter": false,
+          "terminal_tanh": true,
+          "zero_startup_padding": false
+        },
+        "balancer_preserved": true,
+        "calibration_preserved": true,
+        "crop_rng_preserved": true,
+        "discriminator_config": {
+          "fft_sizes": [
+            512,
+            1024,
+            2048
+          ],
+          "log_epsilon": 1e-05,
+          "mpd_channels": [
+            16,
+            64,
+            256,
+            512,
+            512
+          ],
+          "mrd_channels": 16,
+          "periods": [
+            2,
+            3,
+            5,
+            7,
+            11
+          ]
+        },
+        "discriminator_migration": null,
+        "discriminator_state_policy": "all_discriminators_and_moments_preserved",
+        "discriminator_updates_preserved": true,
+        "format_version": 1,
+        "new_student_optimizer_groups": [],
+        "original_student_optimizers_preserved": true,
+        "original_student_state_preserved": true,
+        "original_student_state_sha256": "fb2d11fbde283abd861c14746b166b051b226c3847a4e8299e0023e27cdca61c",
+        "parent_engine_state_sha256": "85a6c898a878d90a0fb4a3b4f9275bc65265166404813e0766c0f1dad62da52c",
+        "parent_step": 8090,
+        "production_export_qualified": false,
+        "reconstruction_config": {
+          "fft_sizes": [
+            1024,
+            2048,
+            4096
+          ],
+          "format_version": 2,
+          "log_epsilon": 1e-05,
+          "mel_bands": [
+            64,
+            128,
+            128
+          ],
+          "mel_linear_weight": 1.0,
+          "mel_log_weight": 1.0,
+          "sample_rate": 48000
+        },
+        "required_context_latent_frames": 29,
+        "training_step_preserved": true,
+        "variant": "tanh"
+      },
+      "model_config": {
+        "adapter_mode": "raw_repeat_phase_bias",
+        "batch_norm_eps": 1e-05,
+        "batch_norm_momentum": 0.1,
+        "dilations": [
+          1,
+          2,
+          4,
+          1,
+          2,
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        "expansion_channels": 2048,
+        "head_channels": 2048,
+        "hidden_channels": 512,
+        "layer_norm_eps": 1e-06,
+        "layer_scale_init": 1e-06,
+        "normalization_mode": "masked_batch_norm",
+        "prelu_init": 0.25
+      },
+      "parameter_state_sha256": "4feb3f4546c4525b2a30a6a348812b725dc5bc8b7baa863d30f8ef9f85ba7b44",
+      "parent_sha256": "e763256fdadbb8048e3c916f40de2dc2f05d3fe83e45418e317b1f3f7bbd4e82",
+      "step": 8290,
+      "training_target_identity_sha256": "8fa1ac81c07fbd6d0e08492dcbe0139d9f8168aa99c07631b0d425442d781187"
+    }
+  },
+  "crops": 285,
+  "parameter_updates": 0,
+  "plan_sha256": "85cab38ad7266526315082bde37135b24aa1c0fd70ea3457bd25c4b10dda17ef",
+  "runtime": {
+    "cuda": "12.6",
+    "cudnn": 92501,
+    "cudnn_benchmark": false,
+    "deterministic": true,
+    "dtype": "float32",
+    "tf32": false,
+    "torch": "2.14.0+cu126"
+  },
+  "sources": 147
+}

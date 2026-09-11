@@ -1,0 +1,201 @@
+{
+  "D_views": {
+    "directory": "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-update-400-reference-v1",
+    "files": [
+      "current_rate/views.jsonl",
+      "quarter_rate/views.jsonl"
+    ],
+    "independently_verified_remote_sha256_equal": true,
+    "sha256": "8edae814aa7c7a458e0de5e8bda34ebb121f6f0f30d73dc08d79afb9014c7007"
+  },
+  "canonical_natural_metrics": {
+    "baseline": {
+      "encoded_zero_steady_failed_windows": 200,
+      "encoded_zero_steady_residual_rms": 0.00013747907512532868,
+      "maximum_peak": 1.2655067443847656,
+      "mel": 1.1354561928950302,
+      "nonquiet_cosine_mean": 0.9201113926039801,
+      "overshoot_sources": 5,
+      "peak_excess_energy": 1.6707978962430673e-07,
+      "quiet_failed_windows": 3434,
+      "quiet_residual_rms": 0.0003067153844292107,
+      "quiet_windows": 3434,
+      "raw_mae": 0.01254451694948789,
+      "scored_overshoot_samples": 457
+    },
+    "current": {
+      "encoded_zero_steady_failed_windows": 200,
+      "encoded_zero_steady_residual_rms": 0.0001500401697266364,
+      "maximum_peak": 1.2560532093048096,
+      "mel": 1.1274163527480254,
+      "nonquiet_cosine_mean": 0.9247173450611256,
+      "overshoot_sources": 5,
+      "peak_excess_energy": 2.1682687595702858e-07,
+      "quiet_failed_windows": 3434,
+      "quiet_residual_rms": 0.0003156968180526785,
+      "quiet_windows": 3434,
+      "raw_mae": 0.012228523821900442,
+      "scored_overshoot_samples": 502
+    },
+    "quarter": {
+      "encoded_zero_steady_failed_windows": 200,
+      "encoded_zero_steady_residual_rms": 4.37931444734689e-05,
+      "maximum_peak": 1.2966324090957642,
+      "mel": 1.0481412779566244,
+      "nonquiet_cosine_mean": 0.9284231829422491,
+      "overshoot_sources": 6,
+      "peak_excess_energy": 2.5683195153819816e-07,
+      "quiet_failed_windows": 3386,
+      "quiet_residual_rms": 0.00025849496691404396,
+      "quiet_windows": 3434,
+      "raw_mae": 0.011603026970348453,
+      "scored_overshoot_samples": 588
+    }
+  },
+  "checkpoint_preservation": [
+    {
+      "bytes": 346914569,
+      "path": "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-update-400-reference-v1/current_rate/final.pt",
+      "sha256": "98a7cb2619c68b87cf094557360225b9cb6d99d7392bf2a8e2c25fe3c36801ab"
+    },
+    {
+      "bytes": 346914569,
+      "path": "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-update-400-reference-v1/quarter_rate/final.pt",
+      "sha256": "f7a91a2f3bef6fdec2a37643dc661a97b18a24b9e25b822df49c1c4017ddc948"
+    }
+  ],
+  "coverage": {
+    "context_overlap": "Permitted causal context, excluded from scored intervals",
+    "earlier_exposure": "These windows were used by the starting targeted checkpoint; reuse is declared debugging, not a new-data claim.",
+    "heldout_source_disjoint": true,
+    "scored_intervals_nonoverlapping": true,
+    "unique_source_ids": 3621,
+    "valid_scored_hours": 8.977772430555556,
+    "valid_scored_samples48k": 1551359076,
+    "windows": 12800
+  },
+  "format_version": 1,
+  "gates": {
+    "canonical": {
+      "failed": [
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.01,
+          "name": "natural_maximum_peak_vs_baseline",
+          "passed": false,
+          "value": 1.0245954159067958
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.1,
+          "name": "natural_peak_excess_energy_vs_baseline",
+          "passed": false,
+          "value": 1.5371814395727148
+        }
+      ],
+      "numeric_checks_independently_recomputed": true,
+      "passed": 90,
+      "total": 92
+    },
+    "historical": {
+      "failed": [
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.01,
+          "name": "natural_maximum_peak_vs_baseline",
+          "passed": false,
+          "value": 1.024595050695494
+        },
+        {
+          "comparison": "<=",
+          "details": null,
+          "maximum": 1.1,
+          "name": "natural_peak_excess_energy_vs_baseline",
+          "passed": false,
+          "value": 1.5371802761715612
+        }
+      ],
+      "numeric_checks_independently_recomputed": true,
+      "passed": 90,
+      "total": 92
+    }
+  },
+  "language_event_groups": {
+    "any_raw_mae_or_mel_regression": false,
+    "gated_groups": 39,
+    "groups": 41
+  },
+  "limits": [
+    "One400-step arm per rate; no listening-quality equivalence established.",
+    "Groups use the finite heldout sample; language/event population guarantees cannot follow.",
+    "Streaming verifies two inputs per arm at80/160ms; CPU RTF was not measured.",
+    "Both peak gates fail; candidate is not promoted."
+  ],
+  "matching_before": {
+    "canonical": true,
+    "historical": true
+  },
+  "matching_initial_engine_hash": true,
+  "promoted": false,
+  "quiet_source_regressions": [
+    {
+      "baseline_rms": 0.0006486043566837907,
+      "quarter_rms": 0.000674637733027339,
+      "quiet_windows": 1,
+      "ratio": 1.0401375292584416,
+      "source_id": "freesound:220649"
+    },
+    {
+      "baseline_rms": 0.00048247429848272523,
+      "quarter_rms": 0.0006730643747898646,
+      "quiet_windows": 6,
+      "ratio": 1.3950263815222965,
+      "source_id": "odia:b82da8bb-ec78-4b4e-b953-4cb86642f27a_1_chunk_2.flac"
+    },
+    {
+      "baseline_rms": 0.0003935131535399705,
+      "quarter_rms": 0.00043431701487861574,
+      "quiet_windows": 1,
+      "ratio": 1.103691226002438,
+      "source_id": "yue_hant_hk:validation:10172384069529710044.wav"
+    }
+  ],
+  "screen_passed": false,
+  "source_improvements_vs_baseline": {
+    "mel": {
+      "defined_sources": 144,
+      "improved": 144
+    },
+    "quiet_residual_rms": {
+      "defined_sources": 87,
+      "improved": 84
+    },
+    "raw_mae": {
+      "defined_sources": 144,
+      "improved": 144
+    }
+  },
+  "streaming": {
+    "current_rate": {
+      "all_passed": true,
+      "chunks_checked": 161,
+      "comparisons": 4,
+      "max_abs_error": 6.556510925292969e-07,
+      "rtf_measured": false,
+      "sample_accounting_independently_recomputed": true,
+      "tolerance": 2e-06
+    },
+    "quarter_rate": {
+      "all_passed": true,
+      "chunks_checked": 161,
+      "comparisons": 4,
+      "max_abs_error": 9.834766387939453e-07,
+      "rtf_measured": false,
+      "sample_accounting_independently_recomputed": true,
+      "tolerance": 2e-06
+    }
+  }
+}

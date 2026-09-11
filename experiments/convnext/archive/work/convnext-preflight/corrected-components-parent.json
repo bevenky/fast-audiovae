@@ -1,0 +1,211 @@
+{
+  "alignment": "40ms latent grid, complete teacher-quiet cycles, no artificial padded tails",
+  "format_version": 1,
+  "interpretation": "Descriptive phase decomposition, not proof of an architectural cause",
+  "parameter_updates": 0,
+  "rows": [
+    {
+      "diagnostic_context_exclusion_samples": 0,
+      "head_input_phase_rms": [
+        0.0006552821141667664,
+        0.0006308897864073515,
+        0.000640827463939786,
+        0.0006448762724176049
+      ],
+      "head_input_rms": 0.0006430283538065851,
+      "latent_rms": 0.6526961326599121,
+      "metadata": {
+        "condition": "encoded_zero",
+        "dataset": "synthetic_fixture",
+        "event": "encoded_zero",
+        "language": "none",
+        "speech": false
+      },
+      "quiet": {
+        "decomposition_absolute_error": 1.3234889800848443e-23,
+        "discarded_tail_samples": 0,
+        "interior_block_boundary_residual_jump_rms": 5.207008748843846e-05,
+        "interior_block_boundary_teacher_jump_rms": 2.3328989651252167e-05,
+        "minimum_cycles": 8,
+        "ordinary_neighbor_residual_jump_rms": 5.562364256899944e-05,
+        "power_components": {
+          "dc": 2.564820666316622e-09,
+          "phase1920_additional": 1.592811729422623e-10,
+          "phase480_ac": 4.45363057194029e-08,
+          "remaining": 1.6003065639876998e-09
+        },
+        "power_fractions": {
+          "dc": 0.05249249243223187,
+          "phase1920_additional": 0.0032599026805551178,
+          "phase480_ac": 0.9114951862473499,
+          "remaining": 0.03275241863986337
+        },
+        "quiet_cycles_40ms": 150,
+        "residual_dc": -5.0644058549020556e-05,
+        "residual_rms": 0.0002210445975875671,
+        "student_rms": 0.00021610255582868318,
+        "teacher_quiet_rms_threshold": 0.001,
+        "teacher_rms": 3.7779743898816995e-05
+      },
+      "raw_mae": 0.00017320924962405115,
+      "source_id": "encoded_zero",
+      "start_frame": 0,
+      "student_peak": 0.0008160320576280355,
+      "teacher_peak": 0.008588227443397045,
+      "valid_samples": 288000
+    },
+    {
+      "diagnostic_context_exclusion_samples": 0,
+      "head_input_phase_rms": [
+        0.0006691229646094143,
+        0.0006527820369228721,
+        0.0006448113126680255,
+        0.0006628516130149364
+      ],
+      "head_input_rms": 0.0006574579747393727,
+      "latent_rms": 0.6087008714675903,
+      "metadata": {
+        "condition": "encoded_quiet_noise",
+        "dataset": "synthetic_fixture",
+        "event": "encoded_quiet_noise",
+        "language": "none",
+        "speech": false
+      },
+      "quiet": {
+        "decomposition_absolute_error": 6.617444900424222e-24,
+        "discarded_tail_samples": 0,
+        "interior_block_boundary_residual_jump_rms": 4.447651609649945e-05,
+        "interior_block_boundary_teacher_jump_rms": 2.471178162286751e-05,
+        "minimum_cycles": 8,
+        "ordinary_neighbor_residual_jump_rms": 4.3556958190570516e-05,
+        "power_components": {
+          "dc": 1.3874363367877383e-09,
+          "phase1920_additional": 1.7619009525695176e-10,
+          "phase480_ac": 3.60761329005706e-08,
+          "remaining": 5.909326760244797e-10
+        },
+        "power_fractions": {
+          "dc": 0.03629116460863935,
+          "phase1920_additional": 0.004608603349819944,
+          "phase480_ac": 0.9436432092941909,
+          "remaining": 0.015457022747350082
+        },
+        "quiet_cycles_40ms": 150,
+        "residual_dc": -3.724830649556753e-05,
+        "residual_rms": 0.00019552670408064409,
+        "student_rms": 0.0001937161075837375,
+        "teacher_quiet_rms_threshold": 0.001,
+        "teacher_rms": 1.9954842341886508e-05
+      },
+      "raw_mae": 0.0001577572402311489,
+      "source_id": "encoded_quiet_noise",
+      "start_frame": 0,
+      "student_peak": 0.0006266403943300247,
+      "teacher_peak": 0.00017739228496793658,
+      "valid_samples": 288000
+    },
+    {
+      "diagnostic_context_exclusion_samples": 0,
+      "head_input_phase_rms": [
+        0.002279156818985939,
+        0.002310142619535327,
+        0.0023335472214967012,
+        0.002276309533044696
+      ],
+      "head_input_rms": 0.002299909945577383,
+      "latent_rms": 1.2228034734725952,
+      "metadata": {
+        "condition": "encoded_fade",
+        "dataset": "synthetic_fixture",
+        "event": "encoded_fade",
+        "language": "none",
+        "speech": false
+      },
+      "quiet": {
+        "decomposition_absolute_error": 2.6469779601696886e-23,
+        "discarded_tail_samples": 0,
+        "interior_block_boundary_residual_jump_rms": 0.00012902110325922815,
+        "interior_block_boundary_teacher_jump_rms": 1.8585791526060687e-05,
+        "minimum_cycles": 8,
+        "ordinary_neighbor_residual_jump_rms": 6.27008033682576e-05,
+        "power_components": {
+          "dc": 3.687677102994639e-10,
+          "phase1920_additional": 8.895110919935533e-10,
+          "phase480_ac": 4.891332247679137e-08,
+          "remaining": 8.94948706880001e-08
+        },
+        "power_fractions": {
+          "dc": 0.0026403452819111248,
+          "phase1920_additional": 0.0063688233794806995,
+          "phase480_ac": 0.3502152076148876,
+          "remaining": 0.6407756237237207
+        },
+        "quiet_cycles_40ms": 20,
+        "residual_dc": -1.920332550105486e-05,
+        "residual_rms": 0.00037371977732933063,
+        "student_rms": 0.0008937655610632165,
+        "teacher_quiet_rms_threshold": 0.001,
+        "teacher_rms": 0.0005879415091040478
+      },
+      "raw_mae": 0.00044457076000981033,
+      "source_id": "encoded_fade",
+      "start_frame": 0,
+      "student_peak": 0.011918311007320881,
+      "teacher_peak": 0.010358290746808052,
+      "valid_samples": 288000
+    },
+    {
+      "diagnostic_context_exclusion_samples": 0,
+      "head_input_phase_rms": [
+        0.16798831522464752,
+        0.16726090013980865,
+        0.17069825530052185,
+        0.17043419182300568
+      ],
+      "head_input_rms": 0.1690979152917862,
+      "latent_rms": 1.2405215501785278,
+      "metadata": {
+        "condition": "Yell",
+        "dataset": "fsd50k_vocal_cc0",
+        "event": "Yell",
+        "group": "expressive",
+        "language": "und",
+        "semantic_event_verified": false,
+        "speech": false
+      },
+      "quiet": {
+        "decomposition_absolute_error": 1.3234889800848443e-23,
+        "discarded_tail_samples": 1398,
+        "interior_block_boundary_residual_jump_rms": 7.42094588469227e-05,
+        "interior_block_boundary_teacher_jump_rms": 2.56915348324851e-05,
+        "minimum_cycles": 8,
+        "ordinary_neighbor_residual_jump_rms": 0.0001005202728021456,
+        "power_components": {
+          "dc": 2.2114447269932106e-09,
+          "phase1920_additional": 5.921022376446672e-10,
+          "phase480_ac": 3.6182306670553094e-08,
+          "remaining": 2.3774269541993862e-08
+        },
+        "power_fractions": {
+          "dc": 0.03523646250262835,
+          "phase1920_additional": 0.009434370228577144,
+          "phase480_ac": 0.5765174578832953,
+          "remaining": 0.3788117093854989
+        },
+        "quiet_cycles_40ms": 47,
+        "residual_dc": -4.702600054218103e-05,
+        "residual_rms": 0.000250519706165373,
+        "student_rms": 0.00022711044517613135,
+        "teacher_quiet_rms_threshold": 0.001,
+        "teacher_rms": 0.00016264771906859232
+      },
+      "raw_mae": 0.05377671867609024,
+      "source_id": "freesound:266716",
+      "start_frame": 0,
+      "student_peak": 0.9231195449829102,
+      "teacher_peak": 0.9279451966285706,
+      "valid_samples": 343158
+    }
+  ],
+  "step": 8090
+}

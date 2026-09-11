@@ -1,0 +1,730 @@
+{
+  "qualification": "held-out teacher implementation parity and repeatability only; no training or RTF benchmark",
+  "teacher": {
+    "model_repo": "openbmb/VoxCPM2",
+    "model_revision": "32279effe8c19989596f05d353d1447f51d9e915",
+    "source_repo": "OpenBMB/VoxCPM",
+    "source_revision": "f772e498a45fbb5fb8e13fbf9b9c48be9fe33e69",
+    "source_sha256": "2efdff1708d8ec1471624aae6f232d0f933de26b788b6901c434246847e2d3a8",
+    "checkpoint_sha256": "94b5d51e107e0507d4acc976cfdadb64edd6fd06d1f751dadbf2fd1594274bf1",
+    "config": {
+      "encoder_dim": 128,
+      "encoder_rates": [
+        2,
+        5,
+        8,
+        8
+      ],
+      "latent_dim": 64,
+      "decoder_dim": 2048,
+      "decoder_rates": [
+        8,
+        6,
+        5,
+        2,
+        2,
+        2
+      ],
+      "depthwise": true,
+      "sample_rate": 16000,
+      "out_sample_rate": 48000,
+      "use_noise_block": false,
+      "sr_bin_boundaries": [
+        20000,
+        30000,
+        40000
+      ],
+      "cond_type": "scale_bias",
+      "cond_dim": 128,
+      "cond_out_layer": false
+    },
+    "posterior": "raw_mu",
+    "sample_rate_in": 16000,
+    "sample_rate_out": 48000,
+    "latent_channels": 64,
+    "latent_rate": 25,
+    "encoder_hop": 640,
+    "decoder_hop": 1920,
+    "sr_cond": 48000,
+    "input_padding": "right_zero_to_multiple_of_640",
+    "reconstruct_trim": "right_trim_to_3_times_original_input_samples",
+    "weight_norm": "original_retained",
+    "dtype": "float32",
+    "device": "cuda:0",
+    "autocast": false,
+    "tf32": false,
+    "torch_version": "2.11.0+cu128"
+  },
+  "teacher_state_before": "6f5b5e2965e075c478201309cec01ccda94ebfb10c2e1c85d76fca7cc7450504",
+  "teacher_state_after": "6f5b5e2965e075c478201309cec01ccda94ebfb10c2e1c85d76fca7cc7450504",
+  "teacher_all_frozen": true,
+  "teacher_eval": true,
+  "autocast_outputs_float32": true,
+  "policy": {
+    "tf32": false,
+    "cudnn_deterministic": true,
+    "cudnn_benchmark": false,
+    "deterministic_algorithms": true,
+    "cublas_workspace_config": ":4096:8",
+    "per_shape_encode_calls": 5,
+    "per_shape_decode_calls": 5,
+    "comparison_max_abs": 0.001,
+    "comparison_min_snr_db": 70
+  },
+  "comparisons": [
+    {
+      "clip": "en_us_00103_1779.wav",
+      "jit_optimized_execution": true,
+      "input_samples": 172800,
+      "raw_target_samples": 518400,
+      "valid_target_samples": 518400,
+      "cpu_cuda_latents": {
+        "max_abs": 1.8298625946044922e-05,
+        "rms_error": 2.3129061395358198e-06,
+        "snr_db": 111.9515114366279,
+        "bitwise_equal": false,
+        "differing_values": 17064
+      },
+      "cpu_cuda_waveform": {
+        "max_abs": 7.404014468193054e-08,
+        "rms_error": 6.130858398477287e-09,
+        "snr_db": 111.63072319906269,
+        "bitwise_equal": false,
+        "differing_values": 513817
+      },
+      "successive_latent_repeats": [
+        {
+          "max_abs": 7.599592208862305e-06,
+          "rms_error": 1.0959492836493176e-06,
+          "snr_db": 118.4388616118892,
+          "bitwise_equal": false,
+          "differing_values": 16848
+        },
+        {
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "snr_db": 299.23467079515603,
+          "bitwise_equal": true,
+          "differing_values": 0
+        },
+        {
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "snr_db": 299.23467079515603,
+          "bitwise_equal": true,
+          "differing_values": 0
+        },
+        {
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "snr_db": 299.23467079515603,
+          "bitwise_equal": true,
+          "differing_values": 0
+        }
+      ],
+      "successive_decode_repeats": [
+        {
+          "max_abs": 1.885928213596344e-08,
+          "rms_error": 1.6162745554591729e-09,
+          "snr_db": 123.21084349752746,
+          "bitwise_equal": false,
+          "differing_values": 500757
+        },
+        {
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "snr_db": 247.38114623654408,
+          "bitwise_equal": true,
+          "differing_values": 0
+        },
+        {
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "snr_db": 247.38114623654408,
+          "bitwise_equal": true,
+          "differing_values": 0
+        },
+        {
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "snr_db": 247.38114623654408,
+          "bitwise_equal": true,
+          "differing_values": 0
+        }
+      ],
+      "post_warmup_autocast_latents": {
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "snr_db": 299.23467079515603,
+        "bitwise_equal": true,
+        "differing_values": 0
+      },
+      "post_warmup_autocast_waveform": {
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "snr_db": 247.38114623654408,
+        "bitwise_equal": true,
+        "differing_values": 0
+      },
+      "post_autocast_normal_latents": {
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "snr_db": 299.23467079515603,
+        "bitwise_equal": true,
+        "differing_values": 0
+      },
+      "post_autocast_normal_waveform": {
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "snr_db": 247.38114623654408,
+        "bitwise_equal": true,
+        "differing_values": 0
+      }
+    },
+    {
+      "clip": "fr_fr_00129_1717.wav",
+      "jit_optimized_execution": true,
+      "input_samples": 141120,
+      "raw_target_samples": 424320,
+      "valid_target_samples": 423360,
+      "cpu_cuda_latents": {
+        "max_abs": 1.9311904907226562e-05,
+        "rms_error": 1.833882648122569e-06,
+        "snr_db": 115.4532753738418,
+        "bitwise_equal": false,
+        "differing_values": 13817
+      },
+      "cpu_cuda_waveform": {
+        "max_abs": 1.5236437320709229e-06,
+        "rms_error": 5.332028895692215e-08,
+        "snr_db": 110.39477501518729,
+        "bitwise_equal": false,
+        "differing_values": 420315
+      },
+      "successive_latent_repeats": [
+        {
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "snr_db": 300.7207049692749,
+          "bitwise_equal": true,
+          "differing_values": 0
+        },
+        {
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "snr_db": 300.7207049692749,
+          "bitwise_equal": true,
+          "differing_values": 0
+        },
+        {
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "snr_db": 300.7207049692749,
+          "bitwise_equal": true,
+          "differing_values": 0
+        },
+        {
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "snr_db": 300.7207049692749,
+          "bitwise_equal": true,
+          "differing_values": 0
+        }
+      ],
+      "successive_decode_repeats": [
+        {
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "snr_db": 264.9326187380025,
+          "bitwise_equal": true,
+          "differing_values": 0
+        },
+        {
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "snr_db": 264.9326187380025,
+          "bitwise_equal": true,
+          "differing_values": 0
+        },
+        {
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "snr_db": 264.9326187380025,
+          "bitwise_equal": true,
+          "differing_values": 0
+        },
+        {
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "snr_db": 264.9326187380025,
+          "bitwise_equal": true,
+          "differing_values": 0
+        }
+      ],
+      "post_warmup_autocast_latents": {
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "snr_db": 300.7207049692749,
+        "bitwise_equal": true,
+        "differing_values": 0
+      },
+      "post_warmup_autocast_waveform": {
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "snr_db": 264.9326187380025,
+        "bitwise_equal": true,
+        "differing_values": 0
+      },
+      "post_autocast_normal_latents": {
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "snr_db": 300.7207049692749,
+        "bitwise_equal": true,
+        "differing_values": 0
+      },
+      "post_autocast_normal_waveform": {
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "snr_db": 264.9326187380025,
+        "bitwise_equal": true,
+        "differing_values": 0
+      }
+    },
+    {
+      "clip": "hi_in_00099_1919.wav",
+      "jit_optimized_execution": true,
+      "input_samples": 163200,
+      "raw_target_samples": 489600,
+      "valid_target_samples": 489600,
+      "cpu_cuda_latents": {
+        "max_abs": 1.2874603271484375e-05,
+        "rms_error": 1.781420201240349e-06,
+        "snr_db": 116.51206562165692,
+        "bitwise_equal": false,
+        "differing_values": 16052
+      },
+      "cpu_cuda_waveform": {
+        "max_abs": 1.5310943126678467e-06,
+        "rms_error": 1.3913098724676326e-07,
+        "snr_db": 112.60143125853358,
+        "bitwise_equal": false,
+        "differing_values": 483937
+      },
+      "successive_latent_repeats": [
+        {
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "snr_db": 301.5273924078877,
+          "bitwise_equal": true,
+          "differing_values": 0
+        },
+        {
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "snr_db": 301.5273924078877,
+          "bitwise_equal": true,
+          "differing_values": 0
+        },
+        {
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "snr_db": 301.5273924078877,
+          "bitwise_equal": true,
+          "differing_values": 0
+        },
+        {
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "snr_db": 301.5273924078877,
+          "bitwise_equal": true,
+          "differing_values": 0
+        }
+      ],
+      "successive_decode_repeats": [
+        {
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "snr_db": 275.46990776179496,
+          "bitwise_equal": true,
+          "differing_values": 0
+        },
+        {
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "snr_db": 275.46990776179496,
+          "bitwise_equal": true,
+          "differing_values": 0
+        },
+        {
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "snr_db": 275.46990776179496,
+          "bitwise_equal": true,
+          "differing_values": 0
+        },
+        {
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "snr_db": 275.46990776179496,
+          "bitwise_equal": true,
+          "differing_values": 0
+        }
+      ],
+      "post_warmup_autocast_latents": {
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "snr_db": 301.5273924078877,
+        "bitwise_equal": true,
+        "differing_values": 0
+      },
+      "post_warmup_autocast_waveform": {
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "snr_db": 275.46990776179496,
+        "bitwise_equal": true,
+        "differing_values": 0
+      },
+      "post_autocast_normal_latents": {
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "snr_db": 301.5273924078877,
+        "bitwise_equal": true,
+        "differing_values": 0
+      },
+      "post_autocast_normal_waveform": {
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "snr_db": 275.46990776179496,
+        "bitwise_equal": true,
+        "differing_values": 0
+      }
+    },
+    {
+      "clip": "en_us_00103_1779.wav",
+      "jit_optimized_execution": false,
+      "input_samples": 172800,
+      "raw_target_samples": 518400,
+      "valid_target_samples": 518400,
+      "cpu_cuda_latents": {
+        "max_abs": 1.8298625946044922e-05,
+        "rms_error": 2.3129061395358198e-06,
+        "snr_db": 111.9515114366279,
+        "bitwise_equal": false,
+        "differing_values": 17064
+      },
+      "cpu_cuda_waveform": {
+        "max_abs": 7.404014468193054e-08,
+        "rms_error": 6.130858398477287e-09,
+        "snr_db": 111.63072319906269,
+        "bitwise_equal": false,
+        "differing_values": 513817
+      },
+      "successive_latent_repeats": [
+        {
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "snr_db": 299.23467079515603,
+          "bitwise_equal": true,
+          "differing_values": 0
+        },
+        {
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "snr_db": 299.23467079515603,
+          "bitwise_equal": true,
+          "differing_values": 0
+        },
+        {
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "snr_db": 299.23467079515603,
+          "bitwise_equal": true,
+          "differing_values": 0
+        },
+        {
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "snr_db": 299.23467079515603,
+          "bitwise_equal": true,
+          "differing_values": 0
+        }
+      ],
+      "successive_decode_repeats": [
+        {
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "snr_db": 247.38114623654408,
+          "bitwise_equal": true,
+          "differing_values": 0
+        },
+        {
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "snr_db": 247.38114623654408,
+          "bitwise_equal": true,
+          "differing_values": 0
+        },
+        {
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "snr_db": 247.38114623654408,
+          "bitwise_equal": true,
+          "differing_values": 0
+        },
+        {
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "snr_db": 247.38114623654408,
+          "bitwise_equal": true,
+          "differing_values": 0
+        }
+      ],
+      "post_warmup_autocast_latents": {
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "snr_db": 299.23467079515603,
+        "bitwise_equal": true,
+        "differing_values": 0
+      },
+      "post_warmup_autocast_waveform": {
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "snr_db": 247.38114623654408,
+        "bitwise_equal": true,
+        "differing_values": 0
+      },
+      "post_autocast_normal_latents": {
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "snr_db": 299.23467079515603,
+        "bitwise_equal": true,
+        "differing_values": 0
+      },
+      "post_autocast_normal_waveform": {
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "snr_db": 247.38114623654408,
+        "bitwise_equal": true,
+        "differing_values": 0
+      }
+    },
+    {
+      "clip": "fr_fr_00129_1717.wav",
+      "jit_optimized_execution": false,
+      "input_samples": 141120,
+      "raw_target_samples": 424320,
+      "valid_target_samples": 423360,
+      "cpu_cuda_latents": {
+        "max_abs": 1.9311904907226562e-05,
+        "rms_error": 1.833882648122569e-06,
+        "snr_db": 115.4532753738418,
+        "bitwise_equal": false,
+        "differing_values": 13817
+      },
+      "cpu_cuda_waveform": {
+        "max_abs": 1.5236437320709229e-06,
+        "rms_error": 5.332028895692215e-08,
+        "snr_db": 110.39477501518729,
+        "bitwise_equal": false,
+        "differing_values": 420315
+      },
+      "successive_latent_repeats": [
+        {
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "snr_db": 300.7207049692749,
+          "bitwise_equal": true,
+          "differing_values": 0
+        },
+        {
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "snr_db": 300.7207049692749,
+          "bitwise_equal": true,
+          "differing_values": 0
+        },
+        {
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "snr_db": 300.7207049692749,
+          "bitwise_equal": true,
+          "differing_values": 0
+        },
+        {
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "snr_db": 300.7207049692749,
+          "bitwise_equal": true,
+          "differing_values": 0
+        }
+      ],
+      "successive_decode_repeats": [
+        {
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "snr_db": 264.9326187380025,
+          "bitwise_equal": true,
+          "differing_values": 0
+        },
+        {
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "snr_db": 264.9326187380025,
+          "bitwise_equal": true,
+          "differing_values": 0
+        },
+        {
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "snr_db": 264.9326187380025,
+          "bitwise_equal": true,
+          "differing_values": 0
+        },
+        {
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "snr_db": 264.9326187380025,
+          "bitwise_equal": true,
+          "differing_values": 0
+        }
+      ],
+      "post_warmup_autocast_latents": {
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "snr_db": 300.7207049692749,
+        "bitwise_equal": true,
+        "differing_values": 0
+      },
+      "post_warmup_autocast_waveform": {
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "snr_db": 264.9326187380025,
+        "bitwise_equal": true,
+        "differing_values": 0
+      },
+      "post_autocast_normal_latents": {
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "snr_db": 300.7207049692749,
+        "bitwise_equal": true,
+        "differing_values": 0
+      },
+      "post_autocast_normal_waveform": {
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "snr_db": 264.9326187380025,
+        "bitwise_equal": true,
+        "differing_values": 0
+      }
+    },
+    {
+      "clip": "hi_in_00099_1919.wav",
+      "jit_optimized_execution": false,
+      "input_samples": 163200,
+      "raw_target_samples": 489600,
+      "valid_target_samples": 489600,
+      "cpu_cuda_latents": {
+        "max_abs": 1.2874603271484375e-05,
+        "rms_error": 1.781420201240349e-06,
+        "snr_db": 116.51206562165692,
+        "bitwise_equal": false,
+        "differing_values": 16052
+      },
+      "cpu_cuda_waveform": {
+        "max_abs": 1.5310943126678467e-06,
+        "rms_error": 1.3913098724676326e-07,
+        "snr_db": 112.60143125853358,
+        "bitwise_equal": false,
+        "differing_values": 483937
+      },
+      "successive_latent_repeats": [
+        {
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "snr_db": 301.5273924078877,
+          "bitwise_equal": true,
+          "differing_values": 0
+        },
+        {
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "snr_db": 301.5273924078877,
+          "bitwise_equal": true,
+          "differing_values": 0
+        },
+        {
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "snr_db": 301.5273924078877,
+          "bitwise_equal": true,
+          "differing_values": 0
+        },
+        {
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "snr_db": 301.5273924078877,
+          "bitwise_equal": true,
+          "differing_values": 0
+        }
+      ],
+      "successive_decode_repeats": [
+        {
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "snr_db": 275.46990776179496,
+          "bitwise_equal": true,
+          "differing_values": 0
+        },
+        {
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "snr_db": 275.46990776179496,
+          "bitwise_equal": true,
+          "differing_values": 0
+        },
+        {
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "snr_db": 275.46990776179496,
+          "bitwise_equal": true,
+          "differing_values": 0
+        },
+        {
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "snr_db": 275.46990776179496,
+          "bitwise_equal": true,
+          "differing_values": 0
+        }
+      ],
+      "post_warmup_autocast_latents": {
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "snr_db": 301.5273924078877,
+        "bitwise_equal": true,
+        "differing_values": 0
+      },
+      "post_warmup_autocast_waveform": {
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "snr_db": 275.46990776179496,
+        "bitwise_equal": true,
+        "differing_values": 0
+      },
+      "post_autocast_normal_latents": {
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "snr_db": 301.5273924078877,
+        "bitwise_equal": true,
+        "differing_values": 0
+      },
+      "post_autocast_normal_waveform": {
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "snr_db": 275.46990776179496,
+        "bitwise_equal": true,
+        "differing_values": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,619 @@
+{
+  "purpose": "Disposable student training throughput, no inference RTF and no quality evaluation",
+  "checkpoint_sha256": "ba999a89e8d87f9da91fd00fa1ddde04398a353a5a1ecc6e23aa36f9bd30605f",
+  "checkpoint_step": 1000,
+  "torch": "2.11.0+cu128",
+  "cuda": "12.8",
+  "device": "NVIDIA H100 NVL",
+  "threads": 1,
+  "device_total_memory_gib": 93.095947265625,
+  "tf32_matmul": false,
+  "tf32_cudnn": false,
+  "autocast": false,
+  "cudnn_deterministic": false,
+  "cudnn_benchmark": false,
+  "deterministic_algorithms": false,
+  "environment_cublas_workspace_config": ":4096:8",
+  "checkpoint_runtime": {
+    "cuda_device": "NVIDIA H100 NVL",
+    "cuda_runtime": "12.8",
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": false,
+    "cudnn_tf32": false,
+    "default_dtype": "torch.float32",
+    "deterministic_algorithms": false,
+    "matmul_tf32": false,
+    "num_interop_threads": 96,
+    "num_threads": 1,
+    "numpy_version": "2.5.3",
+    "torch_version": "2.11.0+cu128"
+  },
+  "train_caches": 230,
+  "dev_caches": 25,
+  "data_fingerprint": "b4921381bbf566b3ae7593489d792bd0e10d1c874f253d6178c2718e973844e8",
+  "loss_config": {
+    "log_epsilon": 1e-05,
+    "reference_fft_sizes_16k": [
+      256,
+      512,
+      1024
+    ],
+    "reference_spectral_weight": 45.0,
+    "teacher_fft_sizes": [
+      1024,
+      2048,
+      4096
+    ],
+    "teacher_spectral_weight": 15.0,
+    "teacher_waveform_weight": 1.0
+  },
+  "training_config": {
+    "accumulation_steps": 8,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "checkpoint_interval": 100,
+    "context_frames": 29,
+    "grad_clip_norm": 1.0,
+    "learning_rate": 0.0002,
+    "max_cached_utterances": 8,
+    "optimizer": "muon_adamw",
+    "scored_frames": 64,
+    "seed": 7,
+    "total_steps": 1000,
+    "validation_interval": 100,
+    "warmup_steps": 100,
+    "weight_decay": 0.01
+  },
+  "optimizer": "same native Muon twenty hidden matrices plus complementary AdamW, restored step1000 state",
+  "load": {
+    "checkpoint_and_verified_index_seconds": 1.4953257143497467,
+    "preload_train_caches_seconds": 1.4267970621585846,
+    "prepare_448_fixed_crops_seconds": 0.2942945584654808
+  },
+  "timing_scope": "CPU crop tensors preloaded; includes CPU-to-CUDA transfers, model forward, losses, backward, gradient clipping, optimizer and checks; excludes disk reads, sampling, checkpoint writes, dev and TensorBoard",
+  "cases": [
+    {
+      "name": "serial8_existing_checks",
+      "status": "passed_finite_checks",
+      "batch_size": 8,
+      "model_microbatch": 1,
+      "warmup_updates": 2,
+      "measured_updates": 5,
+      "step_seconds": [
+        0.15060968697071075,
+        0.14237351715564728,
+        0.14205582439899445,
+        0.13588322699069977,
+        0.12796644121408463
+      ],
+      "mean_step_seconds": 0.13977773934602739,
+      "median_step_seconds": 0.14205582439899445,
+      "examples_per_second": 57.23372002887789,
+      "scored_audio_seconds_per_second": 136.86013301905427,
+      "baseline_allocated_gib": 0.3657841682434082,
+      "peak_allocated_gib": 0.6086173057556152,
+      "peak_reserved_gib": 0.6796875,
+      "actual_measured_scored_audio_seconds": 95.65,
+      "padded_latent_frames": 0,
+      "loss_groups_per_update": [
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "losses": [
+        {
+          "total": 29.747769832611084,
+          "teacher_spectral": 0.3343087607063353,
+          "teacher_waveform": 0.027928110845095944,
+          "reference_spectral": 0.5490046795457602
+        },
+        {
+          "total": 31.313661217689514,
+          "teacher_spectral": 0.3059143256396055,
+          "teacher_waveform": 0.019160472438670695,
+          "reference_spectral": 0.5934619158506393
+        },
+        {
+          "total": 25.92359670996666,
+          "teacher_spectral": 0.27094234665855765,
+          "teacher_waveform": 0.02364196326925594,
+          "reference_spectral": 0.4852404398843646
+        },
+        {
+          "total": 37.96676254272461,
+          "teacher_spectral": 0.4248012453317642,
+          "teacher_waveform": 0.036067393608391285,
+          "reference_spectral": 0.7013039141893387
+        },
+        {
+          "total": 36.17706608772278,
+          "teacher_spectral": 0.38922038301825523,
+          "teacher_waveform": 0.03518598678056151,
+          "reference_spectral": 0.6734127625823021
+        }
+      ],
+      "utilization": {
+        "query_period_ms": 100,
+        "samples": [
+          {
+            "time": 39998485.659536034,
+            "gpu_percent": 12.0,
+            "memory_percent": 0.0,
+            "memory_used_mib": 1389.0
+          },
+          {
+            "time": 39998485.759764925,
+            "gpu_percent": 12.0,
+            "memory_percent": 0.0,
+            "memory_used_mib": 1389.0
+          },
+          {
+            "time": 39998485.86003714,
+            "gpu_percent": 34.0,
+            "memory_percent": 2.0,
+            "memory_used_mib": 1391.0
+          },
+          {
+            "time": 39998485.96024684,
+            "gpu_percent": 34.0,
+            "memory_percent": 2.0,
+            "memory_used_mib": 1391.0
+          },
+          {
+            "time": 39998486.06049434,
+            "gpu_percent": 42.0,
+            "memory_percent": 2.0,
+            "memory_used_mib": 1391.0
+          },
+          {
+            "time": 39998486.16069499,
+            "gpu_percent": 42.0,
+            "memory_percent": 2.0,
+            "memory_used_mib": 1391.0
+          },
+          {
+            "time": 39998486.26092727,
+            "gpu_percent": 46.0,
+            "memory_percent": 2.0,
+            "memory_used_mib": 1409.0
+          }
+        ],
+        "gpu_percent_mean": 31.714285714285715,
+        "gpu_percent_median": 34.0,
+        "gpu_percent_max": 46.0,
+        "note": "nvidia-smi rolling utilization samples during measured updates, not an idle snapshot"
+      }
+    },
+    {
+      "name": "batch8_existing_checks",
+      "status": "passed_finite_checks",
+      "batch_size": 8,
+      "model_microbatch": 8,
+      "warmup_updates": 2,
+      "measured_updates": 5,
+      "step_seconds": [
+        0.05005277693271637,
+        0.06749258935451508,
+        0.05457814037799835,
+        0.05499492585659027,
+        0.0475052148103714
+      ],
+      "mean_step_seconds": 0.054924729466438296,
+      "median_step_seconds": 0.05457814037799835,
+      "examples_per_second": 145.65388082409024,
+      "scored_audio_seconds_per_second": 348.29484252060575,
+      "baseline_allocated_gib": 0.667820930480957,
+      "peak_allocated_gib": 1.8135685920715332,
+      "peak_reserved_gib": 2.126953125,
+      "actual_measured_scored_audio_seconds": 95.65,
+      "padded_latent_frames": 56,
+      "loss_groups_per_update": [
+        2,
+        5,
+        3,
+        1,
+        1
+      ],
+      "losses": [
+        {
+          "total": 29.749755859375,
+          "teacher_spectral": 0.3343279957771301,
+          "teacher_waveform": 0.027928046882152557,
+          "reference_spectral": 0.5490424036979675
+        },
+        {
+          "total": 31.316375732421875,
+          "teacher_spectral": 0.305967777967453,
+          "teacher_waveform": 0.019160404801368713,
+          "reference_spectral": 0.5935044288635254
+        },
+        {
+          "total": 25.92725944519043,
+          "teacher_spectral": 0.27101001143455505,
+          "teacher_waveform": 0.023641984909772873,
+          "reference_spectral": 0.485299289226532
+        },
+        {
+          "total": 37.9739875793457,
+          "teacher_spectral": 0.4249132573604584,
+          "teacher_waveform": 0.03606751188635826,
+          "reference_spectral": 0.7014271020889282
+        },
+        {
+          "total": 36.182037353515625,
+          "teacher_spectral": 0.38927316665649414,
+          "teacher_waveform": 0.03518606722354889,
+          "reference_spectral": 0.6735056638717651
+        }
+      ],
+      "utilization": {
+        "query_period_ms": 100,
+        "samples": [
+          {
+            "time": 39998487.13995542,
+            "gpu_percent": 11.0,
+            "memory_percent": 1.0,
+            "memory_used_mib": 2787.0
+          },
+          {
+            "time": 39998487.24021408,
+            "gpu_percent": 57.0,
+            "memory_percent": 5.0,
+            "memory_used_mib": 2787.0
+          }
+        ],
+        "gpu_percent_mean": 34.0,
+        "gpu_percent_median": 34.0,
+        "gpu_percent_max": 57.0,
+        "note": "nvidia-smi rolling utilization samples during measured updates, not an idle snapshot"
+      }
+    },
+    {
+      "name": "batch8_aggregated_checks",
+      "status": "passed_finite_checks",
+      "batch_size": 8,
+      "model_microbatch": 8,
+      "warmup_updates": 2,
+      "measured_updates": 5,
+      "step_seconds": [
+        0.05079852044582367,
+        0.06885179877281189,
+        0.05517569184303284,
+        0.04681616276502609,
+        0.04591058939695358
+      ],
+      "mean_step_seconds": 0.05351055264472961,
+      "median_step_seconds": 0.05079852044582367,
+      "examples_per_second": 149.50322141342974,
+      "scored_audio_seconds_per_second": 357.4995782048639,
+      "baseline_allocated_gib": 0.669682502746582,
+      "peak_allocated_gib": 1.8154473304748535,
+      "peak_reserved_gib": 2.134765625,
+      "actual_measured_scored_audio_seconds": 95.65,
+      "padded_latent_frames": 56,
+      "loss_groups_per_update": [
+        2,
+        5,
+        3,
+        1,
+        1
+      ],
+      "losses": [
+        {
+          "total": 29.752334594726562,
+          "teacher_spectral": 0.33434808254241943,
+          "teacher_waveform": 0.027928035706281662,
+          "reference_spectral": 0.5490930080413818
+        },
+        {
+          "total": 31.31972885131836,
+          "teacher_spectral": 0.3060268461704254,
+          "teacher_waveform": 0.019160358235239983,
+          "reference_spectral": 0.5935592651367188
+        },
+        {
+          "total": 25.931293487548828,
+          "teacher_spectral": 0.27106985449790955,
+          "teacher_waveform": 0.02364199422299862,
+          "reference_spectral": 0.4853689670562744
+        },
+        {
+          "total": 37.979713439941406,
+          "teacher_spectral": 0.42498064041137695,
+          "teacher_waveform": 0.036067549139261246,
+          "reference_spectral": 0.7015318870544434
+        },
+        {
+          "total": 36.18476104736328,
+          "teacher_spectral": 0.38930854201316833,
+          "teacher_waveform": 0.0351860336959362,
+          "reference_spectral": 0.6735543608665466
+        }
+      ],
+      "utilization": {
+        "query_period_ms": 100,
+        "samples": [
+          {
+            "time": 39998488.05353358,
+            "gpu_percent": 35.0,
+            "memory_percent": 3.0,
+            "memory_used_mib": 2779.0
+          },
+          {
+            "time": 39998488.15375184,
+            "gpu_percent": 35.0,
+            "memory_percent": 3.0,
+            "memory_used_mib": 2871.0
+          }
+        ],
+        "gpu_percent_mean": 35.0,
+        "gpu_percent_median": 35.0,
+        "gpu_percent_max": 35.0,
+        "note": "nvidia-smi rolling utilization samples during measured updates, not an idle snapshot"
+      }
+    },
+    {
+      "name": "batch32_aggregated_checks",
+      "status": "passed_finite_checks",
+      "batch_size": 32,
+      "model_microbatch": 32,
+      "warmup_updates": 2,
+      "measured_updates": 5,
+      "step_seconds": [
+        0.17251014709472656,
+        0.14313135296106339,
+        0.1268179714679718,
+        0.1216079369187355,
+        0.14498309046030045
+      ],
+      "mean_step_seconds": 0.14181009978055953,
+      "median_step_seconds": 0.14313135296106339,
+      "examples_per_second": 225.65388536865564,
+      "scored_audio_seconds_per_second": 511.6701850734267,
+      "baseline_allocated_gib": 0.6690421104431152,
+      "peak_allocated_gib": 5.09409761428833,
+      "peak_reserved_gib": 6.283203125,
+      "actual_measured_scored_audio_seconds": 362.8,
+      "padded_latent_frames": 262,
+      "loss_groups_per_update": [
+        11,
+        9,
+        6,
+        5,
+        8
+      ],
+      "losses": [
+        {
+          "total": 26.9361572265625,
+          "teacher_spectral": 0.2690746784210205,
+          "teacher_waveform": 0.020389718934893608,
+          "reference_spectral": 0.5084365606307983
+        },
+        {
+          "total": 31.94381332397461,
+          "teacher_spectral": 0.3350754678249359,
+          "teacher_waveform": 0.02645319513976574,
+          "reference_spectral": 0.5975828170776367
+        },
+        {
+          "total": 27.977401733398438,
+          "teacher_spectral": 0.28946056962013245,
+          "teacher_waveform": 0.024301713332533836,
+          "reference_spectral": 0.5246931314468384
+        },
+        {
+          "total": 33.71000671386719,
+          "teacher_spectral": 0.3510611653327942,
+          "teacher_waveform": 0.028203053399920464,
+          "reference_spectral": 0.6314641237258911
+        },
+        {
+          "total": 30.868396759033203,
+          "teacher_spectral": 0.33335593342781067,
+          "teacher_waveform": 0.026322126388549805,
+          "reference_spectral": 0.5742608308792114
+        }
+      ],
+      "utilization": {
+        "query_period_ms": 100,
+        "samples": [
+          {
+            "time": 39998489.11839076,
+            "gpu_percent": 63.0,
+            "memory_percent": 12.0,
+            "memory_used_mib": 7113.0
+          },
+          {
+            "time": 39998489.21853397,
+            "gpu_percent": 63.0,
+            "memory_percent": 12.0,
+            "memory_used_mib": 7147.0
+          },
+          {
+            "time": 39998489.31875234,
+            "gpu_percent": 46.0,
+            "memory_percent": 7.0,
+            "memory_used_mib": 7157.0
+          },
+          {
+            "time": 39998489.419045664,
+            "gpu_percent": 46.0,
+            "memory_percent": 7.0,
+            "memory_used_mib": 7157.0
+          },
+          {
+            "time": 39998489.51929432,
+            "gpu_percent": 78.0,
+            "memory_percent": 13.0,
+            "memory_used_mib": 7157.0
+          },
+          {
+            "time": 39998489.6194511,
+            "gpu_percent": 78.0,
+            "memory_percent": 13.0,
+            "memory_used_mib": 7157.0
+          },
+          {
+            "time": 39998489.71970928,
+            "gpu_percent": 68.0,
+            "memory_percent": 12.0,
+            "memory_used_mib": 7159.0
+          }
+        ],
+        "gpu_percent_mean": 63.142857142857146,
+        "gpu_percent_median": 63.0,
+        "gpu_percent_max": 78.0,
+        "note": "nvidia-smi rolling utilization samples during measured updates, not an idle snapshot"
+      }
+    },
+    {
+      "name": "batch64_aggregated_checks",
+      "status": "passed_finite_checks",
+      "batch_size": 64,
+      "model_microbatch": 64,
+      "warmup_updates": 2,
+      "measured_updates": 5,
+      "step_seconds": [
+        0.25888151675462723,
+        0.25320005416870117,
+        0.22374778985977173,
+        0.23597165942192078,
+        0.26631080359220505
+      ],
+      "mean_step_seconds": 0.24762236475944518,
+      "median_step_seconds": 0.25320005416870117,
+      "examples_per_second": 258.4580761199552,
+      "scored_audio_seconds_per_second": 579.4428146237427,
+      "baseline_allocated_gib": 0.6671895980834961,
+      "peak_allocated_gib": 9.2540602684021,
+      "peak_reserved_gib": 12.19921875,
+      "actual_measured_scored_audio_seconds": 717.415,
+      "padded_latent_frames": 515,
+      "loss_groups_per_update": [
+        18,
+        17,
+        12,
+        12,
+        17
+      ],
+      "losses": [
+        {
+          "total": 28.821762084960938,
+          "teacher_spectral": 0.2883654832839966,
+          "teacher_waveform": 0.023579981178045273,
+          "reference_spectral": 0.5438377261161804
+        },
+        {
+          "total": 31.779565811157227,
+          "teacher_spectral": 0.3211970329284668,
+          "teacher_waveform": 0.024859828874468803,
+          "reference_spectral": 0.5985943675041199
+        },
+        {
+          "total": 28.66860008239746,
+          "teacher_spectral": 0.29608437418937683,
+          "teacher_waveform": 0.02346891164779663,
+          "reference_spectral": 0.5378636121749878
+        },
+        {
+          "total": 33.0120735168457,
+          "teacher_spectral": 0.35392624139785767,
+          "teacher_waveform": 0.028969556093215942,
+          "reference_spectral": 0.6149824857711792
+        },
+        {
+          "total": 28.59416961669922,
+          "teacher_spectral": 0.2973303198814392,
+          "teacher_waveform": 0.028369620442390442,
+          "reference_spectral": 0.5356855392456055
+        }
+      ],
+      "utilization": {
+        "query_period_ms": 100,
+        "samples": [
+          {
+            "time": 39998490.78058934,
+            "gpu_percent": 65.0,
+            "memory_percent": 13.0,
+            "memory_used_mib": 13169.0
+          },
+          {
+            "time": 39998490.880840786,
+            "gpu_percent": 77.0,
+            "memory_percent": 15.0,
+            "memory_used_mib": 13209.0
+          },
+          {
+            "time": 39998490.98109447,
+            "gpu_percent": 77.0,
+            "memory_percent": 15.0,
+            "memory_used_mib": 13209.0
+          },
+          {
+            "time": 39998491.08142692,
+            "gpu_percent": 86.0,
+            "memory_percent": 13.0,
+            "memory_used_mib": 13211.0
+          },
+          {
+            "time": 39998491.18156771,
+            "gpu_percent": 86.0,
+            "memory_percent": 13.0,
+            "memory_used_mib": 13223.0
+          },
+          {
+            "time": 39998491.281841,
+            "gpu_percent": 76.0,
+            "memory_percent": 18.0,
+            "memory_used_mib": 13223.0
+          },
+          {
+            "time": 39998491.38208378,
+            "gpu_percent": 76.0,
+            "memory_percent": 18.0,
+            "memory_used_mib": 13225.0
+          },
+          {
+            "time": 39998491.48234468,
+            "gpu_percent": 65.0,
+            "memory_percent": 18.0,
+            "memory_used_mib": 13225.0
+          },
+          {
+            "time": 39998491.58259044,
+            "gpu_percent": 65.0,
+            "memory_percent": 18.0,
+            "memory_used_mib": 13225.0
+          },
+          {
+            "time": 39998491.68283747,
+            "gpu_percent": 54.0,
+            "memory_percent": 13.0,
+            "memory_used_mib": 13225.0
+          },
+          {
+            "time": 39998491.78302582,
+            "gpu_percent": 54.0,
+            "memory_percent": 13.0,
+            "memory_used_mib": 13225.0
+          },
+          {
+            "time": 39998491.883215904,
+            "gpu_percent": 64.0,
+            "memory_percent": 12.0,
+            "memory_used_mib": 13227.0
+          }
+        ],
+        "gpu_percent_mean": 70.41666666666667,
+        "gpu_percent_median": 70.5,
+        "gpu_percent_max": 86.0,
+        "note": "nvidia-smi rolling utilization samples during measured updates, not an idle snapshot"
+      }
+    }
+  ],
+  "checkpoint_unchanged": true
+}

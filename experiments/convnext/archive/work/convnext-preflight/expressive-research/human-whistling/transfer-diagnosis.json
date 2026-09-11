@@ -1,0 +1,94 @@
+{
+  "purpose": "Read-only diagnosis of the active approved human-whistle acquisition; no acquisition changes, restart, audio transfer, or GPU use by this diagnosis.",
+  "observed_at_utc": "2026-09-08T19:40:29.810688+00:00",
+  "snapshot": {
+    "pid": 899266,
+    "selected": 40,
+    "processed": 26,
+    "accepted": 10,
+    "quarantined": 16,
+    "accepted_seconds": 126.392625,
+    "stored_bytes": 17109685,
+    "reserved_range_bytes": 2584296814,
+    "all_selected_audio_rowgroup_bytes": 3813312122,
+    "remaining_groups": 14,
+    "remaining_audio_rowgroup_bytes_including_inflight": 1349098260,
+    "remaining_source_page_rate_counts": {
+      "44100": 8,
+      "48000": 6
+    }
+  },
+  "observed_rejections": {
+    "count": 16,
+    "all_reason": "Mirror sample rate differs from the original source page",
+    "all_source_page_rate": 44100,
+    "actual_mismatched_rate_not_saved_in_rejection_receipt": true
+  },
+  "observed_acceptances": {
+    "count": 10,
+    "all_format": "FLAC",
+    "all_actual_rate": 48000,
+    "all_source_page_rate": 48000,
+    "does_not_establish_original_freesound_binary_identity": true
+  },
+  "rate_hypothesis": {
+    "all_40_source_rate_counts": {
+      "44100": 24,
+      "48000": 16
+    },
+    "total_source_page_seconds_of_16_at_48000": 148.883527,
+    "additional_seconds_if_remaining6_at48k_pass": 22.490902,
+    "caveat": "Every examined source44.1k clip rejected, and every source48k clip accepted so far. Dataset-wide48k normalization is a hypothesis; card has no rate field and rejected actual header rates were not retained. Do not silently exclude all44.1k without changing the reviewed acquisition policy."
+  },
+  "throughput": {
+    "recent5_groups_audio_bytes": 495137443,
+    "recent5_groups_seconds": 434.062705039978,
+    "recent10_groups_audio_bytes": 970365313,
+    "recent10_groups_seconds": 883.9466309547424,
+    "rchar_delta_bytes": 257561888,
+    "rchar_delta_seconds": 232.9088466,
+    "estimate_remaining_minutes": "approximately20 at observed recent rate; in-flight bytes and network variability make this approximate"
+  },
+  "format_evidence": {
+    "pinned_revision": "ac5aed8cf1aeb97b26a375f24794d42e15f97163",
+    "inspected_shards": [
+      97,
+      103
+    ],
+    "audio_encoding": "UNCOMPRESSED PLAIN with RLE definition levels; no dictionary",
+    "audio_offset_index": true,
+    "audio_column_index": false,
+    "audio_statistics_min_max": false,
+    "rowgroup_rows": 59,
+    "audio_pages_per_inspected_rowgroup": 25,
+    "examples": [
+      {
+        "shard": 97,
+        "row_group": 0,
+        "selected_id": "84760",
+        "selected_row": 6,
+        "target_page_first_row": 4,
+        "target_page_next_first_row": 8,
+        "target_page_bytes": 6077443,
+        "whole_audio_column_bytes": 97989642
+      },
+      {
+        "shard": 103,
+        "row_group": 0,
+        "selected_id": "389287",
+        "selected_row": 54,
+        "target_page_first_row": 50,
+        "target_page_next_first_row": 56,
+        "target_page_bytes": 5012816,
+        "whole_audio_column_bytes": 93871976
+      }
+    ],
+    "inspection_scope": "Parquet footers and small offset indexes only; no page payload downloaded"
+  },
+  "recommendation": [
+    "Keep current healthy job running; do not restart for these remaining14 groups.",
+    "For a larger future sparse selection, a tested offset-index-aware binary reader could fetch one relevant page instead of a59-row group, then extract the selected bytes with full metadata verification. Example payload reduction18.7x is a storage-layout calculation, not measured end-to-end speed.",
+    "Two-worker bounded ordered prefetch is a simpler candidate to overlap request latency, but throughput benefit is unmeasured and unrelated to sample-rate rejection. It must share an atomic byte budget, preserve processing order and receipts, and stay within memory limits.",
+    "Do not add a blind44.1k metadata exclusion. Sample-rate is absent from mirror metadata; original-page rate is not the mirror header rate."
+  ]
+}

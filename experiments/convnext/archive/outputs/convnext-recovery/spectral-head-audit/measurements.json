@@ -1,0 +1,266 @@
+{
+  "kind": "read-only saved-results audit, no model execution",
+  "results_sha256": "decf152bbd05b47ab69c74d8ff58d9414efe92f1c5afcaa5006a49fd4b78843e",
+  "selection_file_sha256": "acf339faff32e5660c64611b70a1c086ce4a63bb5809805754193185b38007e8",
+  "selection_identity_sha256": "c3c2f0335b00761e1425d0c40a12d9882305bd5440c0f3758bc4d982d77ced7f",
+  "matching_latest_selection_identity": true,
+  "coverage": {
+    "fit": {
+      "source_count": 2048,
+      "minutes": 83.604221875,
+      "dataset_counts": {
+        "indicvoices": 168,
+        "fleurs": 1039,
+        "librispeech": 420,
+        "crema_d": 76,
+        "fsd50k_vocal_cc_by_3": 160,
+        "thorsten_emotional": 70,
+        "fsd50k_vocal_cc0": 112,
+        "freesound_human_whistle_cc0": 2,
+        "freesound_human_whistle_cc_by_3": 1
+      },
+      "condition_label_counts": {
+        "None": 2048
+      },
+      "distinct_language_labels": 113,
+      "bodo_sources": 26,
+      "manipuri_sources": 17,
+      "quiet_seconds": 667.54,
+      "quiet_sample_fraction": 0.1330793862302911
+    },
+    "validation": {
+      "source_count": 256,
+      "minutes": 10.518226041666667,
+      "dataset_counts": {
+        "librispeech": 51,
+        "fleurs": 124,
+        "indicvoices": 21,
+        "thorsten_emotional": 10,
+        "fsd50k_vocal_cc0": 14,
+        "crema_d": 14,
+        "fsd50k_vocal_cc_by_3": 22
+      },
+      "condition_label_counts": {
+        "None": 256
+      },
+      "distinct_language_labels": 79,
+      "bodo_sources": 5,
+      "manipuri_sources": 2
+    }
+  },
+  "source_region_regressions": [
+    {
+      "source": "bodo:3659174697300869_chunk_1.flac",
+      "region": "all",
+      "baseline": {
+        "linear": 0.0046742877982087995,
+        "log": 1.1233641055629118,
+        "mel": 1.1280383933611207
+      },
+      "candidate": {
+        "linear": 0.004725086774420142,
+        "log": 1.140917830997397,
+        "mel": 1.1456429177718173
+      },
+      "mel_change_percent": 1.5606316694808386,
+      "frames_by_resolution": [
+        590,
+        292,
+        143
+      ]
+    },
+    {
+      "source": "bodo:3659174697300869_chunk_1.flac",
+      "region": "active",
+      "baseline": {
+        "linear": 0.0046742877982087995,
+        "log": 1.1233641055629118,
+        "mel": 1.1280383933611207
+      },
+      "candidate": {
+        "linear": 0.004725086774420142,
+        "log": 1.140917830997397,
+        "mel": 1.1456429177718173
+      },
+      "mel_change_percent": 1.5606316694808386,
+      "frames_by_resolution": [
+        590,
+        292,
+        143
+      ]
+    },
+    {
+      "source": "emogator:000120-12-1.mp3",
+      "region": "quiet",
+      "baseline": {
+        "linear": 0.00017890428910469645,
+        "log": 0.3698207134202716,
+        "mel": 0.36999961770937634
+      },
+      "candidate": {
+        "linear": 0.0001788974159790276,
+        "log": 0.37629877875215456,
+        "mel": 0.3764776761681336
+      },
+      "mel_change_percent": 1.7508284194621915,
+      "frames_by_resolution": [
+        79,
+        34,
+        12
+      ]
+    },
+    {
+      "source": "emogator:000282-30-3.mp3",
+      "region": "quiet",
+      "baseline": {
+        "linear": 9.886151887978776e-05,
+        "log": 0.4273197170091987,
+        "mel": 0.42741857852807846
+      },
+      "candidate": {
+        "linear": 9.265632329681407e-05,
+        "log": 0.43230031851612466,
+        "mel": 0.43239297483942146
+      },
+      "mel_change_percent": 1.1638231376075225,
+      "frames_by_resolution": [
+        91,
+        42,
+        17
+      ]
+    },
+    {
+      "source": "freesound:220655",
+      "region": "quiet",
+      "baseline": {
+        "linear": 9.697199717129124e-05,
+        "log": 0.6873818305321038,
+        "mel": 0.6874788025292751
+      },
+      "candidate": {
+        "linear": 9.821337395599095e-05,
+        "log": 0.7695776298642159,
+        "mel": 0.7696758432381718
+      },
+      "mel_change_percent": 11.956301838906015,
+      "frames_by_resolution": [
+        8,
+        2,
+        0
+      ]
+    },
+    {
+      "source": "freesound:220663",
+      "region": "quiet",
+      "baseline": {
+        "linear": 9.052699926185663e-05,
+        "log": 0.43841258358831203,
+        "mel": 0.4385031105875739
+      },
+      "candidate": {
+        "linear": 8.476975478218425e-05,
+        "log": 0.4573567324938873,
+        "mel": 0.4574415022486695
+      },
+      "mel_change_percent": 4.318872820701092,
+      "frames_by_resolution": [
+        12,
+        4,
+        0
+      ]
+    },
+    {
+      "source": "freesound:220663",
+      "region": "transition",
+      "baseline": {
+        "linear": 0.007715360255464611,
+        "log": 0.5598247421876295,
+        "mel": 0.567540102443094
+      },
+      "candidate": {
+        "linear": 0.0076990774784001645,
+        "log": 0.5669283345956097,
+        "mel": 0.5746274120740098
+      },
+      "mel_change_percent": 1.2487768882598616,
+      "frames_by_resolution": [
+        3,
+        4,
+        4
+      ]
+    },
+    {
+      "source": "manipuri:6473924464383473_chunk_1.flac",
+      "region": "quiet",
+      "baseline": {
+        "linear": 0.00020494863700282195,
+        "log": 0.5841103568673134,
+        "mel": 0.5843153055043162
+      },
+      "candidate": {
+        "linear": 0.00020918297479699532,
+        "log": 0.6125246714800596,
+        "mel": 0.6127338544548566
+      },
+      "mel_change_percent": 4.863564018062583,
+      "frames_by_resolution": [
+        4,
+        0,
+        0
+      ]
+    },
+    {
+      "source": "manipuri:6473924464473013_chunk_1.flac",
+      "region": "all",
+      "baseline": {
+        "linear": 0.0034589618677269714,
+        "log": 0.7026632025298922,
+        "mel": 0.7061221643976192
+      },
+      "candidate": {
+        "linear": 0.0034857472544027406,
+        "log": 0.7138193258640474,
+        "mel": 0.7173050731184502
+      },
+      "mel_change_percent": 1.583707364627318,
+      "frames_by_resolution": [
+        591,
+        292,
+        143
+      ]
+    },
+    {
+      "source": "manipuri:6473924464473013_chunk_1.flac",
+      "region": "active",
+      "baseline": {
+        "linear": 0.003504536639525471,
+        "log": 0.7074751790467891,
+        "mel": 0.7109797156863146
+      },
+      "candidate": {
+        "linear": 0.0035326952830158458,
+        "log": 0.7190289932109106,
+        "mel": 0.7225616884939264
+      },
+      "mel_change_percent": 1.629015927188826,
+      "frames_by_resolution": [
+        579,
+        284,
+        137
+      ]
+    }
+  ],
+  "spectral_coefficient": 8.057898823212971,
+  "initial_gradient_cosines": [
+    0.06845266190138252,
+    0.03240755552117942,
+    0.07417374654272023,
+    0.02203354372987582
+  ],
+  "initial_per_batch_equalizing_coefficients": [
+    8.694849107138976,
+    18.353265239494082,
+    3.994464068112201,
+    9.067363616498685
+  ]
+}

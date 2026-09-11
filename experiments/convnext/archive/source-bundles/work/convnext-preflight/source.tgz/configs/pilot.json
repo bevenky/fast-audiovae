@@ -1,0 +1,46 @@
+{
+  "status": "proposed configuration, not an executable training launch",
+  "initialization": "independent random student weights; no Supertonic weights or outputs",
+  "teacher": "original frozen AudioVAE2 encoder and decoder in FP32",
+  "student": {
+    "latent_channels": 64,
+    "latent_rate_hz": 25,
+    "internal_upsample_factor": 4,
+    "hidden_channels": 512,
+    "expansion_channels": 2048,
+    "head_channels": 2048,
+    "blocks": 10,
+    "dilations": [1, 2, 4, 1, 2, 4, 1, 1, 1, 1],
+    "output_sample_rate_hz": 48000,
+    "samples_per_latent": 1920
+  },
+  "pilot": {
+    "hardware": "one H100 80 GB",
+    "unique_audio_hours": 100,
+    "global_batch_size": 32,
+    "scored_crop_seconds": 2.56,
+    "preceding_context_seconds": 1.16,
+    "proposed_total_updates": 25000,
+    "proposed_reconstruction_warmup_updates": 5000,
+    "proposed_adversarial_updates": 20000,
+    "inference_benchmarks": "CPU only, one thread, Apple, Intel and AMD"
+  },
+  "preflight": {
+    "implemented_scope": "fixed-batch reconstruction only; corpus and GAN training remain separate work",
+    "default_synthetic_updates": 12,
+    "maximum_synthetic_cli_updates": 500,
+    "learning_rate": 0.001,
+    "weight_decay": 0.01,
+    "teacher_log_spectral_weight": 15.0,
+    "teacher_waveform_l1_weight": 1.0,
+    "reference_valid_band_log_spectral_weight": 45.0,
+    "reference_contract": "16 kHz reference supervises only matching frequencies up to 8 kHz"
+  },
+  "data_policy": {
+    "commercial_compatibility_required": true,
+    "gigaspeech_in_main_checkpoint": false,
+    "reason": "GigaSpeech audio access terms restrict use to noncommercial research and education",
+    "split_policy": "speaker and source grouping; exclude all existing evaluation clips"
+  },
+  "launch_gate": "Measure complete step time, memory, quality and I/O in preflight before choosing a sustained training budget"
+}

@@ -1,0 +1,30 @@
+{
+  "state": "launched",
+  "command": [
+    "/workspace/fast-audiovae-convnext-20260908-r1/.train-venv/bin/python",
+    "-u",
+    "-m",
+    "audiovae_student.run_objective_comparison",
+    "--parent-checkpoint",
+    "/workspace/fast-audiovae-convnext-20260909-r2/training-runs/corrected-waveform-preflight-v1/checkpoint-step000500.pt",
+    "--parent-sha256",
+    "df21671f774892cf5f2af0179da9fdfdc3df62ae6b195d66a11de125bb1a9fdd",
+    "--cache-dir",
+    "/workspace/fast-audiovae-convnext-20260909-r2/teacher-cache-preflight-v1",
+    "--output-dir",
+    "/workspace/fast-audiovae-convnext-20260909-r3/training-runs/objective-comparison-v1",
+    "--log-dir",
+    "/workspace/fast-audiovae-convnext-20260908-r1/runs",
+    "--run-name",
+    "objective-comparison-v1",
+    "--device",
+    "cuda"
+  ],
+  "started_at_unix": 1788930801.4337904,
+  "source_archive_sha256": "2695f1782244bbc43bb47035e299e4c0312cb4100f14a1f6790e6c925320bca9",
+  "parent_checkpoint_sha256": "df21671f774892cf5f2af0179da9fdfdc3df62ae6b195d66a11de125bb1a9fdd",
+  "kind": "two_bounded_2000_update_objective_arms",
+  "main_training_started": false,
+  "pid": 965177,
+  "log": "/workspace/fast-audiovae-convnext-20260909-r3/launch-objective-comparison-v1.log"
+}

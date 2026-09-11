@@ -1,0 +1,216 @@
+{
+  "checkpoints": {
+    "complex": {
+      "path": "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-screen/targeted_complex/final.pt",
+      "sha256": "0627f3a69d2e455863bea60947d7832a07f7f825e3fa23e8dcda140a8687c73a",
+      "step": 8490
+    },
+    "parent": {
+      "path": "/workspace/fast-audiovae-convnext-20260909-r9/remediation/fusion-screen/parent.pt",
+      "sha256": "e763256fdadbb8048e3c916f40de2dc2f05d3fe83e45418e317b1f3f7bbd4e82",
+      "step": 8090
+    },
+    "targeted": {
+      "path": "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-screen/targeted/final.pt",
+      "sha256": "0d39c801ad9c25af579460c46dd189d12a2a03bb8676283aa23ea145dd95f8e4",
+      "step": 8490
+    }
+  },
+  "device_use": "H100 training diagnostics, not an RTF benchmark",
+  "format_version": 1,
+  "heldout_crops": 285,
+  "heldout_sources": 147,
+  "original_run": "paused",
+  "probe_crops": [
+    {
+      "metadata": {
+        "condition": "generic_emotion_nonverbal",
+        "coverage_group": "generic_emotion_nonverbal",
+        "dataset": "emogator",
+        "language": "und"
+      },
+      "source_id": "emogator:000282-30-3.mp3",
+      "start_frame": 0
+    },
+    {
+      "metadata": {
+        "condition": "Laughter",
+        "coverage_group": "event:Laughter",
+        "dataset": "fsd50k_vocal_cc_by_3",
+        "language": "und"
+      },
+      "source_id": "freesound:25794",
+      "start_frame": 0
+    },
+    {
+      "metadata": {
+        "condition": "speech",
+        "coverage_group": "speech:kn",
+        "dataset": "indicvoices",
+        "language": "kn"
+      },
+      "source_id": "kannada:6192449487784949_chunk_1.flac",
+      "start_frame": 0
+    },
+    {
+      "metadata": {
+        "condition": "speech",
+        "coverage_group": "language:kok",
+        "dataset": "indicvoices",
+        "language": "kok"
+      },
+      "source_id": "konkani:4222124650663574_chunk_1.flac",
+      "start_frame": 0
+    },
+    {
+      "metadata": {
+        "condition": "speech",
+        "coverage_group": "language:kok",
+        "dataset": "indicvoices",
+        "language": "kok"
+      },
+      "source_id": "konkani:beedfbd9-329f-4fbe-94e8-7febe16bbc8d_1_chunk_4.flac",
+      "start_frame": 22
+    },
+    {
+      "metadata": {
+        "condition": "speech",
+        "coverage_group": "speech:pa",
+        "dataset": "indicvoices",
+        "language": "pa"
+      },
+      "source_id": "punjabi:5066549581061702_chunk_1.flac",
+      "start_frame": 0
+    },
+    {
+      "metadata": {
+        "condition": "speech",
+        "coverage_group": "speech:sd",
+        "dataset": "indicvoices",
+        "language": "sd"
+      },
+      "source_id": "sindhi:5629499534317154_chunk_1.flac",
+      "start_frame": 17
+    },
+    {
+      "metadata": {
+        "condition": "encoded_zero",
+        "dataset": "synthetic_fixture",
+        "event": "encoded_zero",
+        "language": "none",
+        "speech": false
+      },
+      "source_id": "encoded_zero",
+      "start_frame": 0
+    },
+    {
+      "metadata": {
+        "condition": "encoded_quiet_noise",
+        "dataset": "synthetic_fixture",
+        "event": "encoded_quiet_noise",
+        "language": "none",
+        "speech": false
+      },
+      "source_id": "encoded_quiet_noise",
+      "start_frame": 0
+    },
+    {
+      "metadata": {
+        "condition": "encoded_fade",
+        "dataset": "synthetic_fixture",
+        "event": "encoded_fade",
+        "language": "none",
+        "speech": false
+      },
+      "source_id": "encoded_fade",
+      "start_frame": 0
+    },
+    {
+      "metadata": {
+        "condition": "Laughter",
+        "coverage_group": "event:Laughter",
+        "dataset": "fsd50k_vocal_cc0",
+        "language": "und"
+      },
+      "source_id": "freesound:119459",
+      "start_frame": 0
+    },
+    {
+      "metadata": {
+        "condition": "Screaming",
+        "coverage_group": "event:Screaming",
+        "dataset": "fsd50k_vocal_cc_by_3",
+        "language": "und"
+      },
+      "source_id": "freesound:220649",
+      "start_frame": 0
+    },
+    {
+      "metadata": {
+        "condition": "Breathing",
+        "coverage_group": "event:Breathing",
+        "dataset": "fsd50k_vocal_cc_by_3",
+        "language": "und"
+      },
+      "source_id": "freesound:27895",
+      "start_frame": 0
+    },
+    {
+      "metadata": {
+        "condition": "Whispering",
+        "coverage_group": "event:Whispering",
+        "dataset": "fsd50k_vocal_cc_by_3",
+        "language": "und"
+      },
+      "source_id": "freesound:167448",
+      "start_frame": 0
+    },
+    {
+      "metadata": {
+        "condition": "human_whistling_source_description",
+        "coverage_group": "event:human_whistling_source_description",
+        "dataset": "freesound_human_whistle_cc0",
+        "language": "und"
+      },
+      "source_id": "freesound:457967",
+      "start_frame": 0
+    },
+    {
+      "metadata": {
+        "condition": "Yell",
+        "dataset": "fsd50k_vocal_cc0",
+        "event": "Yell",
+        "group": "expressive",
+        "language": "und",
+        "semantic_event_verified": false,
+        "speech": false
+      },
+      "source_id": "freesound:266716",
+      "start_frame": 0
+    },
+    {
+      "metadata": {
+        "condition": "speech",
+        "coverage_group": "speech:en",
+        "dataset": "librispeech",
+        "language": "en"
+      },
+      "source_id": "2035-147960-0008",
+      "start_frame": 0
+    },
+    {
+      "metadata": {
+        "condition": "speech",
+        "coverage_group": "speech:en",
+        "dataset": "librispeech",
+        "language": "en"
+      },
+      "source_id": "2277-149896-0009",
+      "start_frame": 0
+    }
+  ],
+  "probe_selection": "Union overshoot sources, real encoded fixtures, source-diverse expressive cases and speech controls; fixed across checkpoints",
+  "student_parameter_updates_to_retained_models": 0,
+  "target_cache_sha256": "9acf8808622c86eb6ceaf974571706d7868396edcb3583c12543399da281a883",
+  "torch_version": "2.11.0+cu128"
+}

@@ -1,0 +1,1540 @@
+{
+  "archive_projection_version": 1,
+  "original_relative_path": "outputs/convnext-diagnostics/results.json",
+  "original_sha256": "3f7a29b975785b77d4e3146a31bf6213488bc00b5197500eca9734d2f6fb9bb5",
+  "omitted_field_paths": [
+    "laughter_encoder_discrepancy.boundary_audit.cases[0].checks.full.per_frame_max_abs",
+    "laughter_encoder_discrepancy.boundary_audit.cases[0].checks.full.frames_over_1e_4",
+    "laughter_encoder_discrepancy.boundary_audit.cases[0].checks.prefix64.per_frame_max_abs",
+    "laughter_encoder_discrepancy.boundary_audit.cases[0].checks.prefix64.frames_over_1e_4",
+    "laughter_encoder_discrepancy.boundary_audit.cases[1].checks.full.per_frame_max_abs",
+    "laughter_encoder_discrepancy.boundary_audit.cases[1].checks.full.frames_over_1e_4",
+    "laughter_encoder_discrepancy.boundary_audit.cases[1].checks.prefix64.per_frame_max_abs",
+    "laughter_encoder_discrepancy.boundary_audit.cases[1].checks.prefix64.frames_over_1e_4"
+  ],
+  "note": "Labelled projection. Omitted numerical payloads and listed bulk report collections remain outside Git; configuration metadata is retained.",
+  "report": {
+    "teacher_selfscore": {
+      "crops": 285,
+      "mae": 0.0,
+      "mse": 0.0,
+      "overshoot_samples": 0,
+      "peak": 0.9947959184646606,
+      "peak_excess_mse": 0.0,
+      "quiet_failed_windows": 0,
+      "quiet_residual_rms": 0.0,
+      "quiet_samples": 3905085,
+      "quiet_windows": 4073,
+      "samples": 26206830,
+      "sources": 147,
+      "waveform_cosine_nonquiet_mean": 0.9999999999999931
+    },
+    "main_suite_integrity": {
+      "end_utc": "2026-09-09T13:37:21Z",
+      "original_training_run": "paused",
+      "retained_checkpoint_hashes_unchanged": true,
+      "retained_model_updates": 0
+    },
+    "checkpoints": {
+      "parent": {
+        "quality_natural": {
+          "crops": 282,
+          "sources": 144,
+          "scored_samples": 25342830,
+          "original_scored_samples": 25343448,
+          "context_excluded_samples": 618,
+          "raw_mae_sample_weighted": 0.01281412123785768,
+          "teacher_waveform_mean": 0.18943819171147988,
+          "teacher_mel_mean": 1.1561465446196548,
+          "diagnostic_loss_reduction": "equal_crop_mean",
+          "nonquiet_crops": 270,
+          "nonquiet_cosine_mean": 0.9128569350750358,
+          "nonquiet_cosine_min": 0.2261039763689041,
+          "nonquiet_fraction_passing_099": 0.10740740740740741,
+          "peak_abs_max": 1.2534693479537964,
+          "teacher_peak_abs_max": 0.9947959184646606,
+          "student_overshoot_samples": 420,
+          "teacher_overshoot_samples": 0,
+          "overshoot_crops": 8,
+          "student_near_saturation_samples": 423,
+          "teacher_near_saturation_samples": 0,
+          "quiet_window_count": 3434,
+          "quiet_valid_samples": 3291645,
+          "quiet_failed_count": 3434,
+          "quiet_fraction_passing": 0.0,
+          "quiet_residual_rms_mean": 0.00031643416812809796,
+          "quiet_residual_rms_pooled": 0.00034606085684910445,
+          "quiet_phase480_residual_template_rms_median": 0.00022281112528522824,
+          "high_frequency_magnitude_mae": 4.6118175293399006e-05,
+          "high_frequency_log_magnitude_mae": 2.7950180827630007,
+          "high_frequency_complex_residual_rms": 0.00015331812991030484
+        },
+        "head": {
+          "shape": [
+            480,
+            2048
+          ],
+          "rank_float64_threshold": 480,
+          "rank_float32_threshold": 480,
+          "singular_min": 0.32845923263955124,
+          "singular_max": 2.1372781464692805,
+          "condition_number": 6.506981488368494,
+          "threshold_float64": 9.719215752144375e-13,
+          "threshold_float32": 0.0005217964224778517,
+          "full_row_rank_does_not_prove_upstream_features_can_reach_arbitrary_coefficients": true
+        },
+        "residual_power": {
+          "dc": 4.8914079249912024e-09,
+          "phase480_ac": 4.554556298049329e-08,
+          "phase1920_additional": 5.472972354639202e-09,
+          "remaining": 5.2399933116697246e-08
+        },
+        "residual_power_shares": {
+          "dc": 0.04516123633982836,
+          "phase480_ac": 0.42051163295612765,
+          "phase1920_additional": 0.05053068600686222,
+          "remaining": 0.4837964446971818
+        },
+        "unique_peak_counts": {
+          "sources": 6,
+          "unique_samples": 248,
+          "events": 37
+        },
+        "native_step_path": {
+          "baseline": {
+            "quiet_residual_mse": 1.436566492429847e-07,
+            "teacher_mse": 0.002506361314226682,
+            "teacher_relative_peak_excess_energy": 1.0086133609452406e-06,
+            "waveform_mae": 0.023786642784317438
+          },
+          "fractions": [
+            {
+              "fraction": 0.0,
+              "relative_change_percent": {
+                "quiet_residual_mse": 0.0,
+                "teacher_mse": 0.0,
+                "teacher_relative_peak_excess_energy": 0.0,
+                "waveform_mae": 0.0
+              },
+              "absolute_change": {
+                "quiet_residual_mse": 0.0,
+                "teacher_mse": 0.0,
+                "teacher_relative_peak_excess_energy": 0.0,
+                "waveform_mae": 0.0
+              }
+            },
+            {
+              "fraction": 0.1,
+              "relative_change_percent": {
+                "quiet_residual_mse": -3.926429594615517,
+                "teacher_mse": -0.02762226288842825,
+                "teacher_relative_peak_excess_energy": 2.8212344310122655,
+                "waveform_mae": -0.06109007953519728
+              },
+              "absolute_change": {
+                "quiet_residual_mse": -5.64057719050956e-09,
+                "teacher_mse": -6.923137111495593e-07,
+                "teacher_relative_peak_excess_energy": 2.8455347414777145e-08,
+                "waveform_mae": -1.4531278995692787e-05
+              }
+            },
+            {
+              "fraction": 0.25,
+              "relative_change_percent": {
+                "quiet_residual_mse": -8.86904098300599,
+                "teacher_mse": -0.047030223803063265,
+                "teacher_relative_peak_excess_energy": 7.180322336720865,
+                "waveform_mae": -0.12942630368143127
+              },
+              "absolute_change": {
+                "quiet_residual_mse": -1.2740967096173478e-08,
+                "teacher_mse": -1.1787473353942063e-06,
+                "teacher_relative_peak_excess_energy": 7.242169044710216e-08,
+                "waveform_mae": -3.078617252564794e-05
+              }
+            },
+            {
+              "fraction": 0.5,
+              "relative_change_percent": {
+                "quiet_residual_mse": -14.578044215810682,
+                "teacher_mse": -0.020114925160070556,
+                "teacher_relative_peak_excess_energy": 14.801345541467,
+                "waveform_mae": -0.17631141949733936
+              },
+              "absolute_change": {
+                "quiet_residual_mse": -2.0942329845594373e-08,
+                "teacher_mse": -5.041527025976579e-07,
+                "teacher_relative_peak_excess_energy": 1.4928834873090883e-07,
+                "waveform_mae": -4.193856754379152e-05
+              }
+            },
+            {
+              "fraction": 1.0,
+              "relative_change_percent": {
+                "quiet_residual_mse": -16.49265955698478,
+                "teacher_mse": 0.25904721236966144,
+                "teacher_relative_peak_excess_energy": 31.46251462693125,
+                "waveform_mae": -0.0021960818425970537
+              },
+              "absolute_change": {
+                "quiet_residual_mse": -2.369280209061722e-08,
+                "teacher_mse": 6.49265911641583e-06,
+                "teacher_relative_peak_excess_energy": 3.173351262165792e-07,
+                "waveform_mae": -5.223741431498174e-07
+              }
+            }
+          ],
+          "localization": {
+            "adamw_parameters": {
+              "relative_change_percent": {
+                "quiet_residual_mse": -6.897620575969503,
+                "teacher_mse": 0.2181875457457455,
+                "teacher_relative_peak_excess_energy": 14.495223276854498,
+                "waveform_mae": -0.0022125452086642202
+              },
+              "absolute_change": {
+                "quiet_residual_mse": -9.908890596932451e-09,
+                "teacher_mse": 5.4685682390320095e-06,
+                "teacher_relative_peak_excess_energy": 1.4620075866919898e-07,
+                "waveform_mae": -5.262902252264889e-07
+              }
+            },
+            "late_blocks_8_9": {
+              "relative_change_percent": {
+                "quiet_residual_mse": -19.316991914591927,
+                "teacher_mse": -0.04831453535590538,
+                "teacher_relative_peak_excess_energy": 2.182478747490495,
+                "waveform_mae": -0.15817773210894692
+              },
+              "absolute_change": {
+                "quiet_residual_mse": -2.7750143319041044e-08,
+                "teacher_mse": -1.210936823308785e-06,
+                "teacher_relative_peak_excess_energy": 2.2012772246979475e-08,
+                "waveform_mae": -3.762517210108979e-05
+              }
+            },
+            "muon_parameters": {
+              "relative_change_percent": {
+                "quiet_residual_mse": -20.18257935727549,
+                "teacher_mse": -0.14385579163385692,
+                "teacher_relative_peak_excess_energy": 15.407126599192452,
+                "waveform_mae": -0.25511307475560896
+              },
+              "absolute_change": {
+                "quiet_residual_mse": -2.8993617235468292e-08,
+                "teacher_mse": -3.6055459097855333e-06,
+                "teacher_relative_peak_excess_energy": 1.5539833741720314e-07,
+                "waveform_mae": -6.068283578820541e-05
+              }
+            },
+            "output_projection": {
+              "relative_change_percent": {
+                "quiet_residual_mse": 2.623900337833054,
+                "teacher_mse": 0.047747492196983314,
+                "teacher_relative_peak_excess_energy": 4.108476671713504,
+                "waveform_mae": 0.019821817969280602
+              },
+              "absolute_change": {
+                "quiet_residual_mse": 3.769407304806321e-09,
+                "teacher_mse": 1.1967246729385934e-06,
+                "teacher_relative_peak_excess_energy": 4.1438644642220735e-08,
+                "waveform_mae": 4.7149450337104215e-06
+              }
+            },
+            "remaining_parameters": {
+              "relative_change_percent": {
+                "quiet_residual_mse": -7.862056152134319,
+                "teacher_mse": 0.09507146251653509,
+                "teacher_relative_peak_excess_energy": 23.779313573130512,
+                "waveform_mae": -0.08810009065911589
+              },
+              "absolute_change": {
+                "quiet_residual_mse": -1.12943664297581e-08,
+                "teacher_mse": 2.382834357383956e-06,
+                "teacher_relative_peak_excess_energy": 2.3984133383965945e-07,
+                "waveform_mae": -2.095605385774371e-05
+              }
+            }
+          },
+          "state_restored": true,
+          "endpoint_matches_previous": {
+            "absolute_tolerance": 1e-12,
+            "matched": true,
+            "mismatches": [],
+            "relative_tolerance": 1e-05,
+            "scope": "Per-crop recorded metrics and exact overshoot counts; previous report does not retain sample waveforms.",
+            "source": "/workspace/fast-audiovae-convnext-20260909-r9/remediation/diagnostics-v1/objectives-updates.json"
+          }
+        },
+        "readout_probes": {
+          "same_dimension_bias_free": {
+            "selected": {
+              "relative_ridge": 0.3,
+              "scaled_diagonal_penalty": 0.3,
+              "feature_rms_min": 0.004221461346349224,
+              "feature_rms_max": 0.08444586555653384,
+              "intercept": false,
+              "fit_blocks": 52700,
+              "external_probe_only": true
+            },
+            "fit": {
+              "samples": 25296000,
+              "raw_mae": 0.008074883990282878,
+              "mse": 0.0005621748215670268,
+              "teacher_mean_square": 0.00526972784843971,
+              "overshoot_samples": 3127,
+              "peak_abs": 1.3828579317867684,
+              "quiet_10ms_samples": 4064640,
+              "quiet_10ms_residual_rms": 0.00034596322631546536,
+              "quiet_scope": "Selected complete10ms blocks for probe tuning, distinct from common20ms final metrics"
+            },
+            "tune": {
+              "samples": 6113280,
+              "raw_mae": 0.00853825695129092,
+              "mse": 0.0005898408165645534,
+              "teacher_mean_square": 0.004395648935259382,
+              "overshoot_samples": 19,
+              "peak_abs": 1.2145612038435116,
+              "quiet_10ms_samples": 890880,
+              "quiet_10ms_residual_rms": 0.00047794745572680275,
+              "quiet_scope": "Selected complete10ms blocks for probe tuning, distinct from common20ms final metrics"
+            },
+            "natural_heldout": {
+              "crops": 282,
+              "sources": 144,
+              "scored_samples": 25342830,
+              "original_scored_samples": 25343448,
+              "context_excluded_samples": 618,
+              "raw_mae_sample_weighted": 0.0130998552739975,
+              "teacher_waveform_mean": 0.19420336017794643,
+              "teacher_mel_mean": 1.0133077610046306,
+              "diagnostic_loss_reduction": "equal_crop_mean",
+              "nonquiet_crops": 270,
+              "nonquiet_cosine_mean": 0.910604051804101,
+              "nonquiet_cosine_min": 0.17759153246879578,
+              "nonquiet_fraction_passing_099": 0.0962962962962963,
+              "peak_abs_max": 1.2735472917556763,
+              "teacher_peak_abs_max": 0.9947959184646606,
+              "student_overshoot_samples": 469,
+              "teacher_overshoot_samples": 0,
+              "overshoot_crops": 8,
+              "student_near_saturation_samples": 471,
+              "teacher_near_saturation_samples": 0,
+              "quiet_window_count": 3434,
+              "quiet_valid_samples": 3291645,
+              "quiet_failed_count": 3434,
+              "quiet_fraction_passing": 0.0,
+              "quiet_residual_rms_mean": 0.0003238335117493226,
+              "quiet_residual_rms_pooled": 0.000354523357859181,
+              "quiet_phase480_residual_template_rms_median": 0.00022312170311864277,
+              "high_frequency_magnitude_mae": 2.3381233809666833e-05,
+              "high_frequency_log_magnitude_mae": 1.7550067129476705,
+              "high_frequency_complex_residual_rms": 0.0001438610899976188
+            }
+          },
+          "affine": {
+            "selected": {
+              "relative_ridge": 0.3,
+              "scaled_diagonal_penalty": 0.27237857563151013,
+              "feature_rms_min": 0.004221461346349224,
+              "feature_rms_max": 0.08444586555653384,
+              "intercept": true,
+              "fit_blocks": 52700,
+              "external_probe_only": true
+            },
+            "fit": {
+              "samples": 25296000,
+              "raw_mae": 0.008050029289938278,
+              "mse": 0.0005583797577357783,
+              "teacher_mean_square": 0.00526972784843971,
+              "overshoot_samples": 3157,
+              "peak_abs": 1.3845540307564397,
+              "quiet_10ms_samples": 4064640,
+              "quiet_10ms_residual_rms": 0.0003300755637549701,
+              "quiet_scope": "Selected complete10ms blocks for probe tuning, distinct from common20ms final metrics"
+            },
+            "tune": {
+              "samples": 6113280,
+              "raw_mae": 0.008523656991265186,
+              "mse": 0.000589380431334554,
+              "teacher_mean_square": 0.004395648935259382,
+              "overshoot_samples": 19,
+              "peak_abs": 1.2167350083270219,
+              "quiet_10ms_samples": 890880,
+              "quiet_10ms_residual_rms": 0.00046721651038567156,
+              "quiet_scope": "Selected complete10ms blocks for probe tuning, distinct from common20ms final metrics"
+            },
+            "natural_heldout": {
+              "crops": 282,
+              "sources": 144,
+              "scored_samples": 25342830,
+              "original_scored_samples": 25343448,
+              "context_excluded_samples": 618,
+              "raw_mae_sample_weighted": 0.01309400047868255,
+              "teacher_waveform_mean": 0.19277625343372637,
+              "teacher_mel_mean": 1.0101755633421823,
+              "diagnostic_loss_reduction": "equal_crop_mean",
+              "nonquiet_crops": 270,
+              "nonquiet_cosine_mean": 0.9108809912646258,
+              "nonquiet_cosine_min": 0.1789528727531433,
+              "nonquiet_fraction_passing_099": 0.0962962962962963,
+              "peak_abs_max": 1.27724027633667,
+              "teacher_peak_abs_max": 0.9947959184646606,
+              "student_overshoot_samples": 477,
+              "teacher_overshoot_samples": 0,
+              "overshoot_crops": 8,
+              "student_near_saturation_samples": 485,
+              "teacher_near_saturation_samples": 0,
+              "quiet_window_count": 3434,
+              "quiet_valid_samples": 3291645,
+              "quiet_failed_count": 3434,
+              "quiet_fraction_passing": 0.0,
+              "quiet_residual_rms_mean": 0.00030320174549509655,
+              "quiet_residual_rms_pooled": 0.0003340277517937841,
+              "quiet_phase480_residual_template_rms_median": 0.00019299829884783016,
+              "high_frequency_magnitude_mae": 2.3364205453779087e-05,
+              "high_frequency_log_magnitude_mae": 1.7517274601887525,
+              "high_frequency_complex_residual_rms": 0.00014373918680498575
+            }
+          }
+        },
+        "natural_history_summary": {
+          "cases": 8,
+          "max_future_change": 0.0,
+          "history30_max_abs_error": 7.450580596923828e-07,
+          "history30_max_rms_error": 1.156831905419767e-07
+        }
+      },
+      "targeted": {
+        "quality_natural": {
+          "crops": 282,
+          "sources": 144,
+          "scored_samples": 25342830,
+          "original_scored_samples": 25343448,
+          "context_excluded_samples": 618,
+          "raw_mae_sample_weighted": 0.012551717051835252,
+          "teacher_waveform_mean": 0.18315444205035555,
+          "teacher_mel_mean": 1.135360429367275,
+          "diagnostic_loss_reduction": "equal_crop_mean",
+          "nonquiet_crops": 270,
+          "nonquiet_cosine_mean": 0.9199125958813561,
+          "nonquiet_cosine_min": 0.2756193280220032,
+          "nonquiet_fraction_passing_099": 0.1111111111111111,
+          "peak_abs_max": 1.2655061483383179,
+          "teacher_peak_abs_max": 0.9947959184646606,
+          "student_overshoot_samples": 457,
+          "teacher_overshoot_samples": 0,
+          "overshoot_crops": 7,
+          "student_near_saturation_samples": 465,
+          "teacher_near_saturation_samples": 0,
+          "quiet_window_count": 3434,
+          "quiet_valid_samples": 3291645,
+          "quiet_failed_count": 3434,
+          "quiet_fraction_passing": 0.0,
+          "quiet_residual_rms_mean": 0.0002691123883654396,
+          "quiet_residual_rms_pooled": 0.0003066771043289183,
+          "quiet_phase480_residual_template_rms_median": 0.00015987027188511346,
+          "high_frequency_magnitude_mae": 4.459212110350557e-05,
+          "high_frequency_log_magnitude_mae": 2.755365606313246,
+          "high_frequency_complex_residual_rms": 0.00015180821461808147
+        },
+        "head": {
+          "shape": [
+            480,
+            2048
+          ],
+          "rank_float64_threshold": 480,
+          "rank_float32_threshold": 480,
+          "singular_min": 0.3202168316273574,
+          "singular_max": 2.1677764067243377,
+          "condition_number": 6.769714120608818,
+          "threshold_float64": 9.857905782720707e-13,
+          "threshold_float32": 0.000529242286797934,
+          "full_row_rank_does_not_prove_upstream_features_can_reach_arbitrary_coefficients": true
+        },
+        "residual_power": {
+          "dc": 1.219195245317357e-08,
+          "phase480_ac": 1.4240810186285882e-08,
+          "phase1920_additional": 5.749707453786305e-09,
+          "remaining": 5.08325939633542e-08
+        },
+        "residual_power_shares": {
+          "dc": 0.146864338318899,
+          "phase480_ac": 0.17154489185934313,
+          "phase1920_additional": 0.06926101327665223,
+          "remaining": 0.6123297565451056
+        },
+        "unique_peak_counts": {
+          "sources": 5,
+          "unique_samples": 282,
+          "events": 42
+        },
+        "native_step_path": {
+          "baseline": {
+            "quiet_residual_mse": 9.662026161865671e-08,
+            "teacher_mse": 0.002351961677605393,
+            "teacher_relative_peak_excess_energy": 1.0954251667724989e-06,
+            "waveform_mae": 0.022973528275744885
+          },
+          "fractions": [
+            {
+              "fraction": 0.0,
+              "relative_change_percent": {
+                "quiet_residual_mse": 0.0,
+                "teacher_mse": 0.0,
+                "teacher_relative_peak_excess_energy": 0.0,
+                "waveform_mae": 0.0
+              },
+              "absolute_change": {
+                "quiet_residual_mse": 0.0,
+                "teacher_mse": 0.0,
+                "teacher_relative_peak_excess_energy": 0.0,
+                "waveform_mae": 0.0
+              }
+            },
+            {
+              "fraction": 0.1,
+              "relative_change_percent": {
+                "quiet_residual_mse": -3.239390363778666,
+                "teacher_mse": -0.004268532970886055,
+                "teacher_relative_peak_excess_energy": 1.6183704509274026,
+                "waveform_mae": -0.05281739123047718
+              },
+              "absolute_change": {
+                "quiet_residual_mse": -3.1299074443325026e-09,
+                "teacher_mse": -1.0039425967119098e-07,
+                "teacher_relative_peak_excess_energy": 1.7728037211068342e-08,
+                "waveform_mae": -1.2134018308844474e-05
+              }
+            },
+            {
+              "fraction": 0.25,
+              "relative_change_percent": {
+                "quiet_residual_mse": -5.228509616215669,
+                "teacher_mse": 0.02188678948874943,
+                "teacher_relative_peak_excess_energy": 4.101234508658045,
+                "waveform_mae": -0.09410930381461009
+              },
+              "absolute_change": {
+                "quiet_residual_mse": -5.051799669944202e-09,
+                "teacher_mse": 5.147689012335518e-07,
+                "teacher_relative_peak_excess_energy": 4.4925954956198666e-08,
+                "waveform_mae": -2.162022752195611e-05
+              }
+            },
+            {
+              "fraction": 0.5,
+              "relative_change_percent": {
+                "quiet_residual_mse": -1.0066512165699018,
+                "teacher_mse": 0.15254096645910054,
+                "teacher_relative_peak_excess_energy": 8.38809884341641,
+                "waveform_mae": -0.043822010713020276
+              },
+              "absolute_change": {
+                "quiet_residual_mse": -9.726290390372296e-10,
+                "teacher_mse": 3.5877050737669405e-06,
+                "teacher_relative_peak_excess_energy": 9.188534574453626e-08,
+                "waveform_mae": -1.0067462022155665e-05
+              }
+            },
+            {
+              "fraction": 1.0,
+              "relative_change_percent": {
+                "quiet_residual_mse": 34.956485095032086,
+                "teacher_mse": 0.7406443680766969,
+                "teacher_relative_peak_excess_energy": 17.536980432474895,
+                "waveform_mae": 0.4351450733970568
+              },
+              "absolute_change": {
+                "quiet_residual_mse": 3.377504735150674e-08,
+                "teacher_mse": 1.741967170450654e-05,
+                "teacher_relative_peak_excess_energy": 1.921044971492986e-07,
+                "waveform_mae": 9.996817647738368e-05
+              }
+            }
+          ],
+          "localization": {
+            "adamw_parameters": {
+              "relative_change_percent": {
+                "quiet_residual_mse": 0.4374084555557802,
+                "teacher_mse": 0.3750178329800826,
+                "teacher_relative_peak_excess_energy": 2.423426432161902,
+                "waveform_mae": 0.1652862443425744
+              },
+              "absolute_change": {
+                "quiet_residual_mse": 4.2262519410012057e-10,
+                "teacher_mse": 8.820275715877741e-06,
+                "teacher_relative_peak_excess_energy": 2.654682303611833e-08,
+                "waveform_mae": 3.7972082079958114e-05
+              }
+            },
+            "late_blocks_8_9": {
+              "relative_change_percent": {
+                "quiet_residual_mse": 14.443635852483286,
+                "teacher_mse": -0.1758657166770113,
+                "teacher_relative_peak_excess_energy": 1.5701396986962197,
+                "waveform_mae": -0.13902269187071226
+              },
+              "absolute_change": {
+                "quiet_residual_mse": 1.395547874791545e-08,
+                "teacher_mse": -4.1362942602893825e-06,
+                "teacher_relative_peak_excess_energy": 1.7199705413004276e-08,
+                "waveform_mae": -3.1938417426619764e-05
+              }
+            },
+            "muon_parameters": {
+              "relative_change_percent": {
+                "quiet_residual_mse": -0.14860600979777816,
+                "teacher_mse": 0.14975525818594568,
+                "teacher_relative_peak_excess_energy": 14.806366820067595,
+                "waveform_mae": -0.10272874017171742
+              },
+              "absolute_change": {
+                "quiet_residual_mse": -1.435835154476599e-10,
+                "teacher_mse": 3.5221862827324556e-06,
+                "teacher_relative_peak_excess_energy": 1.621926684316734e-07,
+                "waveform_mae": -2.3600416170665994e-05
+              }
+            },
+            "output_projection": {
+              "relative_change_percent": {
+                "quiet_residual_mse": -0.530152261179204,
+                "teacher_mse": 0.01581282570700167,
+                "teacher_relative_peak_excess_energy": 4.00755029527929,
+                "waveform_mae": -0.004143460122115375
+              },
+              "absolute_change": {
+                "quiet_residual_mse": -5.122345017285711e-10,
+                "teacher_mse": 3.719116007752134e-07,
+                "teacher_relative_peak_excess_energy": 4.3899714505554934e-08,
+                "waveform_mae": -9.518989827483892e-07
+              }
+            },
+            "remaining_parameters": {
+              "relative_change_percent": {
+                "quiet_residual_mse": -4.711666257629187,
+                "teacher_mse": 0.7066020025583096,
+                "teacher_relative_peak_excess_energy": 11.403642186911485,
+                "waveform_mae": 0.28169018318218164
+              },
+              "absolute_change": {
+                "quiet_residual_mse": -4.552424264719292e-09,
+                "teacher_mse": 1.661900831336372e-05,
+                "teacher_relative_peak_excess_energy": 1.2491836644411418e-07,
+                "waveform_mae": 6.471417388335607e-05
+              }
+            }
+          },
+          "state_restored": true,
+          "endpoint_matches_previous": {
+            "absolute_tolerance": 1e-12,
+            "matched": true,
+            "mismatches": [],
+            "relative_tolerance": 1e-05,
+            "scope": "Per-crop recorded metrics and exact overshoot counts; previous report does not retain sample waveforms.",
+            "source": "/workspace/fast-audiovae-convnext-20260909-r9/remediation/diagnostics-v1/objectives-updates.json"
+          }
+        },
+        "readout_probes": {
+          "same_dimension_bias_free": {
+            "selected": {
+              "relative_ridge": 0.3,
+              "scaled_diagonal_penalty": 0.3,
+              "feature_rms_min": 0.005365282355999311,
+              "feature_rms_max": 0.08738495053974883,
+              "intercept": false,
+              "fit_blocks": 52700,
+              "external_probe_only": true
+            },
+            "fit": {
+              "samples": 25296000,
+              "raw_mae": 0.007715275267319403,
+              "mse": 0.0004839653117502436,
+              "teacher_mean_square": 0.00526972784843971,
+              "overshoot_samples": 3376,
+              "peak_abs": 1.4072638419116181,
+              "quiet_10ms_samples": 4064640,
+              "quiet_10ms_residual_rms": 0.0003421764780687311,
+              "quiet_scope": "Selected complete10ms blocks for probe tuning, distinct from common20ms final metrics"
+            },
+            "tune": {
+              "samples": 6113280,
+              "raw_mae": 0.007986235847563417,
+              "mse": 0.0005022654514344233,
+              "teacher_mean_square": 0.004395648935259382,
+              "overshoot_samples": 59,
+              "peak_abs": 1.288940753140162,
+              "quiet_10ms_samples": 890880,
+              "quiet_10ms_residual_rms": 0.0004579719607923021,
+              "quiet_scope": "Selected complete10ms blocks for probe tuning, distinct from common20ms final metrics"
+            },
+            "natural_heldout": {
+              "crops": 282,
+              "sources": 144,
+              "scored_samples": 25342830,
+              "original_scored_samples": 25343448,
+              "context_excluded_samples": 618,
+              "raw_mae_sample_weighted": 0.01279903248913214,
+              "teacher_waveform_mean": 0.18960324736932913,
+              "teacher_mel_mean": 1.000236472128131,
+              "diagnostic_loss_reduction": "equal_crop_mean",
+              "nonquiet_crops": 270,
+              "nonquiet_cosine_mean": 0.9172413725543905,
+              "nonquiet_cosine_min": 0.20539230108261108,
+              "nonquiet_fraction_passing_099": 0.10740740740740741,
+              "peak_abs_max": 1.2818883657455444,
+              "teacher_peak_abs_max": 0.9947959184646606,
+              "student_overshoot_samples": 422,
+              "teacher_overshoot_samples": 0,
+              "overshoot_crops": 9,
+              "student_near_saturation_samples": 424,
+              "teacher_near_saturation_samples": 0,
+              "quiet_window_count": 3434,
+              "quiet_valid_samples": 3291645,
+              "quiet_failed_count": 3434,
+              "quiet_fraction_passing": 0.0,
+              "quiet_residual_rms_mean": 0.0003163848242150342,
+              "quiet_residual_rms_pooled": 0.00034943680181358667,
+              "quiet_phase480_residual_template_rms_median": 0.00021171692394187814,
+              "high_frequency_magnitude_mae": 2.3504628764867538e-05,
+              "high_frequency_log_magnitude_mae": 1.7597357136926788,
+              "high_frequency_complex_residual_rms": 0.00014377416001072835
+            }
+          },
+          "affine": {
+            "selected": {
+              "relative_ridge": 0.3,
+              "scaled_diagonal_penalty": 0.27397734488927333,
+              "feature_rms_min": 0.005365282355999311,
+              "feature_rms_max": 0.08738495053974883,
+              "intercept": true,
+              "fit_blocks": 52700,
+              "external_probe_only": true
+            },
+            "fit": {
+              "samples": 25296000,
+              "raw_mae": 0.007685879565745539,
+              "mse": 0.00048059505448473834,
+              "teacher_mean_square": 0.00526972784843971,
+              "overshoot_samples": 3404,
+              "peak_abs": 1.4069549104767518,
+              "quiet_10ms_samples": 4064640,
+              "quiet_10ms_residual_rms": 0.0003352852158904206,
+              "quiet_scope": "Selected complete10ms blocks for probe tuning, distinct from common20ms final metrics"
+            },
+            "tune": {
+              "samples": 6113280,
+              "raw_mae": 0.007970316122388708,
+              "mse": 0.0005020703264708575,
+              "teacher_mean_square": 0.004395648935259382,
+              "overshoot_samples": 59,
+              "peak_abs": 1.2924057360366918,
+              "quiet_10ms_samples": 890880,
+              "quiet_10ms_residual_rms": 0.00045112322895678923,
+              "quiet_scope": "Selected complete10ms blocks for probe tuning, distinct from common20ms final metrics"
+            },
+            "natural_heldout": {
+              "crops": 282,
+              "sources": 144,
+              "scored_samples": 25342830,
+              "original_scored_samples": 25343448,
+              "context_excluded_samples": 618,
+              "raw_mae_sample_weighted": 0.012785009011054201,
+              "teacher_waveform_mean": 0.18824769420456802,
+              "teacher_mel_mean": 1.0040152072906494,
+              "diagnostic_loss_reduction": "equal_crop_mean",
+              "nonquiet_crops": 270,
+              "nonquiet_cosine_mean": 0.917613189695058,
+              "nonquiet_cosine_min": 0.20679405331611633,
+              "nonquiet_fraction_passing_099": 0.10740740740740741,
+              "peak_abs_max": 1.2849568128585815,
+              "teacher_peak_abs_max": 0.9947959184646606,
+              "student_overshoot_samples": 434,
+              "teacher_overshoot_samples": 0,
+              "overshoot_crops": 9,
+              "student_near_saturation_samples": 438,
+              "teacher_near_saturation_samples": 0,
+              "quiet_window_count": 3434,
+              "quiet_valid_samples": 3291645,
+              "quiet_failed_count": 3434,
+              "quiet_fraction_passing": 0.0,
+              "quiet_residual_rms_mean": 0.0003071669590720529,
+              "quiet_residual_rms_pooled": 0.0003355176710148641,
+              "quiet_phase480_residual_template_rms_median": 0.0001969580510976052,
+              "high_frequency_magnitude_mae": 2.349104219221931e-05,
+              "high_frequency_log_magnitude_mae": 1.758357902567954,
+              "high_frequency_complex_residual_rms": 0.00014365334367363752
+            }
+          }
+        },
+        "natural_history_summary": {
+          "cases": 8,
+          "max_future_change": 0.0,
+          "history30_max_abs_error": 6.705522537231445e-07,
+          "history30_max_rms_error": 1.1471759500115985e-07
+        }
+      },
+      "complex": {
+        "quality_natural": {
+          "crops": 282,
+          "sources": 144,
+          "scored_samples": 25342830,
+          "original_scored_samples": 25343448,
+          "context_excluded_samples": 618,
+          "raw_mae_sample_weighted": 0.012545700897940226,
+          "teacher_waveform_mean": 0.18423450680066508,
+          "teacher_mel_mean": 1.1018773870053866,
+          "diagnostic_loss_reduction": "equal_crop_mean",
+          "nonquiet_crops": 270,
+          "nonquiet_cosine_mean": 0.9202685522812384,
+          "nonquiet_cosine_min": 0.2941127419471741,
+          "nonquiet_fraction_passing_099": 0.1111111111111111,
+          "peak_abs_max": 1.263388752937317,
+          "teacher_peak_abs_max": 0.9947959184646606,
+          "student_overshoot_samples": 454,
+          "teacher_overshoot_samples": 0,
+          "overshoot_crops": 8,
+          "student_near_saturation_samples": 460,
+          "teacher_near_saturation_samples": 0,
+          "quiet_window_count": 3434,
+          "quiet_valid_samples": 3291645,
+          "quiet_failed_count": 3434,
+          "quiet_fraction_passing": 0.0,
+          "quiet_residual_rms_mean": 0.00027189963201115,
+          "quiet_residual_rms_pooled": 0.00031217760480419866,
+          "quiet_phase480_residual_template_rms_median": 0.00015623697351200958,
+          "high_frequency_magnitude_mae": 4.191954755884159e-05,
+          "high_frequency_log_magnitude_mae": 2.698817133537778,
+          "high_frequency_complex_residual_rms": 0.00014987657522794412
+        },
+        "head": {
+          "shape": [
+            480,
+            2048
+          ],
+          "rank_float64_threshold": 480,
+          "rank_float32_threshold": 480,
+          "singular_min": 0.3176435827435245,
+          "singular_max": 2.1955312703079324,
+          "condition_number": 6.911933341592718,
+          "threshold_float64": 9.984120289609256e-13,
+          "threshold_float32": 0.0005360183765400226,
+          "full_row_rank_does_not_prove_upstream_features_can_reach_arbitrary_coefficients": true
+        },
+        "residual_power": {
+          "dc": 1.1105449890701096e-08,
+          "phase480_ac": 1.73699595594453e-08,
+          "phase1920_additional": 5.967483713909384e-09,
+          "remaining": 5.161413957895714e-08
+        },
+        "residual_power_shares": {
+          "dc": 0.12904755761059822,
+          "phase480_ac": 0.20184241782209936,
+          "phase1920_additional": 0.06934335897601455,
+          "remaining": 0.5997666655912879
+        },
+        "unique_peak_counts": {
+          "sources": 6,
+          "unique_samples": 283,
+          "events": 43
+        },
+        "native_step_path": {
+          "baseline": {
+            "quiet_residual_mse": 1.0370178582519429e-07,
+            "teacher_mse": 0.0023345857661433277,
+            "teacher_relative_peak_excess_energy": 1.0574179275894362e-06,
+            "waveform_mae": 0.022904011642013857
+          },
+          "fractions": [
+            {
+              "fraction": 0.0,
+              "relative_change_percent": {
+                "quiet_residual_mse": 0.0,
+                "teacher_mse": 0.0,
+                "teacher_relative_peak_excess_energy": 0.0,
+                "waveform_mae": 0.0
+              },
+              "absolute_change": {
+                "quiet_residual_mse": 0.0,
+                "teacher_mse": 0.0,
+                "teacher_relative_peak_excess_energy": 0.0,
+                "waveform_mae": 0.0
+              }
+            },
+            {
+              "fraction": 0.1,
+              "relative_change_percent": {
+                "quiet_residual_mse": -2.7178571954724857,
+                "teacher_mse": 0.0002775938780011965,
+                "teacher_relative_peak_excess_energy": 1.1383839652313081,
+                "waveform_mae": -0.04556049217255337
+              },
+              "absolute_change": {
+                "quiet_residual_mse": -2.8184664478835093e-09,
+                "teacher_mse": 6.480667163501208e-09,
+                "teacher_relative_peak_excess_energy": 1.2037476133159346e-08,
+                "waveform_mae": -1.0435180431360436e-05
+              }
+            },
+            {
+              "fraction": 0.25,
+              "relative_change_percent": {
+                "quiet_residual_mse": -3.524966798824634,
+                "teacher_mse": 0.024764913647430154,
+                "teacher_relative_peak_excess_energy": 2.888999723788943,
+                "waveform_mae": -0.07658228106944884
+              },
+              "absolute_change": {
+                "quiet_residual_mse": -3.6554535201263293e-09,
+                "teacher_mse": 5.781581490105908e-07,
+                "teacher_relative_peak_excess_energy": 3.054880100735358e-08,
+                "waveform_mae": -1.7540414571866336e-05
+              }
+            },
+            {
+              "fraction": 0.5,
+              "relative_change_percent": {
+                "quiet_residual_mse": 3.6790868442905555,
+                "teacher_mse": 0.1296402009640279,
+                "teacher_relative_peak_excess_energy": 5.927282498052176,
+                "waveform_mae": -0.020274603928214386
+              },
+              "absolute_change": {
+                "quiet_residual_mse": 3.815278759589091e-09,
+                "teacher_mse": 3.0265616789058e-06,
+                "teacher_relative_peak_excess_energy": 6.267614775327469e-08,
+                "waveform_mae": -4.643697644090422e-06
+              }
+            },
+            {
+              "fraction": 1.0,
+              "relative_change_percent": {
+                "quiet_residual_mse": 49.01811901212481,
+                "teacher_mse": 0.578289030433713,
+                "teacher_relative_peak_excess_energy": 12.478980059700845,
+                "waveform_mae": 0.3692823357336392
+              },
+              "absolute_change": {
+                "quiet_residual_mse": 5.083266479349251e-08,
+                "teacher_mse": 1.3500653391673723e-05,
+                "teacher_relative_peak_excess_energy": 1.3195497233158767e-07,
+                "waveform_mae": 8.458046916833342e-05
+              }
+            }
+          ],
+          "localization": {
+            "adamw_parameters": {
+              "relative_change_percent": {
+                "quiet_residual_mse": 8.345378278452836,
+                "teacher_mse": 0.4125212324443167,
+                "teacher_relative_peak_excess_energy": 0.8117496718774506,
+                "waveform_mae": 0.23551761010103905
+              },
+              "absolute_change": {
+                "quiet_residual_mse": 8.654306308623447e-09,
+                "teacher_mse": 9.63066197496405e-06,
+                "teacher_relative_peak_excess_energy": 8.583586557580587e-09,
+                "waveform_mae": 5.394298083653479e-05
+              }
+            },
+            "late_blocks_8_9": {
+              "relative_change_percent": {
+                "quiet_residual_mse": 27.95612884129944,
+                "teacher_mse": -0.27122631582834184,
+                "teacher_relative_peak_excess_energy": -0.036823920981445345,
+                "waveform_mae": -0.1525194466892569
+              },
+              "absolute_change": {
+                "quiet_residual_mse": 2.8991004856019715e-08,
+                "teacher_mse": -6.332010963363416e-06,
+                "teacher_relative_peak_excess_energy": -3.8938274209917094e-10,
+                "waveform_mae": -3.493307182604252e-05
+              }
+            },
+            "muon_parameters": {
+              "relative_change_percent": {
+                "quiet_residual_mse": 1.9104461134126822,
+                "teacher_mse": 0.05135631484439521,
+                "teacher_relative_peak_excess_energy": 11.383300069459102,
+                "waveform_mae": -0.14216953319531392
+              },
+              "absolute_change": {
+                "quiet_residual_mse": 1.981166736836968e-09,
+                "teacher_mse": 1.1989572163730033e-06,
+                "teacher_relative_peak_excess_energy": 1.203690556857613e-07,
+                "waveform_mae": -3.2562526434451455e-05
+              }
+            },
+            "output_projection": {
+              "relative_change_percent": {
+                "quiet_residual_mse": -0.22051806624525638,
+                "teacher_mse": 0.2164093244612988,
+                "teacher_relative_peak_excess_energy": 5.8348121906362245,
+                "waveform_mae": 0.11626793708180921
+              },
+              "absolute_change": {
+                "quiet_residual_mse": -2.2868117276351584e-10,
+                "teacher_mse": 5.0522612854804125e-06,
+                "teacher_relative_peak_excess_energy": 6.169835014496135e-08,
+                "waveform_mae": 2.663002184514693e-05
+              }
+            },
+            "remaining_parameters": {
+              "relative_change_percent": {
+                "quiet_residual_mse": -5.080965023712673,
+                "teacher_mse": 0.5398605323363341,
+                "teacher_relative_peak_excess_energy": 6.296538032465654,
+                "waveform_mae": 0.20736829394085657
+              },
+              "absolute_change": {
+                "quiet_residual_mse": -5.269051466743548e-09,
+                "teacher_mse": 1.2603507144949653e-05,
+                "teacher_relative_peak_excess_energy": 6.658072197277898e-08,
+                "waveform_mae": 4.74956581860593e-05
+              }
+            }
+          },
+          "state_restored": true,
+          "endpoint_matches_previous": {
+            "absolute_tolerance": 1e-12,
+            "matched": true,
+            "mismatches": [],
+            "relative_tolerance": 1e-05,
+            "scope": "Per-crop recorded metrics and exact overshoot counts; previous report does not retain sample waveforms.",
+            "source": "/workspace/fast-audiovae-convnext-20260909-r9/remediation/diagnostics-v1/objectives-updates.json"
+          }
+        },
+        "readout_probes": {
+          "same_dimension_bias_free": {
+            "selected": {
+              "relative_ridge": 0.3,
+              "scaled_diagonal_penalty": 0.3,
+              "feature_rms_min": 0.004981893126193662,
+              "feature_rms_max": 0.08547271330390391,
+              "intercept": false,
+              "fit_blocks": 52700,
+              "external_probe_only": true
+            },
+            "fit": {
+              "samples": 25296000,
+              "raw_mae": 0.007692918587181766,
+              "mse": 0.00047964816947018506,
+              "teacher_mean_square": 0.00526972784843971,
+              "overshoot_samples": 3280,
+              "peak_abs": 1.4265016753215807,
+              "quiet_10ms_samples": 4064640,
+              "quiet_10ms_residual_rms": 0.00033487073465169687,
+              "quiet_scope": "Selected complete10ms blocks for probe tuning, distinct from common20ms final metrics"
+            },
+            "tune": {
+              "samples": 6113280,
+              "raw_mae": 0.007987524298210206,
+              "mse": 0.0004990808751784893,
+              "teacher_mean_square": 0.004395648935259382,
+              "overshoot_samples": 46,
+              "peak_abs": 1.3052194153933807,
+              "quiet_10ms_samples": 890880,
+              "quiet_10ms_residual_rms": 0.0004527570339116283,
+              "quiet_scope": "Selected complete10ms blocks for probe tuning, distinct from common20ms final metrics"
+            },
+            "natural_heldout": {
+              "crops": 282,
+              "sources": 144,
+              "scored_samples": 25342830,
+              "original_scored_samples": 25343448,
+              "context_excluded_samples": 618,
+              "raw_mae_sample_weighted": 0.012726474510417701,
+              "teacher_waveform_mean": 0.188896423985138,
+              "teacher_mel_mean": 0.992174874806235,
+              "diagnostic_loss_reduction": "equal_crop_mean",
+              "nonquiet_crops": 270,
+              "nonquiet_cosine_mean": 0.917667518887255,
+              "nonquiet_cosine_min": 0.20979365706443787,
+              "nonquiet_fraction_passing_099": 0.1111111111111111,
+              "peak_abs_max": 1.272915244102478,
+              "teacher_peak_abs_max": 0.9947959184646606,
+              "student_overshoot_samples": 412,
+              "teacher_overshoot_samples": 0,
+              "overshoot_crops": 9,
+              "student_near_saturation_samples": 418,
+              "teacher_near_saturation_samples": 0,
+              "quiet_window_count": 3434,
+              "quiet_valid_samples": 3291645,
+              "quiet_failed_count": 3434,
+              "quiet_fraction_passing": 0.0,
+              "quiet_residual_rms_mean": 0.00030441128872189864,
+              "quiet_residual_rms_pooled": 0.0003406763741220261,
+              "quiet_phase480_residual_template_rms_median": 0.00019529084125865088,
+              "high_frequency_magnitude_mae": 2.336065147238975e-05,
+              "high_frequency_log_magnitude_mae": 1.75980555598593,
+              "high_frequency_complex_residual_rms": 0.00014359009157390867
+            }
+          },
+          "affine": {
+            "selected": {
+              "relative_ridge": 0.3,
+              "scaled_diagonal_penalty": 0.2719239938715485,
+              "feature_rms_min": 0.004981893126193662,
+              "feature_rms_max": 0.08547271330390391,
+              "intercept": true,
+              "fit_blocks": 52700,
+              "external_probe_only": true
+            },
+            "fit": {
+              "samples": 25296000,
+              "raw_mae": 0.00766492383868242,
+              "mse": 0.0004761358146414199,
+              "teacher_mean_square": 0.00526972784843971,
+              "overshoot_samples": 3318,
+              "peak_abs": 1.4270214132033838,
+              "quiet_10ms_samples": 4064640,
+              "quiet_10ms_residual_rms": 0.0003418007114097147,
+              "quiet_scope": "Selected complete10ms blocks for probe tuning, distinct from common20ms final metrics"
+            },
+            "tune": {
+              "samples": 6113280,
+              "raw_mae": 0.007972877267475482,
+              "mse": 0.0004989297444722971,
+              "teacher_mean_square": 0.004395648935259382,
+              "overshoot_samples": 47,
+              "peak_abs": 1.309327802506114,
+              "quiet_10ms_samples": 890880,
+              "quiet_10ms_residual_rms": 0.0004543950675538467,
+              "quiet_scope": "Selected complete10ms blocks for probe tuning, distinct from common20ms final metrics"
+            },
+            "natural_heldout": {
+              "crops": 282,
+              "sources": 144,
+              "scored_samples": 25342830,
+              "original_scored_samples": 25343448,
+              "context_excluded_samples": 618,
+              "raw_mae_sample_weighted": 0.012714058738740886,
+              "teacher_waveform_mean": 0.1880723191623358,
+              "teacher_mel_mean": 0.9962370536217453,
+              "diagnostic_loss_reduction": "equal_crop_mean",
+              "nonquiet_crops": 270,
+              "nonquiet_cosine_mean": 0.9181007830633058,
+              "nonquiet_cosine_min": 0.2113410234451294,
+              "nonquiet_fraction_passing_099": 0.10740740740740741,
+              "peak_abs_max": 1.2757456302642822,
+              "teacher_peak_abs_max": 0.9947959184646606,
+              "student_overshoot_samples": 420,
+              "teacher_overshoot_samples": 0,
+              "overshoot_crops": 9,
+              "student_near_saturation_samples": 422,
+              "teacher_near_saturation_samples": 0,
+              "quiet_window_count": 3434,
+              "quiet_valid_samples": 3291645,
+              "quiet_failed_count": 3434,
+              "quiet_fraction_passing": 0.0,
+              "quiet_residual_rms_mean": 0.0003140665546844615,
+              "quiet_residual_rms_pooled": 0.0003395598622394148,
+              "quiet_phase480_residual_template_rms_median": 0.00020227752945178412,
+              "high_frequency_magnitude_mae": 2.3335289831048866e-05,
+              "high_frequency_log_magnitude_mae": 1.7575419283729095,
+              "high_frequency_complex_residual_rms": 0.0001434569867905583
+            }
+          }
+        },
+        "natural_history_summary": {
+          "cases": 8,
+          "max_future_change": 0.0,
+          "history30_max_abs_error": 8.344650268554688e-07,
+          "history30_max_rms_error": 1.1970959075101014e-07
+        }
+      }
+    },
+    "supplement_integrity": {
+      "end_utc": "2026-09-09T13:44:42Z",
+      "original_training_run": "paused",
+      "retained_checkpoint_hashes_unchanged": true,
+      "retained_model_updates": 0
+    },
+    "natural_history_integrity": {
+      "end_utc": "2026-09-09T13:54:41Z",
+      "original_training_run": "paused",
+      "retained_checkpoint_hashes_unchanged": true,
+      "retained_model_updates": 0
+    },
+    "natural_history_coverage": {
+      "selection": {
+        "excluded": {
+          "synthetic": 3,
+          "under56_real_frames": 103
+        },
+        "minimum_history_frames": 40,
+        "missing_categories": [],
+        "quiet_definition": "Teacher RMS<=0.001 in16complete real frames if available; otherwise explicitly labeled whisper/breath/quiet-condition fallback",
+        "reference16k_required_for_history": false,
+        "score_frames": 16,
+        "score_seconds": 0.64,
+        "selected_category_counts": {
+          "laughter": 2,
+          "quiet_or_low_level": 2,
+          "speech": 2,
+          "whistle": 2
+        },
+        "selection": "Distinct source identities, up to two per group; all four natural groups required; no reference16k gate; lowest teacher RMS for natural quiet, then true-start and longer available real context"
+      },
+      "source_inventory": {
+        "amplitude_available_cases": 7,
+        "cases": [
+          {
+            "amplitude_source": {
+              "audio_sha256": "76fed1b2963fbfe2a85f584be37eef2be7d29ab4dfedd06b7fd5dee984136528",
+              "gain_policy": "no-additional-gain-normalization",
+              "prepared_samples16k": 97993,
+              "raw_source_verified": true,
+              "reader": "Original SourceCorpus.read_native_16k; prepared mono16k bytes, no new resampling, gain or channel change",
+              "reader_source_sha256": "b6ee04dd7d560f5f395c624324076528ce405aaebb6d0320e873fd3034fb92eb",
+              "sample_rate_hz": 16000,
+              "scope": "Complete supplied source-manifest recording segment; not necessarily the entire parent recording",
+              "source_id": "freesound:25794",
+              "source_split": "dev"
+            },
+            "category": "quiet_or_low_level",
+            "context_start_frame": 16,
+            "frames": 77,
+            "raw_reference_cached": false,
+            "source_id": "freesound:25794",
+            "strict_quiet": true,
+            "teacher_selection_rms": 9.672660795320497e-06
+          },
+          {
+            "amplitude_source": {
+              "audio_sha256": "facaa1adf455eb5f410e530974ecc1c72d4c869fd8c26411d7fba61ec8795243",
+              "gain_policy": "none: preserve original amplitude",
+              "prepared_samples16k": 70320,
+              "raw_source_verified": true,
+              "reader": "Original SourceCorpus.read_native_16k; prepared mono16k bytes, no new resampling, gain or channel change",
+              "reader_source_sha256": "b6ee04dd7d560f5f395c624324076528ce405aaebb6d0320e873fd3034fb92eb",
+              "sample_rate_hz": 16000,
+              "scope": "Complete supplied source-manifest recording segment; not necessarily the entire parent recording",
+              "source_id": "bengali:1407374883630096_chunk_1.flac",
+              "source_split": "dev"
+            },
+            "category": "speech",
+            "context_start_frame": 0,
+            "frames": 87,
+            "raw_reference_cached": false,
+            "source_id": "bengali:1407374883630096_chunk_1.flac",
+            "strict_quiet": false,
+            "teacher_selection_rms": 0.1158181851663199
+          },
+          {
+            "amplitude_source": {
+              "audio_sha256": "3aa3dc951bec8a3198a48d5c45c918d7966a1d32c4b95b0e769236dce0e0cbba",
+              "gain_policy": "no-additional-gain-normalization",
+              "prepared_samples16k": 88697,
+              "raw_source_verified": true,
+              "reader": "Original SourceCorpus.read_native_16k; prepared mono16k bytes, no new resampling, gain or channel change",
+              "reader_source_sha256": "b6ee04dd7d560f5f395c624324076528ce405aaebb6d0320e873fd3034fb92eb",
+              "sample_rate_hz": 16000,
+              "scope": "Complete supplied source-manifest recording segment; not necessarily the entire parent recording",
+              "source_id": "freesound:119459",
+              "source_split": "dev"
+            },
+            "category": "laughter",
+            "context_start_frame": 0,
+            "frames": 64,
+            "raw_reference_cached": false,
+            "source_id": "freesound:119459",
+            "strict_quiet": false,
+            "teacher_selection_rms": 0.014800342262250396
+          },
+          {
+            "amplitude_source": {
+              "audio_sha256": "a268177be1c7fe21e9600e013421ad342df51d4caadb947294991d5238639bff",
+              "gain_policy": "no-additional-gain-normalization",
+              "prepared_samples16k": 320742,
+              "raw_source_verified": true,
+              "reader": "Original SourceCorpus.read_native_16k; prepared mono16k bytes, no new resampling, gain or channel change",
+              "reader_source_sha256": "b6ee04dd7d560f5f395c624324076528ce405aaebb6d0320e873fd3034fb92eb",
+              "sample_rate_hz": 16000,
+              "scope": "Complete supplied source-manifest recording segment; not necessarily the entire parent recording",
+              "source_id": "freesound:457967",
+              "source_split": "dev"
+            },
+            "category": "whistle",
+            "context_start_frame": 0,
+            "frames": 64,
+            "raw_reference_cached": false,
+            "source_id": "freesound:457967",
+            "strict_quiet": false,
+            "teacher_selection_rms": 0.02767937917907187
+          },
+          {
+            "amplitude_unavailable": "No heldout source-manifest row",
+            "category": "quiet_or_low_level",
+            "context_start_frame": 0,
+            "frames": 159,
+            "raw_reference_cached": true,
+            "source_id": "freesound:266716",
+            "strict_quiet": true,
+            "teacher_selection_rms": 6.108479786869749e-05
+          },
+          {
+            "amplitude_source": {
+              "audio_sha256": "bab3eb5ffba2ed2b6955998d5586fc9204d3def98275a43ddbc6ecad6468df86",
+              "gain_policy": "none: preserve original amplitude",
+              "prepared_samples16k": 55200,
+              "raw_source_verified": true,
+              "reader": "Original SourceCorpus.read_native_16k; prepared mono16k bytes, no new resampling, gain or channel change",
+              "reader_source_sha256": "b6ee04dd7d560f5f395c624324076528ce405aaebb6d0320e873fd3034fb92eb",
+              "sample_rate_hz": 16000,
+              "scope": "Complete supplied source-manifest recording segment; not necessarily the entire parent recording",
+              "source_id": "konkani:4222124650663574_chunk_1.flac",
+              "source_split": "dev"
+            },
+            "category": "speech",
+            "context_start_frame": 0,
+            "frames": 86,
+            "raw_reference_cached": false,
+            "source_id": "konkani:4222124650663574_chunk_1.flac",
+            "strict_quiet": false,
+            "teacher_selection_rms": 0.007786448495231209
+          },
+          {
+            "amplitude_source": {
+              "audio_sha256": "ed733d640a7f5a5432635dcbb1e7c79295b6a7cbc507a36924dd94ff5f839dfb",
+              "gain_policy": "no-additional-gain-normalization",
+              "prepared_samples16k": 88000,
+              "raw_source_verified": true,
+              "reader": "Original SourceCorpus.read_native_16k; prepared mono16k bytes, no new resampling, gain or channel change",
+              "reader_source_sha256": "b6ee04dd7d560f5f395c624324076528ce405aaebb6d0320e873fd3034fb92eb",
+              "sample_rate_hz": 16000,
+              "scope": "Complete supplied source-manifest recording segment; not necessarily the entire parent recording",
+              "source_id": "freesound:386521",
+              "source_split": "dev"
+            },
+            "category": "laughter",
+            "context_start_frame": 0,
+            "frames": 64,
+            "raw_reference_cached": false,
+            "source_id": "freesound:386521",
+            "strict_quiet": false,
+            "teacher_selection_rms": 0.0029007687951589363
+          },
+          {
+            "amplitude_source": {
+              "audio_sha256": "8529d08f441e43c73383910ef4b0d6a4f0a579b104c511e503fa5dddaaa18455",
+              "gain_policy": "no-additional-gain-normalization",
+              "prepared_samples16k": 223915,
+              "raw_source_verified": true,
+              "reader": "Original SourceCorpus.read_native_16k; prepared mono16k bytes, no new resampling, gain or channel change",
+              "reader_source_sha256": "b6ee04dd7d560f5f395c624324076528ce405aaebb6d0320e873fd3034fb92eb",
+              "sample_rate_hz": 16000,
+              "scope": "Complete supplied source-manifest recording segment; not necessarily the entire parent recording",
+              "source_id": "freesound:539498",
+              "source_split": "dev"
+            },
+            "category": "whistle",
+            "context_start_frame": 0,
+            "frames": 64,
+            "raw_reference_cached": false,
+            "source_id": "freesound:539498",
+            "strict_quiet": false,
+            "teacher_selection_rms": 0.007261408943229404
+          }
+        ],
+        "source_manifest_sha256": {
+          "/workspace/fast-audiovae-convnext-20260909-r9/remediation/language-validation/manifest.jsonl": "323958e5020c8c2aff37e8652580708226c263986a5ae57a0a37fb73d8046b5b",
+          "/workspace/fast-audiovae-convnext-20260909-r9/remediation/language-validation/ready.json": "5f9a5f6d723f638ee23d2cb1d9f26dba9b1eff2848a364b2f5cd829e466e980b",
+          "/workspace/fast-audiovae-convnext-20260909-r9/remediation/validation-appendix/manifest.jsonl": "6d3cf3da2b4803ec810799ed43f67497c72474a6ea06d829982d3651065d2416",
+          "/workspace/fast-audiovae-convnext-20260909-r9/remediation/validation-appendix/ready.json": "087650f832268f35a9c09bb9595c0ab4c78785246e1118201528b08a021f66dc"
+        }
+      }
+    },
+    "laughter_encoder_discrepancy": {
+      "boundary_audit": {
+        "cases": [
+          {
+            "source_id": "freesound:119459",
+            "source": {
+              "source_id": "freesound:119459",
+              "audio_sha256": "3aa3dc951bec8a3198a48d5c45c918d7966a1d32c4b95b0e769236dce0e0cbba",
+              "prepared_samples16k": 88697,
+              "source_split": "dev",
+              "sample_rate_hz": 16000,
+              "reader_source_sha256": "b6ee04dd7d560f5f395c624324076528ce405aaebb6d0320e873fd3034fb92eb",
+              "reader": "Original SourceCorpus.read_native_16k; prepared mono16k bytes, no new resampling, gain or channel change",
+              "scope": "Complete supplied source-manifest recording segment; not necessarily the entire parent recording",
+              "gain_policy": "no-additional-gain-normalization",
+              "raw_source_verified": true
+            },
+            "cached_z_sha256": "8e88aa3c6d73355096e7280c5dd4bcafa71fa9460d2a5f5c17f6d5f20232e4a2",
+            "cache_key": "734488e5ca6e03a63b8f275151094106e1b0d433f70f10fdfbff979c1d274c4b",
+            "checks": {
+              "full": {
+                "vs_cached": {
+                  "samples": 4096,
+                  "mae": 0.005682687144371812,
+                  "mse": 0.00284416049126945,
+                  "residual_rms": 0.05333067120587786,
+                  "max_abs_error": 1.0348803997039795,
+                  "prediction_rms": 0.9418807849444615,
+                  "target_rms": 0.9385169895422392,
+                  "prediction_peak": 4.045453071594238,
+                  "target_peak": 4.045453071594238,
+                  "residual_dc": 0.0030070842449276824,
+                  "cosine": 0.9983976595436584,
+                  "snr_db": 24.90930178456296,
+                  "equal_values": false
+                },
+                "latent_sha256": "efa5fd38c3916beb94d041d32eec30c8ea91d10eb214917c83d2ae9f28479354"
+              },
+              "prefix64": {
+                "vs_cached": {
+                  "samples": 4096,
+                  "mae": 0.005682925668509142,
+                  "mse": 0.0028441581531559305,
+                  "residual_rms": 0.05333064928496493,
+                  "max_abs_error": 1.0348784923553467,
+                  "prediction_rms": 0.9418808054049753,
+                  "target_rms": 0.9385169895422392,
+                  "prediction_peak": 4.045447826385498,
+                  "target_peak": 4.045453071594238,
+                  "residual_dc": 0.0030070628736780236,
+                  "cosine": 0.9983976609788308,
+                  "snr_db": 24.909305354791226,
+                  "equal_values": false
+                },
+                "latent_sha256": "5335636221e4e93cd120326522d5c6f703aaeb4ff2714fcf7af740f73304fa67"
+              },
+              "full_vs_prefix64": {
+                "samples": 4096,
+                "mae": 8.850898325363232e-07,
+                "mse": 1.764768795220281e-12,
+                "residual_rms": 1.3284460076421177e-06,
+                "max_abs_error": 1.2278556823730469e-05,
+                "prediction_rms": 0.9418807849444615,
+                "target_rms": 0.9418808054049753,
+                "prediction_peak": 4.045453071594238,
+                "target_peak": 4.045447826385498,
+                "residual_dc": 2.1371249658841407e-08,
+                "cosine": 0.9999999999990057,
+                "snr_db": 117.01304077060033,
+                "equal_values": false
+              },
+              "cached_z_decode_vs_cached_target": {
+                "samples": 122880,
+                "mae": 1.3960973592001362e-08,
+                "mse": 7.471247339867204e-16,
+                "residual_rms": 2.733358253114144e-08,
+                "max_abs_error": 3.986060619354248e-07,
+                "prediction_rms": 0.02870747107689849,
+                "target_rms": 0.02870747070240702,
+                "prediction_peak": 0.18006616830825806,
+                "target_peak": 0.18006618320941925,
+                "residual_dc": 2.055425459464762e-11,
+                "cosine": 0.9999999999995467,
+                "snr_db": 120.42596746338695,
+                "equal_values": false
+              }
+            }
+          },
+          {
+            "source_id": "freesound:386521",
+            "source": {
+              "source_id": "freesound:386521",
+              "audio_sha256": "ed733d640a7f5a5432635dcbb1e7c79295b6a7cbc507a36924dd94ff5f839dfb",
+              "prepared_samples16k": 88000,
+              "source_split": "dev",
+              "sample_rate_hz": 16000,
+              "reader_source_sha256": "b6ee04dd7d560f5f395c624324076528ce405aaebb6d0320e873fd3034fb92eb",
+              "reader": "Original SourceCorpus.read_native_16k; prepared mono16k bytes, no new resampling, gain or channel change",
+              "scope": "Complete supplied source-manifest recording segment; not necessarily the entire parent recording",
+              "gain_policy": "no-additional-gain-normalization",
+              "raw_source_verified": true
+            },
+            "cached_z_sha256": "90f0a685de75e28eb547266549b3fc9c184d675695fafd7ae4dbba6c337ed8c0",
+            "cache_key": "d67cad8b579075c4cfc00ea625a23ad466a16a730c1f7ca30197fcb8e113f993",
+            "checks": {
+              "full": {
+                "vs_cached": {
+                  "samples": 4096,
+                  "mae": 0.005810564044779198,
+                  "mse": 0.003383847760522259,
+                  "residual_rms": 0.05817084974901311,
+                  "max_abs_error": 1.3657867908477783,
+                  "prediction_rms": 0.9578580604128125,
+                  "target_rms": 0.9537875487364237,
+                  "prediction_peak": 4.635777950286865,
+                  "target_peak": 4.635775089263916,
+                  "residual_dc": 0.0027663838049392098,
+                  "cosine": 0.9981571233809545,
+                  "snr_db": 24.29492481358664,
+                  "equal_values": false
+                },
+                "latent_sha256": "7a2200fe9289158b25b0186000e3b15be94fffa0df392003be0a8effff4f7c30"
+              },
+              "prefix64": {
+                "vs_cached": {
+                  "samples": 4096,
+                  "mae": 0.005810564044779198,
+                  "mse": 0.003383847760522259,
+                  "residual_rms": 0.05817084974901311,
+                  "max_abs_error": 1.3657867908477783,
+                  "prediction_rms": 0.9578580604128125,
+                  "target_rms": 0.9537875487364237,
+                  "prediction_peak": 4.635777950286865,
+                  "target_peak": 4.635775089263916,
+                  "residual_dc": 0.0027663838049392098,
+                  "cosine": 0.9981571233809545,
+                  "snr_db": 24.29492481358664,
+                  "equal_values": false
+                },
+                "latent_sha256": "7a2200fe9289158b25b0186000e3b15be94fffa0df392003be0a8effff4f7c30"
+              },
+              "full_vs_prefix64": {
+                "samples": 4096,
+                "mae": 0.0,
+                "mse": 0.0,
+                "residual_rms": 0.0,
+                "max_abs_error": 0.0,
+                "prediction_rms": 0.9578580604128125,
+                "target_rms": 0.9578580604128125,
+                "prediction_peak": 4.635777950286865,
+                "target_peak": 4.635777950286865,
+                "residual_dc": 0.0,
+                "cosine": 1.0,
+                "snr_db": null,
+                "equal_values": true
+              },
+              "cached_z_decode_vs_cached_target": {
+                "samples": 122880,
+                "mae": 0.0,
+                "mse": 0.0,
+                "residual_rms": 0.0,
+                "max_abs_error": 0.0,
+                "prediction_rms": 0.05239566853212268,
+                "target_rms": 0.05239566853212268,
+                "prediction_peak": 0.9590966701507568,
+                "target_peak": 0.9590966701507568,
+                "residual_dc": 0.0,
+                "cosine": 1.0,
+                "snr_db": null,
+                "equal_values": true
+              }
+            }
+          }
+        ],
+        "parameter_updates": 0,
+        "encoder_calls": 4,
+        "student_calls": 0,
+        "files": {
+          "retained_checkpoint_hashes_unchanged": true
+        }
+      },
+      "provenance_audit_file": "laughter-cache-provenance.json",
+      "status": "Historical encoder execution or preparation reproducibility unresolved; paired cached latent-to-waveform targets remain coherent"
+    },
+    "final_state": {
+      "original_training_lock_available": true,
+      "sustained_training": "paused",
+      "gpu_compute_processes": 0,
+      "retained_checkpoint_hashes_unchanged": true,
+      "helper_tests_passed": 42
+    }
+  }
+}

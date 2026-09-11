@@ -1,0 +1,59 @@
+[
+  {
+    "name": "pathfinder-update",
+    "argv": [
+      "/tmp/fast-audiovae-recovery-20260909/venv214/bin/python",
+      "-m",
+      "pip",
+      "install",
+      "--upgrade",
+      "--only-binary=:all:",
+      "--index-url",
+      "https://pypi.org/simple",
+      "--report",
+      "/tmp/fast-audiovae-recovery-20260909/venv214-final-evidence/pathfinder-report.json",
+      "cuda-pathfinder==1.8.1"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "pip-check",
+    "argv": [
+      "/tmp/fast-audiovae-recovery-20260909/venv214/bin/python",
+      "-m",
+      "pip",
+      "check"
+    ],
+    "exit_code": 1
+  },
+  {
+    "name": "freeze",
+    "argv": [
+      "/tmp/fast-audiovae-recovery-20260909/venv214/bin/python",
+      "-m",
+      "pip",
+      "freeze",
+      "--all"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "inspect",
+    "argv": [
+      "/tmp/fast-audiovae-recovery-20260909/venv214/bin/python",
+      "-m",
+      "pip",
+      "inspect"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "import-only",
+    "argv": [
+      "/tmp/fast-audiovae-recovery-20260909/venv214/bin/python",
+      "-c",
+      "\nimport json,sys,importlib.metadata as m\nfrom pathlib import Path\nimport torch,numpy,onnx,onnxruntime,pyarrow,huggingface_hub,soundfile,soxr,pydantic,pytest\nfrom torch.utils.tensorboard import SummaryWriter\nassert torch.__version__ == '2.14.0+cu126'\nassert torch.version.cuda == '12.6'\nassert m.version('nvidia-cudnn-cu12') == '9.25.1.1'\nassert m.version('nvidia-nccl-cu12') == '2.29.3'\nassert not torch.cuda._initialized  # Read a Python flag only; no CUDA API calls.\nmapped=sorted({line.split()[-1] for line in Path('/proc/self/maps').read_text().splitlines()\n    if '/nvidia/' in line or '/torch/lib/' in line})\nassert all('/venv214/' in path for path in mapped),mapped\nprint(json.dumps({'python':sys.version,'executable':sys.executable,'torch':torch.__version__,\n 'torch_compiled_cuda':torch.version.cuda,'cuda_initialized':False,\n 'sys_path':sys.path,'mapped_libraries':mapped,\n 'packages':sorted([{'name':d.metadata['Name'],'version':d.version} for d in m.distributions()],key=lambda x:x['name'].lower())},indent=2))\n\nassert m.version(\"cuda-pathfinder\") == \"1.8.1\"\n"
+    ],
+    "exit_code": 0
+  }
+]

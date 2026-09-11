@@ -1,0 +1,35 @@
+{
+  "contract": {
+    "base_data_plan_sha256": "90632c05076e51cb2bca78ae7cd25ef0a72440d34f51dcabf18a5dddbd918d5a",
+    "base_target_cache_sha256": "9acf8808622c86eb6ceaf974571706d7868396edcb3583c12543399da281a883",
+    "identity_sha256": "b67946aa69a674e72b6caa91d1fecbd94733f13b6b337b357185ffd3760d110e",
+    "interpretation": "Fresh whole-source encoder means and teacher decoder targets, sliced to the existing indexed crop geometry; original caches preserved",
+    "pools": {
+      "targeted_generator": {
+        "baseline_pool_prefix_identity_sha256": "83d8a48c17b3026c91e058e23b51410a806a9eed87f4dd091a70ee9827dd72ac",
+        "count": 12800,
+        "fresh_pool_identity_sha256": "20d69713cabdc82cb90d67e01bdcd519a2c653f41db02f2549f098a5ffa661b9",
+        "ordered_geometry_sha256": "2b75d33617b7638226392a4146c42d967b0384a4577572a4cf6d37ceca819082"
+      }
+    },
+    "provenance": {
+      "decoder_policy": "Singleton full-source decode from reference latents, cuDNN9.25.1; crop only after continuous decode",
+      "encoder_policy": "Full-source singleton cuDNN-disabled FP32 raw_mu reference only; no batched encoder results used",
+      "generation_path": "/dev/shm/fast-audiovae-recovery-fresh12800-v1/generation.json",
+      "generation_sha256": "163e96724577f214bf4fbfdc708d738f641fee7375f6e31124e4474d0f3260eb",
+      "inventory_sha256": "b49dec824751f56d4df15e2628d690d489956137c16b554ffe626b5f11a1446f",
+      "runtime": {
+        "cuda": "12.6",
+        "cudnn": 92501,
+        "torch": "2.14.0+cu126"
+      },
+      "source_count": 3621
+    },
+    "teacher_state_sha256": "8da1691a055ac7eee3d06750846fc1ad1f887adfec13c31340cab7397fde1501",
+    "version": "corrected_training_pairs_v1"
+  },
+  "format_version": 1,
+  "kind": "corrected_training_pairs_v1",
+  "path": "/dev/shm/fast-audiovae-recovery-fresh12800-v1/pairs.pt",
+  "sha256": "1125b32246ebd102ef4a4c3ce9feca878c18b73a985afa77ee16ee5226df4f23"
+}

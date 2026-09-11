@@ -1,0 +1,236 @@
+{
+  "arms": [
+    {
+      "factor": 1.0,
+      "name": "current_rate"
+    },
+    {
+      "factor": 0.25,
+      "name": "quarter_rate"
+    }
+  ],
+  "batch_size": 32,
+  "cache_gate_path": "/tmp/fast-audiovae-recovery-20260909/corrected-training-resolution.json",
+  "cache_gate_sha256": "7ecd5525e9e1448982fa38c12e75bce61356b49b08b16f6ef633c20c63c6965c",
+  "cache_resolution": {
+    "canonical_receipt_sha256": "5bf945d958085362ec14f9af2bfb45bf045f75184dc9bfc0b975f12fc86e5255",
+    "canonical_target_cache_sha256": "6be63e6fc49d7a23c59b75cca1d1d294cf7aa83d2dbbb9c06e1622e92c574a19",
+    "canonical_target_contract_sha256": "bf372497cabec8f24b3e65887210a1808fa99d728cef212f6e5c80ed76068430",
+    "data_plan_sha256": "90632c05076e51cb2bca78ae7cd25ef0a72440d34f51dcabf18a5dddbd918d5a",
+    "diagnostic_quiet_mse_change_percent": {
+      "current": 35.133994614686024,
+      "quarter": -5.224131079192314
+    },
+    "evidence": [
+      {
+        "path": "/tmp/fast-audiovae-recovery-20260909/corrected-update-diagnostic-v1/corrected-update-diagnostic.json",
+        "sha256": "f6d78baf219135bfc098de50d969b6c4e1ea691a14d44261a6281f0460777529"
+      },
+      {
+        "path": "/dev/shm/fast-audiovae-recovery-fresh32-v2/receipt.json",
+        "sha256": "5a73b4e601ec43ad81ca841656e35a46d15f03c82f91363df06bd05171afff77"
+      },
+      {
+        "path": "/dev/shm/fast-audiovae-recovery-fresh12800-v1/receipt.json",
+        "sha256": "b9072c77a94ead31aa36d546c2f94af996bd704ce8db161b467546be851a27a0"
+      },
+      {
+        "path": "/dev/shm/fast-audiovae-recovery-fresh12800-v1/generation.json",
+        "sha256": "163e96724577f214bf4fbfdc708d738f641fee7375f6e31124e4474d0f3260eb"
+      },
+      {
+        "path": "/tmp/fast-audiovae-recovery-20260909/canonical-panel-v1/receipt.json",
+        "sha256": "5bf945d958085362ec14f9af2bfb45bf045f75184dc9bfc0b975f12fc86e5255"
+      }
+    ],
+    "format_version": 1,
+    "limitations": [
+      "The single-step teacher-relative peak-excess energy still worsens at both rates.",
+      "The old strict numerical screens still contain failures.",
+      "No claim of final perceptual equivalence or generalization from one diagnostic batch."
+    ],
+    "parent_checkpoint_sha256": "0d39c801ad9c25af579460c46dd189d12a2a03bb8676283aa23ea145dd95f8e4",
+    "requires_canonical_evaluation": true,
+    "requires_fresh_training_pairs": true,
+    "resolution": "Only this fresh reference-target experiment is ready. Historical cache strict failures remain recorded and are not reclassified as passed. Both arms use identical newly regenerated singleton-reference encoder means and full-source teacher decoder targets. The corrected actual one-step test reproduced quiet-error worsening at the current rate and improvement at a quarter rate. This satisfies the user-approved condition for the bounded400-step comparison; it is not a checkpoint promotion or a long-run training restart.",
+    "target_cache_sha256": "9acf8808622c86eb6ceaf974571706d7868396edcb3583c12543399da281a883",
+    "training_ready": true,
+    "training_receipt_sha256": "b9072c77a94ead31aa36d546c2f94af996bd704ce8db161b467546be851a27a0",
+    "training_target_cache_sha256": "1125b32246ebd102ef4a4c3ce9feca878c18b73a985afa77ee16ee5226df4f23",
+    "training_target_contract_sha256": "b67946aa69a674e72b6caa91d1fecbd94733f13b6b337b357185ffd3760d110e"
+  },
+  "canonical_panel": {
+    "cache_path": "/tmp/fast-audiovae-recovery-20260909/canonical-panel-v1/heldout.pt",
+    "cache_sha256": "6be63e6fc49d7a23c59b75cca1d1d294cf7aa83d2dbbb9c06e1622e92c574a19",
+    "contract_sha256": "bf372497cabec8f24b3e65887210a1808fa99d728cef212f6e5c80ed76068430",
+    "evaluation_policy": "Separate corrected encoder domain; original historical tensors, counts and masks remain unchanged",
+    "heldout_crops": 285,
+    "heldout_identity_sha256": "ef70f22f1e638257d139530b11750899da9c573abe95133525eabf3a6e6830dd",
+    "metadata_sha256": "c3fcab4a824c8a7bc79c8b8cd3e14d04b8ac56841ff9561872e2bb247be6922f",
+    "receipt_path": "/tmp/fast-audiovae-recovery-20260909/canonical-panel-v1/receipt.json",
+    "receipt_sha256": "5bf945d958085362ec14f9af2bfb45bf045f75184dc9bfc0b975f12fc86e5255",
+    "required_by_resolution": true
+  },
+  "changes": "Only the joint generator learning rate differs; no new layers, losses, data selection, warmup or normalization calibration.",
+  "coverage": {
+    "context_overlap": "Permitted causal context, excluded from scored intervals",
+    "earlier_exposure": "These windows were used by the starting targeted checkpoint; reuse is declared debugging, not a new-data claim.",
+    "heldout_source_disjoint": true,
+    "scored_intervals_nonoverlapping": true,
+    "unique_source_ids": 3621,
+    "valid_scored_hours": 8.977772430555556,
+    "valid_scored_samples48k": 1551359076,
+    "windows": 12800
+  },
+  "data_plan_sha256": "90632c05076e51cb2bca78ae7cd25ef0a72440d34f51dcabf18a5dddbd918d5a",
+  "domain_gate_policy": "Every included domain must independently pass the unchanged preregistered gates",
+  "evaluation_domains": [
+    "historical",
+    "canonical"
+  ],
+  "format_version": 1,
+  "health_crops": [
+    {
+      "source_id": "encoded_zero",
+      "start_frame": 0
+    },
+    {
+      "source_id": "encoded_fade",
+      "start_frame": 0
+    },
+    {
+      "source_id": "freesound:25794",
+      "start_frame": 0
+    },
+    {
+      "source_id": "freesound:457967",
+      "start_frame": 0
+    },
+    {
+      "source_id": "sindhi:5629499534317154_chunk_1.flac",
+      "start_frame": 17
+    },
+    {
+      "source_id": "kannada:6192449487784949_chunk_1.flac",
+      "start_frame": 0
+    }
+  ],
+  "health_updates": [
+    0,
+    25,
+    100,
+    400
+  ],
+  "heldout_crops": 285,
+  "heldout_identity_sha256": "fccfdc0d97f340ec51a0cac620cdd1ed3f32965b8a61e869de736f59bb88096d",
+  "historical_training_pool_identity_sha256": "83d8a48c17b3026c91e058e23b51410a806a9eed87f4dd091a70ee9827dd72ac",
+  "parent_checkpoint_sha256": "0d39c801ad9c25af579460c46dd189d12a2a03bb8676283aa23ea145dd95f8e4",
+  "parent_path": "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-screen/targeted/final.pt",
+  "parent_step": 8490,
+  "preregistered_gates": {
+    "encoded_zero_steady_ratio_vs_baseline_max": 1.0,
+    "encoded_zero_steady_ratio_vs_control_max": 1.0,
+    "event_language_mae_and_mel_ratio_max": 1.05,
+    "maximum_peak_ratio_max": 1.01,
+    "minimum_sources_for_group_gate": 2,
+    "natural_mae_and_mel_ratio_max": 1.01,
+    "natural_quiet_ratio_vs_baseline_max": 1.0,
+    "natural_quiet_ratio_vs_control_max": 0.9,
+    "peak_excess_energy_ratio_max": 1.1,
+    "speech_expressive_mae_and_mel_ratio_max": 1.02
+  },
+  "preregistered_gates_sha256": "739b97929a32b7687eb727e0ddba9e11816d00463d077aef64b5c8cd0eec7adf",
+  "sources": {
+    "/tmp/fast-audiovae-recovery-20260909/code/canonical_evaluation.py": "a769555c36700604d95ef4ef2f7a20db7f71f75f8f0bad3488e8996cf2e851cb",
+    "/tmp/fast-audiovae-recovery-20260909/code/evaluation_audit.py": "e4a39450950f87fe0fe9cb950e5df4064897caa19111f486b81ee93a3a06b733",
+    "/tmp/fast-audiovae-recovery-20260909/code/render_canonical_targets.py": "8040b7422e298a927f90144c385fa3bf8010654ff00e757af6164eb8cfcc79b8",
+    "/tmp/fast-audiovae-recovery-20260909/code/run_update_experiment.py": "a0f895832d1c29e0b23242af2f2711cacd9b9e7d637f94be2527422027f86a3b",
+    "/tmp/fast-audiovae-recovery-20260909/code/training_overlay.py": "503b832ed55451ad586a4cb32d0850d0c22fa1932aec4b0b45d9c49d16ec16c7",
+    "/tmp/fast-audiovae-recovery-20260909/code214/diagnostic_common.py": "81254f55310fb4ca1b4d49aace1e22203d07969ac0562c4ed26aeca2a32b567b",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/__init__.py": "860d9747b1b793b5e489efeb60274a93c7d26119d75a28556bd78971bbb59417",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/acquire.py": "cb3203ebb37350f520fb747cac61f4b8caed5c93c6e8be190fec94c5019de66f",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/acquire_emogator.py": "6f0a0bde701f898e9e8f9d96f9d1112558837be8a419560bb46e2173502d9888",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/acquire_expressive.py": "f3c5d313e1ded3f7a9f5de955df986a4114e4e354247cc3c19d2992bb0a46119",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/acquire_fsd_vocal.py": "242bdfb13b4f2a0ef8c0f099ddad12defaf2db0cf0d65e21fdd1edbeb13e68d8",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/acquire_human_whistle.py": "75dc182d2931f78f5cecc5aa34bb75aac60e465f89020872ad99a4e73bc0b72d",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/acquire_indic.py": "448416fe9752bfe29a695403dcb2e72d77b3dd13b2846887de566b6168f1855e",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/balance_comparison.py": "19f9882efb54a7d0ced3d621b15032653d5ac3821327ddff3eed7d1c67d124f7",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/batched_teacher.py": "e433f873bc725e8a1236a7e8be0782fdfb59a08bbd65745729aaca292f12a4ad",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/batching.py": "d61c4c86715d8fede70de4c32831a9334dfa8a8be4f576cea8ae8b67769803e0",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/cache.py": "88c999d941020d5d4aaf0e31474ee3bbb345caeefdecd487aab58e838e881df3",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/cached_comparison_data.py": "bf53bc5347072a2322846e75bfb95989d917a44621d9c4015e5f47bb8929cb82",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/checkpoint_retention.py": "e48a6ba98523d0a13e91419a13ce5fe3fdba11f00291e0781e2211412a6730a4",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/comparison_data.py": "9b43e809cc9ea9080b19940eef77bc27105a62a4900bcf988a424b087372ac99",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/continuation_data.py": "50046a82814f3e24c135f8ec019474f42f6c7820611b3734767410cb1c6b74bd",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/corpus_assembly.py": "67d5f73d1c44d1200b7524ebac2bf7057134210abab1e1ea505d9315d975a9be",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/corpus_training.py": "214e70d28d2181cba608f52ebe2330e1494380d6ac6f3251a438de2961ec1224",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/corrected_calibration.py": "851e0352be29afa8a2711a86947b13529e58f8a2ed0ccf844daa7a6ab0fabdd7",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/data.py": "e385b18d834a64e195505ff7902c1029494927b5e5a088940b365a1ffbfd9d65",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/discriminators.py": "3bbbfea0f0992d8f5c6f313cf61bc1cda32b9065d080d1a046363ea05d0910a5",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/distillation_training.py": "76a8e0127444814b9719a2fcda4dc5e25757b81fbc8b19f98d7ae7e1ec14dcf9",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/export.py": "dd482eb70c4a85ebbf5095db684d1d459c2abde202e3c41e5c6a3d5ba0f14aa0",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/fusion_architecture.py": "35b6e0e2838e21ba7aace8f7c69afba7c1a0a4d88c89dee42e603c4650c5a016",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/fusion_evaluation.py": "dbd8662d8f9280eadc3bb6fe2092ada7c296e6ed62dc590cd397a4c5637485be",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/fusion_migration.py": "92d8f83e5b713b4f71ee1bcac6b5e9ff8934254dd660c05d4e5008b72805d85a",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/fusion_objectives.py": "077ac5a29d41d090e4ced6bc98a96089fcf8a0cd25586a046bdfc92cec43652a",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/gradient_balancer.py": "33885290de66fc65a257e4034df65606b337baf93774c4aefed7214a036e2afd",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/indic_staging.py": "81e653765cfae921eff0d4ba9ac1c301537c5c1fd2062fcc383035444eb2a9e8",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/losses.py": "b68a20e83756d4579c3e30be85eb5831ddd07df9012ab4e4f3960a02dedacf30",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/losses_distillation.py": "51d4d85f0fac45749bd9c5070715035717033be6a83b5cbd843863abc259587f",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/model.py": "f8a1e0d0a04211ea318f1103178be323061cadcd244e07d742512c3fc187c60b",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/monitoring.py": "32fd7593619eaefc9ba7c357047e5dce5f454f376ab1a05269c63754d9f84dbe",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/normalization_calibration.py": "92fb9dca56d0f4850102b8a1006db4fbaa1fda66f6f350afa9a2ed8a55cf39a3",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/objective_comparison.py": "12d5e6daca3d760af4546f56e2b6280d7291d3622d1e50e1096a9acdf00a1007",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/optimizers.py": "b62bbd9b8294a1737136f5adedae0b2dd85feeaa4003d7fc7cbdac231ca74601",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/perceptual_comparison.py": "a5a78ea3ac736bc3b1f32a464a43748d41fe21ae0809e747e6bb93da541701f3",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/perceptual_readiness.py": "9200beb99e7032f2412509873da85c085639a4451948ebfa1a62bc2ec3547c2c",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/perceptual_trial_engine.py": "bd81f56f6042875a6f549680487e043b957b6e0c4da1c0d5a853096195b02a14",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/preflight_distillation.py": "57b299d4c8aa485ded6d57d69e4e67427748857ecc6f50821f532feb40613f42",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/prepare_targets.py": "a4cbc1374318eec99bfded9f0258ab47e7146231a71fe0c5f4a94b8ef335285f",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/quiet_audio.py": "fa1e0816448f97bfc66cbf9380560b0c0dd12e2b389c4b60bb086081538913ff",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/quiet_phase.py": "adead1634c032d698690b7281d0d622e7525b5b504aabe76bf04905b613fa64f",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/quiet_phase_engine.py": "bab06a275b402dc0eb9d62652871c2d1ea350d4cb3c4d52e27077ea571a630cf",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/recipe_v2.py": "7a1dc0480ea843fc426f51d725e20d48347fb5d98c730e58648264a9bd9fd3bc",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/recipe_v2_continuation.py": "08e26117ccf283e3bc4572ac73bb7e7089b6be25ffeec3836b19d6282704d972",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/recipe_v2_data.py": "1c6949010d369d462a6741af37371a917ed36ecc400e27fcb821cfb81baf0a78",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/recipe_v2_pilot.py": "d4ab51d02d646ccbb4b6d68574f02481a7398675bd024713a5549322819382ab",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/reconstruction_v2.py": "676f849336e5c0aa33c5702a0a5e619c3ec33a4f16cfe7475946e79f049bffae",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/representative_pilot.py": "560df2cc6f7676ec584c328dafe0f1f63a532aa58ea0b288e9a9f6d6a2b9bb8c",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/restart_data.py": "4ce756dcf5206fca38f9e93a863e265fe018a67dd3b879993724366587b94dc7",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/run_objective_comparison.py": "86f3550754a07a56c7cb78dbfe123be42f353f8dbed5ad916522de65991bb227",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/run_representative_pilot.py": "d1f4671cd6498ef5b295bb6cf0b3c2692d41d88fc162f5898b307a3bd16ea41f",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/sampling.py": "2acb42e809ebd86866eb0b49cec3230b0d20e5ff38f997c278dc773d14817b5b",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/source_corpus.py": "b6ee04dd7d560f5f395c624324076528ce405aaebb6d0320e873fd3034fb92eb",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/source_training.py": "1e6d3a79701c161162fac2228f9b595bfe3a5a48d12ff853eebe12563ee0a791",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/teacher.py": "7cb9e80229dc7e02787d5ba7114966e30c91e819869d7f2dbd1548bb2a317bdd",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/training.py": "2c6d91ec733374dc1b3cbd3cc947e14ec690bf0e33564da3c69091c7641221ab",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/audiovae_student/validation.py": "ff5461bb112317db0e075761faa6a91337c0804dd3caccf2f9e140a0feea67f2",
+    "/workspace/fast-audiovae-convnext-20260909-r9/remediation/corrected-code/run_corrected_screen.py": "90d390dd3c700c830aa55c13a82745fa08bdf78c73263bc16c83be22e8f4b377"
+  },
+  "storage": {
+    "available_bytes_at_start": 6512197632,
+    "parent_checkpoint_bytes": 346914121,
+    "parent_files_copied": false,
+    "results_path": "/tmp/fast-audiovae-recovery-20260909/corrected-update-400-v1",
+    "retention": "New artifacts are on the declared mount; no originals are removed. Transfer durable results after comparison."
+  },
+  "target_cache_sha256": "9acf8808622c86eb6ceaf974571706d7868396edcb3583c12543399da281a883",
+  "training_overlay": {
+    "cache_path": "/dev/shm/fast-audiovae-recovery-fresh12800-v1/pairs.pt",
+    "cache_sha256": "1125b32246ebd102ef4a4c3ce9feca878c18b73a985afa77ee16ee5226df4f23",
+    "contract_sha256": "b67946aa69a674e72b6caa91d1fecbd94733f13b6b337b357185ffd3760d110e",
+    "pool_contracts": {
+      "targeted_generator": {
+        "baseline_pool_prefix_identity_sha256": "83d8a48c17b3026c91e058e23b51410a806a9eed87f4dd091a70ee9827dd72ac",
+        "count": 12800,
+        "fresh_pool_identity_sha256": "20d69713cabdc82cb90d67e01bdcd519a2c653f41db02f2549f098a5ffa661b9",
+        "ordered_geometry_sha256": "2b75d33617b7638226392a4146c42d967b0384a4577572a4cf6d37ceca819082"
+      }
+    },
+    "receipt_path": "/dev/shm/fast-audiovae-recovery-fresh12800-v1/receipt.json",
+    "receipt_sha256": "b9072c77a94ead31aa36d546c2f94af996bd704ce8db161b467546be851a27a0"
+  },
+  "training_pool_identity_sha256": "20d69713cabdc82cb90d67e01bdcd519a2c653f41db02f2549f098a5ffa661b9",
+  "training_target_domain": "fresh_corrected_encoder_and_decoder",
+  "updates_per_arm": 400
+}

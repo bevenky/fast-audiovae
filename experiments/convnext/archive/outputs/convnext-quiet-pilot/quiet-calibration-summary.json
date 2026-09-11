@@ -1,0 +1,73 @@
+{
+  "state": "completed",
+  "arms": {
+    "control": {
+      "fitted": {
+        "crops": 32,
+        "nonquiet_crops": 31,
+        "nonquiet_cosine_min": 0.9967156648635864,
+        "nonquiet_cosine_mean": 0.9989294659706854,
+        "nonquiet_cosine_099_count": 31,
+        "teacher_waveform_mean": 0.025937765109119937,
+        "teacher_mel_mean": 0.6466691573150456,
+        "quiet_windows": 123,
+        "quiet_failed": 100,
+        "quiet_residual_rms_mean": 0.0001559855967260352,
+        "quiet_normalized_residual_mean": 0.1559855967260352
+      },
+      "sentinel": {
+        "crops": 32,
+        "nonquiet_crops": 31,
+        "nonquiet_cosine_min": 0.0963493064045906,
+        "nonquiet_cosine_mean": 0.3074737333001629,
+        "nonquiet_cosine_099_count": 0,
+        "teacher_waveform_mean": 0.8441922031342983,
+        "teacher_mel_mean": 2.7527379617094994,
+        "quiet_windows": 123,
+        "quiet_failed": 123,
+        "quiet_residual_rms_mean": 0.0073573344871704655,
+        "quiet_normalized_residual_mean": 7.357334487170466
+      }
+    },
+    "quiet10": {
+      "fitted": {
+        "crops": 32,
+        "nonquiet_crops": 31,
+        "nonquiet_cosine_min": 0.9959702491760254,
+        "nonquiet_cosine_mean": 0.9986707260531764,
+        "nonquiet_cosine_099_count": 31,
+        "teacher_waveform_mean": 0.030828987422864884,
+        "teacher_mel_mean": 0.6774467304348946,
+        "quiet_windows": 123,
+        "quiet_failed": 105,
+        "quiet_residual_rms_mean": 0.00014318916131505683,
+        "quiet_normalized_residual_mean": 0.14318916131505682
+      },
+      "sentinel": {
+        "crops": 32,
+        "nonquiet_crops": 31,
+        "nonquiet_cosine_min": 0.09676730632781982,
+        "nonquiet_cosine_mean": 0.3077726008430604,
+        "nonquiet_cosine_099_count": 0,
+        "teacher_waveform_mean": 0.8548394208773971,
+        "teacher_mel_mean": 2.762737460434437,
+        "quiet_windows": 123,
+        "quiet_failed": 123,
+        "quiet_residual_rms_mean": 0.007617984377832069,
+        "quiet_normalized_residual_mean": 7.617984377832069
+      }
+    }
+  },
+  "selection_checks": {
+    "quiet_residual_improves_10pct": false,
+    "waveform_within_10pct": false,
+    "nonquiet_min_099": true
+  },
+  "quiet10_selected": false,
+  "sentinel_used_to_select": false,
+  "same_initial_state": true,
+  "teacher_inference_calls": 0,
+  "parent_unchanged": true,
+  "trained_weights_discarded": true,
+  "source_archive_sha256": "7ad185c7ad7e4225e7048ee9e2fc53f64491544614d4e6aef588d3bc33116b8d"
+}

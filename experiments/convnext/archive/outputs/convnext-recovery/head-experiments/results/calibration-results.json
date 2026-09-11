@@ -1,0 +1,593 @@
+{
+  "baseline_training_validation": {
+    "mae": 0.008805016161500817,
+    "mse": 0.0007109944677161853,
+    "quiet_mse": 6.820485703240232e-08,
+    "quiet_samples": 4223169,
+    "valid_samples": 30291615
+  },
+  "candidates": [
+    [
+      "baseline",
+      "raw"
+    ],
+    [
+      "baseline",
+      "clamp"
+    ],
+    [
+      "shared_anchor",
+      "raw"
+    ],
+    [
+      "shared_anchor",
+      "clamp"
+    ],
+    [
+      "full_anchor",
+      "raw"
+    ],
+    [
+      "full_anchor",
+      "clamp"
+    ]
+  ],
+  "fits": {
+    "full_anchor": {
+      "calibration_teacher_residual_fp64_rms": 3.0126109879156263e-19,
+      "conservative_installed_dot_rounding_bound_max": 5.920048629596048e-06,
+      "constraint_mode": "full",
+      "constraint_residual_fp64_guard_tolerance": 2.2566654233486478e-11,
+      "constraint_residual_fp64_max_abs": 2.1531577519204315e-18,
+      "constraint_residual_fp64_rms": 3.0126109879156263e-19,
+      "delta_weight_norm": 0.370940706101568,
+      "delta_weight_norm_fraction": 0.021686998552605297,
+      "feature_condition": 65.30990813808744,
+      "feature_rank": 4,
+      "feature_rank_threshold": 1.634728119190822e-14,
+      "feature_shape": [
+        2048,
+        4
+      ],
+      "feature_singular_values": [
+        0.03594805150605399,
+        0.0006488032987912662,
+        0.0006192657137793298,
+        0.0005504226315867348
+      ],
+      "inference_added_macs": 0,
+      "inference_added_parameters": 0,
+      "installed_coefficient_rounding_constraint_max_abs": 2.921951647347589e-11,
+      "installed_coefficient_rounding_constraint_rms": 8.245316489361903e-12,
+      "maximum_allowed_feature_condition": 100000000.0,
+      "method": "minimum_frobenius_anchor",
+      "returned_weight_device": "cpu",
+      "rounding_scope": "Coefficient rounding is evaluated in FP64. Dot-product bound excludes feature rounding and is not an observed execution error.",
+      "scope": "Four fitted stationary phases with frozen upstream features. Calibration constraints do not establish held-out quality or CPU RTF.",
+      "solve_device": "cpu",
+      "solve_dtype": "torch.float64",
+      "source_dtype": "torch.float32",
+      "weight_norm_before": 17.104289706193864,
+      "weight_shape": [
+        480,
+        2048
+      ]
+    },
+    "post_ridge_trials": {
+      "0.001": {
+        "anchor_only": false,
+        "calibration_teacher_residual_fp64_rms": 1.090932339722216e-18,
+        "conservative_installed_dot_rounding_bound_max": 1.4967011691812428e-05,
+        "constraint_gram_condition": 307.1963781563954,
+        "constraint_gram_eigenvalues": [
+          0.007796955171446654,
+          0.010119883298867137,
+          0.010481014857364437,
+          2.395196389316189
+        ],
+        "constraint_mode": "full",
+        "constraint_residual_fp64_guard_tolerance": 5.7052804675412476e-11,
+        "constraint_residual_fp64_max_abs": 5.648015692291675e-18,
+        "constraint_residual_fp64_rms": 1.090932339722216e-18,
+        "covariance_asymmetry_max_abs": 0.0,
+        "covariance_mean_diagonal": 0.0026983209723857406,
+        "delta_weight_norm": 41.22238523350917,
+        "delta_weight_norm_fraction": 2.410061215145437,
+        "feasible_gradient_norm": 3.4282114778496215e-15,
+        "feasible_gradient_norm_fraction": 3.97387449550882e-11,
+        "feature_condition": 65.30990813808744,
+        "feature_rank": 4,
+        "feature_rank_threshold": 1.634728119190822e-14,
+        "feature_shape": [
+          2048,
+          4
+        ],
+        "feature_singular_values": [
+          0.03594805150605399,
+          0.0006488032987912662,
+          0.0006192657137793298,
+          0.0005504226315867348
+        ],
+        "gradient_norm": 8.626874053833623e-05,
+        "inference_added_macs": 0,
+        "inference_added_parameters": 0,
+        "installed_coefficient_rounding_constraint_max_abs": 6.86378167844004e-11,
+        "installed_coefficient_rounding_constraint_rms": 1.992133129749664e-11,
+        "maximum_allowed_feature_condition": 100000000.0,
+        "method": "constrained_ridge_residual_fit",
+        "regularized_covariance_cholesky_passed": true,
+        "returned_weight_device": "cpu",
+        "ridge_lambda": 2.698320972385741e-06,
+        "ridge_objective_at_delta": -0.03285986118757636,
+        "rounding_scope": "Coefficient rounding is evaluated in FP64. Dot-product bound excludes feature rounding and is not an observed execution error.",
+        "scope": "Four fitted stationary phases with frozen upstream features. Calibration constraints do not establish held-out quality or CPU RTF.",
+        "shrinkage": 0.001,
+        "solve_device": "cpu",
+        "solve_dtype": "torch.float64",
+        "source_dtype": "torch.float32",
+        "statistics_contract": "Caller supplies training-only complete-frame A=mean(hhT) and B=mean(h residualT), at the unchanged W.",
+        "unconstrained_delta_norm": 41.23013322588915,
+        "weight_norm_before": 17.104289706193864,
+        "weight_shape": [
+          480,
+          2048
+        ]
+      },
+      "0.01": {
+        "anchor_only": false,
+        "calibration_teacher_residual_fp64_rms": 5.88291924531315e-19,
+        "conservative_installed_dot_rounding_bound_max": 8.19491078570657e-06,
+        "constraint_gram_condition": 275.98740209407333,
+        "constraint_gram_eigenvalues": [
+          0.003762112460115097,
+          0.005055085900807364,
+          0.005122757019237202,
+          1.0382956442529085
+        ],
+        "constraint_mode": "full",
+        "constraint_residual_fp64_guard_tolerance": 3.1238209295927076e-11,
+        "constraint_residual_fp64_max_abs": 3.283099703557668e-18,
+        "constraint_residual_fp64_rms": 5.88291924531315e-19,
+        "covariance_asymmetry_max_abs": 0.0,
+        "covariance_mean_diagonal": 0.0026983209723857406,
+        "delta_weight_norm": 16.745347126652657,
+        "delta_weight_norm_fraction": 0.9790144703050004,
+        "feasible_gradient_norm": 1.3795127810548548e-15,
+        "feasible_gradient_norm_fraction": 1.0025656747241364e-11,
+        "feature_condition": 65.30990813808744,
+        "feature_rank": 4,
+        "feature_rank_threshold": 1.634728119190822e-14,
+        "feature_shape": [
+          2048,
+          4
+        ],
+        "feature_singular_values": [
+          0.03594805150605399,
+          0.0006488032987912662,
+          0.0006192657137793298,
+          0.0005504226315867348
+        ],
+        "gradient_norm": 0.00013759824576424265,
+        "inference_added_macs": 0,
+        "inference_added_parameters": 0,
+        "installed_coefficient_rounding_constraint_max_abs": 3.783744681234904e-11,
+        "installed_coefficient_rounding_constraint_rms": 1.1585106287708828e-11,
+        "maximum_allowed_feature_condition": 100000000.0,
+        "method": "constrained_ridge_residual_fit",
+        "regularized_covariance_cholesky_passed": true,
+        "returned_weight_device": "cpu",
+        "ridge_lambda": 2.6983209723857407e-05,
+        "ridge_objective_at_delta": -0.02532025734850158,
+        "rounding_scope": "Coefficient rounding is evaluated in FP64. Dot-product bound excludes feature rounding and is not an observed execution error.",
+        "scope": "Four fitted stationary phases with frozen upstream features. Calibration constraints do not establish held-out quality or CPU RTF.",
+        "shrinkage": 0.01,
+        "solve_device": "cpu",
+        "solve_dtype": "torch.float64",
+        "source_dtype": "torch.float32",
+        "statistics_contract": "Caller supplies training-only complete-frame A=mean(hhT) and B=mean(h residualT), at the unchanged W.",
+        "unconstrained_delta_norm": 16.745483817876735,
+        "weight_norm_before": 17.104289706193864,
+        "weight_shape": [
+          480,
+          2048
+        ]
+      },
+      "0.1": {
+        "anchor_only": false,
+        "calibration_teacher_residual_fp64_rms": 4.032297376206006e-19,
+        "conservative_installed_dot_rounding_bound_max": 6.162156634827104e-06,
+        "constraint_gram_condition": 274.2874503599902,
+        "constraint_gram_eigenvalues": [
+          0.0007983986259814094,
+          0.0010675378245419743,
+          0.001112993366279978,
+          0.2189907234913602
+        ],
+        "constraint_mode": "full",
+        "constraint_residual_fp64_guard_tolerance": 2.3489546617976995e-11,
+        "constraint_residual_fp64_max_abs": 1.9312351197398048e-18,
+        "constraint_residual_fp64_rms": 4.032297376206006e-19,
+        "covariance_asymmetry_max_abs": 0.0,
+        "covariance_mean_diagonal": 0.0026983209723857406,
+        "delta_weight_norm": 4.7416771603217995,
+        "delta_weight_norm_fraction": 0.27722151821392077,
+        "feasible_gradient_norm": 4.0080058425719414e-16,
+        "feasible_gradient_norm_fraction": 8.530352420457481e-13,
+        "feature_condition": 65.30990813808744,
+        "feature_rank": 4,
+        "feature_rank_threshold": 1.634728119190822e-14,
+        "feature_shape": [
+          2048,
+          4
+        ],
+        "feature_singular_values": [
+          0.03594805150605399,
+          0.0006488032987912662,
+          0.0006192657137793298,
+          0.0005504226315867348
+        ],
+        "gradient_norm": 0.00046985231617863133,
+        "inference_added_macs": 0,
+        "inference_added_parameters": 0,
+        "installed_coefficient_rounding_constraint_max_abs": 3.05517968576482e-11,
+        "installed_coefficient_rounding_constraint_rms": 8.673790507644086e-12,
+        "maximum_allowed_feature_condition": 100000000.0,
+        "method": "constrained_ridge_residual_fit",
+        "regularized_covariance_cholesky_passed": true,
+        "returned_weight_device": "cpu",
+        "ridge_lambda": 0.0002698320972385741,
+        "ridge_objective_at_delta": -0.017387067879619904,
+        "rounding_scope": "Coefficient rounding is evaluated in FP64. Dot-product bound excludes feature rounding and is not an observed execution error.",
+        "scope": "Four fitted stationary phases with frozen upstream features. Calibration constraints do not establish held-out quality or CPU RTF.",
+        "shrinkage": 0.1,
+        "solve_device": "cpu",
+        "solve_dtype": "torch.float64",
+        "source_dtype": "torch.float32",
+        "statistics_contract": "Caller supplies training-only complete-frame A=mean(hhT) and B=mean(h residualT), at the unchanged W.",
+        "unconstrained_delta_norm": 4.7198075710507545,
+        "weight_norm_before": 17.104289706193864,
+        "weight_shape": [
+          480,
+          2048
+        ]
+      },
+      "1.0": {
+        "anchor_only": false,
+        "calibration_teacher_residual_fp64_rms": 4.1030428823501364e-19,
+        "conservative_installed_dot_rounding_bound_max": 6.040750820480121e-06,
+        "constraint_gram_condition": 315.1458272218548,
+        "constraint_gram_eigenvalues": [
+          0.00010121750480256875,
+          0.0001319246006870603,
+          0.00014089540992704713,
+          0.03189827428033759
+        ],
+        "constraint_mode": "full",
+        "constraint_residual_fp64_guard_tolerance": 2.3026759315158308e-11,
+        "constraint_residual_fp64_max_abs": 1.6906777627195835e-18,
+        "constraint_residual_fp64_rms": 4.1030428823501364e-19,
+        "covariance_asymmetry_max_abs": 0.0,
+        "covariance_mean_diagonal": 0.0026983209723857406,
+        "delta_weight_norm": 1.5605877645461654,
+        "delta_weight_norm_fraction": 0.09123955401556605,
+        "feasible_gradient_norm": 1.4642509047461515e-16,
+        "feasible_gradient_norm_fraction": 5.04026653868137e-14,
+        "feature_condition": 65.30990813808744,
+        "feature_rank": 4,
+        "feature_rank_threshold": 1.634728119190822e-14,
+        "feature_shape": [
+          2048,
+          4
+        ],
+        "feature_singular_values": [
+          0.03594805150605399,
+          0.0006488032987912662,
+          0.0006192657137793298,
+          0.0005504226315867348
+        ],
+        "gradient_norm": 0.002905106096093933,
+        "inference_added_macs": 0,
+        "inference_added_parameters": 0,
+        "installed_coefficient_rounding_constraint_max_abs": 2.5764927626299727e-11,
+        "installed_coefficient_rounding_constraint_rms": 8.04838693934622e-12,
+        "maximum_allowed_feature_condition": 100000000.0,
+        "method": "constrained_ridge_residual_fit",
+        "regularized_covariance_cholesky_passed": true,
+        "returned_weight_device": "cpu",
+        "ridge_lambda": 0.0026983209723857406,
+        "ridge_objective_at_delta": -0.010371567811554223,
+        "rounding_scope": "Coefficient rounding is evaluated in FP64. Dot-product bound excludes feature rounding and is not an observed execution error.",
+        "scope": "Four fitted stationary phases with frozen upstream features. Calibration constraints do not establish held-out quality or CPU RTF.",
+        "shrinkage": 1.0,
+        "solve_device": "cpu",
+        "solve_dtype": "torch.float64",
+        "source_dtype": "torch.float32",
+        "statistics_contract": "Caller supplies training-only complete-frame A=mean(hhT) and B=mean(h residualT), at the unchanged W.",
+        "unconstrained_delta_norm": 1.4979338439599403,
+        "weight_norm_before": 17.104289706193864,
+        "weight_shape": [
+          480,
+          2048
+        ]
+      }
+    },
+    "pre_ridge_trials": {
+      "0.001": {
+        "anchor_only": false,
+        "calibration_teacher_residual_fp64_rms": 1.7218611961961276e-18,
+        "conservative_installed_dot_rounding_bound_max": 2.3948574174371258e-05,
+        "constraint_gram_condition": 307.1963781563954,
+        "constraint_gram_eigenvalues": [
+          0.007796955171446654,
+          0.010119883298867137,
+          0.010481014857364437,
+          2.395196389316189
+        ],
+        "constraint_mode": "full",
+        "constraint_residual_fp64_guard_tolerance": 9.128965434963731e-11,
+        "constraint_residual_fp64_max_abs": 6.7728754462453855e-18,
+        "constraint_residual_fp64_rms": 1.7218611961961276e-18,
+        "covariance_asymmetry_max_abs": 0.0,
+        "covariance_mean_diagonal": 0.0026983209723857406,
+        "delta_weight_norm": 63.28001949682985,
+        "delta_weight_norm_fraction": 3.6996578392796207,
+        "feasible_gradient_norm": 5.458241155963232e-15,
+        "feasible_gradient_norm_fraction": 3.75974254467434e-11,
+        "feature_condition": 65.30990813808744,
+        "feature_rank": 4,
+        "feature_rank_threshold": 1.634728119190822e-14,
+        "feature_shape": [
+          2048,
+          4
+        ],
+        "feature_singular_values": [
+          0.03594805150605399,
+          0.0006488032987912662,
+          0.0006192657137793298,
+          0.0005504226315867348
+        ],
+        "gradient_norm": 0.00014517592870008636,
+        "inference_added_macs": 0,
+        "inference_added_parameters": 0,
+        "installed_coefficient_rounding_constraint_max_abs": 1.1147185245989535e-10,
+        "installed_coefficient_rounding_constraint_rms": 3.114521789993348e-11,
+        "maximum_allowed_feature_condition": 100000000.0,
+        "method": "constrained_ridge_residual_fit",
+        "regularized_covariance_cholesky_passed": true,
+        "returned_weight_device": "cpu",
+        "ridge_lambda": 2.698320972385741e-06,
+        "ridge_objective_at_delta": -0.12048304948938957,
+        "rounding_scope": "Coefficient rounding is evaluated in FP64. Dot-product bound excludes feature rounding and is not an observed execution error.",
+        "scope": "Four fitted stationary phases with frozen upstream features. Calibration constraints do not establish held-out quality or CPU RTF.",
+        "shrinkage": 0.001,
+        "solve_device": "cpu",
+        "solve_dtype": "torch.float64",
+        "source_dtype": "torch.float32",
+        "statistics_contract": "Caller supplies training-only complete-frame A=mean(hhT) and B=mean(h residualT), at the unchanged W.",
+        "unconstrained_delta_norm": 63.302903154375116,
+        "weight_norm_before": 17.104289706193864,
+        "weight_shape": [
+          480,
+          2048
+        ]
+      },
+      "0.01": {
+        "anchor_only": false,
+        "calibration_teacher_residual_fp64_rms": 8.25654312104842e-19,
+        "conservative_installed_dot_rounding_bound_max": 1.1665647142817916e-05,
+        "constraint_gram_condition": 275.98740209407333,
+        "constraint_gram_eigenvalues": [
+          0.003762112460115097,
+          0.005055085900807364,
+          0.005122757019237202,
+          1.0382956442529085
+        ],
+        "constraint_mode": "full",
+        "constraint_residual_fp64_guard_tolerance": 4.4468321451273065e-11,
+        "constraint_residual_fp64_max_abs": 4.2656579223726565e-18,
+        "constraint_residual_fp64_rms": 8.25654312104842e-19,
+        "covariance_asymmetry_max_abs": 0.0,
+        "covariance_mean_diagonal": 0.0026983209723857406,
+        "delta_weight_norm": 26.665236586216622,
+        "delta_weight_norm_fraction": 1.5589794749886934,
+        "feasible_gradient_norm": 2.1921778717564624e-15,
+        "feasible_gradient_norm_fraction": 1.0571912837280514e-11,
+        "feature_condition": 65.30990813808744,
+        "feature_rank": 4,
+        "feature_rank_threshold": 1.634728119190822e-14,
+        "feature_shape": [
+          2048,
+          4
+        ],
+        "feature_singular_values": [
+          0.03594805150605399,
+          0.0006488032987912662,
+          0.0006192657137793298,
+          0.0005504226315867348
+        ],
+        "gradient_norm": 0.00020735867817846777,
+        "inference_added_macs": 0,
+        "inference_added_parameters": 0,
+        "installed_coefficient_rounding_constraint_max_abs": 4.6280078212649137e-11,
+        "installed_coefficient_rounding_constraint_rms": 1.521907234488199e-11,
+        "maximum_allowed_feature_condition": 100000000.0,
+        "method": "constrained_ridge_residual_fit",
+        "regularized_covariance_cholesky_passed": true,
+        "returned_weight_device": "cpu",
+        "ridge_lambda": 2.6983209723857407e-05,
+        "ridge_objective_at_delta": -0.10207450097831491,
+        "rounding_scope": "Coefficient rounding is evaluated in FP64. Dot-product bound excludes feature rounding and is not an observed execution error.",
+        "scope": "Four fitted stationary phases with frozen upstream features. Calibration constraints do not establish held-out quality or CPU RTF.",
+        "shrinkage": 0.01,
+        "solve_device": "cpu",
+        "solve_dtype": "torch.float64",
+        "source_dtype": "torch.float32",
+        "statistics_contract": "Caller supplies training-only complete-frame A=mean(hhT) and B=mean(h residualT), at the unchanged W.",
+        "unconstrained_delta_norm": 26.675598667430748,
+        "weight_norm_before": 17.104289706193864,
+        "weight_shape": [
+          480,
+          2048
+        ]
+      },
+      "0.1": {
+        "anchor_only": false,
+        "calibration_teacher_residual_fp64_rms": 4.446359307521307e-19,
+        "conservative_installed_dot_rounding_bound_max": 6.911643706485561e-06,
+        "constraint_gram_condition": 274.2874503599902,
+        "constraint_gram_eigenvalues": [
+          0.0007983986259814094,
+          0.0010675378245419743,
+          0.001112993366279978,
+          0.2189907234913602
+        ],
+        "constraint_mode": "full",
+        "constraint_residual_fp64_guard_tolerance": 2.6346519035998692e-11,
+        "constraint_residual_fp64_max_abs": 2.2327788489623357e-18,
+        "constraint_residual_fp64_rms": 4.446359307521307e-19,
+        "covariance_asymmetry_max_abs": 0.0,
+        "covariance_mean_diagonal": 0.0026983209723857406,
+        "delta_weight_norm": 7.764168890719976,
+        "delta_weight_norm_fraction": 0.4539310912109018,
+        "feasible_gradient_norm": 6.320286597610278e-16,
+        "feasible_gradient_norm_fraction": 1.1382558021245214e-12,
+        "feature_condition": 65.30990813808744,
+        "feature_rank": 4,
+        "feature_rank_threshold": 1.634728119190822e-14,
+        "feature_shape": [
+          2048,
+          4
+        ],
+        "feature_singular_values": [
+          0.03594805150605399,
+          0.0006488032987912662,
+          0.0006192657137793298,
+          0.0005504226315867348
+        ],
+        "gradient_norm": 0.0005552606528175518,
+        "inference_added_macs": 0,
+        "inference_added_parameters": 0,
+        "installed_coefficient_rounding_constraint_max_abs": 3.116334807259013e-11,
+        "installed_coefficient_rounding_constraint_rms": 9.387594111724568e-12,
+        "maximum_allowed_feature_condition": 100000000.0,
+        "method": "constrained_ridge_residual_fit",
+        "regularized_covariance_cholesky_passed": true,
+        "returned_weight_device": "cpu",
+        "ridge_lambda": 0.0002698320972385741,
+        "ridge_objective_at_delta": -0.08119351843027836,
+        "rounding_scope": "Coefficient rounding is evaluated in FP64. Dot-product bound excludes feature rounding and is not an observed execution error.",
+        "scope": "Four fitted stationary phases with frozen upstream features. Calibration constraints do not establish held-out quality or CPU RTF.",
+        "shrinkage": 0.1,
+        "solve_device": "cpu",
+        "solve_dtype": "torch.float64",
+        "source_dtype": "torch.float32",
+        "statistics_contract": "Caller supplies training-only complete-frame A=mean(hhT) and B=mean(h residualT), at the unchanged W.",
+        "unconstrained_delta_norm": 7.751640133729668,
+        "weight_norm_before": 17.104289706193864,
+        "weight_shape": [
+          480,
+          2048
+        ]
+      },
+      "1.0": {
+        "anchor_only": false,
+        "calibration_teacher_residual_fp64_rms": 4.429557950687326e-19,
+        "conservative_installed_dot_rounding_bound_max": 6.4094174534174e-06,
+        "constraint_gram_condition": 315.1458272218548,
+        "constraint_gram_eigenvalues": [
+          0.00010121750480256875,
+          0.0001319246006870603,
+          0.00014089540992704713,
+          0.03189827428033759
+        ],
+        "constraint_mode": "full",
+        "constraint_residual_fp64_guard_tolerance": 2.4432081029722382e-11,
+        "constraint_residual_fp64_max_abs": 2.205673794650198e-18,
+        "constraint_residual_fp64_rms": 4.429557950687326e-19,
+        "covariance_asymmetry_max_abs": 0.0,
+        "covariance_mean_diagonal": 0.0026983209723857406,
+        "delta_weight_norm": 2.8011618922571735,
+        "delta_weight_norm_fraction": 0.16376955374199534,
+        "feasible_gradient_norm": 2.4428189582971093e-16,
+        "feasible_gradient_norm_fraction": 7.523178724795815e-14,
+        "feature_condition": 65.30990813808744,
+        "feature_rank": 4,
+        "feature_rank_threshold": 1.634728119190822e-14,
+        "feature_shape": [
+          2048,
+          4
+        ],
+        "feature_singular_values": [
+          0.03594805150605399,
+          0.0006488032987912662,
+          0.0006192657137793298,
+          0.0005504226315867348
+        ],
+        "gradient_norm": 0.003247056925878641,
+        "inference_added_macs": 0,
+        "inference_added_parameters": 0,
+        "installed_coefficient_rounding_constraint_max_abs": 2.404239617654724e-11,
+        "installed_coefficient_rounding_constraint_rms": 8.221336457619923e-12,
+        "maximum_allowed_feature_condition": 100000000.0,
+        "method": "constrained_ridge_residual_fit",
+        "regularized_covariance_cholesky_passed": true,
+        "returned_weight_device": "cpu",
+        "ridge_lambda": 0.0026983209723857406,
+        "ridge_objective_at_delta": -0.06137938787169158,
+        "rounding_scope": "Coefficient rounding is evaluated in FP64. Dot-product bound excludes feature rounding and is not an observed execution error.",
+        "scope": "Four fitted stationary phases with frozen upstream features. Calibration constraints do not establish held-out quality or CPU RTF.",
+        "shrinkage": 1.0,
+        "solve_device": "cpu",
+        "solve_dtype": "torch.float64",
+        "source_dtype": "torch.float32",
+        "statistics_contract": "Caller supplies training-only complete-frame A=mean(hhT) and B=mean(h residualT), at the unchanged W.",
+        "unconstrained_delta_norm": 2.7607968413075006,
+        "weight_norm_before": 17.104289706193864,
+        "weight_shape": [
+          480,
+          2048
+        ]
+      }
+    },
+    "shared_anchor": {
+      "calibration_teacher_residual_fp64_rms": 5.06543538856814e-06,
+      "conservative_installed_dot_rounding_bound_max": 5.919038086622857e-06,
+      "constraint_mode": "shared",
+      "constraint_residual_fp64_guard_tolerance": 2.2562802145166507e-11,
+      "constraint_residual_fp64_max_abs": 1.5890338090490674e-18,
+      "constraint_residual_fp64_rms": 3.0841451513485054e-19,
+      "delta_weight_norm": 0.06067949958500614,
+      "delta_weight_norm_fraction": 0.0035476187919708043,
+      "feature_condition": 65.30990813808744,
+      "feature_rank": 4,
+      "feature_rank_threshold": 1.634728119190822e-14,
+      "feature_shape": [
+        2048,
+        4
+      ],
+      "feature_singular_values": [
+        0.03594805150605399,
+        0.0006488032987912662,
+        0.0006192657137793298,
+        0.0005504226315867348
+      ],
+      "inference_added_macs": 0,
+      "inference_added_parameters": 0,
+      "installed_coefficient_rounding_constraint_max_abs": 2.261403666729096e-11,
+      "installed_coefficient_rounding_constraint_rms": 7.332064026958551e-12,
+      "maximum_allowed_feature_condition": 100000000.0,
+      "method": "minimum_frobenius_anchor",
+      "returned_weight_device": "cpu",
+      "rounding_scope": "Coefficient rounding is evaluated in FP64. Dot-product bound excludes feature rounding and is not an observed execution error.",
+      "scope": "Four fitted stationary phases with frozen upstream features. Calibration constraints do not establish held-out quality or CPU RTF.",
+      "solve_device": "cpu",
+      "solve_dtype": "torch.float64",
+      "source_dtype": "torch.float32",
+      "weight_norm_before": 17.104289706193864,
+      "weight_shape": [
+        480,
+        2048
+      ]
+    }
+  }
+}
