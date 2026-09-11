@@ -1,0 +1,283 @@
+{
+  "device": "cpu",
+  "exporter": "torch.onnx.export legacy, dynamo=False",
+  "exporter_sha256": "ea9eaf831a560c6edbc59c0c70c40dfefe480436aaf884811341793806e1db60",
+  "initial_sha256": "c41c9bc24b0c2c0261f33edcda594880eba17a76be49500b9f5045bb310b6cb9",
+  "initializer_count": 162,
+  "model_sha256": "2fcc0728bb6d7a6ac75ab9299090ccc066a3ae3afdd6d92e436e325414c803fe",
+  "native_integration": {
+    "reason": "Generic ONNX export only; packed native kernels and bounded streaming state require separate validation.",
+    "status": "pending"
+  },
+  "node_count": 1666,
+  "onnx": "1.22.0",
+  "onnx_bytes": 163487464,
+  "onnx_path": "/workspace/fast-audiovae-compression-20260910-v1/pilot/experimental-candidate.onnx",
+  "onnx_sha256": "3a92eaff48572423817c5fd4c5f2219d20c26e1bc687b5f34854db078b3f8b49",
+  "onnxruntime": "1.29.0",
+  "opset": 18,
+  "ort_inter_threads": 1,
+  "ort_intra_threads": 1,
+  "parity_records": [
+    {
+      "bounded_output": true,
+      "folded_pytorch_parity": {
+        "group_output": {
+          "elements": 122880,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "outside_tolerance": 0,
+          "passed": true,
+          "rmse": 0.0,
+          "shape": [
+            1,
+            128,
+            960
+          ]
+        },
+        "waveform": {
+          "elements": 3840,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "outside_tolerance": 0,
+          "passed": true,
+          "rmse": 0.0,
+          "shape": [
+            1,
+            1,
+            3840
+          ]
+        }
+      },
+      "group_output": {
+        "elements": 122880,
+        "max_abs_error": 3.725290298461914e-07,
+        "mean_abs_error": 3.773612794096455e-08,
+        "outside_tolerance": 0,
+        "passed": true,
+        "rmse": 5.052019535092468e-08,
+        "shape": [
+          1,
+          128,
+          960
+        ]
+      },
+      "input_shape": [
+        1,
+        64,
+        2
+      ],
+      "latent_frames": 2,
+      "waveform": {
+        "elements": 3840,
+        "max_abs_error": 1.1175870895385742e-08,
+        "mean_abs_error": 2.396222123501879e-09,
+        "outside_tolerance": 0,
+        "passed": true,
+        "rmse": 3.0212269367512394e-09,
+        "shape": [
+          1,
+          1,
+          3840
+        ]
+      },
+      "waveform_peak": 0.00452430872246623
+    },
+    {
+      "bounded_output": true,
+      "folded_pytorch_parity": {
+        "group_output": {
+          "elements": 307200,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "outside_tolerance": 0,
+          "passed": true,
+          "rmse": 0.0,
+          "shape": [
+            1,
+            128,
+            2400
+          ]
+        },
+        "waveform": {
+          "elements": 9600,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "outside_tolerance": 0,
+          "passed": true,
+          "rmse": 0.0,
+          "shape": [
+            1,
+            1,
+            9600
+          ]
+        }
+      },
+      "group_output": {
+        "elements": 307200,
+        "max_abs_error": 4.917383193969727e-07,
+        "mean_abs_error": 3.8158789266162786e-08,
+        "outside_tolerance": 0,
+        "passed": true,
+        "rmse": 5.1217377897550627e-08,
+        "shape": [
+          1,
+          128,
+          2400
+        ]
+      },
+      "input_shape": [
+        1,
+        64,
+        5
+      ],
+      "latent_frames": 5,
+      "waveform": {
+        "elements": 9600,
+        "max_abs_error": 1.5133991837501526e-08,
+        "mean_abs_error": 2.233849117720214e-09,
+        "outside_tolerance": 0,
+        "passed": true,
+        "rmse": 2.8497936643929996e-09,
+        "shape": [
+          1,
+          1,
+          9600
+        ]
+      },
+      "waveform_peak": 0.005296983290463686
+    }
+  ],
+  "parity_tolerance": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "passed": true,
+  "preflight_sha256": "0dbabc265e15210e178605d36db770d119dbdf441b9f7e9fb914ebb373774334",
+  "providers": [
+    "CPUExecutionProvider"
+  ],
+  "rtf_measured": false,
+  "selection_sha256": "7b943ea3a78c91da3df102d44743ef2e6d54c0ff5e3b61e81086b02fe97994e7",
+  "streaming_verified": false,
+  "teacher_checkpoint_sha256": "94b5d51e107e0507d4acc976cfdadb64edd6fd06d1f751dadbf2fd1594274bf1",
+  "teacher_source_sha256": "2efdff1708d8ec1471624aae6f232d0f933de26b788b6901c434246847e2d3a8",
+  "torch": "2.14.0+cu126",
+  "torch_threads": 1,
+  "upsampling_dimensions": [
+    {
+      "node": "/model.2/block/block.1/ConvTranspose",
+      "stage": 1,
+      "stride": 8,
+      "weight_shape": [
+        2048,
+        1024,
+        16
+      ]
+    },
+    {
+      "node": "/model.3/block/block.1/ConvTranspose",
+      "stage": 2,
+      "stride": 6,
+      "weight_shape": [
+        1024,
+        256,
+        12
+      ]
+    },
+    {
+      "node": "/model.4/block/block.1/ConvTranspose",
+      "stage": 3,
+      "stride": 5,
+      "weight_shape": [
+        256,
+        128,
+        10
+      ]
+    },
+    {
+      "node": "/model.5/block/block.1/ConvTranspose",
+      "stage": 4,
+      "stride": 2,
+      "weight_shape": [
+        128,
+        128,
+        4
+      ]
+    },
+    {
+      "node": "/model.6/block/block.1/ConvTranspose",
+      "stage": 5,
+      "stride": 2,
+      "weight_shape": [
+        128,
+        64,
+        4
+      ]
+    },
+    {
+      "node": "/model.7/block/block.1/ConvTranspose",
+      "stage": 6,
+      "stride": 2,
+      "weight_shape": [
+        64,
+        32,
+        4
+      ]
+    }
+  ],
+  "version": "audiovae2_group_export_v1",
+  "weight_normalization": {
+    "effective_weights_bitwise_equal": true,
+    "folded_convolutions": 45,
+    "method": "Materialize legacy weight normalization on an independent export-only decoder copy",
+    "modules": [
+      "model.0",
+      "model.1",
+      "model.2.block.1",
+      "model.2.block.2.block.1",
+      "model.2.block.2.block.3",
+      "model.2.block.3.block.1",
+      "model.2.block.3.block.3",
+      "model.2.block.4.block.1",
+      "model.2.block.4.block.3",
+      "model.3.block.1",
+      "model.3.block.2.block.1",
+      "model.3.block.2.block.3",
+      "model.3.block.3.block.1",
+      "model.3.block.3.block.3",
+      "model.3.block.4.block.1",
+      "model.3.block.4.block.3",
+      "model.4.block.1",
+      "model.4.block.2.block.1",
+      "model.4.block.2.block.3",
+      "model.4.block.3.block.1",
+      "model.4.block.3.block.3",
+      "model.4.block.4.block.1",
+      "model.4.block.4.block.3",
+      "model.5.block.1",
+      "model.5.block.2.block.1",
+      "model.5.block.2.block.3",
+      "model.5.block.3.block.1",
+      "model.5.block.3.block.3",
+      "model.5.block.4.block.1",
+      "model.5.block.4.block.3",
+      "model.6.block.1",
+      "model.6.block.2.block.1",
+      "model.6.block.2.block.3",
+      "model.6.block.3.block.1",
+      "model.6.block.3.block.3",
+      "model.6.block.4.block.1",
+      "model.6.block.4.block.3",
+      "model.7.block.1",
+      "model.7.block.2.block.1",
+      "model.7.block.2.block.3",
+      "model.7.block.3.block.1",
+      "model.7.block.3.block.3",
+      "model.7.block.4.block.1",
+      "model.7.block.4.block.3",
+      "model.9"
+    ],
+    "reference": "Original unfolded student with unchanged g/v weights"
+  }
+}

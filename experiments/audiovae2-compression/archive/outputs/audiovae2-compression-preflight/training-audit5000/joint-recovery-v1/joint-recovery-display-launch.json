@@ -1,0 +1,40 @@
+{
+  "projector_pid": 1041757,
+  "tensorboard_pid": 1041833,
+  "projector_command": [
+    "/tmp/fast-audiovae-recovery-20260909/venv214/bin/python",
+    "-u",
+    "/workspace/fast-audiovae-compression-20260910-v1/code/joint_recovery_display_v1.py",
+    "--source-logdir",
+    "/tmp/fast-audiovae-joint-recovery-v1/tensorboard/raw",
+    "--display-logdir",
+    "/tmp/fast-audiovae-joint-recovery-v1/tensorboard/display"
+  ],
+  "tensorboard_command": [
+    "/tmp/fast-audiovae-recovery-20260909/venv214/bin/python",
+    "-m",
+    "tensorboard.main",
+    "--logdir",
+    "/tmp/fast-audiovae-joint-recovery-v1/tensorboard/display",
+    "--host",
+    "0.0.0.0",
+    "--port",
+    "8888",
+    "--reload_interval",
+    "5",
+    "--load_fast",
+    "false"
+  ],
+  "historical_processes": [
+    {
+      "pid": 1019903,
+      "command": "/tmp/fast-audiovae-recovery-20260909/venv214/bin/python -m tensorboard.main --logdir /workspace/fast-audiovae-compression-20260910-v1/tensorboard-display-v2 --host 0.0.0.0 --port 8888 --reload_interval 5 --load_fast false --reload_multifile true --reload_multifile_inactive_secs 86400 "
+    },
+    {
+      "pid": 1019827,
+      "command": "/tmp/fast-audiovae-recovery-20260909/venv214/bin/python -u /workspace/fast-audiovae-compression-20260910-v1/code/tensorboard_display_v2.py --source-logdir /workspace/fast-audiovae-compression-20260910-v1/tensorboard-unified/active --display-logdir /workspace/fast-audiovae-compression-20260910-v1/tensorboard-display-v2 "
+    }
+  ],
+  "historical_logs_preserved": true,
+  "launched_unix": 1789048436.933011
+}

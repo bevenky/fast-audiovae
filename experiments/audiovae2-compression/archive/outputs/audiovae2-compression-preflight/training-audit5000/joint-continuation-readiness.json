@@ -1,0 +1,116 @@
+{
+  "checked_utc": "2026-09-10T13:48:19.259145+00:00",
+  "checkpoint": {
+    "accumulation": 12,
+    "all_parameter_counters": 4625,
+    "betas": [
+      0.9,
+      0.99
+    ],
+    "coefficients": {
+      "feature": 0.009304078923434964,
+      "mel": 0.0006674012905982311,
+      "waveform": 1.0
+    },
+    "eps": 1e-08,
+    "group_tensors": 90,
+    "learning_rate": 3e-05,
+    "lineage_exact_order_verified": true,
+    "lineage_unique_sources": 15000,
+    "optimizer_counter": 4625,
+    "path": "/tmp/fast-audiovae-accumulation-comparison-v1/accumulation12/final.pt",
+    "receipt_matches": true,
+    "sha256": "834f6788cb53d10422fa987a84fe516e2ccaadbc02a1c69e10f5ce750cf66c11",
+    "weight_decay": 0
+  },
+  "continuation_counters": {
+    "final_optimizer_counter_if_completed": 5625,
+    "final_unique_lineage_sources_if_completed": 27000,
+    "max_additional_updates": 1000,
+    "new_source_interval": [
+      12000,
+      24000
+    ],
+    "review_interval_updates": 250,
+    "starting_optimizer_counter": 4625,
+    "starting_unique_lineage_sources": 15000
+  },
+  "first_new_shard": {
+    "pairs_sha256": "3e384c70791571b5ca272cbff0d50fd735933a33bc0ebed5c526206a548cf99d",
+    "ready": true,
+    "receipt_path": "/dev/shm/fast-audiovae-compression-fresh-shards-v2/012000-012300/receipt.json",
+    "receipt_sha256": "04ccff7790146c2bbec73063600128dcb732d6b24e9cb3bcc63ddf6f2e1e1055",
+    "singleton_repeats_bitwise": true,
+    "source_order_exact": true,
+    "source_provenance_sha_matches": true,
+    "sources": 300,
+    "teacher_frozen": true,
+    "unchanged_loader_passed": true,
+    "unique_sources": 300
+  },
+  "fresh_source_plan": {
+    "all22_indic_present": true,
+    "broad_expressive_source_records": 2798,
+    "event_timing_limitation": "Source-level metadata only; condition is null for all12000. Quiet occupancy and actual crop event coverage not inferred.",
+    "file_sha256": "0036eae310e38ee1789e6830a2e1f7fc174c13772c267417522d51e0b9df92e8",
+    "full_source_audio_hours": 31.560250572916665,
+    "identity_sha256": "3c65151fd2b37900257e179fee62218c3d33055c94d47dbb7c213593777e7c7d",
+    "indic_source_count_min_max": [
+      94,
+      188
+    ],
+    "lineage_or_reserved_overlap_count": 0,
+    "missing_audio_paths": 0,
+    "new_authorized_interval": [
+      12000,
+      24000
+    ],
+    "normalized_languages": 111,
+    "path": "/workspace/fast-audiovae-compression-20260910-v1/fresh-source-plan-v2/plan.json",
+    "scored_audio_hours": 8.158576284722223,
+    "target_tensor_GiB": 8.96185851097107,
+    "unique_audio_sha256": 12000,
+    "unique_parent_recordings": 12000,
+    "unique_sources": 12000
+  },
+  "last_checked_producer_progress": {
+    "complete": false,
+    "elapsed_seconds": 93.1068624034524,
+    "new_sources_generated": 600,
+    "sealed_source_prefix": 12600
+  },
+  "monitor": {
+    "display_logdir": "/workspace/fast-audiovae-compression-20260910-v1/tensorboard-display-v2",
+    "display_pid": 1019827,
+    "port": 8888,
+    "source_logdir": "/workspace/fast-audiovae-compression-20260910-v1/tensorboard-unified/active",
+    "tensorboard_pid": 1019903
+  },
+  "reuse": {
+    "checkpoint_warning": "Old resume_settings ledger assumes accumulation3 historical mapping; new continuation format must track true update counter and fresh cursor separately.",
+    "restore": "compare_projected_hints_v1.restart_candidate restores preserved group, Adam state and RNG exactly; use without projectors or hints",
+    "update": "run_pilot.training_update with singleton forward and global pooled denominators over12 sources",
+    "validation": "UnifiedMonitor.evaluate with original96 development sources; numeric_reference_check against accumulation12/development-source1500.json",
+    "wait": "resume_settings.take_when_ready supports atomic future shards and preserves cursor"
+  },
+  "storage_before_launch": {
+    "gpu_memory_MiB": 95830,
+    "gpu_used_MiB": 0,
+    "scratch_free_GiB_approx": 4.0,
+    "shared_memory_free_GiB_approx": 34,
+    "workspace_free_MiB_approx": 775
+  },
+  "target_producer": {
+    "first_expected_new_shard": "012000-012300",
+    "independent_diff_review_passed": true,
+    "initial_gpu_memory_MiB": 5180,
+    "initial_rate_sources_per_second": 5.389794096552482,
+    "log": "/workspace/fast-audiovae-compression-20260910-v1/fresh-pair-producer-reserve-v1.log",
+    "main_training_launched_by_data_agent": false,
+    "original_generation_recipe_unchanged": true,
+    "pid": 1040996,
+    "remote_path": "/workspace/fast-audiovae-compression-20260910-v1/produce_reserved_continuation_pairs_v1.py",
+    "sha256": "92f9fe089271e0ebb8aaf6e089facf619c8b642893210a4cf6837a9269087efd",
+    "shards": "/dev/shm/fast-audiovae-compression-fresh-shards-v2"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "pid": 1040996,
+  "log": "/workspace/fast-audiovae-compression-20260910-v1/fresh-pair-producer-reserve-v1.log",
+  "authorized_source_interval": [
+    12000,
+    24000
+  ],
+  "command": [
+    "/tmp/fast-audiovae-recovery-20260909/venv214/bin/python",
+    "-u",
+    "/workspace/fast-audiovae-compression-20260910-v1/produce_reserved_continuation_pairs_v1.py",
+    "--plan",
+    "/workspace/fast-audiovae-compression-20260910-v1/fresh-source-plan-v2/plan.json",
+    "--original-manifest",
+    "/workspace/fast-audiovae-compression-20260910-v1/pilot-selection-v1.json",
+    "--shards",
+    "/dev/shm/fast-audiovae-compression-fresh-shards-v2",
+    "--assets",
+    "/workspace/fast-audiovae-convnext-20260908-r1/assets",
+    "--start-index",
+    "12000",
+    "--stop-index",
+    "24000"
+  ],
+  "launch_time_unix": 1789048006.0824852,
+  "producer_sha256": "92f9fe089271e0ebb8aaf6e089facf619c8b642893210a4cf6837a9269087efd",
+  "loader_sha256": "164a0030e8d7986dd679d32a54bbc7440f1eda88efcb09ed237bc5f93f5e9aad",
+  "original_plan_preserved": true,
+  "authorization": "User-approved joint stages2\u20134 continuation: at most1000 optimizer updates,12 new sources per update, review every250 updates.",
+  "training_launched": false
+}

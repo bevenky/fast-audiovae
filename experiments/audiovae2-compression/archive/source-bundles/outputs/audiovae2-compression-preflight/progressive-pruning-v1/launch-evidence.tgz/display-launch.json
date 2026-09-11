@@ -1,0 +1,79 @@
+{
+  "pid": 1049204,
+  "command": [
+    "/tmp/fast-audiovae-recovery-20260909/venv214/bin/python",
+    "-m",
+    "tensorboard.main",
+    "--logdir",
+    "/tmp/fast-audiovae-progressive-pruning-v1/tensorboard/cut1",
+    "--host",
+    "0.0.0.0",
+    "--port",
+    "8888",
+    "--reload_interval",
+    "5",
+    "--load_fast",
+    "false",
+    "--reload_multifile",
+    "true",
+    "--reload_multifile_inactive_secs",
+    "86400"
+  ],
+  "stopped_previous_display_processes": [
+    {
+      "pid": 1044978,
+      "command": [
+        "/tmp/fast-audiovae-recovery-20260909/venv214/bin/python",
+        "-m",
+        "tensorboard.main",
+        "--logdir",
+        "/tmp/fast-audiovae-joint-recovery-v2/tensorboard/display",
+        "--host",
+        "0.0.0.0",
+        "--port",
+        "8888",
+        "--reload_interval",
+        "5",
+        "--load_fast",
+        "false",
+        "--reload_multifile",
+        "true",
+        "--reload_multifile_inactive_secs",
+        "86400",
+        ""
+      ]
+    },
+    {
+      "pid": 1044899,
+      "command": [
+        "/tmp/fast-audiovae-recovery-20260909/venv214/bin/python",
+        "-u",
+        "/workspace/fast-audiovae-compression-20260910-v1/code/joint_recovery_display_v2.py",
+        "--source-logdir",
+        "/tmp/fast-audiovae-joint-recovery-v2/tensorboard/raw",
+        "--display-logdir",
+        "/tmp/fast-audiovae-joint-recovery-v2/tensorboard/display",
+        ""
+      ]
+    }
+  ],
+  "historical_events_preserved": true,
+  "launched_unix": 1789055411.2032423,
+  "ready": true,
+  "overview_metric_runs": [
+    "stage2_384_stage3_256 01 Active waveform cosine - milestone 99%",
+    "stage2_384_stage3_256 02 Cosine milestone - 99%",
+    "stage2_384_stage3_256 03 Waveform error reduction from cut start",
+    "stage2_384_stage3_256 04 Mel error reduction from cut start",
+    "stage2_384_stage3_256 05 Group error reduction from cut start",
+    "stage2_384_stage3_256 06 Quiet error reduction from cut start",
+    "stage2_384_stage3_256 07 Quiet windows passing - target 100%",
+    "stage2_384_stage3_256 08 Near-silence passing - target 100%",
+    "stage2_384_stage3_256 09 Startup near-silence passing - target 100%",
+    "stage2_384_stage3_256 10 Sustained source silence passing - target 100%",
+    "stage2_384_stage3_256 11 Interior near-silence passing - target 100%",
+    "stage2_384_stage3_256 12 Signal peak - limit 100% full scale",
+    "stage2_384_stage3_256 13 Training progress - target 100%"
+  ],
+  "total_runs": 14
+}

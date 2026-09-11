@@ -1,0 +1,169 @@
+{
+  "observed_utc": "2026-09-10T15:12:44.419994+00:00",
+  "restore": {
+    "saved_quality": {
+      "absolute_tolerance": 1e-06,
+      "failures": [],
+      "passed": true,
+      "relative_tolerance": 1e-05
+    },
+    "state": {
+      "group": {
+        "equal": true,
+        "mismatches": [],
+        "scalars": 0,
+        "tensors": 90
+      },
+      "optimizer": {
+        "equal": true,
+        "mismatches": [],
+        "scalars": 102,
+        "tensors": 270
+      },
+      "rng": {
+        "equal": true,
+        "mismatches": [],
+        "scalars": 1255,
+        "tensors": 2
+      }
+    }
+  },
+  "launcher": {
+    "pid": 1044716,
+    "command": [
+      "/tmp/fast-audiovae-recovery-20260909/venv214/bin/python",
+      "-u",
+      "/workspace/fast-audiovae-compression-20260910-v1/code/joint_recovery_v2.py",
+      "--checkpoint",
+      "/workspace/fast-audiovae-compression-20260910-v1/current-lowrate-fresh5000-v1/checkpoint-step4500.pt",
+      "--candidate",
+      "/tmp/fast-audiovae-accumulation-comparison-v1/accumulation12/final.pt",
+      "--anchor-checkpoint",
+      "/workspace/fast-audiovae-compression-20260910-v1/current-lowrate-continue1000-v1/checkpoint-step1000.pt",
+      "--screen-out",
+      "/workspace/fast-audiovae-compression-20260910-v1/settings-screen-v1",
+      "--base-out",
+      "/workspace/fast-audiovae-compression-20260910-v1/pilot",
+      "--manifest",
+      "/workspace/fast-audiovae-compression-20260910-v1/pilot-selection-v1.json",
+      "--fresh-manifest",
+      "/workspace/fast-audiovae-compression-20260910-v1/fresh-source-plan-v2/plan.json",
+      "--shards",
+      "/dev/shm/fast-audiovae-compression-fresh-shards-v2",
+      "--extended-manifest",
+      "/tmp/fast-audiovae-continuation-plan-v3/plan.json",
+      "--extended-shards",
+      "/dev/shm/fast-audiovae-continuation-shards-v2",
+      "--assets",
+      "/workspace/fast-audiovae-convnext-20260908-r1/assets",
+      "--joint-run",
+      "/tmp/fast-audiovae-joint-recovery-v1",
+      "--tensorboard-logdir",
+      "/tmp/fast-audiovae-joint-recovery-v2/tensorboard/raw",
+      "--out",
+      "/tmp/fast-audiovae-joint-recovery-v2/segment-5625-6625",
+      "--updates",
+      "1000"
+    ],
+    "pythonpath": "/tmp/fast-audiovae-continuation-data-v2:/workspace/fast-audiovae-compression-20260910-v1/code",
+    "launched_unix": 1789052841.2523417,
+    "start_step": 5625,
+    "target_step": 6625,
+    "training_settings_changed": false,
+    "later_segments_require_review": true
+  },
+  "display": {
+    "projector_pid": 1044899,
+    "tensorboard_pid": 1044978,
+    "projector_command": [
+      "/tmp/fast-audiovae-recovery-20260909/venv214/bin/python",
+      "-u",
+      "/workspace/fast-audiovae-compression-20260910-v1/code/joint_recovery_display_v2.py",
+      "--source-logdir",
+      "/tmp/fast-audiovae-joint-recovery-v2/tensorboard/raw",
+      "--display-logdir",
+      "/tmp/fast-audiovae-joint-recovery-v2/tensorboard/display"
+    ],
+    "server_command": [
+      "/tmp/fast-audiovae-recovery-20260909/venv214/bin/python",
+      "-m",
+      "tensorboard.main",
+      "--logdir",
+      "/tmp/fast-audiovae-joint-recovery-v2/tensorboard/display",
+      "--host",
+      "0.0.0.0",
+      "--port",
+      "8888",
+      "--reload_interval",
+      "5",
+      "--load_fast",
+      "false",
+      "--reload_multifile",
+      "true",
+      "--reload_multifile_inactive_secs",
+      "86400"
+    ],
+    "historical_processes": [
+      {
+        "pid": 1041757,
+        "command": [
+          "/tmp/fast-audiovae-recovery-20260909/venv214/bin/python",
+          "-u",
+          "/workspace/fast-audiovae-compression-20260910-v1/code/joint_recovery_display_v1.py",
+          "--source-logdir",
+          "/tmp/fast-audiovae-joint-recovery-v1/tensorboard/raw",
+          "--display-logdir",
+          "/tmp/fast-audiovae-joint-recovery-v1/tensorboard/display"
+        ]
+      },
+      {
+        "pid": 1041833,
+        "command": [
+          "/tmp/fast-audiovae-recovery-20260909/venv214/bin/python",
+          "-m",
+          "tensorboard.main",
+          "--logdir",
+          "/tmp/fast-audiovae-joint-recovery-v1/tensorboard/display",
+          "--host",
+          "0.0.0.0",
+          "--port",
+          "8888",
+          "--reload_interval",
+          "5",
+          "--load_fast",
+          "false"
+        ]
+      }
+    ],
+    "historical_logs_preserved": true,
+    "visible_runs": [
+      "01 Waveform correlation - target 99%",
+      "02 Correlation target - 99%",
+      "03 Waveform error reduction - ideal 100%",
+      "04 Mel error reduction - ideal 100%",
+      "05 Stage 2-4 error reduction - ideal 100%",
+      "06 Quiet RMS error reduction - ideal 100%",
+      "07 Quiet windows passing - target 100%",
+      "08 Near-silence passing - target 100%",
+      "09 Peak level - limit 100% full scale",
+      "10 Whistling level - teacher match 100%",
+      "11 Training progress - 10000 steps is 100%",
+      "12 Startup near-silence passing - target 100%",
+      "13 Sustained source silence passing - target 100%",
+      "14 Interior near-silence passing - target 100%",
+      "Details"
+    ],
+    "launched_unix": 1789053067.550328
+  },
+  "updates_observed": 142,
+  "last_step": 5767,
+  "fresh_cursor": 25704,
+  "elapsed_seconds": 272.441779948771,
+  "teacher_cache_checks": 1704,
+  "teacher_cache_all_bitwise_equal": true,
+  "teacher_cache_all_within_tolerance": true,
+  "sources_consumed": 1704,
+  "sources_unique": 1704,
+  "failure_file_present": false,
+  "segment_complete": false
+}

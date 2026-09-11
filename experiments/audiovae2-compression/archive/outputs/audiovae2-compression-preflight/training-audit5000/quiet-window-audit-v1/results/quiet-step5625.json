@@ -1,0 +1,958 @@
+{
+  "archive_projection_version": 1,
+  "original_relative_path": "outputs/audiovae2-compression-preflight/training-audit5000/quiet-window-audit-v1/results/quiet-step5625.json",
+  "original_sha256": "352112682c24812e6f91628d9d6af51f44b6b28a6726058b280c11ae50b1694e",
+  "omitted_field_paths": [
+    "phase_templates",
+    "quality.overview_window_metrics.by_source",
+    "quality.recovery_window_metrics.by_source",
+    "quality.rows",
+    "summary.actual_startup.False.source_ids",
+    "summary.actual_startup.True.source_ids",
+    "summary.adjacent_active_window.False.source_ids",
+    "summary.adjacent_active_window.True.source_ids",
+    "summary.all.source_ids",
+    "summary.by_source",
+    "summary.partial_window.False.source_ids",
+    "summary.partial_window.True.source_ids",
+    "summary.source_reference_exact_zero.False.source_ids",
+    "summary.source_reference_exact_zero.True.source_ids",
+    "summary.source_starting_crop.False.source_ids",
+    "summary.source_starting_crop.True.source_ids",
+    "summary.teacher_level_bin.1e-4_to_1e-3.source_ids",
+    "summary.teacher_level_bin.1e-5_to_1e-4.source_ids",
+    "summary.teacher_level_bin.nonzero_to_1e-5.source_ids",
+    "summary.temporal_bin.source20_to40ms.source_ids",
+    "summary.temporal_bin.source40_to800ms.source_ids",
+    "summary.temporal_bin.source_after800ms.source_ids",
+    "summary.temporal_bin.source_first20ms.source_ids",
+    "windows"
+  ],
+  "note": "Labelled projection. Omitted numerical payloads and listed bulk report collections remain outside Git; configuration metadata is retained.",
+  "report": {
+    "quality": {
+      "aggregate": {
+        "group_cosine": 0.9604339202779671,
+        "group_mse": 0.009776420240808536,
+        "group_nrmse": 0.28146597303284415,
+        "group_nrmse_floor_applied": false,
+        "mae": 0.003966812430363673,
+        "mel": 0.30780625343322754,
+        "mel_linear": 0.0029244048055261374,
+        "mel_log": 0.30488184094429016,
+        "mse": 0.0002032284604964304,
+        "nonquiet_cosine_mean": 0.9795207875458516,
+        "nonquiet_samples": 8809920,
+        "overshoot_samples": 0,
+        "peak_abs_max": 0.9560274481773376,
+        "quiet_failed_windows": 2324,
+        "quiet_residual_rms_mean": 0.00016197116412093615,
+        "quiet_windows": 2544,
+        "samples": 11246952,
+        "sources": 96,
+        "waveform_nrmse": 0.2394080409578435,
+        "waveform_nrmse_floor_applied": false,
+        "waveform_residual_rms": 0.014255821985996823
+      },
+      "mel_elements": [
+        5614144,
+        5604672,
+        2792960,
+        2774144,
+        1368320
+      ],
+      "overview_window_metrics": {
+        "near_silence_failed_windows": 137,
+        "near_silence_windows": 184
+      },
+      "recovery_window_metrics": {
+        "near_error_sum": 0.00012024067738100498,
+        "near_residual_rms": 2.6147107466981215e-05,
+        "near_samples": 175875
+      },
+      "reduction": {
+        "group": "all channels pooled with exact valid waveform-sample weights, including partial cells",
+        "mel": "valid elements pooled per resolution, then resolutions averaged",
+        "nonquiet_cosine": "equal-source mean over only active teacher-conditioned20ms windows",
+        "nrmse": "root mean-square error divided by teacher RMS, teacher mean-square floor1e-8 explicitly flagged",
+        "quiet_residual": "RMS of sample-pooled quiet squared residual",
+        "waveform": "valid samples pooled"
+      }
+    },
+    "runtime_warmups": {
+      "student_extra_group_and_suffix_forwards": 0,
+      "teacher_extra_forwards": 0
+    },
+    "saved_quality_check": {
+      "absolute_tolerance": 1e-06,
+      "failures": [],
+      "passed": true,
+      "relative_tolerance": 1e-05
+    },
+    "scored_source_forwards": 96,
+    "summary": {
+      "actual_startup": {
+        "False": {
+          "centered_residual_rms": 0.00015465208671415956,
+          "failed": 2266,
+          "failure_categories": {
+            "amplitude_only": 122,
+            "both": 138,
+            "passed": 218,
+            "residual_only": 2006
+          },
+          "reference_exact_zero_windows": 164,
+          "residual_rms": 0.00015690644791615255,
+          "samples": 2379432,
+          "window_dc_energy_fraction": 0.028528673082800667,
+          "windows": 2484
+        },
+        "True": {
+          "centered_residual_rms": 0.0003043301778938778,
+          "failed": 58,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 34,
+            "passed": 2,
+            "residual_only": 24
+          },
+          "reference_exact_zero_windows": 21,
+          "residual_rms": 0.00030487820214292535,
+          "samples": 57600,
+          "window_dc_energy_fraction": 0.003591806192109744,
+          "windows": 60
+        }
+      },
+      "adjacent_active_window": {
+        "False": {
+          "centered_residual_rms": 0.00014005081228827886,
+          "failed": 1986,
+          "failure_categories": {
+            "amplitude_only": 121,
+            "both": 157,
+            "passed": 191,
+            "residual_only": 1708
+          },
+          "reference_exact_zero_windows": 184,
+          "residual_rms": 0.0001419305125054547,
+          "samples": 2086620,
+          "window_dc_energy_fraction": 0.026312214215460133,
+          "windows": 2177
+        },
+        "True": {
+          "centered_residual_rms": 0.00024664454216317245,
+          "failed": 338,
+          "failure_categories": {
+            "amplitude_only": 1,
+            "both": 15,
+            "passed": 29,
+            "residual_only": 322
+          },
+          "reference_exact_zero_windows": 1,
+          "residual_rms": 0.0002500029533015163,
+          "samples": 350412,
+          "window_dc_energy_fraction": 0.02668651317930457,
+          "windows": 367
+        }
+      },
+      "all": {
+        "centered_residual_rms": 0.00015981553060386803,
+        "failed": 2324,
+        "failure_categories": {
+          "amplitude_only": 122,
+          "both": 172,
+          "passed": 220,
+          "residual_only": 2030
+        },
+        "reference_exact_zero_windows": 185,
+        "residual_rms": 0.00016197116897019066,
+        "samples": 2437032,
+        "window_dc_energy_fraction": 0.02644043286794682,
+        "windows": 2544
+      },
+      "partial_window": {
+        "False": {
+          "centered_residual_rms": 0.0001597332432644241,
+          "failed": 2317,
+          "failure_categories": {
+            "amplitude_only": 122,
+            "both": 168,
+            "passed": 219,
+            "residual_only": 2027
+          },
+          "reference_exact_zero_windows": 184,
+          "residual_rms": 0.0001618824269266914,
+          "samples": 2434560,
+          "window_dc_energy_fraction": 0.026376144779835322,
+          "windows": 2536
+        },
+        "True": {
+          "centered_residual_rms": 0.00022679852430634498,
+          "failed": 7,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 4,
+            "passed": 1,
+            "residual_only": 3
+          },
+          "reference_exact_zero_windows": 1,
+          "residual_rms": 0.00023353546340922386,
+          "samples": 2472,
+          "window_dc_energy_fraction": 0.05686302818881614,
+          "windows": 8
+        }
+      },
+      "source_reference_exact_zero": {
+        "False": {
+          "centered_residual_rms": 0.00016065260914692854,
+          "failed": 2183,
+          "failure_categories": {
+            "amplitude_only": 3,
+            "both": 160,
+            "passed": 176,
+            "residual_only": 2020
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.0001629613033042598,
+          "samples": 2260197,
+          "window_dc_energy_fraction": 0.02813355470762056,
+          "windows": 2359
+        },
+        "True": {
+          "centered_residual_rms": 0.00014870207326282196,
+          "failed": 141,
+          "failure_categories": {
+            "amplitude_only": 119,
+            "both": 12,
+            "passed": 44,
+            "residual_only": 10
+          },
+          "reference_exact_zero_windows": 185,
+          "residual_rms": 0.0001487364921399754,
+          "samples": 176835,
+          "window_dc_energy_fraction": 0.000462763297012519,
+          "windows": 185
+        }
+      },
+      "source_starting_crop": {
+        "False": {
+          "centered_residual_rms": 0.00016802291038634906,
+          "failed": 939,
+          "failure_categories": {
+            "amplitude_only": 23,
+            "both": 63,
+            "passed": 91,
+            "residual_only": 853
+          },
+          "reference_exact_zero_windows": 42,
+          "residual_rms": 0.00017042158344210097,
+          "samples": 988800,
+          "window_dc_energy_fraction": 0.027951770210511036,
+          "windows": 1030
+        },
+        "True": {
+          "centered_residual_rms": 0.00015396069521237817,
+          "failed": 1385,
+          "failure_categories": {
+            "amplitude_only": 99,
+            "both": 109,
+            "passed": 129,
+            "residual_only": 1177
+          },
+          "reference_exact_zero_windows": 143,
+          "residual_rms": 0.000155938689127074,
+          "samples": 1448232,
+          "window_dc_energy_fraction": 0.02520797192374399,
+          "windows": 1514
+        }
+      },
+      "teacher_level_bin": {
+        "1e-4_to_1e-3": {
+          "centered_residual_rms": 0.0001984522150090512,
+          "failed": 1460,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 50,
+            "passed": 169,
+            "residual_only": 1410
+          },
+          "reference_exact_zero_windows": 10,
+          "residual_rms": 0.00020107838213167896,
+          "samples": 1560354,
+          "window_dc_energy_fraction": 0.025950255603803506,
+          "windows": 1629
+        },
+        "1e-5_to_1e-4": {
+          "centered_residual_rms": 3.100885260607131e-05,
+          "failed": 727,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 107,
+            "passed": 4,
+            "residual_only": 620
+          },
+          "reference_exact_zero_windows": 3,
+          "residual_rms": 3.217353171753002e-05,
+          "samples": 700803,
+          "window_dc_energy_fraction": 0.0710893960362241,
+          "windows": 731
+        },
+        "nonzero_to_1e-5": {
+          "centered_residual_rms": 2.5960026330377595e-05,
+          "failed": 137,
+          "failure_categories": {
+            "amplitude_only": 122,
+            "both": 15,
+            "passed": 47,
+            "residual_only": 0
+          },
+          "reference_exact_zero_windows": 172,
+          "residual_rms": 2.6147108603664384e-05,
+          "samples": 175875,
+          "window_dc_energy_fraction": 0.014258784044753777,
+          "windows": 184
+        }
+      },
+      "temporal_bin": {
+        "source20_to40ms": {
+          "centered_residual_rms": 0.0004003161677487158,
+          "failed": 27,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 5,
+            "passed": 2,
+            "residual_only": 22
+          },
+          "reference_exact_zero_windows": 10,
+          "residual_rms": 0.00040072084037087036,
+          "samples": 27840,
+          "window_dc_energy_fraction": 0.0020187035448051625,
+          "windows": 29
+        },
+        "source40_to800ms": {
+          "centered_residual_rms": 0.00013832122524201428,
+          "failed": 656,
+          "failure_categories": {
+            "amplitude_only": 98,
+            "both": 29,
+            "passed": 66,
+            "residual_only": 529
+          },
+          "reference_exact_zero_windows": 116,
+          "residual_rms": 0.00014045592185041387,
+          "samples": 692046,
+          "window_dc_energy_fraction": 0.030165686999033835,
+          "windows": 722
+        },
+        "source_after800ms": {
+          "centered_residual_rms": 0.00016087116898846115,
+          "failed": 1610,
+          "failure_categories": {
+            "amplitude_only": 24,
+            "both": 109,
+            "passed": 152,
+            "residual_only": 1477
+          },
+          "reference_exact_zero_windows": 48,
+          "residual_rms": 0.0001631744136516704,
+          "samples": 1687386,
+          "window_dc_energy_fraction": 0.02803122371869359,
+          "windows": 1762
+        },
+        "source_first20ms": {
+          "centered_residual_rms": 0.0001713017936694635,
+          "failed": 31,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 29,
+            "passed": 0,
+            "residual_only": 2
+          },
+          "reference_exact_zero_windows": 11,
+          "residual_rms": 0.00017229986269213507,
+          "samples": 29760,
+          "window_dc_energy_fraction": 0.011551701618322438,
+          "windows": 31
+        }
+      }
+    },
+    "teacher_cache_checks": [
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "hi_in:train:17472433744685771543.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "as_in:train:13453488421825608782.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "freesound:236508"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "sanskrit:2251799813734813_chunk_1.flac"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "freesound:402835"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "freesound:92375"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "freesound:343940"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "konkani:4222124650671062_chunk_1.flac"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "da_dk:train:12662536537047171941.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "thorsten_emotional:whisper/37773d61d5c91c12d49e55e2b041c0cd.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "cs_cz:train:10122716413664131344.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "pt_br:train:14525075052551707276.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "id_id:train:10850485351977338638.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "am_et:train:10477493006580119214.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "freesound:277554"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "freesound:36399"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "et_ee:train:16713145029159361863.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "kk_kz:train:13837639418509311322.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "kn_in:train:14687240407945660913.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "ha_ng:train:12490254919826375416.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "km_kh:train:10006360416725641613.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "bs_ba:train:11358760624286905521.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "freesound:421873"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "fr_fr:train:16715901780663941383.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "gl_es:train:10769481348315642515.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "luo_ke:train:15463642708286073509.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "or_in:train:14121683136407473853.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "kea_cv:train:11148966994412478534.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "af_za:train:12687107890474022499.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "ne_np:train:10865610629546253109.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "bn_in:train:11819972204190731727.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "lt_lt:train:15367591149256088428.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "ta_in:train:12079333390051219555.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "ml_in:train:10457389736210484635.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "kashmiri:1970324837177077_chunk_1.flac"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "cy_gb:train:10349599617049103526.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "2051-153962-0091"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "be_by:train:12518029196714550777.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "ln_cd:train:11959897544900910176.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "cmn_hans_cn:train:10162125752145534325.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "ky_kg:train:15514578015847358890.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "is_is:train:18143916026623202906.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "tg_tj:train:11851591230613317287.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "ast_es:train:16933683244427534350.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "5101-67853-0031"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "ca_es:train:10583803894773586508.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "ckb_iq:train:14031124210593524930.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "fa_ir:train:12074514968657073723.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "fi_fi:train:10893394073468230201.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "kam_ke:train:12154486779797187960.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "ka_ge:train:2993105044151469776.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "he_il:train:16823755323813467795.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "so_so:train:1179304877180760723.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "sd_in:train:13655315073103147391.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "ceb_ph:train:11416672701597922361.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "ko_kr:train:10359553883250105525.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "es_419:train:13461728374156750135.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "maithili:844424930138733_chunk_1.flac"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "freesound:428921"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "en_us:train:13546164985487902870.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "pa_in:train:16693733152628588519.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "lg_ug:train:12123343751639616808.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "manipuri:6473924464419399_chunk_1.flac"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "te_in:train:14751961982184477566.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "ar_eg:train:12360449360113063891.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "bodo:3659174697289264_chunk_3.flac"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "ff_sn:train:14756055913832624081.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "hr_hr:train:12137021049767807555.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "3242-67168-0001"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "5778-54535-0011"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "so_so:train:14842603451866844632.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "mr_in:train:10986875885056557364.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "ig_ng:train:10501649524957252930.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "santali:4785074604194847_chunk_1.flac"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "hu_hu:train:11110713752589902328.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "freesound:180341"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "pl_pl:train:14002458340348798.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "dogri:622d1198-0621-4e0c-9027-77e32a505100_1_chunk_8.flac"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "ga_ie:train:13963823416179330503.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "ur_pk:train:17356430244359180807.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "fil_ph:train:3075253886656038657.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "it_it:train:12677112187370521844.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "freesound:343960"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "ja_jp:train:12210528383264418745.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "az_az:train:1439903150624501148.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "gu_in:train:13687134359882365134.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "lb_lu:train:10437720223409828494.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "kn_in:train:15096009457771558023.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "jv_id:train:11045828164931236769.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "ur_pk:train:13989351609468149814.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "lo_la:train:10346663063780035215.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "el_gr:train:14520091198441206771.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "1363-139304-0012"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "hy_am:train:11186680517435167922.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "ps_af:train:15589493469027767437.wav"
+      },
+      {
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "bg_bg:train:12760864941937536074.wav"
+      }
+    ]
+  }
+}

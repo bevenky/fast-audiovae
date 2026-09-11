@@ -1,0 +1,61 @@
+{
+  "before": {
+    "feature": 0.09932652365387185,
+    "mel": 1.7187848696485162,
+    "waveform": 0.025772777387828683
+  },
+  "coefficients": {
+    "feature": 0.009304078923434964,
+    "mel": 0.0006674012905982311,
+    "waveform": 1.0
+  },
+  "denominators": {
+    "mel_elements": [
+      4126080,
+      4118912,
+      2052416,
+      2038144,
+      1005056
+    ],
+    "samples": 8266341
+  },
+  "learning_rate": 0.0001,
+  "optimizer": {
+    "betas": [
+      0.9,
+      0.99
+    ],
+    "eps": 1e-08,
+    "name": "AdamW",
+    "weight_decay": 0
+  },
+  "optimizer_probes": [
+    {
+      "actual_changes": {
+        "feature": -0.003583771438570693,
+        "mel": -0.13685867749154568,
+        "waveform": -0.00014076552997721592
+      },
+      "after": {
+        "feature": 0.09574275221530115,
+        "mel": 1.5819261921569705,
+        "waveform": 0.025632011857851467
+      },
+      "all_branches_nonincreasing": true,
+      "learning_rate": 0.0001,
+      "predicted_changes": {
+        "feature": -0.0038158158696895796,
+        "mel": -0.1928851096499584,
+        "waveform": -0.00024071178646680014
+      }
+    }
+  ],
+  "passed": true,
+  "pooled_parameter_gradient_norms": {
+    "feature": 0.15782547569590122,
+    "mel": 2.2002065364409167,
+    "waveform": 0.0029368413640066637
+  },
+  "reduction": "all calibration samples and valid mel elements pooled before gradient summation",
+  "state_restored": true
+}

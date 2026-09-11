@@ -1,0 +1,205 @@
+{
+  "trainer": {
+    "pid": 1048927,
+    "active": true
+  },
+  "training": {
+    "step": 233,
+    "updates": 233,
+    "global_step": 233,
+    "total": 0.00445386609572492,
+    "waveform": 0.004169613110207138,
+    "mel": 0.2973648179322481,
+    "feature": 0.009220829160767607,
+    "unique_sources": 2796,
+    "audio_hours": 1.912656579861111,
+    "step_seconds": 0.6232301741838455,
+    "elapsed_seconds": 184.07777083665133
+  },
+  "record_count": 233,
+  "teacher_cache": {
+    "comparisons": 2796,
+    "all_within_original_tolerance": true
+  },
+  "sources": {
+    "count": 2796,
+    "unique": 2796
+  },
+  "full-width-copy.json": {
+    "passed": true,
+    "records": 12
+  },
+  "checkpoint-step0.json": {
+    "checkpoint_sha256": "bd9a09c1ab5e86fce8f5ba1f435565c9dfff76b83c32d413d037a54d0df5942f",
+    "cut_index": 1,
+    "cut_updates": 0,
+    "frozen_state_preserved": true,
+    "global_updates": 0,
+    "optimizer_and_rng_saved": true,
+    "quality": {
+      "group_cosine": 0.7915426409633431,
+      "group_mse": 0.046927256211217176,
+      "group_nrmse": 0.6166639351873571,
+      "group_nrmse_floor_applied": false,
+      "mae": 0.021870683584162172,
+      "mel": 1.029525876045227,
+      "mel_linear": 0.019736934453248978,
+      "mel_log": 1.009788990020752,
+      "mse": 0.0030821164083638625,
+      "nonquiet_cosine_mean": 0.74350659773244,
+      "nonquiet_samples": 8809920,
+      "overshoot_samples": 0,
+      "peak_abs_max": 0.08067601919174194,
+      "quiet_failed_windows": 2544,
+      "quiet_residual_rms_mean": 0.0014146299984744957,
+      "quiet_windows": 2544,
+      "samples": 11246952,
+      "sources": 96,
+      "waveform_nrmse": 0.9323328532483677,
+      "waveform_nrmse_floor_applied": false,
+      "waveform_residual_rms": 0.055516811943445224
+    },
+    "sources_seen": 0
+  },
+  "baseline": {
+    "aggregate": {
+      "group_cosine": 0.7915426409633431,
+      "group_mse": 0.046927256211217176,
+      "group_nrmse": 0.6166639351873571,
+      "group_nrmse_floor_applied": false,
+      "mae": 0.021870683584162172,
+      "mel": 1.029525876045227,
+      "mel_linear": 0.019736934453248978,
+      "mel_log": 1.009788990020752,
+      "mse": 0.0030821164083638625,
+      "nonquiet_cosine_mean": 0.74350659773244,
+      "nonquiet_samples": 8809920,
+      "overshoot_samples": 0,
+      "peak_abs_max": 0.08067601919174194,
+      "quiet_failed_windows": 2544,
+      "quiet_residual_rms_mean": 0.0014146299984744957,
+      "quiet_windows": 2544,
+      "samples": 11246952,
+      "sources": 96,
+      "waveform_nrmse": 0.9323328532483677,
+      "waveform_nrmse_floor_applied": false,
+      "waveform_residual_rms": 0.055516811943445224
+    },
+    "quiet_regions": {
+      "all_quiet": {
+        "windows": 2544,
+        "failed": 2544,
+        "residual_rms": 0.001414630038562638,
+        "teacher_rms": 0.00044858246659957283
+      },
+      "near_after800ms": {
+        "windows": 50,
+        "failed": 50,
+        "residual_rms": 2.5451515197232885e-05,
+        "teacher_rms": 9.63522157827406e-06
+      },
+      "near_silence": {
+        "windows": 184,
+        "failed": 184,
+        "residual_rms": 2.3798316483159112e-05,
+        "teacher_rms": 9.557728173311252e-06
+      },
+      "near_startup_first20ms": {
+        "windows": 13,
+        "failed": 13,
+        "residual_rms": 4.838503712782136e-05,
+        "teacher_rms": 9.333618658867093e-06
+      },
+      "quiet_nonzero_reference": {
+        "windows": 2359,
+        "failed": 2359,
+        "residual_rms": 0.0014658361478489734,
+        "teacher_rms": 0.00046396347588343413
+      },
+      "source_zero_20to40ms": {
+        "windows": 10,
+        "failed": 10,
+        "residual_rms": 0.00145999688701965,
+        "teacher_rms": 0.0006328312272720288
+      },
+      "source_zero_after40ms": {
+        "windows": 164,
+        "failed": 164,
+        "residual_rms": 1.1976554257061256e-05,
+        "teacher_rms": 9.596542630338276e-06
+      }
+    }
+  },
+  "display_processes": [
+    {
+      "pid": 1019330,
+      "command": [
+        "/tmp/fast-audiovae-recovery-20260909/venv214/bin/python",
+        "-u",
+        "/workspace/fast-audiovae-compression-20260910-v1/code/tensorboard_display.py",
+        "--source-logdir",
+        "/workspace/fast-audiovae-compression-20260910-v1/tensorboard-unified/active",
+        "--display-logdir",
+        "/workspace/fast-audiovae-compression-20260910-v1/tensorboard-display/active",
+        ""
+      ]
+    },
+    {
+      "pid": 1048927,
+      "command": [
+        "/tmp/fast-audiovae-recovery-20260909/venv214/bin/python",
+        "-u",
+        "/tmp/fast-audiovae-progressive-pruning-v1/code/progressive_train.py",
+        "--manifest",
+        "/workspace/fast-audiovae-compression-20260910-v1/pilot-selection-v1.json",
+        "--source-plan",
+        "/workspace/fast-audiovae-compression-20260910-v1/fresh-source-plan-v2/plan.json",
+        "--shards",
+        "/dev/shm/fast-audiovae-compression-fresh-shards-v2",
+        "--assets",
+        "/workspace/fast-audiovae-convnext-20260908-r1/assets",
+        "--recipe",
+        "/tmp/fast-audiovae-joint-recovery-v2/segment-5625-6625/launch.json",
+        "--schedule",
+        "/tmp/fast-audiovae-progressive-pruning-v1/preparation/schedule.json",
+        "--out",
+        "/tmp/fast-audiovae-progressive-pruning-v1/cut1-384-256",
+        "--tensorboard",
+        "/tmp/fast-audiovae-progressive-pruning-v1/tensorboard/cut1",
+        "--cut-index",
+        "1",
+        ""
+      ]
+    },
+    {
+      "pid": 1049204,
+      "command": [
+        "/tmp/fast-audiovae-recovery-20260909/venv214/bin/python",
+        "-m",
+        "tensorboard.main",
+        "--logdir",
+        "/tmp/fast-audiovae-progressive-pruning-v1/tensorboard/cut1",
+        "--host",
+        "0.0.0.0",
+        "--port",
+        "8888",
+        "--reload_interval",
+        "5",
+        "--load_fast",
+        "false",
+        "--reload_multifile",
+        "true",
+        "--reload_multifile_inactive_secs",
+        "86400",
+        ""
+      ]
+    }
+  ],
+  "gpu": "88 %, 5837 MiB, 95830 MiB",
+  "log_tail": [
+    "{\"stage\": \"progressive_training\", \"utc\": \"2026-09-10T15:50:32Z\", \"step\": 150, \"updates\": 150, \"global_step\": 150, \"total\": 0.0076452121972740246, \"waveform\": 0.007281911226527882, \"mel\": 0.35750197246670723, \"feature\": 0.013403120712609962, \"gradient_norm\": 0.10383083671331406, \"gpu_memory_gib\": 1.1067681312561035, \"unique_sources\": 1800, \"audio_hours\": 1.2302552430555556, \"step_seconds\": 0.5768437087535858, \"elapsed_seconds\": 133.2830516770482}",
+    "{\"stage\": \"progressive_training\", \"utc\": \"2026-09-10T15:50:48Z\", \"step\": 175, \"updates\": 175, \"global_step\": 175, \"total\": 0.00786210846336353, \"waveform\": 0.00749592921056319, \"mel\": 0.3756834715604782, \"feature\": 0.012408280279487371, \"gradient_norm\": 0.10668905079364777, \"gpu_memory_gib\": 1.072004795074463, \"unique_sources\": 2100, \"audio_hours\": 1.4375272916666666, \"step_seconds\": 0.5823874548077583, \"elapsed_seconds\": 149.2307634204626}",
+    "{\"stage\": \"progressive_training\", \"utc\": \"2026-09-10T15:51:02Z\", \"step\": 200, \"updates\": 200, \"global_step\": 200, \"total\": 0.010375081952686471, \"waveform\": 0.010035835515736835, \"mel\": 0.3453322686254978, \"feature\": 0.011690704268403351, \"gradient_norm\": 0.11845923960208893, \"gpu_memory_gib\": 1.1068062782287598, \"unique_sources\": 2400, \"audio_hours\": 1.641723559027778, \"step_seconds\": 0.6029088348150253, \"elapsed_seconds\": 163.44003422558308}",
+    "{\"stage\": \"progressive_training\", \"utc\": \"2026-09-10T15:51:18Z\", \"step\": 225, \"updates\": 225, \"global_step\": 225, \"total\": 0.00770415836573718, \"waveform\": 0.00737521575865685, \"mel\": 0.3515012860298157, \"feature\": 0.010140734608285129, \"gradient_norm\": 0.1397656500339508, \"gpu_memory_gib\": 1.1061577796936035, \"unique_sources\": 2700, \"audio_hours\": 1.8483699652777779, \"step_seconds\": 0.6523013412952423, \"elapsed_seconds\": 179.15650756657124}"
+  ]
+}

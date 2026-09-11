@@ -1,0 +1,1277 @@
+{
+  "archive_projection_version": 1,
+  "original_relative_path": "outputs/audiovae2-compression-preflight/training-audit5000/quiet-window-audit-v1/execution-summary.json",
+  "original_sha256": "af246b48e4aa65af6492c20c4456e0f254cf51b3017474a6b6cd6f0681f35856",
+  "omitted_field_paths": [
+    "checkpoints.4625.phase_templates",
+    "checkpoints.5625.phase_templates"
+  ],
+  "note": "Labelled projection. Omitted numerical payloads and listed bulk report collections remain outside Git; configuration metadata is retained.",
+  "report": {
+    "version": "saved_quiet_audit_summary_v1",
+    "input_sha256": {
+      "completed.json": "4b805444bb6e22ea0bf77dac2dfb07d502eb99dc1a5e911cc812ae01c937083c",
+      "launch.json": "53d55ccbfae653fe6137b9ffaeda9a4b279e403a07de1f70c32e0f65562df745",
+      "paired-windows.json": "f1f63e8cde5903c0158c981475c159d6cd10fb283645ef9cdd073e42fd1ed373",
+      "preservation.json": "3e585d5e48d2983dbe3e831f7ac4c105380d1de88a91456d11bed4525a633183",
+      "quiet-step4625.json": "88e7ef75f6fcdc2508e3946f4ecf6256eeb11cd50c1bf91e660a3c2e323f3b30",
+      "quiet-step5625.json": "352112682c24812e6f91628d9d6af51f44b6b28a6726058b280c11ae50b1694e"
+    },
+    "quantile_method": "Linear interpolation at (n-1)*q; unweighted windows. Pooled RMS uses valid samples.",
+    "checkpoints": {
+      "4625": {
+        "all_quiet": {
+          "windows": 2544,
+          "sources": 68,
+          "samples": 2437032,
+          "failure_categories": {
+            "both": 81,
+            "residual_only": 2175,
+            "passed": 138,
+            "amplitude_only": 150
+          },
+          "failed": 2406,
+          "residual_square_sum": 0.07604546760450712,
+          "residual_rms": 0.0001766469126506066,
+          "centered_residual_rms": 0.00017570584678735048,
+          "window_dc_energy_fraction": 0.010626386159322355,
+          "quantiles": {
+            "residual_over_limit": {
+              "n": 2544,
+              "q10": 0.9109755418112845,
+              "median": 1.9962653786539444,
+              "q90": 4.823106417959582
+            },
+            "output_rms_over_limit": {
+              "n": 2544,
+              "q10": 0.73131026297136,
+              "median": 0.8474254015786988,
+              "q90": 0.9819586396102598
+            },
+            "least_squares_gain": {
+              "n": 2544,
+              "q10": 0.594891746451845,
+              "median": 0.87080435850821,
+              "q90": 1.0235957228657493
+            },
+            "cosine": {
+              "n": 2544,
+              "q10": 0.6879922220821115,
+              "median": 0.9300157008501964,
+              "q90": 0.9871029578338538
+            },
+            "centered_cosine": {
+              "n": 2544,
+              "q10": 0.43821329407195786,
+              "median": 0.8900322956168232,
+              "q90": 0.9835361666840133
+            },
+            "dc_energy_fraction": {
+              "n": 2544,
+              "q10": 0.0002548776143566695,
+              "median": 0.011496306553719585,
+              "q90": 0.21132946721028448
+            }
+          }
+        },
+        "near": {
+          "windows": 184,
+          "sources": 15,
+          "samples": 175875,
+          "failure_categories": {
+            "both": 15,
+            "passed": 18,
+            "amplitude_only": 150,
+            "residual_only": 1
+          },
+          "failed": 166,
+          "residual_square_sum": 0.00014893981777308442,
+          "residual_rms": 2.9100694508630384e-05,
+          "centered_residual_rms": 2.895223506548548e-05,
+          "window_dc_energy_fraction": 0.010177128551817639,
+          "quantiles": {
+            "residual_over_limit": {
+              "n": 184,
+              "q10": 0.4588996150654527,
+              "median": 0.48833900433610705,
+              "q90": 0.7082148837720322
+            },
+            "output_rms_over_limit": {
+              "n": 184,
+              "q10": 0.9675456189066938,
+              "median": 1.144308006903609,
+              "q90": 1.2539592865821374
+            },
+            "least_squares_gain": {
+              "n": 184,
+              "q10": 0.8814269959691892,
+              "median": 1.2017481125884877,
+              "q90": 1.334569813880326
+            },
+            "cosine": {
+              "n": 184,
+              "q10": 0.718817681396724,
+              "median": 0.9366311005602271,
+              "q90": 0.9473054478210992
+            },
+            "centered_cosine": {
+              "n": 184,
+              "q10": -0.03136535098965814,
+              "median": 0.005721648378488814,
+              "q90": 0.20435456867831547
+            },
+            "dc_energy_fraction": {
+              "n": 184,
+              "q10": 0.03599188882505119,
+              "median": 0.16714922267473242,
+              "q90": 0.32842311156417753
+            }
+          }
+        },
+        "near_after_first40ms": {
+          "windows": 171,
+          "sources": 13,
+          "samples": 163395,
+          "failure_categories": {
+            "passed": 18,
+            "amplitude_only": 150,
+            "residual_only": 1,
+            "both": 2
+          },
+          "failed": 153,
+          "residual_square_sum": 4.619054639238599e-06,
+          "residual_rms": 5.316883793846193e-06,
+          "centered_residual_rms": 4.570881869628737e-06,
+          "window_dc_energy_fraction": 0.2609298568595731,
+          "quantiles": {
+            "residual_over_limit": {
+              "n": 171,
+              "q10": 0.4526218277278748,
+              "median": 0.484719942927387,
+              "q90": 0.53781510808981
+            },
+            "output_rms_over_limit": {
+              "n": 171,
+              "q10": 0.9246886585341734,
+              "median": 1.142679038891433,
+              "q90": 1.22947945549198
+            },
+            "least_squares_gain": {
+              "n": 171,
+              "q10": 0.8814257898026845,
+              "median": 1.2008297084450297,
+              "q90": 1.3070765631597367
+            },
+            "cosine": {
+              "n": 171,
+              "q10": 0.8499344908549873,
+              "median": 0.93664767637072,
+              "q90": 0.9475019303971818
+            },
+            "centered_cosine": {
+              "n": 171,
+              "q10": -0.031478956662776475,
+              "median": -0.0015043708711152376,
+              "q90": 0.13130627297457007
+            },
+            "dc_energy_fraction": {
+              "n": 171,
+              "q10": 0.05440936306353184,
+              "median": 0.16992354004330174,
+              "q90": 0.34676087367658287
+            }
+          }
+        },
+        "near_first20ms": {
+          "windows": 13,
+          "sources": 13,
+          "samples": 12480,
+          "failure_categories": {
+            "both": 13
+          },
+          "failed": 13,
+          "residual_square_sum": 0.00014432076313384583,
+          "residual_rms": 0.00010753680166644302,
+          "centered_residual_rms": 0.00010742104760505709,
+          "window_dc_energy_fraction": 0.0021516682657083002,
+          "quantiles": {
+            "residual_over_limit": {
+              "n": 13,
+              "q10": 10.716602098604508,
+              "median": 10.716606173140875,
+              "q90": 10.840708110764815
+            },
+            "output_rms_over_limit": {
+              "n": 13,
+              "q10": 10.100252852435684,
+              "median": 10.100334840499833,
+              "q90": 10.10034845719684
+            },
+            "least_squares_gain": {
+              "n": 13,
+              "q10": 1.464490201597513,
+              "median": 1.9274664914881667,
+              "q90": 1.9275233377053946
+            },
+            "cosine": {
+              "n": 13,
+              "q10": 0.1294406095773378,
+              "median": 0.17007940025802953,
+              "q90": 0.17008529445171394
+            },
+            "centered_cosine": {
+              "n": 13,
+              "q10": 0.12207178256867003,
+              "median": 0.2043415372164249,
+              "q90": 0.20435987950687973
+            },
+            "dc_energy_fraction": {
+              "n": 13,
+              "q10": 0.0006102236600156657,
+              "median": 0.0006102605406289408,
+              "q90": 0.0006103081592470263
+            }
+          }
+        },
+        "source_exact_zero": {
+          "windows": 185,
+          "sources": 14,
+          "samples": 176835,
+          "failure_categories": {
+            "both": 12,
+            "residual_only": 10,
+            "passed": 16,
+            "amplitude_only": 147
+          },
+          "failed": 169,
+          "residual_square_sum": 0.003947033179846537,
+          "residual_rms": 0.00014940023314976807,
+          "centered_residual_rms": 0.0001493574408060364,
+          "window_dc_energy_fraction": 0.0005727730723894863,
+          "quantiles": {
+            "residual_over_limit": {
+              "n": 185,
+              "q10": 0.4589012976306935,
+              "median": 0.48882881272012046,
+              "q90": 7.048960568394749
+            },
+            "output_rms_over_limit": {
+              "n": 185,
+              "q10": 0.9242700069466274,
+              "median": 1.142835346093339,
+              "q90": 1.2523345633296505
+            },
+            "least_squares_gain": {
+              "n": 185,
+              "q10": 0.8814182565249244,
+              "median": 1.2010676634533592,
+              "q90": 1.3326441247413352
+            },
+            "cosine": {
+              "n": 185,
+              "q10": 0.1794895388761456,
+              "median": 0.9366311005602271,
+              "q90": 0.9472401637927389
+            },
+            "centered_cosine": {
+              "n": 185,
+              "q10": -0.03132748243195203,
+              "median": 0.005827368134390053,
+              "q90": 0.20434090339358676
+            },
+            "dc_energy_fraction": {
+              "n": 185,
+              "q10": 0.0006102830869699501,
+              "median": 0.1671098891209026,
+              "q90": 0.328414465194116
+            }
+          }
+        },
+        "source_exact_zero_after_first40ms": {
+          "windows": 164,
+          "sources": 13,
+          "samples": 156675,
+          "failure_categories": {
+            "passed": 16,
+            "amplitude_only": 147,
+            "both": 1
+          },
+          "failed": 148,
+          "residual_square_sum": 3.939679996068665e-06,
+          "residual_rms": 5.014534481120841e-06,
+          "centered_residual_rms": 4.455835326661054e-06,
+          "window_dc_energy_fraction": 0.2104183972273144,
+          "quantiles": {
+            "residual_over_limit": {
+              "n": 164,
+              "q10": 0.4588996150654527,
+              "median": 0.4847149861811372,
+              "q90": 0.5378103014101898
+            },
+            "output_rms_over_limit": {
+              "n": 164,
+              "q10": 1.034637824426993,
+              "median": 1.1428018149910113,
+              "q90": 1.2294789737249943
+            },
+            "least_squares_gain": {
+              "n": 164,
+              "q10": 1.03095552232847,
+              "median": 1.2010219549191556,
+              "q90": 1.3070790900595763
+            },
+            "cosine": {
+              "n": 164,
+              "q10": 0.9110550533537738,
+              "median": 0.9366992575309706,
+              "q90": 0.9475019641548708
+            },
+            "centered_cosine": {
+              "n": 164,
+              "q10": -0.03275546659573511,
+              "median": -0.0015503421007821393,
+              "q90": 0.13045334131173422
+            },
+            "dc_energy_fraction": {
+              "n": 164,
+              "q10": 0.054527824242308925,
+              "median": 0.16920983010288365,
+              "q90": 0.32842132127402457
+            }
+          }
+        },
+        "source_exact_zero_20to40ms": {
+          "windows": 10,
+          "sources": 10,
+          "samples": 9600,
+          "failure_categories": {
+            "residual_only": 10
+          },
+          "failed": 10,
+          "residual_square_sum": 0.0038205627559490217,
+          "residual_rms": 0.0006308528252120482,
+          "centered_residual_rms": 0.0006307641123856826,
+          "window_dc_energy_fraction": 0.00028122752331393174,
+          "quantiles": {
+            "residual_over_limit": {
+              "n": 10,
+              "q10": 7.048960529277232,
+              "median": 7.048961041357154,
+              "q90": 7.0489616249272276
+            },
+            "output_rms_over_limit": {
+              "n": 10,
+              "q10": 0.016333336231356087,
+              "median": 0.016333433153952047,
+              "q90": 0.016333485453439215
+            },
+            "least_squares_gain": {
+              "n": 10,
+              "q10": 0.00328927532612726,
+              "median": 0.0032893383538097737,
+              "q90": 0.003289391592111372
+            },
+            "cosine": {
+              "n": 10,
+              "q10": 0.17948419184308856,
+              "median": 0.1794861084502095,
+              "q90": 0.17948939417155052
+            },
+            "centered_cosine": {
+              "n": 10,
+              "q10": 0.19357481158645157,
+              "median": 0.19357740193199385,
+              "q90": 0.19358160705128122
+            },
+            "dc_energy_fraction": {
+              "n": 10,
+              "q10": 0.0002812237458164178,
+              "median": 0.00028122933130473183,
+              "q90": 0.00028123096723438193
+            }
+          }
+        },
+        "source_exact_zero_first40ms": {
+          "windows": 21,
+          "sources": 11,
+          "samples": 20160,
+          "failure_categories": {
+            "both": 11,
+            "residual_only": 10
+          },
+          "failed": 21,
+          "residual_square_sum": 0.003943093499850468,
+          "residual_rms": 0.0004422555317344551,
+          "centered_residual_rms": 0.000442175230938073,
+          "window_dc_energy_fraction": 0.00036310910987456195,
+          "quantiles": {
+            "residual_over_limit": {
+              "n": 21,
+              "q10": 7.048960568394749,
+              "median": 10.716601807566196,
+              "q90": 10.716609811119774
+            },
+            "output_rms_over_limit": {
+              "n": 21,
+              "q10": 0.01633339821156597,
+              "median": 9.08622983674629,
+              "q90": 10.10033986721132
+            },
+            "least_squares_gain": {
+              "n": 21,
+              "q10": 0.003289303110721433,
+              "median": 1.9274495793733837,
+              "q90": 1.9275142976283761
+            },
+            "cosine": {
+              "n": 21,
+              "q10": 0.1700788888339185,
+              "median": 0.17948204045994762,
+              "q90": 0.17948934593668547
+            },
+            "centered_cosine": {
+              "n": 21,
+              "q10": 0.19357506451203282,
+              "median": 0.1935821497198743,
+              "q90": 0.20435280220152716
+            },
+            "dc_energy_fraction": {
+              "n": 21,
+              "q10": 0.0002812251544722192,
+              "median": 0.0006102230057866241,
+              "q90": 0.0006102912838866019
+            }
+          }
+        },
+        "broader_quiet": {
+          "windows": 2360,
+          "sources": 68,
+          "samples": 2261157,
+          "failure_categories": {
+            "residual_only": 2174,
+            "both": 66,
+            "passed": 120
+          },
+          "failed": 2240,
+          "residual_square_sum": 0.07589652778673403,
+          "residual_rms": 0.00018320848981845844,
+          "centered_residual_rms": 0.00018223238672344724,
+          "window_dc_energy_fraction": 0.010627267785243168,
+          "quantiles": {
+            "residual_over_limit": {
+              "n": 2360,
+              "q10": 1.2199213684955903,
+              "median": 2.090511953633477,
+              "q90": 4.844088144672723
+            },
+            "output_rms_over_limit": {
+              "n": 2360,
+              "q10": 0.7282681156151786,
+              "median": 0.8415311096156666,
+              "q90": 0.9291273493225706
+            },
+            "least_squares_gain": {
+              "n": 2360,
+              "q10": 0.5867340747304144,
+              "median": 0.860041345223912,
+              "q90": 0.9808430817428908
+            },
+            "cosine": {
+              "n": 2360,
+              "q10": 0.6877382418344857,
+              "median": 0.9254824610705915,
+              "q90": 0.9878639290384426
+            },
+            "centered_cosine": {
+              "n": 2360,
+              "q10": 0.6495513438064722,
+              "median": 0.9038410246545174,
+              "q90": 0.9843228105228925
+            },
+            "dc_energy_fraction": {
+              "n": 2360,
+              "q10": 0.00021276611532665757,
+              "median": 0.009394553827581493,
+              "q90": 0.16481253795405945
+            }
+          }
+        },
+        "residual_only": {
+          "windows": 2175,
+          "sources": 66,
+          "samples": 2085969,
+          "failure_categories": {
+            "residual_only": 2175
+          },
+          "failed": 2175,
+          "residual_square_sum": 0.07369751651359091,
+          "residual_rms": 0.00018796305779693358,
+          "centered_residual_rms": 0.00018709475679778835,
+          "window_dc_energy_fraction": 0.009217720098911537,
+          "quantiles": {
+            "residual_over_limit": {
+              "n": 2175,
+              "q10": 1.3252567941386604,
+              "median": 2.161334866737702,
+              "q90": 4.853740858758299
+            },
+            "output_rms_over_limit": {
+              "n": 2175,
+              "q10": 0.7224504332709613,
+              "median": 0.8380217488063176,
+              "q90": 0.9161087984748356
+            },
+            "least_squares_gain": {
+              "n": 2175,
+              "q10": 0.572681071837955,
+              "median": 0.8512806049804145,
+              "q90": 0.9675254131733876
+            },
+            "cosine": {
+              "n": 2175,
+              "q10": 0.6885150934808789,
+              "median": 0.9195124586505538,
+              "q90": 0.9839139660738668
+            },
+            "centered_cosine": {
+              "n": 2175,
+              "q10": 0.6536164030348084,
+              "median": 0.8996724930016494,
+              "q90": 0.980888322663392
+            },
+            "dc_energy_fraction": {
+              "n": 2175,
+              "q10": 0.0002037840524923433,
+              "median": 0.008660042402448713,
+              "q90": 0.13973277092557343
+            }
+          }
+        },
+        "quiet_after800ms": {
+          "windows": 1762,
+          "sources": 60,
+          "samples": 1687386,
+          "failure_categories": {
+            "residual_only": 1589,
+            "both": 36,
+            "passed": 91,
+            "amplitude_only": 46
+          },
+          "failed": 1671,
+          "residual_square_sum": 0.05408899985570743,
+          "residual_rms": 0.0001790388397589382,
+          "centered_residual_rms": 0.00017793071701006078,
+          "window_dc_energy_fraction": 0.012340266565039969,
+          "quantiles": {
+            "residual_over_limit": {
+              "n": 1762,
+              "q10": 1.1120551376093577,
+              "median": 1.9644574420237662,
+              "q90": 4.6636198156540445
+            },
+            "output_rms_over_limit": {
+              "n": 1762,
+              "q10": 0.7322823001260756,
+              "median": 0.8458210557650154,
+              "q90": 0.9384428477942407
+            },
+            "least_squares_gain": {
+              "n": 1762,
+              "q10": 0.6411505082605028,
+              "median": 0.8776352143178208,
+              "q90": 0.995303029799986
+            },
+            "cosine": {
+              "n": 1762,
+              "q10": 0.7286557541824057,
+              "median": 0.9366305275637916,
+              "q90": 0.9876607257370038
+            },
+            "centered_cosine": {
+              "n": 1762,
+              "q10": 0.6640839702549496,
+              "median": 0.9139455001590828,
+              "q90": 0.9855798598369158
+            },
+            "dc_energy_fraction": {
+              "n": 1762,
+              "q10": 0.00024045615262969374,
+              "median": 0.010700236510007389,
+              "q90": 0.1670983080669157
+            }
+          }
+        },
+        "near_first20ms_share_of_near_residual_energy": 0.968987106951642,
+        "zero_first40ms_share_of_zero_residual_energy": 0.9990018629647746,
+        "all_teacher_cache_bitwise": true,
+        "teacher_cache_checks": 96,
+        "scored_source_forwards": 96,
+        "saved_quality_check": {
+          "absolute_tolerance": 1e-06,
+          "failures": [],
+          "passed": true,
+          "relative_tolerance": 1e-05
+        },
+        "runtime_warmups": {
+          "student_extra_group_and_suffix_forwards": 33,
+          "teacher_extra_forwards": 33
+        },
+        "source_exact_zero_20to40ms_ranges": {
+          "teacher_rms": [
+            0.0006328289164230227,
+            0.000632836832664907
+          ],
+          "student_rms": [
+            1.1597444427025039e-05,
+            1.1597596312640235e-05
+          ],
+          "residual_rms_double": [
+            0.0006308505270625311,
+            0.0006308584779483401
+          ]
+        }
+      },
+      "5625": {
+        "all_quiet": {
+          "windows": 2544,
+          "sources": 68,
+          "samples": 2437032,
+          "failure_categories": {
+            "both": 172,
+            "residual_only": 2030,
+            "passed": 220,
+            "amplitude_only": 122
+          },
+          "failed": 2324,
+          "residual_square_sum": 0.06393470489964471,
+          "residual_rms": 0.00016197116897019066,
+          "centered_residual_rms": 0.00015981553060386803,
+          "window_dc_energy_fraction": 0.02644043286794682,
+          "quantiles": {
+            "residual_over_limit": {
+              "n": 2544,
+              "q10": 0.8294570278390376,
+              "median": 1.938527815765257,
+              "q90": 4.507712154392184
+            },
+            "output_rms_over_limit": {
+              "n": 2544,
+              "q10": 0.771094753560857,
+              "median": 0.8706373162875005,
+              "q90": 1.0129853893962495
+            },
+            "least_squares_gain": {
+              "n": 2544,
+              "q10": 0.6646386285350965,
+              "median": 0.9069887704018893,
+              "q90": 1.0570211002592669
+            },
+            "cosine": {
+              "n": 2544,
+              "q10": 0.7246807014960733,
+              "median": 0.9377202451543155,
+              "q90": 0.9889137572392637
+            },
+            "centered_cosine": {
+              "n": 2544,
+              "q10": 0.48195233725600706,
+              "median": 0.9047267832073009,
+              "q90": 0.9867479238092194
+            },
+            "dc_energy_fraction": {
+              "n": 2544,
+              "q10": 0.002989105171075768,
+              "median": 0.04143686244788992,
+              "q90": 0.23578986094819365
+            }
+          }
+        },
+        "near": {
+          "windows": 184,
+          "sources": 15,
+          "samples": 175875,
+          "failure_categories": {
+            "both": 15,
+            "passed": 47,
+            "amplitude_only": 122
+          },
+          "failed": 137,
+          "residual_square_sum": 0.00012024068783535885,
+          "residual_rms": 2.6147108603664384e-05,
+          "centered_residual_rms": 2.5960026330377595e-05,
+          "window_dc_energy_fraction": 0.014258784044753777,
+          "quantiles": {
+            "residual_over_limit": {
+              "n": 184,
+              "q10": 0.37030082720364205,
+              "median": 0.38694846420901785,
+              "q90": 0.5769240633750492
+            },
+            "output_rms_over_limit": {
+              "n": 184,
+              "q10": 0.9646706543373291,
+              "median": 1.0218916004457674,
+              "q90": 1.1233439655786532
+            },
+            "least_squares_gain": {
+              "n": 184,
+              "q10": 0.9595038559346066,
+              "median": 1.0777205137099233,
+              "q90": 1.1997666128377427
+            },
+            "cosine": {
+              "n": 184,
+              "q10": 0.8156698517137027,
+              "median": 0.9427289904521343,
+              "q90": 0.9521013050845103
+            },
+            "centered_cosine": {
+              "n": 184,
+              "q10": -0.04737091215934142,
+              "median": -0.02537548115259136,
+              "q90": 0.21234958877237503
+            },
+            "dc_energy_fraction": {
+              "n": 184,
+              "q10": 0.010130210652513854,
+              "median": 0.03967819673789938,
+              "q90": 0.18112465066025799
+            }
+          }
+        },
+        "near_after_first40ms": {
+          "windows": 171,
+          "sources": 13,
+          "samples": 163395,
+          "failure_categories": {
+            "passed": 47,
+            "amplitude_only": 122,
+            "both": 2
+          },
+          "failed": 124,
+          "residual_square_sum": 2.9269724484007894e-06,
+          "residual_rms": 4.232431479513354e-06,
+          "centered_residual_rms": 3.952555205780638e-06,
+          "window_dc_energy_fraction": 0.1278804596481467,
+          "quantiles": {
+            "residual_over_limit": {
+              "n": 171,
+              "q10": 0.3702703318455212,
+              "median": 0.38434810510412076,
+              "q90": 0.428011855445636
+            },
+            "output_rms_over_limit": {
+              "n": 171,
+              "q10": 0.9496241926658125,
+              "median": 1.021871564000164,
+              "q90": 1.1018024166401383
+            },
+            "least_squares_gain": {
+              "n": 171,
+              "q10": 0.9595029234684148,
+              "median": 1.0768401387815574,
+              "q90": 1.1768062861587612
+            },
+            "cosine": {
+              "n": 171,
+              "q10": 0.9009170557686478,
+              "median": 0.9427290591500149,
+              "q90": 0.9521017823633998
+            },
+            "centered_cosine": {
+              "n": 171,
+              "q10": -0.047413617576136,
+              "median": -0.025517521305458115,
+              "q90": 0.0847536980384014
+            },
+            "dc_energy_fraction": {
+              "n": 171,
+              "q10": 0.011836612930669184,
+              "median": 0.04052145445765606,
+              "q90": 0.18112697486245327
+            }
+          }
+        },
+        "near_first20ms": {
+          "windows": 13,
+          "sources": 13,
+          "samples": 12480,
+          "failure_categories": {
+            "both": 13
+          },
+          "failed": 13,
+          "residual_square_sum": 0.00011731371538695805,
+          "residual_rms": 9.695430599451501e-05,
+          "centered_residual_rms": 9.639891575613457e-05,
+          "window_dc_energy_fraction": 0.011423927839447356,
+          "quantiles": {
+            "residual_over_limit": {
+              "n": 13,
+              "q10": 9.64659072264449,
+              "median": 9.64659290543183,
+              "q90": 9.81857180951979
+            },
+            "output_rms_over_limit": {
+              "n": 13,
+              "q10": 9.168988234905626,
+              "median": 9.169045629985652,
+              "q90": 9.199044821226943
+            },
+            "least_squares_gain": {
+              "n": 13,
+              "q10": 1.7023185195503148,
+              "median": 2.5439356231919534,
+              "q90": 2.543973532198718
+            },
+            "cosine": {
+              "n": 13,
+              "q10": 0.16499664014151885,
+              "median": 0.24727652608298067,
+              "q90": 0.2472809658190775
+            },
+            "centered_cosine": {
+              "n": 13,
+              "q10": 0.12772381401389393,
+              "median": 0.21233893696009035,
+              "q90": 0.21235495835098703
+            },
+            "dc_energy_fraction": {
+              "n": 13,
+              "q10": 0.00961151320232256,
+              "median": 0.009611657687027098,
+              "q90": 0.009611942327262708
+            }
+          }
+        },
+        "source_exact_zero": {
+          "windows": 185,
+          "sources": 14,
+          "samples": 176835,
+          "failure_categories": {
+            "both": 12,
+            "residual_only": 10,
+            "passed": 44,
+            "amplitude_only": 119
+          },
+          "failed": 141,
+          "residual_square_sum": 0.003912040084881051,
+          "residual_rms": 0.0001487364921399754,
+          "centered_residual_rms": 0.00014870207326282196,
+          "window_dc_energy_fraction": 0.000462763297012519,
+          "quantiles": {
+            "residual_over_limit": {
+              "n": 185,
+              "q10": 0.370301927692259,
+              "median": 0.3869558993283927,
+              "q90": 7.039408520170633
+            },
+            "output_rms_over_limit": {
+              "n": 185,
+              "q10": 0.949300654917209,
+              "median": 1.0218767542830252,
+              "q90": 1.116536447301225
+            },
+            "least_squares_gain": {
+              "n": 185,
+              "q10": 0.9594971934316592,
+              "median": 1.0770560792475365,
+              "q90": 1.1938038753838547
+            },
+            "cosine": {
+              "n": 185,
+              "q10": 0.255990367933262,
+              "median": 0.9427280858762924,
+              "q90": 0.9521012710429183
+            },
+            "centered_cosine": {
+              "n": 185,
+              "q10": -0.047499888775137715,
+              "median": -0.025303320609883696,
+              "q90": 0.256407063038594
+            },
+            "dc_energy_fraction": {
+              "n": 185,
+              "q10": 0.009611737366901464,
+              "median": 0.03967347728916035,
+              "q90": 0.18111621613801301
+            }
+          }
+        },
+        "source_exact_zero_after_first40ms": {
+          "windows": 164,
+          "sources": 13,
+          "samples": 156675,
+          "failure_categories": {
+            "passed": 44,
+            "amplitude_only": 119,
+            "both": 1
+          },
+          "failed": 120,
+          "residual_square_sum": 2.50291077485399e-06,
+          "residual_rms": 3.996895855416118e-06,
+          "centered_residual_rms": 3.815124415359679e-06,
+          "window_dc_energy_fraction": 0.08888804303551047,
+          "quantiles": {
+            "residual_over_limit": {
+              "n": 164,
+              "q10": 0.3702614824618494,
+              "median": 0.38434610421572635,
+              "q90": 0.41540663600092986
+            },
+            "output_rms_over_limit": {
+              "n": 164,
+              "q10": 0.9806703156168466,
+              "median": 1.0218741591415945,
+              "q90": 1.1018015146925693
+            },
+            "least_squares_gain": {
+              "n": 164,
+              "q10": 0.9932396499257904,
+              "median": 1.0770147008252553,
+              "q90": 1.1768087395755447
+            },
+            "cosine": {
+              "n": 164,
+              "q10": 0.9144881741291856,
+              "median": 0.9427498907830696,
+              "q90": 0.952101995863946
+            },
+            "centered_cosine": {
+              "n": 164,
+              "q10": -0.04751634985233275,
+              "median": -0.025625080664664696,
+              "q90": 0.06830211869352174
+            },
+            "dc_energy_fraction": {
+              "n": 164,
+              "q10": 0.011835281490484031,
+              "median": 0.04056948880207792,
+              "q90": 0.1811197064511339
+            }
+          }
+        },
+        "source_exact_zero_20to40ms": {
+          "windows": 10,
+          "sources": 10,
+          "samples": 9600,
+          "failure_categories": {
+            "residual_only": 10
+          },
+          "failed": 10,
+          "residual_square_sum": 0.003810214967461126,
+          "residual_rms": 0.0006299979305076067,
+          "centered_residual_rms": 0.0006299737557989616,
+          "window_dc_energy_fraction": 7.67438864488462e-05,
+          "quantiles": {
+            "residual_over_limit": {
+              "n": 10,
+              "q10": 7.039408232577825,
+              "median": 7.039408857783748,
+              "q90": 7.039409279978242
+            },
+            "output_rms_over_limit": {
+              "n": 10,
+              "q10": 0.016122551240630962,
+              "median": 0.016122645061887916,
+              "q90": 0.01612274285865358
+            },
+            "least_squares_gain": {
+              "n": 10,
+              "q10": 0.004630778000643877,
+              "median": 0.004630793971590376,
+              "q90": 0.004630836946393414
+            },
+            "cosine": {
+              "n": 10,
+              "q10": 0.2559866728252397,
+              "median": 0.2559876201556042,
+              "q90": 0.25599057007541337
+            },
+            "centered_cosine": {
+              "n": 10,
+              "q10": 0.25640653404063884,
+              "median": 0.25640730994033745,
+              "q90": 0.25641028219795053
+            },
+            "dc_energy_fraction": {
+              "n": 10,
+              "q10": 7.674208431909898e-05,
+              "median": 7.674378258486764e-05,
+              "q90": 7.674542665437575e-05
+            }
+          }
+        },
+        "source_exact_zero_first40ms": {
+          "windows": 21,
+          "sources": 11,
+          "samples": 20160,
+          "failure_categories": {
+            "both": 11,
+            "residual_only": 10
+          },
+          "failed": 21,
+          "residual_square_sum": 0.003909537174106198,
+          "residual_rms": 0.0004403696800016908,
+          "centered_residual_rms": 0.00044028024221565214,
+          "window_dc_energy_fraction": 0.00040615286575934975,
+          "quantiles": {
+            "residual_over_limit": {
+              "n": 21,
+              "q10": 7.039408687575974,
+              "median": 9.64659072264449,
+              "q90": 9.646598726198068
+            },
+            "output_rms_over_limit": {
+              "n": 21,
+              "q10": 0.016122592765594447,
+              "median": 8.254942240882057,
+              "q90": 9.169048274332859
+            },
+            "least_squares_gain": {
+              "n": 21,
+              "q10": 0.004630780943584659,
+              "median": 2.3183573512990603,
+              "q90": 2.543951199397584
+            },
+            "cosine": {
+              "n": 21,
+              "q10": 0.2472750821921276,
+              "median": 0.25030318698953463,
+              "q90": 0.25599029453521044
+            },
+            "centered_cosine": {
+              "n": 21,
+              "q10": 0.21233567347572724,
+              "median": 0.212358148852554,
+              "q90": 0.25640997464519233
+            },
+            "dc_energy_fraction": {
+              "n": 21,
+              "q10": 7.674293333256192e-05,
+              "median": 0.009611494529222324,
+              "q90": 0.009611877543935428
+            }
+          }
+        },
+        "broader_quiet": {
+          "windows": 2360,
+          "sources": 68,
+          "samples": 2261157,
+          "failure_categories": {
+            "residual_only": 2030,
+            "both": 157,
+            "passed": 173
+          },
+          "failed": 2187,
+          "residual_square_sum": 0.06381446421180936,
+          "residual_rms": 0.00016799416776520904,
+          "centered_residual_rms": 0.00016575641664663395,
+          "window_dc_energy_fraction": 0.026463385812104,
+          "quantiles": {
+            "residual_over_limit": {
+              "n": 2360,
+              "q10": 1.1135522464674827,
+              "median": 2.0324424953770386,
+              "q90": 4.5363375473705725
+            },
+            "output_rms_over_limit": {
+              "n": 2360,
+              "q10": 0.7680118416466474,
+              "median": 0.864938783903016,
+              "q90": 0.9717325561324441
+            },
+            "least_squares_gain": {
+              "n": 2360,
+              "q10": 0.6574689400464043,
+              "median": 0.8984351481265849,
+              "q90": 1.017137944692157
+            },
+            "cosine": {
+              "n": 2360,
+              "q10": 0.7239762874609469,
+              "median": 0.9317532007111888,
+              "q90": 0.9895065965648796
+            },
+            "centered_cosine": {
+              "n": 2360,
+              "q10": 0.6927664932988346,
+              "median": 0.9170925207712317,
+              "q90": 0.9873914426317841
+            },
+            "dc_energy_fraction": {
+              "n": 2360,
+              "q10": 0.00269096741590785,
+              "median": 0.041787653731985404,
+              "q90": 0.2501481286187169
+            }
+          }
+        },
+        "residual_only": {
+          "windows": 2030,
+          "sources": 65,
+          "samples": 1946769,
+          "failure_categories": {
+            "residual_only": 2030
+          },
+          "failed": 2030,
+          "residual_square_sum": 0.061566628669680254,
+          "residual_rms": 0.00017783427771264173,
+          "centered_residual_rms": 0.00017568064043597004,
+          "window_dc_energy_fraction": 0.024074060883108626,
+          "quantiles": {
+            "residual_over_limit": {
+              "n": 2030,
+              "q10": 1.3026438188668288,
+              "median": 2.1166075010031724,
+              "q90": 4.578810596944755
+            },
+            "output_rms_over_limit": {
+              "n": 2030,
+              "q10": 0.7588235946820132,
+              "median": 0.8553682415670482,
+              "q90": 0.9403834382102234
+            },
+            "least_squares_gain": {
+              "n": 2030,
+              "q10": 0.6352211928014848,
+              "median": 0.880204005113195,
+              "q90": 0.9912513713454161
+            },
+            "cosine": {
+              "n": 2030,
+              "q10": 0.7237168070016119,
+              "median": 0.9255408837685476,
+              "q90": 0.984732094336995
+            },
+            "centered_cosine": {
+              "n": 2030,
+              "q10": 0.7009451802470317,
+              "median": 0.9109667284064442,
+              "q90": 0.9825948398405278
+            },
+            "dc_energy_fraction": {
+              "n": 2030,
+              "q10": 0.0026713567596775714,
+              "median": 0.03756974679615205,
+              "q90": 0.1957369352657932
+            }
+          }
+        },
+        "quiet_after800ms": {
+          "windows": 1762,
+          "sources": 60,
+          "samples": 1687386,
+          "failure_categories": {
+            "residual_only": 1477,
+            "both": 109,
+            "passed": 152,
+            "amplitude_only": 24
+          },
+          "failed": 1610,
+          "residual_square_sum": 0.04492815279270402,
+          "residual_rms": 0.0001631744136516704,
+          "centered_residual_rms": 0.00016087116898846115,
+          "window_dc_energy_fraction": 0.02803122371869359,
+          "quantiles": {
+            "residual_over_limit": {
+              "n": 1762,
+              "q10": 1.0013720583752812,
+              "median": 1.931086238582761,
+              "q90": 4.320584341601071
+            },
+            "output_rms_over_limit": {
+              "n": 1762,
+              "q10": 0.7719198495037686,
+              "median": 0.8689112677151215,
+              "q90": 0.9876808119144463
+            },
+            "least_squares_gain": {
+              "n": 1762,
+              "q10": 0.7009264658491337,
+              "median": 0.910177009802491,
+              "q90": 1.041630141240421
+            },
+            "cosine": {
+              "n": 1762,
+              "q10": 0.7630067286902075,
+              "median": 0.9427290591500149,
+              "q90": 0.989845419385108
+            },
+            "centered_cosine": {
+              "n": 1762,
+              "q10": 0.7025112134370031,
+              "median": 0.9276075508811552,
+              "q90": 0.9881071164193834
+            },
+            "dc_energy_fraction": {
+              "n": 1762,
+              "q10": 0.002534487180156793,
+              "median": 0.039515662967707,
+              "q90": 0.23558742577118028
+            }
+          }
+        },
+        "near_first20ms_share_of_near_residual_energy": 0.9756573876855346,
+        "zero_first40ms_share_of_zero_residual_energy": 0.9993602031879666,
+        "all_teacher_cache_bitwise": true,
+        "teacher_cache_checks": 96,
+        "scored_source_forwards": 96,
+        "saved_quality_check": {
+          "absolute_tolerance": 1e-06,
+          "failures": [],
+          "passed": true,
+          "relative_tolerance": 1e-05
+        },
+        "runtime_warmups": {
+          "student_extra_group_and_suffix_forwards": 0,
+          "teacher_extra_forwards": 0
+        },
+        "source_exact_zero_20to40ms_ranges": {
+          "teacher_rms": [
+            0.0006328289164230227,
+            0.000632836832664907
+          ],
+          "student_rms": [
+            1.1447772521933075e-05,
+            1.1447896213212516e-05
+          ],
+          "residual_rms_double": [
+            0.0006299955713491383,
+            0.0006300035318691758
+          ]
+        }
+      }
+    },
+    "execution": {
+      "elapsed_seconds_after_loading": 9.567645661532879,
+      "prelaunch_gpu": "NVIDIA H100 NVL, 95830 MiB, 0 MiB, 0 %",
+      "prelaunch_gpu_processes": "",
+      "prelaunch_training_or_target_workers": [],
+      "preservation": {
+        "failure": null,
+        "frozen_student_preserved": true,
+        "original_files_preserved": true,
+        "teacher_preserved": true
+      },
+      "no_training": true,
+      "no_model_intervention": true,
+      "remote_output": "/tmp/fast-audiovae-quiet-audit-v1",
+      "focused_tests": 10,
+      "source_sha256": "cf197cf04d190aaa0e1546286aa267c1658177c1458cab16f7b0c0cc31839dc9"
+    },
+    "transitions": {
+      "amplitude_only -> amplitude_only": 121,
+      "amplitude_only -> passed": 29,
+      "both -> both": 76,
+      "both -> passed": 1,
+      "both -> residual_only": 4,
+      "passed -> amplitude_only": 1,
+      "passed -> both": 1,
+      "passed -> passed": 131,
+      "passed -> residual_only": 5,
+      "residual_only -> both": 95,
+      "residual_only -> passed": 59,
+      "residual_only -> residual_only": 2021
+    }
+  }
+}

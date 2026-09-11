@@ -1,0 +1,31 @@
+{
+  "pid": 1016806,
+  "command": [
+    "/tmp/fast-audiovae-recovery-20260909/venv214/bin/python",
+    "-u",
+    "/workspace/fast-audiovae-compression-20260910-v1/code/continue_settings.py",
+    "--checkpoint",
+    "/workspace/fast-audiovae-compression-20260910-v1/settings-screen-v1/current_lr3e-5/final.pt",
+    "--screen-out",
+    "/workspace/fast-audiovae-compression-20260910-v1/settings-screen-v1",
+    "--base-out",
+    "/workspace/fast-audiovae-compression-20260910-v1/pilot",
+    "--manifest",
+    "/workspace/fast-audiovae-compression-20260910-v1/pilot-selection-v1.json",
+    "--assets",
+    "/workspace/fast-audiovae-convnext-20260908-r1/assets",
+    "--out",
+    "/workspace/fast-audiovae-compression-20260910-v1/current-lowrate-continue1000-v1",
+    "--tensorboard",
+    "/workspace/fast-audiovae-compression-20260910-v1/tensorboard/continuation-v1"
+  ],
+  "log": "/workspace/fast-audiovae-compression-20260910-v1/pilot/current-lowrate-continue1000-v1.log",
+  "started_utc": "2026-09-10T08:51:40Z",
+  "manually_selected_arm": "current_lr3e-5",
+  "source_sha256": {
+    "continue_settings.py": "79a993bf152f3adc2b8d7fed3d74778a15d67490d363a08e56a68baa9f8f7017",
+    "test_continue_settings.py": "b08552ad7d4cfe43984d9098a062278a754b366e8162f3f85e8de78a932230ec"
+  },
+  "quiet_audit_sha256": "9fb29233b5e240333be6870fc72237f470f0010516bfc51f6e89526aaae44999",
+  "reason": "Best supported waveform/expressive continuation; both spectral definitions also favor current over reference at the same lower rate. Quiet failures remain, targets replay exactly."
+}

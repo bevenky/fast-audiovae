@@ -1,0 +1,17 @@
+# Same-width recovery continuation review
+
+The source data are ready for the approved recovery from cut1 update1000 to2000 at unchanged widths384/256. This is a continuation of the same student, not another pruning cut.
+
+The [source readiness receipt](source-readiness.json) authenticates12000 new source IDs, audio hashes and parent-recording identities. Each is disjoint from the first12000 sources, the72 calibration and96 development sources, and the original exclusion ledger. All40 target-cache shards match their sealed SHA256 receipts, covering9,647,143,928 bytes. Stream positions12000:24000 correspond to fresh-plan positions9000:21000 because the stream starts with3000 original fit sources. Another6000 stream sources remain after this segment. This audit read metadata and hashed cached bytes; it did not decode audio or run a model.
+
+The new runner restores the authenticated step1000 raw weight-normalization parameters and all90 AdamW parameter states, including counter1000, moment tensors and the original optimizer settings. It loads weights strictly into the same384/256 architecture and compares weights, optimizer state and RNG with the saved parent before training. This avoids the optimizer restart that is appropriate only when starting a new width-changing cut. The first resumed update must remain1001, and the final counters2000.
+
+The existing diagnostic guard surrounds warmup and validation. It preserves weights, optimizer state, RNG, training modes, parameter gradients and backend settings. The runner compares the reproduced full96-source initial report with the saved step1000 report before allowing an update, then verifies restored state again. That real-runtime parity check is still required; static source review cannot establish it in advance.
+
+All three original objectives and coefficients remain unchanged, as do physical singleton execution, accumulation12, the frozen original teacher, cached targets and valid sample accounting. Quality checks retain the exact seven quiet cohorts and original96-source panel. The dashboard replays prior logs into a separate directory, keeps the original pruned step0 baseline and does not treat the exact-copy teacher control as the error-reduction baseline. The new active and whistling traces use measured teacher-defined active-window energy ratios, not perceptual loudness.
+
+The one identified logging issue has been corrected and independently re-read: cumulative audio-hours and elapsed-time traces now add the authenticated parent's recorded totals at1001, while separate continuation totals remain available in the training record. They no longer reset after historical replay. The final RNG restore also occurs after objective and monitor construction, before guarded startup validation.
+
+No other concrete launch blocker was found in the reviewed continuation code. The real-runtime restoration/quality gate and parent-preservation checks remain mandatory. No later width reduction should start automatically after update2000.
+
+Reviewed implementation: progressive_continue.py authentication/restoration lines35–85, cumulative accounting68–71, update loop192–225, continuation snapshots88–117; progressive_continue_monitor.py history49–81, replay140–152, baseline/quality169–239; original progressive_train.py guarded warmup162–169 and unchanged update172–180; continue_settings.py restore37–67; replay_late_segment.py diagnostic guard108–134.

@@ -1,0 +1,1126 @@
+{
+  "archive_projection_version": 1,
+  "original_relative_path": "outputs/audiovae2-compression-preflight/training-audit5000/replay4500-5000/replay-trajectory-audit.json",
+  "original_sha256": "0ec0aa5ec7ddccbfea744a6ed28b7f0dbe48cfd3b40719f7de61c568018b9b7a",
+  "omitted_field_paths": [
+    "per_source.es_419:train:13461728374156750135.wav.quiet_failed_windows.maximum_steps",
+    "per_source.kashmiri:1970324837177077_chunk_1.flac.quiet_failed_windows.minimum_steps",
+    "per_source.kashmiri:1970324837177077_chunk_1.flac.quiet_failed_windows.maximum_steps",
+    "per_source.freesound:428921.quiet_failed_windows.minimum_steps",
+    "per_source.freesound:428921.quiet_failed_windows.maximum_steps"
+  ],
+  "note": "Labelled projection. Omitted numerical payloads and listed bulk report collections remain outside Git; configuration metadata is retained.",
+  "report": {
+    "qualification": {
+      "exact_replay": false,
+      "causal_attribution_allowed": false,
+      "first_divergence_step": 4501,
+      "fixed_case_endpoint_checks": {
+        "final": {
+          "absolute_tolerance": 1e-06,
+          "checks": [
+            {
+              "expected_mae": 0.0031539698130510128,
+              "mae": 0.0031431096644914725,
+              "passed": false,
+              "source_id": "es_419:train:13461728374156750135.wav"
+            },
+            {
+              "expected_mae": 0.0025691671051715215,
+              "mae": 0.002556934935023847,
+              "passed": false,
+              "source_id": "kn_in:train:15096009457771558023.wav"
+            },
+            {
+              "expected_mae": 0.017400222603559935,
+              "mae": 0.017364398816541088,
+              "passed": false,
+              "source_id": "kashmiri:1970324837177077_chunk_1.flac"
+            },
+            {
+              "expected_mae": 0.0008607305195201822,
+              "mae": 0.0008591589815153732,
+              "passed": false,
+              "source_id": "freesound:428921"
+            }
+          ],
+          "passed": false,
+          "relative_tolerance": 1e-05
+        },
+        "initial": {
+          "absolute_tolerance": 1e-06,
+          "checks": [
+            {
+              "expected_mae": 0.0025675091452346255,
+              "mae": 0.002567509145063666,
+              "passed": true,
+              "source_id": "es_419:train:13461728374156750135.wav"
+            },
+            {
+              "expected_mae": 0.0019517129764899128,
+              "mae": 0.0019517129766288832,
+              "passed": true,
+              "source_id": "kn_in:train:15096009457771558023.wav"
+            },
+            {
+              "expected_mae": 0.012442534938391588,
+              "mae": 0.012442534937887117,
+              "passed": true,
+              "source_id": "kashmiri:1970324837177077_chunk_1.flac"
+            },
+            {
+              "expected_mae": 0.0007943169403581221,
+              "mae": 0.0007943169404480685,
+              "passed": true,
+              "source_id": "freesound:428921"
+            }
+          ],
+          "passed": true,
+          "relative_tolerance": 1e-05
+        }
+      },
+      "warning": "This is the measured inexact replay trajectory, not recovered historical 25-step outputs. Four deliberately selected cases are not the full development panel."
+    },
+    "provenance_sha256": {
+      "case-trajectories.json": "fc82c42c26528e9cde255786e1845a01ca072b10fdc3dfe18c8a3c524b827c1b",
+      "replay.jsonl": "0d3ea54b14f943e83eece2f6b6e07c94824056844a70a68c2d3d49f981caa994",
+      "completed.json": "5b0c8ea1c74d50cd56bcbb9ad944924c157151141b867b010235209509d86d12"
+    },
+    "snapshots": 21,
+    "updates": 500,
+    "per_source": {
+      "es_419:train:13461728374156750135.wav": {
+        "active_rms_gain": {
+          "first": 1.000412069664413,
+          "final": 1.1212105939089392,
+          "minimum": 0.8142018292594881,
+          "maximum": 1.1212105939089392,
+          "median": 0.9905040972324671,
+          "rising_intervals": 11,
+          "falling_intervals": 9,
+          "direction_reversals": 10,
+          "minimum_steps": [
+            4725
+          ],
+          "maximum_steps": [
+            5000
+          ]
+        },
+        "active_projection_gain": {
+          "first": 0.9853021165427651,
+          "final": 1.104768897582768,
+          "minimum": 0.8017804097982516,
+          "maximum": 1.104768897582768,
+          "median": 0.9766680244070102,
+          "rising_intervals": 11,
+          "falling_intervals": 9,
+          "direction_reversals": 10,
+          "minimum_steps": [
+            4725
+          ],
+          "maximum_steps": [
+            5000
+          ]
+        },
+        "active_cosine": {
+          "first": 0.9848962706670297,
+          "final": 0.985335764382274,
+          "minimum": 0.9806719516930272,
+          "maximum": 0.9881308420671763,
+          "median": 0.9863077690325247,
+          "rising_intervals": 10,
+          "falling_intervals": 10,
+          "direction_reversals": 12,
+          "minimum_steps": [
+            4750
+          ],
+          "maximum_steps": [
+            4975
+          ]
+        },
+        "mae": {
+          "first": 0.002567509145063666,
+          "final": 0.0031431096644914725,
+          "minimum": 0.0023348295603789516,
+          "maximum": 0.0037666361670793216,
+          "median": 0.0025332181082873126,
+          "rising_intervals": 9,
+          "falling_intervals": 11,
+          "direction_reversals": 14,
+          "minimum_steps": [
+            4975
+          ],
+          "maximum_steps": [
+            4725
+          ]
+        },
+        "quiet_failed_windows": {
+          "first": 48,
+          "final": 48,
+          "minimum": 47,
+          "maximum": 48,
+          "median": 48,
+          "rising_intervals": 3,
+          "falling_intervals": 3,
+          "direction_reversals": 5,
+          "minimum_steps": [
+            4700,
+            4775,
+            4850,
+            4875
+          ]
+        },
+        "fixed_valid_samples": 122880,
+        "fixed_active_samples": 76800
+      },
+      "kn_in:train:15096009457771558023.wav": {
+        "active_rms_gain": {
+          "first": 1.041228051385122,
+          "final": 1.1332596229651026,
+          "minimum": 0.8860504115881224,
+          "maximum": 1.1332596229651026,
+          "median": 0.9841015810375214,
+          "rising_intervals": 13,
+          "falling_intervals": 7,
+          "direction_reversals": 9,
+          "minimum_steps": [
+            4925
+          ],
+          "maximum_steps": [
+            5000
+          ]
+        },
+        "active_projection_gain": {
+          "first": 1.032943341788382,
+          "final": 1.124913196788217,
+          "minimum": 0.8801800430520489,
+          "maximum": 1.124913196788217,
+          "median": 0.9782764426527475,
+          "rising_intervals": 13,
+          "falling_intervals": 7,
+          "direction_reversals": 9,
+          "minimum_steps": [
+            4925
+          ],
+          "maximum_steps": [
+            5000
+          ]
+        },
+        "active_cosine": {
+          "first": 0.9920433284661136,
+          "final": 0.9926350273072928,
+          "minimum": 0.9920433284661136,
+          "maximum": 0.9940807549779235,
+          "median": 0.9931914453550497,
+          "rising_intervals": 9,
+          "falling_intervals": 11,
+          "direction_reversals": 13,
+          "minimum_steps": [
+            4500
+          ],
+          "maximum_steps": [
+            4700
+          ]
+        },
+        "mae": {
+          "first": 0.0019517129766288832,
+          "final": 0.002556934935023847,
+          "minimum": 0.0016350513732074892,
+          "maximum": 0.002556934935023847,
+          "median": 0.0017689268250905628,
+          "rising_intervals": 11,
+          "falling_intervals": 9,
+          "direction_reversals": 13,
+          "minimum_steps": [
+            4700
+          ],
+          "maximum_steps": [
+            5000
+          ]
+        },
+        "quiet_failed_windows": {
+          "first": 69,
+          "final": 69,
+          "minimum": 65,
+          "maximum": 69,
+          "median": 69,
+          "rising_intervals": 3,
+          "falling_intervals": 4,
+          "direction_reversals": 5,
+          "minimum_steps": [
+            4775
+          ],
+          "maximum_steps": [
+            4500,
+            4525,
+            4550,
+            4650,
+            4675,
+            4700,
+            4725,
+            4750,
+            4800,
+            4900,
+            4925,
+            4950,
+            4975,
+            5000
+          ]
+        },
+        "fixed_valid_samples": 122880,
+        "fixed_active_samples": 56640
+      },
+      "kashmiri:1970324837177077_chunk_1.flac": {
+        "active_rms_gain": {
+          "first": 1.0730473230543063,
+          "final": 1.1435635525978756,
+          "minimum": 0.8950923989540793,
+          "maximum": 1.1435635525978756,
+          "median": 0.9919559009860875,
+          "rising_intervals": 12,
+          "falling_intervals": 8,
+          "direction_reversals": 9,
+          "minimum_steps": [
+            4550
+          ],
+          "maximum_steps": [
+            5000
+          ]
+        },
+        "active_projection_gain": {
+          "first": 1.0687288357024356,
+          "final": 1.1394592267815982,
+          "minimum": 0.8918498489150565,
+          "maximum": 1.1394592267815982,
+          "median": 0.9884150985672284,
+          "rising_intervals": 12,
+          "falling_intervals": 8,
+          "direction_reversals": 9,
+          "minimum_steps": [
+            4550
+          ],
+          "maximum_steps": [
+            5000
+          ]
+        },
+        "active_cosine": {
+          "first": 0.9959754921716046,
+          "final": 0.9964109333434479,
+          "minimum": 0.9959754921716046,
+          "maximum": 0.9972342364725857,
+          "median": 0.9967384167845168,
+          "rising_intervals": 12,
+          "falling_intervals": 8,
+          "direction_reversals": 11,
+          "minimum_steps": [
+            4500
+          ],
+          "maximum_steps": [
+            4575
+          ]
+        },
+        "mae": {
+          "first": 0.012442534937887117,
+          "final": 0.017364398816541088,
+          "minimum": 0.007996290107633423,
+          "maximum": 0.017364398816541088,
+          "median": 0.008988455707967594,
+          "rising_intervals": 10,
+          "falling_intervals": 10,
+          "direction_reversals": 9,
+          "minimum_steps": [
+            4625
+          ],
+          "maximum_steps": [
+            5000
+          ]
+        },
+        "quiet_failed_windows": {
+          "first": 2,
+          "final": 2,
+          "minimum": 2,
+          "maximum": 2,
+          "median": 2,
+          "rising_intervals": 0,
+          "falling_intervals": 0,
+          "direction_reversals": 0
+        },
+        "fixed_valid_samples": 122880,
+        "fixed_active_samples": 120960
+      },
+      "freesound:428921": {
+        "active_rms_gain": {
+          "first": 0.870897451371407,
+          "final": 0.8901591916996017,
+          "minimum": 0.6405215802902701,
+          "maximum": 1.0638170539529108,
+          "median": 0.870897451371407,
+          "rising_intervals": 11,
+          "falling_intervals": 9,
+          "direction_reversals": 14,
+          "minimum_steps": [
+            4725
+          ],
+          "maximum_steps": [
+            4800
+          ]
+        },
+        "active_projection_gain": {
+          "first": 0.8570731843354948,
+          "final": 0.8707127348031405,
+          "minimum": 0.6266167705958817,
+          "maximum": 1.0464158118722418,
+          "median": 0.8506880440949098,
+          "rising_intervals": 11,
+          "falling_intervals": 9,
+          "direction_reversals": 14,
+          "minimum_steps": [
+            4725
+          ],
+          "maximum_steps": [
+            4800
+          ]
+        },
+        "active_cosine": {
+          "first": 0.9841264123414957,
+          "final": 0.9781539559690087,
+          "minimum": 0.9597187056446738,
+          "maximum": 0.9861775506502499,
+          "median": 0.978291426671234,
+          "rising_intervals": 10,
+          "falling_intervals": 10,
+          "direction_reversals": 15,
+          "minimum_steps": [
+            4650
+          ],
+          "maximum_steps": [
+            4625
+          ]
+        },
+        "mae": {
+          "first": 0.0007943169404480685,
+          "final": 0.0008591589815153732,
+          "minimum": 0.0007064147917035192,
+          "maximum": 0.0014883146139008801,
+          "median": 0.0008650632513895601,
+          "rising_intervals": 8,
+          "falling_intervals": 12,
+          "direction_reversals": 12,
+          "minimum_steps": [
+            4525
+          ],
+          "maximum_steps": [
+            4725
+          ]
+        },
+        "quiet_failed_windows": {
+          "first": 61,
+          "final": 61,
+          "minimum": 61,
+          "maximum": 61,
+          "median": 61,
+          "rising_intervals": 0,
+          "falling_intervals": 0,
+          "direction_reversals": 0
+        },
+        "fixed_valid_samples": 81600,
+        "fixed_active_samples": 23040
+      }
+    },
+    "windows": [
+      {
+        "start_step": 4500,
+        "end_step": 4525,
+        "gain_shifts": {
+          "es_419:train:13461728374156750135.wav": 0.03945642012054984,
+          "kn_in:train:15096009457771558023.wav": -0.06636296736044589,
+          "kashmiri:1970324837177077_chunk_1.flac": -0.0814732636305483,
+          "freesound:428921": 0.11704062730237985
+        },
+        "three_speech_gain_mean_shift": -0.03612660362348145,
+        "positive_current_minibatch_gradient_dot_update": 1,
+        "teacher_rms_sample_pooled": 0.07328501181548358,
+        "quiet_sample_fraction": 0.18108015866291413,
+        "nearzero_sample_fraction": 0.004791056513029598,
+        "dataset_source_counts": {
+          "fsd50k_vocal_cc0": 1,
+          "fleurs": 29,
+          "librispeech": 14,
+          "indicvoices": 16,
+          "emogator": 12,
+          "crema_d": 3
+        },
+        "training_loss_update_mean": {
+          "total": 0.006270656991776953,
+          "waveform": 0.0058814035046088975,
+          "mel": 0.37192173570394516,
+          "feature": 0.015158130312338472
+        }
+      },
+      {
+        "start_step": 4525,
+        "end_step": 4550,
+        "gain_shifts": {
+          "es_419:train:13461728374156750135.wav": -0.11386770789474299,
+          "kn_in:train:15096009457771558023.wav": -0.07114901495520076,
+          "kashmiri:1970324837177077_chunk_1.flac": -0.09648166046967865,
+          "freesound:428921": -0.054268451408402196
+        },
+        "three_speech_gain_mean_shift": -0.09383279443987413,
+        "positive_current_minibatch_gradient_dot_update": 3,
+        "teacher_rms_sample_pooled": 0.07463247422282232,
+        "quiet_sample_fraction": 0.1730196585687915,
+        "nearzero_sample_fraction": 0.015306466173518196,
+        "dataset_source_counts": {
+          "fleurs": 28,
+          "librispeech": 14,
+          "indicvoices": 18,
+          "emogator": 10,
+          "crema_d": 4,
+          "thorsten_emotional": 1
+        },
+        "training_loss_update_mean": {
+          "total": 0.006190222141291799,
+          "waveform": 0.005789239153527887,
+          "mel": 0.36531202733516693,
+          "feature": 0.01689294239040464
+        }
+      },
+      {
+        "start_step": 4550,
+        "end_step": 4575,
+        "gain_shifts": {
+          "es_419:train:13461728374156750135.wav": -0.040587515406746766,
+          "kn_in:train:15096009457771558023.wav": 0.060599253617104276,
+          "kashmiri:1970324837177077_chunk_1.flac": 0.052767110254848926,
+          "freesound:428921": -0.21446482102224484
+        },
+        "three_speech_gain_mean_shift": 0.024259616155068813,
+        "positive_current_minibatch_gradient_dot_update": 1,
+        "teacher_rms_sample_pooled": 0.07423608517389911,
+        "quiet_sample_fraction": 0.12979291483721814,
+        "nearzero_sample_fraction": 0.01021710314227419,
+        "dataset_source_counts": {
+          "crema_d": 10,
+          "librispeech": 15,
+          "indicvoices": 12,
+          "fsd50k_vocal_cc_by_3": 3,
+          "fleurs": 27,
+          "thorsten_emotional": 2,
+          "emogator": 6
+        },
+        "training_loss_update_mean": {
+          "total": 0.007546503809575903,
+          "waveform": 0.007138834213255904,
+          "mel": 0.3738041779398918,
+          "feature": 0.017002457398921252
+        }
+      },
+      {
+        "start_step": 4575,
+        "end_step": 4600,
+        "gain_shifts": {
+          "es_419:train:13461728374156750135.wav": 0.06389331549897614,
+          "kn_in:train:15096009457771558023.wav": 0.005823197870836849,
+          "kashmiri:1970324837177077_chunk_1.flac": 0.044163542757597596,
+          "freesound:428921": 0.11291360767448178
+        },
+        "three_speech_gain_mean_shift": 0.037960018709136865,
+        "positive_current_minibatch_gradient_dot_update": 2,
+        "teacher_rms_sample_pooled": 0.07996633186019816,
+        "quiet_sample_fraction": 0.17137681930632734,
+        "nearzero_sample_fraction": 0.007690231963487878,
+        "dataset_source_counts": {
+          "indicvoices": 18,
+          "fleurs": 30,
+          "fsd50k_vocal_cc_by_3": 1,
+          "fsd50k_vocal_cc0": 2,
+          "emogator": 9,
+          "crema_d": 7,
+          "librispeech": 8
+        },
+        "training_loss_update_mean": {
+          "total": 0.0067588989423946816,
+          "waveform": 0.006389640655015683,
+          "mel": 0.35457824140787125,
+          "feature": 0.014253136988263576
+        }
+      },
+      {
+        "start_step": 4600,
+        "end_step": 4625,
+        "gain_shifts": {
+          "es_419:train:13461728374156750135.wav": 0.027257813361192818,
+          "kn_in:train:15096009457771558023.wav": 0.02502067726083701,
+          "kashmiri:1970324837177077_chunk_1.flac": 0.0015879867226438193,
+          "freesound:428921": 0.018210851672586403
+        },
+        "three_speech_gain_mean_shift": 0.017955492448224548,
+        "positive_current_minibatch_gradient_dot_update": 1,
+        "teacher_rms_sample_pooled": 0.07374955346037439,
+        "quiet_sample_fraction": 0.15663550745887386,
+        "nearzero_sample_fraction": 0.0016197703773018878,
+        "dataset_source_counts": {
+          "librispeech": 14,
+          "fleurs": 35,
+          "emogator": 6,
+          "indicvoices": 11,
+          "crema_d": 6,
+          "thorsten_emotional": 2,
+          "fsd50k_vocal_cc0": 1
+        },
+        "training_loss_update_mean": {
+          "total": 0.005764325774740324,
+          "waveform": 0.005394035458084545,
+          "mel": 0.36442500084638596,
+          "feature": 0.01365773031488061
+        }
+      },
+      {
+        "start_step": 4625,
+        "end_step": 4650,
+        "gain_shifts": {
+          "es_419:train:13461728374156750135.wav": -0.015825088704827572,
+          "kn_in:train:15096009457771558023.wav": 0.0025993676332586313,
+          "kashmiri:1970324837177077_chunk_1.flac": -0.0016551377030821213,
+          "freesound:428921": -0.054457940337302224
+        },
+        "three_speech_gain_mean_shift": -0.004960286258217021,
+        "positive_current_minibatch_gradient_dot_update": 1,
+        "teacher_rms_sample_pooled": 0.06512643786978334,
+        "quiet_sample_fraction": 0.1398485264181172,
+        "nearzero_sample_fraction": 0.005106813940176065,
+        "dataset_source_counts": {
+          "fleurs": 35,
+          "librispeech": 14,
+          "crema_d": 5,
+          "emogator": 7,
+          "thorsten_emotional": 5,
+          "indicvoices": 8,
+          "fsd50k_vocal_cc0": 1
+        },
+        "training_loss_update_mean": {
+          "total": 0.0057067808168878055,
+          "waveform": 0.005341711290093372,
+          "mel": 0.3625678640604019,
+          "feature": 0.013229817524552346
+        }
+      },
+      {
+        "start_step": 4650,
+        "end_step": 4675,
+        "gain_shifts": {
+          "es_419:train:13461728374156750135.wav": 0.032836121156476716,
+          "kn_in:train:15096009457771558023.wav": 0.024687642499169882,
+          "kashmiri:1970324837177077_chunk_1.flac": 0.03251350199905356,
+          "freesound:428921": 0.04216067557257863
+        },
+        "three_speech_gain_mean_shift": 0.030012421884900053,
+        "positive_current_minibatch_gradient_dot_update": 1,
+        "teacher_rms_sample_pooled": 0.07401544061233163,
+        "quiet_sample_fraction": 0.15829559510492433,
+        "nearzero_sample_fraction": 0.013032732750799888,
+        "dataset_source_counts": {
+          "indicvoices": 15,
+          "librispeech": 11,
+          "fleurs": 33,
+          "emogator": 10,
+          "crema_d": 4,
+          "thorsten_emotional": 1,
+          "fsd50k_vocal_cc0": 1
+        },
+        "training_loss_update_mean": {
+          "total": 0.006848969991999662,
+          "waveform": 0.006465742626169231,
+          "mel": 0.3746609687805176,
+          "feature": 0.014313953355886042
+        }
+      },
+      {
+        "start_step": 4675,
+        "end_step": 4700,
+        "gain_shifts": {
+          "es_419:train:13461728374156750135.wav": -0.028929320095901434,
+          "kn_in:train:15096009457771558023.wav": -0.03834462691316054,
+          "kashmiri:1970324837177077_chunk_1.flac": -0.0720078398985643,
+          "freesound:428921": 0.02577318319976185
+        },
+        "three_speech_gain_mean_shift": -0.04642726230254209,
+        "positive_current_minibatch_gradient_dot_update": 3,
+        "teacher_rms_sample_pooled": 0.06362134549469665,
+        "quiet_sample_fraction": 0.19333592365500707,
+        "nearzero_sample_fraction": 0.005102911133464293,
+        "dataset_source_counts": {
+          "librispeech": 13,
+          "crema_d": 4,
+          "fleurs": 30,
+          "indicvoices": 18,
+          "emogator": 9,
+          "thorsten_emotional": 1
+        },
+        "training_loss_update_mean": {
+          "total": 0.004993663028127838,
+          "waveform": 0.004635285396507243,
+          "mel": 0.3584661127626896,
+          "feature": 0.012804801668971777
+        }
+      },
+      {
+        "start_step": 4700,
+        "end_step": 4725,
+        "gain_shifts": {
+          "es_419:train:13461728374156750135.wav": -0.1504442784399016,
+          "kn_in:train:15096009457771558023.wav": 0.02017127350440584,
+          "kashmiri:1970324837177077_chunk_1.flac": -0.015401404006600727,
+          "freesound:428921": -0.22328360373497613
+        },
+        "three_speech_gain_mean_shift": -0.04855813631403216,
+        "positive_current_minibatch_gradient_dot_update": 2,
+        "teacher_rms_sample_pooled": 0.0842293184845106,
+        "quiet_sample_fraction": 0.14424010515693622,
+        "nearzero_sample_fraction": 0.006761451953647248,
+        "dataset_source_counts": {
+          "emogator": 11,
+          "fleurs": 30,
+          "librispeech": 15,
+          "fsd50k_vocal_cc_by_3": 1,
+          "indicvoices": 9,
+          "fsd50k_vocal_cc0": 3,
+          "thorsten_emotional": 3,
+          "crema_d": 3
+        },
+        "training_loss_update_mean": {
+          "total": 0.007838896554324211,
+          "waveform": 0.0074589906161418185,
+          "mel": 0.36750514805316925,
+          "feature": 0.014470269349403679
+        }
+      },
+      {
+        "start_step": 4725,
+        "end_step": 4750,
+        "gain_shifts": {
+          "es_419:train:13461728374156750135.wav": 0.16008391703102187,
+          "kn_in:train:15096009457771558023.wav": -0.03489097490016091,
+          "kashmiri:1970324837177077_chunk_1.flac": 0.05662872168698885,
+          "freesound:428921": 0.21251903715283316
+        },
+        "three_speech_gain_mean_shift": 0.060607221272616606,
+        "positive_current_minibatch_gradient_dot_update": 2,
+        "teacher_rms_sample_pooled": 0.09211082483336774,
+        "quiet_sample_fraction": 0.13381468260041668,
+        "nearzero_sample_fraction": 0.00871420042385209,
+        "dataset_source_counts": {
+          "fleurs": 26,
+          "emogator": 14,
+          "librispeech": 13,
+          "indicvoices": 14,
+          "crema_d": 5,
+          "fsd50k_vocal_cc_by_3": 2,
+          "jvnv": 1
+        },
+        "training_loss_update_mean": {
+          "total": 0.00910245349573488,
+          "waveform": 0.008696325182172586,
+          "mel": 0.3809641693532467,
+          "feature": 0.016323199374601246
+        }
+      },
+      {
+        "start_step": 4750,
+        "end_step": 4775,
+        "gain_shifts": {
+          "es_419:train:13461728374156750135.wav": 0.034053117495388974,
+          "kn_in:train:15096009457771558023.wav": -0.03475809408015673,
+          "kashmiri:1970324837177077_chunk_1.flac": -0.015066485403727903,
+          "freesound:428921": -0.019147563915277943
+        },
+        "three_speech_gain_mean_shift": -0.00525715399616522,
+        "positive_current_minibatch_gradient_dot_update": 1,
+        "teacher_rms_sample_pooled": 0.06951643821049842,
+        "quiet_sample_fraction": 0.11315233673084946,
+        "nearzero_sample_fraction": 0.004956043730352165,
+        "dataset_source_counts": {
+          "crema_d": 7,
+          "librispeech": 13,
+          "indicvoices": 16,
+          "fleurs": 30,
+          "emogator": 6,
+          "thorsten_emotional": 2,
+          "fsd50k_vocal_cc_by_3": 1
+        },
+        "training_loss_update_mean": {
+          "total": 0.006793879554543855,
+          "waveform": 0.006396495379449334,
+          "mel": 0.3878783756494522,
+          "feature": 0.014887410965748131
+        }
+      },
+      {
+        "start_step": 4775,
+        "end_step": 4800,
+        "gain_shifts": {
+          "es_419:train:13461728374156750135.wav": 0.05616069385307254,
+          "kn_in:train:15096009457771558023.wav": 0.052356363741644096,
+          "kashmiri:1970324837177077_chunk_1.flac": -0.007786026672808033,
+          "freesound:428921": 0.22992400042508554
+        },
+        "three_speech_gain_mean_shift": 0.03357701030730287,
+        "positive_current_minibatch_gradient_dot_update": 1,
+        "teacher_rms_sample_pooled": 0.09364298621941482,
+        "quiet_sample_fraction": 0.1637558065359372,
+        "nearzero_sample_fraction": 0.016536651938711035,
+        "dataset_source_counts": {
+          "indicvoices": 14,
+          "fleurs": 31,
+          "crema_d": 5,
+          "emogator": 8,
+          "librispeech": 14,
+          "thorsten_emotional": 1,
+          "fsd50k_vocal_cc_by_3": 2
+        },
+        "training_loss_update_mean": {
+          "total": 0.007326802652999776,
+          "waveform": 0.0068940197678603,
+          "mel": 0.3795358058810234,
+          "feature": 0.01929048538208008
+        }
+      },
+      {
+        "start_step": 4800,
+        "end_step": 4825,
+        "gain_shifts": {
+          "es_419:train:13461728374156750135.wav": -0.06727349926909765,
+          "kn_in:train:15096009457771558023.wav": -0.03694714331296167,
+          "kashmiri:1970324837177077_chunk_1.flac": 0.018657177688490623,
+          "freesound:428921": -0.15776012125198524
+        },
+        "three_speech_gain_mean_shift": -0.0285211549645229,
+        "positive_current_minibatch_gradient_dot_update": 1,
+        "teacher_rms_sample_pooled": 0.07998301003826692,
+        "quiet_sample_fraction": 0.18747897586677603,
+        "nearzero_sample_fraction": 0.013140617958091695,
+        "dataset_source_counts": {
+          "fleurs": 27,
+          "crema_d": 2,
+          "emogator": 10,
+          "fsd50k_vocal_cc0": 2,
+          "librispeech": 17,
+          "indicvoices": 15,
+          "jnv": 1,
+          "thorsten_emotional": 1
+        },
+        "training_loss_update_mean": {
+          "total": 0.007693995023715978,
+          "waveform": 0.007275831667648162,
+          "mel": 0.3783717766404152,
+          "feature": 0.017802680456079543
+        }
+      },
+      {
+        "start_step": 4825,
+        "end_step": 4850,
+        "gain_shifts": {
+          "es_419:train:13461728374156750135.wav": -0.006721961137406751,
+          "kn_in:train:15096009457771558023.wav": 0.023547701424718737,
+          "kashmiri:1970324837177077_chunk_1.flac": 0.003947415995750214,
+          "freesound:428921": 0.10196890573738537
+        },
+        "three_speech_gain_mean_shift": 0.0069243854276874,
+        "positive_current_minibatch_gradient_dot_update": 1,
+        "teacher_rms_sample_pooled": 0.06404920969649053,
+        "quiet_sample_fraction": 0.17868534606833367,
+        "nearzero_sample_fraction": 0.01096584413697436,
+        "dataset_source_counts": {
+          "fleurs": 27,
+          "indicvoices": 15,
+          "librispeech": 11,
+          "emogator": 11,
+          "crema_d": 8,
+          "fsd50k_vocal_cc0": 1,
+          "thorsten_emotional": 2
+        },
+        "training_loss_update_mean": {
+          "total": 0.005351757066677271,
+          "waveform": 0.005000001622684067,
+          "mel": 0.3523988303542137,
+          "feature": 0.012528269672766329
+        }
+      },
+      {
+        "start_step": 4850,
+        "end_step": 4875,
+        "gain_shifts": {
+          "es_419:train:13461728374156750135.wav": 0.007528076269547657,
+          "kn_in:train:15096009457771558023.wav": 0.012974786922180126,
+          "kashmiri:1970324837177077_chunk_1.flac": 0.027625210121029697,
+          "freesound:428921": -0.1118778574471968
+        },
+        "three_speech_gain_mean_shift": 0.016042691104252493,
+        "positive_current_minibatch_gradient_dot_update": 0,
+        "teacher_rms_sample_pooled": 0.07068147510154663,
+        "quiet_sample_fraction": 0.14152915276597708,
+        "nearzero_sample_fraction": 0.00206304782742062,
+        "dataset_source_counts": {
+          "librispeech": 12,
+          "indicvoices": 16,
+          "crema_d": 12,
+          "emogator": 5,
+          "fleurs": 28,
+          "fsd50k_vocal_cc0": 1,
+          "fsd50k_vocal_cc_by_3": 1
+        },
+        "training_loss_update_mean": {
+          "total": 0.006448429858226492,
+          "waveform": 0.0060713976486295,
+          "mel": 0.36070726469159126,
+          "feature": 0.014649028317071497
+        }
+      },
+      {
+        "start_step": 4875,
+        "end_step": 4900,
+        "gain_shifts": {
+          "es_419:train:13461728374156750135.wav": 0.012452960649081746,
+          "kn_in:train:15096009457771558023.wav": 0.048199064298491856,
+          "kashmiri:1970324837177077_chunk_1.flac": 0.04324871655952123,
+          "freesound:428921": -0.01777124998809121
+        },
+        "three_speech_gain_mean_shift": 0.034633580502364945,
+        "positive_current_minibatch_gradient_dot_update": 0,
+        "teacher_rms_sample_pooled": 0.07953685516640045,
+        "quiet_sample_fraction": 0.18084035198200352,
+        "nearzero_sample_fraction": 0.006358036956089807,
+        "dataset_source_counts": {
+          "indicvoices": 14,
+          "fleurs": 30,
+          "librispeech": 14,
+          "emogator": 7,
+          "crema_d": 7,
+          "thorsten_emotional": 1,
+          "fsd50k_vocal_cc0": 1,
+          "fsd50k_vocal_cc_by_3": 1
+        },
+        "training_loss_update_mean": {
+          "total": 0.00597944813447863,
+          "waveform": 0.005610120856872527,
+          "mel": 0.35140853986144066,
+          "feature": 0.014487921446561813
+        }
+      },
+      {
+        "start_step": 4900,
+        "end_step": 4925,
+        "gain_shifts": {
+          "es_419:train:13461728374156750135.wav": -0.053232810174691614,
+          "kn_in:train:15096009457771558023.wav": -0.1487041470475604,
+          "kashmiri:1970324837177077_chunk_1.flac": -0.10877169245198692,
+          "freesound:428921": 0.0184092591017595
+        },
+        "three_speech_gain_mean_shift": -0.10356954989141298,
+        "positive_current_minibatch_gradient_dot_update": 4,
+        "teacher_rms_sample_pooled": 0.06449985172111612,
+        "quiet_sample_fraction": 0.13307931383147276,
+        "nearzero_sample_fraction": 0.007419636565501311,
+        "dataset_source_counts": {
+          "fleurs": 25,
+          "crema_d": 7,
+          "emogator": 6,
+          "librispeech": 20,
+          "thorsten_emotional": 2,
+          "indicvoices": 15
+        },
+        "training_loss_update_mean": {
+          "total": 0.0059972819271399665,
+          "waveform": 0.005612593475816539,
+          "mel": 0.3693800428509712,
+          "feature": 0.014849802451208234
+        }
+      },
+      {
+        "start_step": 4925,
+        "end_step": 4950,
+        "gain_shifts": {
+          "es_419:train:13461728374156750135.wav": -0.011371769808034116,
+          "kn_in:train:15096009457771558023.wav": 0.08281948519738147,
+          "kashmiri:1970324837177077_chunk_1.flac": 0.017693795591514738,
+          "freesound:428921": -0.04751770680583001
+        },
+        "three_speech_gain_mean_shift": 0.029713836993620697,
+        "positive_current_minibatch_gradient_dot_update": 2,
+        "teacher_rms_sample_pooled": 0.07370769178218067,
+        "quiet_sample_fraction": 0.17666965798694742,
+        "nearzero_sample_fraction": 0.004732201149463431,
+        "dataset_source_counts": {
+          "emogator": 10,
+          "fleurs": 30,
+          "indicvoices": 18,
+          "crema_d": 6,
+          "librispeech": 9,
+          "fsd50k_vocal_cc0": 1,
+          "fsd50k_vocal_cc_by_3": 1
+        },
+        "training_loss_update_mean": {
+          "total": 0.006255780046000719,
+          "waveform": 0.0058772752455843146,
+          "mel": 0.35947475984692573,
+          "feature": 0.014895712181460113
+        }
+      },
+      {
+        "start_step": 4950,
+        "end_step": 4975,
+        "gain_shifts": {
+          "es_419:train:13461728374156750135.wav": 0.05984370248836046,
+          "kn_in:train:15096009457771558023.wav": 0.08158560637457235,
+          "kashmiri:1970324837177077_chunk_1.flac": 0.04981579735996289,
+          "freesound:428921": 0.022496071791115124
+        },
+        "three_speech_gain_mean_shift": 0.06374836874096523,
+        "positive_current_minibatch_gradient_dot_update": 0,
+        "teacher_rms_sample_pooled": 0.07018195570584074,
+        "quiet_sample_fraction": 0.14215538648129947,
+        "nearzero_sample_fraction": 0.005585108567392275,
+        "dataset_source_counts": {
+          "crema_d": 7,
+          "fleurs": 21,
+          "indicvoices": 18,
+          "librispeech": 14,
+          "thorsten_emotional": 3,
+          "emogator": 12
+        },
+        "training_loss_update_mean": {
+          "total": 0.005923651787298009,
+          "waveform": 0.005563138591969619,
+          "mel": 0.34985162049531937,
+          "feature": 0.013652267283760011
+        }
+      },
+      {
+        "start_step": 4975,
+        "end_step": 5000,
+        "gain_shifts": {
+          "es_419:train:13461728374156750135.wav": 0.11548633725220792,
+          "kn_in:train:15096009457771558023.wav": 0.08280411980502644,
+          "kashmiri:1970324837177077_chunk_1.flac": 0.1205107630431641,
+          "freesound:428921": 0.018394836609534115
+        },
+        "three_speech_gain_mean_shift": 0.10626707336679948,
+        "positive_current_minibatch_gradient_dot_update": 6,
+        "teacher_rms_sample_pooled": 0.07677008347568186,
+        "quiet_sample_fraction": 0.17843541264792318,
+        "nearzero_sample_fraction": 0.009923059214440208,
+        "dataset_source_counts": {
+          "indicvoices": 17,
+          "fleurs": 30,
+          "librispeech": 8,
+          "crema_d": 8,
+          "thorsten_emotional": 1,
+          "emogator": 8,
+          "jvnv": 1,
+          "fsd50k_vocal_cc_by_3": 1,
+          "fsd50k_vocal_cc0": 1
+        },
+        "training_loss_update_mean": {
+          "total": 0.005748523580339012,
+          "waveform": 0.005394571300530515,
+          "mel": 0.35452839866280556,
+          "feature": 0.012611626572906971
+        }
+      }
+    ],
+    "gain_level_pairwise_pearson": {
+      "es_419:train:13461728374156750135.wav": {
+        "es_419:train:13461728374156750135.wav": 1.0,
+        "kn_in:train:15096009457771558023.wav": 0.4509383033811667,
+        "kashmiri:1970324837177077_chunk_1.flac": 0.6931944470608357,
+        "freesound:428921": 0.7084053821041035
+      },
+      "kn_in:train:15096009457771558023.wav": {
+        "es_419:train:13461728374156750135.wav": 0.4509383033811667,
+        "kn_in:train:15096009457771558023.wav": 1.0,
+        "kashmiri:1970324837177077_chunk_1.flac": 0.8310783289601958,
+        "freesound:428921": -0.08976502351936466
+      },
+      "kashmiri:1970324837177077_chunk_1.flac": {
+        "es_419:train:13461728374156750135.wav": 0.6931944470608357,
+        "kn_in:train:15096009457771558023.wav": 0.8310783289601958,
+        "kashmiri:1970324837177077_chunk_1.flac": 1.0,
+        "freesound:428921": 0.1322057644883375
+      },
+      "freesound:428921": {
+        "es_419:train:13461728374156750135.wav": 0.7084053821041035,
+        "kn_in:train:15096009457771558023.wav": -0.08976502351936466,
+        "kashmiri:1970324837177077_chunk_1.flac": 0.1322057644883375,
+        "freesound:428921": 1.0
+      }
+    },
+    "gain_change_pairwise_pearson": {
+      "es_419:train:13461728374156750135.wav": {
+        "es_419:train:13461728374156750135.wav": 1.0,
+        "kn_in:train:15096009457771558023.wav": 0.27929686644624363,
+        "kashmiri:1970324837177077_chunk_1.flac": 0.5525435654339236,
+        "freesound:428921": 0.719332679979843
+      },
+      "kn_in:train:15096009457771558023.wav": {
+        "es_419:train:13461728374156750135.wav": 0.27929686644624363,
+        "kn_in:train:15096009457771558023.wav": 1.0,
+        "kashmiri:1970324837177077_chunk_1.flac": 0.772526513078015,
+        "freesound:428921": -0.09102888832510427
+      },
+      "kashmiri:1970324837177077_chunk_1.flac": {
+        "es_419:train:13461728374156750135.wav": 0.5525435654339236,
+        "kn_in:train:15096009457771558023.wav": 0.772526513078015,
+        "kashmiri:1970324837177077_chunk_1.flac": 1.0,
+        "freesound:428921": -0.022612837609120882
+      },
+      "freesound:428921": {
+        "es_419:train:13461728374156750135.wav": 0.719332679979843,
+        "kn_in:train:15096009457771558023.wav": -0.09102888832510427,
+        "kashmiri:1970324837177077_chunk_1.flac": -0.022612837609120882,
+        "freesound:428921": 1.0
+      }
+    },
+    "three_speech_mean_gain": {
+      "first": 1.0382291480346137,
+      "final": 1.1326779231573059,
+      "minimum": 0.9082697499712582,
+      "maximum": 1.1326779231573059,
+      "median": 0.9834845910254714,
+      "rising_intervals": 12,
+      "falling_intervals": 8,
+      "direction_reversals": 11,
+      "minimum_steps": [
+        4550
+      ],
+      "maximum_steps": [
+        5000
+      ]
+    },
+    "actual_minibatch_updates": {
+      "positive_gradient_dot_update": 33,
+      "median_gradient_update_cosine": -0.20987491558554366,
+      "minimum_gradient_update_cosine": -0.5671355944199535,
+      "maximum_gradient_update_cosine": 0.1308638575123752
+    },
+    "dataset_source_counts": {
+      "fsd50k_vocal_cc0": 16,
+      "fleurs": 582,
+      "librispeech": 263,
+      "indicvoices": 297,
+      "emogator": 177,
+      "crema_d": 120,
+      "thorsten_emotional": 28,
+      "fsd50k_vocal_cc_by_3": 14,
+      "jvnv": 2,
+      "jnv": 1
+    },
+    "sampling_notes": [
+      "Rises/falls count adjacent 25-update snapshots; reversals count sign switches between nonzero adjacent changes.",
+      "Training-loss block averages contain different fitting sources and cannot be treated as fixed-panel validation.",
+      "The gain mean equally weights three diagnostic speech sources; it is not audio-sample pooled.",
+      "Current-minibatch gradient dot actual update is a local linear approximation, not an observed post-update loss difference.",
+      "Nearzero classification is teacher RMS <=1e-5 and quiet is <=1e-3 on the existing20ms grid."
+    ]
+  }
+}

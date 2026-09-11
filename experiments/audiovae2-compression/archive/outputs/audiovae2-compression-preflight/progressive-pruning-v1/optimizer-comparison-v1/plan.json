@@ -1,0 +1,99 @@
+{
+  "version": "audiovae2_optimizer_comparison_plan_v1",
+  "config": "/dev/shm/fast-audiovae-optimizer-comparison-20260911-v1/config.json",
+  "config_sha256": "2697da9ae19094dde15a107b3bb4f756a65d9868861011fe121cd721183cf282",
+  "source_manifest": "/dev/shm/fast-audiovae-optimizer-comparison-20260911-v1/source-manifest.json",
+  "source_manifest_sha256": "a1a396c990dd09ed31752312563a851f7a3a8cd9da239244ed3fa73d6013b085",
+  "python": "/tmp/fast-audiovae-recovery-20260909/venv214/bin/python",
+  "pythonpath": "/dev/shm/fast-audiovae-optimizer-comparison-20260911-v1:/dev/shm/fast-audiovae-grail-startup-recovery-20260911-v1:/tmp/fast-audiovae-progressive-pruning-v1/startup-constrained-init-v1/code:/tmp/fast-audiovae-progressive-pruning-v1/reconstruction-init-v1/code:/tmp/fast-audiovae-progressive-pruning-v1/startup-quiet-mechanism-v1/code:/workspace/fast-audiovae-grail-hidden-20260911-v1/code:/dev/shm/fast-audiovae-grail-startup-init-20260911-v1:/dev/shm/fast-audiovae-startup-retention-audit-20260911-v1:/tmp/fast-audiovae-progressive-pruning-v1/code:/tmp/fast-audiovae-progressive-pruning-v1/identical-teacher-control-v1/code:/tmp/fast-audiovae-progressive-pruning-v1/reconstruction-b-recovery-v1/code:/tmp/fast-audiovae-progressive-pruning-v1/recovery-1000-2000/code:/workspace/fast-audiovae-compression-20260910-v1/code:/workspace/fast-audiovae-convnext-20260908-r1/assets:/workspace/fast-audiovae-quiet-recovery-20260911-v1/code:/workspace/fast-audiovae-combined-recovery-20260911-v1/code",
+  "root": "/dev/shm/fast-audiovae-optimizer-comparison-20260911-v1",
+  "parity_reference": "/dev/shm/fast-audiovae-grail-startup-recovery-20260911-v1/corrected64/completed.json",
+  "parity_reference_sha256": "8278142f2712d85bd1f2c87c902cdb674c816ae062d728aedbd57e389e6c11d0",
+  "group_parameter_bytes": 26272768,
+  "candidates": [
+    {
+      "name": "adamw-low",
+      "method": "adamw",
+      "optimizer_kwargs": {
+        "matrix_lr": 1.5e-05
+      }
+    },
+    {
+      "name": "adamw-mid",
+      "method": "adamw",
+      "optimizer_kwargs": {
+        "matrix_lr": 3e-05
+      }
+    },
+    {
+      "name": "adamw-high",
+      "method": "adamw",
+      "optimizer_kwargs": {
+        "matrix_lr": 6e-05
+      }
+    },
+    {
+      "name": "muon-low",
+      "method": "muon",
+      "optimizer_kwargs": {
+        "matrix_lr": 7.5e-05
+      }
+    },
+    {
+      "name": "muon-mid",
+      "method": "muon",
+      "optimizer_kwargs": {
+        "matrix_lr": 0.00015
+      }
+    },
+    {
+      "name": "muon-high",
+      "method": "muon",
+      "optimizer_kwargs": {
+        "matrix_lr": 0.0003
+      }
+    },
+    {
+      "name": "normuon-low",
+      "method": "normuon",
+      "optimizer_kwargs": {
+        "matrix_lr": 7.5e-05
+      }
+    },
+    {
+      "name": "normuon-mid",
+      "method": "normuon",
+      "optimizer_kwargs": {
+        "matrix_lr": 0.00015
+      }
+    },
+    {
+      "name": "normuon-high",
+      "method": "normuon",
+      "optimizer_kwargs": {
+        "matrix_lr": 0.0003
+      }
+    },
+    {
+      "name": "shampoo-low",
+      "method": "shampoo",
+      "optimizer_kwargs": {
+        "matrix_lr": 1.5e-05
+      }
+    },
+    {
+      "name": "shampoo-mid",
+      "method": "shampoo",
+      "optimizer_kwargs": {
+        "matrix_lr": 3e-05
+      }
+    },
+    {
+      "name": "shampoo-high",
+      "method": "shampoo",
+      "optimizer_kwargs": {
+        "matrix_lr": 6e-05
+      }
+    }
+  ]
+}

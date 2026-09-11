@@ -1,0 +1,14 @@
+{
+  "decision": "qualified",
+  "target_updates": 2000,
+  "fresh_start": true,
+  "ordinary_pilot_sha256": "0be86d525dca4bc5cf6b1e1f53bea1d0d3cf0ef1be8b164a64d6485ea6bd8688",
+  "corrected_pilot_sha256": "8278142f2712d85bd1f2c87c902cdb674c816ae062d728aedbd57e389e6c11d0",
+  "initializer_artifact_sha256": "d2438662f1d0ffe540bf4e11742eb845758784efed69659c849e31a70778714d",
+  "initializer_state_sha256": "c0d96b7c97e903e4240a65116c507e8781d2af09982c13fc750d01fd72031eb6",
+  "runner_source_sha256": "a1d863ab15423b0c32a954a8bf691302a914fcd568956d096082d704116177c9",
+  "policy_source_sha256": "9b4a39383b01c81e2d73bfb8b2a90fb054a042326845c63796a85a76014b491d",
+  "source_prefix_sha256": "587ba65495481647e98b87265132d93b8a5fe117726d70b550a6db22f7ba9543",
+  "config_sha256": "2697da9ae19094dde15a107b3bb4f756a65d9868861011fe121cd721183cf282",
+  "quality_assessment": "Qualifies a bounded fresh2000 experiment, not inference promotion: both64 pilots are identical in fresh initialization, RNG, empty Adam, source exposure and baseline metrics, with all preservation checks passed. Corrected recovery makes all64 real updates with no fallback/zero, keeps6/6 calibration and12/13 development starts versus0/6 and1/13 ordinary. MAE differs only+0.02036%, mel-0.02991%, with461vs398 quiet passes. Remaining one development startup,2083/2544 quiet failures and0/10 transient passing are tracked separately. Initial13/13 startup passing is not fully retained. Do not claim near100% fidelity or quality convergence. Stop at2000, preserve every artifact and compare matched historicalG2000 without changing the recipe or adding another cut."
+}

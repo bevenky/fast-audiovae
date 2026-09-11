@@ -1,0 +1,1906 @@
+{
+  "version": "audiovae2_independent_trial_aggregate_v1",
+  "complete": true,
+  "arm": "D",
+  "reference_arm": "B",
+  "optimizer_updates": 2000,
+  "unique_training_sources": 24000,
+  "development_sources": 96,
+  "integrity": {
+    "adam_parameter_states": 90,
+    "adam_counter": 2000,
+    "adam_finite": true,
+    "adam_recipe_and_order_unchanged": true,
+    "group_tensors_finite": true,
+    "initial_adam_fresh": true,
+    "checkpoint_identities_match_launch": true,
+    "checkpoint_step2000_sha256": "5b5885a6f4e50b41f35612fd8707d876ff56fa4cddb0c3cf184dc2e4e18a418b",
+    "checkpoint_step0_sha256": "58ac846680d5b38b6af374a79b4150220cad9187ccdd807986e339ec1ca9d163",
+    "initial_parity_passed": true,
+    "checkpoint_hashes_exact": true,
+    "protected_files_unchanged": true,
+    "quiet_capture_summaries_verified": true,
+    "source_order_matches_reference_prefix": true,
+    "reference_integrity_passed": true
+  },
+  "training": {
+    "scored_samples": 2822438043,
+    "scored_audio_hours": 16.333553489583334,
+    "teacher_cache_comparisons": 24000,
+    "teacher_cache_nonexact": 1,
+    "teacher_cache_all_pass": true,
+    "training_update_seconds": 1188.493115760386,
+    "validation_seconds": 27.753864265978336,
+    "waiting_seconds": 26.518383890390396,
+    "elapsed_seconds": 1296.5272656455636
+  },
+  "reference_completed_run_updates": 2000,
+  "reference_matched2000_training": {
+    "optimizer_updates": 2000,
+    "unique_training_sources": 24000,
+    "scored_samples": 2822438043,
+    "scored_audio_hours": 16.333553489583334,
+    "training_update_seconds": 1201.5857647508383,
+    "validation_seconds": 23.02942556887865,
+    "waiting_seconds": 26.72771616280079,
+    "elapsed_seconds": 1296.3706747889519,
+    "timing_scope": "Original update2000 journal, before its final validation; core training time matches exposure"
+  },
+  "quality": {
+    "0": {
+      "aggregate": {
+        "sources": 96,
+        "samples": 11246952,
+        "nonquiet_samples": 8809920,
+        "mae": 0.004453635443435755,
+        "mse": 0.00015767456913375231,
+        "waveform_nrmse": 0.2108760682783634,
+        "mel": 0.20362786948680878,
+        "group_mse": 0.0018994865845961004,
+        "group_nrmse": 0.12406637246426089,
+        "nonquiet_cosine_mean": 0.9775707455381972,
+        "quiet_residual_rms_mean": 0.00013698445975852765,
+        "quiet_windows": 2544,
+        "quiet_failed_windows": 1916,
+        "peak_abs_max": 0.9844352006912231,
+        "overshoot_samples": 0
+      },
+      "regions": {
+        "all_quiet": {
+          "windows": 2544,
+          "samples": 2437032,
+          "failed": 1916,
+          "amplitude_failed": 133,
+          "residual_rms": 0.00013698446406580978,
+          "centered_residual_rms": 0.00013504196137798807,
+          "teacher_rms": 0.00044858246659957283,
+          "output_rms": 0.00041833577845043084,
+          "output_limit_excess_rms": 1.6806764224891193e-06,
+          "failure_categories": {
+            "passed": 628,
+            "residual_only": 1783,
+            "amplitude_only": 45,
+            "both": 88
+          }
+        },
+        "near_silence": {
+          "windows": 184,
+          "samples": 175875,
+          "failed": 8,
+          "amplitude_failed": 8,
+          "residual_rms": 3.017424969883996e-06,
+          "centered_residual_rms": 2.5723859749654607e-06,
+          "teacher_rms": 9.557728173311252e-06,
+          "output_rms": 9.97340181394053e-06,
+          "output_limit_excess_rms": 1.019436888126771e-06,
+          "failure_categories": {
+            "passed": 176,
+            "residual_only": 0,
+            "amplitude_only": 6,
+            "both": 2
+          }
+        },
+        "near_startup_first20ms": {
+          "windows": 13,
+          "samples": 12480,
+          "failed": 2,
+          "amplitude_failed": 2,
+          "residual_rms": 1.0580630518287782e-05,
+          "centered_residual_rms": 9.164058441256834e-06,
+          "teacher_rms": 9.333618658867093e-06,
+          "output_rms": 1.1528080844106151e-05,
+          "output_limit_excess_rms": 3.479813673341312e-06,
+          "failure_categories": {
+            "passed": 11,
+            "residual_only": 0,
+            "amplitude_only": 0,
+            "both": 2
+          }
+        },
+        "source_zero_20to40ms": {
+          "windows": 10,
+          "samples": 9600,
+          "failed": 10,
+          "amplitude_failed": 0,
+          "residual_rms": 0.00036279902639516635,
+          "centered_residual_rms": 0.00036279048646566033,
+          "teacher_rms": 0.0006328312272720288,
+          "output_rms": 0.0002856599050587971,
+          "output_limit_excess_rms": 0.0,
+          "failure_categories": {
+            "passed": 0,
+            "residual_only": 10,
+            "amplitude_only": 0,
+            "both": 0
+          }
+        },
+        "source_zero_after40ms": {
+          "windows": 164,
+          "samples": 156675,
+          "failed": 4,
+          "amplitude_failed": 4,
+          "residual_rms": 6.231147980819391e-07,
+          "centered_residual_rms": 4.306525519460998e-07,
+          "teacher_rms": 9.596542630338276e-06,
+          "output_rms": 9.826693374438696e-06,
+          "output_limit_excess_rms": 1.230521304528621e-07,
+          "failure_categories": {
+            "passed": 160,
+            "residual_only": 0,
+            "amplitude_only": 4,
+            "both": 0
+          }
+        },
+        "near_after800ms": {
+          "windows": 50,
+          "samples": 47235,
+          "failed": 0,
+          "amplitude_failed": 0,
+          "residual_rms": 1.0460653597077232e-06,
+          "centered_residual_rms": 9.56526102385427e-07,
+          "teacher_rms": 9.63522157827406e-06,
+          "output_rms": 9.807316881477485e-06,
+          "output_limit_excess_rms": 0.0,
+          "failure_categories": {
+            "passed": 50,
+            "residual_only": 0,
+            "amplitude_only": 0,
+            "both": 0
+          }
+        },
+        "quiet_nonzero_reference": {
+          "windows": 2359,
+          "samples": 2260197,
+          "failed": 1901,
+          "amplitude_failed": 128,
+          "residual_rms": 0.0001402617965124396,
+          "centered_residual_rms": 0.00013821639696399095,
+          "teacher_rms": 0.00046396347588343413,
+          "output_rms": 0.00043398529140394927,
+          "output_limit_excess_rms": 1.7448147535356554e-06,
+          "failure_categories": {
+            "passed": 458,
+            "residual_only": 1773,
+            "amplitude_only": 41,
+            "both": 87
+          }
+        }
+      },
+      "active_rms_ratio": 0.9668032996113566
+    },
+    "250": {
+      "aggregate": {
+        "sources": 96,
+        "samples": 11246952,
+        "nonquiet_samples": 8809920,
+        "mae": 0.0030425668109732686,
+        "mse": 9.533170980201077e-05,
+        "waveform_nrmse": 0.16397028834813762,
+        "mel": 0.17401599884033203,
+        "group_mse": 0.0017334968276970807,
+        "group_nrmse": 0.11852159695710755,
+        "nonquiet_cosine_mean": 0.987418146611021,
+        "quiet_residual_rms_mean": 0.00012095114681007595,
+        "quiet_windows": 2544,
+        "quiet_failed_windows": 2037,
+        "peak_abs_max": 0.9880595803260803,
+        "overshoot_samples": 0
+      },
+      "regions": {
+        "all_quiet": {
+          "windows": 2544,
+          "samples": 2437032,
+          "failed": 2037,
+          "amplitude_failed": 521,
+          "residual_rms": 0.00012095115012658113,
+          "centered_residual_rms": 0.00011792382327377957,
+          "teacher_rms": 0.00044858246659957283,
+          "output_rms": 0.00045517248858390765,
+          "output_limit_excess_rms": 2.679591530317952e-06,
+          "failure_categories": {
+            "passed": 507,
+            "residual_only": 1516,
+            "amplitude_only": 211,
+            "both": 310
+          }
+        },
+        "near_silence": {
+          "windows": 184,
+          "samples": 175875,
+          "failed": 182,
+          "amplitude_failed": 182,
+          "residual_rms": 5.811278246026791e-06,
+          "centered_residual_rms": 4.762632765679568e-06,
+          "teacher_rms": 9.557728173311252e-06,
+          "output_rms": 1.3340089745701292e-05,
+          "output_limit_excess_rms": 3.7024870087754722e-06,
+          "failure_categories": {
+            "passed": 2,
+            "residual_only": 0,
+            "amplitude_only": 166,
+            "both": 16
+          }
+        },
+        "near_startup_first20ms": {
+          "windows": 13,
+          "samples": 12480,
+          "failed": 13,
+          "amplitude_failed": 13,
+          "residual_rms": 1.8373783727949785e-05,
+          "centered_residual_rms": 1.7519693942932217e-05,
+          "teacher_rms": 9.333618658867093e-06,
+          "output_rms": 2.22815445557435e-05,
+          "output_limit_excess_rms": 1.1791307992512254e-05,
+          "failure_categories": {
+            "passed": 0,
+            "residual_only": 0,
+            "amplitude_only": 0,
+            "both": 13
+          }
+        },
+        "source_zero_20to40ms": {
+          "windows": 10,
+          "samples": 9600,
+          "failed": 10,
+          "amplitude_failed": 0,
+          "residual_rms": 0.0003632532307239892,
+          "centered_residual_rms": 0.0003631984567041274,
+          "teacher_rms": 0.0006328312272720288,
+          "output_rms": 0.0002925028500626978,
+          "output_limit_excess_rms": 0.0,
+          "failure_categories": {
+            "passed": 0,
+            "residual_only": 10,
+            "amplitude_only": 0,
+            "both": 0
+          }
+        },
+        "source_zero_after40ms": {
+          "windows": 164,
+          "samples": 156675,
+          "failed": 164,
+          "amplitude_failed": 164,
+          "residual_rms": 2.837740507910773e-06,
+          "centered_residual_rms": 7.207938452923669e-07,
+          "teacher_rms": 9.596542630338276e-06,
+          "output_rms": 1.229235492393517e-05,
+          "output_limit_excess_rms": 1.6658127710407523e-06,
+          "failure_categories": {
+            "passed": 0,
+            "residual_only": 0,
+            "amplitude_only": 164,
+            "both": 0
+          }
+        },
+        "near_after800ms": {
+          "windows": 50,
+          "samples": 47235,
+          "failed": 48,
+          "amplitude_failed": 48,
+          "residual_rms": 2.8193819591983873e-06,
+          "centered_residual_rms": 1.026443248510016e-06,
+          "teacher_rms": 9.63522157827406e-06,
+          "output_rms": 1.221369728344544e-05,
+          "output_limit_excess_rms": 1.4669212392532802e-06,
+          "failure_categories": {
+            "passed": 2,
+            "residual_only": 0,
+            "amplitude_only": 48,
+            "both": 0
+          }
+        },
+        "quiet_nonzero_reference": {
+          "windows": 2359,
+          "samples": 2260197,
+          "failed": 1852,
+          "amplitude_failed": 346,
+          "residual_rms": 0.00012333448325329194,
+          "centered_residual_rms": 0.00012013513722314825,
+          "teacher_rms": 0.00046396347588343413,
+          "output_rms": 0.0004722452656588186,
+          "output_limit_excess_rms": 2.647292158609004e-06,
+          "failure_categories": {
+            "passed": 507,
+            "residual_only": 1506,
+            "amplitude_only": 47,
+            "both": 299
+          }
+        }
+      },
+      "active_rms_ratio": 0.9910890368434684
+    },
+    "500": {
+      "aggregate": {
+        "sources": 96,
+        "samples": 11246952,
+        "nonquiet_samples": 8809920,
+        "mae": 0.002719009353834864,
+        "mse": 8.167148690642258e-05,
+        "waveform_nrmse": 0.15176852049113887,
+        "mel": 0.16136358678340912,
+        "group_mse": 0.0017400804922380858,
+        "group_nrmse": 0.11874645083136587,
+        "nonquiet_cosine_mean": 0.9903862968893281,
+        "quiet_residual_rms_mean": 0.00010395340427124749,
+        "quiet_windows": 2544,
+        "quiet_failed_windows": 1348,
+        "peak_abs_max": 0.9878543019294739,
+        "overshoot_samples": 0
+      },
+      "regions": {
+        "all_quiet": {
+          "windows": 2544,
+          "samples": 2437032,
+          "failed": 1348,
+          "amplitude_failed": 58,
+          "residual_rms": 0.00010395340706720999,
+          "centered_residual_rms": 0.00010281662328024499,
+          "teacher_rms": 0.00044858246659957283,
+          "output_rms": 0.00044400246811455296,
+          "output_limit_excess_rms": 1.1917477931306673e-06,
+          "failure_categories": {
+            "passed": 1196,
+            "residual_only": 1290,
+            "amplitude_only": 21,
+            "both": 37
+          }
+        },
+        "near_silence": {
+          "windows": 184,
+          "samples": 175875,
+          "failed": 17,
+          "amplitude_failed": 17,
+          "residual_rms": 5.074382176938165e-06,
+          "centered_residual_rms": 4.9323899872857734e-06,
+          "teacher_rms": 9.557728173311252e-06,
+          "output_rms": 1.0321317933570211e-05,
+          "output_limit_excess_rms": 2.9082697986720737e-06,
+          "failure_categories": {
+            "passed": 167,
+            "residual_only": 0,
+            "amplitude_only": 4,
+            "both": 13
+          }
+        },
+        "near_startup_first20ms": {
+          "windows": 13,
+          "samples": 12480,
+          "failed": 13,
+          "amplitude_failed": 13,
+          "residual_rms": 1.834408093587304e-05,
+          "centered_residual_rms": 1.8220505618298554e-05,
+          "teacher_rms": 9.333618658867093e-06,
+          "output_rms": 2.107412031644871e-05,
+          "output_limit_excess_rms": 1.0801419285733136e-05,
+          "failure_categories": {
+            "passed": 0,
+            "residual_only": 0,
+            "amplitude_only": 0,
+            "both": 13
+          }
+        },
+        "source_zero_20to40ms": {
+          "windows": 10,
+          "samples": 9600,
+          "failed": 10,
+          "amplitude_failed": 0,
+          "residual_rms": 0.00038069645010336737,
+          "centered_residual_rms": 0.00038069644867621774,
+          "teacher_rms": 0.0006328312272720288,
+          "output_rms": 0.000277432790609795,
+          "output_limit_excess_rms": 0.0,
+          "failure_categories": {
+            "passed": 0,
+            "residual_only": 10,
+            "amplitude_only": 0,
+            "both": 0
+          }
+        },
+        "source_zero_after40ms": {
+          "windows": 164,
+          "samples": 156675,
+          "failed": 3,
+          "amplitude_failed": 3,
+          "residual_rms": 1.0625432804290434e-06,
+          "centered_residual_rms": 7.081630135612611e-07,
+          "teacher_rms": 9.596542630338276e-06,
+          "output_rms": 8.942401170422157e-06,
+          "output_limit_excess_rms": 4.823409528511089e-08,
+          "failure_categories": {
+            "passed": 161,
+            "residual_only": 0,
+            "amplitude_only": 3,
+            "both": 0
+          }
+        },
+        "near_after800ms": {
+          "windows": 50,
+          "samples": 47235,
+          "failed": 0,
+          "amplitude_failed": 0,
+          "residual_rms": 1.4790523517579513e-06,
+          "centered_residual_rms": 9.895218165172343e-07,
+          "teacher_rms": 9.63522157827406e-06,
+          "output_rms": 8.895502974962863e-06,
+          "output_limit_excess_rms": 0.0,
+          "failure_categories": {
+            "passed": 50,
+            "residual_only": 0,
+            "amplitude_only": 0,
+            "both": 0
+          }
+        },
+        "quiet_nonzero_reference": {
+          "windows": 2359,
+          "samples": 2260197,
+          "failed": 1324,
+          "amplitude_failed": 44,
+          "residual_rms": 0.00010504679420169579,
+          "centered_residual_rms": 0.00010383373537435373,
+          "teacher_rms": 0.00046396347588343413,
+          "output_rms": 0.00046068177970938083,
+          "output_limit_excess_rms": 1.0655453281248509e-06,
+          "failure_categories": {
+            "passed": 1035,
+            "residual_only": 1280,
+            "amplitude_only": 18,
+            "both": 26
+          }
+        }
+      },
+      "active_rms_ratio": 0.9793869409303454
+    },
+    "1000": {
+      "aggregate": {
+        "sources": 96,
+        "samples": 11246952,
+        "nonquiet_samples": 8809920,
+        "mae": 0.002717383764594724,
+        "mse": 8.56662951746629e-05,
+        "waveform_nrmse": 0.15543594642973607,
+        "mel": 0.15516215562820435,
+        "group_mse": 0.0015388502799289932,
+        "group_nrmse": 0.11166939232775347,
+        "nonquiet_cosine_mean": 0.9906396093659084,
+        "quiet_residual_rms_mean": 9.686203688059451e-05,
+        "quiet_windows": 2544,
+        "quiet_failed_windows": 1846,
+        "peak_abs_max": 0.9909805655479431,
+        "overshoot_samples": 0
+      },
+      "regions": {
+        "all_quiet": {
+          "windows": 2544,
+          "samples": 2437032,
+          "failed": 1846,
+          "amplitude_failed": 403,
+          "residual_rms": 9.686203989638873e-05,
+          "centered_residual_rms": 9.440018216807766e-05,
+          "teacher_rms": 0.00044858246659957283,
+          "output_rms": 0.00043632310535489296,
+          "output_limit_excess_rms": 2.3381869864697936e-06,
+          "failure_categories": {
+            "passed": 698,
+            "residual_only": 1443,
+            "amplitude_only": 212,
+            "both": 191
+          }
+        },
+        "near_silence": {
+          "windows": 184,
+          "samples": 175875,
+          "failed": 182,
+          "amplitude_failed": 182,
+          "residual_rms": 7.59319988682534e-06,
+          "centered_residual_rms": 6.201597417402342e-06,
+          "teacher_rms": 9.557728173311252e-06,
+          "output_rms": 1.4380851285460445e-05,
+          "output_limit_excess_rms": 5.701333333884944e-06,
+          "failure_categories": {
+            "passed": 2,
+            "residual_only": 0,
+            "amplitude_only": 166,
+            "both": 16
+          }
+        },
+        "near_startup_first20ms": {
+          "windows": 13,
+          "samples": 12480,
+          "failed": 13,
+          "amplitude_failed": 13,
+          "residual_rms": 2.5892473848903483e-05,
+          "centered_residual_rms": 2.2976423800943285e-05,
+          "teacher_rms": 9.333618658867093e-06,
+          "output_rms": 3.057043265862953e-05,
+          "output_limit_excess_rms": 2.00259499918501e-05,
+          "failure_categories": {
+            "passed": 0,
+            "residual_only": 0,
+            "amplitude_only": 0,
+            "both": 13
+          }
+        },
+        "source_zero_20to40ms": {
+          "windows": 10,
+          "samples": 9600,
+          "failed": 10,
+          "amplitude_failed": 0,
+          "residual_rms": 0.00024560876330124607,
+          "centered_residual_rms": 0.00024554824750251414,
+          "teacher_rms": 0.0006328312272720288,
+          "output_rms": 0.000425161252500444,
+          "output_limit_excess_rms": 0.0,
+          "failure_categories": {
+            "passed": 0,
+            "residual_only": 10,
+            "amplitude_only": 0,
+            "both": 0
+          }
+        },
+        "source_zero_after40ms": {
+          "windows": 164,
+          "samples": 156675,
+          "failed": 164,
+          "amplitude_failed": 164,
+          "residual_rms": 2.707946529113079e-06,
+          "centered_residual_rms": 8.084724214153826e-07,
+          "teacher_rms": 9.596542630338276e-06,
+          "output_rms": 1.2119126621430779e-05,
+          "output_limit_excess_rms": 1.5256320320643654e-06,
+          "failure_categories": {
+            "passed": 0,
+            "residual_only": 0,
+            "amplitude_only": 164,
+            "both": 0
+          }
+        },
+        "near_after800ms": {
+          "windows": 50,
+          "samples": 47235,
+          "failed": 48,
+          "amplitude_failed": 48,
+          "residual_rms": 2.759340894512822e-06,
+          "centered_residual_rms": 1.1522876406864446e-06,
+          "teacher_rms": 9.63522157827406e-06,
+          "output_rms": 1.2077040304792594e-05,
+          "output_limit_excess_rms": 1.3392996070344533e-06,
+          "failure_categories": {
+            "passed": 2,
+            "residual_only": 0,
+            "amplitude_only": 48,
+            "both": 0
+          }
+        },
+        "quiet_nonzero_reference": {
+          "windows": 2359,
+          "samples": 2260197,
+          "failed": 1661,
+          "amplitude_failed": 228,
+          "residual_rms": 9.928116882539685e-05,
+          "centered_residual_rms": 9.669702689522315e-05,
+          "teacher_rms": 0.00046396347588343413,
+          "output_rms": 0.0004522062608505913,
+          "output_limit_excess_rms": 1.985118103017423e-06,
+          "failure_categories": {
+            "passed": 698,
+            "residual_only": 1433,
+            "amplitude_only": 48,
+            "both": 180
+          }
+        }
+      },
+      "active_rms_ratio": 1.0007160848424117
+    },
+    "1500": {
+      "aggregate": {
+        "sources": 96,
+        "samples": 11246952,
+        "nonquiet_samples": 8809920,
+        "mae": 0.0022714565886300993,
+        "mse": 5.776561378263186e-05,
+        "waveform_nrmse": 0.12763834529954418,
+        "mel": 0.13909654319286346,
+        "group_mse": 0.0012829169774426193,
+        "group_nrmse": 0.10196127207187537,
+        "nonquiet_cosine_mean": 0.9929314244592137,
+        "quiet_residual_rms_mean": 8.878170420070743e-05,
+        "quiet_windows": 2544,
+        "quiet_failed_windows": 1595,
+        "peak_abs_max": 0.9876465201377869,
+        "overshoot_samples": 0
+      },
+      "regions": {
+        "all_quiet": {
+          "windows": 2544,
+          "samples": 2437032,
+          "failed": 1595,
+          "amplitude_failed": 176,
+          "residual_rms": 8.878170683333222e-05,
+          "centered_residual_rms": 8.722398297465155e-05,
+          "teacher_rms": 0.00044858246659957283,
+          "output_rms": 0.0004356304728048486,
+          "output_limit_excess_rms": 2.0449360047732715e-06,
+          "failure_categories": {
+            "passed": 949,
+            "residual_only": 1419,
+            "amplitude_only": 58,
+            "both": 118
+          }
+        },
+        "near_silence": {
+          "windows": 184,
+          "samples": 175875,
+          "failed": 20,
+          "amplitude_failed": 20,
+          "residual_rms": 6.965286437492049e-06,
+          "centered_residual_rms": 6.1737856159247915e-06,
+          "teacher_rms": 9.557728173311252e-06,
+          "output_rms": 1.2688550000140342e-05,
+          "output_limit_excess_rms": 5.151210557994118e-06,
+          "failure_categories": {
+            "passed": 164,
+            "residual_only": 0,
+            "amplitude_only": 5,
+            "both": 15
+          }
+        },
+        "near_startup_first20ms": {
+          "windows": 13,
+          "samples": 12480,
+          "failed": 13,
+          "amplitude_failed": 13,
+          "residual_rms": 2.5329652591387875e-05,
+          "centered_residual_rms": 2.2923676637531098e-05,
+          "teacher_rms": 9.333618658867093e-06,
+          "output_rms": 2.94220587970759e-05,
+          "output_limit_excess_rms": 1.8976302037125927e-05,
+          "failure_categories": {
+            "passed": 0,
+            "residual_only": 0,
+            "amplitude_only": 0,
+            "both": 13
+          }
+        },
+        "source_zero_20to40ms": {
+          "windows": 10,
+          "samples": 9600,
+          "failed": 10,
+          "amplitude_failed": 0,
+          "residual_rms": 0.00016981016628698624,
+          "centered_residual_rms": 0.00016979244970772878,
+          "teacher_rms": 0.0006328312272720288,
+          "output_rms": 0.0005381011113097764,
+          "output_limit_excess_rms": 0.0,
+          "failure_categories": {
+            "passed": 0,
+            "residual_only": 10,
+            "amplitude_only": 0,
+            "both": 0
+          }
+        },
+        "source_zero_after40ms": {
+          "windows": 164,
+          "samples": 156675,
+          "failed": 5,
+          "amplitude_failed": 5,
+          "residual_rms": 1.0452118956980668e-06,
+          "centered_residual_rms": 7.253882443885551e-07,
+          "teacher_rms": 9.596542630338276e-06,
+          "output_rms": 1.0221085860533563e-05,
+          "output_limit_excess_rms": 3.799930973035951e-07,
+          "failure_categories": {
+            "passed": 159,
+            "residual_only": 0,
+            "amplitude_only": 5,
+            "both": 0
+          }
+        },
+        "near_after800ms": {
+          "windows": 50,
+          "samples": 47235,
+          "failed": 0,
+          "amplitude_failed": 0,
+          "residual_rms": 1.1888942971649926e-06,
+          "centered_residual_rms": 1.0213648719706356e-06,
+          "teacher_rms": 9.63522157827406e-06,
+          "output_rms": 1.0193129366803967e-05,
+          "output_limit_excess_rms": 0.0,
+          "failure_categories": {
+            "passed": 50,
+            "residual_only": 0,
+            "amplitude_only": 0,
+            "both": 0
+          }
+        },
+        "quiet_nonzero_reference": {
+          "windows": 2359,
+          "samples": 2260197,
+          "failed": 1569,
+          "amplitude_failed": 160,
+          "residual_rms": 9.150767641016101e-05,
+          "centered_residual_rms": 8.988108772732482e-05,
+          "teacher_rms": 0.00046396347588343413,
+          "output_rms": 0.0004509772793161879,
+          "output_limit_excess_rms": 1.7052317288539635e-06,
+          "failure_categories": {
+            "passed": 790,
+            "residual_only": 1409,
+            "amplitude_only": 53,
+            "both": 107
+          }
+        }
+      },
+      "active_rms_ratio": 1.0004393117829342
+    },
+    "2000": {
+      "aggregate": {
+        "sources": 96,
+        "samples": 11246952,
+        "nonquiet_samples": 8809920,
+        "mae": 0.002555615156505196,
+        "mse": 6.977012318674744e-05,
+        "waveform_nrmse": 0.1402753025688814,
+        "mel": 0.14193759858608246,
+        "group_mse": 0.0012767056467242962,
+        "group_nrmse": 0.10171414633673324,
+        "nonquiet_cosine_mean": 0.9918525180610895,
+        "quiet_residual_rms_mean": 8.869418548100442e-05,
+        "quiet_windows": 2544,
+        "quiet_failed_windows": 1386,
+        "peak_abs_max": 0.9884623885154724,
+        "overshoot_samples": 0
+      },
+      "regions": {
+        "all_quiet": {
+          "windows": 2544,
+          "samples": 2437032,
+          "failed": 1386,
+          "amplitude_failed": 220,
+          "residual_rms": 8.869418822572876e-05,
+          "centered_residual_rms": 8.463960519521146e-05,
+          "teacher_rms": 0.00044858246659957283,
+          "output_rms": 0.00045017161068317495,
+          "output_limit_excess_rms": 2.2082423631208317e-06,
+          "failure_categories": {
+            "passed": 1158,
+            "residual_only": 1166,
+            "amplitude_only": 82,
+            "both": 138
+          }
+        },
+        "near_silence": {
+          "windows": 184,
+          "samples": 175875,
+          "failed": 19,
+          "amplitude_failed": 19,
+          "residual_rms": 7.111673346327305e-06,
+          "centered_residual_rms": 6.602478994059113e-06,
+          "teacher_rms": 9.557728173311252e-06,
+          "output_rms": 1.218446333671825e-05,
+          "output_limit_excess_rms": 5.270818868034865e-06,
+          "failure_categories": {
+            "passed": 165,
+            "residual_only": 0,
+            "amplitude_only": 6,
+            "both": 13
+          }
+        },
+        "near_startup_first20ms": {
+          "windows": 13,
+          "samples": 12480,
+          "failed": 13,
+          "amplitude_failed": 13,
+          "residual_rms": 2.610853925052564e-05,
+          "centered_residual_rms": 2.4544566550582585e-05,
+          "teacher_rms": 9.333618658867093e-06,
+          "output_rms": 3.0098470473369636e-05,
+          "output_limit_excess_rms": 1.9524487952828565e-05,
+          "failure_categories": {
+            "passed": 0,
+            "residual_only": 0,
+            "amplitude_only": 0,
+            "both": 13
+          }
+        },
+        "source_zero_20to40ms": {
+          "windows": 10,
+          "samples": 9600,
+          "failed": 10,
+          "amplitude_failed": 0,
+          "residual_rms": 0.0001490999139403925,
+          "centered_residual_rms": 0.00014909855954809627,
+          "teacher_rms": 0.0006328312272720288,
+          "output_rms": 0.0005631804873743301,
+          "output_limit_excess_rms": 0.0,
+          "failure_categories": {
+            "passed": 0,
+            "residual_only": 10,
+            "amplitude_only": 0,
+            "both": 0
+          }
+        },
+        "source_zero_after40ms": {
+          "windows": 164,
+          "samples": 156675,
+          "failed": 4,
+          "amplitude_failed": 4,
+          "residual_rms": 8.866058158950257e-07,
+          "centered_residual_rms": 6.751835210830313e-07,
+          "teacher_rms": 9.596542630338276e-06,
+          "output_rms": 9.393047300640352e-06,
+          "output_limit_excess_rms": 3.182967312941448e-07,
+          "failure_categories": {
+            "passed": 160,
+            "residual_only": 0,
+            "amplitude_only": 4,
+            "both": 0
+          }
+        },
+        "near_after800ms": {
+          "windows": 50,
+          "samples": 47235,
+          "failed": 0,
+          "amplitude_failed": 0,
+          "residual_rms": 1.2432510356809012e-06,
+          "centered_residual_rms": 1.091744528346667e-06,
+          "teacher_rms": 9.63522157827406e-06,
+          "output_rms": 9.406377388317105e-06,
+          "output_limit_excess_rms": 0.0,
+          "failure_categories": {
+            "passed": 50,
+            "residual_only": 0,
+            "amplitude_only": 0,
+            "both": 0
+          }
+        },
+        "quiet_nonzero_reference": {
+          "windows": 2359,
+          "samples": 2260197,
+          "failed": 1361,
+          "amplitude_failed": 205,
+          "residual_rms": 9.156779308877719e-05,
+          "centered_residual_rms": 8.733495076311905e-05,
+          "teacher_rms": 0.00046396347588343413,
+          "output_rms": 0.0004659960572480253,
+          "output_limit_excess_rms": 1.8609615453188048e-06,
+          "failure_categories": {
+            "passed": 998,
+            "residual_only": 1156,
+            "amplitude_only": 78,
+            "both": 127
+          }
+        }
+      },
+      "active_rms_ratio": 0.9898139646913263
+    }
+  },
+  "reference_quality": {
+    "0": {
+      "aggregate": {
+        "sources": 96,
+        "samples": 11246952,
+        "nonquiet_samples": 8809920,
+        "mae": 0.006622764593833303,
+        "mse": 0.00036796691640037855,
+        "waveform_nrmse": 0.3221446000894798,
+        "mel": 0.22257184982299805,
+        "group_mse": 0.0024960485387455107,
+        "group_nrmse": 0.14222059202193274,
+        "nonquiet_cosine_mean": 0.9659295770894164,
+        "quiet_residual_rms_mean": 0.000136314824308403,
+        "quiet_windows": 2544,
+        "quiet_failed_windows": 1793,
+        "peak_abs_max": 0.9883900284767151,
+        "overshoot_samples": 0
+      },
+      "regions": {
+        "all_quiet": {
+          "windows": 2544,
+          "samples": 2437032,
+          "failed": 1793,
+          "amplitude_failed": 433,
+          "residual_rms": 0.00013631482796560906,
+          "centered_residual_rms": 0.00013458676388413497,
+          "teacher_rms": 0.00044858246659957283,
+          "output_rms": 0.0004738584663162022,
+          "output_limit_excess_rms": 4.583116631731741e-05,
+          "failure_categories": {
+            "passed": 751,
+            "residual_only": 1360,
+            "amplitude_only": 9,
+            "both": 424
+          }
+        },
+        "near_silence": {
+          "windows": 184,
+          "samples": 175875,
+          "failed": 13,
+          "amplitude_failed": 13,
+          "residual_rms": 7.537027098128574e-06,
+          "centered_residual_rms": 7.5050685299003994e-06,
+          "teacher_rms": 9.557728173311252e-06,
+          "output_rms": 1.2416644020396961e-05,
+          "output_limit_excess_rms": 5.306953401182672e-06,
+          "failure_categories": {
+            "passed": 171,
+            "residual_only": 0,
+            "amplitude_only": 0,
+            "both": 13
+          }
+        },
+        "near_startup_first20ms": {
+          "windows": 13,
+          "samples": 12480,
+          "failed": 13,
+          "amplitude_failed": 13,
+          "residual_rms": 2.796608556695988e-05,
+          "centered_residual_rms": 2.78892222658132e-05,
+          "teacher_rms": 9.333618658867093e-06,
+          "output_rms": 3.0593430247865326e-05,
+          "output_limit_excess_rms": 1.992232574127352e-05,
+          "failure_categories": {
+            "passed": 0,
+            "residual_only": 0,
+            "amplitude_only": 0,
+            "both": 13
+          }
+        },
+        "source_zero_20to40ms": {
+          "windows": 10,
+          "samples": 9600,
+          "failed": 10,
+          "amplitude_failed": 0,
+          "residual_rms": 0.00022416718964728211,
+          "centered_residual_rms": 0.0002241422552562721,
+          "teacher_rms": 0.0006328312272720288,
+          "output_rms": 0.00048423105618661385,
+          "output_limit_excess_rms": 0.0,
+          "failure_categories": {
+            "passed": 0,
+            "residual_only": 10,
+            "amplitude_only": 0,
+            "both": 0
+          }
+        },
+        "source_zero_after40ms": {
+          "windows": 164,
+          "samples": 156675,
+          "failed": 0,
+          "amplitude_failed": 0,
+          "residual_rms": 1.0095980946488583e-06,
+          "centered_residual_rms": 9.486484142924957e-07,
+          "teacher_rms": 9.596542630338276e-06,
+          "output_rms": 9.76507208457925e-06,
+          "output_limit_excess_rms": 0.0,
+          "failure_categories": {
+            "passed": 164,
+            "residual_only": 0,
+            "amplitude_only": 0,
+            "both": 0
+          }
+        },
+        "near_after800ms": {
+          "windows": 50,
+          "samples": 47235,
+          "failed": 0,
+          "amplitude_failed": 0,
+          "residual_rms": 1.2963740368501465e-06,
+          "centered_residual_rms": 1.2530823664165715e-06,
+          "teacher_rms": 9.63522157827406e-06,
+          "output_rms": 9.95785589262398e-06,
+          "output_limit_excess_rms": 0.0,
+          "failure_categories": {
+            "passed": 50,
+            "residual_only": 0,
+            "amplitude_only": 0,
+            "both": 0
+          }
+        },
+        "quiet_nonzero_reference": {
+          "windows": 2359,
+          "samples": 2260197,
+          "failed": 1772,
+          "amplitude_failed": 422,
+          "residual_rms": 0.0001407776551011733,
+          "centered_residual_rms": 0.00013897360206341323,
+          "teacher_rms": 0.00046396347588343413,
+          "output_rms": 0.0004910221003234824,
+          "output_limit_excess_rms": 4.75704733386871e-05,
+          "failure_categories": {
+            "passed": 587,
+            "residual_only": 1350,
+            "amplitude_only": 9,
+            "both": 413
+          }
+        }
+      },
+      "active_rms_ratio": 0.8387866120706657
+    },
+    "250": {
+      "aggregate": {
+        "sources": 96,
+        "samples": 11246952,
+        "nonquiet_samples": 8809920,
+        "mae": 0.0036013279662959834,
+        "mse": 0.00012535500658266034,
+        "waveform_nrmse": 0.1880257420285291,
+        "mel": 0.19159872829914093,
+        "group_mse": 0.002150431459113778,
+        "group_nrmse": 0.13200755014680257,
+        "nonquiet_cosine_mean": 0.9861617999636644,
+        "quiet_residual_rms_mean": 0.00010573388537266326,
+        "quiet_windows": 2544,
+        "quiet_failed_windows": 2027,
+        "peak_abs_max": 0.9839410185813904,
+        "overshoot_samples": 0
+      },
+      "regions": {
+        "all_quiet": {
+          "windows": 2544,
+          "samples": 2437032,
+          "failed": 2027,
+          "amplitude_failed": 610,
+          "residual_rms": 0.0001057338883545983,
+          "centered_residual_rms": 0.00010460607839297798,
+          "teacher_rms": 0.00044858246659957283,
+          "output_rms": 0.0004562912693190699,
+          "output_limit_excess_rms": 1.386105901165102e-05,
+          "failure_categories": {
+            "passed": 517,
+            "residual_only": 1417,
+            "amplitude_only": 111,
+            "both": 499
+          }
+        },
+        "near_silence": {
+          "windows": 184,
+          "samples": 175875,
+          "failed": 84,
+          "amplitude_failed": 84,
+          "residual_rms": 9.667250520462637e-06,
+          "centered_residual_rms": 9.484234879500362e-06,
+          "teacher_rms": 9.557728173311252e-06,
+          "output_rms": 1.4587561797044497e-05,
+          "output_limit_excess_rms": 7.480201333426163e-06,
+          "failure_categories": {
+            "passed": 100,
+            "residual_only": 0,
+            "amplitude_only": 71,
+            "both": 13
+          }
+        },
+        "near_startup_first20ms": {
+          "windows": 13,
+          "samples": 12480,
+          "failed": 13,
+          "amplitude_failed": 13,
+          "residual_rms": 3.581839752692093e-05,
+          "centered_residual_rms": 3.5442950108803567e-05,
+          "teacher_rms": 9.333618658867093e-06,
+          "output_rms": 3.873808255851847e-05,
+          "output_limit_excess_rms": 2.804578987050879e-05,
+          "failure_categories": {
+            "passed": 0,
+            "residual_only": 0,
+            "amplitude_only": 0,
+            "both": 13
+          }
+        },
+        "source_zero_20to40ms": {
+          "windows": 10,
+          "samples": 9600,
+          "failed": 10,
+          "amplitude_failed": 0,
+          "residual_rms": 0.00020389269956204382,
+          "centered_residual_rms": 0.0002038924227198775,
+          "teacher_rms": 0.0006328312272720288,
+          "output_rms": 0.0005075893481336081,
+          "output_limit_excess_rms": 0.0,
+          "failure_categories": {
+            "passed": 0,
+            "residual_only": 10,
+            "amplitude_only": 0,
+            "both": 0
+          }
+        },
+        "source_zero_after40ms": {
+          "windows": 164,
+          "samples": 156675,
+          "failed": 68,
+          "amplitude_failed": 68,
+          "residual_rms": 1.302778504621721e-06,
+          "centered_residual_rms": 6.889387942576456e-07,
+          "teacher_rms": 9.596542630338276e-06,
+          "output_rms": 1.0677896735098218e-05,
+          "output_limit_excess_rms": 2.534094863224498e-07,
+          "failure_categories": {
+            "passed": 96,
+            "residual_only": 0,
+            "amplitude_only": 68,
+            "both": 0
+          }
+        },
+        "near_after800ms": {
+          "windows": 50,
+          "samples": 47235,
+          "failed": 46,
+          "amplitude_failed": 46,
+          "residual_rms": 1.8750532378589695e-06,
+          "centered_residual_rms": 1.1408753684305409e-06,
+          "teacher_rms": 9.63522157827406e-06,
+          "output_rms": 1.0919742511404968e-05,
+          "output_limit_excess_rms": 4.788654499759494e-07,
+          "failure_categories": {
+            "passed": 4,
+            "residual_only": 0,
+            "amplitude_only": 46,
+            "both": 0
+          }
+        },
+        "quiet_nonzero_reference": {
+          "windows": 2359,
+          "samples": 2260197,
+          "failed": 1938,
+          "amplitude_failed": 531,
+          "residual_rms": 0.00010895751184920253,
+          "centered_residual_rms": 0.00010777835467619797,
+          "teacher_rms": 0.00046396347588343413,
+          "output_rms": 0.0004726329592821695,
+          "output_limit_excess_rms": 1.4266336683633957e-05,
+          "failure_categories": {
+            "passed": 421,
+            "residual_only": 1407,
+            "amplitude_only": 43,
+            "both": 488
+          }
+        }
+      },
+      "active_rms_ratio": 0.9476771985830968
+    },
+    "500": {
+      "aggregate": {
+        "sources": 96,
+        "samples": 11246952,
+        "nonquiet_samples": 8809920,
+        "mae": 0.002970144639828437,
+        "mse": 9.851751027682694e-05,
+        "waveform_nrmse": 0.1666875576279638,
+        "mel": 0.16663169860839844,
+        "group_mse": 0.001920653690204032,
+        "group_nrmse": 0.1247557298916518,
+        "nonquiet_cosine_mean": 0.9899814557746504,
+        "quiet_residual_rms_mean": 9.658499257765904e-05,
+        "quiet_windows": 2544,
+        "quiet_failed_windows": 1767,
+        "peak_abs_max": 0.9852766394615173,
+        "overshoot_samples": 0
+      },
+      "regions": {
+        "all_quiet": {
+          "windows": 2544,
+          "samples": 2437032,
+          "failed": 1767,
+          "amplitude_failed": 505,
+          "residual_rms": 9.658499542059378e-05,
+          "centered_residual_rms": 9.542918353400987e-05,
+          "teacher_rms": 0.00044858246659957283,
+          "output_rms": 0.0004709017395022591,
+          "output_limit_excess_rms": 1.1492219961343439e-05,
+          "failure_categories": {
+            "passed": 777,
+            "residual_only": 1262,
+            "amplitude_only": 116,
+            "both": 389
+          }
+        },
+        "near_silence": {
+          "windows": 184,
+          "samples": 175875,
+          "failed": 14,
+          "amplitude_failed": 14,
+          "residual_rms": 1.0133595542190181e-05,
+          "centered_residual_rms": 1.0090026199947124e-05,
+          "teacher_rms": 9.557728173311252e-06,
+          "output_rms": 1.3739989252984764e-05,
+          "output_limit_excess_rms": 7.793618878145806e-06,
+          "failure_categories": {
+            "passed": 170,
+            "residual_only": 0,
+            "amplitude_only": 1,
+            "both": 13
+          }
+        },
+        "near_startup_first20ms": {
+          "windows": 13,
+          "samples": 12480,
+          "failed": 13,
+          "amplitude_failed": 13,
+          "residual_rms": 3.7760758567288835e-05,
+          "centered_residual_rms": 3.769843831632947e-05,
+          "teacher_rms": 9.333618658867093e-06,
+          "output_rms": 3.995089873140737e-05,
+          "output_limit_excess_rms": 2.9257161494885476e-05,
+          "failure_categories": {
+            "passed": 0,
+            "residual_only": 0,
+            "amplitude_only": 0,
+            "both": 13
+          }
+        },
+        "source_zero_20to40ms": {
+          "windows": 10,
+          "samples": 9600,
+          "failed": 10,
+          "amplitude_failed": 0,
+          "residual_rms": 0.00016533084809983606,
+          "centered_residual_rms": 0.00016526339753405168,
+          "teacher_rms": 0.0006328312272720288,
+          "output_rms": 0.0005289313732723637,
+          "output_limit_excess_rms": 0.0,
+          "failure_categories": {
+            "passed": 0,
+            "residual_only": 10,
+            "amplitude_only": 0,
+            "both": 0
+          }
+        },
+        "source_zero_after40ms": {
+          "windows": 164,
+          "samples": 156675,
+          "failed": 0,
+          "amplitude_failed": 0,
+          "residual_rms": 1.0651534262645477e-06,
+          "centered_residual_rms": 8.364972804240681e-07,
+          "teacher_rms": 9.596542630338276e-06,
+          "output_rms": 9.018495126235715e-06,
+          "output_limit_excess_rms": 0.0,
+          "failure_categories": {
+            "passed": 164,
+            "residual_only": 0,
+            "amplitude_only": 0,
+            "both": 0
+          }
+        },
+        "near_after800ms": {
+          "windows": 50,
+          "samples": 47235,
+          "failed": 1,
+          "amplitude_failed": 1,
+          "residual_rms": 1.3313289394490248e-06,
+          "centered_residual_rms": 1.1720909474930797e-06,
+          "teacher_rms": 9.63522157827406e-06,
+          "output_rms": 9.24177255276768e-06,
+          "output_limit_excess_rms": 4.254330630691765e-08,
+          "failure_categories": {
+            "passed": 49,
+            "residual_only": 0,
+            "amplitude_only": 1,
+            "both": 0
+          }
+        },
+        "quiet_nonzero_reference": {
+          "windows": 2359,
+          "samples": 2260197,
+          "failed": 1746,
+          "amplitude_failed": 494,
+          "residual_rms": 9.967827884879132e-05,
+          "centered_residual_rms": 9.847137419717363e-05,
+          "teacher_rms": 0.00046396347588343413,
+          "output_rms": 0.0004877462439849721,
+          "output_limit_excess_rms": 1.1767066344028435e-05,
+          "failure_categories": {
+            "passed": 613,
+            "residual_only": 1252,
+            "amplitude_only": 116,
+            "both": 378
+          }
+        }
+      },
+      "active_rms_ratio": 0.982313440556213
+    },
+    "1000": {
+      "aggregate": {
+        "sources": 96,
+        "samples": 11246952,
+        "nonquiet_samples": 8809920,
+        "mae": 0.0027785663498061178,
+        "mse": 0.00010174033230286742,
+        "waveform_nrmse": 0.16939205827346052,
+        "mel": 0.1560310572385788,
+        "group_mse": 0.0017273104681910414,
+        "group_nrmse": 0.11830992292133255,
+        "nonquiet_cosine_mean": 0.9911017463173993,
+        "quiet_residual_rms_mean": 9.110248276671485e-05,
+        "quiet_windows": 2544,
+        "quiet_failed_windows": 2276,
+        "peak_abs_max": 0.9888538122177124,
+        "overshoot_samples": 0
+      },
+      "regions": {
+        "all_quiet": {
+          "windows": 2544,
+          "samples": 2437032,
+          "failed": 2276,
+          "amplitude_failed": 721,
+          "residual_rms": 9.110248517017432e-05,
+          "centered_residual_rms": 8.320348477486647e-05,
+          "teacher_rms": 0.00044858246659957283,
+          "output_rms": 0.0004339439823263339,
+          "output_limit_excess_rms": 8.211245149066137e-06,
+          "failure_categories": {
+            "passed": 268,
+            "residual_only": 1555,
+            "amplitude_only": 168,
+            "both": 553
+          }
+        },
+        "near_silence": {
+          "windows": 184,
+          "samples": 175875,
+          "failed": 184,
+          "amplitude_failed": 184,
+          "residual_rms": 1.329710394901262e-05,
+          "centered_residual_rms": 1.0780683252387985e-05,
+          "teacher_rms": 9.557728173311252e-06,
+          "output_rms": 2.0131147693973673e-05,
+          "output_limit_excess_rms": 1.1094919244865558e-05,
+          "failure_categories": {
+            "passed": 0,
+            "residual_only": 0,
+            "amplitude_only": 165,
+            "both": 19
+          }
+        },
+        "near_startup_first20ms": {
+          "windows": 13,
+          "samples": 12480,
+          "failed": 13,
+          "amplitude_failed": 13,
+          "residual_rms": 4.2766334992251485e-05,
+          "centered_residual_rms": 4.0216520914875785e-05,
+          "teacher_rms": 9.333618658867093e-06,
+          "output_rms": 4.675611578857545e-05,
+          "output_limit_excess_rms": 3.606410255984517e-05,
+          "failure_categories": {
+            "passed": 0,
+            "residual_only": 0,
+            "amplitude_only": 0,
+            "both": 13
+          }
+        },
+        "source_zero_20to40ms": {
+          "windows": 10,
+          "samples": 9600,
+          "failed": 0,
+          "amplitude_failed": 0,
+          "residual_rms": 8.464949312339438e-05,
+          "centered_residual_rms": 8.450235953606918e-05,
+          "teacher_rms": 0.0006328312272720288,
+          "output_rms": 0.0005790421622888878,
+          "output_limit_excess_rms": 0.0,
+          "failure_categories": {
+            "passed": 10,
+            "residual_only": 0,
+            "amplitude_only": 0,
+            "both": 0
+          }
+        },
+        "source_zero_after40ms": {
+          "windows": 164,
+          "samples": 156675,
+          "failed": 164,
+          "amplitude_failed": 164,
+          "residual_rms": 6.735456386795876e-06,
+          "centered_residual_rms": 9.34050636078003e-07,
+          "teacher_rms": 9.596542630338276e-06,
+          "output_rms": 1.626238155751355e-05,
+          "output_limit_excess_rms": 5.531699827879976e-06,
+          "failure_categories": {
+            "passed": 0,
+            "residual_only": 0,
+            "amplitude_only": 161,
+            "both": 3
+          }
+        },
+        "near_after800ms": {
+          "windows": 50,
+          "samples": 47235,
+          "failed": 50,
+          "amplitude_failed": 50,
+          "residual_rms": 7.4613744268892605e-06,
+          "centered_residual_rms": 1.6492418369712526e-06,
+          "teacher_rms": 9.63522157827406e-06,
+          "output_rms": 1.6713568750773475e-05,
+          "output_limit_excess_rms": 6.02037097700414e-06,
+          "failure_categories": {
+            "passed": 0,
+            "residual_only": 0,
+            "amplitude_only": 49,
+            "both": 1
+          }
+        },
+        "quiet_nonzero_reference": {
+          "windows": 2359,
+          "samples": 2260197,
+          "failed": 2101,
+          "amplitude_failed": 546,
+          "residual_rms": 9.43764400951102e-05,
+          "centered_residual_rms": 8.617737504682557e-05,
+          "teacher_rms": 0.00046396347588343413,
+          "output_rms": 0.000448984865847557,
+          "output_limit_excess_rms": 8.024069957096996e-06,
+          "failure_categories": {
+            "passed": 258,
+            "residual_only": 1555,
+            "amplitude_only": 7,
+            "both": 539
+          }
+        }
+      },
+      "active_rms_ratio": 1.0061185327899658
+    },
+    "1500": {
+      "aggregate": {
+        "sources": 96,
+        "samples": 11246952,
+        "nonquiet_samples": 8809920,
+        "mae": 0.00241562565300654,
+        "mse": 6.536686460484155e-05,
+        "waveform_nrmse": 0.1357767147442197,
+        "mel": 0.14288808405399323,
+        "group_mse": 0.0015177968285547956,
+        "group_nrmse": 0.11090287108137964,
+        "nonquiet_cosine_mean": 0.9930775162665887,
+        "quiet_residual_rms_mean": 7.819695723589265e-05,
+        "quiet_windows": 2544,
+        "quiet_failed_windows": 1641,
+        "peak_abs_max": 0.9836863279342651,
+        "overshoot_samples": 0
+      },
+      "regions": {
+        "all_quiet": {
+          "windows": 2544,
+          "samples": 2437032,
+          "failed": 1641,
+          "amplitude_failed": 469,
+          "residual_rms": 7.819695934399015e-05,
+          "centered_residual_rms": 7.67386751398437e-05,
+          "teacher_rms": 0.00044858246659957283,
+          "output_rms": 0.0004458381522038355,
+          "output_limit_excess_rms": 6.375728328720528e-06,
+          "failure_categories": {
+            "passed": 903,
+            "residual_only": 1172,
+            "amplitude_only": 233,
+            "both": 236
+          }
+        },
+        "near_silence": {
+          "windows": 184,
+          "samples": 175875,
+          "failed": 184,
+          "amplitude_failed": 184,
+          "residual_rms": 1.0775826326798014e-05,
+          "centered_residual_rms": 1.041983643530993e-05,
+          "teacher_rms": 9.557728173311252e-06,
+          "output_rms": 1.585374210003275e-05,
+          "output_limit_excess_rms": 8.51676205736775e-06,
+          "failure_categories": {
+            "passed": 0,
+            "residual_only": 0,
+            "amplitude_only": 170,
+            "both": 14
+          }
+        },
+        "near_startup_first20ms": {
+          "windows": 13,
+          "samples": 12480,
+          "failed": 13,
+          "amplitude_failed": 13,
+          "residual_rms": 3.9508132238833546e-05,
+          "centered_residual_rms": 3.8934054141366266e-05,
+          "teacher_rms": 9.333618658867093e-06,
+          "output_rms": 4.2423739561751375e-05,
+          "output_limit_excess_rms": 3.173680696321938e-05,
+          "failure_categories": {
+            "passed": 0,
+            "residual_only": 0,
+            "amplitude_only": 0,
+            "both": 13
+          }
+        },
+        "source_zero_20to40ms": {
+          "windows": 10,
+          "samples": 9600,
+          "failed": 0,
+          "amplitude_failed": 0,
+          "residual_rms": 7.799044318066811e-05,
+          "centered_residual_rms": 7.790808256710936e-05,
+          "teacher_rms": 0.0006328312272720288,
+          "output_rms": 0.0005778176302642467,
+          "output_limit_excess_rms": 0.0,
+          "failure_categories": {
+            "passed": 10,
+            "residual_only": 0,
+            "amplitude_only": 0,
+            "both": 0
+          }
+        },
+        "source_zero_after40ms": {
+          "windows": 164,
+          "samples": 156675,
+          "failed": 164,
+          "amplitude_failed": 164,
+          "residual_rms": 2.1275337982650908e-06,
+          "centered_residual_rms": 8.272393813242463e-07,
+          "teacher_rms": 9.596542630338276e-06,
+          "output_rms": 1.1505431117448326e-05,
+          "output_limit_excess_rms": 9.432434347120578e-07,
+          "failure_categories": {
+            "passed": 0,
+            "residual_only": 0,
+            "amplitude_only": 164,
+            "both": 0
+          }
+        },
+        "near_after800ms": {
+          "windows": 50,
+          "samples": 47235,
+          "failed": 50,
+          "amplitude_failed": 50,
+          "residual_rms": 2.8945255734295824e-06,
+          "centered_residual_rms": 1.2683281777653796e-06,
+          "teacher_rms": 9.63522157827406e-06,
+          "output_rms": 1.1986184677667917e-05,
+          "output_limit_excess_rms": 1.3781144151776758e-06,
+          "failure_categories": {
+            "passed": 0,
+            "residual_only": 0,
+            "amplitude_only": 49,
+            "both": 1
+          }
+        },
+        "quiet_nonzero_reference": {
+          "windows": 2359,
+          "samples": 2260197,
+          "failed": 1466,
+          "amplitude_failed": 294,
+          "residual_rms": 8.099217986464531e-05,
+          "centered_residual_rms": 7.947764271564972e-05,
+          "teacher_rms": 0.00046396347588343413,
+          "output_rms": 0.000461397266868236,
+          "output_limit_excess_rms": 6.243730947337504e-06,
+          "failure_categories": {
+            "passed": 893,
+            "residual_only": 1172,
+            "amplitude_only": 69,
+            "both": 225
+          }
+        }
+      },
+      "active_rms_ratio": 0.9988139037832563
+    },
+    "2000": {
+      "aggregate": {
+        "sources": 96,
+        "samples": 11246952,
+        "nonquiet_samples": 8809920,
+        "mae": 0.002614648236843941,
+        "mse": 7.692284566115848e-05,
+        "waveform_nrmse": 0.14729029780262914,
+        "mel": 0.14105883240699768,
+        "group_mse": 0.0014827561754942712,
+        "group_nrmse": 0.1096152149056391,
+        "nonquiet_cosine_mean": 0.9923750582197227,
+        "quiet_residual_rms_mean": 7.873383410576233e-05,
+        "quiet_windows": 2544,
+        "quiet_failed_windows": 1302,
+        "peak_abs_max": 0.9889969825744629,
+        "overshoot_samples": 0
+      },
+      "regions": {
+        "all_quiet": {
+          "windows": 2544,
+          "samples": 2437032,
+          "failed": 1302,
+          "amplitude_failed": 196,
+          "residual_rms": 7.873383630405822e-05,
+          "centered_residual_rms": 7.637139389945018e-05,
+          "teacher_rms": 0.00044858246659957283,
+          "output_rms": 0.0004614925076407881,
+          "output_limit_excess_rms": 7.629435335224643e-06,
+          "failure_categories": {
+            "passed": 1242,
+            "residual_only": 1106,
+            "amplitude_only": 73,
+            "both": 123
+          }
+        },
+        "near_silence": {
+          "windows": 184,
+          "samples": 175875,
+          "failed": 48,
+          "amplitude_failed": 48,
+          "residual_rms": 1.0340071852330275e-05,
+          "centered_residual_rms": 1.0217191604159368e-05,
+          "teacher_rms": 9.557728173311252e-06,
+          "output_rms": 1.492860164088303e-05,
+          "output_limit_excess_rms": 8.104716523103143e-06,
+          "failure_categories": {
+            "passed": 136,
+            "residual_only": 0,
+            "amplitude_only": 35,
+            "both": 13
+          }
+        },
+        "near_startup_first20ms": {
+          "windows": 13,
+          "samples": 12480,
+          "failed": 13,
+          "amplitude_failed": 13,
+          "residual_rms": 3.8457070625289e-05,
+          "centered_residual_rms": 3.819488547195346e-05,
+          "teacher_rms": 9.333618658867093e-06,
+          "output_rms": 4.108341139666753e-05,
+          "output_limit_excess_rms": 3.0410900862347635e-05,
+          "failure_categories": {
+            "passed": 0,
+            "residual_only": 0,
+            "amplitude_only": 0,
+            "both": 13
+          }
+        },
+        "source_zero_20to40ms": {
+          "windows": 10,
+          "samples": 9600,
+          "failed": 0,
+          "amplitude_failed": 0,
+          "residual_rms": 5.947639717213919e-05,
+          "centered_residual_rms": 5.929138326685341e-05,
+          "teacher_rms": 0.0006328312272720288,
+          "output_rms": 0.000600038049750188,
+          "output_limit_excess_rms": 0.0,
+          "failure_categories": {
+            "passed": 10,
+            "residual_only": 0,
+            "amplitude_only": 0,
+            "both": 0
+          }
+        },
+        "source_zero_after40ms": {
+          "windows": 164,
+          "samples": 156675,
+          "failed": 33,
+          "amplitude_failed": 33,
+          "residual_rms": 1.2599850660665898e-06,
+          "centered_residual_rms": 7.815316374024944e-07,
+          "teacher_rms": 9.596542630338276e-06,
+          "output_rms": 1.0555682550720592e-05,
+          "output_limit_excess_rms": 1.8343591132525546e-07,
+          "failure_categories": {
+            "passed": 131,
+            "residual_only": 0,
+            "amplitude_only": 33,
+            "both": 0
+          }
+        },
+        "near_after800ms": {
+          "windows": 50,
+          "samples": 47235,
+          "failed": 25,
+          "amplitude_failed": 25,
+          "residual_rms": 1.863140808425532e-06,
+          "centered_residual_rms": 1.1285202440545462e-06,
+          "teacher_rms": 9.63522157827406e-06,
+          "output_rms": 1.0918571077789673e-05,
+          "output_limit_excess_rms": 4.087196036901133e-07,
+          "failure_categories": {
+            "passed": 25,
+            "residual_only": 0,
+            "amplitude_only": 25,
+            "both": 0
+          }
+        },
+        "quiet_nonzero_reference": {
+          "windows": 2359,
+          "samples": 2260197,
+          "failed": 1258,
+          "amplitude_failed": 152,
+          "residual_rms": 8.162078745811721e-05,
+          "centered_residual_rms": 7.916517474076143e-05,
+          "teacher_rms": 0.00046396347588343413,
+          "output_rms": 0.00047759109791287093,
+          "output_limit_excess_rms": 7.641312384087394e-06,
+          "failure_categories": {
+            "passed": 1101,
+            "residual_only": 1106,
+            "amplitude_only": 40,
+            "both": 112
+          }
+        }
+      },
+      "active_rms_ratio": 0.9998856910079071
+    }
+  },
+  "paired_improvement_counts": {
+    "0": {
+      "mae": {
+        "compared": 96,
+        "improved": 86,
+        "worsened": 10,
+        "equal": 0
+      },
+      "mel": {
+        "compared": 96,
+        "improved": 78,
+        "worsened": 18,
+        "equal": 0
+      },
+      "group_mse": {
+        "compared": 96,
+        "improved": 86,
+        "worsened": 10,
+        "equal": 0
+      },
+      "cosine": {
+        "compared": 94,
+        "improved": 80,
+        "worsened": 14,
+        "equal": 0
+      }
+    },
+    "250": {
+      "mae": {
+        "compared": 96,
+        "improved": 80,
+        "worsened": 16,
+        "equal": 0
+      },
+      "mel": {
+        "compared": 96,
+        "improved": 85,
+        "worsened": 11,
+        "equal": 0
+      },
+      "group_mse": {
+        "compared": 96,
+        "improved": 83,
+        "worsened": 13,
+        "equal": 0
+      },
+      "cosine": {
+        "compared": 94,
+        "improved": 75,
+        "worsened": 19,
+        "equal": 0
+      }
+    },
+    "500": {
+      "mae": {
+        "compared": 96,
+        "improved": 75,
+        "worsened": 21,
+        "equal": 0
+      },
+      "mel": {
+        "compared": 96,
+        "improved": 66,
+        "worsened": 30,
+        "equal": 0
+      },
+      "group_mse": {
+        "compared": 96,
+        "improved": 82,
+        "worsened": 14,
+        "equal": 0
+      },
+      "cosine": {
+        "compared": 94,
+        "improved": 76,
+        "worsened": 18,
+        "equal": 0
+      }
+    },
+    "1000": {
+      "mae": {
+        "compared": 96,
+        "improved": 69,
+        "worsened": 27,
+        "equal": 0
+      },
+      "mel": {
+        "compared": 96,
+        "improved": 52,
+        "worsened": 44,
+        "equal": 0
+      },
+      "group_mse": {
+        "compared": 96,
+        "improved": 78,
+        "worsened": 18,
+        "equal": 0
+      },
+      "cosine": {
+        "compared": 94,
+        "improved": 60,
+        "worsened": 34,
+        "equal": 0
+      }
+    },
+    "1500": {
+      "mae": {
+        "compared": 96,
+        "improved": 74,
+        "worsened": 22,
+        "equal": 0
+      },
+      "mel": {
+        "compared": 96,
+        "improved": 68,
+        "worsened": 28,
+        "equal": 0
+      },
+      "group_mse": {
+        "compared": 96,
+        "improved": 80,
+        "worsened": 16,
+        "equal": 0
+      },
+      "cosine": {
+        "compared": 94,
+        "improved": 70,
+        "worsened": 24,
+        "equal": 0
+      }
+    },
+    "2000": {
+      "mae": {
+        "compared": 96,
+        "improved": 58,
+        "worsened": 38,
+        "equal": 0
+      },
+      "mel": {
+        "compared": 96,
+        "improved": 42,
+        "worsened": 54,
+        "equal": 0
+      },
+      "group_mse": {
+        "compared": 96,
+        "improved": 82,
+        "worsened": 14,
+        "equal": 0
+      },
+      "cosine": {
+        "compared": 94,
+        "improved": 60,
+        "worsened": 34,
+        "equal": 0
+      }
+    }
+  },
+  "quiet_interventions": null,
+  "automatic_promotion": false,
+  "scope": "Saved reports and CPU checkpoints only; no inference or optimization; aggregate-only output"
+}

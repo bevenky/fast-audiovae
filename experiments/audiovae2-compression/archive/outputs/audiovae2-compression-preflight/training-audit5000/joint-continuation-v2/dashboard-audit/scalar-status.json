@@ -1,0 +1,40 @@
+{
+  "checked_at_utc": "2026-09-10T15:20:56Z",
+  "method": "Read-only Runpod localhost TensorBoard scalar API plus projector receipt; no model evaluation or source changes",
+  "tensorboard_version": "2.21.0",
+  "scalar_api": "http://127.0.0.1:8888/data/plugin/scalars/scalars",
+  "display_runs": 14,
+  "validation_and_target_runs": {
+    "count": 13,
+    "points_each": 1,
+    "only_step": 5625,
+    "waveform_correlation_percent": 97.95207977294922,
+    "quiet_windows_passing_percent": 8.647798538208008,
+    "near_silence_passing_percent": 25.54347801208496,
+    "startup_near_silence_passing_percent": 0.0,
+    "sustained_source_silence_passing_percent": 26.829267501831055,
+    "interior_near_silence_passing_percent": 50.0
+  },
+  "training_progress_run": {
+    "points": 18,
+    "first_step": 5625,
+    "latest_step": 6025,
+    "latest_percent": 60.25,
+    "meaning": "Optimizer work completed toward step10000, not quality"
+  },
+  "raw_training_losses": {
+    "loss/teacher_waveform": {"points": 420, "first_step": 5626, "latest_step": 6045, "latest_value": 0.005862795282155275},
+    "loss/teacher_mel": {"points": 420, "first_step": 5626, "latest_step": 6045, "latest_value": 0.32414761185646057}
+  },
+  "projection_receipt": {
+    "path": "/tmp/fast-audiovae-joint-recovery-v2/tensorboard/display/projection-ready.json",
+    "modified_at_unix": 1789053656.350135,
+    "ready": true,
+    "details_values_written": 1766,
+    "counts_match_scalar_api": true,
+    "source_read_only": true
+  },
+  "conclusion": "The display is current. Quality traces have only the restored baseline because the first scheduled validation is step6125. No new fixed-panel quality result exists yet, so the flat-looking traces are not evidence of a quality plateau. The99percent target is intentionally constant.",
+  "cadence": {"fixed_panel_quality_updates": 500, "training_progress_updates": 25, "raw_training_loss_updates": 1, "next_quality_step": 6125},
+  "limitations": "API and file state are a timestamped snapshot. Training-batch losses use changing sources and cannot substitute for the fixed96-source validation comparison. The previous campaign history is not included in this new campaign chart."
+}

@@ -1,0 +1,1734 @@
+{
+  "definition": "Per-source teacher-aligned decomposition: p=a*t+e, with e orthogonal to t on teacher-active samples. a=dot(p,t)/dot(t,t). Squared error=(a-1)^2*teacher_energy+orthogonal_energy. Diagnostic only, no audio gain correction applied.",
+  "checkpoints": {
+    "1000": {
+      "amplitude_mse_contribution_all_samples": 3.513537168651232e-05,
+      "orthogonal_mse_contribution_all_samples": 0.0004699434471823693,
+      "quiet_mse_contribution_all_samples": 1.2924550245673676e-08,
+      "reconstructed_total_mse": 0.0005050917434191272,
+      "reported_total_mse": 0.0005050917704502357,
+      "maximum_source_energy_reconciliation_error": 4.389887487832311e-05,
+      "rows": [
+        {
+          "source_id": "hi_in:train:17472433744685771543.wav",
+          "teacher_aligned_gain": 0.9142391540787291,
+          "amplitude_squared_error": 5.351545780178223,
+          "orthogonal_squared_error": 44.34210085847021
+        },
+        {
+          "source_id": "as_in:train:13453488421825608782.wav",
+          "teacher_aligned_gain": 1.054166736610885,
+          "amplitude_squared_error": 0.0037990216115951375,
+          "orthogonal_squared_error": 0.13156386813858326
+        },
+        {
+          "source_id": "freesound:236508",
+          "teacher_aligned_gain": 0.5965076951453737,
+          "amplitude_squared_error": 2.982449837078185,
+          "orthogonal_squared_error": 4.891874357613819
+        },
+        {
+          "source_id": "sanskrit:2251799813734813_chunk_1.flac",
+          "teacher_aligned_gain": 0.9780221461706413,
+          "amplitude_squared_error": 0.20055629088732876,
+          "orthogonal_squared_error": 47.67942373275177
+        },
+        {
+          "source_id": "freesound:402835",
+          "teacher_aligned_gain": 1.0774517736734646,
+          "amplitude_squared_error": 3.040237617742817,
+          "orthogonal_squared_error": 81.15965738221628
+        },
+        {
+          "source_id": "freesound:92375",
+          "teacher_aligned_gain": 0.9414274201755952,
+          "amplitude_squared_error": 9.24381306083649,
+          "orthogonal_squared_error": 362.75674625480394
+        },
+        {
+          "source_id": "freesound:343940",
+          "teacher_aligned_gain": 0.8860558613315247,
+          "amplitude_squared_error": 27.421952915177744,
+          "orthogonal_squared_error": 804.7678081764402
+        },
+        {
+          "source_id": "konkani:4222124650671062_chunk_1.flac",
+          "teacher_aligned_gain": 0.9821991146361445,
+          "amplitude_squared_error": 0.3492509324172087,
+          "orthogonal_squared_error": 62.54993834099563
+        },
+        {
+          "source_id": "da_dk:train:12662536537047171941.wav",
+          "teacher_aligned_gain": 0.9066370530563159,
+          "amplitude_squared_error": 0.5106067137772532,
+          "orthogonal_squared_error": 4.842293352109111
+        },
+        {
+          "source_id": "thorsten_emotional:whisper/37773d61d5c91c12d49e55e2b041c0cd.wav",
+          "teacher_aligned_gain": 0.9154570272686919,
+          "amplitude_squared_error": 4.705623590432805,
+          "orthogonal_squared_error": 180.3828961801363
+        },
+        {
+          "source_id": "cs_cz:train:10122716413664131344.wav",
+          "teacher_aligned_gain": 1.0360353833598603,
+          "amplitude_squared_error": 0.4752519427124889,
+          "orthogonal_squared_error": 11.070504029696794
+        },
+        {
+          "source_id": "pt_br:train:14525075052551707276.wav",
+          "teacher_aligned_gain": 0.9443202917213985,
+          "amplitude_squared_error": 2.6651120382602316,
+          "orthogonal_squared_error": 32.30708720815356
+        },
+        {
+          "source_id": "id_id:train:10850485351977338638.wav",
+          "teacher_aligned_gain": 1.008373743999899,
+          "amplitude_squared_error": 0.015617625578535164,
+          "orthogonal_squared_error": 11.718225372418656
+        },
+        {
+          "source_id": "am_et:train:10477493006580119214.wav",
+          "teacher_aligned_gain": 0.9410934449338062,
+          "amplitude_squared_error": 1.5527399918384832,
+          "orthogonal_squared_error": 17.587020362277265
+        },
+        {
+          "source_id": "freesound:277554",
+          "teacher_aligned_gain": 0.8176312440542002,
+          "amplitude_squared_error": 43.00663087370521,
+          "orthogonal_squared_error": 428.78415201301965
+        },
+        {
+          "source_id": "freesound:36399",
+          "teacher_aligned_gain": 0.5096044984593577,
+          "amplitude_squared_error": 0.559336726433508,
+          "orthogonal_squared_error": 0.4912974535807647
+        },
+        {
+          "source_id": "et_ee:train:16713145029159361863.wav",
+          "teacher_aligned_gain": 1.0132707668910144,
+          "amplitude_squared_error": 0.23667054601658713,
+          "orthogonal_squared_error": 26.834219517411434
+        },
+        {
+          "source_id": "kk_kz:train:13837639418509311322.wav",
+          "teacher_aligned_gain": 0.8617348147497012,
+          "amplitude_squared_error": 0.01420614446151078,
+          "orthogonal_squared_error": 0.049261153828630486
+        },
+        {
+          "source_id": "kn_in:train:14687240407945660913.wav",
+          "teacher_aligned_gain": 1.0166413334104256,
+          "amplitude_squared_error": 0.051085357300264575,
+          "orthogonal_squared_error": 17.040532756678942
+        },
+        {
+          "source_id": "ha_ng:train:12490254919826375416.wav",
+          "teacher_aligned_gain": 0.9200579631568552,
+          "amplitude_squared_error": 0.0452715471724297,
+          "orthogonal_squared_error": 0.4611846151412533
+        },
+        {
+          "source_id": "km_kh:train:10006360416725641613.wav",
+          "teacher_aligned_gain": 0.9302200196164369,
+          "amplitude_squared_error": 0.017345965777184856,
+          "orthogonal_squared_error": 0.12223744461937852
+        },
+        {
+          "source_id": "bs_ba:train:11358760624286905521.wav",
+          "teacher_aligned_gain": 0.9957017393965467,
+          "amplitude_squared_error": 0.012294165571295115,
+          "orthogonal_squared_error": 35.42999484408807
+        },
+        {
+          "source_id": "freesound:421873",
+          "teacher_aligned_gain": 0.9886610433233126,
+          "amplitude_squared_error": 0.18979645857464666,
+          "orthogonal_squared_error": 381.9912451159512
+        },
+        {
+          "source_id": "fr_fr:train:16715901780663941383.wav",
+          "teacher_aligned_gain": 0.9622183190161339,
+          "amplitude_squared_error": 1.2462362708048955,
+          "orthogonal_squared_error": 23.449339656687414
+        },
+        {
+          "source_id": "gl_es:train:10769481348315642515.wav",
+          "teacher_aligned_gain": 0.9030061897045722,
+          "amplitude_squared_error": 0.5097559042100007,
+          "orthogonal_squared_error": 5.725078002939686
+        },
+        {
+          "source_id": "luo_ke:train:15463642708286073509.wav",
+          "teacher_aligned_gain": 1.0007457761513223,
+          "amplitude_squared_error": 7.176862526126388e-06,
+          "orthogonal_squared_error": 2.682655281944645
+        },
+        {
+          "source_id": "or_in:train:14121683136407473853.wav",
+          "teacher_aligned_gain": 0.8553175825017815,
+          "amplitude_squared_error": 7.227599956550253,
+          "orthogonal_squared_error": 39.52736428401488
+        },
+        {
+          "source_id": "kea_cv:train:11148966994412478534.wav",
+          "teacher_aligned_gain": 0.9598707583303951,
+          "amplitude_squared_error": 2.477272919496653,
+          "orthogonal_squared_error": 78.23013934939748
+        },
+        {
+          "source_id": "af_za:train:12687107890474022499.wav",
+          "teacher_aligned_gain": 1.0415985533856977,
+          "amplitude_squared_error": 0.9816718951205387,
+          "orthogonal_squared_error": 14.62412363743213
+        },
+        {
+          "source_id": "ne_np:train:10865610629546253109.wav",
+          "teacher_aligned_gain": 0.988082211209807,
+          "amplitude_squared_error": 0.03666889106405739,
+          "orthogonal_squared_error": 9.640213433716669
+        },
+        {
+          "source_id": "bn_in:train:11819972204190731727.wav",
+          "teacher_aligned_gain": 0.9431447969868149,
+          "amplitude_squared_error": 0.3152798426381449,
+          "orthogonal_squared_error": 3.517483121954543
+        },
+        {
+          "source_id": "lt_lt:train:15367591149256088428.wav",
+          "teacher_aligned_gain": 1.2257874733367715,
+          "amplitude_squared_error": 0.00010735423563868957,
+          "orthogonal_squared_error": 0.0001547123401538378
+        },
+        {
+          "source_id": "ta_in:train:12079333390051219555.wav",
+          "teacher_aligned_gain": 0.8030229697250382,
+          "amplitude_squared_error": 67.11938348778432,
+          "orthogonal_squared_error": 330.25705951745834
+        },
+        {
+          "source_id": "ml_in:train:10457389736210484635.wav",
+          "teacher_aligned_gain": 0.9111010411650068,
+          "amplitude_squared_error": 0.12668423628751918,
+          "orthogonal_squared_error": 2.202779464302516
+        },
+        {
+          "source_id": "kashmiri:1970324837177077_chunk_1.flac",
+          "teacher_aligned_gain": 1.0207164864207785,
+          "amplitude_squared_error": 1.3491771553152823,
+          "orthogonal_squared_error": 55.12040430457338
+        },
+        {
+          "source_id": "2051-153962-0091",
+          "teacher_aligned_gain": 0.9865923625666551,
+          "amplitude_squared_error": 0.06507407306257351,
+          "orthogonal_squared_error": 11.753258589865009
+        },
+        {
+          "source_id": "be_by:train:12518029196714550777.wav",
+          "teacher_aligned_gain": 0.928019824172074,
+          "amplitude_squared_error": 0.07057755794156133,
+          "orthogonal_squared_error": 0.20604449509693068
+        },
+        {
+          "source_id": "ln_cd:train:11959897544900910176.wav",
+          "teacher_aligned_gain": 0.9482940845494602,
+          "amplitude_squared_error": 0.021159832332715747,
+          "orthogonal_squared_error": 1.5092403455120953
+        },
+        {
+          "source_id": "cmn_hans_cn:train:10162125752145534325.wav",
+          "teacher_aligned_gain": 0.901027801951676,
+          "amplitude_squared_error": 4.02566302830129,
+          "orthogonal_squared_error": 63.50066046813923
+        },
+        {
+          "source_id": "ky_kg:train:15514578015847358890.wav",
+          "teacher_aligned_gain": 1.0247233858323104,
+          "amplitude_squared_error": 0.026410949315245697,
+          "orthogonal_squared_error": 4.001817926444755
+        },
+        {
+          "source_id": "is_is:train:18143916026623202906.wav",
+          "teacher_aligned_gain": 0.9050624342260564,
+          "amplitude_squared_error": 0.9273178896931601,
+          "orthogonal_squared_error": 11.617778276583483
+        },
+        {
+          "source_id": "tg_tj:train:11851591230613317287.wav",
+          "teacher_aligned_gain": 1.0323656089770825,
+          "amplitude_squared_error": 0.0008104197275296313,
+          "orthogonal_squared_error": 0.029990264105354863
+        },
+        {
+          "source_id": "ast_es:train:16933683244427534350.wav",
+          "teacher_aligned_gain": 1.0149311721731769,
+          "amplitude_squared_error": 0.0472317001353919,
+          "orthogonal_squared_error": 28.599069028613524
+        },
+        {
+          "source_id": "5101-67853-0031",
+          "teacher_aligned_gain": 0.8979329345831735,
+          "amplitude_squared_error": 4.739235653270736,
+          "orthogonal_squared_error": 37.71881391465907
+        },
+        {
+          "source_id": "ca_es:train:10583803894773586508.wav",
+          "teacher_aligned_gain": 0.9360251225016509,
+          "amplitude_squared_error": 0.19412705211802334,
+          "orthogonal_squared_error": 2.6564564522743686
+        },
+        {
+          "source_id": "ckb_iq:train:14031124210593524930.wav",
+          "teacher_aligned_gain": 0.9519383794520957,
+          "amplitude_squared_error": 0.04192869160598426,
+          "orthogonal_squared_error": 2.8617497670930856
+        },
+        {
+          "source_id": "fa_ir:train:12074514968657073723.wav",
+          "teacher_aligned_gain": 0.8894920020484496,
+          "amplitude_squared_error": 1.4459023984481172,
+          "orthogonal_squared_error": 11.053345722189704
+        },
+        {
+          "source_id": "fi_fi:train:10893394073468230201.wav",
+          "teacher_aligned_gain": 1.0039108226787803,
+          "amplitude_squared_error": 0.0037406898569218735,
+          "orthogonal_squared_error": 6.12054510201973
+        },
+        {
+          "source_id": "kam_ke:train:12154486779797187960.wav",
+          "teacher_aligned_gain": 0.9874631532176718,
+          "amplitude_squared_error": 0.01119258976576596,
+          "orthogonal_squared_error": 15.102320603117546
+        },
+        {
+          "source_id": "ka_ge:train:2993105044151469776.wav",
+          "teacher_aligned_gain": 0.925659639663344,
+          "amplitude_squared_error": 0.6474559979105187,
+          "orthogonal_squared_error": 3.4659425018276857
+        },
+        {
+          "source_id": "he_il:train:16823755323813467795.wav",
+          "teacher_aligned_gain": 0.8852655051994055,
+          "amplitude_squared_error": 0.24202706071388286,
+          "orthogonal_squared_error": 1.5738603975922367
+        },
+        {
+          "source_id": "so_so:train:1179304877180760723.wav",
+          "teacher_aligned_gain": 0.7549685014328371,
+          "amplitude_squared_error": 0.004544813999030254,
+          "orthogonal_squared_error": 0.015111810430457827
+        },
+        {
+          "source_id": "sd_in:train:13655315073103147391.wav",
+          "teacher_aligned_gain": 0.7681676060798938,
+          "amplitude_squared_error": 0.6326357200735383,
+          "orthogonal_squared_error": 0.7825060521160592
+        },
+        {
+          "source_id": "ceb_ph:train:11416672701597922361.wav",
+          "teacher_aligned_gain": 0.9303946882053492,
+          "amplitude_squared_error": 0.3539085284982666,
+          "orthogonal_squared_error": 2.7412255448634046
+        },
+        {
+          "source_id": "ko_kr:train:10359553883250105525.wav",
+          "teacher_aligned_gain": 0.8918812637258835,
+          "amplitude_squared_error": 0.048148998381364785,
+          "orthogonal_squared_error": 0.25994328654013
+        },
+        {
+          "source_id": "es_419:train:13461728374156750135.wav",
+          "teacher_aligned_gain": 1.026500275931515,
+          "amplitude_squared_error": 0.08143512734022595,
+          "orthogonal_squared_error": 10.061894072832185
+        },
+        {
+          "source_id": "maithili:844424930138733_chunk_1.flac",
+          "teacher_aligned_gain": 1.1183494709033002,
+          "amplitude_squared_error": 7.981605412262329,
+          "orthogonal_squared_error": 34.68070204916674
+        },
+        {
+          "source_id": "freesound:428921",
+          "teacher_aligned_gain": 1.27546038534347,
+          "amplitude_squared_error": 0.5886531117991435,
+          "orthogonal_squared_error": 1.41117343182963
+        },
+        {
+          "source_id": "en_us:train:13546164985487902870.wav",
+          "teacher_aligned_gain": 0.9112710814299594,
+          "amplitude_squared_error": 0.8229684728829664,
+          "orthogonal_squared_error": 8.74237883679991
+        },
+        {
+          "source_id": "pa_in:train:16693733152628588519.wav",
+          "teacher_aligned_gain": 0.8980025988914847,
+          "amplitude_squared_error": 0.10219542199551551,
+          "orthogonal_squared_error": 0.7210035862866532
+        },
+        {
+          "source_id": "lg_ug:train:12123343751639616808.wav",
+          "teacher_aligned_gain": 1.002806814791844,
+          "amplitude_squared_error": 0.00012161878346693654,
+          "orthogonal_squared_error": 0.8513579139939907
+        },
+        {
+          "source_id": "manipuri:6473924464419399_chunk_1.flac",
+          "teacher_aligned_gain": 0.9530516665956636,
+          "amplitude_squared_error": 0.07827132165149023,
+          "orthogonal_squared_error": 1.391321007976142
+        },
+        {
+          "source_id": "te_in:train:14751961982184477566.wav",
+          "teacher_aligned_gain": 0.9559072977071033,
+          "amplitude_squared_error": 0.1489390915949664,
+          "orthogonal_squared_error": 1.1327585017771926
+        },
+        {
+          "source_id": "ar_eg:train:12360449360113063891.wav",
+          "teacher_aligned_gain": 0.9979791273461118,
+          "amplitude_squared_error": 0.0012204607927598855,
+          "orthogonal_squared_error": 21.954820856214933
+        },
+        {
+          "source_id": "bodo:3659174697289264_chunk_3.flac",
+          "teacher_aligned_gain": 0.9746739767344552,
+          "amplitude_squared_error": 0.18826020385290285,
+          "orthogonal_squared_error": 10.087855979206012
+        },
+        {
+          "source_id": "ff_sn:train:14756055913832624081.wav",
+          "teacher_aligned_gain": 0.9530413538082828,
+          "amplitude_squared_error": 0.36575549891068926,
+          "orthogonal_squared_error": 12.063168671637174
+        },
+        {
+          "source_id": "hr_hr:train:12137021049767807555.wav",
+          "teacher_aligned_gain": 0.9349525650181061,
+          "amplitude_squared_error": 0.35876895263591924,
+          "orthogonal_squared_error": 6.903041227443075
+        },
+        {
+          "source_id": "3242-67168-0001",
+          "teacher_aligned_gain": 0.9688155366677489,
+          "amplitude_squared_error": 0.41472975110562965,
+          "orthogonal_squared_error": 28.37834255609642
+        },
+        {
+          "source_id": "5778-54535-0011",
+          "teacher_aligned_gain": 0.9009211525684725,
+          "amplitude_squared_error": 3.6535097736622832,
+          "orthogonal_squared_error": 10.927997805329536
+        },
+        {
+          "source_id": "so_so:train:14842603451866844632.wav",
+          "teacher_aligned_gain": 1.0533332054750262,
+          "amplitude_squared_error": 0.014218807189728698,
+          "orthogonal_squared_error": 0.3489190854207011
+        },
+        {
+          "source_id": "mr_in:train:10986875885056557364.wav",
+          "teacher_aligned_gain": 0.9349586297647684,
+          "amplitude_squared_error": 0.06116717033403854,
+          "orthogonal_squared_error": 1.3731468329425094
+        },
+        {
+          "source_id": "ig_ng:train:10501649524957252930.wav",
+          "teacher_aligned_gain": 0.9683741575961488,
+          "amplitude_squared_error": 0.07526005290941339,
+          "orthogonal_squared_error": 10.30197520950501
+        },
+        {
+          "source_id": "santali:4785074604194847_chunk_1.flac",
+          "teacher_aligned_gain": 0.9795734308233993,
+          "amplitude_squared_error": 0.06874861338757511,
+          "orthogonal_squared_error": 11.959953895657794
+        },
+        {
+          "source_id": "hu_hu:train:11110713752589902328.wav",
+          "teacher_aligned_gain": 0.8768856639465401,
+          "amplitude_squared_error": 0.6294811907224557,
+          "orthogonal_squared_error": 3.6952458002123048
+        },
+        {
+          "source_id": "freesound:180341",
+          "teacher_aligned_gain": 0.935265565692193,
+          "amplitude_squared_error": 5.183772746338745,
+          "orthogonal_squared_error": 376.32705186862563
+        },
+        {
+          "source_id": "pl_pl:train:14002458340348798.wav",
+          "teacher_aligned_gain": 0.9862501764165067,
+          "amplitude_squared_error": 0.0016716666895572926,
+          "orthogonal_squared_error": 0.30116775663274004
+        },
+        {
+          "source_id": "dogri:622d1198-0621-4e0c-9027-77e32a505100_1_chunk_8.flac",
+          "teacher_aligned_gain": 0.9461912846043167,
+          "amplitude_squared_error": 4.405405141686549,
+          "orthogonal_squared_error": 45.69034787149612
+        },
+        {
+          "source_id": "ga_ie:train:13963823416179330503.wav",
+          "teacher_aligned_gain": 0.9415696819101982,
+          "amplitude_squared_error": 3.5249620849637147,
+          "orthogonal_squared_error": 47.664057181692634
+        },
+        {
+          "source_id": "ur_pk:train:17356430244359180807.wav",
+          "teacher_aligned_gain": 0.998217676694424,
+          "amplitude_squared_error": 0.0029454542831509308,
+          "orthogonal_squared_error": 14.666098359679141
+        },
+        {
+          "source_id": "fil_ph:train:3075253886656038657.wav",
+          "teacher_aligned_gain": 0.860637862236196,
+          "amplitude_squared_error": 0.8424939595424051,
+          "orthogonal_squared_error": 3.6441361093853453
+        },
+        {
+          "source_id": "it_it:train:12677112187370521844.wav",
+          "teacher_aligned_gain": 1.0086585365694218,
+          "amplitude_squared_error": 0.00584923107129127,
+          "orthogonal_squared_error": 7.395479584666388
+        },
+        {
+          "source_id": "freesound:343960",
+          "teacher_aligned_gain": 0.7765216321086124,
+          "amplitude_squared_error": 130.02738316820293,
+          "orthogonal_squared_error": 892.614053849085
+        },
+        {
+          "source_id": "ja_jp:train:12210528383264418745.wav",
+          "teacher_aligned_gain": 1.0743114396917772,
+          "amplitude_squared_error": 4.758040058860119,
+          "orthogonal_squared_error": 100.94530365578221
+        },
+        {
+          "source_id": "az_az:train:1439903150624501148.wav",
+          "teacher_aligned_gain": 1.1267273980879793,
+          "amplitude_squared_error": 0.0011235365669451682,
+          "orthogonal_squared_error": 0.0034016082342521914
+        },
+        {
+          "source_id": "gu_in:train:13687134359882365134.wav",
+          "teacher_aligned_gain": 0.9807834674608378,
+          "amplitude_squared_error": 0.0038559106295918324,
+          "orthogonal_squared_error": 1.5306557738381728
+        },
+        {
+          "source_id": "kn_in:train:15096009457771558023.wav",
+          "teacher_aligned_gain": 0.997733471472123,
+          "amplitude_squared_error": 0.0008859392261361007,
+          "orthogonal_squared_error": 5.582149758501172
+        },
+        {
+          "source_id": "jv_id:train:11045828164931236769.wav",
+          "teacher_aligned_gain": 1.1023546733804264,
+          "amplitude_squared_error": 2.806087219793998,
+          "orthogonal_squared_error": 6.2882510377225715
+        },
+        {
+          "source_id": "ur_pk:train:13989351609468149814.wav",
+          "teacher_aligned_gain": 0.8471101433421407,
+          "amplitude_squared_error": 0.01648661913936703,
+          "orthogonal_squared_error": 0.1477161608884636
+        },
+        {
+          "source_id": "lo_la:train:10346663063780035215.wav",
+          "teacher_aligned_gain": 0.8859621236198482,
+          "amplitude_squared_error": 0.2667800228234063,
+          "orthogonal_squared_error": 1.6561891357674832
+        },
+        {
+          "source_id": "el_gr:train:14520091198441206771.wav",
+          "teacher_aligned_gain": 0.8050433294375601,
+          "amplitude_squared_error": 26.398990501585722,
+          "orthogonal_squared_error": 129.99799549188674
+        },
+        {
+          "source_id": "1363-139304-0012",
+          "teacher_aligned_gain": 0.9052845099157697,
+          "amplitude_squared_error": 1.430906307202934,
+          "orthogonal_squared_error": 16.83372649148981
+        },
+        {
+          "source_id": "hy_am:train:11186680517435167922.wav",
+          "teacher_aligned_gain": 0.9337010004514164,
+          "amplitude_squared_error": 5.404244781768732e-05,
+          "orthogonal_squared_error": 0.0014892530571228918
+        },
+        {
+          "source_id": "ps_af:train:15589493469027767437.wav",
+          "teacher_aligned_gain": 0.8925429801144559,
+          "amplitude_squared_error": 0.002640173108812419,
+          "orthogonal_squared_error": 0.06788454267457039
+        },
+        {
+          "source_id": "bg_bg:train:12760864941937536074.wav",
+          "teacher_aligned_gain": 0.957027465000663,
+          "amplitude_squared_error": 2.260061143322903,
+          "orthogonal_squared_error": 129.14944065682047
+        }
+      ]
+    },
+    "4500": {
+      "amplitude_mse_contribution_all_samples": 2.3274008711089146e-05,
+      "orthogonal_mse_contribution_all_samples": 0.00025113464206878613,
+      "quiet_mse_contribution_all_samples": 7.132973507587446e-09,
+      "reconstructed_total_mse": 0.00027441578375338285,
+      "reported_total_mse": 0.00027441579717169223,
+      "maximum_source_energy_reconciliation_error": 3.162041645055069e-05,
+      "rows": [
+        {
+          "source_id": "hi_in:train:17472433744685771543.wav",
+          "teacher_aligned_gain": 0.9837384274776154,
+          "amplitude_squared_error": 0.1924093681235631,
+          "orthogonal_squared_error": 32.05292146060955
+        },
+        {
+          "source_id": "as_in:train:13453488421825608782.wav",
+          "teacher_aligned_gain": 0.9423837849616863,
+          "amplitude_squared_error": 0.004298291561728299,
+          "orthogonal_squared_error": 0.05522251402885031
+        },
+        {
+          "source_id": "freesound:236508",
+          "teacher_aligned_gain": 0.8604647243470602,
+          "amplitude_squared_error": 0.3566733526611512,
+          "orthogonal_squared_error": 2.9749560751309194
+        },
+        {
+          "source_id": "sanskrit:2251799813734813_chunk_1.flac",
+          "teacher_aligned_gain": 1.003594314001717,
+          "amplitude_squared_error": 0.005364111013051032,
+          "orthogonal_squared_error": 21.518665380686144
+        },
+        {
+          "source_id": "freesound:402835",
+          "teacher_aligned_gain": 1.0144367860207544,
+          "amplitude_squared_error": 0.10562964784864914,
+          "orthogonal_squared_error": 36.34776391545708
+        },
+        {
+          "source_id": "freesound:92375",
+          "teacher_aligned_gain": 1.0317304782686074,
+          "amplitude_squared_error": 2.7127869318057156,
+          "orthogonal_squared_error": 207.8292597944396
+        },
+        {
+          "source_id": "freesound:343940",
+          "teacher_aligned_gain": 0.8393238271077946,
+          "amplitude_squared_error": 54.527722532998986,
+          "orthogonal_squared_error": 407.8104440617193
+        },
+        {
+          "source_id": "konkani:4222124650671062_chunk_1.flac",
+          "teacher_aligned_gain": 1.0493539394051314,
+          "amplitude_squared_error": 2.68471391994753,
+          "orthogonal_squared_error": 35.443655805041935
+        },
+        {
+          "source_id": "da_dk:train:12662536537047171941.wav",
+          "teacher_aligned_gain": 0.9747249204329792,
+          "amplitude_squared_error": 0.0374216110729447,
+          "orthogonal_squared_error": 2.769110768850428
+        },
+        {
+          "source_id": "thorsten_emotional:whisper/37773d61d5c91c12d49e55e2b041c0cd.wav",
+          "teacher_aligned_gain": 0.9263512584370475,
+          "amplitude_squared_error": 3.571024387472066,
+          "orthogonal_squared_error": 64.73692184663213
+        },
+        {
+          "source_id": "cs_cz:train:10122716413664131344.wav",
+          "teacher_aligned_gain": 1.0289012300832991,
+          "amplitude_squared_error": 0.30570198760869693,
+          "orthogonal_squared_error": 5.827585332383982
+        },
+        {
+          "source_id": "pt_br:train:14525075052551707276.wav",
+          "teacher_aligned_gain": 1.0213310625981913,
+          "amplitude_squared_error": 0.3911528950350405,
+          "orthogonal_squared_error": 21.180960576148127
+        },
+        {
+          "source_id": "id_id:train:10850485351977338638.wav",
+          "teacher_aligned_gain": 0.9813045335662969,
+          "amplitude_squared_error": 0.07784814297953653,
+          "orthogonal_squared_error": 7.580680359744918
+        },
+        {
+          "source_id": "am_et:train:10477493006580119214.wav",
+          "teacher_aligned_gain": 1.0292847080024063,
+          "amplitude_squared_error": 0.3837543258270164,
+          "orthogonal_squared_error": 11.893935706310252
+        },
+        {
+          "source_id": "freesound:277554",
+          "teacher_aligned_gain": 0.9081600303904847,
+          "amplitude_squared_error": 10.90681666501985,
+          "orthogonal_squared_error": 159.33553074706327
+        },
+        {
+          "source_id": "freesound:36399",
+          "teacher_aligned_gain": 0.7059660095384699,
+          "amplitude_squared_error": 0.20108304672876537,
+          "orthogonal_squared_error": 0.45809094303874515
+        },
+        {
+          "source_id": "et_ee:train:16713145029159361863.wav",
+          "teacher_aligned_gain": 1.0491550662521223,
+          "amplitude_squared_error": 3.2470482572994683,
+          "orthogonal_squared_error": 12.119530476616111
+        },
+        {
+          "source_id": "kk_kz:train:13837639418509311322.wav",
+          "teacher_aligned_gain": 0.9140725684583754,
+          "amplitude_squared_error": 0.005486737816222433,
+          "orthogonal_squared_error": 0.02051860242543482
+        },
+        {
+          "source_id": "kn_in:train:14687240407945660913.wav",
+          "teacher_aligned_gain": 1.0344723283772732,
+          "amplitude_squared_error": 0.21921053796374046,
+          "orthogonal_squared_error": 8.715869414479487
+        },
+        {
+          "source_id": "ha_ng:train:12490254919826375416.wav",
+          "teacher_aligned_gain": 0.9361036566093969,
+          "amplitude_squared_error": 0.02892190723659621,
+          "orthogonal_squared_error": 0.15882352274339145
+        },
+        {
+          "source_id": "km_kh:train:10006360416725641613.wav",
+          "teacher_aligned_gain": 0.942542088270215,
+          "amplitude_squared_error": 0.011760789443419595,
+          "orthogonal_squared_error": 0.06992833396799165
+        },
+        {
+          "source_id": "bs_ba:train:11358760624286905521.wav",
+          "teacher_aligned_gain": 1.0424860045238291,
+          "amplitude_squared_error": 1.2011724239006207,
+          "orthogonal_squared_error": 17.552319585742037
+        },
+        {
+          "source_id": "freesound:421873",
+          "teacher_aligned_gain": 0.9029889304144093,
+          "amplitude_squared_error": 13.892630930395653,
+          "orthogonal_squared_error": 124.73972737154153
+        },
+        {
+          "source_id": "fr_fr:train:16715901780663941383.wav",
+          "teacher_aligned_gain": 1.0468839800554268,
+          "amplitude_squared_error": 1.9190521582134004,
+          "orthogonal_squared_error": 14.624745434846629
+        },
+        {
+          "source_id": "gl_es:train:10769481348315642515.wav",
+          "teacher_aligned_gain": 1.0004130629145118,
+          "amplitude_squared_error": 9.244994004102622e-06,
+          "orthogonal_squared_error": 2.835334762990519
+        },
+        {
+          "source_id": "luo_ke:train:15463642708286073509.wav",
+          "teacher_aligned_gain": 0.9089616517611344,
+          "amplitude_squared_error": 0.10694645263674388,
+          "orthogonal_squared_error": 0.7511532142543391
+        },
+        {
+          "source_id": "or_in:train:14121683136407473853.wav",
+          "teacher_aligned_gain": 0.9325322801271148,
+          "amplitude_squared_error": 1.5716457381132904,
+          "orthogonal_squared_error": 31.651369398372708
+        },
+        {
+          "source_id": "kea_cv:train:11148966994412478534.wav",
+          "teacher_aligned_gain": 1.004778380339059,
+          "amplitude_squared_error": 0.035124761097744386,
+          "orthogonal_squared_error": 41.42180731502826
+        },
+        {
+          "source_id": "af_za:train:12687107890474022499.wav",
+          "teacher_aligned_gain": 1.0699592073873307,
+          "amplitude_squared_error": 2.7765126869911327,
+          "orthogonal_squared_error": 7.2116154340031855
+        },
+        {
+          "source_id": "ne_np:train:10865610629546253109.wav",
+          "teacher_aligned_gain": 1.0364176490693835,
+          "amplitude_squared_error": 0.34239721261967376,
+          "orthogonal_squared_error": 5.996619204533743
+        },
+        {
+          "source_id": "bn_in:train:11819972204190731727.wav",
+          "teacher_aligned_gain": 1.0408421046509668,
+          "amplitude_squared_error": 0.16269417479704426,
+          "orthogonal_squared_error": 2.1327467196907866
+        },
+        {
+          "source_id": "lt_lt:train:15367591149256088428.wav",
+          "teacher_aligned_gain": 1.0201703828545667,
+          "amplitude_squared_error": 8.567375067286049e-07,
+          "orthogonal_squared_error": 6.237802760710068e-05
+        },
+        {
+          "source_id": "ta_in:train:12079333390051219555.wav",
+          "teacher_aligned_gain": 0.8911416828524219,
+          "amplitude_squared_error": 20.49934667711231,
+          "orthogonal_squared_error": 304.269594293102
+        },
+        {
+          "source_id": "ml_in:train:10457389736210484635.wav",
+          "teacher_aligned_gain": 0.9483797946900371,
+          "amplitude_squared_error": 0.04271384658146202,
+          "orthogonal_squared_error": 1.2540783132597686
+        },
+        {
+          "source_id": "kashmiri:1970324837177077_chunk_1.flac",
+          "teacher_aligned_gain": 1.068728845538303,
+          "amplitude_squared_error": 14.849604181676938,
+          "orthogonal_squared_error": 29.07652618680956
+        },
+        {
+          "source_id": "2051-153962-0091",
+          "teacher_aligned_gain": 1.06621561793955,
+          "amplitude_squared_error": 1.5871732984551936,
+          "orthogonal_squared_error": 5.4725212506372065
+        },
+        {
+          "source_id": "be_by:train:12518029196714550777.wav",
+          "teacher_aligned_gain": 0.9300864094085189,
+          "amplitude_squared_error": 0.0665831036113031,
+          "orthogonal_squared_error": 0.10733373016437149
+        },
+        {
+          "source_id": "ln_cd:train:11959897544900910176.wav",
+          "teacher_aligned_gain": 0.8656882728014624,
+          "amplitude_squared_error": 0.14277745181026572,
+          "orthogonal_squared_error": 0.6574316745574089
+        },
+        {
+          "source_id": "cmn_hans_cn:train:10162125752145534325.wav",
+          "teacher_aligned_gain": 0.9773563373371651,
+          "amplitude_squared_error": 0.2107193124864948,
+          "orthogonal_squared_error": 18.4978670491364
+        },
+        {
+          "source_id": "ky_kg:train:15514578015847358890.wav",
+          "teacher_aligned_gain": 0.9502268032777851,
+          "amplitude_squared_error": 0.10704322569086919,
+          "orthogonal_squared_error": 2.0633198124683205
+        },
+        {
+          "source_id": "is_is:train:18143916026623202906.wav",
+          "teacher_aligned_gain": 0.9704706511557694,
+          "amplitude_squared_error": 0.08971399466625447,
+          "orthogonal_squared_error": 6.17477433136492
+        },
+        {
+          "source_id": "tg_tj:train:11851591230613317287.wav",
+          "teacher_aligned_gain": 0.9568780847342033,
+          "amplitude_squared_error": 0.0014385949190713614,
+          "orthogonal_squared_error": 0.013337502234568234
+        },
+        {
+          "source_id": "ast_es:train:16933683244427534350.wav",
+          "teacher_aligned_gain": 1.0142840163416424,
+          "amplitude_squared_error": 0.043226139284642424,
+          "orthogonal_squared_error": 19.231979126157025
+        },
+        {
+          "source_id": "5101-67853-0031",
+          "teacher_aligned_gain": 0.963153449050448,
+          "amplitude_squared_error": 0.617633339088377,
+          "orthogonal_squared_error": 30.349131122702243
+        },
+        {
+          "source_id": "ca_es:train:10583803894773586508.wav",
+          "teacher_aligned_gain": 0.9686217253797724,
+          "amplitude_squared_error": 0.04670090029979764,
+          "orthogonal_squared_error": 1.1856783849319679
+        },
+        {
+          "source_id": "ckb_iq:train:14031124210593524930.wav",
+          "teacher_aligned_gain": 0.9804620382390458,
+          "amplitude_squared_error": 0.006929038912862806,
+          "orthogonal_squared_error": 1.71331441191671
+        },
+        {
+          "source_id": "fa_ir:train:12074514968657073723.wav",
+          "teacher_aligned_gain": 0.9702281540957103,
+          "amplitude_squared_error": 0.1049453212050897,
+          "orthogonal_squared_error": 6.101126578837495
+        },
+        {
+          "source_id": "fi_fi:train:10893394073468230201.wav",
+          "teacher_aligned_gain": 1.0475377134200765,
+          "amplitude_squared_error": 0.5527032628836324,
+          "orthogonal_squared_error": 3.360430682097343
+        },
+        {
+          "source_id": "kam_ke:train:12154486779797187960.wav",
+          "teacher_aligned_gain": 0.9288018353931239,
+          "amplitude_squared_error": 0.36098698671998103,
+          "orthogonal_squared_error": 4.417126798408477
+        },
+        {
+          "source_id": "ka_ge:train:2993105044151469776.wav",
+          "teacher_aligned_gain": 1.0137413302093616,
+          "amplitude_squared_error": 0.022121699406551287,
+          "orthogonal_squared_error": 2.368219912134059
+        },
+        {
+          "source_id": "he_il:train:16823755323813467795.wav",
+          "teacher_aligned_gain": 0.9335320319290712,
+          "amplitude_squared_error": 0.08122705663730202,
+          "orthogonal_squared_error": 0.9205555890232658
+        },
+        {
+          "source_id": "so_so:train:1179304877180760723.wav",
+          "teacher_aligned_gain": 0.9045970223553721,
+          "amplitude_squared_error": 0.0006889633841247753,
+          "orthogonal_squared_error": 0.006308369290862844
+        },
+        {
+          "source_id": "sd_in:train:13655315073103147391.wav",
+          "teacher_aligned_gain": 1.0001221126728643,
+          "amplitude_squared_error": 1.7552013519819971e-07,
+          "orthogonal_squared_error": 0.644258562678872
+        },
+        {
+          "source_id": "ceb_ph:train:11416672701597922361.wav",
+          "teacher_aligned_gain": 1.007483768362986,
+          "amplitude_squared_error": 0.004091164437074829,
+          "orthogonal_squared_error": 1.6742815113033276
+        },
+        {
+          "source_id": "ko_kr:train:10359553883250105525.wav",
+          "teacher_aligned_gain": 0.9056038612196579,
+          "amplitude_squared_error": 0.03670234350652441,
+          "orthogonal_squared_error": 0.11504106322679666
+        },
+        {
+          "source_id": "es_419:train:13461728374156750135.wav",
+          "teacher_aligned_gain": 0.9853021166200954,
+          "amplitude_squared_error": 0.025050741305927212,
+          "orthogonal_squared_error": 3.479291718020041
+        },
+        {
+          "source_id": "maithili:844424930138733_chunk_1.flac",
+          "teacher_aligned_gain": 1.0127129936264407,
+          "amplitude_squared_error": 0.09209865138978444,
+          "orthogonal_squared_error": 12.415136878413016
+        },
+        {
+          "source_id": "freesound:428921",
+          "teacher_aligned_gain": 0.857073208376809,
+          "amplitude_squared_error": 0.15847779961813038,
+          "orthogonal_squared_error": 0.18531886831046376
+        },
+        {
+          "source_id": "en_us:train:13546164985487902870.wav",
+          "teacher_aligned_gain": 0.9892448990801462,
+          "amplitude_squared_error": 0.01209154513267906,
+          "orthogonal_squared_error": 4.850920912720429
+        },
+        {
+          "source_id": "pa_in:train:16693733152628588519.wav",
+          "teacher_aligned_gain": 0.9551264027998297,
+          "amplitude_squared_error": 0.01978039681169808,
+          "orthogonal_squared_error": 0.3442366607933502
+        },
+        {
+          "source_id": "lg_ug:train:12123343751639616808.wav",
+          "teacher_aligned_gain": 0.9840497905362101,
+          "amplitude_squared_error": 0.003927407121005299,
+          "orthogonal_squared_error": 0.42105742205291025
+        },
+        {
+          "source_id": "manipuri:6473924464419399_chunk_1.flac",
+          "teacher_aligned_gain": 0.995183624411253,
+          "amplitude_squared_error": 0.0008237643633640076,
+          "orthogonal_squared_error": 0.9192462009089335
+        },
+        {
+          "source_id": "te_in:train:14751961982184477566.wav",
+          "teacher_aligned_gain": 1.0354988474879023,
+          "amplitude_squared_error": 0.0965392177204241,
+          "orthogonal_squared_error": 0.5223568210381511
+        },
+        {
+          "source_id": "ar_eg:train:12360449360113063891.wav",
+          "teacher_aligned_gain": 1.0087554753419332,
+          "amplitude_squared_error": 0.02290896119285387,
+          "orthogonal_squared_error": 8.925498392339046
+        },
+        {
+          "source_id": "bodo:3659174697289264_chunk_3.flac",
+          "teacher_aligned_gain": 1.0250555290599284,
+          "amplitude_squared_error": 0.18426025873519544,
+          "orthogonal_squared_error": 6.047296837989935
+        },
+        {
+          "source_id": "ff_sn:train:14756055913832624081.wav",
+          "teacher_aligned_gain": 1.024267009634547,
+          "amplitude_squared_error": 0.09767698679219393,
+          "orthogonal_squared_error": 5.8612514515607606
+        },
+        {
+          "source_id": "hr_hr:train:12137021049767807555.wav",
+          "teacher_aligned_gain": 0.9906558185078154,
+          "amplitude_squared_error": 0.007403499164496988,
+          "orthogonal_squared_error": 3.763793056550634
+        },
+        {
+          "source_id": "3242-67168-0001",
+          "teacher_aligned_gain": 1.0376329823344774,
+          "amplitude_squared_error": 0.6039846694397409,
+          "orthogonal_squared_error": 15.920492601582515
+        },
+        {
+          "source_id": "5778-54535-0011",
+          "teacher_aligned_gain": 1.0470669266772776,
+          "amplitude_squared_error": 0.8244798841305367,
+          "orthogonal_squared_error": 6.397829157657733
+        },
+        {
+          "source_id": "so_so:train:14842603451866844632.wav",
+          "teacher_aligned_gain": 0.9697166320044696,
+          "amplitude_squared_error": 0.004584332819494171,
+          "orthogonal_squared_error": 0.18877935587370304
+        },
+        {
+          "source_id": "mr_in:train:10986875885056557364.wav",
+          "teacher_aligned_gain": 0.9657052802143473,
+          "amplitude_squared_error": 0.01700566201604116,
+          "orthogonal_squared_error": 0.7572500581545433
+        },
+        {
+          "source_id": "ig_ng:train:10501649524957252930.wav",
+          "teacher_aligned_gain": 0.9441301659910274,
+          "amplitude_squared_error": 0.2348740716357788,
+          "orthogonal_squared_error": 5.091180277394814
+        },
+        {
+          "source_id": "santali:4785074604194847_chunk_1.flac",
+          "teacher_aligned_gain": 0.9886503176155159,
+          "amplitude_squared_error": 0.02122464823428553,
+          "orthogonal_squared_error": 4.887872962853882
+        },
+        {
+          "source_id": "hu_hu:train:11110713752589902328.wav",
+          "teacher_aligned_gain": 0.9570905802801372,
+          "amplitude_squared_error": 0.07646642493497297,
+          "orthogonal_squared_error": 1.9235019964969116
+        },
+        {
+          "source_id": "freesound:180341",
+          "teacher_aligned_gain": 0.9165535196377506,
+          "amplitude_squared_error": 8.613730639198023,
+          "orthogonal_squared_error": 132.5083812702908
+        },
+        {
+          "source_id": "pl_pl:train:14002458340348798.wav",
+          "teacher_aligned_gain": 1.008783898969103,
+          "amplitude_squared_error": 0.0006822288808450488,
+          "orthogonal_squared_error": 0.14209605190334204
+        },
+        {
+          "source_id": "dogri:622d1198-0621-4e0c-9027-77e32a505100_1_chunk_8.flac",
+          "teacher_aligned_gain": 1.0478614226523768,
+          "amplitude_squared_error": 3.48539347259156,
+          "orthogonal_squared_error": 43.20933321336898
+        },
+        {
+          "source_id": "ga_ie:train:13963823416179330503.wav",
+          "teacher_aligned_gain": 1.0056716395631453,
+          "amplitude_squared_error": 0.033212012713052026,
+          "orthogonal_squared_error": 26.046048106638494
+        },
+        {
+          "source_id": "ur_pk:train:17356430244359180807.wav",
+          "teacher_aligned_gain": 1.036628088069988,
+          "amplitude_squared_error": 1.243964005192152,
+          "orthogonal_squared_error": 8.164125071520216
+        },
+        {
+          "source_id": "fil_ph:train:3075253886656038657.wav",
+          "teacher_aligned_gain": 0.9761399470143177,
+          "amplitude_squared_error": 0.024695623989675265,
+          "orthogonal_squared_error": 2.263378100988718
+        },
+        {
+          "source_id": "it_it:train:12677112187370521844.wav",
+          "teacher_aligned_gain": 0.9801241595749619,
+          "amplitude_squared_error": 0.030821998138135083,
+          "orthogonal_squared_error": 3.6193090370092755
+        },
+        {
+          "source_id": "freesound:343960",
+          "teacher_aligned_gain": 0.8055511407387698,
+          "amplitude_squared_error": 98.44068788884017,
+          "orthogonal_squared_error": 596.8682031142712
+        },
+        {
+          "source_id": "ja_jp:train:12210528383264418745.wav",
+          "teacher_aligned_gain": 1.0558488331986093,
+          "amplitude_squared_error": 2.6874782115145055,
+          "orthogonal_squared_error": 45.622046935325194
+        },
+        {
+          "source_id": "az_az:train:1439903150624501148.wav",
+          "teacher_aligned_gain": 0.9405740262827385,
+          "amplitude_squared_error": 0.0002470579243052199,
+          "orthogonal_squared_error": 0.0015134613300095345
+        },
+        {
+          "source_id": "gu_in:train:13687134359882365134.wav",
+          "teacher_aligned_gain": 0.962392247181489,
+          "amplitude_squared_error": 0.014768339777843576,
+          "orthogonal_squared_error": 0.78823024906645
+        },
+        {
+          "source_id": "kn_in:train:15096009457771558023.wav",
+          "teacher_aligned_gain": 1.0329433159360977,
+          "amplitude_squared_error": 0.18716135220748464,
+          "orthogonal_squared_error": 2.9634899573339903
+        },
+        {
+          "source_id": "jv_id:train:11045828164931236769.wav",
+          "teacher_aligned_gain": 1.0065484428813956,
+          "amplitude_squared_error": 0.011485817191232726,
+          "orthogonal_squared_error": 2.7110065265311114
+        },
+        {
+          "source_id": "ur_pk:train:13989351609468149814.wav",
+          "teacher_aligned_gain": 0.8174752015433069,
+          "amplitude_squared_error": 0.02349730280007991,
+          "orthogonal_squared_error": 0.08142512094949914
+        },
+        {
+          "source_id": "lo_la:train:10346663063780035215.wav",
+          "teacher_aligned_gain": 0.9502253884655082,
+          "amplitude_squared_error": 0.050824231603361886,
+          "orthogonal_squared_error": 0.7761562163324071
+        },
+        {
+          "source_id": "el_gr:train:14520091198441206771.wav",
+          "teacher_aligned_gain": 0.9419140279602705,
+          "amplitude_squared_error": 2.3434389489120298,
+          "orthogonal_squared_error": 66.9591018973223
+        },
+        {
+          "source_id": "1363-139304-0012",
+          "teacher_aligned_gain": 0.9827669814178945,
+          "amplitude_squared_error": 0.04736874614464738,
+          "orthogonal_squared_error": 8.331536885180757
+        },
+        {
+          "source_id": "hy_am:train:11186680517435167922.wav",
+          "teacher_aligned_gain": 0.8778405777979588,
+          "amplitude_squared_error": 0.00018347419959575102,
+          "orthogonal_squared_error": 0.0005149283271371903
+        },
+        {
+          "source_id": "ps_af:train:15589493469027767437.wav",
+          "teacher_aligned_gain": 0.8206218417181762,
+          "amplitude_squared_error": 0.007357020065389484,
+          "orthogonal_squared_error": 0.03415342829519634
+        },
+        {
+          "source_id": "bg_bg:train:12760864941937536074.wav",
+          "teacher_aligned_gain": 1.0212164794184024,
+          "amplitude_squared_error": 0.5509153605018823,
+          "orthogonal_squared_error": 73.01479096913035
+        }
+      ]
+    },
+    "5000": {
+      "amplitude_mse_contribution_all_samples": 4.209138557411348e-05,
+      "orthogonal_mse_contribution_all_samples": 0.0002603264750470365,
+      "quiet_mse_contribution_all_samples": 6.7789823434008565e-09,
+      "reconstructed_total_mse": 0.0003024246396034934,
+      "reported_total_mse": 0.00030242465418419626,
+      "maximum_source_energy_reconciliation_error": 2.7121535822516307e-05,
+      "rows": [
+        {
+          "source_id": "hi_in:train:17472433744685771543.wav",
+          "teacher_aligned_gain": 1.0681816490468379,
+          "amplitude_squared_error": 3.3824869874218737,
+          "orthogonal_squared_error": 36.21452128320236
+        },
+        {
+          "source_id": "as_in:train:13453488421825608782.wav",
+          "teacher_aligned_gain": 0.995518754356398,
+          "amplitude_squared_error": 2.6001830506138975e-05,
+          "orthogonal_squared_error": 0.06252934093844635
+        },
+        {
+          "source_id": "freesound:236508",
+          "teacher_aligned_gain": 0.9406946776727084,
+          "amplitude_squared_error": 0.06443027367419925,
+          "orthogonal_squared_error": 3.358284731685009
+        },
+        {
+          "source_id": "sanskrit:2251799813734813_chunk_1.flac",
+          "teacher_aligned_gain": 1.1507395880207114,
+          "amplitude_squared_error": 9.43453230320745,
+          "orthogonal_squared_error": 25.383662583192667
+        },
+        {
+          "source_id": "freesound:402835",
+          "teacher_aligned_gain": 1.0252501988370533,
+          "amplitude_squared_error": 0.32312785504660824,
+          "orthogonal_squared_error": 45.02100894212383
+        },
+        {
+          "source_id": "freesound:92375",
+          "teacher_aligned_gain": 1.0404177368473833,
+          "amplitude_squared_error": 4.401558032175981,
+          "orthogonal_squared_error": 184.51857375036047
+        },
+        {
+          "source_id": "freesound:343940",
+          "teacher_aligned_gain": 0.8390351531311917,
+          "amplitude_squared_error": 54.72382970025237,
+          "orthogonal_squared_error": 408.77635450232026
+        },
+        {
+          "source_id": "konkani:4222124650671062_chunk_1.flac",
+          "teacher_aligned_gain": 1.1336543127098557,
+          "amplitude_squared_error": 19.688848691698155,
+          "orthogonal_squared_error": 36.00540147122942
+        },
+        {
+          "source_id": "da_dk:train:12662536537047171941.wav",
+          "teacher_aligned_gain": 1.009123249825452,
+          "amplitude_squared_error": 0.004875695251868471,
+          "orthogonal_squared_error": 2.9014584770601504
+        },
+        {
+          "source_id": "thorsten_emotional:whisper/37773d61d5c91c12d49e55e2b041c0cd.wav",
+          "teacher_aligned_gain": 0.9603110655401279,
+          "amplitude_squared_error": 1.0370531956401938,
+          "orthogonal_squared_error": 67.1513484338083
+        },
+        {
+          "source_id": "cs_cz:train:10122716413664131344.wav",
+          "teacher_aligned_gain": 1.0948818748296083,
+          "amplitude_squared_error": 3.2948232563108517,
+          "orthogonal_squared_error": 6.199089872035336
+        },
+        {
+          "source_id": "pt_br:train:14525075052551707276.wav",
+          "teacher_aligned_gain": 1.0913716950931749,
+          "amplitude_squared_error": 7.177032820442889,
+          "orthogonal_squared_error": 21.535885070263515
+        },
+        {
+          "source_id": "id_id:train:10850485351977338638.wav",
+          "teacher_aligned_gain": 1.060146134953108,
+          "amplitude_squared_error": 0.8057328981676782,
+          "orthogonal_squared_error": 6.703155618055101
+        },
+        {
+          "source_id": "am_et:train:10477493006580119214.wav",
+          "teacher_aligned_gain": 1.0907945935669965,
+          "amplitude_squared_error": 3.688853991523168,
+          "orthogonal_squared_error": 12.024201981975938
+        },
+        {
+          "source_id": "freesound:277554",
+          "teacher_aligned_gain": 0.9825606095286744,
+          "amplitude_squared_error": 0.393275737188684,
+          "orthogonal_squared_error": 112.06203113787673
+        },
+        {
+          "source_id": "freesound:36399",
+          "teacher_aligned_gain": 0.7190253378359345,
+          "amplitude_squared_error": 0.1836177647970181,
+          "orthogonal_squared_error": 0.44643982055447823
+        },
+        {
+          "source_id": "et_ee:train:16713145029159361863.wav",
+          "teacher_aligned_gain": 1.1110547790493521,
+          "amplitude_squared_error": 16.573974881804048,
+          "orthogonal_squared_error": 13.649367386963762
+        },
+        {
+          "source_id": "kk_kz:train:13837639418509311322.wav",
+          "teacher_aligned_gain": 1.0120943352908873,
+          "amplitude_squared_error": 0.00010869624860735109,
+          "orthogonal_squared_error": 0.026185762257308037
+        },
+        {
+          "source_id": "kn_in:train:14687240407945660913.wav",
+          "teacher_aligned_gain": 1.0487173487802097,
+          "amplitude_squared_error": 0.437811820757152,
+          "orthogonal_squared_error": 17.504644953400263
+        },
+        {
+          "source_id": "ha_ng:train:12490254919826375416.wav",
+          "teacher_aligned_gain": 1.0741596887988196,
+          "amplitude_squared_error": 0.03895926145107647,
+          "orthogonal_squared_error": 0.23283443512498952
+        },
+        {
+          "source_id": "km_kh:train:10006360416725641613.wav",
+          "teacher_aligned_gain": 0.9854650581791993,
+          "amplitude_squared_error": 0.0007525985801936426,
+          "orthogonal_squared_error": 0.08125872151168086
+        },
+        {
+          "source_id": "bs_ba:train:11358760624286905521.wav",
+          "teacher_aligned_gain": 1.0571872616936424,
+          "amplitude_squared_error": 2.176266989459586,
+          "orthogonal_squared_error": 19.920542955212614
+        },
+        {
+          "source_id": "freesound:421873",
+          "teacher_aligned_gain": 1.015329629462827,
+          "amplitude_squared_error": 0.34690074116928626,
+          "orthogonal_squared_error": 138.17642136038788
+        },
+        {
+          "source_id": "fr_fr:train:16715901780663941383.wav",
+          "teacher_aligned_gain": 1.1343586895762428,
+          "amplitude_squared_error": 15.76047681712965,
+          "orthogonal_squared_error": 17.725537509281704
+        },
+        {
+          "source_id": "gl_es:train:10769481348315642515.wav",
+          "teacher_aligned_gain": 1.1242367656858074,
+          "amplitude_squared_error": 0.8363238790620767,
+          "orthogonal_squared_error": 3.217181761953991
+        },
+        {
+          "source_id": "luo_ke:train:15463642708286073509.wav",
+          "teacher_aligned_gain": 0.9901315059633308,
+          "amplitude_squared_error": 0.001256664685772196,
+          "orthogonal_squared_error": 0.8488636065302115
+        },
+        {
+          "source_id": "or_in:train:14121683136407473853.wav",
+          "teacher_aligned_gain": 1.0375047952927565,
+          "amplitude_squared_error": 0.4856643123572097,
+          "orthogonal_squared_error": 39.986900162773885
+        },
+        {
+          "source_id": "kea_cv:train:11148966994412478534.wav",
+          "teacher_aligned_gain": 1.0863755298568065,
+          "amplitude_squared_error": 11.47713257835172,
+          "orthogonal_squared_error": 40.3485766895121
+        },
+        {
+          "source_id": "af_za:train:12687107890474022499.wav",
+          "teacher_aligned_gain": 1.1540819869728127,
+          "amplitude_squared_error": 13.468326684278242,
+          "orthogonal_squared_error": 8.700604386073188
+        },
+        {
+          "source_id": "ne_np:train:10865610629546253109.wav",
+          "teacher_aligned_gain": 1.164604038453535,
+          "amplitude_squared_error": 6.994994535926754,
+          "orthogonal_squared_error": 6.417283777296389
+        },
+        {
+          "source_id": "bn_in:train:11819972204190731727.wav",
+          "teacher_aligned_gain": 1.1210222543363193,
+          "amplitude_squared_error": 1.428519762236652,
+          "orthogonal_squared_error": 2.6430470694029222
+        },
+        {
+          "source_id": "lt_lt:train:15367591149256088428.wav",
+          "teacher_aligned_gain": 1.0317980840573286,
+          "amplitude_squared_error": 2.1292242458514897e-06,
+          "orthogonal_squared_error": 6.667870249382082e-05
+        },
+        {
+          "source_id": "ta_in:train:12079333390051219555.wav",
+          "teacher_aligned_gain": 0.974488908385106,
+          "amplitude_squared_error": 1.1258353280593496,
+          "orthogonal_squared_error": 333.0038835328842
+        },
+        {
+          "source_id": "ml_in:train:10457389736210484635.wav",
+          "teacher_aligned_gain": 0.9856438505428827,
+          "amplitude_squared_error": 0.0033037347414309726,
+          "orthogonal_squared_error": 1.3149984846750775
+        },
+        {
+          "source_id": "kashmiri:1970324837177077_chunk_1.flac",
+          "teacher_aligned_gain": 1.1396816855124028,
+          "amplitude_squared_error": 61.336037186886415,
+          "orthogonal_squared_error": 29.584567042558632
+        },
+        {
+          "source_id": "2051-153962-0091",
+          "teacher_aligned_gain": 1.1390660673984194,
+          "amplitude_squared_error": 7.0007702135821575,
+          "orthogonal_squared_error": 7.121384511114489
+        },
+        {
+          "source_id": "be_by:train:12518029196714550777.wav",
+          "teacher_aligned_gain": 0.9621911212868546,
+          "amplitude_squared_error": 0.019472800589184838,
+          "orthogonal_squared_error": 0.13270608332581496
+        },
+        {
+          "source_id": "ln_cd:train:11959897544900910176.wav",
+          "teacher_aligned_gain": 0.8720786779246761,
+          "amplitude_squared_error": 0.12951427451517092,
+          "orthogonal_squared_error": 0.6503929363728485
+        },
+        {
+          "source_id": "cmn_hans_cn:train:10162125752145534325.wav",
+          "teacher_aligned_gain": 1.1221395449729397,
+          "amplitude_squared_error": 6.1308908380124025,
+          "orthogonal_squared_error": 26.127314347141336
+        },
+        {
+          "source_id": "ky_kg:train:15514578015847358890.wav",
+          "teacher_aligned_gain": 0.9857737930704522,
+          "amplitude_squared_error": 0.008744729132763395,
+          "orthogonal_squared_error": 2.3530071327270554
+        },
+        {
+          "source_id": "is_is:train:18143916026623202906.wav",
+          "teacher_aligned_gain": 1.0942116051175221,
+          "amplitude_squared_error": 0.9131902379510235,
+          "orthogonal_squared_error": 7.027460733259938
+        },
+        {
+          "source_id": "tg_tj:train:11851591230613317287.wav",
+          "teacher_aligned_gain": 1.029517536023009,
+          "amplitude_squared_error": 0.0006740663421163665,
+          "orthogonal_squared_error": 0.016095172981080208
+        },
+        {
+          "source_id": "ast_es:train:16933683244427534350.wav",
+          "teacher_aligned_gain": 1.1124901687356665,
+          "amplitude_squared_error": 2.68086477407675,
+          "orthogonal_squared_error": 20.956917759138207
+        },
+        {
+          "source_id": "5101-67853-0031",
+          "teacher_aligned_gain": 1.0178649734336311,
+          "amplitude_squared_error": 0.145191702190071,
+          "orthogonal_squared_error": 30.885664658804565
+        },
+        {
+          "source_id": "ca_es:train:10583803894773586508.wav",
+          "teacher_aligned_gain": 1.0455645036718215,
+          "amplitude_squared_error": 0.09847373751266783,
+          "orthogonal_squared_error": 1.5869373266300588
+        },
+        {
+          "source_id": "ckb_iq:train:14031124210593524930.wav",
+          "teacher_aligned_gain": 0.9857497111144237,
+          "amplitude_squared_error": 0.0036860551339569564,
+          "orthogonal_squared_error": 1.7217202759273622
+        },
+        {
+          "source_id": "fa_ir:train:12074514968657073723.wav",
+          "teacher_aligned_gain": 1.057707508845103,
+          "amplitude_squared_error": 0.394290406002038,
+          "orthogonal_squared_error": 7.033532218532947
+        },
+        {
+          "source_id": "fi_fi:train:10893394073468230201.wav",
+          "teacher_aligned_gain": 1.11446776027394,
+          "amplitude_squared_error": 3.20465898968766,
+          "orthogonal_squared_error": 3.9985954935828607
+        },
+        {
+          "source_id": "kam_ke:train:12154486779797187960.wav",
+          "teacher_aligned_gain": 1.0489292882701438,
+          "amplitude_squared_error": 0.1704871876690534,
+          "orthogonal_squared_error": 5.073421071127294
+        },
+        {
+          "source_id": "ka_ge:train:2993105044151469776.wav",
+          "teacher_aligned_gain": 1.0447853960321651,
+          "amplitude_squared_error": 0.2349815546171543,
+          "orthogonal_squared_error": 2.670799640042641
+        },
+        {
+          "source_id": "he_il:train:16823755323813467795.wav",
+          "teacher_aligned_gain": 0.9996994197809331,
+          "amplitude_squared_error": 1.6611035426052366e-06,
+          "orthogonal_squared_error": 1.0194992416013642
+        },
+        {
+          "source_id": "so_so:train:1179304877180760723.wav",
+          "teacher_aligned_gain": 1.0138614361859881,
+          "amplitude_squared_error": 1.4544163285579541e-05,
+          "orthogonal_squared_error": 0.007070319452664114
+        },
+        {
+          "source_id": "sd_in:train:13655315073103147391.wav",
+          "teacher_aligned_gain": 1.0590453733044585,
+          "amplitude_squared_error": 0.041037152233082644,
+          "orthogonal_squared_error": 0.6273490754507012
+        },
+        {
+          "source_id": "ceb_ph:train:11416672701597922361.wav",
+          "teacher_aligned_gain": 1.0664007434879625,
+          "amplitude_squared_error": 0.32207138904911314,
+          "orthogonal_squared_error": 2.110587155261417
+        },
+        {
+          "source_id": "ko_kr:train:10359553883250105525.wav",
+          "teacher_aligned_gain": 0.982093244364418,
+          "amplitude_squared_error": 0.001320745529934114,
+          "orthogonal_squared_error": 0.1267702334270298
+        },
+        {
+          "source_id": "es_419:train:13461728374156750135.wav",
+          "teacher_aligned_gain": 1.1059120789066867,
+          "amplitude_squared_error": 1.300774376250143,
+          "orthogonal_squared_error": 4.2578510016394135
+        },
+        {
+          "source_id": "maithili:844424930138733_chunk_1.flac",
+          "teacher_aligned_gain": 1.0834582866907203,
+          "amplitude_squared_error": 3.96914113664809,
+          "orthogonal_squared_error": 13.936187958441138
+        },
+        {
+          "source_id": "freesound:428921",
+          "teacher_aligned_gain": 0.8701765626501973,
+          "amplitude_squared_error": 0.13075170188444377,
+          "orthogonal_squared_error": 0.26612594949900975
+        },
+        {
+          "source_id": "en_us:train:13546164985487902870.wav",
+          "teacher_aligned_gain": 1.0400223379193156,
+          "amplitude_squared_error": 0.16743942750634036,
+          "orthogonal_squared_error": 5.303770932919985
+        },
+        {
+          "source_id": "pa_in:train:16693733152628588519.wav",
+          "teacher_aligned_gain": 1.0547161993033176,
+          "amplitude_squared_error": 0.02940932621946665,
+          "orthogonal_squared_error": 0.47999400847728557
+        },
+        {
+          "source_id": "lg_ug:train:12123343751639616808.wav",
+          "teacher_aligned_gain": 1.0120283238050172,
+          "amplitude_squared_error": 0.0022334866632326075,
+          "orthogonal_squared_error": 0.39794008679615595
+        },
+        {
+          "source_id": "manipuri:6473924464419399_chunk_1.flac",
+          "teacher_aligned_gain": 1.044952056605048,
+          "amplitude_squared_error": 0.07175653165385996,
+          "orthogonal_squared_error": 1.1191560705779888
+        },
+        {
+          "source_id": "te_in:train:14751961982184477566.wav",
+          "teacher_aligned_gain": 1.0217821913637357,
+          "amplitude_squared_error": 0.036347823189047127,
+          "orthogonal_squared_error": 0.5333759453427146
+        },
+        {
+          "source_id": "ar_eg:train:12360449360113063891.wav",
+          "teacher_aligned_gain": 1.0620474706464027,
+          "amplitude_squared_error": 1.1505198144006727,
+          "orthogonal_squared_error": 9.54300975851422
+        },
+        {
+          "source_id": "bodo:3659174697289264_chunk_3.flac",
+          "teacher_aligned_gain": 1.136215152512823,
+          "amplitude_squared_error": 5.445971491811043,
+          "orthogonal_squared_error": 7.440427642210252
+        },
+        {
+          "source_id": "ff_sn:train:14756055913832624081.wav",
+          "teacher_aligned_gain": 1.1276581728195114,
+          "amplitude_squared_error": 2.7030680342047395,
+          "orthogonal_squared_error": 8.306766192280184
+        },
+        {
+          "source_id": "hr_hr:train:12137021049767807555.wav",
+          "teacher_aligned_gain": 1.0572869340693547,
+          "amplitude_squared_error": 0.27826953433362117,
+          "orthogonal_squared_error": 4.384188052810348
+        },
+        {
+          "source_id": "3242-67168-0001",
+          "teacher_aligned_gain": 1.109922782836608,
+          "amplitude_squared_error": 5.153046616568638,
+          "orthogonal_squared_error": 16.929919183022974
+        },
+        {
+          "source_id": "5778-54535-0011",
+          "teacher_aligned_gain": 1.0881918164319022,
+          "amplitude_squared_error": 2.894709303483547,
+          "orthogonal_squared_error": 6.521290153518433
+        },
+        {
+          "source_id": "so_so:train:14842603451866844632.wav",
+          "teacher_aligned_gain": 1.0084087240602886,
+          "amplitude_squared_error": 0.0003534500060845523,
+          "orthogonal_squared_error": 0.21392139340136693
+        },
+        {
+          "source_id": "mr_in:train:10986875885056557364.wav",
+          "teacher_aligned_gain": 1.024740635284166,
+          "amplitude_squared_error": 0.008850355591652063,
+          "orthogonal_squared_error": 0.8884115022346748
+        },
+        {
+          "source_id": "ig_ng:train:10501649524957252930.wav",
+          "teacher_aligned_gain": 0.9981843394027857,
+          "amplitude_squared_error": 0.00024805595185595854,
+          "orthogonal_squared_error": 5.351914650378209
+        },
+        {
+          "source_id": "santali:4785074604194847_chunk_1.flac",
+          "teacher_aligned_gain": 1.1031101078713994,
+          "amplitude_squared_error": 1.7517638799853292,
+          "orthogonal_squared_error": 6.898113727963715
+        },
+        {
+          "source_id": "hu_hu:train:11110713752589902328.wav",
+          "teacher_aligned_gain": 1.0000908236282104,
+          "amplitude_squared_error": 3.425809403547636e-07,
+          "orthogonal_squared_error": 2.1498363722561344
+        },
+        {
+          "source_id": "freesound:180341",
+          "teacher_aligned_gain": 0.9377887167938305,
+          "amplitude_squared_error": 4.787552600248824,
+          "orthogonal_squared_error": 142.03290920066894
+        },
+        {
+          "source_id": "pl_pl:train:14002458340348798.wav",
+          "teacher_aligned_gain": 1.0480639598217174,
+          "amplitude_squared_error": 0.02042652700213525,
+          "orthogonal_squared_error": 0.1783800817692031
+        },
+        {
+          "source_id": "dogri:622d1198-0621-4e0c-9027-77e32a505100_1_chunk_8.flac",
+          "teacher_aligned_gain": 1.1069778172395455,
+          "amplitude_squared_error": 17.412778316581527,
+          "orthogonal_squared_error": 42.8357944706278
+        },
+        {
+          "source_id": "ga_ie:train:13963823416179330503.wav",
+          "teacher_aligned_gain": 1.0712864332228123,
+          "amplitude_squared_error": 5.246766295101319,
+          "orthogonal_squared_error": 27.01321447031706
+        },
+        {
+          "source_id": "ur_pk:train:17356430244359180807.wav",
+          "teacher_aligned_gain": 1.127717400434896,
+          "amplitude_squared_error": 15.124445284183837,
+          "orthogonal_squared_error": 11.047523218143125
+        },
+        {
+          "source_id": "fil_ph:train:3075253886656038657.wav",
+          "teacher_aligned_gain": 1.0801511750420816,
+          "amplitude_squared_error": 0.27867434163319177,
+          "orthogonal_squared_error": 2.4469817039191417
+        },
+        {
+          "source_id": "it_it:train:12677112187370521844.wav",
+          "teacher_aligned_gain": 1.0439560008362443,
+          "amplitude_squared_error": 0.1507461166624214,
+          "orthogonal_squared_error": 4.2840813545742105
+        },
+        {
+          "source_id": "freesound:343960",
+          "teacher_aligned_gain": 0.7906767403074667,
+          "amplitude_squared_error": 114.07719102555792,
+          "orthogonal_squared_error": 624.7582172001534
+        },
+        {
+          "source_id": "ja_jp:train:12210528383264418745.wav",
+          "teacher_aligned_gain": 1.0891048430814585,
+          "amplitude_squared_error": 6.840996416997603,
+          "orthogonal_squared_error": 40.60600769285213
+        },
+        {
+          "source_id": "az_az:train:1439903150624501148.wav",
+          "teacher_aligned_gain": 0.9416241200944554,
+          "amplitude_squared_error": 0.00023840373484746775,
+          "orthogonal_squared_error": 0.0015795576474471613
+        },
+        {
+          "source_id": "gu_in:train:13687134359882365134.wav",
+          "teacher_aligned_gain": 1.0123641819186848,
+          "amplitude_squared_error": 0.001596274885850478,
+          "orthogonal_squared_error": 0.890482540083089
+        },
+        {
+          "source_id": "kn_in:train:15096009457771558023.wav",
+          "teacher_aligned_gain": 1.1259814293491692,
+          "amplitude_squared_error": 2.7371248935285935,
+          "orthogonal_squared_error": 3.2538665870461125
+        },
+        {
+          "source_id": "jv_id:train:11045828164931236769.wav",
+          "teacher_aligned_gain": 1.0464359319490146,
+          "amplitude_squared_error": 0.577556059151266,
+          "orthogonal_squared_error": 2.851020086176809
+        },
+        {
+          "source_id": "ur_pk:train:13989351609468149814.wav",
+          "teacher_aligned_gain": 0.9076581182230761,
+          "amplitude_squared_error": 0.0060141145999714155,
+          "orthogonal_squared_error": 0.09635499438874932
+        },
+        {
+          "source_id": "lo_la:train:10346663063780035215.wav",
+          "teacher_aligned_gain": 1.0524419945547843,
+          "amplitude_squared_error": 0.0564174516050779,
+          "orthogonal_squared_error": 1.026972485099595
+        },
+        {
+          "source_id": "el_gr:train:14520091198441206771.wav",
+          "teacher_aligned_gain": 1.0467293772806963,
+          "amplitude_squared_error": 1.5166700408575877,
+          "orthogonal_squared_error": 77.30312432244321
+        },
+        {
+          "source_id": "1363-139304-0012",
+          "teacher_aligned_gain": 1.1013785973346661,
+          "amplitude_squared_error": 1.6393124325667268,
+          "orthogonal_squared_error": 9.81826322137604
+        },
+        {
+          "source_id": "hy_am:train:11186680517435167922.wav",
+          "teacher_aligned_gain": 0.9773896438339231,
+          "amplitude_squared_error": 6.285442663834784e-06,
+          "orthogonal_squared_error": 0.0006199013593794156
+        },
+        {
+          "source_id": "ps_af:train:15589493469027767437.wav",
+          "teacher_aligned_gain": 0.9546641037191494,
+          "amplitude_squared_error": 0.0004699452142385107,
+          "orthogonal_squared_error": 0.041200788393165655
+        },
+        {
+          "source_id": "bg_bg:train:12760864941937536074.wav",
+          "teacher_aligned_gain": 1.1115641148789952,
+          "amplitude_squared_error": 15.23306478492621,
+          "orthogonal_squared_error": 79.47663604480923
+        }
+      ]
+    }
+  },
+  "late_change": {
+    "total_mse": 2.8008857012504034e-05,
+    "amplitude_component": 1.881737686302433e-05,
+    "orthogonal_component": 9.191832978250368e-06,
+    "quiet_component": -3.539911641865891e-10,
+    "amplitude_increase_divided_by_total_increase": 0.6718366570482923
+  }
+}

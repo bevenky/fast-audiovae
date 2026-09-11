@@ -1,0 +1,89 @@
+{
+  "version": "aggregate_startup_pattern_v1",
+  "input_evidence_preserved": true,
+  "parameter_updates": 0,
+  "model_forwards": 0,
+  "audio_or_latent_values_exported": false,
+  "startup_restoration": {
+    "step0": {
+      "windows": 13,
+      "passed": 0,
+      "residual_failed": 13,
+      "amplitude_failed": 13,
+      "residual_rms": 0.00004838503712782136
+    },
+    "step5000": {
+      "windows": 13,
+      "passed": 0,
+      "residual_failed": 13,
+      "amplitude_failed": 13,
+      "residual_rms": 0.00002200388931346501
+    },
+    "step0_restore_stage2_ru1": {
+      "windows": 13,
+      "passed": 0,
+      "residual_failed": 13,
+      "amplitude_failed": 13,
+      "residual_rms": 0.00005425594109683265
+    },
+    "step0_restore_stage2_ru2": {
+      "windows": 13,
+      "passed": 0,
+      "residual_failed": 13,
+      "amplitude_failed": 13,
+      "residual_rms": 0.000053919042718733434
+    },
+    "step0_restore_stage2_ru3": {
+      "windows": 13,
+      "passed": 0,
+      "residual_failed": 13,
+      "amplitude_failed": 13,
+      "residual_rms": 0.0000497713935125168
+    },
+    "step0_restore_stage3_up": {
+      "windows": 13,
+      "passed": 13,
+      "residual_failed": 0,
+      "amplitude_failed": 0,
+      "residual_rms": 0.000005150631391249242
+    },
+    "step0_restore_all_four": {
+      "windows": 13,
+      "passed": 13,
+      "residual_failed": 0,
+      "amplitude_failed": 0,
+      "residual_rms": 1.1058553924236436e-9
+    }
+  },
+  "source_zero_startup_pattern_aggregates": {
+    "step0": {
+      "sources": 10,
+      "samples_per_source": 960,
+      "pooled_residual_rms": 0.00003714340762164203,
+      "between_source_disagreement_rms": 1.22785367592324e-9,
+      "fraction_residual_energy_shared_by_average_pattern": 0.9999999989072276,
+      "cosine_to_average_pattern_min": 0.9999999992304422,
+      "cosine_to_average_pattern_mean": 0.999999999454106,
+      "residual_peak_time_ms_mean": 1.0625,
+      "residual_peak_time_ms_std": 0
+    },
+    "step5000": {
+      "sources": 10,
+      "samples_per_source": 960,
+      "pooled_residual_rms": 0.000022635413678216234,
+      "between_source_disagreement_rms": 1.5276009612363402e-9,
+      "fraction_residual_energy_shared_by_average_pattern": 0.9999999954454762,
+      "cosine_to_average_pattern_min": 0.9999999969098277,
+      "cosine_to_average_pattern_mean": 0.99999999772568,
+      "residual_peak_time_ms_mean": 0.8125,
+      "residual_peak_time_ms_std": 0
+    }
+  },
+  "stage3_input_contribution_rms_pooled_across_sources_and_phases": {
+    "dropped_current": 0.06516867342953743,
+    "dropped_previous": 0.05083753221335965,
+    "dropped": 0.10647083792204613,
+    "retained_drift": 0.034343785874123615
+  },
+  "interpretation": "Teacher-term restoration concerns pristine step0 only. Pattern statistics describe saved outputs and do not prescribe a correction."
+}

@@ -1,0 +1,58 @@
+{
+  "pid": 1044621,
+  "command": [
+    "/tmp/fast-audiovae-recovery-20260909/venv214/bin/python",
+    "-u",
+    "/tmp/fast-audiovae-continuation-data-v2/produce_continuation_extension_v2.py",
+    "--plan",
+    "/tmp/fast-audiovae-continuation-plan-v3/plan.json",
+    "--original-manifest",
+    "/workspace/fast-audiovae-compression-20260910-v1/pilot-selection-v1.json",
+    "--shards",
+    "/dev/shm/fast-audiovae-continuation-shards-v2",
+    "--assets",
+    "/workspace/fast-audiovae-convnext-20260908-r1/assets",
+    "--stop-index",
+    "36000"
+  ],
+  "log": "/tmp/fast-audiovae-joint-recovery-v2/producer-24000-36000.log",
+  "source_sha256": {
+    "continuation_data_v2.py": "16d35638d10cccef79a73b8d084c7ac209fc21f819d3b92e8c54c7206b9291a2",
+    "prepare_continuation_extension_v2.py": "1cb5b63bf861179ecf074f4d9ffcb67f9257e6f4004d20f6a455b6e737e4e7cb",
+    "produce_continuation_extension_v2.py": "87792cbf265c39e61c11a28f6eb33ee0a6a5269bdf481d37bb2e14ae81151ca6",
+    "test_continuation_data_v2.py": "d7d54b98357845d07262114514dd6d99b6af3f55868a4327b20d4b7ee3495ff2"
+  },
+  "plan_identity_sha256": "f9b7ef7a9b567c350bd87435b423c2e178f110645effe98ae93a3fcf2d411e74",
+  "plan_sha256": "8054b11514b33cbd9af2f196c3d4405061bc8208ddbe9623afd2a3ada3b66bbe",
+  "started_unix": 1789052814.9977462,
+  "focused_remote_tests": 23,
+  "cache_max_sources": 6000,
+  "retention_after_durable_checkpoint": 0,
+  "segments": {
+    "24000:36000": {
+      "sources": 12000,
+      "indic_languages": 22,
+      "scored_hours": 8.176752378472221
+    },
+    "36000:48000": {
+      "sources": 12000,
+      "indic_languages": 22,
+      "scored_hours": 8.172617899305555
+    },
+    "48000:60000": {
+      "sources": 12000,
+      "indic_languages": 22,
+      "scored_hours": 8.17523861111111
+    },
+    "60000:72000": {
+      "sources": 12000,
+      "indic_languages": 22,
+      "scored_hours": 8.165065972222221
+    },
+    "72000:76500": {
+      "sources": 4500,
+      "indic_languages": 22,
+      "scored_hours": 3.065481302083333
+    }
+  }
+}

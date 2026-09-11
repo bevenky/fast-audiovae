@@ -1,0 +1,58 @@
+{
+  "audit_version": "joint_recovery_training_exposure_audit_v1",
+  "coefficients": {
+    "feature": 0.009304078923434964,
+    "mel": 0.0006674012905982311,
+    "waveform": 1.0
+  },
+  "inputs_unchanged": true,
+  "model_forwards": 0,
+  "near_minutes": 3.9608989583333334,
+  "near_share_percent": 0.8091483162633262,
+  "near_sources_all": 0,
+  "near_sources_any": 1087,
+  "parameter_updates": 0,
+  "quiet_minutes": 73.44750520833333,
+  "quiet_share_percent": 15.004150774417056,
+  "quiet_sources_all": 43,
+  "scored_hours": 8.158576284722223,
+  "shards_authenticated": 40,
+  "training_sources": 12000,
+  "training_updates": 1000,
+  "unused_master_inventory": {
+    "additional_to_optimizer_step10000": 4375,
+    "counts": {
+      "all_rows": 186641,
+      "eligible_unselected_rows": 151147,
+      "excluded_or_duplicate": 32655,
+      "train_rows": 183802
+    },
+    "exclusion_policy": "Known plan blocked source/hash/parent identities plus ALL27000 planned sources; deduplicated source/hash/parent; train split and >=4096 output samples; missing speaker/session identity not represented as verified separation",
+    "manifest_hours": 421.70943229142335,
+    "manifest_path": "/workspace/fast-audiovae-convnext-20260908-r1/expanded-pilot/corpus/source-manifest.jsonl",
+    "manifest_sha256": "198ed7aa345db0675c8db3382b9856a31857a66b6a17c62ed9d581d781f5c8fd",
+    "missing_or_empty_paths": 0,
+    "new_sources_beyond_existing_plan_needed": 49500,
+    "new_sources_needed": 52500,
+    "nonempty_paths": 151147,
+    "sealed_plan_remaining": 3000
+  },
+  "update_occupancy": {
+    "near": {
+      "mean_sample_percent": 0.8107210203234873,
+      "median_sample_percent": 0.20380434782608695,
+      "zero_occupancy_updates": 330
+    },
+    "quiet": {
+      "mean_sample_percent": 15.051878867746565,
+      "median_sample_percent": 14.66983510291239,
+      "zero_occupancy_updates": 0
+    },
+    "zero": {
+      "mean_sample_percent": 0.0,
+      "median_sample_percent": 0.0,
+      "zero_occupancy_updates": 1000
+    }
+  },
+  "weighted_sum_max_error": 0.0
+}

@@ -1,0 +1,4691 @@
+{
+  "automatic_promotion": false,
+  "complete": true,
+  "elapsed_seconds": 9.567645661532879,
+  "frozen_student_preserved": true,
+  "matched_windows": 2544,
+  "no_model_intervention": true,
+  "no_training": true,
+  "original_files_preserved": true,
+  "protected_files_sha256_after": {
+    "/tmp/fast-audiovae-accumulation-comparison-v1/accumulation12/final.pt": "834f6788cb53d10422fa987a84fe516e2ccaadbc02a1c69e10f5ce750cf66c11",
+    "/tmp/fast-audiovae-joint-recovery-v1/checkpoint-step5625.json": "c63133679430cf6efbb030f3114d52335b6df9caf5143a31bc4d2e0ba1556d5e",
+    "/tmp/fast-audiovae-joint-recovery-v1/checkpoint-step5625.pt": "0da2f6e98a29b025b41df84dbb674e1a35fbea2629f698ef33fe62f687c18b1b",
+    "/tmp/fast-audiovae-joint-recovery-v1/completed.json": "a80ede663d862090cb0254232ac70aeb54e9f908dd47ce908f526b77b450a209",
+    "/tmp/fast-audiovae-joint-recovery-v1/development-step4625.json": "0be21049eb619f5297d9e9d1c06565ab2c7c909234079875ff1fde42b7d03565",
+    "/tmp/fast-audiovae-joint-recovery-v1/development-step5625.json": "1dbf5df415c177e3082baada09d169a9a0076df61892725588de6b98f53a2533",
+    "/tmp/fast-audiovae-joint-recovery-v1/launch.json": "7e5b080ce9dee801a0b51162de1d76fae2db441e97146e94b6403c36c474ddab",
+    "/workspace/fast-audiovae-compression-20260910-v1/code/audit_quiet_windows_v1.py": "cf197cf04d190aaa0e1546286aa267c1658177c1458cab16f7b0c0cc31839dc9",
+    "/workspace/fast-audiovae-compression-20260910-v1/code/diagnose_channel_contributions_v2.py": "7f4f1a5a0545fbe42230a5901230af79a780cf95b48aa48d4bcdcccb5b74c1a6",
+    "/workspace/fast-audiovae-compression-20260910-v1/code/joint_recovery_v1.py": "9eb351dbe9dc9a3ef756b573e45ddc017a04498919d730c8758d58ce02a18079",
+    "/workspace/fast-audiovae-compression-20260910-v1/code/run_pilot.py": "f80635b3d8d2e337db4a77a47a828ea09b8f8bc2ad21682336f64edd5f3e6cae",
+    "/workspace/fast-audiovae-compression-20260910-v1/current-lowrate-continue1000-v1/checkpoint-step1000.pt": "bfecd759eb58db1eeeca3dd693660b26be91bd69a93e3457b9d91523c5de0573",
+    "/workspace/fast-audiovae-compression-20260910-v1/current-lowrate-fresh5000-v1/checkpoint-step4500.pt": "6e131e73ab5ff4b4ccd5c4ee0eca7f009a77509525cf5f51b736a4a3349aa0d1",
+    "/workspace/fast-audiovae-compression-20260910-v1/fresh-source-plan-v2/plan.json": "0036eae310e38ee1789e6830a2e1f7fc174c13772c267417522d51e0b9df92e8",
+    "/workspace/fast-audiovae-compression-20260910-v1/pilot-selection-v1.json": "b76341240028a0371b9acbb553fa5c1bd6714002da10d7900aa501cd998c3627",
+    "/workspace/fast-audiovae-convnext-20260908-r1/assets/audio_vae_v2.py": "2efdff1708d8ec1471624aae6f232d0f933de26b788b6901c434246847e2d3a8",
+    "/workspace/fast-audiovae-convnext-20260908-r1/assets/audiovae.pth": "94b5d51e107e0507d4acc976cfdadb64edd6fd06d1f751dadbf2fd1594274bf1"
+  },
+  "runtime_warmups": {
+    "4625": {
+      "student_extra_group_and_suffix_forwards": 33,
+      "teacher_extra_forwards": 33
+    },
+    "5625": {
+      "student_extra_group_and_suffix_forwards": 0,
+      "teacher_extra_forwards": 0
+    }
+  },
+  "saved_quality_checks_passed": true,
+  "summary": {
+    "4625": {
+      "actual_startup": {
+        "False": {
+          "centered_residual_rms": 0.00017118767957120676,
+          "failed": 2347,
+          "failure_categories": {
+            "amplitude_only": 150,
+            "both": 48,
+            "passed": 137,
+            "residual_only": 2149
+          },
+          "reference_exact_zero_windows": 164,
+          "residual_rms": 0.00017216916372621893,
+          "samples": 2379432,
+          "source_ids": [
+            "1363-139304-0012",
+            "2051-153962-0091",
+            "3242-67168-0001",
+            "5101-67853-0031",
+            "5778-54535-0011",
+            "af_za:train:12687107890474022499.wav",
+            "as_in:train:13453488421825608782.wav",
+            "ast_es:train:16933683244427534350.wav",
+            "az_az:train:1439903150624501148.wav",
+            "be_by:train:12518029196714550777.wav",
+            "bodo:3659174697289264_chunk_3.flac",
+            "bs_ba:train:11358760624286905521.wav",
+            "ca_es:train:10583803894773586508.wav",
+            "cs_cz:train:10122716413664131344.wav",
+            "cy_gb:train:10349599617049103526.wav",
+            "dogri:622d1198-0621-4e0c-9027-77e32a505100_1_chunk_8.flac",
+            "en_us:train:13546164985487902870.wav",
+            "es_419:train:13461728374156750135.wav",
+            "ff_sn:train:14756055913832624081.wav",
+            "fi_fi:train:10893394073468230201.wav",
+            "freesound:180341",
+            "freesound:236508",
+            "freesound:277554",
+            "freesound:343940",
+            "freesound:343960",
+            "freesound:36399",
+            "freesound:402835",
+            "freesound:421873",
+            "freesound:428921",
+            "freesound:92375",
+            "gl_es:train:10769481348315642515.wav",
+            "ha_ng:train:12490254919826375416.wav",
+            "he_il:train:16823755323813467795.wav",
+            "hr_hr:train:12137021049767807555.wav",
+            "hy_am:train:11186680517435167922.wav",
+            "is_is:train:18143916026623202906.wav",
+            "ja_jp:train:12210528383264418745.wav",
+            "ka_ge:train:2993105044151469776.wav",
+            "kam_ke:train:12154486779797187960.wav",
+            "kashmiri:1970324837177077_chunk_1.flac",
+            "kk_kz:train:13837639418509311322.wav",
+            "km_kh:train:10006360416725641613.wav",
+            "kn_in:train:14687240407945660913.wav",
+            "kn_in:train:15096009457771558023.wav",
+            "ko_kr:train:10359553883250105525.wav",
+            "ky_kg:train:15514578015847358890.wav",
+            "lb_lu:train:10437720223409828494.wav",
+            "lg_ug:train:12123343751639616808.wav",
+            "ln_cd:train:11959897544900910176.wav",
+            "lo_la:train:10346663063780035215.wav",
+            "lt_lt:train:15367591149256088428.wav",
+            "luo_ke:train:15463642708286073509.wav",
+            "manipuri:6473924464419399_chunk_1.flac",
+            "mr_in:train:10986875885056557364.wav",
+            "pa_in:train:16693733152628588519.wav",
+            "pl_pl:train:14002458340348798.wav",
+            "ps_af:train:15589493469027767437.wav",
+            "sanskrit:2251799813734813_chunk_1.flac",
+            "santali:4785074604194847_chunk_1.flac",
+            "sd_in:train:13655315073103147391.wav",
+            "so_so:train:1179304877180760723.wav",
+            "so_so:train:14842603451866844632.wav",
+            "te_in:train:14751961982184477566.wav",
+            "tg_tj:train:11851591230613317287.wav",
+            "thorsten_emotional:whisper/37773d61d5c91c12d49e55e2b041c0cd.wav",
+            "ur_pk:train:13989351609468149814.wav"
+          ],
+          "window_dc_energy_fraction": 0.01136889512814091,
+          "windows": 2484
+        },
+        "True": {
+          "centered_residual_rms": 0.000309221608156368,
+          "failed": 59,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 33,
+            "passed": 1,
+            "residual_only": 26
+          },
+          "reference_exact_zero_windows": 21,
+          "residual_rms": 0.0003093962128843747,
+          "samples": 57600,
+          "source_ids": [
+            "ar_eg:train:12360449360113063891.wav",
+            "as_in:train:13453488421825608782.wav",
+            "az_az:train:1439903150624501148.wav",
+            "bs_ba:train:11358760624286905521.wav",
+            "ff_sn:train:14756055913832624081.wav",
+            "fi_fi:train:10893394073468230201.wav",
+            "freesound:180341",
+            "freesound:277554",
+            "freesound:343940",
+            "freesound:343960",
+            "freesound:36399",
+            "freesound:421873",
+            "freesound:428921",
+            "is_is:train:18143916026623202906.wav",
+            "ka_ge:train:2993105044151469776.wav",
+            "kk_kz:train:13837639418509311322.wav",
+            "km_kh:train:10006360416725641613.wav",
+            "kn_in:train:14687240407945660913.wav",
+            "kn_in:train:15096009457771558023.wav",
+            "ky_kg:train:15514578015847358890.wav",
+            "lb_lu:train:10437720223409828494.wav",
+            "luo_ke:train:15463642708286073509.wav",
+            "mr_in:train:10986875885056557364.wav",
+            "ps_af:train:15589493469027767437.wav",
+            "sanskrit:2251799813734813_chunk_1.flac",
+            "sd_in:train:13655315073103147391.wav",
+            "so_so:train:1179304877180760723.wav",
+            "ta_in:train:12079333390051219555.wav",
+            "tg_tj:train:11851591230613317287.wav",
+            "thorsten_emotional:whisper/37773d61d5c91c12d49e55e2b041c0cd.wav",
+            "ur_pk:train:13989351609468149814.wav"
+          ],
+          "window_dc_energy_fraction": 0.0011283619676125645,
+          "windows": 60
+        }
+      },
+      "adjacent_active_window": {
+        "False": {
+          "centered_residual_rms": 0.0001541098797859725,
+          "failed": 2058,
+          "failure_categories": {
+            "amplitude_only": 149,
+            "both": 75,
+            "passed": 119,
+            "residual_only": 1834
+          },
+          "reference_exact_zero_windows": 184,
+          "residual_rms": 0.00015497875724407564,
+          "samples": 2086620,
+          "source_ids": [
+            "1363-139304-0012",
+            "3242-67168-0001",
+            "5101-67853-0031",
+            "5778-54535-0011",
+            "af_za:train:12687107890474022499.wav",
+            "ar_eg:train:12360449360113063891.wav",
+            "as_in:train:13453488421825608782.wav",
+            "ast_es:train:16933683244427534350.wav",
+            "az_az:train:1439903150624501148.wav",
+            "be_by:train:12518029196714550777.wav",
+            "bs_ba:train:11358760624286905521.wav",
+            "ca_es:train:10583803894773586508.wav",
+            "cs_cz:train:10122716413664131344.wav",
+            "cy_gb:train:10349599617049103526.wav",
+            "dogri:622d1198-0621-4e0c-9027-77e32a505100_1_chunk_8.flac",
+            "en_us:train:13546164985487902870.wav",
+            "es_419:train:13461728374156750135.wav",
+            "ff_sn:train:14756055913832624081.wav",
+            "fi_fi:train:10893394073468230201.wav",
+            "freesound:180341",
+            "freesound:277554",
+            "freesound:343940",
+            "freesound:36399",
+            "freesound:421873",
+            "freesound:428921",
+            "freesound:92375",
+            "gl_es:train:10769481348315642515.wav",
+            "ha_ng:train:12490254919826375416.wav",
+            "hy_am:train:11186680517435167922.wav",
+            "is_is:train:18143916026623202906.wav",
+            "ja_jp:train:12210528383264418745.wav",
+            "ka_ge:train:2993105044151469776.wav",
+            "kam_ke:train:12154486779797187960.wav",
+            "kk_kz:train:13837639418509311322.wav",
+            "km_kh:train:10006360416725641613.wav",
+            "kn_in:train:14687240407945660913.wav",
+            "kn_in:train:15096009457771558023.wav",
+            "ko_kr:train:10359553883250105525.wav",
+            "ky_kg:train:15514578015847358890.wav",
+            "lb_lu:train:10437720223409828494.wav",
+            "lg_ug:train:12123343751639616808.wav",
+            "ln_cd:train:11959897544900910176.wav",
+            "lo_la:train:10346663063780035215.wav",
+            "lt_lt:train:15367591149256088428.wav",
+            "luo_ke:train:15463642708286073509.wav",
+            "manipuri:6473924464419399_chunk_1.flac",
+            "mr_in:train:10986875885056557364.wav",
+            "pa_in:train:16693733152628588519.wav",
+            "pl_pl:train:14002458340348798.wav",
+            "ps_af:train:15589493469027767437.wav",
+            "sanskrit:2251799813734813_chunk_1.flac",
+            "santali:4785074604194847_chunk_1.flac",
+            "sd_in:train:13655315073103147391.wav",
+            "so_so:train:1179304877180760723.wav",
+            "so_so:train:14842603451866844632.wav",
+            "te_in:train:14751961982184477566.wav",
+            "tg_tj:train:11851591230613317287.wav",
+            "thorsten_emotional:whisper/37773d61d5c91c12d49e55e2b041c0cd.wav",
+            "ur_pk:train:13989351609468149814.wav"
+          ],
+          "window_dc_energy_fraction": 0.01118142671235419,
+          "windows": 2177
+        },
+        "True": {
+          "centered_residual_rms": 0.00027071472880519656,
+          "failed": 348,
+          "failure_categories": {
+            "amplitude_only": 1,
+            "both": 6,
+            "passed": 19,
+            "residual_only": 341
+          },
+          "reference_exact_zero_windows": 1,
+          "residual_rms": 0.0002720172096500374,
+          "samples": 350412,
+          "source_ids": [
+            "1363-139304-0012",
+            "2051-153962-0091",
+            "3242-67168-0001",
+            "5101-67853-0031",
+            "5778-54535-0011",
+            "af_za:train:12687107890474022499.wav",
+            "ar_eg:train:12360449360113063891.wav",
+            "as_in:train:13453488421825608782.wav",
+            "ast_es:train:16933683244427534350.wav",
+            "az_az:train:1439903150624501148.wav",
+            "be_by:train:12518029196714550777.wav",
+            "bodo:3659174697289264_chunk_3.flac",
+            "bs_ba:train:11358760624286905521.wav",
+            "ca_es:train:10583803894773586508.wav",
+            "cs_cz:train:10122716413664131344.wav",
+            "dogri:622d1198-0621-4e0c-9027-77e32a505100_1_chunk_8.flac",
+            "en_us:train:13546164985487902870.wav",
+            "es_419:train:13461728374156750135.wav",
+            "ff_sn:train:14756055913832624081.wav",
+            "fi_fi:train:10893394073468230201.wav",
+            "freesound:180341",
+            "freesound:236508",
+            "freesound:277554",
+            "freesound:343940",
+            "freesound:343960",
+            "freesound:36399",
+            "freesound:402835",
+            "freesound:421873",
+            "freesound:428921",
+            "freesound:92375",
+            "gl_es:train:10769481348315642515.wav",
+            "ha_ng:train:12490254919826375416.wav",
+            "he_il:train:16823755323813467795.wav",
+            "hr_hr:train:12137021049767807555.wav",
+            "hy_am:train:11186680517435167922.wav",
+            "is_is:train:18143916026623202906.wav",
+            "ja_jp:train:12210528383264418745.wav",
+            "ka_ge:train:2993105044151469776.wav",
+            "kam_ke:train:12154486779797187960.wav",
+            "kashmiri:1970324837177077_chunk_1.flac",
+            "kk_kz:train:13837639418509311322.wav",
+            "km_kh:train:10006360416725641613.wav",
+            "kn_in:train:14687240407945660913.wav",
+            "kn_in:train:15096009457771558023.wav",
+            "ko_kr:train:10359553883250105525.wav",
+            "ky_kg:train:15514578015847358890.wav",
+            "lg_ug:train:12123343751639616808.wav",
+            "ln_cd:train:11959897544900910176.wav",
+            "lo_la:train:10346663063780035215.wav",
+            "lt_lt:train:15367591149256088428.wav",
+            "luo_ke:train:15463642708286073509.wav",
+            "manipuri:6473924464419399_chunk_1.flac",
+            "mr_in:train:10986875885056557364.wav",
+            "pa_in:train:16693733152628588519.wav",
+            "pl_pl:train:14002458340348798.wav",
+            "ps_af:train:15589493469027767437.wav",
+            "sanskrit:2251799813734813_chunk_1.flac",
+            "santali:4785074604194847_chunk_1.flac",
+            "sd_in:train:13655315073103147391.wav",
+            "so_so:train:1179304877180760723.wav",
+            "so_so:train:14842603451866844632.wav",
+            "ta_in:train:12079333390051219555.wav",
+            "te_in:train:14751961982184477566.wav",
+            "tg_tj:train:11851591230613317287.wav",
+            "thorsten_emotional:whisper/37773d61d5c91c12d49e55e2b041c0cd.wav",
+            "ur_pk:train:13989351609468149814.wav"
+          ],
+          "window_dc_energy_fraction": 0.009553531983284546,
+          "windows": 367
+        }
+      },
+      "all": {
+        "centered_residual_rms": 0.00017570584678735048,
+        "failed": 2406,
+        "failure_categories": {
+          "amplitude_only": 150,
+          "both": 81,
+          "passed": 138,
+          "residual_only": 2175
+        },
+        "reference_exact_zero_windows": 185,
+        "residual_rms": 0.0001766469126506066,
+        "samples": 2437032,
+        "source_ids": [
+          "1363-139304-0012",
+          "2051-153962-0091",
+          "3242-67168-0001",
+          "5101-67853-0031",
+          "5778-54535-0011",
+          "af_za:train:12687107890474022499.wav",
+          "ar_eg:train:12360449360113063891.wav",
+          "as_in:train:13453488421825608782.wav",
+          "ast_es:train:16933683244427534350.wav",
+          "az_az:train:1439903150624501148.wav",
+          "be_by:train:12518029196714550777.wav",
+          "bodo:3659174697289264_chunk_3.flac",
+          "bs_ba:train:11358760624286905521.wav",
+          "ca_es:train:10583803894773586508.wav",
+          "cs_cz:train:10122716413664131344.wav",
+          "cy_gb:train:10349599617049103526.wav",
+          "dogri:622d1198-0621-4e0c-9027-77e32a505100_1_chunk_8.flac",
+          "en_us:train:13546164985487902870.wav",
+          "es_419:train:13461728374156750135.wav",
+          "ff_sn:train:14756055913832624081.wav",
+          "fi_fi:train:10893394073468230201.wav",
+          "freesound:180341",
+          "freesound:236508",
+          "freesound:277554",
+          "freesound:343940",
+          "freesound:343960",
+          "freesound:36399",
+          "freesound:402835",
+          "freesound:421873",
+          "freesound:428921",
+          "freesound:92375",
+          "gl_es:train:10769481348315642515.wav",
+          "ha_ng:train:12490254919826375416.wav",
+          "he_il:train:16823755323813467795.wav",
+          "hr_hr:train:12137021049767807555.wav",
+          "hy_am:train:11186680517435167922.wav",
+          "is_is:train:18143916026623202906.wav",
+          "ja_jp:train:12210528383264418745.wav",
+          "ka_ge:train:2993105044151469776.wav",
+          "kam_ke:train:12154486779797187960.wav",
+          "kashmiri:1970324837177077_chunk_1.flac",
+          "kk_kz:train:13837639418509311322.wav",
+          "km_kh:train:10006360416725641613.wav",
+          "kn_in:train:14687240407945660913.wav",
+          "kn_in:train:15096009457771558023.wav",
+          "ko_kr:train:10359553883250105525.wav",
+          "ky_kg:train:15514578015847358890.wav",
+          "lb_lu:train:10437720223409828494.wav",
+          "lg_ug:train:12123343751639616808.wav",
+          "ln_cd:train:11959897544900910176.wav",
+          "lo_la:train:10346663063780035215.wav",
+          "lt_lt:train:15367591149256088428.wav",
+          "luo_ke:train:15463642708286073509.wav",
+          "manipuri:6473924464419399_chunk_1.flac",
+          "mr_in:train:10986875885056557364.wav",
+          "pa_in:train:16693733152628588519.wav",
+          "pl_pl:train:14002458340348798.wav",
+          "ps_af:train:15589493469027767437.wav",
+          "sanskrit:2251799813734813_chunk_1.flac",
+          "santali:4785074604194847_chunk_1.flac",
+          "sd_in:train:13655315073103147391.wav",
+          "so_so:train:1179304877180760723.wav",
+          "so_so:train:14842603451866844632.wav",
+          "ta_in:train:12079333390051219555.wav",
+          "te_in:train:14751961982184477566.wav",
+          "tg_tj:train:11851591230613317287.wav",
+          "thorsten_emotional:whisper/37773d61d5c91c12d49e55e2b041c0cd.wav",
+          "ur_pk:train:13989351609468149814.wav"
+        ],
+        "window_dc_energy_fraction": 0.010626386159322355,
+        "windows": 2544
+      },
+      "by_source": {
+        "1363-139304-0012": {
+          "centered_residual_rms": 0.00037470190350545986,
+          "failed": 57,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 1,
+            "passed": 0,
+            "residual_only": 56
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00037482390134487676,
+          "samples": 54720,
+          "source_ids": [
+            "1363-139304-0012"
+          ],
+          "window_dc_energy_fraction": 0.0006508548949279015,
+          "windows": 57
+        },
+        "2051-153962-0091": {
+          "centered_residual_rms": 0.0003721378527966366,
+          "failed": 3,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 0,
+            "residual_only": 3
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.0003725469883009224,
+          "samples": 2880,
+          "source_ids": [
+            "2051-153962-0091"
+          ],
+          "window_dc_energy_fraction": 0.0021952175612979497,
+          "windows": 3
+        },
+        "3242-67168-0001": {
+          "centered_residual_rms": 0.0002872080225998196,
+          "failed": 35,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 0,
+            "residual_only": 35
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00028868993124395105,
+          "samples": 33600,
+          "source_ids": [
+            "3242-67168-0001"
+          ],
+          "window_dc_energy_fraction": 0.010240088090000645,
+          "windows": 35
+        },
+        "5101-67853-0031": {
+          "centered_residual_rms": 0.00019057597153123365,
+          "failed": 22,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 0,
+            "residual_only": 22
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.0001928335263309213,
+          "samples": 21120,
+          "source_ids": [
+            "5101-67853-0031"
+          ],
+          "window_dc_energy_fraction": 0.023277486408550787,
+          "windows": 22
+        },
+        "5778-54535-0011": {
+          "centered_residual_rms": 0.00018617687008336197,
+          "failed": 35,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 0,
+            "residual_only": 35
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00018830388563792987,
+          "samples": 33600,
+          "source_ids": [
+            "5778-54535-0011"
+          ],
+          "window_dc_energy_fraction": 0.022463716363966275,
+          "windows": 35
+        },
+        "af_za:train:12687107890474022499.wav": {
+          "centered_residual_rms": 0.00010292712543027404,
+          "failed": 18,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 0,
+            "residual_only": 18
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00010333078963073981,
+          "samples": 17280,
+          "source_ids": [
+            "af_za:train:12687107890474022499.wav"
+          ],
+          "window_dc_energy_fraction": 0.00779778689352613,
+          "windows": 18
+        },
+        "ar_eg:train:12360449360113063891.wav": {
+          "centered_residual_rms": 8.993035963409276e-05,
+          "failed": 2,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 1,
+            "passed": 0,
+            "residual_only": 1
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 9.058703326684039e-05,
+          "samples": 1920,
+          "source_ids": [
+            "ar_eg:train:12360449360113063891.wav"
+          ],
+          "window_dc_energy_fraction": 0.01444563235476499,
+          "windows": 2
+        },
+        "as_in:train:13453488421825608782.wav": {
+          "centered_residual_rms": 0.0002690285698869196,
+          "failed": 11,
+          "failure_categories": {
+            "amplitude_only": 1,
+            "both": 1,
+            "passed": 1,
+            "residual_only": 9
+          },
+          "reference_exact_zero_windows": 3,
+          "residual_rms": 0.0002706142440471799,
+          "samples": 11520,
+          "source_ids": [
+            "as_in:train:13453488421825608782.wav"
+          ],
+          "window_dc_energy_fraction": 0.011684739712547682,
+          "windows": 12
+        },
+        "ast_es:train:16933683244427534350.wav": {
+          "centered_residual_rms": 0.00014135763696295956,
+          "failed": 43,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 0,
+            "residual_only": 43
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00014189400776053938,
+          "samples": 41280,
+          "source_ids": [
+            "ast_es:train:16933683244427534350.wav"
+          ],
+          "window_dc_energy_fraction": 0.007545872353372642,
+          "windows": 43
+        },
+        "az_az:train:1439903150624501148.wav": {
+          "centered_residual_rms": 0.00010549241695494167,
+          "failed": 93,
+          "failure_categories": {
+            "amplitude_only": 1,
+            "both": 1,
+            "passed": 14,
+            "residual_only": 91
+          },
+          "reference_exact_zero_windows": 3,
+          "residual_rms": 0.00010760309374245998,
+          "samples": 102720,
+          "source_ids": [
+            "az_az:train:1439903150624501148.wav"
+          ],
+          "window_dc_energy_fraction": 0.03884601899990105,
+          "windows": 107
+        },
+        "be_by:train:12518029196714550777.wav": {
+          "centered_residual_rms": 0.00016232399013571907,
+          "failed": 52,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 1,
+            "passed": 2,
+            "residual_only": 51
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00016259176931763747,
+          "samples": 51840,
+          "source_ids": [
+            "be_by:train:12518029196714550777.wav"
+          ],
+          "window_dc_energy_fraction": 0.0032911711912205757,
+          "windows": 54
+        },
+        "bodo:3659174697289264_chunk_3.flac": {
+          "centered_residual_rms": 0.00035759213360888394,
+          "failed": 1,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 0,
+            "residual_only": 1
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00035827235097636237,
+          "samples": 960,
+          "source_ids": [
+            "bodo:3659174697289264_chunk_3.flac"
+          ],
+          "window_dc_energy_fraction": 0.003793603574893671,
+          "windows": 1
+        },
+        "bs_ba:train:11358760624286905521.wav": {
+          "centered_residual_rms": 0.0001772133461506703,
+          "failed": 81,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 3,
+            "passed": 0,
+            "residual_only": 78
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00017812179365857178,
+          "samples": 77760,
+          "source_ids": [
+            "bs_ba:train:11358760624286905521.wav"
+          ],
+          "window_dc_energy_fraction": 0.010174284470463537,
+          "windows": 81
+        },
+        "ca_es:train:10583803894773586508.wav": {
+          "centered_residual_rms": 0.00016982221753379054,
+          "failed": 28,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 0,
+            "residual_only": 28
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00017028535985504206,
+          "samples": 26880,
+          "source_ids": [
+            "ca_es:train:10583803894773586508.wav"
+          ],
+          "window_dc_energy_fraction": 0.005432205024920998,
+          "windows": 28
+        },
+        "cs_cz:train:10122716413664131344.wav": {
+          "centered_residual_rms": 0.00024368175022487613,
+          "failed": 4,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 0,
+            "residual_only": 4
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00024398867847485266,
+          "samples": 3840,
+          "source_ids": [
+            "cs_cz:train:10122716413664131344.wav"
+          ],
+          "window_dc_energy_fraction": 0.002514339599728268,
+          "windows": 4
+        },
+        "cy_gb:train:10349599617049103526.wav": {
+          "centered_residual_rms": 1.8333475700055812e-05,
+          "failed": 126,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 7,
+            "passed": 2,
+            "residual_only": 119
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 1.9707050624409747e-05,
+          "samples": 122880,
+          "source_ids": [
+            "cy_gb:train:10349599617049103526.wav"
+          ],
+          "window_dc_energy_fraction": 0.13454129592251624,
+          "windows": 128
+        },
+        "dogri:622d1198-0621-4e0c-9027-77e32a505100_1_chunk_8.flac": {
+          "centered_residual_rms": 0.0001684139134066055,
+          "failed": 19,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 0,
+            "residual_only": 19
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00016983664039354584,
+          "samples": 18240,
+          "source_ids": [
+            "dogri:622d1198-0621-4e0c-9027-77e32a505100_1_chunk_8.flac"
+          ],
+          "window_dc_energy_fraction": 0.016683889516934513,
+          "windows": 19
+        },
+        "en_us:train:13546164985487902870.wav": {
+          "centered_residual_rms": 0.00021183610426406648,
+          "failed": 20,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 0,
+            "residual_only": 20
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00021273522029794596,
+          "samples": 19200,
+          "source_ids": [
+            "en_us:train:13546164985487902870.wav"
+          ],
+          "window_dc_energy_fraction": 0.008435048935246207,
+          "windows": 20
+        },
+        "es_419:train:13461728374156750135.wav": {
+          "centered_residual_rms": 3.587218583487486e-05,
+          "failed": 47,
+          "failure_categories": {
+            "amplitude_only": 42,
+            "both": 1,
+            "passed": 1,
+            "residual_only": 4
+          },
+          "reference_exact_zero_windows": 42,
+          "residual_rms": 3.638973528670321e-05,
+          "samples": 46080,
+          "source_ids": [
+            "es_419:train:13461728374156750135.wav"
+          ],
+          "window_dc_energy_fraction": 0.02824252770975727,
+          "windows": 48
+        },
+        "ff_sn:train:14756055913832624081.wav": {
+          "centered_residual_rms": 0.0003064426218096871,
+          "failed": 33,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 1,
+            "passed": 0,
+            "residual_only": 32
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.0003066322032983388,
+          "samples": 31680,
+          "source_ids": [
+            "ff_sn:train:14756055913832624081.wav"
+          ],
+          "window_dc_energy_fraction": 0.0012361577182090973,
+          "windows": 33
+        },
+        "fi_fi:train:10893394073468230201.wav": {
+          "centered_residual_rms": 0.00019541182419840458,
+          "failed": 42,
+          "failure_categories": {
+            "amplitude_only": 11,
+            "both": 3,
+            "passed": 1,
+            "residual_only": 28
+          },
+          "reference_exact_zero_windows": 15,
+          "residual_rms": 0.00019661744458570961,
+          "samples": 41280,
+          "source_ids": [
+            "fi_fi:train:10893394073468230201.wav"
+          ],
+          "window_dc_energy_fraction": 0.012226016603652039,
+          "windows": 43
+        },
+        "freesound:180341": {
+          "centered_residual_rms": 8.848900541969686e-05,
+          "failed": 5,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 2,
+            "passed": 3,
+            "residual_only": 3
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 9.130317999733614e-05,
+          "samples": 7002,
+          "source_ids": [
+            "freesound:180341"
+          ],
+          "window_dc_energy_fraction": 0.06069459798334102,
+          "windows": 8
+        },
+        "freesound:236508": {
+          "centered_residual_rms": 0.00012161232124072638,
+          "failed": 1,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 0,
+            "residual_only": 1
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00012168422145716947,
+          "samples": 822,
+          "source_ids": [
+            "freesound:236508"
+          ],
+          "window_dc_energy_fraction": 0.0011814017223719647,
+          "windows": 1
+        },
+        "freesound:277554": {
+          "centered_residual_rms": 0.00027154915941347206,
+          "failed": 16,
+          "failure_categories": {
+            "amplitude_only": 2,
+            "both": 2,
+            "passed": 2,
+            "residual_only": 12
+          },
+          "reference_exact_zero_windows": 3,
+          "residual_rms": 0.00027232883985433756,
+          "samples": 16515,
+          "source_ids": [
+            "freesound:277554"
+          ],
+          "window_dc_energy_fraction": 0.005717824997718596,
+          "windows": 18
+        },
+        "freesound:343940": {
+          "centered_residual_rms": 0.00032268064018181126,
+          "failed": 6,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 1,
+            "passed": 0,
+            "residual_only": 5
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00032490802173658145,
+          "samples": 5490,
+          "source_ids": [
+            "freesound:343940"
+          ],
+          "window_dc_energy_fraction": 0.013663846911536501,
+          "windows": 6
+        },
+        "freesound:343960": {
+          "centered_residual_rms": 0.0004102314682125554,
+          "failed": 2,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 1,
+            "passed": 0,
+            "residual_only": 1
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.0004133855875980663,
+          "samples": 984,
+          "source_ids": [
+            "freesound:343960"
+          ],
+          "window_dc_energy_fraction": 0.015201722375292645,
+          "windows": 2
+        },
+        "freesound:36399": {
+          "centered_residual_rms": 8.454397761342478e-05,
+          "failed": 13,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 1,
+            "passed": 8,
+            "residual_only": 12
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 8.783560391441246e-05,
+          "samples": 20160,
+          "source_ids": [
+            "freesound:36399"
+          ],
+          "window_dc_energy_fraction": 0.07354534043112582,
+          "windows": 21
+        },
+        "freesound:402835": {
+          "centered_residual_rms": 0.0005895548413546273,
+          "failed": 1,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 1,
+            "passed": 0,
+            "residual_only": 0
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.0005933148913323448,
+          "samples": 126,
+          "source_ids": [
+            "freesound:402835"
+          ],
+          "window_dc_energy_fraction": 0.01263455759351386,
+          "windows": 1
+        },
+        "freesound:421873": {
+          "centered_residual_rms": 8.434293298910973e-05,
+          "failed": 57,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 1,
+            "passed": 4,
+            "residual_only": 56
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 8.542993742372088e-05,
+          "samples": 57603,
+          "source_ids": [
+            "freesound:421873"
+          ],
+          "window_dc_energy_fraction": 0.02528595908434598,
+          "windows": 61
+        },
+        "freesound:428921": {
+          "centered_residual_rms": 0.00013286689796362578,
+          "failed": 61,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 3,
+            "passed": 0,
+            "residual_only": 58
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00013308965566035955,
+          "samples": 58560,
+          "source_ids": [
+            "freesound:428921"
+          ],
+          "window_dc_energy_fraction": 0.0033446818419451863,
+          "windows": 61
+        },
+        "freesound:92375": {
+          "centered_residual_rms": 0.0004080639910640211,
+          "failed": 4,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 1,
+            "passed": 0,
+            "residual_only": 3
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.0004101603667858216,
+          "samples": 3210,
+          "source_ids": [
+            "freesound:92375"
+          ],
+          "window_dc_energy_fraction": 0.01019610125791095,
+          "windows": 4
+        },
+        "gl_es:train:10769481348315642515.wav": {
+          "centered_residual_rms": 0.0003417952133765492,
+          "failed": 14,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 0,
+            "residual_only": 14
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.0003419914474092021,
+          "samples": 13440,
+          "source_ids": [
+            "gl_es:train:10769481348315642515.wav"
+          ],
+          "window_dc_energy_fraction": 0.0011472668967860038,
+          "windows": 14
+        },
+        "ha_ng:train:12490254919826375416.wav": {
+          "centered_residual_rms": 0.00014984333146248865,
+          "failed": 32,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 2,
+            "residual_only": 32
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.0001530090271898895,
+          "samples": 32640,
+          "source_ids": [
+            "ha_ng:train:12490254919826375416.wav"
+          ],
+          "window_dc_energy_fraction": 0.04095114248014641,
+          "windows": 34
+        },
+        "he_il:train:16823755323813467795.wav": {
+          "centered_residual_rms": 0.0004794621456377371,
+          "failed": 5,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 0,
+            "residual_only": 5
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.0004808930092503147,
+          "samples": 4800,
+          "source_ids": [
+            "he_il:train:16823755323813467795.wav"
+          ],
+          "window_dc_energy_fraction": 0.0059420073390458825,
+          "windows": 5
+        },
+        "hr_hr:train:12137021049767807555.wav": {
+          "centered_residual_rms": 0.0001961549427983392,
+          "failed": 2,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 0,
+            "residual_only": 2
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.0001962872129948428,
+          "samples": 1920,
+          "source_ids": [
+            "hr_hr:train:12137021049767807555.wav"
+          ],
+          "window_dc_energy_fraction": 0.0013472668815950755,
+          "windows": 2
+        },
+        "hy_am:train:11186680517435167922.wav": {
+          "centered_residual_rms": 0.00011606739367379148,
+          "failed": 98,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 3,
+            "passed": 19,
+            "residual_only": 95
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00012345094334696399,
+          "samples": 112320,
+          "source_ids": [
+            "hy_am:train:11186680517435167922.wav"
+          ],
+          "window_dc_energy_fraction": 0.11604198329433785,
+          "windows": 117
+        },
+        "is_is:train:18143916026623202906.wav": {
+          "centered_residual_rms": 0.00015781480453707375,
+          "failed": 52,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 1,
+            "passed": 0,
+            "residual_only": 51
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.0001581161023836597,
+          "samples": 49920,
+          "source_ids": [
+            "is_is:train:18143916026623202906.wav"
+          ],
+          "window_dc_energy_fraction": 0.0038074651888179785,
+          "windows": 52
+        },
+        "ja_jp:train:12210528383264418745.wav": {
+          "centered_residual_rms": 0.00011175027230972617,
+          "failed": 15,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 0,
+            "residual_only": 15
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00011285448013578782,
+          "samples": 14400,
+          "source_ids": [
+            "ja_jp:train:12210528383264418745.wav"
+          ],
+          "window_dc_energy_fraction": 0.019472968133146987,
+          "windows": 15
+        },
+        "ka_ge:train:2993105044151469776.wav": {
+          "centered_residual_rms": 9.131999966337599e-05,
+          "failed": 48,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 1,
+            "passed": 13,
+            "residual_only": 47
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 9.257458539184914e-05,
+          "samples": 58560,
+          "source_ids": [
+            "ka_ge:train:2993105044151469776.wav"
+          ],
+          "window_dc_energy_fraction": 0.02692066184296427,
+          "windows": 61
+        },
+        "kam_ke:train:12154486779797187960.wav": {
+          "centered_residual_rms": 0.00019443440329101864,
+          "failed": 34,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 0,
+            "residual_only": 34
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.000195932839054822,
+          "samples": 32640,
+          "source_ids": [
+            "kam_ke:train:12154486779797187960.wav"
+          ],
+          "window_dc_energy_fraction": 0.015236914615028864,
+          "windows": 34
+        },
+        "kashmiri:1970324837177077_chunk_1.flac": {
+          "centered_residual_rms": 0.0003921806350022537,
+          "failed": 2,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 0,
+            "residual_only": 2
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.0003932539877611386,
+          "samples": 1920,
+          "source_ids": [
+            "kashmiri:1970324837177077_chunk_1.flac"
+          ],
+          "window_dc_energy_fraction": 0.005451377381883217,
+          "windows": 2
+        },
+        "kk_kz:train:13837639418509311322.wav": {
+          "centered_residual_rms": 0.00013747044674216404,
+          "failed": 72,
+          "failure_categories": {
+            "amplitude_only": 1,
+            "both": 3,
+            "passed": 4,
+            "residual_only": 68
+          },
+          "reference_exact_zero_windows": 4,
+          "residual_rms": 0.0001379432549500058,
+          "samples": 72960,
+          "source_ids": [
+            "kk_kz:train:13837639418509311322.wav"
+          ],
+          "window_dc_energy_fraction": 0.006843363522892301,
+          "windows": 76
+        },
+        "km_kh:train:10006360416725641613.wav": {
+          "centered_residual_rms": 8.708528604118231e-05,
+          "failed": 79,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 1,
+            "passed": 2,
+            "residual_only": 78
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 8.733985207993162e-05,
+          "samples": 77760,
+          "source_ids": [
+            "km_kh:train:10006360416725641613.wav"
+          ],
+          "window_dc_energy_fraction": 0.005820826252281085,
+          "windows": 81
+        },
+        "kn_in:train:14687240407945660913.wav": {
+          "centered_residual_rms": 0.00021140944903508824,
+          "failed": 29,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 1,
+            "passed": 0,
+            "residual_only": 28
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00021156812041936803,
+          "samples": 27840,
+          "source_ids": [
+            "kn_in:train:14687240407945660913.wav"
+          ],
+          "window_dc_energy_fraction": 0.0014993930461830007,
+          "windows": 29
+        },
+        "kn_in:train:15096009457771558023.wav": {
+          "centered_residual_rms": 0.00021485940391159858,
+          "failed": 67,
+          "failure_categories": {
+            "amplitude_only": 39,
+            "both": 2,
+            "passed": 2,
+            "residual_only": 26
+          },
+          "reference_exact_zero_windows": 43,
+          "residual_rms": 0.0002155124467993442,
+          "samples": 66240,
+          "source_ids": [
+            "kn_in:train:15096009457771558023.wav"
+          ],
+          "window_dc_energy_fraction": 0.0060511907928037295,
+          "windows": 69
+        },
+        "ko_kr:train:10359553883250105525.wav": {
+          "centered_residual_rms": 0.00024348386903165267,
+          "failed": 16,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 1,
+            "residual_only": 16
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.0002451056233006387,
+          "samples": 16320,
+          "source_ids": [
+            "ko_kr:train:10359553883250105525.wav"
+          ],
+          "window_dc_energy_fraction": 0.013189326592684776,
+          "windows": 17
+        },
+        "ky_kg:train:15514578015847358890.wav": {
+          "centered_residual_rms": 0.00020806033065734442,
+          "failed": 33,
+          "failure_categories": {
+            "amplitude_only": 11,
+            "both": 3,
+            "passed": 1,
+            "residual_only": 19
+          },
+          "reference_exact_zero_windows": 14,
+          "residual_rms": 0.0002091930096872823,
+          "samples": 32640,
+          "source_ids": [
+            "ky_kg:train:15514578015847358890.wav"
+          ],
+          "window_dc_energy_fraction": 0.01079971627067463,
+          "windows": 34
+        },
+        "lb_lu:train:10437720223409828494.wav": {
+          "centered_residual_rms": 0.00012579797988304642,
+          "failed": 121,
+          "failure_categories": {
+            "amplitude_only": 15,
+            "both": 3,
+            "passed": 7,
+            "residual_only": 103
+          },
+          "reference_exact_zero_windows": 17,
+          "residual_rms": 0.00012651812118583174,
+          "samples": 122880,
+          "source_ids": [
+            "lb_lu:train:10437720223409828494.wav"
+          ],
+          "window_dc_energy_fraction": 0.01135160360366183,
+          "windows": 128
+        },
+        "lg_ug:train:12123343751639616808.wav": {
+          "centered_residual_rms": 8.325015581294713e-05,
+          "failed": 16,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 1,
+            "passed": 1,
+            "residual_only": 15
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 8.690151236129834e-05,
+          "samples": 16320,
+          "source_ids": [
+            "lg_ug:train:12123343751639616808.wav"
+          ],
+          "window_dc_energy_fraction": 0.08226891793403239,
+          "windows": 17
+        },
+        "ln_cd:train:11959897544900910176.wav": {
+          "centered_residual_rms": 0.0005919101540645728,
+          "failed": 15,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 0,
+            "residual_only": 15
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.0005921298653174309,
+          "samples": 14400,
+          "source_ids": [
+            "ln_cd:train:11959897544900910176.wav"
+          ],
+          "window_dc_energy_fraction": 0.000741967272797926,
+          "windows": 15
+        },
+        "lo_la:train:10346663063780035215.wav": {
+          "centered_residual_rms": 0.00023767711584942673,
+          "failed": 18,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 0,
+            "residual_only": 18
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00023844340584401393,
+          "samples": 17280,
+          "source_ids": [
+            "lo_la:train:10346663063780035215.wav"
+          ],
+          "window_dc_energy_fraction": 0.006417109097205318,
+          "windows": 18
+        },
+        "lt_lt:train:15367591149256088428.wav": {
+          "centered_residual_rms": 0.00010887503071796142,
+          "failed": 115,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 6,
+            "passed": 11,
+            "residual_only": 109
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00011018334475399987,
+          "samples": 120960,
+          "source_ids": [
+            "lt_lt:train:15367591149256088428.wav"
+          ],
+          "window_dc_energy_fraction": 0.023606954323605774,
+          "windows": 126
+        },
+        "luo_ke:train:15463642708286073509.wav": {
+          "centered_residual_rms": 0.0002856164152613569,
+          "failed": 56,
+          "failure_categories": {
+            "amplitude_only": 7,
+            "both": 1,
+            "passed": 2,
+            "residual_only": 48
+          },
+          "reference_exact_zero_windows": 11,
+          "residual_rms": 0.0002858948452883862,
+          "samples": 55680,
+          "source_ids": [
+            "luo_ke:train:15463642708286073509.wav"
+          ],
+          "window_dc_energy_fraction": 0.001946830812493841,
+          "windows": 58
+        },
+        "manipuri:6473924464419399_chunk_1.flac": {
+          "centered_residual_rms": 0.00010465787561176992,
+          "failed": 30,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 9,
+            "residual_only": 30
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00010559192362998727,
+          "samples": 37440,
+          "source_ids": [
+            "manipuri:6473924464419399_chunk_1.flac"
+          ],
+          "window_dc_energy_fraction": 0.017613407769994146,
+          "windows": 39
+        },
+        "mr_in:train:10986875885056557364.wav": {
+          "centered_residual_rms": 0.00037269882075941836,
+          "failed": 19,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 1,
+            "passed": 0,
+            "residual_only": 18
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.0003730451584115856,
+          "samples": 18240,
+          "source_ids": [
+            "mr_in:train:10986875885056557364.wav"
+          ],
+          "window_dc_energy_fraction": 0.001855951609344364,
+          "windows": 19
+        },
+        "pa_in:train:16693733152628588519.wav": {
+          "centered_residual_rms": 0.00016282281443532178,
+          "failed": 30,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 1,
+            "residual_only": 30
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00016350114627924664,
+          "samples": 29760,
+          "source_ids": [
+            "pa_in:train:16693733152628588519.wav"
+          ],
+          "window_dc_energy_fraction": 0.008280366606635751,
+          "windows": 31
+        },
+        "pl_pl:train:14002458340348798.wav": {
+          "centered_residual_rms": 0.00014393168545794364,
+          "failed": 31,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 0,
+            "residual_only": 31
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.0001442159407761965,
+          "samples": 29760,
+          "source_ids": [
+            "pl_pl:train:14002458340348798.wav"
+          ],
+          "window_dc_energy_fraction": 0.003938194037245129,
+          "windows": 31
+        },
+        "ps_af:train:15589493469027767437.wav": {
+          "centered_residual_rms": 0.00010218160704624715,
+          "failed": 83,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 8,
+            "passed": 7,
+            "residual_only": 75
+          },
+          "reference_exact_zero_windows": 1,
+          "residual_rms": 0.00010265486789234893,
+          "samples": 86400,
+          "source_ids": [
+            "ps_af:train:15589493469027767437.wav"
+          ],
+          "window_dc_energy_fraction": 0.009199172704659824,
+          "windows": 90
+        },
+        "sanskrit:2251799813734813_chunk_1.flac": {
+          "centered_residual_rms": 0.00013351478057482702,
+          "failed": 22,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 1,
+            "passed": 0,
+            "residual_only": 21
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.0001349790157780224,
+          "samples": 21120,
+          "source_ids": [
+            "sanskrit:2251799813734813_chunk_1.flac"
+          ],
+          "window_dc_energy_fraction": 0.021578069392989944,
+          "windows": 22
+        },
+        "santali:4785074604194847_chunk_1.flac": {
+          "centered_residual_rms": 0.00024785358802881095,
+          "failed": 18,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 0,
+            "residual_only": 18
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00024850417048523176,
+          "samples": 17280,
+          "source_ids": [
+            "santali:4785074604194847_chunk_1.flac"
+          ],
+          "window_dc_energy_fraction": 0.00522913434112883,
+          "windows": 18
+        },
+        "sd_in:train:13655315073103147391.wav": {
+          "centered_residual_rms": 0.0002712116507061591,
+          "failed": 27,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 1,
+            "passed": 0,
+            "residual_only": 26
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00027196811922396933,
+          "samples": 25920,
+          "source_ids": [
+            "sd_in:train:13655315073103147391.wav"
+          ],
+          "window_dc_energy_fraction": 0.005555184014968818,
+          "windows": 27
+        },
+        "so_so:train:1179304877180760723.wav": {
+          "centered_residual_rms": 7.679924094460955e-05,
+          "failed": 105,
+          "failure_categories": {
+            "amplitude_only": 11,
+            "both": 3,
+            "passed": 3,
+            "residual_only": 91
+          },
+          "reference_exact_zero_windows": 15,
+          "residual_rms": 7.731229025306578e-05,
+          "samples": 103680,
+          "source_ids": [
+            "so_so:train:1179304877180760723.wav"
+          ],
+          "window_dc_energy_fraction": 0.013228090714985015,
+          "windows": 108
+        },
+        "so_so:train:14842603451866844632.wav": {
+          "centered_residual_rms": 0.00023502800990545108,
+          "failed": 13,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 0,
+            "residual_only": 13
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00023622470776717657,
+          "samples": 12480,
+          "source_ids": [
+            "so_so:train:14842603451866844632.wav"
+          ],
+          "window_dc_energy_fraction": 0.010106196588309186,
+          "windows": 13
+        },
+        "ta_in:train:12079333390051219555.wav": {
+          "centered_residual_rms": 0.00011705960410025714,
+          "failed": 1,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 1,
+            "passed": 0,
+            "residual_only": 0
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00011854914231380102,
+          "samples": 960,
+          "source_ids": [
+            "ta_in:train:12079333390051219555.wav"
+          ],
+          "window_dc_energy_fraction": 0.024971591702027618,
+          "windows": 1
+        },
+        "te_in:train:14751961982184477566.wav": {
+          "centered_residual_rms": 0.00019353751706301561,
+          "failed": 7,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 1,
+            "residual_only": 7
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00019544475801786562,
+          "samples": 7680,
+          "source_ids": [
+            "te_in:train:14751961982184477566.wav"
+          ],
+          "window_dc_energy_fraction": 0.01942170362039381,
+          "windows": 8
+        },
+        "tg_tj:train:11851591230613317287.wav": {
+          "centered_residual_rms": 9.65294965912031e-05,
+          "failed": 95,
+          "failure_categories": {
+            "amplitude_only": 9,
+            "both": 1,
+            "passed": 10,
+            "residual_only": 85
+          },
+          "reference_exact_zero_windows": 13,
+          "residual_rms": 9.736186909622159e-05,
+          "samples": 100800,
+          "source_ids": [
+            "tg_tj:train:11851591230613317287.wav"
+          ],
+          "window_dc_energy_fraction": 0.01702544180356774,
+          "windows": 105
+        },
+        "thorsten_emotional:whisper/37773d61d5c91c12d49e55e2b041c0cd.wav": {
+          "centered_residual_rms": 0.0003386661830953465,
+          "failed": 8,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 0,
+            "residual_only": 8
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00033911134589964146,
+          "samples": 7680,
+          "source_ids": [
+            "thorsten_emotional:whisper/37773d61d5c91c12d49e55e2b041c0cd.wav"
+          ],
+          "window_dc_energy_fraction": 0.002623743614738629,
+          "windows": 8
+        },
+        "ur_pk:train:13989351609468149814.wav": {
+          "centered_residual_rms": 0.00016437014128217536,
+          "failed": 40,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 6,
+            "passed": 4,
+            "residual_only": 34
+          },
+          "reference_exact_zero_windows": 1,
+          "residual_rms": 0.00016486272766163044,
+          "samples": 42240,
+          "source_ids": [
+            "ur_pk:train:13989351609468149814.wav"
+          ],
+          "window_dc_energy_fraction": 0.005966788217255126,
+          "windows": 44
+        }
+      },
+      "partial_window": {
+        "False": {
+          "centered_residual_rms": 0.00017565319420637,
+          "failed": 2398,
+          "failure_categories": {
+            "amplitude_only": 149,
+            "both": 77,
+            "passed": 138,
+            "residual_only": 2172
+          },
+          "reference_exact_zero_windows": 184,
+          "residual_rms": 0.00017658939036680252,
+          "samples": 2434560,
+          "source_ids": [
+            "1363-139304-0012",
+            "2051-153962-0091",
+            "3242-67168-0001",
+            "5101-67853-0031",
+            "5778-54535-0011",
+            "af_za:train:12687107890474022499.wav",
+            "ar_eg:train:12360449360113063891.wav",
+            "as_in:train:13453488421825608782.wav",
+            "ast_es:train:16933683244427534350.wav",
+            "az_az:train:1439903150624501148.wav",
+            "be_by:train:12518029196714550777.wav",
+            "bodo:3659174697289264_chunk_3.flac",
+            "bs_ba:train:11358760624286905521.wav",
+            "ca_es:train:10583803894773586508.wav",
+            "cs_cz:train:10122716413664131344.wav",
+            "cy_gb:train:10349599617049103526.wav",
+            "dogri:622d1198-0621-4e0c-9027-77e32a505100_1_chunk_8.flac",
+            "en_us:train:13546164985487902870.wav",
+            "es_419:train:13461728374156750135.wav",
+            "ff_sn:train:14756055913832624081.wav",
+            "fi_fi:train:10893394073468230201.wav",
+            "freesound:180341",
+            "freesound:277554",
+            "freesound:343940",
+            "freesound:343960",
+            "freesound:36399",
+            "freesound:421873",
+            "freesound:428921",
+            "freesound:92375",
+            "gl_es:train:10769481348315642515.wav",
+            "ha_ng:train:12490254919826375416.wav",
+            "he_il:train:16823755323813467795.wav",
+            "hr_hr:train:12137021049767807555.wav",
+            "hy_am:train:11186680517435167922.wav",
+            "is_is:train:18143916026623202906.wav",
+            "ja_jp:train:12210528383264418745.wav",
+            "ka_ge:train:2993105044151469776.wav",
+            "kam_ke:train:12154486779797187960.wav",
+            "kashmiri:1970324837177077_chunk_1.flac",
+            "kk_kz:train:13837639418509311322.wav",
+            "km_kh:train:10006360416725641613.wav",
+            "kn_in:train:14687240407945660913.wav",
+            "kn_in:train:15096009457771558023.wav",
+            "ko_kr:train:10359553883250105525.wav",
+            "ky_kg:train:15514578015847358890.wav",
+            "lb_lu:train:10437720223409828494.wav",
+            "lg_ug:train:12123343751639616808.wav",
+            "ln_cd:train:11959897544900910176.wav",
+            "lo_la:train:10346663063780035215.wav",
+            "lt_lt:train:15367591149256088428.wav",
+            "luo_ke:train:15463642708286073509.wav",
+            "manipuri:6473924464419399_chunk_1.flac",
+            "mr_in:train:10986875885056557364.wav",
+            "pa_in:train:16693733152628588519.wav",
+            "pl_pl:train:14002458340348798.wav",
+            "ps_af:train:15589493469027767437.wav",
+            "sanskrit:2251799813734813_chunk_1.flac",
+            "santali:4785074604194847_chunk_1.flac",
+            "sd_in:train:13655315073103147391.wav",
+            "so_so:train:1179304877180760723.wav",
+            "so_so:train:14842603451866844632.wav",
+            "ta_in:train:12079333390051219555.wav",
+            "te_in:train:14751961982184477566.wav",
+            "tg_tj:train:11851591230613317287.wav",
+            "thorsten_emotional:whisper/37773d61d5c91c12d49e55e2b041c0cd.wav",
+            "ur_pk:train:13989351609468149814.wav"
+          ],
+          "window_dc_energy_fraction": 0.010574978673638276,
+          "windows": 2536
+        },
+        "True": {
+          "centered_residual_rms": 0.00022156784825430308,
+          "failed": 8,
+          "failure_categories": {
+            "amplitude_only": 1,
+            "both": 4,
+            "passed": 0,
+            "residual_only": 3
+          },
+          "reference_exact_zero_windows": 1,
+          "residual_rms": 0.0002263080802054891,
+          "samples": 2472,
+          "source_ids": [
+            "freesound:180341",
+            "freesound:236508",
+            "freesound:277554",
+            "freesound:343940",
+            "freesound:343960",
+            "freesound:402835",
+            "freesound:421873",
+            "freesound:92375"
+          ],
+          "window_dc_energy_fraction": 0.04145311715566068,
+          "windows": 8
+        }
+      },
+      "source_reference_exact_zero": {
+        "False": {
+          "centered_residual_rms": 0.00017760251031193882,
+          "failed": 2237,
+          "failure_categories": {
+            "amplitude_only": 3,
+            "both": 69,
+            "passed": 122,
+            "residual_only": 2165
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00017860341973890693,
+          "samples": 2260197,
+          "source_ids": [
+            "1363-139304-0012",
+            "2051-153962-0091",
+            "3242-67168-0001",
+            "5101-67853-0031",
+            "5778-54535-0011",
+            "af_za:train:12687107890474022499.wav",
+            "ar_eg:train:12360449360113063891.wav",
+            "as_in:train:13453488421825608782.wav",
+            "ast_es:train:16933683244427534350.wav",
+            "az_az:train:1439903150624501148.wav",
+            "be_by:train:12518029196714550777.wav",
+            "bodo:3659174697289264_chunk_3.flac",
+            "bs_ba:train:11358760624286905521.wav",
+            "ca_es:train:10583803894773586508.wav",
+            "cs_cz:train:10122716413664131344.wav",
+            "cy_gb:train:10349599617049103526.wav",
+            "dogri:622d1198-0621-4e0c-9027-77e32a505100_1_chunk_8.flac",
+            "en_us:train:13546164985487902870.wav",
+            "es_419:train:13461728374156750135.wav",
+            "ff_sn:train:14756055913832624081.wav",
+            "fi_fi:train:10893394073468230201.wav",
+            "freesound:180341",
+            "freesound:236508",
+            "freesound:277554",
+            "freesound:343940",
+            "freesound:343960",
+            "freesound:36399",
+            "freesound:402835",
+            "freesound:421873",
+            "freesound:428921",
+            "freesound:92375",
+            "gl_es:train:10769481348315642515.wav",
+            "ha_ng:train:12490254919826375416.wav",
+            "he_il:train:16823755323813467795.wav",
+            "hr_hr:train:12137021049767807555.wav",
+            "hy_am:train:11186680517435167922.wav",
+            "is_is:train:18143916026623202906.wav",
+            "ja_jp:train:12210528383264418745.wav",
+            "ka_ge:train:2993105044151469776.wav",
+            "kam_ke:train:12154486779797187960.wav",
+            "kashmiri:1970324837177077_chunk_1.flac",
+            "kk_kz:train:13837639418509311322.wav",
+            "km_kh:train:10006360416725641613.wav",
+            "kn_in:train:14687240407945660913.wav",
+            "kn_in:train:15096009457771558023.wav",
+            "ko_kr:train:10359553883250105525.wav",
+            "ky_kg:train:15514578015847358890.wav",
+            "lb_lu:train:10437720223409828494.wav",
+            "lg_ug:train:12123343751639616808.wav",
+            "ln_cd:train:11959897544900910176.wav",
+            "lo_la:train:10346663063780035215.wav",
+            "lt_lt:train:15367591149256088428.wav",
+            "luo_ke:train:15463642708286073509.wav",
+            "manipuri:6473924464419399_chunk_1.flac",
+            "mr_in:train:10986875885056557364.wav",
+            "pa_in:train:16693733152628588519.wav",
+            "pl_pl:train:14002458340348798.wav",
+            "ps_af:train:15589493469027767437.wav",
+            "sanskrit:2251799813734813_chunk_1.flac",
+            "santali:4785074604194847_chunk_1.flac",
+            "sd_in:train:13655315073103147391.wav",
+            "so_so:train:1179304877180760723.wav",
+            "so_so:train:14842603451866844632.wav",
+            "ta_in:train:12079333390051219555.wav",
+            "te_in:train:14751961982184477566.wav",
+            "tg_tj:train:11851591230613317287.wav",
+            "thorsten_emotional:whisper/37773d61d5c91c12d49e55e2b041c0cd.wav",
+            "ur_pk:train:13989351609468149814.wav"
+          ],
+          "window_dc_energy_fraction": 0.011176771819539775,
+          "windows": 2359
+        },
+        "True": {
+          "centered_residual_rms": 0.0001493574408060364,
+          "failed": 169,
+          "failure_categories": {
+            "amplitude_only": 147,
+            "both": 12,
+            "passed": 16,
+            "residual_only": 10
+          },
+          "reference_exact_zero_windows": 185,
+          "residual_rms": 0.00014940023314976807,
+          "samples": 176835,
+          "source_ids": [
+            "as_in:train:13453488421825608782.wav",
+            "az_az:train:1439903150624501148.wav",
+            "es_419:train:13461728374156750135.wav",
+            "fi_fi:train:10893394073468230201.wav",
+            "freesound:277554",
+            "kk_kz:train:13837639418509311322.wav",
+            "kn_in:train:15096009457771558023.wav",
+            "ky_kg:train:15514578015847358890.wav",
+            "lb_lu:train:10437720223409828494.wav",
+            "luo_ke:train:15463642708286073509.wav",
+            "ps_af:train:15589493469027767437.wav",
+            "so_so:train:1179304877180760723.wav",
+            "tg_tj:train:11851591230613317287.wav",
+            "ur_pk:train:13989351609468149814.wav"
+          ],
+          "window_dc_energy_fraction": 0.0005727730723894863,
+          "windows": 185
+        }
+      },
+      "source_starting_crop": {
+        "False": {
+          "centered_residual_rms": 0.00018632211966318019,
+          "failed": 980,
+          "failure_categories": {
+            "amplitude_only": 42,
+            "both": 20,
+            "passed": 50,
+            "residual_only": 918
+          },
+          "reference_exact_zero_windows": 42,
+          "residual_rms": 0.0001875999890939962,
+          "samples": 988800,
+          "source_ids": [
+            "1363-139304-0012",
+            "2051-153962-0091",
+            "3242-67168-0001",
+            "5101-67853-0031",
+            "5778-54535-0011",
+            "af_za:train:12687107890474022499.wav",
+            "ast_es:train:16933683244427534350.wav",
+            "be_by:train:12518029196714550777.wav",
+            "ca_es:train:10583803894773586508.wav",
+            "cs_cz:train:10122716413664131344.wav",
+            "cy_gb:train:10349599617049103526.wav",
+            "dogri:622d1198-0621-4e0c-9027-77e32a505100_1_chunk_8.flac",
+            "en_us:train:13546164985487902870.wav",
+            "es_419:train:13461728374156750135.wav",
+            "gl_es:train:10769481348315642515.wav",
+            "ha_ng:train:12490254919826375416.wav",
+            "he_il:train:16823755323813467795.wav",
+            "hy_am:train:11186680517435167922.wav",
+            "ja_jp:train:12210528383264418745.wav",
+            "kam_ke:train:12154486779797187960.wav",
+            "ko_kr:train:10359553883250105525.wav",
+            "lg_ug:train:12123343751639616808.wav",
+            "ln_cd:train:11959897544900910176.wav",
+            "lt_lt:train:15367591149256088428.wav",
+            "manipuri:6473924464419399_chunk_1.flac",
+            "pa_in:train:16693733152628588519.wav",
+            "pl_pl:train:14002458340348798.wav",
+            "so_so:train:14842603451866844632.wav",
+            "te_in:train:14751961982184477566.wav"
+          ],
+          "window_dc_energy_fraction": 0.013576943408234775,
+          "windows": 1030
+        },
+        "True": {
+          "centered_residual_rms": 0.00016807266177357592,
+          "failed": 1426,
+          "failure_categories": {
+            "amplitude_only": 108,
+            "both": 61,
+            "passed": 88,
+            "residual_only": 1257
+          },
+          "reference_exact_zero_windows": 143,
+          "residual_rms": 0.00016876066441657263,
+          "samples": 1448232,
+          "source_ids": [
+            "ar_eg:train:12360449360113063891.wav",
+            "as_in:train:13453488421825608782.wav",
+            "az_az:train:1439903150624501148.wav",
+            "bodo:3659174697289264_chunk_3.flac",
+            "bs_ba:train:11358760624286905521.wav",
+            "ff_sn:train:14756055913832624081.wav",
+            "fi_fi:train:10893394073468230201.wav",
+            "freesound:180341",
+            "freesound:236508",
+            "freesound:277554",
+            "freesound:343940",
+            "freesound:343960",
+            "freesound:36399",
+            "freesound:402835",
+            "freesound:421873",
+            "freesound:428921",
+            "freesound:92375",
+            "hr_hr:train:12137021049767807555.wav",
+            "is_is:train:18143916026623202906.wav",
+            "ka_ge:train:2993105044151469776.wav",
+            "kashmiri:1970324837177077_chunk_1.flac",
+            "kk_kz:train:13837639418509311322.wav",
+            "km_kh:train:10006360416725641613.wav",
+            "kn_in:train:14687240407945660913.wav",
+            "kn_in:train:15096009457771558023.wav",
+            "ky_kg:train:15514578015847358890.wav",
+            "lb_lu:train:10437720223409828494.wav",
+            "lo_la:train:10346663063780035215.wav",
+            "luo_ke:train:15463642708286073509.wav",
+            "mr_in:train:10986875885056557364.wav",
+            "ps_af:train:15589493469027767437.wav",
+            "sanskrit:2251799813734813_chunk_1.flac",
+            "santali:4785074604194847_chunk_1.flac",
+            "sd_in:train:13655315073103147391.wav",
+            "so_so:train:1179304877180760723.wav",
+            "ta_in:train:12079333390051219555.wav",
+            "tg_tj:train:11851591230613317287.wav",
+            "thorsten_emotional:whisper/37773d61d5c91c12d49e55e2b041c0cd.wav",
+            "ur_pk:train:13989351609468149814.wav"
+          ],
+          "window_dc_energy_fraction": 0.008136969861813451,
+          "windows": 1514
+        }
+      },
+      "teacher_level_bin": {
+        "1e-4_to_1e-3": {
+          "centered_residual_rms": 0.00021829825292602736,
+          "failed": 1511,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 28,
+            "passed": 118,
+            "residual_only": 1483
+          },
+          "reference_exact_zero_windows": 10,
+          "residual_rms": 0.0002194404296887034,
+          "samples": 1560354,
+          "source_ids": [
+            "1363-139304-0012",
+            "2051-153962-0091",
+            "3242-67168-0001",
+            "5101-67853-0031",
+            "5778-54535-0011",
+            "af_za:train:12687107890474022499.wav",
+            "as_in:train:13453488421825608782.wav",
+            "ast_es:train:16933683244427534350.wav",
+            "az_az:train:1439903150624501148.wav",
+            "be_by:train:12518029196714550777.wav",
+            "bodo:3659174697289264_chunk_3.flac",
+            "bs_ba:train:11358760624286905521.wav",
+            "ca_es:train:10583803894773586508.wav",
+            "cs_cz:train:10122716413664131344.wav",
+            "cy_gb:train:10349599617049103526.wav",
+            "dogri:622d1198-0621-4e0c-9027-77e32a505100_1_chunk_8.flac",
+            "en_us:train:13546164985487902870.wav",
+            "es_419:train:13461728374156750135.wav",
+            "ff_sn:train:14756055913832624081.wav",
+            "fi_fi:train:10893394073468230201.wav",
+            "freesound:180341",
+            "freesound:236508",
+            "freesound:277554",
+            "freesound:343940",
+            "freesound:343960",
+            "freesound:36399",
+            "freesound:402835",
+            "freesound:421873",
+            "freesound:428921",
+            "freesound:92375",
+            "gl_es:train:10769481348315642515.wav",
+            "ha_ng:train:12490254919826375416.wav",
+            "he_il:train:16823755323813467795.wav",
+            "hr_hr:train:12137021049767807555.wav",
+            "hy_am:train:11186680517435167922.wav",
+            "is_is:train:18143916026623202906.wav",
+            "ja_jp:train:12210528383264418745.wav",
+            "ka_ge:train:2993105044151469776.wav",
+            "kam_ke:train:12154486779797187960.wav",
+            "kashmiri:1970324837177077_chunk_1.flac",
+            "kk_kz:train:13837639418509311322.wav",
+            "km_kh:train:10006360416725641613.wav",
+            "kn_in:train:14687240407945660913.wav",
+            "kn_in:train:15096009457771558023.wav",
+            "ko_kr:train:10359553883250105525.wav",
+            "ky_kg:train:15514578015847358890.wav",
+            "lb_lu:train:10437720223409828494.wav",
+            "lg_ug:train:12123343751639616808.wav",
+            "ln_cd:train:11959897544900910176.wav",
+            "lo_la:train:10346663063780035215.wav",
+            "lt_lt:train:15367591149256088428.wav",
+            "luo_ke:train:15463642708286073509.wav",
+            "manipuri:6473924464419399_chunk_1.flac",
+            "mr_in:train:10986875885056557364.wav",
+            "pa_in:train:16693733152628588519.wav",
+            "pl_pl:train:14002458340348798.wav",
+            "ps_af:train:15589493469027767437.wav",
+            "sanskrit:2251799813734813_chunk_1.flac",
+            "santali:4785074604194847_chunk_1.flac",
+            "sd_in:train:13655315073103147391.wav",
+            "so_so:train:1179304877180760723.wav",
+            "so_so:train:14842603451866844632.wav",
+            "te_in:train:14751961982184477566.wav",
+            "tg_tj:train:11851591230613317287.wav",
+            "thorsten_emotional:whisper/37773d61d5c91c12d49e55e2b041c0cd.wav",
+            "ur_pk:train:13989351609468149814.wav"
+          ],
+          "window_dc_energy_fraction": 0.010382811198881238,
+          "windows": 1629
+        },
+        "1e-5_to_1e-4": {
+          "centered_residual_rms": 3.233325429873648e-05,
+          "failed": 729,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 38,
+            "passed": 2,
+            "residual_only": 691
+          },
+          "reference_exact_zero_windows": 3,
+          "residual_rms": 3.2911397356250406e-05,
+          "samples": 700803,
+          "source_ids": [
+            "af_za:train:12687107890474022499.wav",
+            "ar_eg:train:12360449360113063891.wav",
+            "as_in:train:13453488421825608782.wav",
+            "ast_es:train:16933683244427534350.wav",
+            "az_az:train:1439903150624501148.wav",
+            "be_by:train:12518029196714550777.wav",
+            "bs_ba:train:11358760624286905521.wav",
+            "cy_gb:train:10349599617049103526.wav",
+            "en_us:train:13546164985487902870.wav",
+            "es_419:train:13461728374156750135.wav",
+            "freesound:277554",
+            "freesound:36399",
+            "freesound:421873",
+            "freesound:428921",
+            "hy_am:train:11186680517435167922.wav",
+            "is_is:train:18143916026623202906.wav",
+            "kk_kz:train:13837639418509311322.wav",
+            "km_kh:train:10006360416725641613.wav",
+            "lb_lu:train:10437720223409828494.wav",
+            "lg_ug:train:12123343751639616808.wav",
+            "lt_lt:train:15367591149256088428.wav",
+            "mr_in:train:10986875885056557364.wav",
+            "ps_af:train:15589493469027767437.wav",
+            "sanskrit:2251799813734813_chunk_1.flac",
+            "sd_in:train:13655315073103147391.wav",
+            "so_so:train:1179304877180760723.wav",
+            "ta_in:train:12079333390051219555.wav",
+            "tg_tj:train:11851591230613317287.wav",
+            "ur_pk:train:13989351609468149814.wav"
+          ],
+          "window_dc_energy_fraction": 0.034824716338879916,
+          "windows": 731
+        },
+        "nonzero_to_1e-5": {
+          "centered_residual_rms": 2.895223506548548e-05,
+          "failed": 166,
+          "failure_categories": {
+            "amplitude_only": 150,
+            "both": 15,
+            "passed": 18,
+            "residual_only": 1
+          },
+          "reference_exact_zero_windows": 172,
+          "residual_rms": 2.9100694508630384e-05,
+          "samples": 175875,
+          "source_ids": [
+            "as_in:train:13453488421825608782.wav",
+            "az_az:train:1439903150624501148.wav",
+            "bs_ba:train:11358760624286905521.wav",
+            "es_419:train:13461728374156750135.wav",
+            "fi_fi:train:10893394073468230201.wav",
+            "freesound:277554",
+            "kk_kz:train:13837639418509311322.wav",
+            "kn_in:train:15096009457771558023.wav",
+            "ky_kg:train:15514578015847358890.wav",
+            "lb_lu:train:10437720223409828494.wav",
+            "luo_ke:train:15463642708286073509.wav",
+            "sd_in:train:13655315073103147391.wav",
+            "so_so:train:1179304877180760723.wav",
+            "tg_tj:train:11851591230613317287.wav",
+            "ur_pk:train:13989351609468149814.wav"
+          ],
+          "window_dc_energy_fraction": 0.010177128551817639,
+          "windows": 184
+        }
+      },
+      "temporal_bin": {
+        "source20_to40ms": {
+          "centered_residual_rms": 0.0004030394155144334,
+          "failed": 28,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 4,
+            "passed": 1,
+            "residual_only": 24
+          },
+          "reference_exact_zero_windows": 10,
+          "residual_rms": 0.00040313714641853157,
+          "samples": 27840,
+          "source_ids": [
+            "ar_eg:train:12360449360113063891.wav",
+            "as_in:train:13453488421825608782.wav",
+            "az_az:train:1439903150624501148.wav",
+            "bs_ba:train:11358760624286905521.wav",
+            "ff_sn:train:14756055913832624081.wav",
+            "fi_fi:train:10893394073468230201.wav",
+            "freesound:180341",
+            "freesound:277554",
+            "freesound:343940",
+            "freesound:36399",
+            "freesound:421873",
+            "freesound:428921",
+            "is_is:train:18143916026623202906.wav",
+            "ka_ge:train:2993105044151469776.wav",
+            "kk_kz:train:13837639418509311322.wav",
+            "km_kh:train:10006360416725641613.wav",
+            "kn_in:train:14687240407945660913.wav",
+            "kn_in:train:15096009457771558023.wav",
+            "ky_kg:train:15514578015847358890.wav",
+            "lb_lu:train:10437720223409828494.wav",
+            "luo_ke:train:15463642708286073509.wav",
+            "mr_in:train:10986875885056557364.wav",
+            "ps_af:train:15589493469027767437.wav",
+            "sanskrit:2251799813734813_chunk_1.flac",
+            "sd_in:train:13655315073103147391.wav",
+            "so_so:train:1179304877180760723.wav",
+            "tg_tj:train:11851591230613317287.wav",
+            "thorsten_emotional:whisper/37773d61d5c91c12d49e55e2b041c0cd.wav",
+            "ur_pk:train:13989351609468149814.wav"
+          ],
+          "window_dc_energy_fraction": 0.0004847931217098548,
+          "windows": 29
+        },
+        "source40_to800ms": {
+          "centered_residual_rms": 0.0001535098561547539,
+          "failed": 676,
+          "failure_categories": {
+            "amplitude_only": 104,
+            "both": 12,
+            "passed": 46,
+            "residual_only": 560
+          },
+          "reference_exact_zero_windows": 116,
+          "residual_rms": 0.0001541410859049605,
+          "samples": 692046,
+          "source_ids": [
+            "as_in:train:13453488421825608782.wav",
+            "az_az:train:1439903150624501148.wav",
+            "bs_ba:train:11358760624286905521.wav",
+            "ff_sn:train:14756055913832624081.wav",
+            "fi_fi:train:10893394073468230201.wav",
+            "freesound:236508",
+            "freesound:277554",
+            "freesound:343960",
+            "freesound:36399",
+            "freesound:421873",
+            "freesound:428921",
+            "hr_hr:train:12137021049767807555.wav",
+            "is_is:train:18143916026623202906.wav",
+            "ka_ge:train:2993105044151469776.wav",
+            "kk_kz:train:13837639418509311322.wav",
+            "km_kh:train:10006360416725641613.wav",
+            "kn_in:train:14687240407945660913.wav",
+            "kn_in:train:15096009457771558023.wav",
+            "ky_kg:train:15514578015847358890.wav",
+            "lb_lu:train:10437720223409828494.wav",
+            "lo_la:train:10346663063780035215.wav",
+            "luo_ke:train:15463642708286073509.wav",
+            "mr_in:train:10986875885056557364.wav",
+            "ps_af:train:15589493469027767437.wav",
+            "sanskrit:2251799813734813_chunk_1.flac",
+            "santali:4785074604194847_chunk_1.flac",
+            "sd_in:train:13655315073103147391.wav",
+            "so_so:train:1179304877180760723.wav",
+            "tg_tj:train:11851591230613317287.wav",
+            "thorsten_emotional:whisper/37773d61d5c91c12d49e55e2b041c0cd.wav",
+            "ur_pk:train:13989351609468149814.wav"
+          ],
+          "window_dc_energy_fraction": 0.008173515303089048,
+          "windows": 722
+        },
+        "source_after800ms": {
+          "centered_residual_rms": 0.00017793071701006078,
+          "failed": 1671,
+          "failure_categories": {
+            "amplitude_only": 46,
+            "both": 36,
+            "passed": 91,
+            "residual_only": 1589
+          },
+          "reference_exact_zero_windows": 48,
+          "residual_rms": 0.0001790388397589382,
+          "samples": 1687386,
+          "source_ids": [
+            "1363-139304-0012",
+            "2051-153962-0091",
+            "3242-67168-0001",
+            "5101-67853-0031",
+            "5778-54535-0011",
+            "af_za:train:12687107890474022499.wav",
+            "as_in:train:13453488421825608782.wav",
+            "ast_es:train:16933683244427534350.wav",
+            "az_az:train:1439903150624501148.wav",
+            "be_by:train:12518029196714550777.wav",
+            "bodo:3659174697289264_chunk_3.flac",
+            "bs_ba:train:11358760624286905521.wav",
+            "ca_es:train:10583803894773586508.wav",
+            "cs_cz:train:10122716413664131344.wav",
+            "cy_gb:train:10349599617049103526.wav",
+            "dogri:622d1198-0621-4e0c-9027-77e32a505100_1_chunk_8.flac",
+            "en_us:train:13546164985487902870.wav",
+            "es_419:train:13461728374156750135.wav",
+            "ff_sn:train:14756055913832624081.wav",
+            "fi_fi:train:10893394073468230201.wav",
+            "freesound:180341",
+            "freesound:277554",
+            "freesound:343940",
+            "freesound:36399",
+            "freesound:402835",
+            "freesound:421873",
+            "freesound:428921",
+            "freesound:92375",
+            "gl_es:train:10769481348315642515.wav",
+            "ha_ng:train:12490254919826375416.wav",
+            "he_il:train:16823755323813467795.wav",
+            "hy_am:train:11186680517435167922.wav",
+            "is_is:train:18143916026623202906.wav",
+            "ja_jp:train:12210528383264418745.wav",
+            "ka_ge:train:2993105044151469776.wav",
+            "kam_ke:train:12154486779797187960.wav",
+            "kashmiri:1970324837177077_chunk_1.flac",
+            "kk_kz:train:13837639418509311322.wav",
+            "km_kh:train:10006360416725641613.wav",
+            "kn_in:train:15096009457771558023.wav",
+            "ko_kr:train:10359553883250105525.wav",
+            "ky_kg:train:15514578015847358890.wav",
+            "lb_lu:train:10437720223409828494.wav",
+            "lg_ug:train:12123343751639616808.wav",
+            "ln_cd:train:11959897544900910176.wav",
+            "lo_la:train:10346663063780035215.wav",
+            "lt_lt:train:15367591149256088428.wav",
+            "luo_ke:train:15463642708286073509.wav",
+            "manipuri:6473924464419399_chunk_1.flac",
+            "pa_in:train:16693733152628588519.wav",
+            "pl_pl:train:14002458340348798.wav",
+            "ps_af:train:15589493469027767437.wav",
+            "sanskrit:2251799813734813_chunk_1.flac",
+            "santali:4785074604194847_chunk_1.flac",
+            "sd_in:train:13655315073103147391.wav",
+            "so_so:train:1179304877180760723.wav",
+            "so_so:train:14842603451866844632.wav",
+            "te_in:train:14751961982184477566.wav",
+            "tg_tj:train:11851591230613317287.wav",
+            "ur_pk:train:13989351609468149814.wav"
+          ],
+          "window_dc_energy_fraction": 0.012340266565039969,
+          "windows": 1762
+        },
+        "source_first20ms": {
+          "centered_residual_rms": 0.00018195159173308996,
+          "failed": 31,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 29,
+            "passed": 0,
+            "residual_only": 2
+          },
+          "reference_exact_zero_windows": 11,
+          "residual_rms": 0.00018232316107358331,
+          "samples": 29760,
+          "source_ids": [
+            "ar_eg:train:12360449360113063891.wav",
+            "as_in:train:13453488421825608782.wav",
+            "az_az:train:1439903150624501148.wav",
+            "bs_ba:train:11358760624286905521.wav",
+            "ff_sn:train:14756055913832624081.wav",
+            "fi_fi:train:10893394073468230201.wav",
+            "freesound:180341",
+            "freesound:277554",
+            "freesound:343940",
+            "freesound:343960",
+            "freesound:36399",
+            "freesound:421873",
+            "freesound:428921",
+            "is_is:train:18143916026623202906.wav",
+            "ka_ge:train:2993105044151469776.wav",
+            "kk_kz:train:13837639418509311322.wav",
+            "km_kh:train:10006360416725641613.wav",
+            "kn_in:train:14687240407945660913.wav",
+            "kn_in:train:15096009457771558023.wav",
+            "ky_kg:train:15514578015847358890.wav",
+            "lb_lu:train:10437720223409828494.wav",
+            "luo_ke:train:15463642708286073509.wav",
+            "mr_in:train:10986875885056557364.wav",
+            "ps_af:train:15589493469027767437.wav",
+            "sanskrit:2251799813734813_chunk_1.flac",
+            "sd_in:train:13655315073103147391.wav",
+            "so_so:train:1179304877180760723.wav",
+            "ta_in:train:12079333390051219555.wav",
+            "tg_tj:train:11851591230613317287.wav",
+            "thorsten_emotional:whisper/37773d61d5c91c12d49e55e2b041c0cd.wav",
+            "ur_pk:train:13989351609468149814.wav"
+          ],
+          "window_dc_energy_fraction": 0.0040717889544187825,
+          "windows": 31
+        }
+      }
+    },
+    "5625": {
+      "actual_startup": {
+        "False": {
+          "centered_residual_rms": 0.00015465208671415956,
+          "failed": 2266,
+          "failure_categories": {
+            "amplitude_only": 122,
+            "both": 138,
+            "passed": 218,
+            "residual_only": 2006
+          },
+          "reference_exact_zero_windows": 164,
+          "residual_rms": 0.00015690644791615255,
+          "samples": 2379432,
+          "source_ids": [
+            "1363-139304-0012",
+            "2051-153962-0091",
+            "3242-67168-0001",
+            "5101-67853-0031",
+            "5778-54535-0011",
+            "af_za:train:12687107890474022499.wav",
+            "as_in:train:13453488421825608782.wav",
+            "ast_es:train:16933683244427534350.wav",
+            "az_az:train:1439903150624501148.wav",
+            "be_by:train:12518029196714550777.wav",
+            "bodo:3659174697289264_chunk_3.flac",
+            "bs_ba:train:11358760624286905521.wav",
+            "ca_es:train:10583803894773586508.wav",
+            "cs_cz:train:10122716413664131344.wav",
+            "cy_gb:train:10349599617049103526.wav",
+            "dogri:622d1198-0621-4e0c-9027-77e32a505100_1_chunk_8.flac",
+            "en_us:train:13546164985487902870.wav",
+            "es_419:train:13461728374156750135.wav",
+            "ff_sn:train:14756055913832624081.wav",
+            "fi_fi:train:10893394073468230201.wav",
+            "freesound:180341",
+            "freesound:236508",
+            "freesound:277554",
+            "freesound:343940",
+            "freesound:343960",
+            "freesound:36399",
+            "freesound:402835",
+            "freesound:421873",
+            "freesound:428921",
+            "freesound:92375",
+            "gl_es:train:10769481348315642515.wav",
+            "ha_ng:train:12490254919826375416.wav",
+            "he_il:train:16823755323813467795.wav",
+            "hr_hr:train:12137021049767807555.wav",
+            "hy_am:train:11186680517435167922.wav",
+            "is_is:train:18143916026623202906.wav",
+            "ja_jp:train:12210528383264418745.wav",
+            "ka_ge:train:2993105044151469776.wav",
+            "kam_ke:train:12154486779797187960.wav",
+            "kashmiri:1970324837177077_chunk_1.flac",
+            "kk_kz:train:13837639418509311322.wav",
+            "km_kh:train:10006360416725641613.wav",
+            "kn_in:train:14687240407945660913.wav",
+            "kn_in:train:15096009457771558023.wav",
+            "ko_kr:train:10359553883250105525.wav",
+            "ky_kg:train:15514578015847358890.wav",
+            "lb_lu:train:10437720223409828494.wav",
+            "lg_ug:train:12123343751639616808.wav",
+            "ln_cd:train:11959897544900910176.wav",
+            "lo_la:train:10346663063780035215.wav",
+            "lt_lt:train:15367591149256088428.wav",
+            "luo_ke:train:15463642708286073509.wav",
+            "manipuri:6473924464419399_chunk_1.flac",
+            "mr_in:train:10986875885056557364.wav",
+            "pa_in:train:16693733152628588519.wav",
+            "pl_pl:train:14002458340348798.wav",
+            "ps_af:train:15589493469027767437.wav",
+            "sanskrit:2251799813734813_chunk_1.flac",
+            "santali:4785074604194847_chunk_1.flac",
+            "sd_in:train:13655315073103147391.wav",
+            "so_so:train:1179304877180760723.wav",
+            "so_so:train:14842603451866844632.wav",
+            "te_in:train:14751961982184477566.wav",
+            "tg_tj:train:11851591230613317287.wav",
+            "thorsten_emotional:whisper/37773d61d5c91c12d49e55e2b041c0cd.wav",
+            "ur_pk:train:13989351609468149814.wav"
+          ],
+          "window_dc_energy_fraction": 0.028528673082800667,
+          "windows": 2484
+        },
+        "True": {
+          "centered_residual_rms": 0.0003043301778938778,
+          "failed": 58,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 34,
+            "passed": 2,
+            "residual_only": 24
+          },
+          "reference_exact_zero_windows": 21,
+          "residual_rms": 0.00030487820214292535,
+          "samples": 57600,
+          "source_ids": [
+            "ar_eg:train:12360449360113063891.wav",
+            "as_in:train:13453488421825608782.wav",
+            "az_az:train:1439903150624501148.wav",
+            "bs_ba:train:11358760624286905521.wav",
+            "ff_sn:train:14756055913832624081.wav",
+            "fi_fi:train:10893394073468230201.wav",
+            "freesound:180341",
+            "freesound:277554",
+            "freesound:343940",
+            "freesound:343960",
+            "freesound:36399",
+            "freesound:421873",
+            "freesound:428921",
+            "is_is:train:18143916026623202906.wav",
+            "ka_ge:train:2993105044151469776.wav",
+            "kk_kz:train:13837639418509311322.wav",
+            "km_kh:train:10006360416725641613.wav",
+            "kn_in:train:14687240407945660913.wav",
+            "kn_in:train:15096009457771558023.wav",
+            "ky_kg:train:15514578015847358890.wav",
+            "lb_lu:train:10437720223409828494.wav",
+            "luo_ke:train:15463642708286073509.wav",
+            "mr_in:train:10986875885056557364.wav",
+            "ps_af:train:15589493469027767437.wav",
+            "sanskrit:2251799813734813_chunk_1.flac",
+            "sd_in:train:13655315073103147391.wav",
+            "so_so:train:1179304877180760723.wav",
+            "ta_in:train:12079333390051219555.wav",
+            "tg_tj:train:11851591230613317287.wav",
+            "thorsten_emotional:whisper/37773d61d5c91c12d49e55e2b041c0cd.wav",
+            "ur_pk:train:13989351609468149814.wav"
+          ],
+          "window_dc_energy_fraction": 0.003591806192109744,
+          "windows": 60
+        }
+      },
+      "adjacent_active_window": {
+        "False": {
+          "centered_residual_rms": 0.00014005081228827886,
+          "failed": 1986,
+          "failure_categories": {
+            "amplitude_only": 121,
+            "both": 157,
+            "passed": 191,
+            "residual_only": 1708
+          },
+          "reference_exact_zero_windows": 184,
+          "residual_rms": 0.0001419305125054547,
+          "samples": 2086620,
+          "source_ids": [
+            "1363-139304-0012",
+            "3242-67168-0001",
+            "5101-67853-0031",
+            "5778-54535-0011",
+            "af_za:train:12687107890474022499.wav",
+            "ar_eg:train:12360449360113063891.wav",
+            "as_in:train:13453488421825608782.wav",
+            "ast_es:train:16933683244427534350.wav",
+            "az_az:train:1439903150624501148.wav",
+            "be_by:train:12518029196714550777.wav",
+            "bs_ba:train:11358760624286905521.wav",
+            "ca_es:train:10583803894773586508.wav",
+            "cs_cz:train:10122716413664131344.wav",
+            "cy_gb:train:10349599617049103526.wav",
+            "dogri:622d1198-0621-4e0c-9027-77e32a505100_1_chunk_8.flac",
+            "en_us:train:13546164985487902870.wav",
+            "es_419:train:13461728374156750135.wav",
+            "ff_sn:train:14756055913832624081.wav",
+            "fi_fi:train:10893394073468230201.wav",
+            "freesound:180341",
+            "freesound:277554",
+            "freesound:343940",
+            "freesound:36399",
+            "freesound:421873",
+            "freesound:428921",
+            "freesound:92375",
+            "gl_es:train:10769481348315642515.wav",
+            "ha_ng:train:12490254919826375416.wav",
+            "hy_am:train:11186680517435167922.wav",
+            "is_is:train:18143916026623202906.wav",
+            "ja_jp:train:12210528383264418745.wav",
+            "ka_ge:train:2993105044151469776.wav",
+            "kam_ke:train:12154486779797187960.wav",
+            "kk_kz:train:13837639418509311322.wav",
+            "km_kh:train:10006360416725641613.wav",
+            "kn_in:train:14687240407945660913.wav",
+            "kn_in:train:15096009457771558023.wav",
+            "ko_kr:train:10359553883250105525.wav",
+            "ky_kg:train:15514578015847358890.wav",
+            "lb_lu:train:10437720223409828494.wav",
+            "lg_ug:train:12123343751639616808.wav",
+            "ln_cd:train:11959897544900910176.wav",
+            "lo_la:train:10346663063780035215.wav",
+            "lt_lt:train:15367591149256088428.wav",
+            "luo_ke:train:15463642708286073509.wav",
+            "manipuri:6473924464419399_chunk_1.flac",
+            "mr_in:train:10986875885056557364.wav",
+            "pa_in:train:16693733152628588519.wav",
+            "pl_pl:train:14002458340348798.wav",
+            "ps_af:train:15589493469027767437.wav",
+            "sanskrit:2251799813734813_chunk_1.flac",
+            "santali:4785074604194847_chunk_1.flac",
+            "sd_in:train:13655315073103147391.wav",
+            "so_so:train:1179304877180760723.wav",
+            "so_so:train:14842603451866844632.wav",
+            "te_in:train:14751961982184477566.wav",
+            "tg_tj:train:11851591230613317287.wav",
+            "thorsten_emotional:whisper/37773d61d5c91c12d49e55e2b041c0cd.wav",
+            "ur_pk:train:13989351609468149814.wav"
+          ],
+          "window_dc_energy_fraction": 0.026312214215460133,
+          "windows": 2177
+        },
+        "True": {
+          "centered_residual_rms": 0.00024664454216317245,
+          "failed": 338,
+          "failure_categories": {
+            "amplitude_only": 1,
+            "both": 15,
+            "passed": 29,
+            "residual_only": 322
+          },
+          "reference_exact_zero_windows": 1,
+          "residual_rms": 0.0002500029533015163,
+          "samples": 350412,
+          "source_ids": [
+            "1363-139304-0012",
+            "2051-153962-0091",
+            "3242-67168-0001",
+            "5101-67853-0031",
+            "5778-54535-0011",
+            "af_za:train:12687107890474022499.wav",
+            "ar_eg:train:12360449360113063891.wav",
+            "as_in:train:13453488421825608782.wav",
+            "ast_es:train:16933683244427534350.wav",
+            "az_az:train:1439903150624501148.wav",
+            "be_by:train:12518029196714550777.wav",
+            "bodo:3659174697289264_chunk_3.flac",
+            "bs_ba:train:11358760624286905521.wav",
+            "ca_es:train:10583803894773586508.wav",
+            "cs_cz:train:10122716413664131344.wav",
+            "dogri:622d1198-0621-4e0c-9027-77e32a505100_1_chunk_8.flac",
+            "en_us:train:13546164985487902870.wav",
+            "es_419:train:13461728374156750135.wav",
+            "ff_sn:train:14756055913832624081.wav",
+            "fi_fi:train:10893394073468230201.wav",
+            "freesound:180341",
+            "freesound:236508",
+            "freesound:277554",
+            "freesound:343940",
+            "freesound:343960",
+            "freesound:36399",
+            "freesound:402835",
+            "freesound:421873",
+            "freesound:428921",
+            "freesound:92375",
+            "gl_es:train:10769481348315642515.wav",
+            "ha_ng:train:12490254919826375416.wav",
+            "he_il:train:16823755323813467795.wav",
+            "hr_hr:train:12137021049767807555.wav",
+            "hy_am:train:11186680517435167922.wav",
+            "is_is:train:18143916026623202906.wav",
+            "ja_jp:train:12210528383264418745.wav",
+            "ka_ge:train:2993105044151469776.wav",
+            "kam_ke:train:12154486779797187960.wav",
+            "kashmiri:1970324837177077_chunk_1.flac",
+            "kk_kz:train:13837639418509311322.wav",
+            "km_kh:train:10006360416725641613.wav",
+            "kn_in:train:14687240407945660913.wav",
+            "kn_in:train:15096009457771558023.wav",
+            "ko_kr:train:10359553883250105525.wav",
+            "ky_kg:train:15514578015847358890.wav",
+            "lg_ug:train:12123343751639616808.wav",
+            "ln_cd:train:11959897544900910176.wav",
+            "lo_la:train:10346663063780035215.wav",
+            "lt_lt:train:15367591149256088428.wav",
+            "luo_ke:train:15463642708286073509.wav",
+            "manipuri:6473924464419399_chunk_1.flac",
+            "mr_in:train:10986875885056557364.wav",
+            "pa_in:train:16693733152628588519.wav",
+            "pl_pl:train:14002458340348798.wav",
+            "ps_af:train:15589493469027767437.wav",
+            "sanskrit:2251799813734813_chunk_1.flac",
+            "santali:4785074604194847_chunk_1.flac",
+            "sd_in:train:13655315073103147391.wav",
+            "so_so:train:1179304877180760723.wav",
+            "so_so:train:14842603451866844632.wav",
+            "ta_in:train:12079333390051219555.wav",
+            "te_in:train:14751961982184477566.wav",
+            "tg_tj:train:11851591230613317287.wav",
+            "thorsten_emotional:whisper/37773d61d5c91c12d49e55e2b041c0cd.wav",
+            "ur_pk:train:13989351609468149814.wav"
+          ],
+          "window_dc_energy_fraction": 0.02668651317930457,
+          "windows": 367
+        }
+      },
+      "all": {
+        "centered_residual_rms": 0.00015981553060386803,
+        "failed": 2324,
+        "failure_categories": {
+          "amplitude_only": 122,
+          "both": 172,
+          "passed": 220,
+          "residual_only": 2030
+        },
+        "reference_exact_zero_windows": 185,
+        "residual_rms": 0.00016197116897019066,
+        "samples": 2437032,
+        "source_ids": [
+          "1363-139304-0012",
+          "2051-153962-0091",
+          "3242-67168-0001",
+          "5101-67853-0031",
+          "5778-54535-0011",
+          "af_za:train:12687107890474022499.wav",
+          "ar_eg:train:12360449360113063891.wav",
+          "as_in:train:13453488421825608782.wav",
+          "ast_es:train:16933683244427534350.wav",
+          "az_az:train:1439903150624501148.wav",
+          "be_by:train:12518029196714550777.wav",
+          "bodo:3659174697289264_chunk_3.flac",
+          "bs_ba:train:11358760624286905521.wav",
+          "ca_es:train:10583803894773586508.wav",
+          "cs_cz:train:10122716413664131344.wav",
+          "cy_gb:train:10349599617049103526.wav",
+          "dogri:622d1198-0621-4e0c-9027-77e32a505100_1_chunk_8.flac",
+          "en_us:train:13546164985487902870.wav",
+          "es_419:train:13461728374156750135.wav",
+          "ff_sn:train:14756055913832624081.wav",
+          "fi_fi:train:10893394073468230201.wav",
+          "freesound:180341",
+          "freesound:236508",
+          "freesound:277554",
+          "freesound:343940",
+          "freesound:343960",
+          "freesound:36399",
+          "freesound:402835",
+          "freesound:421873",
+          "freesound:428921",
+          "freesound:92375",
+          "gl_es:train:10769481348315642515.wav",
+          "ha_ng:train:12490254919826375416.wav",
+          "he_il:train:16823755323813467795.wav",
+          "hr_hr:train:12137021049767807555.wav",
+          "hy_am:train:11186680517435167922.wav",
+          "is_is:train:18143916026623202906.wav",
+          "ja_jp:train:12210528383264418745.wav",
+          "ka_ge:train:2993105044151469776.wav",
+          "kam_ke:train:12154486779797187960.wav",
+          "kashmiri:1970324837177077_chunk_1.flac",
+          "kk_kz:train:13837639418509311322.wav",
+          "km_kh:train:10006360416725641613.wav",
+          "kn_in:train:14687240407945660913.wav",
+          "kn_in:train:15096009457771558023.wav",
+          "ko_kr:train:10359553883250105525.wav",
+          "ky_kg:train:15514578015847358890.wav",
+          "lb_lu:train:10437720223409828494.wav",
+          "lg_ug:train:12123343751639616808.wav",
+          "ln_cd:train:11959897544900910176.wav",
+          "lo_la:train:10346663063780035215.wav",
+          "lt_lt:train:15367591149256088428.wav",
+          "luo_ke:train:15463642708286073509.wav",
+          "manipuri:6473924464419399_chunk_1.flac",
+          "mr_in:train:10986875885056557364.wav",
+          "pa_in:train:16693733152628588519.wav",
+          "pl_pl:train:14002458340348798.wav",
+          "ps_af:train:15589493469027767437.wav",
+          "sanskrit:2251799813734813_chunk_1.flac",
+          "santali:4785074604194847_chunk_1.flac",
+          "sd_in:train:13655315073103147391.wav",
+          "so_so:train:1179304877180760723.wav",
+          "so_so:train:14842603451866844632.wav",
+          "ta_in:train:12079333390051219555.wav",
+          "te_in:train:14751961982184477566.wav",
+          "tg_tj:train:11851591230613317287.wav",
+          "thorsten_emotional:whisper/37773d61d5c91c12d49e55e2b041c0cd.wav",
+          "ur_pk:train:13989351609468149814.wav"
+        ],
+        "window_dc_energy_fraction": 0.02644043286794682,
+        "windows": 2544
+      },
+      "by_source": {
+        "1363-139304-0012": {
+          "centered_residual_rms": 0.00033084457205696094,
+          "failed": 57,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 0,
+            "residual_only": 57
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00033248545601209195,
+          "samples": 54720,
+          "source_ids": [
+            "1363-139304-0012"
+          ],
+          "window_dc_energy_fraction": 0.009846054171755483,
+          "windows": 57
+        },
+        "2051-153962-0091": {
+          "centered_residual_rms": 0.00033958928623201704,
+          "failed": 3,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 0,
+            "residual_only": 3
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00034584134097036425,
+          "samples": 2880,
+          "source_ids": [
+            "2051-153962-0091"
+          ],
+          "window_dc_energy_fraction": 0.03582881668181723,
+          "windows": 3
+        },
+        "3242-67168-0001": {
+          "centered_residual_rms": 0.0002619708966466955,
+          "failed": 35,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 0,
+            "residual_only": 35
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.0002663023269157089,
+          "samples": 33600,
+          "source_ids": [
+            "3242-67168-0001"
+          ],
+          "window_dc_energy_fraction": 0.03226561912317436,
+          "windows": 35
+        },
+        "5101-67853-0031": {
+          "centered_residual_rms": 0.0001750371930397215,
+          "failed": 21,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 1,
+            "passed": 1,
+            "residual_only": 20
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.0001783735496005341,
+          "samples": 21120,
+          "source_ids": [
+            "5101-67853-0031"
+          ],
+          "window_dc_energy_fraction": 0.037058795120017404,
+          "windows": 22
+        },
+        "5778-54535-0011": {
+          "centered_residual_rms": 0.00016265367376709183,
+          "failed": 34,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 1,
+            "residual_only": 34
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00016810145005175526,
+          "samples": 33600,
+          "source_ids": [
+            "5778-54535-0011"
+          ],
+          "window_dc_energy_fraction": 0.06376508252069292,
+          "windows": 35
+        },
+        "af_za:train:12687107890474022499.wav": {
+          "centered_residual_rms": 9.762044771010958e-05,
+          "failed": 18,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 0,
+            "residual_only": 18
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00010036927357111028,
+          "samples": 17280,
+          "source_ids": [
+            "af_za:train:12687107890474022499.wav"
+          ],
+          "window_dc_energy_fraction": 0.054024195763117115,
+          "windows": 18
+        },
+        "ar_eg:train:12360449360113063891.wav": {
+          "centered_residual_rms": 8.266922831284468e-05,
+          "failed": 2,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 2,
+            "passed": 0,
+            "residual_only": 0
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 8.358837988242532e-05,
+          "samples": 1920,
+          "source_ids": [
+            "ar_eg:train:12360449360113063891.wav"
+          ],
+          "window_dc_energy_fraction": 0.02187141322679164,
+          "windows": 2
+        },
+        "as_in:train:13453488421825608782.wav": {
+          "centered_residual_rms": 0.0002542555128960255,
+          "failed": 11,
+          "failure_categories": {
+            "amplitude_only": 1,
+            "both": 1,
+            "passed": 1,
+            "residual_only": 9
+          },
+          "reference_exact_zero_windows": 3,
+          "residual_rms": 0.000255192262431007,
+          "samples": 11520,
+          "source_ids": [
+            "as_in:train:13453488421825608782.wav"
+          ],
+          "window_dc_energy_fraction": 0.007328045409675494,
+          "windows": 12
+        },
+        "ast_es:train:16933683244427534350.wav": {
+          "centered_residual_rms": 0.00013336425231728997,
+          "failed": 43,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 1,
+            "passed": 0,
+            "residual_only": 42
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00013453410696985315,
+          "samples": 41280,
+          "source_ids": [
+            "ast_es:train:16933683244427534350.wav"
+          ],
+          "window_dc_energy_fraction": 0.017315584654266185,
+          "windows": 43
+        },
+        "az_az:train:1439903150624501148.wav": {
+          "centered_residual_rms": 9.990420680708498e-05,
+          "failed": 92,
+          "failure_categories": {
+            "amplitude_only": 1,
+            "both": 2,
+            "passed": 15,
+            "residual_only": 89
+          },
+          "reference_exact_zero_windows": 3,
+          "residual_rms": 0.00010205696259458656,
+          "samples": 102720,
+          "source_ids": [
+            "az_az:train:1439903150624501148.wav"
+          ],
+          "window_dc_energy_fraction": 0.04174239511633979,
+          "windows": 107
+        },
+        "be_by:train:12518029196714550777.wav": {
+          "centered_residual_rms": 0.00014817440639295832,
+          "failed": 52,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 4,
+            "passed": 2,
+            "residual_only": 48
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00014874111107160588,
+          "samples": 51840,
+          "source_ids": [
+            "be_by:train:12518029196714550777.wav"
+          ],
+          "window_dc_energy_fraction": 0.0076054979039496635,
+          "windows": 54
+        },
+        "bodo:3659174697289264_chunk_3.flac": {
+          "centered_residual_rms": 0.00030778953983156984,
+          "failed": 1,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 0,
+            "residual_only": 1
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00031039848957285554,
+          "samples": 960,
+          "source_ids": [
+            "bodo:3659174697289264_chunk_3.flac"
+          ],
+          "window_dc_energy_fraction": 0.016739678222080747,
+          "windows": 1
+        },
+        "bs_ba:train:11358760624286905521.wav": {
+          "centered_residual_rms": 0.00015695701738586997,
+          "failed": 81,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 2,
+            "passed": 0,
+            "residual_only": 79
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00015768011104460807,
+          "samples": 77760,
+          "source_ids": [
+            "bs_ba:train:11358760624286905521.wav"
+          ],
+          "window_dc_energy_fraction": 0.00915062353604012,
+          "windows": 81
+        },
+        "ca_es:train:10583803894773586508.wav": {
+          "centered_residual_rms": 0.00015230743145288255,
+          "failed": 28,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 0,
+            "residual_only": 28
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00015389479178300414,
+          "samples": 26880,
+          "source_ids": [
+            "ca_es:train:10583803894773586508.wav"
+          ],
+          "window_dc_energy_fraction": 0.020522771866356586,
+          "windows": 28
+        },
+        "cs_cz:train:10122716413664131344.wav": {
+          "centered_residual_rms": 0.00021971478703936513,
+          "failed": 4,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 0,
+            "residual_only": 4
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00022651131038592878,
+          "samples": 3840,
+          "source_ids": [
+            "cs_cz:train:10122716413664131344.wav"
+          ],
+          "window_dc_energy_fraction": 0.059110140869695425,
+          "windows": 4
+        },
+        "cy_gb:train:10349599617049103526.wav": {
+          "centered_residual_rms": 1.8123648142652903e-05,
+          "failed": 125,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 26,
+            "passed": 3,
+            "residual_only": 99
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 2.089849546994132e-05,
+          "samples": 122880,
+          "source_ids": [
+            "cy_gb:train:10349599617049103526.wav"
+          ],
+          "window_dc_energy_fraction": 0.24792491514761242,
+          "windows": 128
+        },
+        "dogri:622d1198-0621-4e0c-9027-77e32a505100_1_chunk_8.flac": {
+          "centered_residual_rms": 0.00014892114433852604,
+          "failed": 19,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 3,
+            "passed": 0,
+            "residual_only": 16
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.0001519369280263915,
+          "samples": 18240,
+          "source_ids": [
+            "dogri:622d1198-0621-4e0c-9027-77e32a505100_1_chunk_8.flac"
+          ],
+          "window_dc_energy_fraction": 0.03930385725799924,
+          "windows": 19
+        },
+        "en_us:train:13546164985487902870.wav": {
+          "centered_residual_rms": 0.0001947972571407833,
+          "failed": 20,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 0,
+            "residual_only": 20
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00019527405417674865,
+          "samples": 19200,
+          "source_ids": [
+            "en_us:train:13546164985487902870.wav"
+          ],
+          "window_dc_energy_fraction": 0.004877401093900328,
+          "windows": 20
+        },
+        "es_419:train:13461728374156750135.wav": {
+          "centered_residual_rms": 3.515199620769635e-05,
+          "failed": 28,
+          "failure_categories": {
+            "amplitude_only": 23,
+            "both": 2,
+            "passed": 20,
+            "residual_only": 3
+          },
+          "reference_exact_zero_windows": 42,
+          "residual_rms": 3.536298639905113e-05,
+          "samples": 46080,
+          "source_ids": [
+            "es_419:train:13461728374156750135.wav"
+          ],
+          "window_dc_energy_fraction": 0.011897228454751621,
+          "windows": 48
+        },
+        "ff_sn:train:14756055913832624081.wav": {
+          "centered_residual_rms": 0.00028127011645160045,
+          "failed": 33,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 1,
+            "passed": 0,
+            "residual_only": 32
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.0002838497971769557,
+          "samples": 31680,
+          "source_ids": [
+            "ff_sn:train:14756055913832624081.wav"
+          ],
+          "window_dc_energy_fraction": 0.01809378366551164,
+          "windows": 33
+        },
+        "fi_fi:train:10893394073468230201.wav": {
+          "centered_residual_rms": 0.00018086167038105954,
+          "failed": 41,
+          "failure_categories": {
+            "amplitude_only": 10,
+            "both": 3,
+            "passed": 2,
+            "residual_only": 28
+          },
+          "reference_exact_zero_windows": 15,
+          "residual_rms": 0.0001845281505570714,
+          "samples": 41280,
+          "source_ids": [
+            "fi_fi:train:10893394073468230201.wav"
+          ],
+          "window_dc_energy_fraction": 0.03934418266388681,
+          "windows": 43
+        },
+        "freesound:180341": {
+          "centered_residual_rms": 8.053784784243617e-05,
+          "failed": 4,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 2,
+            "passed": 4,
+            "residual_only": 2
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 8.640189808780462e-05,
+          "samples": 7002,
+          "source_ids": [
+            "freesound:180341"
+          ],
+          "window_dc_energy_fraction": 0.13113265810761837,
+          "windows": 8
+        },
+        "freesound:236508": {
+          "centered_residual_rms": 0.00012512220264121032,
+          "failed": 1,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 0,
+            "residual_only": 1
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.0001258400307689452,
+          "samples": 822,
+          "source_ids": [
+            "freesound:236508"
+          ],
+          "window_dc_energy_fraction": 0.011376042634040314,
+          "windows": 1
+        },
+        "freesound:277554": {
+          "centered_residual_rms": 0.0002629812132276846,
+          "failed": 13,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 2,
+            "passed": 5,
+            "residual_only": 11
+          },
+          "reference_exact_zero_windows": 3,
+          "residual_rms": 0.00026602975808691885,
+          "samples": 16515,
+          "source_ids": [
+            "freesound:277554"
+          ],
+          "window_dc_energy_fraction": 0.022787507787003444,
+          "windows": 18
+        },
+        "freesound:343940": {
+          "centered_residual_rms": 0.0003021954666814251,
+          "failed": 6,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 1,
+            "passed": 0,
+            "residual_only": 5
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.0003112351348521411,
+          "samples": 5490,
+          "source_ids": [
+            "freesound:343940"
+          ],
+          "window_dc_energy_fraction": 0.057245412630372305,
+          "windows": 6
+        },
+        "freesound:343960": {
+          "centered_residual_rms": 0.00037535069617621053,
+          "failed": 2,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 1,
+            "passed": 0,
+            "residual_only": 1
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.0003854645920648607,
+          "samples": 984,
+          "source_ids": [
+            "freesound:343960"
+          ],
+          "window_dc_energy_fraction": 0.05178795094506926,
+          "windows": 2
+        },
+        "freesound:36399": {
+          "centered_residual_rms": 7.516706224616956e-05,
+          "failed": 10,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 1,
+            "passed": 11,
+            "residual_only": 9
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 7.821373090579931e-05,
+          "samples": 20160,
+          "source_ids": [
+            "freesound:36399"
+          ],
+          "window_dc_energy_fraction": 0.07638888987154342,
+          "windows": 21
+        },
+        "freesound:402835": {
+          "centered_residual_rms": 0.0005831508543360224,
+          "failed": 1,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 1,
+            "passed": 0,
+            "residual_only": 0
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.0005831747893879121,
+          "samples": 126,
+          "source_ids": [
+            "freesound:402835"
+          ],
+          "window_dc_energy_fraction": 8.208366049415161e-05,
+          "windows": 1
+        },
+        "freesound:421873": {
+          "centered_residual_rms": 7.527424773902648e-05,
+          "failed": 54,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 4,
+            "passed": 7,
+            "residual_only": 50
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 7.623593823389077e-05,
+          "samples": 57603,
+          "source_ids": [
+            "freesound:421873"
+          ],
+          "window_dc_energy_fraction": 0.025070191758674802,
+          "windows": 61
+        },
+        "freesound:428921": {
+          "centered_residual_rms": 0.00012079318338148278,
+          "failed": 60,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 7,
+            "passed": 1,
+            "residual_only": 53
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00012116681941579035,
+          "samples": 58560,
+          "source_ids": [
+            "freesound:428921"
+          ],
+          "window_dc_energy_fraction": 0.006157790635612183,
+          "windows": 61
+        },
+        "freesound:92375": {
+          "centered_residual_rms": 0.0003653049782816575,
+          "failed": 4,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 1,
+            "passed": 0,
+            "residual_only": 3
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.0003660769165400667,
+          "samples": 3210,
+          "source_ids": [
+            "freesound:92375"
+          ],
+          "window_dc_energy_fraction": 0.0042129090310979046,
+          "windows": 4
+        },
+        "gl_es:train:10769481348315642515.wav": {
+          "centered_residual_rms": 0.0002942664755264375,
+          "failed": 14,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 0,
+            "residual_only": 14
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00029790851140999665,
+          "samples": 13440,
+          "source_ids": [
+            "gl_es:train:10769481348315642515.wav"
+          ],
+          "window_dc_energy_fraction": 0.02430124123908719,
+          "windows": 14
+        },
+        "ha_ng:train:12490254919826375416.wav": {
+          "centered_residual_rms": 0.0001379239955224319,
+          "failed": 30,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 4,
+            "residual_only": 30
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00014498605902325349,
+          "samples": 32640,
+          "source_ids": [
+            "ha_ng:train:12490254919826375416.wav"
+          ],
+          "window_dc_energy_fraction": 0.09504461384201862,
+          "windows": 34
+        },
+        "he_il:train:16823755323813467795.wav": {
+          "centered_residual_rms": 0.00042868861263491474,
+          "failed": 5,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 0,
+            "residual_only": 5
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.0004319817116381578,
+          "samples": 4800,
+          "source_ids": [
+            "he_il:train:16823755323813467795.wav"
+          ],
+          "window_dc_energy_fraction": 0.015188360421941171,
+          "windows": 5
+        },
+        "hr_hr:train:12137021049767807555.wav": {
+          "centered_residual_rms": 0.00017463278937406465,
+          "failed": 2,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 0,
+            "residual_only": 2
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.0001786281726053055,
+          "samples": 1920,
+          "source_ids": [
+            "hr_hr:train:12137021049767807555.wav"
+          ],
+          "window_dc_energy_fraction": 0.044233792779127104,
+          "windows": 2
+        },
+        "hy_am:train:11186680517435167922.wav": {
+          "centered_residual_rms": 0.00010502360092177852,
+          "failed": 87,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 6,
+            "passed": 30,
+            "residual_only": 81
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00011041975739067433,
+          "samples": 112320,
+          "source_ids": [
+            "hy_am:train:11186680517435167922.wav"
+          ],
+          "window_dc_energy_fraction": 0.09535073984197316,
+          "windows": 117
+        },
+        "is_is:train:18143916026623202906.wav": {
+          "centered_residual_rms": 0.0001433239911877998,
+          "failed": 52,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 2,
+            "passed": 0,
+            "residual_only": 50
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00014373812384906105,
+          "samples": 49920,
+          "source_ids": [
+            "is_is:train:18143916026623202906.wav"
+          ],
+          "window_dc_energy_fraction": 0.0057540206978275,
+          "windows": 52
+        },
+        "ja_jp:train:12210528383264418745.wav": {
+          "centered_residual_rms": 0.00010380625578728911,
+          "failed": 14,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 1,
+            "residual_only": 14
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00011105520841449179,
+          "samples": 14400,
+          "source_ids": [
+            "ja_jp:train:12210528383264418745.wav"
+          ],
+          "window_dc_energy_fraction": 0.1262862099551637,
+          "windows": 15
+        },
+        "ka_ge:train:2993105044151469776.wav": {
+          "centered_residual_rms": 7.878546032400744e-05,
+          "failed": 35,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 1,
+            "passed": 26,
+            "residual_only": 34
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 8.140210729889105e-05,
+          "samples": 58560,
+          "source_ids": [
+            "ka_ge:train:2993105044151469776.wav"
+          ],
+          "window_dc_energy_fraction": 0.06325613387067999,
+          "windows": 61
+        },
+        "kam_ke:train:12154486779797187960.wav": {
+          "centered_residual_rms": 0.0001739682696337819,
+          "failed": 34,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 0,
+            "residual_only": 34
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00017715048661298208,
+          "samples": 32640,
+          "source_ids": [
+            "kam_ke:train:12154486779797187960.wav"
+          ],
+          "window_dc_energy_fraction": 0.035604026765651754,
+          "windows": 34
+        },
+        "kashmiri:1970324837177077_chunk_1.flac": {
+          "centered_residual_rms": 0.00035732938506391346,
+          "failed": 2,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 0,
+            "residual_only": 2
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.0003578175372590044,
+          "samples": 1920,
+          "source_ids": [
+            "kashmiri:1970324837177077_chunk_1.flac"
+          ],
+          "window_dc_energy_fraction": 0.002726636700207439,
+          "windows": 2
+        },
+        "kk_kz:train:13837639418509311322.wav": {
+          "centered_residual_rms": 0.00012875569762602158,
+          "failed": 73,
+          "failure_categories": {
+            "amplitude_only": 1,
+            "both": 8,
+            "passed": 3,
+            "residual_only": 64
+          },
+          "reference_exact_zero_windows": 4,
+          "residual_rms": 0.000129622630119977,
+          "samples": 72960,
+          "source_ids": [
+            "kk_kz:train:13837639418509311322.wav"
+          ],
+          "window_dc_energy_fraction": 0.013331521143206196,
+          "windows": 76
+        },
+        "km_kh:train:10006360416725641613.wav": {
+          "centered_residual_rms": 8.090608121359606e-05,
+          "failed": 79,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 2,
+            "passed": 2,
+            "residual_only": 77
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 8.208395135155879e-05,
+          "samples": 77760,
+          "source_ids": [
+            "km_kh:train:10006360416725641613.wav"
+          ],
+          "window_dc_energy_fraction": 0.028493247424292684,
+          "windows": 81
+        },
+        "kn_in:train:14687240407945660913.wav": {
+          "centered_residual_rms": 0.0001918543077177865,
+          "failed": 29,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 1,
+            "passed": 0,
+            "residual_only": 28
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00019313353859815724,
+          "samples": 27840,
+          "source_ids": [
+            "kn_in:train:14687240407945660913.wav"
+          ],
+          "window_dc_energy_fraction": 0.013203241246447827,
+          "windows": 29
+        },
+        "kn_in:train:15096009457771558023.wav": {
+          "centered_residual_rms": 0.0001928069072940278,
+          "failed": 65,
+          "failure_categories": {
+            "amplitude_only": 37,
+            "both": 3,
+            "passed": 4,
+            "residual_only": 25
+          },
+          "reference_exact_zero_windows": 43,
+          "residual_rms": 0.00019730275328387053,
+          "samples": 66240,
+          "source_ids": [
+            "kn_in:train:15096009457771558023.wav"
+          ],
+          "window_dc_energy_fraction": 0.04505384279788183,
+          "windows": 69
+        },
+        "ko_kr:train:10359553883250105525.wav": {
+          "centered_residual_rms": 0.0002193153313650687,
+          "failed": 14,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 3,
+            "residual_only": 14
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00022127839353195474,
+          "samples": 16320,
+          "source_ids": [
+            "ko_kr:train:10359553883250105525.wav"
+          ],
+          "window_dc_energy_fraction": 0.017664214956152915,
+          "windows": 17
+        },
+        "ky_kg:train:15514578015847358890.wav": {
+          "centered_residual_rms": 0.00019531324821284838,
+          "failed": 32,
+          "failure_categories": {
+            "amplitude_only": 10,
+            "both": 2,
+            "passed": 2,
+            "residual_only": 20
+          },
+          "reference_exact_zero_windows": 14,
+          "residual_rms": 0.0001998152426833127,
+          "samples": 32640,
+          "source_ids": [
+            "ky_kg:train:15514578015847358890.wav"
+          ],
+          "window_dc_energy_fraction": 0.04455393566293428,
+          "windows": 34
+        },
+        "lb_lu:train:10437720223409828494.wav": {
+          "centered_residual_rms": 0.00011956181067061526,
+          "failed": 122,
+          "failure_categories": {
+            "amplitude_only": 14,
+            "both": 14,
+            "passed": 6,
+            "residual_only": 94
+          },
+          "reference_exact_zero_windows": 17,
+          "residual_rms": 0.00012070931626151762,
+          "samples": 122880,
+          "source_ids": [
+            "lb_lu:train:10437720223409828494.wav"
+          ],
+          "window_dc_energy_fraction": 0.018922338865270158,
+          "windows": 128
+        },
+        "lg_ug:train:12123343751639616808.wav": {
+          "centered_residual_rms": 7.544382355249469e-05,
+          "failed": 15,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 2,
+            "passed": 2,
+            "residual_only": 13
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 7.960778892865344e-05,
+          "samples": 16320,
+          "source_ids": [
+            "lg_ug:train:12123343751639616808.wav"
+          ],
+          "window_dc_energy_fraction": 0.10187609113661202,
+          "windows": 17
+        },
+        "ln_cd:train:11959897544900910176.wav": {
+          "centered_residual_rms": 0.0005350308664504695,
+          "failed": 15,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 0,
+            "residual_only": 15
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.0005368160449174397,
+          "samples": 14400,
+          "source_ids": [
+            "ln_cd:train:11959897544900910176.wav"
+          ],
+          "window_dc_energy_fraction": 0.006639928831559035,
+          "windows": 15
+        },
+        "lo_la:train:10346663063780035215.wav": {
+          "centered_residual_rms": 0.0002147994500456657,
+          "failed": 18,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 0,
+            "residual_only": 18
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.0002197156999328857,
+          "samples": 17280,
+          "source_ids": [
+            "lo_la:train:10346663063780035215.wav"
+          ],
+          "window_dc_energy_fraction": 0.044250348064508976,
+          "windows": 18
+        },
+        "lt_lt:train:15367591149256088428.wav": {
+          "centered_residual_rms": 0.00010097837980005807,
+          "failed": 114,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 17,
+            "passed": 12,
+            "residual_only": 97
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00010168079438741525,
+          "samples": 120960,
+          "source_ids": [
+            "lt_lt:train:15367591149256088428.wav"
+          ],
+          "window_dc_energy_fraction": 0.013768351023392807,
+          "windows": 126
+        },
+        "luo_ke:train:15463642708286073509.wav": {
+          "centered_residual_rms": 0.0002590101906441548,
+          "failed": 55,
+          "failure_categories": {
+            "amplitude_only": 6,
+            "both": 1,
+            "passed": 3,
+            "residual_only": 48
+          },
+          "reference_exact_zero_windows": 11,
+          "residual_rms": 0.0002612324888232828,
+          "samples": 55680,
+          "source_ids": [
+            "luo_ke:train:15463642708286073509.wav"
+          ],
+          "window_dc_energy_fraction": 0.016941580826166137,
+          "windows": 58
+        },
+        "manipuri:6473924464419399_chunk_1.flac": {
+          "centered_residual_rms": 9.493877577658279e-05,
+          "failed": 30,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 9,
+            "residual_only": 30
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00010058751494015424,
+          "samples": 37440,
+          "source_ids": [
+            "manipuri:6473924464419399_chunk_1.flac"
+          ],
+          "window_dc_energy_fraction": 0.10916125624869005,
+          "windows": 39
+        },
+        "mr_in:train:10986875885056557364.wav": {
+          "centered_residual_rms": 0.00032873662059636503,
+          "failed": 19,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 1,
+            "passed": 0,
+            "residual_only": 18
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00033151525718052037,
+          "samples": 18240,
+          "source_ids": [
+            "mr_in:train:10986875885056557364.wav"
+          ],
+          "window_dc_energy_fraction": 0.016692998462202877,
+          "windows": 19
+        },
+        "pa_in:train:16693733152628588519.wav": {
+          "centered_residual_rms": 0.00015611317615755893,
+          "failed": 29,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 1,
+            "passed": 2,
+            "residual_only": 28
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00015837172513015525,
+          "samples": 29760,
+          "source_ids": [
+            "pa_in:train:16693733152628588519.wav"
+          ],
+          "window_dc_energy_fraction": 0.028318745879940568,
+          "windows": 31
+        },
+        "pl_pl:train:14002458340348798.wav": {
+          "centered_residual_rms": 0.0001337478619343637,
+          "failed": 31,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 0,
+            "residual_only": 31
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00013491137335572788,
+          "samples": 29760,
+          "source_ids": [
+            "pl_pl:train:14002458340348798.wav"
+          ],
+          "window_dc_energy_fraction": 0.017174151847903413,
+          "windows": 31
+        },
+        "ps_af:train:15589493469027767437.wav": {
+          "centered_residual_rms": 9.528293361909829e-05,
+          "failed": 82,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 17,
+            "passed": 8,
+            "residual_only": 65
+          },
+          "reference_exact_zero_windows": 1,
+          "residual_rms": 9.577799711817002e-05,
+          "samples": 86400,
+          "source_ids": [
+            "ps_af:train:15589493469027767437.wav"
+          ],
+          "window_dc_energy_fraction": 0.01031101204516018,
+          "windows": 90
+        },
+        "sanskrit:2251799813734813_chunk_1.flac": {
+          "centered_residual_rms": 0.00011954170697183777,
+          "failed": 22,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 1,
+            "passed": 0,
+            "residual_only": 21
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.0001216432380203485,
+          "samples": 21120,
+          "source_ids": [
+            "sanskrit:2251799813734813_chunk_1.flac"
+          ],
+          "window_dc_energy_fraction": 0.0342539028578053,
+          "windows": 22
+        },
+        "santali:4785074604194847_chunk_1.flac": {
+          "centered_residual_rms": 0.00021971702772860123,
+          "failed": 18,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 0,
+            "residual_only": 18
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00022515560545391283,
+          "samples": 17280,
+          "source_ids": [
+            "santali:4785074604194847_chunk_1.flac"
+          ],
+          "window_dc_energy_fraction": 0.04772605121176304,
+          "windows": 18
+        },
+        "sd_in:train:13655315073103147391.wav": {
+          "centered_residual_rms": 0.00024319194273333313,
+          "failed": 27,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 2,
+            "passed": 0,
+            "residual_only": 25
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.0002470174560060552,
+          "samples": 25920,
+          "source_ids": [
+            "sd_in:train:13655315073103147391.wav"
+          ],
+          "window_dc_energy_fraction": 0.03073378561010242,
+          "windows": 27
+        },
+        "so_so:train:1179304877180760723.wav": {
+          "centered_residual_rms": 7.371413153074533e-05,
+          "failed": 104,
+          "failure_categories": {
+            "amplitude_only": 10,
+            "both": 9,
+            "passed": 4,
+            "residual_only": 85
+          },
+          "reference_exact_zero_windows": 15,
+          "residual_rms": 7.425402586848846e-05,
+          "samples": 103680,
+          "source_ids": [
+            "so_so:train:1179304877180760723.wav"
+          ],
+          "window_dc_energy_fraction": 0.014488953828083299,
+          "windows": 108
+        },
+        "so_so:train:14842603451866844632.wav": {
+          "centered_residual_rms": 0.00020970581784446,
+          "failed": 13,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 0,
+            "residual_only": 13
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00021650962749719657,
+          "samples": 12480,
+          "source_ids": [
+            "so_so:train:14842603451866844632.wav"
+          ],
+          "window_dc_energy_fraction": 0.061862421137521106,
+          "windows": 13
+        },
+        "ta_in:train:12079333390051219555.wav": {
+          "centered_residual_rms": 0.00010411037705874187,
+          "failed": 1,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 1,
+            "passed": 0,
+            "residual_only": 0
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00010527826648734499,
+          "samples": 960,
+          "source_ids": [
+            "ta_in:train:12079333390051219555.wav"
+          ],
+          "window_dc_energy_fraction": 0.022063652071426583,
+          "windows": 1
+        },
+        "te_in:train:14751961982184477566.wav": {
+          "centered_residual_rms": 0.0001802363638218174,
+          "failed": 7,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 1,
+            "residual_only": 7
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00018164683757598577,
+          "samples": 7680,
+          "source_ids": [
+            "te_in:train:14751961982184477566.wav"
+          ],
+          "window_dc_energy_fraction": 0.01546955248642937,
+          "windows": 8
+        },
+        "tg_tj:train:11851591230613317287.wav": {
+          "centered_residual_rms": 9.012485527164881e-05,
+          "failed": 85,
+          "failure_categories": {
+            "amplitude_only": 8,
+            "both": 1,
+            "passed": 20,
+            "residual_only": 76
+          },
+          "reference_exact_zero_windows": 13,
+          "residual_rms": 9.339539018450734e-05,
+          "samples": 100800,
+          "source_ids": [
+            "tg_tj:train:11851591230613317287.wav"
+          ],
+          "window_dc_energy_fraction": 0.06881005252282196,
+          "windows": 105
+        },
+        "thorsten_emotional:whisper/37773d61d5c91c12d49e55e2b041c0cd.wav": {
+          "centered_residual_rms": 0.00031340492418261437,
+          "failed": 8,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 0,
+            "residual_only": 8
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.00031558049999686735,
+          "samples": 7680,
+          "source_ids": [
+            "thorsten_emotional:whisper/37773d61d5c91c12d49e55e2b041c0cd.wav"
+          ],
+          "window_dc_energy_fraction": 0.01374024522465195,
+          "windows": 8
+        },
+        "ur_pk:train:13989351609468149814.wav": {
+          "centered_residual_rms": 0.00015930267197543897,
+          "failed": 39,
+          "failure_categories": {
+            "amplitude_only": 1,
+            "both": 12,
+            "passed": 5,
+            "residual_only": 26
+          },
+          "reference_exact_zero_windows": 1,
+          "residual_rms": 0.00016000341019284332,
+          "samples": 42240,
+          "source_ids": [
+            "ur_pk:train:13989351609468149814.wav"
+          ],
+          "window_dc_energy_fraction": 0.00873986082999461,
+          "windows": 44
+        }
+      },
+      "partial_window": {
+        "False": {
+          "centered_residual_rms": 0.0001597332432644241,
+          "failed": 2317,
+          "failure_categories": {
+            "amplitude_only": 122,
+            "both": 168,
+            "passed": 219,
+            "residual_only": 2027
+          },
+          "reference_exact_zero_windows": 184,
+          "residual_rms": 0.0001618824269266914,
+          "samples": 2434560,
+          "source_ids": [
+            "1363-139304-0012",
+            "2051-153962-0091",
+            "3242-67168-0001",
+            "5101-67853-0031",
+            "5778-54535-0011",
+            "af_za:train:12687107890474022499.wav",
+            "ar_eg:train:12360449360113063891.wav",
+            "as_in:train:13453488421825608782.wav",
+            "ast_es:train:16933683244427534350.wav",
+            "az_az:train:1439903150624501148.wav",
+            "be_by:train:12518029196714550777.wav",
+            "bodo:3659174697289264_chunk_3.flac",
+            "bs_ba:train:11358760624286905521.wav",
+            "ca_es:train:10583803894773586508.wav",
+            "cs_cz:train:10122716413664131344.wav",
+            "cy_gb:train:10349599617049103526.wav",
+            "dogri:622d1198-0621-4e0c-9027-77e32a505100_1_chunk_8.flac",
+            "en_us:train:13546164985487902870.wav",
+            "es_419:train:13461728374156750135.wav",
+            "ff_sn:train:14756055913832624081.wav",
+            "fi_fi:train:10893394073468230201.wav",
+            "freesound:180341",
+            "freesound:277554",
+            "freesound:343940",
+            "freesound:343960",
+            "freesound:36399",
+            "freesound:421873",
+            "freesound:428921",
+            "freesound:92375",
+            "gl_es:train:10769481348315642515.wav",
+            "ha_ng:train:12490254919826375416.wav",
+            "he_il:train:16823755323813467795.wav",
+            "hr_hr:train:12137021049767807555.wav",
+            "hy_am:train:11186680517435167922.wav",
+            "is_is:train:18143916026623202906.wav",
+            "ja_jp:train:12210528383264418745.wav",
+            "ka_ge:train:2993105044151469776.wav",
+            "kam_ke:train:12154486779797187960.wav",
+            "kashmiri:1970324837177077_chunk_1.flac",
+            "kk_kz:train:13837639418509311322.wav",
+            "km_kh:train:10006360416725641613.wav",
+            "kn_in:train:14687240407945660913.wav",
+            "kn_in:train:15096009457771558023.wav",
+            "ko_kr:train:10359553883250105525.wav",
+            "ky_kg:train:15514578015847358890.wav",
+            "lb_lu:train:10437720223409828494.wav",
+            "lg_ug:train:12123343751639616808.wav",
+            "ln_cd:train:11959897544900910176.wav",
+            "lo_la:train:10346663063780035215.wav",
+            "lt_lt:train:15367591149256088428.wav",
+            "luo_ke:train:15463642708286073509.wav",
+            "manipuri:6473924464419399_chunk_1.flac",
+            "mr_in:train:10986875885056557364.wav",
+            "pa_in:train:16693733152628588519.wav",
+            "pl_pl:train:14002458340348798.wav",
+            "ps_af:train:15589493469027767437.wav",
+            "sanskrit:2251799813734813_chunk_1.flac",
+            "santali:4785074604194847_chunk_1.flac",
+            "sd_in:train:13655315073103147391.wav",
+            "so_so:train:1179304877180760723.wav",
+            "so_so:train:14842603451866844632.wav",
+            "ta_in:train:12079333390051219555.wav",
+            "te_in:train:14751961982184477566.wav",
+            "tg_tj:train:11851591230613317287.wav",
+            "thorsten_emotional:whisper/37773d61d5c91c12d49e55e2b041c0cd.wav",
+            "ur_pk:train:13989351609468149814.wav"
+          ],
+          "window_dc_energy_fraction": 0.026376144779835322,
+          "windows": 2536
+        },
+        "True": {
+          "centered_residual_rms": 0.00022679852430634498,
+          "failed": 7,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 4,
+            "passed": 1,
+            "residual_only": 3
+          },
+          "reference_exact_zero_windows": 1,
+          "residual_rms": 0.00023353546340922386,
+          "samples": 2472,
+          "source_ids": [
+            "freesound:180341",
+            "freesound:236508",
+            "freesound:277554",
+            "freesound:343940",
+            "freesound:343960",
+            "freesound:402835",
+            "freesound:421873",
+            "freesound:92375"
+          ],
+          "window_dc_energy_fraction": 0.05686302818881614,
+          "windows": 8
+        }
+      },
+      "source_reference_exact_zero": {
+        "False": {
+          "centered_residual_rms": 0.00016065260914692854,
+          "failed": 2183,
+          "failure_categories": {
+            "amplitude_only": 3,
+            "both": 160,
+            "passed": 176,
+            "residual_only": 2020
+          },
+          "reference_exact_zero_windows": 0,
+          "residual_rms": 0.0001629613033042598,
+          "samples": 2260197,
+          "source_ids": [
+            "1363-139304-0012",
+            "2051-153962-0091",
+            "3242-67168-0001",
+            "5101-67853-0031",
+            "5778-54535-0011",
+            "af_za:train:12687107890474022499.wav",
+            "ar_eg:train:12360449360113063891.wav",
+            "as_in:train:13453488421825608782.wav",
+            "ast_es:train:16933683244427534350.wav",
+            "az_az:train:1439903150624501148.wav",
+            "be_by:train:12518029196714550777.wav",
+            "bodo:3659174697289264_chunk_3.flac",
+            "bs_ba:train:11358760624286905521.wav",
+            "ca_es:train:10583803894773586508.wav",
+            "cs_cz:train:10122716413664131344.wav",
+            "cy_gb:train:10349599617049103526.wav",
+            "dogri:622d1198-0621-4e0c-9027-77e32a505100_1_chunk_8.flac",
+            "en_us:train:13546164985487902870.wav",
+            "es_419:train:13461728374156750135.wav",
+            "ff_sn:train:14756055913832624081.wav",
+            "fi_fi:train:10893394073468230201.wav",
+            "freesound:180341",
+            "freesound:236508",
+            "freesound:277554",
+            "freesound:343940",
+            "freesound:343960",
+            "freesound:36399",
+            "freesound:402835",
+            "freesound:421873",
+            "freesound:428921",
+            "freesound:92375",
+            "gl_es:train:10769481348315642515.wav",
+            "ha_ng:train:12490254919826375416.wav",
+            "he_il:train:16823755323813467795.wav",
+            "hr_hr:train:12137021049767807555.wav",
+            "hy_am:train:11186680517435167922.wav",
+            "is_is:train:18143916026623202906.wav",
+            "ja_jp:train:12210528383264418745.wav",
+            "ka_ge:train:2993105044151469776.wav",
+            "kam_ke:train:12154486779797187960.wav",
+            "kashmiri:1970324837177077_chunk_1.flac",
+            "kk_kz:train:13837639418509311322.wav",
+            "km_kh:train:10006360416725641613.wav",
+            "kn_in:train:14687240407945660913.wav",
+            "kn_in:train:15096009457771558023.wav",
+            "ko_kr:train:10359553883250105525.wav",
+            "ky_kg:train:15514578015847358890.wav",
+            "lb_lu:train:10437720223409828494.wav",
+            "lg_ug:train:12123343751639616808.wav",
+            "ln_cd:train:11959897544900910176.wav",
+            "lo_la:train:10346663063780035215.wav",
+            "lt_lt:train:15367591149256088428.wav",
+            "luo_ke:train:15463642708286073509.wav",
+            "manipuri:6473924464419399_chunk_1.flac",
+            "mr_in:train:10986875885056557364.wav",
+            "pa_in:train:16693733152628588519.wav",
+            "pl_pl:train:14002458340348798.wav",
+            "ps_af:train:15589493469027767437.wav",
+            "sanskrit:2251799813734813_chunk_1.flac",
+            "santali:4785074604194847_chunk_1.flac",
+            "sd_in:train:13655315073103147391.wav",
+            "so_so:train:1179304877180760723.wav",
+            "so_so:train:14842603451866844632.wav",
+            "ta_in:train:12079333390051219555.wav",
+            "te_in:train:14751961982184477566.wav",
+            "tg_tj:train:11851591230613317287.wav",
+            "thorsten_emotional:whisper/37773d61d5c91c12d49e55e2b041c0cd.wav",
+            "ur_pk:train:13989351609468149814.wav"
+          ],
+          "window_dc_energy_fraction": 0.02813355470762056,
+          "windows": 2359
+        },
+        "True": {
+          "centered_residual_rms": 0.00014870207326282196,
+          "failed": 141,
+          "failure_categories": {
+            "amplitude_only": 119,
+            "both": 12,
+            "passed": 44,
+            "residual_only": 10
+          },
+          "reference_exact_zero_windows": 185,
+          "residual_rms": 0.0001487364921399754,
+          "samples": 176835,
+          "source_ids": [
+            "as_in:train:13453488421825608782.wav",
+            "az_az:train:1439903150624501148.wav",
+            "es_419:train:13461728374156750135.wav",
+            "fi_fi:train:10893394073468230201.wav",
+            "freesound:277554",
+            "kk_kz:train:13837639418509311322.wav",
+            "kn_in:train:15096009457771558023.wav",
+            "ky_kg:train:15514578015847358890.wav",
+            "lb_lu:train:10437720223409828494.wav",
+            "luo_ke:train:15463642708286073509.wav",
+            "ps_af:train:15589493469027767437.wav",
+            "so_so:train:1179304877180760723.wav",
+            "tg_tj:train:11851591230613317287.wav",
+            "ur_pk:train:13989351609468149814.wav"
+          ],
+          "window_dc_energy_fraction": 0.000462763297012519,
+          "windows": 185
+        }
+      },
+      "source_starting_crop": {
+        "False": {
+          "centered_residual_rms": 0.00016802291038634906,
+          "failed": 939,
+          "failure_categories": {
+            "amplitude_only": 23,
+            "both": 63,
+            "passed": 91,
+            "residual_only": 853
+          },
+          "reference_exact_zero_windows": 42,
+          "residual_rms": 0.00017042158344210097,
+          "samples": 988800,
+          "source_ids": [
+            "1363-139304-0012",
+            "2051-153962-0091",
+            "3242-67168-0001",
+            "5101-67853-0031",
+            "5778-54535-0011",
+            "af_za:train:12687107890474022499.wav",
+            "ast_es:train:16933683244427534350.wav",
+            "be_by:train:12518029196714550777.wav",
+            "ca_es:train:10583803894773586508.wav",
+            "cs_cz:train:10122716413664131344.wav",
+            "cy_gb:train:10349599617049103526.wav",
+            "dogri:622d1198-0621-4e0c-9027-77e32a505100_1_chunk_8.flac",
+            "en_us:train:13546164985487902870.wav",
+            "es_419:train:13461728374156750135.wav",
+            "gl_es:train:10769481348315642515.wav",
+            "ha_ng:train:12490254919826375416.wav",
+            "he_il:train:16823755323813467795.wav",
+            "hy_am:train:11186680517435167922.wav",
+            "ja_jp:train:12210528383264418745.wav",
+            "kam_ke:train:12154486779797187960.wav",
+            "ko_kr:train:10359553883250105525.wav",
+            "lg_ug:train:12123343751639616808.wav",
+            "ln_cd:train:11959897544900910176.wav",
+            "lt_lt:train:15367591149256088428.wav",
+            "manipuri:6473924464419399_chunk_1.flac",
+            "pa_in:train:16693733152628588519.wav",
+            "pl_pl:train:14002458340348798.wav",
+            "so_so:train:14842603451866844632.wav",
+            "te_in:train:14751961982184477566.wav"
+          ],
+          "window_dc_energy_fraction": 0.027951770210511036,
+          "windows": 1030
+        },
+        "True": {
+          "centered_residual_rms": 0.00015396069521237817,
+          "failed": 1385,
+          "failure_categories": {
+            "amplitude_only": 99,
+            "both": 109,
+            "passed": 129,
+            "residual_only": 1177
+          },
+          "reference_exact_zero_windows": 143,
+          "residual_rms": 0.000155938689127074,
+          "samples": 1448232,
+          "source_ids": [
+            "ar_eg:train:12360449360113063891.wav",
+            "as_in:train:13453488421825608782.wav",
+            "az_az:train:1439903150624501148.wav",
+            "bodo:3659174697289264_chunk_3.flac",
+            "bs_ba:train:11358760624286905521.wav",
+            "ff_sn:train:14756055913832624081.wav",
+            "fi_fi:train:10893394073468230201.wav",
+            "freesound:180341",
+            "freesound:236508",
+            "freesound:277554",
+            "freesound:343940",
+            "freesound:343960",
+            "freesound:36399",
+            "freesound:402835",
+            "freesound:421873",
+            "freesound:428921",
+            "freesound:92375",
+            "hr_hr:train:12137021049767807555.wav",
+            "is_is:train:18143916026623202906.wav",
+            "ka_ge:train:2993105044151469776.wav",
+            "kashmiri:1970324837177077_chunk_1.flac",
+            "kk_kz:train:13837639418509311322.wav",
+            "km_kh:train:10006360416725641613.wav",
+            "kn_in:train:14687240407945660913.wav",
+            "kn_in:train:15096009457771558023.wav",
+            "ky_kg:train:15514578015847358890.wav",
+            "lb_lu:train:10437720223409828494.wav",
+            "lo_la:train:10346663063780035215.wav",
+            "luo_ke:train:15463642708286073509.wav",
+            "mr_in:train:10986875885056557364.wav",
+            "ps_af:train:15589493469027767437.wav",
+            "sanskrit:2251799813734813_chunk_1.flac",
+            "santali:4785074604194847_chunk_1.flac",
+            "sd_in:train:13655315073103147391.wav",
+            "so_so:train:1179304877180760723.wav",
+            "ta_in:train:12079333390051219555.wav",
+            "tg_tj:train:11851591230613317287.wav",
+            "thorsten_emotional:whisper/37773d61d5c91c12d49e55e2b041c0cd.wav",
+            "ur_pk:train:13989351609468149814.wav"
+          ],
+          "window_dc_energy_fraction": 0.02520797192374399,
+          "windows": 1514
+        }
+      },
+      "teacher_level_bin": {
+        "1e-4_to_1e-3": {
+          "centered_residual_rms": 0.0001984522150090512,
+          "failed": 1460,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 50,
+            "passed": 169,
+            "residual_only": 1410
+          },
+          "reference_exact_zero_windows": 10,
+          "residual_rms": 0.00020107838213167896,
+          "samples": 1560354,
+          "source_ids": [
+            "1363-139304-0012",
+            "2051-153962-0091",
+            "3242-67168-0001",
+            "5101-67853-0031",
+            "5778-54535-0011",
+            "af_za:train:12687107890474022499.wav",
+            "as_in:train:13453488421825608782.wav",
+            "ast_es:train:16933683244427534350.wav",
+            "az_az:train:1439903150624501148.wav",
+            "be_by:train:12518029196714550777.wav",
+            "bodo:3659174697289264_chunk_3.flac",
+            "bs_ba:train:11358760624286905521.wav",
+            "ca_es:train:10583803894773586508.wav",
+            "cs_cz:train:10122716413664131344.wav",
+            "cy_gb:train:10349599617049103526.wav",
+            "dogri:622d1198-0621-4e0c-9027-77e32a505100_1_chunk_8.flac",
+            "en_us:train:13546164985487902870.wav",
+            "es_419:train:13461728374156750135.wav",
+            "ff_sn:train:14756055913832624081.wav",
+            "fi_fi:train:10893394073468230201.wav",
+            "freesound:180341",
+            "freesound:236508",
+            "freesound:277554",
+            "freesound:343940",
+            "freesound:343960",
+            "freesound:36399",
+            "freesound:402835",
+            "freesound:421873",
+            "freesound:428921",
+            "freesound:92375",
+            "gl_es:train:10769481348315642515.wav",
+            "ha_ng:train:12490254919826375416.wav",
+            "he_il:train:16823755323813467795.wav",
+            "hr_hr:train:12137021049767807555.wav",
+            "hy_am:train:11186680517435167922.wav",
+            "is_is:train:18143916026623202906.wav",
+            "ja_jp:train:12210528383264418745.wav",
+            "ka_ge:train:2993105044151469776.wav",
+            "kam_ke:train:12154486779797187960.wav",
+            "kashmiri:1970324837177077_chunk_1.flac",
+            "kk_kz:train:13837639418509311322.wav",
+            "km_kh:train:10006360416725641613.wav",
+            "kn_in:train:14687240407945660913.wav",
+            "kn_in:train:15096009457771558023.wav",
+            "ko_kr:train:10359553883250105525.wav",
+            "ky_kg:train:15514578015847358890.wav",
+            "lb_lu:train:10437720223409828494.wav",
+            "lg_ug:train:12123343751639616808.wav",
+            "ln_cd:train:11959897544900910176.wav",
+            "lo_la:train:10346663063780035215.wav",
+            "lt_lt:train:15367591149256088428.wav",
+            "luo_ke:train:15463642708286073509.wav",
+            "manipuri:6473924464419399_chunk_1.flac",
+            "mr_in:train:10986875885056557364.wav",
+            "pa_in:train:16693733152628588519.wav",
+            "pl_pl:train:14002458340348798.wav",
+            "ps_af:train:15589493469027767437.wav",
+            "sanskrit:2251799813734813_chunk_1.flac",
+            "santali:4785074604194847_chunk_1.flac",
+            "sd_in:train:13655315073103147391.wav",
+            "so_so:train:1179304877180760723.wav",
+            "so_so:train:14842603451866844632.wav",
+            "te_in:train:14751961982184477566.wav",
+            "tg_tj:train:11851591230613317287.wav",
+            "thorsten_emotional:whisper/37773d61d5c91c12d49e55e2b041c0cd.wav",
+            "ur_pk:train:13989351609468149814.wav"
+          ],
+          "window_dc_energy_fraction": 0.025950255603803506,
+          "windows": 1629
+        },
+        "1e-5_to_1e-4": {
+          "centered_residual_rms": 3.100885260607131e-05,
+          "failed": 727,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 107,
+            "passed": 4,
+            "residual_only": 620
+          },
+          "reference_exact_zero_windows": 3,
+          "residual_rms": 3.217353171753002e-05,
+          "samples": 700803,
+          "source_ids": [
+            "af_za:train:12687107890474022499.wav",
+            "ar_eg:train:12360449360113063891.wav",
+            "as_in:train:13453488421825608782.wav",
+            "ast_es:train:16933683244427534350.wav",
+            "az_az:train:1439903150624501148.wav",
+            "be_by:train:12518029196714550777.wav",
+            "bs_ba:train:11358760624286905521.wav",
+            "cy_gb:train:10349599617049103526.wav",
+            "en_us:train:13546164985487902870.wav",
+            "es_419:train:13461728374156750135.wav",
+            "freesound:277554",
+            "freesound:36399",
+            "freesound:421873",
+            "freesound:428921",
+            "hy_am:train:11186680517435167922.wav",
+            "is_is:train:18143916026623202906.wav",
+            "kk_kz:train:13837639418509311322.wav",
+            "km_kh:train:10006360416725641613.wav",
+            "lb_lu:train:10437720223409828494.wav",
+            "lg_ug:train:12123343751639616808.wav",
+            "lt_lt:train:15367591149256088428.wav",
+            "mr_in:train:10986875885056557364.wav",
+            "ps_af:train:15589493469027767437.wav",
+            "sanskrit:2251799813734813_chunk_1.flac",
+            "sd_in:train:13655315073103147391.wav",
+            "so_so:train:1179304877180760723.wav",
+            "ta_in:train:12079333390051219555.wav",
+            "tg_tj:train:11851591230613317287.wav",
+            "ur_pk:train:13989351609468149814.wav"
+          ],
+          "window_dc_energy_fraction": 0.0710893960362241,
+          "windows": 731
+        },
+        "nonzero_to_1e-5": {
+          "centered_residual_rms": 2.5960026330377595e-05,
+          "failed": 137,
+          "failure_categories": {
+            "amplitude_only": 122,
+            "both": 15,
+            "passed": 47,
+            "residual_only": 0
+          },
+          "reference_exact_zero_windows": 172,
+          "residual_rms": 2.6147108603664384e-05,
+          "samples": 175875,
+          "source_ids": [
+            "as_in:train:13453488421825608782.wav",
+            "az_az:train:1439903150624501148.wav",
+            "bs_ba:train:11358760624286905521.wav",
+            "es_419:train:13461728374156750135.wav",
+            "fi_fi:train:10893394073468230201.wav",
+            "freesound:277554",
+            "kk_kz:train:13837639418509311322.wav",
+            "kn_in:train:15096009457771558023.wav",
+            "ky_kg:train:15514578015847358890.wav",
+            "lb_lu:train:10437720223409828494.wav",
+            "luo_ke:train:15463642708286073509.wav",
+            "sd_in:train:13655315073103147391.wav",
+            "so_so:train:1179304877180760723.wav",
+            "tg_tj:train:11851591230613317287.wav",
+            "ur_pk:train:13989351609468149814.wav"
+          ],
+          "window_dc_energy_fraction": 0.014258784044753777,
+          "windows": 184
+        }
+      },
+      "temporal_bin": {
+        "source20_to40ms": {
+          "centered_residual_rms": 0.0004003161677487158,
+          "failed": 27,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 5,
+            "passed": 2,
+            "residual_only": 22
+          },
+          "reference_exact_zero_windows": 10,
+          "residual_rms": 0.00040072084037087036,
+          "samples": 27840,
+          "source_ids": [
+            "ar_eg:train:12360449360113063891.wav",
+            "as_in:train:13453488421825608782.wav",
+            "az_az:train:1439903150624501148.wav",
+            "bs_ba:train:11358760624286905521.wav",
+            "ff_sn:train:14756055913832624081.wav",
+            "fi_fi:train:10893394073468230201.wav",
+            "freesound:180341",
+            "freesound:277554",
+            "freesound:343940",
+            "freesound:36399",
+            "freesound:421873",
+            "freesound:428921",
+            "is_is:train:18143916026623202906.wav",
+            "ka_ge:train:2993105044151469776.wav",
+            "kk_kz:train:13837639418509311322.wav",
+            "km_kh:train:10006360416725641613.wav",
+            "kn_in:train:14687240407945660913.wav",
+            "kn_in:train:15096009457771558023.wav",
+            "ky_kg:train:15514578015847358890.wav",
+            "lb_lu:train:10437720223409828494.wav",
+            "luo_ke:train:15463642708286073509.wav",
+            "mr_in:train:10986875885056557364.wav",
+            "ps_af:train:15589493469027767437.wav",
+            "sanskrit:2251799813734813_chunk_1.flac",
+            "sd_in:train:13655315073103147391.wav",
+            "so_so:train:1179304877180760723.wav",
+            "tg_tj:train:11851591230613317287.wav",
+            "thorsten_emotional:whisper/37773d61d5c91c12d49e55e2b041c0cd.wav",
+            "ur_pk:train:13989351609468149814.wav"
+          ],
+          "window_dc_energy_fraction": 0.0020187035448051625,
+          "windows": 29
+        },
+        "source40_to800ms": {
+          "centered_residual_rms": 0.00013832122524201428,
+          "failed": 656,
+          "failure_categories": {
+            "amplitude_only": 98,
+            "both": 29,
+            "passed": 66,
+            "residual_only": 529
+          },
+          "reference_exact_zero_windows": 116,
+          "residual_rms": 0.00014045592185041387,
+          "samples": 692046,
+          "source_ids": [
+            "as_in:train:13453488421825608782.wav",
+            "az_az:train:1439903150624501148.wav",
+            "bs_ba:train:11358760624286905521.wav",
+            "ff_sn:train:14756055913832624081.wav",
+            "fi_fi:train:10893394073468230201.wav",
+            "freesound:236508",
+            "freesound:277554",
+            "freesound:343960",
+            "freesound:36399",
+            "freesound:421873",
+            "freesound:428921",
+            "hr_hr:train:12137021049767807555.wav",
+            "is_is:train:18143916026623202906.wav",
+            "ka_ge:train:2993105044151469776.wav",
+            "kk_kz:train:13837639418509311322.wav",
+            "km_kh:train:10006360416725641613.wav",
+            "kn_in:train:14687240407945660913.wav",
+            "kn_in:train:15096009457771558023.wav",
+            "ky_kg:train:15514578015847358890.wav",
+            "lb_lu:train:10437720223409828494.wav",
+            "lo_la:train:10346663063780035215.wav",
+            "luo_ke:train:15463642708286073509.wav",
+            "mr_in:train:10986875885056557364.wav",
+            "ps_af:train:15589493469027767437.wav",
+            "sanskrit:2251799813734813_chunk_1.flac",
+            "santali:4785074604194847_chunk_1.flac",
+            "sd_in:train:13655315073103147391.wav",
+            "so_so:train:1179304877180760723.wav",
+            "tg_tj:train:11851591230613317287.wav",
+            "thorsten_emotional:whisper/37773d61d5c91c12d49e55e2b041c0cd.wav",
+            "ur_pk:train:13989351609468149814.wav"
+          ],
+          "window_dc_energy_fraction": 0.030165686999033835,
+          "windows": 722
+        },
+        "source_after800ms": {
+          "centered_residual_rms": 0.00016087116898846115,
+          "failed": 1610,
+          "failure_categories": {
+            "amplitude_only": 24,
+            "both": 109,
+            "passed": 152,
+            "residual_only": 1477
+          },
+          "reference_exact_zero_windows": 48,
+          "residual_rms": 0.0001631744136516704,
+          "samples": 1687386,
+          "source_ids": [
+            "1363-139304-0012",
+            "2051-153962-0091",
+            "3242-67168-0001",
+            "5101-67853-0031",
+            "5778-54535-0011",
+            "af_za:train:12687107890474022499.wav",
+            "as_in:train:13453488421825608782.wav",
+            "ast_es:train:16933683244427534350.wav",
+            "az_az:train:1439903150624501148.wav",
+            "be_by:train:12518029196714550777.wav",
+            "bodo:3659174697289264_chunk_3.flac",
+            "bs_ba:train:11358760624286905521.wav",
+            "ca_es:train:10583803894773586508.wav",
+            "cs_cz:train:10122716413664131344.wav",
+            "cy_gb:train:10349599617049103526.wav",
+            "dogri:622d1198-0621-4e0c-9027-77e32a505100_1_chunk_8.flac",
+            "en_us:train:13546164985487902870.wav",
+            "es_419:train:13461728374156750135.wav",
+            "ff_sn:train:14756055913832624081.wav",
+            "fi_fi:train:10893394073468230201.wav",
+            "freesound:180341",
+            "freesound:277554",
+            "freesound:343940",
+            "freesound:36399",
+            "freesound:402835",
+            "freesound:421873",
+            "freesound:428921",
+            "freesound:92375",
+            "gl_es:train:10769481348315642515.wav",
+            "ha_ng:train:12490254919826375416.wav",
+            "he_il:train:16823755323813467795.wav",
+            "hy_am:train:11186680517435167922.wav",
+            "is_is:train:18143916026623202906.wav",
+            "ja_jp:train:12210528383264418745.wav",
+            "ka_ge:train:2993105044151469776.wav",
+            "kam_ke:train:12154486779797187960.wav",
+            "kashmiri:1970324837177077_chunk_1.flac",
+            "kk_kz:train:13837639418509311322.wav",
+            "km_kh:train:10006360416725641613.wav",
+            "kn_in:train:15096009457771558023.wav",
+            "ko_kr:train:10359553883250105525.wav",
+            "ky_kg:train:15514578015847358890.wav",
+            "lb_lu:train:10437720223409828494.wav",
+            "lg_ug:train:12123343751639616808.wav",
+            "ln_cd:train:11959897544900910176.wav",
+            "lo_la:train:10346663063780035215.wav",
+            "lt_lt:train:15367591149256088428.wav",
+            "luo_ke:train:15463642708286073509.wav",
+            "manipuri:6473924464419399_chunk_1.flac",
+            "pa_in:train:16693733152628588519.wav",
+            "pl_pl:train:14002458340348798.wav",
+            "ps_af:train:15589493469027767437.wav",
+            "sanskrit:2251799813734813_chunk_1.flac",
+            "santali:4785074604194847_chunk_1.flac",
+            "sd_in:train:13655315073103147391.wav",
+            "so_so:train:1179304877180760723.wav",
+            "so_so:train:14842603451866844632.wav",
+            "te_in:train:14751961982184477566.wav",
+            "tg_tj:train:11851591230613317287.wav",
+            "ur_pk:train:13989351609468149814.wav"
+          ],
+          "window_dc_energy_fraction": 0.02803122371869359,
+          "windows": 1762
+        },
+        "source_first20ms": {
+          "centered_residual_rms": 0.0001713017936694635,
+          "failed": 31,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 29,
+            "passed": 0,
+            "residual_only": 2
+          },
+          "reference_exact_zero_windows": 11,
+          "residual_rms": 0.00017229986269213507,
+          "samples": 29760,
+          "source_ids": [
+            "ar_eg:train:12360449360113063891.wav",
+            "as_in:train:13453488421825608782.wav",
+            "az_az:train:1439903150624501148.wav",
+            "bs_ba:train:11358760624286905521.wav",
+            "ff_sn:train:14756055913832624081.wav",
+            "fi_fi:train:10893394073468230201.wav",
+            "freesound:180341",
+            "freesound:277554",
+            "freesound:343940",
+            "freesound:343960",
+            "freesound:36399",
+            "freesound:421873",
+            "freesound:428921",
+            "is_is:train:18143916026623202906.wav",
+            "ka_ge:train:2993105044151469776.wav",
+            "kk_kz:train:13837639418509311322.wav",
+            "km_kh:train:10006360416725641613.wav",
+            "kn_in:train:14687240407945660913.wav",
+            "kn_in:train:15096009457771558023.wav",
+            "ky_kg:train:15514578015847358890.wav",
+            "lb_lu:train:10437720223409828494.wav",
+            "luo_ke:train:15463642708286073509.wav",
+            "mr_in:train:10986875885056557364.wav",
+            "ps_af:train:15589493469027767437.wav",
+            "sanskrit:2251799813734813_chunk_1.flac",
+            "sd_in:train:13655315073103147391.wav",
+            "so_so:train:1179304877180760723.wav",
+            "ta_in:train:12079333390051219555.wav",
+            "tg_tj:train:11851591230613317287.wav",
+            "thorsten_emotional:whisper/37773d61d5c91c12d49e55e2b041c0cd.wav",
+            "ur_pk:train:13989351609468149814.wav"
+          ],
+          "window_dc_energy_fraction": 0.011551701618322438,
+          "windows": 31
+        }
+      }
+    }
+  },
+  "teacher_cache_all_bitwise": true,
+  "teacher_preserved": true,
+  "version": "audiovae2_quiet_window_audit_v1"
+}

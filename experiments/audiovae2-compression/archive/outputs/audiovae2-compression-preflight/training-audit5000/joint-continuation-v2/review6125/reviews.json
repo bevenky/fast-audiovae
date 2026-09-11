@@ -1,0 +1,156 @@
+[
+  {
+    "action": "continue",
+    "alerts": [
+      {
+        "after": 2333,
+        "before": 2324,
+        "detail": "Inspect continuous residual/output levels; threshold crossings alone do not trigger freezing or a pause.",
+        "kind": "count_only_alert",
+        "metric": "quiet_failed_windows"
+      },
+      {
+        "after": 183,
+        "before": 137,
+        "detail": "Inspect continuous residual/output levels; threshold crossings alone do not trigger freezing or a pause.",
+        "kind": "count_only_alert",
+        "metric": "near_silence_failed_windows"
+      },
+      {
+        "after": 396,
+        "before": 294,
+        "kind": "region_count_alert",
+        "region": "all_quiet"
+      },
+      {
+        "after": 182,
+        "before": 137,
+        "kind": "region_count_alert",
+        "region": "near_silence"
+      },
+      {
+        "after": 163,
+        "before": 120,
+        "kind": "region_count_alert",
+        "region": "source_zero_after40ms"
+      },
+      {
+        "after": 48,
+        "before": 25,
+        "kind": "region_count_alert",
+        "region": "near_after800ms"
+      },
+      {
+        "after": 222,
+        "before": 163,
+        "kind": "region_count_alert",
+        "region": "quiet_nonzero_reference"
+      }
+    ],
+    "automatic_freezing": false,
+    "current_metrics": {
+      "active_level": {
+        "absolute_error_db": 0.14295417889735415,
+        "rms_ratio": 0.9836764882750113
+      },
+      "correlation": 0.9822250470567866,
+      "group_mse": 0.009167703074471244,
+      "mae": 0.00365497559731602,
+      "mel": 0.29062387347221375,
+      "near_rms": 2.6566449082444642e-05,
+      "near_samples": 175875,
+      "near_silence_failed_windows": 183,
+      "quiet_failed_windows": 2333,
+      "quiet_residual_rms_mean": 0.0001532302876130547
+    },
+    "flags": [],
+    "interpretation": "Heuristic review gates, not audibility or statistical qualification. Pause requires diagnosis; it never freezes parameters.",
+    "material_regressions": [
+      {
+        "metric": "active_level",
+        "references": [
+          {
+            "after": {
+              "absolute_error_db": 0.9165497931449368,
+              "rms_ratio": 0.8998549507010953
+            },
+            "before": {
+              "absolute_error_db": 0.24908473537622863,
+              "rms_ratio": 0.9717303410368514
+            },
+            "name": "start"
+          }
+        ],
+        "scope": "source",
+        "source_id": "freesound:428921"
+      }
+    ],
+    "optimizer_steps": [
+      5625,
+      6125
+    ],
+    "region_material_regressions": [
+      {
+        "metric": "output_limit_excess_rms",
+        "references": [
+          {
+            "after": 2.3932650708409036e-06,
+            "before": 6.333524915481024e-07,
+            "name": "start"
+          }
+        ],
+        "region": "source_zero_after40ms"
+      },
+      {
+        "metric": "output_limit_excess_rms",
+        "references": [
+          {
+            "after": 1.973615119587961e-06,
+            "before": 4.5574503893633504e-07,
+            "name": "start"
+          }
+        ],
+        "region": "near_after800ms"
+      }
+    ],
+    "region_repeated_regressions": [],
+    "region_stalls": [],
+    "repeated_regressions": [],
+    "review_index": 1,
+    "stall": {
+      "eligible": false,
+      "intervals": [
+        {
+          "correlation_improvement_absolute": 0.002704259510935003,
+          "mae_improvement_fraction": 0.07861143891269494,
+          "mel_improvement_fraction": 0.05582206264286041,
+          "stalled": false
+        }
+      ],
+      "minimum_reviews": 2,
+      "two_intervals_stalled": false
+    },
+    "step": 6125,
+    "step_horizons": {
+      "component_stall": 2000,
+      "last_interval_is_full500": true,
+      "overall_stall": 1000
+    },
+    "thresholds": {
+      "bounded_peak_tolerance": 1e-06,
+      "correlation_progress_absolute": 0.0001,
+      "error_progress_fraction": 0.002,
+      "error_regression_fraction": 0.05,
+      "expected_sources": 96,
+      "level_error_regression_db": 0.5,
+      "minimum_region_samples": 960,
+      "minimum_stall_reviews": 2,
+      "quiet_regression_absolute": 1e-05,
+      "quiet_regression_fraction": 0.1,
+      "source_waveform_regression_absolute": 0.0001
+    },
+    "updates": 500,
+    "updates_since_start": 500,
+    "version": "audiovae2_joint_recovery_gates_v2"
+  }
+]

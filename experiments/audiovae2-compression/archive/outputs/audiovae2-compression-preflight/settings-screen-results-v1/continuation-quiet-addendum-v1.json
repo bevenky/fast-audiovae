@@ -1,0 +1,141 @@
+{
+  "archive_projection_version": 1,
+  "original_relative_path": "outputs/audiovae2-compression-preflight/settings-screen-results-v1/continuation-quiet-addendum-v1.json",
+  "original_sha256": "f270d8e858d96e0315c601fdc95afba855264ea2a34345a9b9535fd982dae7a5",
+  "omitted_field_paths": [
+    "quiet_diagnostics.student.windows",
+    "quiet_diagnostics.teacher_replay.windows",
+    "rows"
+  ],
+  "note": "Labelled projection. Omitted numerical payloads and listed bulk report collections remain outside Git; configuration metadata is retained.",
+  "report": {
+    "aggregate": {
+      "author_mel": 1.1736260652542114,
+      "common_mel": 0.5055033564567566,
+      "common_mel_linear": 0.005659911315888166,
+      "common_mel_log": 0.49984344840049744,
+      "samples": 11246952,
+      "sources": 96
+    },
+    "arm": "current_lr3e-5",
+    "author_mel_elements": [
+      7029810,
+      7030270,
+      7031180,
+      7033040,
+      7036560,
+      7043840,
+      7058240
+    ],
+    "checkpoint_sha256": "bfecd759eb58db1eeeca3dd693660b26be91bd69a93e3457b9d91523c5de0573",
+    "common_mel_elements": [
+      5614144,
+      5604672,
+      2792960,
+      2774144,
+      1368320
+    ],
+    "common_reproduction": {
+      "atol": 1e-06,
+      "compared_values": 291,
+      "maximum_absolute_difference": 0.0,
+      "passed": true,
+      "rtol": 1e-05
+    },
+    "complete": true,
+    "original_preflight": {
+      "initial_sha256": "c41c9bc24b0c2c0261f33edcda594880eba17a76be49500b9f5045bb310b6cb9",
+      "model_sha256": "2fcc0728bb6d7a6ac75ab9299090ccc066a3ae3afdd6d92e436e325414c803fe",
+      "preflight_sha256": "0dbabc265e15210e178605d36db770d119dbdf441b9f7e9fb914ebb373774334",
+      "selection_sha256": "7b943ea3a78c91da3df102d44743ef2e6d54c0ff5e3b61e81086b02fe97994e7",
+      "teacher_checkpoint_sha256": "94b5d51e107e0507d4acc976cfdadb64edd6fd06d1f751dadbf2fd1594274bf1",
+      "teacher_source_sha256": "2efdff1708d8ec1471624aae6f232d0f933de26b788b6901c434246847e2d3a8"
+    },
+    "quiet_diagnostics": {
+      "alignment": "20ms grid of the scored crop, matching original common evaluation; source sample offsets included",
+      "config": {
+        "absolute_rms_floor": 1e-05,
+        "amplitude_db_max": 1.0,
+        "loss_rms_floor": 0.001,
+        "quiet_teacher_rms_max": 0.001,
+        "residual_relative_limit": 0.1414213562373095,
+        "window_samples": 960
+      },
+      "interpretation": "DC and centered energy decomposition; non-DC residual alone does not distinguish noise from phase error",
+      "limits": "Existing provisional engineering checks, not calibrated audibility thresholds",
+      "reference": "Both predictions are compared against the same frozen cached teacher waveform",
+      "student": {
+        "aggregate": {
+          "cached_teacher_rms": 0.00044858246659957283,
+          "centered_residual_rms": 0.00024221458886227186,
+          "failed_windows": 2429,
+          "failure_categories": {
+            "amplitude_only": 60,
+            "both": 925,
+            "passed": 115,
+            "residual_only": 1444
+          },
+          "maximum_absolute_error": {
+            "actual_startup": true,
+            "context_frames": 0,
+            "maximum_error_cached_teacher": -0.008588318713009357,
+            "maximum_error_prediction": 2.486959783709608e-05,
+            "maximum_error_scored_sample": 1414,
+            "maximum_error_signed_residual": 0.008613188310846454,
+            "maximum_error_source_sample": 1414,
+            "maximum_error_source_seconds": 0.029458333333333333,
+            "residual_abs_max": 0.008613188310846454,
+            "source_id": "tg_tj:train:11851591230613317287.wav",
+            "window_id": "tg_tj:train:11851591230613317287.wav:960"
+          },
+          "prediction_rms": 0.0004753319400757406,
+          "quiet_samples": 2437032,
+          "quiet_windows": 2544,
+          "residual_rms": 0.00024422747787127783,
+          "residual_rms_double": 0.0002442274848987609,
+          "window_residual_dc_rms": 3.129148961387297e-05
+        }
+      },
+      "teacher_replay": {
+        "aggregate": {
+          "cached_teacher_rms": 0.00044858246659957283,
+          "centered_residual_rms": 0.0,
+          "failed_windows": 0,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 2544,
+            "residual_only": 0
+          },
+          "maximum_absolute_error": {
+            "actual_startup": true,
+            "context_frames": 0,
+            "maximum_error_cached_teacher": -3.492352698231116e-05,
+            "maximum_error_prediction": -3.492352698231116e-05,
+            "maximum_error_scored_sample": 0,
+            "maximum_error_signed_residual": 0.0,
+            "maximum_error_source_sample": 0,
+            "maximum_error_source_seconds": 0.0,
+            "residual_abs_max": 0.0,
+            "source_id": "as_in:train:13453488421825608782.wav",
+            "window_id": "as_in:train:13453488421825608782.wav:0"
+          },
+          "prediction_rms": 0.00044858246659957283,
+          "quiet_samples": 2437032,
+          "quiet_windows": 2544,
+          "residual_rms": 0.0,
+          "residual_rms_double": 0.0,
+          "window_residual_dc_rms": 0.0
+        }
+      }
+    },
+    "reduction": {
+      "author": "Pool actual valid mel elements per resolution, then sum seven log10 means",
+      "common": "Unchanged five-scale linear and natural-log means, pooled before averaging scales"
+    },
+    "scorer_sha256": "b5694901e706fbabbfdf7806c31459c5ed791618d5d0439104347f6a94e637e2",
+    "script_sha256": "3b1b2b8709af6da89429bfb4c5255efa917880393b683b4dc29bf9485f90449e",
+    "step": 1000,
+    "training_updates": 0
+  }
+}

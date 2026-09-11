@@ -1,0 +1,48 @@
+{
+  "status": "running",
+  "start_step": 5625,
+  "maximum_total_step": 10000,
+  "segment_updates": 1000,
+  "review_every_updates": 500,
+  "final_segment_updates": 375,
+  "gradient_accumulation": 12,
+  "forward_sources": 1,
+  "trainable_stages": [
+    2,
+    3,
+    4
+  ],
+  "optimizer": "AdamW",
+  "learning_rate": 3e-05,
+  "retain_optimizer_moments_and_rng": true,
+  "architecture_changed": false,
+  "loss_changed": false,
+  "source_interval": [
+    24000,
+    76500
+  ],
+  "new_sources": 52500,
+  "newly_selected_sources": 49500,
+  "checkpoint_sha256": "0da2f6e98a29b025b41df84dbb674e1a35fbea2629f698ef33fe62f687c18b1b",
+  "automatic_freezing": false,
+  "automatic_promotion": false,
+  "runtime_root": "/tmp/fast-audiovae-joint-recovery-v2",
+  "review_policy": "joint_recovery_gates_v2.py",
+  "dashboard": "https://34d6pb4ub5ldrz-8888.proxy.runpod.net/#custom_scalars&_smoothingWeight=0",
+  "segment_start_step": 5625,
+  "segment_target_step": 6625,
+  "next_review_step": 6625,
+  "observed_step": 6183,
+  "observed_utc": "2026-09-10T15:25:01.442015+00:00",
+  "trainer_pid": 1044716,
+  "review_automation": {
+    "id": "audiovae-training-review",
+    "status": "ACTIVE",
+    "interval_minutes": 5
+  },
+  "source_plan": "/tmp/fast-audiovae-continuation-plan-v3/plan.json",
+  "source_plan_sha256": "8054b11514b33cbd9af2f196c3d4405061bc8208ddbe9623afd2a3ada3b66bbe",
+  "last_review_step": 6125,
+  "last_review_action": "continue",
+  "last_review_evidence": "review6125/summary.json"
+}

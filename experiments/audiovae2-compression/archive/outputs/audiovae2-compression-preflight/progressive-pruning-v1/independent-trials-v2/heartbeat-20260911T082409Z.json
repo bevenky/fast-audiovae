@@ -1,0 +1,100 @@
+{
+  "recorded_at_utc": "2026-09-11T08:24:09.983Z",
+  "queue_status": "failed",
+  "stage": "quiet_recovery",
+  "failure_type": "RuntimeError",
+  "queue_identity": {
+    "active": false,
+    "command_matches": null,
+    "start_matches": null
+  },
+  "configuration_exact": true,
+  "controller_exact": true,
+  "shared_memory_free_bytes": 1617657856,
+  "dashboard_warning_count": 0,
+  "downstream_identity": {
+    "active": false,
+    "command_matches": null,
+    "start_matches": null
+  },
+  "trials": [
+    {
+      "name": "downstream",
+      "output_exists": true,
+      "completion_exists": true,
+      "updates": 2000,
+      "step_sequence_exact": true,
+      "finite_losses": true,
+      "teacher_cache_all_pass": true,
+      "checkpoint_count": 3,
+      "completion_status": "awaiting_review",
+      "complete_steps": 2000,
+      "failure_type": null,
+      "frozen_preserved": true,
+      "files_preserved": true
+    },
+    {
+      "name": "grail_initialization",
+      "output_exists": true,
+      "completion_exists": true,
+      "completion_status": "evaluated",
+      "complete_steps": 0,
+      "failure_type": null,
+      "frozen_preserved": {
+        "frozen_and_unselected": true,
+        "teacher": true
+      },
+      "files_preserved": true
+    },
+    {
+      "name": "grail_recovery",
+      "output_exists": true,
+      "completion_exists": true,
+      "updates": 2000,
+      "step_sequence_exact": true,
+      "finite_losses": true,
+      "teacher_cache_all_pass": true,
+      "checkpoint_count": 3,
+      "completion_status": "awaiting_review",
+      "complete_steps": 2000,
+      "failure_type": null,
+      "frozen_preserved": true,
+      "files_preserved": true
+    },
+    {
+      "name": "quiet_recovery",
+      "output_exists": true,
+      "completion_exists": true,
+      "completion_status": "failed",
+      "complete_steps": 0,
+      "failure_type": "RuntimeError",
+      "frozen_preserved": true,
+      "files_preserved": true
+    }
+  ],
+  "child_identity": {
+    "active": false,
+    "command_matches": null,
+    "start_matches": null
+  },
+  "quiet_failure": {
+    "status": "failed",
+    "step": 0,
+    "failure_known_code_messages": [
+      "Grad-enabled constraint differs from its no-grad pre-state"
+    ],
+    "failure_class_RuntimeError": true,
+    "initial_parity_file_exists": true,
+    "initial_parity_passed": true,
+    "checkpoint_count": 1,
+    "training_journal_exists": false,
+    "frozen_state_preserved": true,
+    "original_files_preserved": true
+  },
+  "action": "Controller stopped on Q technical failure before first completed update. No retry or source changes. Heartbeat paused for review.",
+  "completion_audits": {
+    "D": true,
+    "G": true,
+    "Q": false
+  }
+}

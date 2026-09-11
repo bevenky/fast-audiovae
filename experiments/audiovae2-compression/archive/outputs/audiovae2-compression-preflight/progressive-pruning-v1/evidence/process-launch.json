@@ -1,0 +1,42 @@
+{
+  "pid": 1048927,
+  "command": [
+    "/tmp/fast-audiovae-recovery-20260909/venv214/bin/python",
+    "-u",
+    "/tmp/fast-audiovae-progressive-pruning-v1/code/progressive_train.py",
+    "--manifest",
+    "/workspace/fast-audiovae-compression-20260910-v1/pilot-selection-v1.json",
+    "--source-plan",
+    "/workspace/fast-audiovae-compression-20260910-v1/fresh-source-plan-v2/plan.json",
+    "--shards",
+    "/dev/shm/fast-audiovae-compression-fresh-shards-v2",
+    "--assets",
+    "/workspace/fast-audiovae-convnext-20260908-r1/assets",
+    "--recipe",
+    "/tmp/fast-audiovae-joint-recovery-v2/segment-5625-6625/launch.json",
+    "--schedule",
+    "/tmp/fast-audiovae-progressive-pruning-v1/preparation/schedule.json",
+    "--out",
+    "/tmp/fast-audiovae-progressive-pruning-v1/cut1-384-256",
+    "--tensorboard",
+    "/tmp/fast-audiovae-progressive-pruning-v1/tensorboard/cut1",
+    "--cut-index",
+    "1"
+  ],
+  "environment_overrides": {
+    "PYTHONPATH": "/tmp/fast-audiovae-progressive-pruning-v1/code:/workspace/fast-audiovae-compression-20260910-v1/code",
+    "PYTHONUNBUFFERED": "1",
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1"
+  },
+  "runner_sha256": "159571f9eba7b283e9360fb3882c64dbab7fe48b80b9bc7a773310a41871ea25",
+  "launched_unix": 1789055276.601565,
+  "automatic_next_cut": false,
+  "target_updates": 1000,
+  "quality_steps": [
+    0,
+    500,
+    1000
+  ],
+  "old_checkpoint_preserved": "/tmp/fast-audiovae-joint-recovery-v2/segment-5625-6625/checkpoint-step6625.pt"
+}

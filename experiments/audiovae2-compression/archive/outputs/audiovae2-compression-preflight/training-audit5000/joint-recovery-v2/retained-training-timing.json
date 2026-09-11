@@ -1,0 +1,59 @@
+{
+  "rows": [
+    {
+      "range": "0\u2013256",
+      "updates": 256,
+      "accumulation": 3,
+      "elapsed_seconds": 36.55818589031696,
+      "basis": "Last selected screen training journal entry; includes in-loop validation, excludes initialization and final scoring."
+    },
+    {
+      "range": "256\u20131,000",
+      "updates": 744,
+      "accumulation": 3,
+      "elapsed_seconds": 111.84579885005951,
+      "basis": "Last continuation journal entry; includes in-loop validation, excludes final scoring."
+    },
+    {
+      "range": "1,000\u20134,500",
+      "updates": 3500,
+      "accumulation": 3,
+      "elapsed_seconds": 1520.502811126411,
+      "basis": "Retained prefix of original continuation journal; includes data waits, validation and logging. Excludes discarded4,501\u20135,000."
+    },
+    {
+      "range": "4,500\u20134,625",
+      "updates": 125,
+      "accumulation": 12,
+      "elapsed_seconds": 115.98695987462997,
+      "basis": "Selected accumulation12 arm completed receipt; includes its diagnostic panels and final state checks."
+    },
+    {
+      "range": "4,625\u20135,625",
+      "updates": 1000,
+      "accumulation": 12,
+      "elapsed_seconds": 1475.6447328552604,
+      "basis": "Joint recovery v1 completed receipt, includes waits and four reviews/final state checks.",
+      "all_update_sections_seconds": 1160.862054206431
+    },
+    {
+      "range": "5,625\u20136,000",
+      "updates": 375,
+      "accumulation": 12,
+      "elapsed_seconds": 677.5874182134867,
+      "basis": "Fixed step6000 journal entry; includes data waits, warmups and monitoring.",
+      "all_update_sections_seconds": 445.16870352625847
+    }
+  ],
+  "through5625_elapsed_seconds": 3260.538488596678,
+  "through6000_elapsed_seconds": 3938.1259068101645,
+  "total_optimizer_updates": 6000,
+  "pure_compute_total_available": false,
+  "limits": [
+    "Run-clock intervals have slightly different endpoints. Some finish at the last update before final scoring; completed receipts include final scoring.",
+    "Early update durations were logged sparsely; no exact retained total of isolated optimizer computation can be recovered.",
+    "Recorded update sections include teacher inference and cache checks, forward/backward and optimizer work, and are not isolated GPU-only time.",
+    "Excluded setup, target preparation before run timers, gaps between runs, discarded model branches and repeated diagnostics. Waiting inside an active run remains included.",
+    "No training, benchmark, model run or source changes were performed for this audit."
+  ]
+}

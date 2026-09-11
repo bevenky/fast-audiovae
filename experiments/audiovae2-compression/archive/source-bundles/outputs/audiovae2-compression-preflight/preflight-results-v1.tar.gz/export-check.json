@@ -1,0 +1,35 @@
+{
+  "device": "cpu",
+  "error": {
+    "message": "Stage 1 did not export its expected smaller weight/stride: None, {'dilations': [1], 'group': 1, 'kernel_shape': [16], 'pads': [0, 0], 'strides': [8]}",
+    "type": "ValueError"
+  },
+  "exporter": "torch.onnx.export legacy, dynamo=False",
+  "exporter_sha256": "fc2d2dea1dc916b058a93e94e43c9b577336fa9e453696d8797fd3f45c691a6f",
+  "initial_sha256": "c41c9bc24b0c2c0261f33edcda594880eba17a76be49500b9f5045bb310b6cb9",
+  "model_sha256": "2fcc0728bb6d7a6ac75ab9299090ccc066a3ae3afdd6d92e436e325414c803fe",
+  "native_integration": {
+    "reason": "Generic ONNX export only; packed native kernels and bounded streaming state require separate validation.",
+    "status": "pending"
+  },
+  "onnx": "1.22.0",
+  "onnxruntime": "1.29.0",
+  "opset": 18,
+  "ort_inter_threads": 1,
+  "ort_intra_threads": 1,
+  "parity_records": [],
+  "parity_tolerance": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "passed": false,
+  "preflight_sha256": "0dbabc265e15210e178605d36db770d119dbdf441b9f7e9fb914ebb373774334",
+  "rtf_measured": false,
+  "selection_sha256": "7b943ea3a78c91da3df102d44743ef2e6d54c0ff5e3b61e81086b02fe97994e7",
+  "streaming_verified": false,
+  "teacher_checkpoint_sha256": "94b5d51e107e0507d4acc976cfdadb64edd6fd06d1f751dadbf2fd1594274bf1",
+  "teacher_source_sha256": "2efdff1708d8ec1471624aae6f232d0f933de26b788b6901c434246847e2d3a8",
+  "torch": "2.14.0+cu126",
+  "torch_threads": 1,
+  "version": "audiovae2_group_export_v1"
+}

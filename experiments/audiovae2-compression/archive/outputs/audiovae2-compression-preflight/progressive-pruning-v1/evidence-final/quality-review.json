@@ -1,0 +1,1265 @@
+{
+  "active_level_provenance": {
+    "definition_source": "work/fast-audiovae/experiments/audiovae2-compression/unified_monitor.py:window_summary and UnifiedMonitor.evaluate",
+    "field_path": "overview_window_metrics.by_source[SOURCE_ID].active_student_energy and active_teacher_energy",
+    "formula_per_source": "sqrt(active_student_energy / active_teacher_energy)",
+    "formula_pooled": "sqrt(sum_source(active_student_energy) / sum_source(active_teacher_energy))",
+    "interpretation": "Measured waveform RMS ratio over the same active windows, not a perceptual loudness score and not an average of source ratios.",
+    "mask": "Teacher-defined nonquiet20ms windows from the existing quiet_window_metrics. Energy is sum(valid_samples * window_rms**2).",
+    "reports": {
+      "1000": {
+        "pooled": {
+          "active_student_energy": 34973.536267230505,
+          "active_teacher_energy": 39878.2908918831,
+          "rms_ratio": 0.9364864653964056
+        },
+        "report_path": "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/audiovae2-compression-preflight/progressive-pruning-v1/evidence-final/development-step1000.json",
+        "whistling": {
+          "active_student_energy": 5.121980467635187,
+          "active_teacher_energy": 7.757845795858749,
+          "rms_ratio": 0.8125468061709445
+        },
+        "whistling_source_id": "freesound:428921"
+      },
+      "500": {
+        "pooled": {
+          "active_student_energy": 37910.92547143878,
+          "active_teacher_energy": 39878.2908918831,
+          "rms_ratio": 0.9750208991664285
+        },
+        "report_path": "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/audiovae2-compression-preflight/progressive-pruning-v1/evidence/cut1-384-256/development-step500.json",
+        "whistling": {
+          "active_student_energy": 9.17960008010252,
+          "active_teacher_energy": 7.757845795858749,
+          "rms_ratio": 1.0877806000113146
+        },
+        "whistling_source_id": "freesound:428921"
+      }
+    }
+  },
+  "active_rms_ratios": {
+    "0": 0.11848122624352389,
+    "1000": 0.9364864653964056,
+    "500": 0.9750208991664285
+  },
+  "aggregate": {
+    "0": {
+      "group_cosine": 0.7915426409633431,
+      "group_mse": 0.046927256211217176,
+      "group_nrmse": 0.6166639351873571,
+      "group_nrmse_floor_applied": false,
+      "mae": 0.021870683584162172,
+      "mel": 1.029525876045227,
+      "mel_linear": 0.019736934453248978,
+      "mel_log": 1.009788990020752,
+      "mse": 0.0030821164083638625,
+      "nonquiet_cosine_mean": 0.74350659773244,
+      "nonquiet_samples": 8809920,
+      "overshoot_samples": 0,
+      "peak_abs_max": 0.08067601919174194,
+      "quiet_failed_windows": 2544,
+      "quiet_residual_rms_mean": 0.0014146299984744957,
+      "quiet_windows": 2544,
+      "samples": 11246952,
+      "sources": 96,
+      "waveform_nrmse": 0.9323328532483677,
+      "waveform_nrmse_floor_applied": false,
+      "waveform_residual_rms": 0.055516811943445224
+    },
+    "1000": {
+      "group_cosine": 0.9856773639285169,
+      "group_mse": 0.0035389869358699033,
+      "group_nrmse": 0.1693461971830252,
+      "group_nrmse_floor_applied": false,
+      "mae": 0.0032860092957835403,
+      "mel": 0.20176510512828827,
+      "mel_linear": 0.0024591833353042603,
+      "mel_log": 0.199305921792984,
+      "mse": 0.00011975892477947964,
+      "nonquiet_cosine_mean": 0.9886974603319353,
+      "nonquiet_samples": 8809920,
+      "overshoot_samples": 0,
+      "peak_abs_max": 0.9895059466362,
+      "quiet_failed_windows": 2186,
+      "quiet_residual_rms_mean": 0.0001118719398397616,
+      "quiet_windows": 2544,
+      "samples": 11246952,
+      "sources": 96,
+      "waveform_nrmse": 0.18378091664592477,
+      "waveform_nrmse_floor_applied": false,
+      "waveform_residual_rms": 0.010943442090104906
+    },
+    "500": {
+      "group_cosine": 0.9776707246451436,
+      "group_mse": 0.005535110152584779,
+      "group_nrmse": 0.2117869046126452,
+      "group_nrmse_floor_applied": false,
+      "mae": 0.003464833534678083,
+      "mel": 0.24277473986148834,
+      "mel_linear": 0.0025507421232759953,
+      "mel_log": 0.24022400379180908,
+      "mse": 0.00013851540754901848,
+      "nonquiet_cosine_mean": 0.9854737091507458,
+      "nonquiet_samples": 8809920,
+      "overshoot_samples": 0,
+      "peak_abs_max": 0.9805024266242981,
+      "quiet_failed_windows": 2272,
+      "quiet_residual_rms_mean": 0.00013440233494072331,
+      "quiet_windows": 2544,
+      "samples": 11246952,
+      "sources": 96,
+      "waveform_nrmse": 0.19764940501930794,
+      "waveform_nrmse_floor_applied": false,
+      "waveform_residual_rms": 0.01176925688176694
+    }
+  },
+  "boundaries": {
+    "comparisons": {
+      "pre_tanh": {
+        "compared_channels": 1,
+        "interpretation": "Complete shared coordinates, compared after the student's actual preceding stages.",
+        "rate_hz": 48000,
+        "scope": "shared_full_boundary",
+        "teacher_channels": 1
+      },
+      "stage1_output": {
+        "compared_channels": 1024,
+        "interpretation": "Complete shared coordinates, compared after the student's actual preceding stages.",
+        "rate_hz": 200,
+        "scope": "shared_full_boundary",
+        "teacher_channels": 1024
+      },
+      "stage2_output": {
+        "compared_channels": 384,
+        "interpretation": "Partial internal-coordinate diagnostic. Narrowed internal representations may redistribute information; this is not full teacher-feature fidelity and does not train corresponding layers.",
+        "rate_hz": 1200,
+        "scope": "selected_teacher_coordinates_only",
+        "teacher_channels": 512
+      },
+      "stage3_output": {
+        "compared_channels": 256,
+        "interpretation": "Partial internal-coordinate diagnostic. Narrowed internal representations may redistribute information; this is not full teacher-feature fidelity and does not train corresponding layers.",
+        "rate_hz": 6000,
+        "scope": "selected_teacher_coordinates_only",
+        "teacher_channels": 256
+      },
+      "stage4_output": {
+        "compared_channels": 128,
+        "interpretation": "Complete shared coordinates, compared after the student's actual preceding stages.",
+        "rate_hz": 12000,
+        "scope": "shared_full_boundary",
+        "teacher_channels": 128
+      },
+      "stage5_output": {
+        "compared_channels": 64,
+        "interpretation": "Complete shared coordinates, compared after the student's actual preceding stages.",
+        "rate_hz": 24000,
+        "scope": "shared_full_boundary",
+        "teacher_channels": 64
+      },
+      "stage6_output": {
+        "compared_channels": 32,
+        "interpretation": "Complete shared coordinates, compared after the student's actual preceding stages.",
+        "rate_hz": 48000,
+        "scope": "shared_full_boundary",
+        "teacher_channels": 32
+      },
+      "waveform": {
+        "compared_channels": 1,
+        "interpretation": "Complete shared coordinates, compared after the student's actual preceding stages.",
+        "rate_hz": 48000,
+        "scope": "shared_full_boundary",
+        "teacher_channels": 1
+      }
+    },
+    "nrmse": {
+      "0": {
+        "pre_tanh": {
+          "active": 0.9558296840948388,
+          "all": 0.9558705080788478,
+          "quiet": 4.011502626621747
+        },
+        "stage1_output": {
+          "active": 0.0,
+          "all": 0.0,
+          "quiet": 0.0
+        },
+        "stage2_output": {
+          "active": 0.531937986285808,
+          "all": 0.5154776837541876,
+          "quiet": 0.47073335046466447
+        },
+        "stage3_output": {
+          "active": 0.5255928438803162,
+          "all": 0.49930014020766395,
+          "quiet": 0.4645521038622759
+        },
+        "stage4_output": {
+          "active": 0.595208408797916,
+          "all": 0.6430312508904324,
+          "quiet": 0.7857831558903001
+        },
+        "stage5_output": {
+          "active": 0.531613208739013,
+          "all": 0.6294747059768098,
+          "quiet": 1.8585215107400355
+        },
+        "stage6_output": {
+          "active": 0.6552402456324817,
+          "all": 0.690681814254227,
+          "quiet": 2.496894467839412
+        },
+        "waveform": {
+          "active": 0.9525924364432734,
+          "all": 0.9526376625363028,
+          "quiet": 4.011484522007624
+        }
+      },
+      "1000": {
+        "pre_tanh": {
+          "active": 0.18849963167866687,
+          "all": 0.18850044060849153,
+          "quiet": 0.30796873717785195
+        },
+        "stage1_output": {
+          "active": 0.0,
+          "all": 0.0,
+          "quiet": 0.0
+        },
+        "stage2_output": {
+          "active": 0.5361244318747947,
+          "all": 0.5311481684400475,
+          "quiet": 0.5181939070894169
+        },
+        "stage3_output": {
+          "active": 0.3369859438207255,
+          "all": 0.29438356609833116,
+          "quiet": 0.23071858586318322
+        },
+        "stage4_output": {
+          "active": 0.18989169026460748,
+          "all": 0.17553254958664272,
+          "quiet": 0.11286331053912468
+        },
+        "stage5_output": {
+          "active": 0.13323821277385675,
+          "all": 0.13363193588907685,
+          "quiet": 0.1438234549228907
+        },
+        "stage6_output": {
+          "active": 0.12578122536141,
+          "all": 0.12603560526893962,
+          "quiet": 0.15367654751259952
+        },
+        "waveform": {
+          "active": 0.1807896166088995,
+          "all": 0.18079059213077858,
+          "quiet": 0.3079682283706936
+        }
+      },
+      "500": {
+        "pre_tanh": {
+          "active": 0.20284157520846885,
+          "all": 0.2028426425125294,
+          "quiet": 0.3540567229799289
+        },
+        "stage1_output": {
+          "active": 0.0,
+          "all": 0.0,
+          "quiet": 0.0
+        },
+        "stage2_output": {
+          "active": 0.5815510806698789,
+          "all": 0.5761990615547912,
+          "quiet": 0.5622686872698226
+        },
+        "stage3_output": {
+          "active": 0.3863347558182182,
+          "all": 0.3351339616115859,
+          "quiet": 0.25768838871800687
+        },
+        "stage4_output": {
+          "active": 0.2446345988142912,
+          "all": 0.22725228839473877,
+          "quiet": 0.15294018875335247
+        },
+        "stage5_output": {
+          "active": 0.16910298903467352,
+          "all": 0.16920838285761036,
+          "quiet": 0.1720204597911463
+        },
+        "stage6_output": {
+          "active": 0.1556791469036598,
+          "all": 0.15611684967428108,
+          "quiet": 0.2021001613007641
+        },
+        "waveform": {
+          "active": 0.19447474544244528,
+          "all": 0.19447602253479268,
+          "quiet": 0.35405606881993507
+        }
+      }
+    },
+    "panel_sources": 12
+  },
+  "checkpoint_receipt": {
+    "checkpoint_sha256": "4272198a8d76168564651c49960ef370690859981a5591ba0de39d42053eef56",
+    "cut_index": 1,
+    "cut_updates": 1000,
+    "frozen_state_preserved": true,
+    "global_updates": 1000,
+    "optimizer_and_rng_saved": true,
+    "quality": {
+      "group_cosine": 0.9856773639285169,
+      "group_mse": 0.0035389869358699033,
+      "group_nrmse": 0.1693461971830252,
+      "group_nrmse_floor_applied": false,
+      "mae": 0.0032860092957835403,
+      "mel": 0.20176510512828827,
+      "mel_linear": 0.0024591833353042603,
+      "mel_log": 0.199305921792984,
+      "mse": 0.00011975892477947964,
+      "nonquiet_cosine_mean": 0.9886974603319353,
+      "nonquiet_samples": 8809920,
+      "overshoot_samples": 0,
+      "peak_abs_max": 0.9895059466362,
+      "quiet_failed_windows": 2186,
+      "quiet_residual_rms_mean": 0.0001118719398397616,
+      "quiet_windows": 2544,
+      "samples": 11246952,
+      "sources": 96,
+      "waveform_nrmse": 0.18378091664592477,
+      "waveform_nrmse_floor_applied": false,
+      "waveform_residual_rms": 0.010943442090104906
+    },
+    "sources_seen": 12000
+  },
+  "completion": {
+    "automatic_next_cut": false,
+    "cut_index": 1,
+    "cut_updates": 1000,
+    "elapsed_seconds": 669.9170859009027,
+    "failure": null,
+    "final": {
+      "group_cosine": 0.9856773639285169,
+      "group_mse": 0.0035389869358699033,
+      "group_nrmse": 0.1693461971830252,
+      "group_nrmse_floor_applied": false,
+      "mae": 0.0032860092957835403,
+      "mel": 0.20176510512828827,
+      "mel_linear": 0.0024591833353042603,
+      "mel_log": 0.199305921792984,
+      "mse": 0.00011975892477947964,
+      "nonquiet_cosine_mean": 0.9886974603319353,
+      "nonquiet_samples": 8809920,
+      "overshoot_samples": 0,
+      "peak_abs_max": 0.9895059466362,
+      "quiet_failed_windows": 2186,
+      "quiet_residual_rms_mean": 0.0001118719398397616,
+      "quiet_windows": 2544,
+      "samples": 11246952,
+      "sources": 96,
+      "waveform_nrmse": 0.18378091664592477,
+      "waveform_nrmse_floor_applied": false,
+      "waveform_residual_rms": 0.010943442090104906
+    },
+    "frozen_state_preserved": true,
+    "last_checkpoint_sha256": "4272198a8d76168564651c49960ef370690859981a5591ba0de39d42053eef56",
+    "original_files_preserved": true,
+    "scored_samples": 1411715565,
+    "source_count": 12000,
+    "status": "awaiting_review",
+    "version": "audiovae2_progressive_train_v1"
+  },
+  "cut_index": 1,
+  "expressive": {
+    "freesound:180341": {
+      "labels": [
+        "Screaming"
+      ],
+      "steps": {
+        "0": {
+          "active_rms_ratio": 0.039709167404451115,
+          "cosine": 0.5341302552955416,
+          "group_mse": 0.1406238726300769,
+          "mae": 0.09791446906342828,
+          "mel": 1.8984322547912598
+        },
+        "1000": {
+          "active_rms_ratio": 0.9483542840274638,
+          "cosine": 0.9779194811462985,
+          "group_mse": 0.009563314178234321,
+          "mae": 0.02058359536188282,
+          "mel": 0.27794381976127625
+        },
+        "500": {
+          "active_rms_ratio": 0.9435059215824918,
+          "cosine": 0.9670887440344104,
+          "group_mse": 0.014679140028424456,
+          "mae": 0.024358281391549913,
+          "mel": 0.3350733518600464
+        }
+      }
+    },
+    "freesound:236508": {
+      "labels": [
+        "Whispering"
+      ],
+      "steps": {
+        "0": {
+          "active_rms_ratio": 0.30881271911016445,
+          "cosine": 0.6201844485801595,
+          "group_mse": 0.09948716629342544,
+          "mae": 0.013655861764331825,
+          "mel": 1.1292434930801392
+        },
+        "1000": {
+          "active_rms_ratio": 0.9832942755374731,
+          "cosine": 0.9715877189987219,
+          "group_mse": 0.0061257260333386025,
+          "mae": 0.004177692346953062,
+          "mel": 0.20056235790252686
+        },
+        "500": {
+          "active_rms_ratio": 0.969235257560037,
+          "cosine": 0.9619765367082609,
+          "group_mse": 0.009527974054364962,
+          "mae": 0.0047502948831499225,
+          "mel": 0.262065589427948
+        }
+      }
+    },
+    "freesound:277554": {
+      "labels": [
+        "Chuckle_and_chortle"
+      ],
+      "steps": {
+        "0": {
+          "active_rms_ratio": 0.04583298504748623,
+          "cosine": 0.6471708427980214,
+          "group_mse": 0.12294944717969196,
+          "mae": 0.055079536095941184,
+          "mel": 1.4824587106704712
+        },
+        "1000": {
+          "active_rms_ratio": 0.8845557326290442,
+          "cosine": 0.9699490448243777,
+          "group_mse": 0.01592613956252063,
+          "mae": 0.014409778265578922,
+          "mel": 0.24077238142490387
+        },
+        "500": {
+          "active_rms_ratio": 0.9283272341704389,
+          "cosine": 0.9672318397650936,
+          "group_mse": 0.02607732775033132,
+          "mae": 0.014529095896116595,
+          "mel": 0.29531896114349365
+        }
+      }
+    },
+    "freesound:343940": {
+      "labels": [
+        "Laughter"
+      ],
+      "steps": {
+        "0": {
+          "active_rms_ratio": 0.04046139490733944,
+          "cosine": 0.5549342976819298,
+          "group_mse": 0.16517927059946177,
+          "mae": 0.07384176683121414,
+          "mel": 1.695886492729187
+        },
+        "1000": {
+          "active_rms_ratio": 0.8762754865963189,
+          "cosine": 0.9379310487709525,
+          "group_mse": 0.018216471937218415,
+          "mae": 0.025435537053606506,
+          "mel": 0.3392103612422943
+        },
+        "500": {
+          "active_rms_ratio": 0.9741257054707813,
+          "cosine": 0.9225813746627162,
+          "group_mse": 0.021994111972058434,
+          "mae": 0.0285939021578267,
+          "mel": 0.3992522954940796
+        }
+      }
+    },
+    "freesound:343960": {
+      "labels": [
+        "Yell"
+      ],
+      "steps": {
+        "0": {
+          "active_rms_ratio": 0.02951864307374952,
+          "cosine": 0.6825333356184563,
+          "group_mse": 0.4577117889196609,
+          "mae": 0.1925313910946925,
+          "mel": 2.263593912124634
+        },
+        "1000": {
+          "active_rms_ratio": 0.9149909291392736,
+          "cosine": 0.9338952839619111,
+          "group_mse": 0.06997272121508806,
+          "mae": 0.05749753816083392,
+          "mel": 0.3837910592556
+        },
+        "500": {
+          "active_rms_ratio": 0.975673626544578,
+          "cosine": 0.9367031211336955,
+          "group_mse": 0.07746797273237326,
+          "mae": 0.05829950266719343,
+          "mel": 0.44497522711753845
+        }
+      }
+    },
+    "freesound:36399": {
+      "labels": [
+        "Breathing"
+      ],
+      "steps": {
+        "0": {
+          "active_rms_ratio": 0.5017806022943373,
+          "cosine": 0.6567309789314245,
+          "group_mse": 0.048676777395966944,
+          "mae": 0.003460381436568317,
+          "mel": 1.1231282949447632
+        },
+        "1000": {
+          "active_rms_ratio": 0.9572486149950701,
+          "cosine": 0.9504893828258658,
+          "group_mse": 0.001340838564357409,
+          "mae": 0.001079977299195131,
+          "mel": 0.15085427463054657
+        },
+        "500": {
+          "active_rms_ratio": 0.9226768438378746,
+          "cosine": 0.9292530669819841,
+          "group_mse": 0.002065048515650842,
+          "mae": 0.0012882866978084924,
+          "mel": 0.19558589160442352
+        }
+      }
+    },
+    "freesound:402835": {
+      "labels": [
+        "Crying_and_sobbing"
+      ],
+      "steps": {
+        "0": {
+          "active_rms_ratio": 0.06063144772541215,
+          "cosine": 0.6937353178272373,
+          "group_mse": 0.07339968628905852,
+          "mae": 0.056042237943613474,
+          "mel": 1.322200894355774
+        },
+        "1000": {
+          "active_rms_ratio": 0.9314004653559065,
+          "cosine": 0.9842872950947099,
+          "group_mse": 0.00738795006728773,
+          "mae": 0.010410774916811248,
+          "mel": 0.3186000883579254
+        },
+        "500": {
+          "active_rms_ratio": 1.028499443280512,
+          "cosine": 0.9756872113633495,
+          "group_mse": 0.010293223136369488,
+          "mae": 0.012437784628836372,
+          "mel": 0.3759651780128479
+        }
+      }
+    },
+    "freesound:421873": {
+      "labels": [
+        "Shout"
+      ],
+      "steps": {
+        "0": {
+          "active_rms_ratio": 0.04178744112515667,
+          "cosine": 0.5505573575317345,
+          "group_mse": 0.14451932060567405,
+          "mae": 0.04642144694724953,
+          "mel": 1.7541779279708862
+        },
+        "1000": {
+          "active_rms_ratio": 0.9208748209821276,
+          "cosine": 0.9796153282774516,
+          "group_mse": 0.012243396257206779,
+          "mae": 0.010086098654936858,
+          "mel": 0.19215820729732513
+        },
+        "500": {
+          "active_rms_ratio": 0.9018916475323646,
+          "cosine": 0.974587874207204,
+          "group_mse": 0.02202332428729462,
+          "mae": 0.011110649047458409,
+          "mel": 0.24880588054656982
+        }
+      }
+    },
+    "freesound:428921": {
+      "labels": [
+        "human_whistling_source_description"
+      ],
+      "steps": {
+        "0": {
+          "active_rms_ratio": 0.2791134488937782,
+          "cosine": 0.7902830763957007,
+          "group_mse": 0.045925396462576255,
+          "mae": 0.0036668870295303866,
+          "mel": 1.5457512140274048
+        },
+        "1000": {
+          "active_rms_ratio": 0.8125468061709445,
+          "cosine": 0.9786009705691888,
+          "group_mse": 0.0019019177571718456,
+          "mae": 0.0010215118260824135,
+          "mel": 0.2067491114139557
+        },
+        "500": {
+          "active_rms_ratio": 1.0877806000113146,
+          "cosine": 0.9916446211930467,
+          "group_mse": 0.0025937018326102745,
+          "mae": 0.0006428538934894465,
+          "mel": 0.2699388563632965
+        }
+      }
+    },
+    "freesound:92375": {
+      "labels": [
+        "Giggle"
+      ],
+      "steps": {
+        "0": {
+          "active_rms_ratio": 0.044156673176117434,
+          "cosine": 0.6009968694297815,
+          "group_mse": 0.16797470382179647,
+          "mae": 0.0597900863731013,
+          "mel": 1.4287340641021729
+        },
+        "1000": {
+          "active_rms_ratio": 0.9528291585379881,
+          "cosine": 0.9851918725262054,
+          "group_mse": 0.012208837457063589,
+          "mae": 0.011426178897473731,
+          "mel": 0.23278559744358063
+        },
+        "500": {
+          "active_rms_ratio": 0.9768456244496565,
+          "cosine": 0.9823410361177467,
+          "group_mse": 0.018962261123730142,
+          "mae": 0.012315180644811229,
+          "mel": 0.27869904041290283
+        }
+      }
+    }
+  },
+  "limits": [
+    "No perceptual-quality orCPU-RTF benchmark was performed.",
+    "The12-source boundary panel differs from the96-source quality panel.",
+    "Stage2 internal comparisons contain selected teacher coordinates only. Stage3 is full256channels for thiscut despite the generic retained-coordinate label. Internal coordinate error is not an independently trained feature target.",
+    "Quiet passing is defined by the existing residual and upper-amplitude checks and is not exact silence equivalence."
+  ],
+  "mae_regressions_500_to1000": [
+    {
+      "gain_after": 0.8125468061709445,
+      "gain_before": 1.0877806000113146,
+      "mae_absolute_change": 0.00037865793259296706,
+      "mae_relative_change_percent": 58.90264279766446,
+      "mel_relative_change_percent": -23.408910373502167,
+      "source_id": "freesound:428921"
+    },
+    {
+      "gain_after": 0.8565246261056122,
+      "gain_before": 1.0127075606347125,
+      "mae_absolute_change": 0.00019604840164012913,
+      "mae_relative_change_percent": 37.86733727262692,
+      "mel_relative_change_percent": -11.884502552454867,
+      "source_id": "ha_ng:train:12490254919826375416.wav"
+    },
+    {
+      "gain_after": 0.9080696620995896,
+      "gain_before": 0.9972711862330107,
+      "mae_absolute_change": 0.0008728074345369335,
+      "mae_relative_change_percent": 28.879097313220626,
+      "mel_relative_change_percent": -17.42840826170795,
+      "source_id": "id_id:train:10850485351977338638.wav"
+    },
+    {
+      "gain_after": 0.8493263911977187,
+      "gain_before": 0.9881312088000634,
+      "mae_absolute_change": 0.00023373210140126646,
+      "mae_relative_change_percent": 26.741281626305447,
+      "mel_relative_change_percent": -18.125600253543052,
+      "source_id": "luo_ke:train:15463642708286073509.wav"
+    },
+    {
+      "gain_after": 0.9374607540884115,
+      "gain_before": 1.0031620195100597,
+      "mae_absolute_change": 0.0005967276079461127,
+      "mae_relative_change_percent": 25.695962730367427,
+      "mel_relative_change_percent": -16.686521471553284,
+      "source_id": "jv_id:train:11045828164931236769.wav"
+    },
+    {
+      "gain_after": null,
+      "gain_before": null,
+      "mae_absolute_change": 3.284862685918691e-06,
+      "mae_relative_change_percent": 20.78578513089504,
+      "mel_relative_change_percent": -21.953152118094998,
+      "source_id": "cy_gb:train:10349599617049103526.wav"
+    },
+    {
+      "gain_after": 0.9314962802874613,
+      "gain_before": 0.9805498169763941,
+      "mae_absolute_change": 0.00023927668434180487,
+      "mae_relative_change_percent": 19.505367393113215,
+      "mel_relative_change_percent": -16.7742814055435,
+      "source_id": "te_in:train:14751961982184477566.wav"
+    },
+    {
+      "gain_after": 0.9214677750350647,
+      "gain_before": 1.000728287644898,
+      "mae_absolute_change": 0.001008138302545077,
+      "mae_relative_change_percent": 19.309056748218456,
+      "mel_relative_change_percent": -14.264782122264108,
+      "source_id": "pt_br:train:14525075052551707276.wav"
+    },
+    {
+      "gain_after": 0.9405576385970631,
+      "gain_before": 0.9990181089314277,
+      "mae_absolute_change": 0.000297563805469725,
+      "mae_relative_change_percent": 17.879146484045584,
+      "mel_relative_change_percent": -16.950723841798933,
+      "source_id": "fi_fi:train:10893394073468230201.wav"
+    },
+    {
+      "gain_after": 0.8996131966562685,
+      "gain_before": 1.003041012535984,
+      "mae_absolute_change": 0.0005574134538489724,
+      "mae_relative_change_percent": 16.56103222344538,
+      "mel_relative_change_percent": -17.218203160150313,
+      "source_id": "ar_eg:train:12360449360113063891.wav"
+    },
+    {
+      "gain_after": 0.9073264495672599,
+      "gain_before": 0.9755117890007857,
+      "mae_absolute_change": 0.0004190684271786261,
+      "mae_relative_change_percent": 15.26516391503241,
+      "mel_relative_change_percent": -15.143139514586323,
+      "source_id": "kn_in:train:14687240407945660913.wav"
+    },
+    {
+      "gain_after": 0.8689023496880528,
+      "gain_before": 1.0005917962101563,
+      "mae_absolute_change": 0.00014145450256650713,
+      "mae_relative_change_percent": 12.175971041206735,
+      "mel_relative_change_percent": -11.310304135600491,
+      "source_id": "lo_la:train:10346663063780035215.wav"
+    },
+    {
+      "gain_after": 0.9241173987650703,
+      "gain_before": 1.015390565305151,
+      "mae_absolute_change": 2.6649355693505067e-05,
+      "mae_relative_change_percent": 11.092798326812158,
+      "mel_relative_change_percent": -16.34592083600017,
+      "source_id": "km_kh:train:10006360416725641613.wav"
+    },
+    {
+      "gain_after": 0.8807555789712429,
+      "gain_before": 1.0058958887597278,
+      "mae_absolute_change": 0.00010019465347038312,
+      "mae_relative_change_percent": 10.43915659395318,
+      "mel_relative_change_percent": -7.8470725088655495,
+      "source_id": "sd_in:train:13655315073103147391.wav"
+    },
+    {
+      "gain_after": 0.9228812444944078,
+      "gain_before": 0.9824595957562783,
+      "mae_absolute_change": 0.0005098762999886063,
+      "mae_relative_change_percent": 10.417824518213203,
+      "mel_relative_change_percent": -15.05813679778354,
+      "source_id": "maithili:844424930138733_chunk_1.flac"
+    },
+    {
+      "gain_after": 0.9354677703240938,
+      "gain_before": 0.9816231214568316,
+      "mae_absolute_change": 0.0002794368475723301,
+      "mae_relative_change_percent": 10.055064974237272,
+      "mel_relative_change_percent": -16.39645150493343,
+      "source_id": "cs_cz:train:10122716413664131344.wav"
+    },
+    {
+      "gain_after": 0.9295464437824813,
+      "gain_before": 0.9691388307230172,
+      "mae_absolute_change": 0.0002839315282985458,
+      "mae_relative_change_percent": 9.990641416454338,
+      "mel_relative_change_percent": -15.125132477418003,
+      "source_id": "2051-153962-0091"
+    },
+    {
+      "gain_after": 0.9103514208639598,
+      "gain_before": 1.0318256287924295,
+      "mae_absolute_change": 0.00014916902317718694,
+      "mae_relative_change_percent": 7.99170419012829,
+      "mel_relative_change_percent": -14.828234499553062,
+      "source_id": "kam_ke:train:12154486779797187960.wav"
+    },
+    {
+      "gain_after": 0.859489029003686,
+      "gain_before": 1.046352932313671,
+      "mae_absolute_change": 2.7575354685123942e-05,
+      "mae_relative_change_percent": 7.360040946071389,
+      "mel_relative_change_percent": -8.921316274003999,
+      "source_id": "as_in:train:13453488421825608782.wav"
+    },
+    {
+      "gain_after": 0.9437001463624164,
+      "gain_before": 1.0280689295524703,
+      "mae_absolute_change": 3.6925148438153103e-06,
+      "mae_relative_change_percent": 6.947287202941155,
+      "mel_relative_change_percent": -16.905535612176692,
+      "source_id": "lt_lt:train:15367591149256088428.wav"
+    },
+    {
+      "gain_after": 0.9155634668259779,
+      "gain_before": 1.0118196906984862,
+      "mae_absolute_change": 7.877750199281053e-06,
+      "mae_relative_change_percent": 6.690540888789465,
+      "mel_relative_change_percent": -18.53464595965769,
+      "source_id": "tg_tj:train:11851591230613317287.wav"
+    },
+    {
+      "gain_after": 0.9514307478098665,
+      "gain_before": 1.0043825231929078,
+      "mae_absolute_change": 0.00013147523423617065,
+      "mae_relative_change_percent": 5.476998190951909,
+      "mel_relative_change_percent": -13.711447879933358,
+      "source_id": "ne_np:train:10865610629546253109.wav"
+    },
+    {
+      "gain_after": 0.8991955849417311,
+      "gain_before": 1.0590828495024798,
+      "mae_absolute_change": 2.683078870024209e-05,
+      "mae_relative_change_percent": 4.861409052514043,
+      "mel_relative_change_percent": -14.754798639994949,
+      "source_id": "ko_kr:train:10359553883250105525.wav"
+    },
+    {
+      "gain_after": 0.9373703040777474,
+      "gain_before": 0.9980930842040023,
+      "mae_absolute_change": 5.887021591597383e-05,
+      "mae_relative_change_percent": 4.0675386632503585,
+      "mel_relative_change_percent": -20.19262993710652,
+      "source_id": "ka_ge:train:2993105044151469776.wav"
+    },
+    {
+      "gain_after": 0.9407430358172882,
+      "gain_before": 0.9662174231660524,
+      "mae_absolute_change": 0.00028785232943756046,
+      "mae_relative_change_percent": 3.6015923569461705,
+      "mel_relative_change_percent": -21.51849743789258,
+      "source_id": "kashmiri:1970324837177077_chunk_1.flac"
+    },
+    {
+      "gain_after": 0.9296399319759067,
+      "gain_before": 0.9984633576247244,
+      "mae_absolute_change": 3.731691699400126e-05,
+      "mae_relative_change_percent": 2.7312300141852264,
+      "mel_relative_change_percent": -11.991857992569333,
+      "source_id": "ca_es:train:10583803894773586508.wav"
+    },
+    {
+      "gain_after": 0.8843556488362555,
+      "gain_before": 1.0368499470891175,
+      "mae_absolute_change": 5.107000039927822e-06,
+      "mae_relative_change_percent": 2.6995848174432346,
+      "mel_relative_change_percent": -15.718139484273463,
+      "source_id": "kk_kz:train:13837639418509311322.wav"
+    },
+    {
+      "gain_after": 0.9526765089877731,
+      "gain_before": 0.9955017239713183,
+      "mae_absolute_change": 0.00010797353126776928,
+      "mae_relative_change_percent": 2.5681335952982165,
+      "mel_relative_change_percent": -13.350813670658413,
+      "source_id": "et_ee:train:16713145029159361863.wav"
+    },
+    {
+      "gain_after": 0.9033641641904667,
+      "gain_before": 0.9724328074261551,
+      "mae_absolute_change": 2.4195810875671372e-05,
+      "mae_relative_change_percent": 1.3457427314657266,
+      "mel_relative_change_percent": -12.297779196997382,
+      "source_id": "fil_ph:train:3075253886656038657.wav"
+    }
+  ],
+  "quiet_regions": {
+    "all_quiet": {
+      "0": {
+        "amplitude_failed": 2544,
+        "centered_residual_rms": 0.0013249411948340869,
+        "failed": 2544,
+        "failure_categories": {
+          "amplitude_only": 7,
+          "both": 2537,
+          "passed": 0,
+          "residual_only": 0
+        },
+        "output_limit_excess_rms": 0.0012644196231379643,
+        "output_rms": 0.001726675402813223,
+        "residual_rms": 0.001414630038562638,
+        "samples": 2437032,
+        "windows": 2544
+      },
+      "1000": {
+        "amplitude_failed": 408,
+        "centered_residual_rms": 0.00010452571153390622,
+        "failed": 2186,
+        "failure_categories": {
+          "amplitude_only": 1,
+          "both": 407,
+          "passed": 358,
+          "residual_only": 1778
+        },
+        "output_limit_excess_rms": 9.220042162218166e-06,
+        "output_rms": 0.000440788333497711,
+        "residual_rms": 0.00011187194284061954,
+        "samples": 2437032,
+        "windows": 2544
+      },
+      "500": {
+        "amplitude_failed": 918,
+        "centered_residual_rms": 0.00013324993623565733,
+        "failed": 2272,
+        "failure_categories": {
+          "amplitude_only": 9,
+          "both": 909,
+          "passed": 272,
+          "residual_only": 1354
+        },
+        "output_limit_excess_rms": 1.7043723141702863e-05,
+        "output_rms": 0.00046732361170304023,
+        "residual_rms": 0.00013440233874167218,
+        "samples": 2437032,
+        "windows": 2544
+      }
+    },
+    "near_after800ms": {
+      "0": {
+        "amplitude_failed": 50,
+        "centered_residual_rms": 2.401066187987301e-05,
+        "failed": 50,
+        "failure_categories": {
+          "amplitude_only": 0,
+          "both": 50,
+          "passed": 0,
+          "residual_only": 0
+        },
+        "output_limit_excess_rms": 2.2902014228621376e-05,
+        "output_rms": 2.9182027942156936e-05,
+        "residual_rms": 2.5451515197232885e-05,
+        "samples": 47235,
+        "windows": 50
+      },
+      "1000": {
+        "amplitude_failed": 0,
+        "centered_residual_rms": 1.7489323994199793e-06,
+        "failed": 1,
+        "failure_categories": {
+          "amplitude_only": 0,
+          "both": 0,
+          "passed": 49,
+          "residual_only": 1
+        },
+        "output_limit_excess_rms": 0.0,
+        "output_rms": 7.014860348287079e-06,
+        "residual_rms": 3.516272930658287e-06,
+        "samples": 47235,
+        "windows": 50
+      },
+      "500": {
+        "amplitude_failed": 1,
+        "centered_residual_rms": 2.1391915068659447e-06,
+        "failed": 1,
+        "failure_categories": {
+          "amplitude_only": 1,
+          "both": 0,
+          "passed": 49,
+          "residual_only": 0
+        },
+        "output_limit_excess_rms": 3.9119651248846236e-08,
+        "output_rms": 9.320184300700575e-06,
+        "residual_rms": 2.2358421221158647e-06,
+        "samples": 47235,
+        "windows": 50
+      }
+    },
+    "near_silence": {
+      "0": {
+        "amplitude_failed": 184,
+        "centered_residual_rms": 2.2403134249464348e-05,
+        "failed": 184,
+        "failure_categories": {
+          "amplitude_only": 7,
+          "both": 177,
+          "passed": 0,
+          "residual_only": 0
+        },
+        "output_limit_excess_rms": 2.035139413153929e-05,
+        "output_rms": 2.764090964286542e-05,
+        "residual_rms": 2.3798316483159112e-05,
+        "samples": 175875,
+        "windows": 184
+      },
+      "1000": {
+        "amplitude_failed": 14,
+        "centered_residual_rms": 5.1155364705869675e-06,
+        "failed": 17,
+        "failure_categories": {
+          "amplitude_only": 0,
+          "both": 14,
+          "passed": 167,
+          "residual_only": 3
+        },
+        "output_limit_excess_rms": 2.2958011802428034e-06,
+        "output_rms": 8.330566409871777e-06,
+        "residual_rms": 6.469958063829117e-06,
+        "samples": 175875,
+        "windows": 184
+      },
+      "500": {
+        "amplitude_failed": 14,
+        "centered_residual_rms": 6.002132984456325e-06,
+        "failed": 14,
+        "failure_categories": {
+          "amplitude_only": 1,
+          "both": 13,
+          "passed": 170,
+          "residual_only": 0
+        },
+        "output_limit_excess_rms": 3.4221786337511987e-06,
+        "output_rms": 1.0893738129076352e-05,
+        "residual_rms": 6.050638769756386e-06,
+        "samples": 175875,
+        "windows": 184
+      }
+    },
+    "near_startup_first20ms": {
+      "0": {
+        "amplitude_failed": 13,
+        "centered_residual_rms": 4.800827400227888e-05,
+        "failed": 13,
+        "failure_categories": {
+          "amplitude_only": 0,
+          "both": 13,
+          "passed": 0,
+          "residual_only": 0
+        },
+        "output_limit_excess_rms": 3.925982620606336e-05,
+        "output_rms": 4.893372983588761e-05,
+        "residual_rms": 4.838503712782136e-05,
+        "samples": 12480,
+        "windows": 13
+      },
+      "1000": {
+        "amplitude_failed": 13,
+        "centered_residual_rms": 1.82896038739911e-05,
+        "failed": 13,
+        "failure_categories": {
+          "amplitude_only": 0,
+          "both": 13,
+          "passed": 0,
+          "residual_only": 0
+        },
+        "output_limit_excess_rms": 8.582798595938517e-06,
+        "output_rms": 1.9259049660109375e-05,
+        "residual_rms": 1.9847454117364414e-05,
+        "samples": 12480,
+        "windows": 13
+      },
+      "500": {
+        "amplitude_failed": 13,
+        "centered_residual_rms": 2.1300309225826e-05,
+        "failed": 13,
+        "failure_categories": {
+          "amplitude_only": 0,
+          "both": 13,
+          "passed": 0,
+          "residual_only": 0
+        },
+        "output_limit_excess_rms": 1.2846647779843174e-05,
+        "output_rms": 2.352877802308957e-05,
+        "residual_rms": 2.1347023335498736e-05,
+        "samples": 12480,
+        "windows": 13
+      }
+    },
+    "quiet_nonzero_reference": {
+      "0": {
+        "amplitude_failed": 2359,
+        "centered_residual_rms": 0.0013724972877410281,
+        "failed": 2359,
+        "failure_categories": {
+          "amplitude_only": 0,
+          "both": 2359,
+          "passed": 0,
+          "residual_only": 0
+        },
+        "output_limit_excess_rms": 0.0013100286072626926,
+        "output_rms": 0.0017879430740457669,
+        "residual_rms": 0.0014658361478489734,
+        "samples": 2260197,
+        "windows": 2359
+      },
+      "1000": {
+        "amplitude_failed": 397,
+        "centered_residual_rms": 0.00010687711233419212,
+        "failed": 2165,
+        "failure_categories": {
+          "amplitude_only": 1,
+          "both": 396,
+          "passed": 194,
+          "residual_only": 1768
+        },
+        "output_limit_excess_rms": 9.558376789914921e-06,
+        "output_rms": 0.0004570310438872098,
+        "residual_rms": 0.00011461094916714052,
+        "samples": 2260197,
+        "windows": 2359
+      },
+      "500": {
+        "amplitude_failed": 907,
+        "centered_residual_rms": 0.00013647775958484687,
+        "failed": 2251,
+        "failure_categories": {
+          "amplitude_only": 9,
+          "both": 898,
+          "passed": 108,
+          "residual_only": 1344
+        },
+        "output_limit_excess_rms": 1.7675193641531855e-05,
+        "output_rms": 0.00048482819332025756,
+        "residual_rms": 0.00013769064700213293,
+        "samples": 2260197,
+        "windows": 2359
+      }
+    },
+    "source_zero_20to40ms": {
+      "0": {
+        "amplitude_failed": 10,
+        "centered_residual_rms": 0.0014598713578314359,
+        "failed": 10,
+        "failure_categories": {
+          "amplitude_only": 0,
+          "both": 10,
+          "passed": 0,
+          "residual_only": 0
+        },
+        "output_limit_excess_rms": 0.0013425968878454878,
+        "output_rms": 0.002052645199004876,
+        "residual_rms": 0.00145999688701965,
+        "samples": 9600,
+        "windows": 10
+      },
+      "1000": {
+        "amplitude_failed": 0,
+        "centered_residual_rms": 0.00028950076472463197,
+        "failed": 10,
+        "failure_categories": {
+          "amplitude_only": 0,
+          "both": 0,
+          "passed": 0,
+          "residual_only": 10
+        },
+        "output_limit_excess_rms": 0.0,
+        "output_rms": 0.00038005303358852507,
+        "residual_rms": 0.0002895695748041279,
+        "samples": 9600,
+        "windows": 10
+      },
+      "500": {
+        "amplitude_failed": 0,
+        "centered_residual_rms": 0.0003485945056989072,
+        "failed": 10,
+        "failure_categories": {
+          "amplitude_only": 0,
+          "both": 0,
+          "passed": 0,
+          "residual_only": 10
+        },
+        "output_limit_excess_rms": 0.0,
+        "output_rms": 0.00031108684779911766,
+        "residual_rms": 0.00034859523076595137,
+        "samples": 9600,
+        "windows": 10
+      }
+    },
+    "source_zero_after40ms": {
+      "0": {
+        "amplitude_failed": 164,
+        "centered_residual_rms": 9.913165657969384e-06,
+        "failed": 164,
+        "failure_categories": {
+          "amplitude_only": 7,
+          "both": 157,
+          "passed": 0,
+          "residual_only": 0
+        },
+        "output_limit_excess_rms": 8.61803192309992e-06,
+        "output_rms": 1.864901769764983e-05,
+        "residual_rms": 1.1976554257061256e-05,
+        "samples": 156675,
+        "windows": 164
+      },
+      "1000": {
+        "amplitude_failed": 0,
+        "centered_residual_rms": 1.5006741128527873e-06,
+        "failed": 0,
+        "failure_categories": {
+          "amplitude_only": 0,
+          "both": 0,
+          "passed": 164,
+          "residual_only": 0
+        },
+        "output_limit_excess_rms": 0.0,
+        "output_rms": 6.769709099953264e-06,
+        "residual_rms": 3.535056647954003e-06,
+        "samples": 156675,
+        "windows": 164
+      },
+      "500": {
+        "amplitude_failed": 0,
+        "centered_residual_rms": 1.911802050774573e-06,
+        "failed": 0,
+        "failure_categories": {
+          "amplitude_only": 0,
+          "both": 0,
+          "passed": 164,
+          "residual_only": 0
+        },
+        "output_limit_excess_rms": 0.0,
+        "output_rms": 9.234728757112819e-06,
+        "residual_rms": 2.022406022782552e-06,
+        "samples": 156675,
+        "windows": 164
+      }
+    }
+  },
+  "recommendation": "Retain this checkpoint and recover further at384/256 before another width cut. The endpoint is improving but waveform cosine remains below.99 and active amplitude regressions persist, especially whistling. No new training was started by this audit.",
+  "same_quiet_window_identity": true,
+  "source_improvements_500_to1000": {
+    "group_mse": 96,
+    "mae": 67,
+    "mel": 96
+  },
+  "steps": [
+    0,
+    500,
+    1000
+  ],
+  "widths": [
+    384,
+    256
+  ]
+}

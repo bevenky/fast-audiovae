@@ -1,0 +1,25 @@
+{
+  "files": {
+    "work/fast-audiovae/experiments/audiovae2-compression/fresh_training_data.py": "164a0030e8d7986dd679d32a54bbc7440f1eda88efcb09ed237bc5f93f5e9aad",
+    "work/fast-audiovae/experiments/audiovae2-compression/test_fresh_training_data.py": "fad3388db7ac2ff39a6559ac550180e88839326f6d95419a5f3867d0668ccd01",
+    "work/audiovae2-compression-preflight/prepare_continuation_sources.py": "3b713257d5b82248301beb6feab77955655e8844392cb8826b3c1c3738ebec09",
+    "work/audiovae2-compression-preflight/produce_continuation_pairs.py": "3cb47b3241e5b26f20b00d50a785a583a62d4e713509f0e8ced03e0b7aff7ade",
+    "work/audiovae2-compression-preflight/launch_pair_producer.py": "cb4b2f5dd99ed8bc52cbf7e282b33c2d38cedbf18c708c12e928e86029302fb5"
+  },
+  "seed_loader_validation": {
+    "passed": true,
+    "sources_checked": 300,
+    "plan_identity": "3c65151fd2b37900257e179fee62218c3d33055c94d47dbb7c213593777e7c7d",
+    "cuda_available": false,
+    "checks": [
+      "all300sourcegeometryandfiniteFP32tensors",
+      "ordereduniqueidentities",
+      "take297count3",
+      "assert_unchanged"
+    ]
+  },
+  "unit_tests": {
+    "passed": 7,
+    "command": "work/convnext-validation-venv/bin/python -m pytest -q work/fast-audiovae/experiments/audiovae2-compression/test_fresh_training_data.py"
+  }
+}

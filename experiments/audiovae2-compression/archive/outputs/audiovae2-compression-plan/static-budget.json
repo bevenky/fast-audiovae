@@ -1,0 +1,1072 @@
+{
+  "analysis_script_sha256": "cb4593e29e116f3e24b0e241d135779a05759f8d6d6a42cf5609a4e34dc2f98b",
+  "baseline": {
+    "final_convolution_mac_per_second": 10752000,
+    "gmac_per_audio_second": 8.9912432,
+    "initial_convolution_mac_per_second": 3288000,
+    "latent_history": {
+      "earliest_latent_offset_max": -19,
+      "earliest_latent_offset_min": -20,
+      "final_history_frames": 6,
+      "future_latent_frames": 0,
+      "initial_history_frames": 6,
+      "maximum_past_latent_frames": 20,
+      "note": "Offsets are in this box's input frames. Values vary over output polyphase positions; this describes receptive support, not added streaming latency.",
+      "samples_per_latent": 1920
+    },
+    "mac_group_percentages": {
+      "initial_and_final_convolutions": 0.1561519323601435,
+      "residual_depthwise": 1.626329048690397,
+      "residual_pointwise": 42.09322243669263,
+      "upsampling": 56.12429658225683
+    },
+    "mac_groups": {
+      "initial_and_final_convolutions": 14040000,
+      "residual_depthwise": 146227200,
+      "residual_pointwise": 3784704000,
+      "upsampling": 5046272000
+    },
+    "mac_per_audio_second": 8991243200,
+    "snake_values_per_audio_second": 48793600
+  },
+  "candidates": [
+    {
+      "details": "Initialize from d1 and d9 units, then jointly adapt BOTH to match the entire teacher three-unit stack output. No one-to-one retained-layer matching. Stage shapes/rates/zero boundaries preserved; initial function and receptive support changed.",
+      "family": "A_unit_deletion",
+      "gmac_per_second": 8.2109552,
+      "latent_history": {
+        "earliest_latent_offset_max": -19,
+        "earliest_latent_offset_min": -19,
+        "final_history_frames": 6,
+        "future_latent_frames": 0,
+        "initial_history_frames": 6,
+        "maximum_past_latent_frames": 19,
+        "note": "Offsets are in this box's input frames. Values vary over output polyphase positions; this describes receptive support, not added streaming latency.",
+        "samples_per_latent": 1920
+      },
+      "mac_per_second": 8210955200,
+      "mac_reduction_percent": 8.678310469902538,
+      "mac_saved_per_second": 780288000,
+      "measured_cpu_gain": null,
+      "modified_stages": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "name": "remove_d3_unit_stages_3_4_5_6",
+      "quality_validated": false,
+      "snake_reduction_percent": 25.183630640083944,
+      "snake_values_saved_per_second": 12288000
+    },
+    {
+      "details": "Initialize from d1 and d9 units, then jointly adapt BOTH to match the entire teacher three-unit stack output. No one-to-one retained-layer matching. Stage shapes/rates/zero boundaries preserved; initial function and receptive support changed.",
+      "family": "A_unit_deletion",
+      "gmac_per_second": 8.0572528,
+      "latent_history": {
+        "earliest_latent_offset_max": -16,
+        "earliest_latent_offset_min": -17,
+        "final_history_frames": 6,
+        "future_latent_frames": 0,
+        "initial_history_frames": 6,
+        "maximum_past_latent_frames": 17,
+        "note": "Offsets are in this box's input frames. Values vary over output polyphase positions; this describes receptive support, not added streaming latency.",
+        "samples_per_latent": 1920
+      },
+      "mac_per_second": 8057252800,
+      "mac_reduction_percent": 10.387778188448957,
+      "mac_saved_per_second": 933990400,
+      "measured_cpu_gain": null,
+      "modified_stages": [
+        1,
+        2,
+        3
+      ],
+      "name": "remove_d3_unit_stages_1_2_3",
+      "quality_validated": false,
+      "snake_reduction_percent": 9.653725078698846,
+      "snake_values_saved_per_second": 4710400
+    },
+    {
+      "details": "Initialize from d1 and d9 units, then jointly adapt BOTH to match the entire teacher three-unit stack output. No one-to-one retained-layer matching. Stage shapes/rates/zero boundaries preserved; initial function and receptive support changed.",
+      "family": "A_unit_deletion",
+      "gmac_per_second": 8.0610416,
+      "latent_history": {
+        "earliest_latent_offset_max": -18,
+        "earliest_latent_offset_min": -19,
+        "final_history_frames": 6,
+        "future_latent_frames": 0,
+        "initial_history_frames": 6,
+        "maximum_past_latent_frames": 19,
+        "note": "Offsets are in this box's input frames. Values vary over output polyphase positions; this describes receptive support, not added streaming latency.",
+        "samples_per_latent": 1920
+      },
+      "mac_per_second": 8061041600,
+      "mac_reduction_percent": 10.345639410576727,
+      "mac_saved_per_second": 930201600,
+      "measured_cpu_gain": null,
+      "modified_stages": [
+        2,
+        3,
+        4
+      ],
+      "name": "remove_d3_unit_stages_2_3_4",
+      "quality_validated": false,
+      "snake_reduction_percent": 15.110178384050368,
+      "snake_values_saved_per_second": 7372800
+    },
+    {
+      "details": "Initialize from d1 and d9 units, then jointly adapt BOTH to match the entire teacher three-unit stack output. No one-to-one retained-layer matching. Stage shapes/rates/zero boundaries preserved; initial function and receptive support changed.",
+      "family": "A_unit_deletion",
+      "gmac_per_second": 7.6809328,
+      "latent_history": {
+        "earliest_latent_offset_max": -16,
+        "earliest_latent_offset_min": -17,
+        "final_history_frames": 6,
+        "future_latent_frames": 0,
+        "initial_history_frames": 6,
+        "maximum_past_latent_frames": 17,
+        "note": "Offsets are in this box's input frames. Values vary over output polyphase positions; this describes receptive support, not added streaming latency.",
+        "samples_per_latent": 1920
+      },
+      "mac_per_second": 7680932800,
+      "mac_reduction_percent": 14.573183828461007,
+      "mac_saved_per_second": 1310310400,
+      "measured_cpu_gain": null,
+      "modified_stages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "name": "remove_d3_unit_stages_1_2_3_4_5_6",
+      "quality_validated": false,
+      "snake_reduction_percent": 28.541448058761805,
+      "snake_values_saved_per_second": 13926400
+    },
+    {
+      "details": "One residual unit jointly learns each complete teacher three-unit stack. d9 initialization is a specified example, not a proven optimum. Every stage interface/rate preserved; less temporal support. Whole-decoder MAC reduction29.15%, not30%+. Finalconv/tanh untouched.",
+      "family": "A_group_depth_distillation",
+      "gmac_per_second": 6.3706224,
+      "latent_history": {
+        "earliest_latent_offset_max": -15,
+        "earliest_latent_offset_min": -16,
+        "final_history_frames": 6,
+        "future_latent_frames": 0,
+        "initial_history_frames": 6,
+        "maximum_past_latent_frames": 16,
+        "note": "Offsets are in this box's input frames. Values vary over output polyphase positions; this describes receptive support, not added streaming latency.",
+        "samples_per_latent": 1920
+      },
+      "mac_per_second": 6370622400,
+      "mac_reduction_percent": 29.146367656922013,
+      "mac_saved_per_second": 2620620800,
+      "measured_cpu_gain": null,
+      "modified_stages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "name": "three_to_one_residual_group_all_stages",
+      "quality_validated": false,
+      "snake_reduction_percent": 57.08289611752361,
+      "snake_values_saved_per_second": 27852800
+    },
+    {
+      "details": "All three residual units retained. Select r=C/2 channels within each residual branch, use r-channel Snake/DW/Snake then C-by-r pointwise output and the full-C identity skip. No new dense entry projection. Preserve stage I/O width, rates, conditioning, transpose, all dilations and final conv/tanh. Reconstruct sliced effective weights before weight-normalization reparameterization.",
+      "family": "B_internal_channel_pruning",
+      "gmac_per_second": 8.0742512,
+      "latent_history": {
+        "earliest_latent_offset_max": -19,
+        "earliest_latent_offset_min": -20,
+        "final_history_frames": 6,
+        "future_latent_frames": 0,
+        "initial_history_frames": 6,
+        "maximum_past_latent_frames": 20,
+        "note": "Offsets are in this box's input frames. Values vary over output polyphase positions; this describes receptive support, not added streaming latency.",
+        "samples_per_latent": 1920
+      },
+      "mac_per_second": 8074251200,
+      "mac_reduction_percent": 10.19872313096814,
+      "mac_saved_per_second": 916992000,
+      "measured_cpu_gain": null,
+      "modified_stages": [
+        3,
+        4
+      ],
+      "name": "half_residual_branch_channels_stages_3_4",
+      "quality_validated": false,
+      "snake_reduction_percent": 18.88772298006296,
+      "snake_values_saved_per_second": 9216000
+    },
+    {
+      "details": "All three residual units retained. Select r=C/2 channels within each residual branch, use r-channel Snake/DW/Snake then C-by-r pointwise output and the full-C identity skip. No new dense entry projection. Preserve stage I/O width, rates, conditioning, transpose, all dilations and final conv/tanh. Reconstruct sliced effective weights before weight-normalization reparameterization.",
+      "family": "B_internal_channel_pruning",
+      "gmac_per_second": 7.8208112,
+      "latent_history": {
+        "earliest_latent_offset_max": -19,
+        "earliest_latent_offset_min": -20,
+        "final_history_frames": 6,
+        "future_latent_frames": 0,
+        "initial_history_frames": 6,
+        "maximum_past_latent_frames": 20,
+        "note": "Offsets are in this box's input frames. Values vary over output polyphase positions; this describes receptive support, not added streaming latency.",
+        "samples_per_latent": 1920
+      },
+      "mac_per_second": 7820811200,
+      "mac_reduction_percent": 13.017465704853807,
+      "mac_saved_per_second": 1170432000,
+      "measured_cpu_gain": null,
+      "modified_stages": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "name": "half_residual_branch_channels_stages_3_4_5_6",
+      "quality_validated": false,
+      "snake_reduction_percent": 37.77544596012592,
+      "snake_values_saved_per_second": 18432000
+    },
+    {
+      "details": "All three residual units retained. Select r=C/2 channels within each residual branch, use r-channel Snake/DW/Snake then C-by-r pointwise output and the full-C identity skip. No new dense entry projection. Preserve stage I/O width, rates, conditioning, transpose, all dilations and final conv/tanh. Reconstruct sliced effective weights before weight-normalization reparameterization.",
+      "family": "B_internal_channel_pruning",
+      "gmac_per_second": 7.0257776,
+      "latent_history": {
+        "earliest_latent_offset_max": -19,
+        "earliest_latent_offset_min": -20,
+        "final_history_frames": 6,
+        "future_latent_frames": 0,
+        "initial_history_frames": 6,
+        "maximum_past_latent_frames": 20,
+        "note": "Offsets are in this box's input frames. Values vary over output polyphase positions; this describes receptive support, not added streaming latency.",
+        "samples_per_latent": 1920
+      },
+      "mac_per_second": 7025777600,
+      "mac_reduction_percent": 21.85977574269151,
+      "mac_saved_per_second": 1965465600,
+      "measured_cpu_gain": null,
+      "modified_stages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "name": "half_residual_branch_channels_stages_1_2_3_4_5_6",
+      "quality_validated": false,
+      "snake_reduction_percent": 42.81217208814271,
+      "snake_values_saved_per_second": 20889600
+    },
+    {
+      "details": "Replace each C-by-C pointwise by r-by-C followed by C-by-r with r=C/4, no intervening activation. Cost2Cr is halfC\u00b2; r=C/2 would save no matrix MACs. Truncated SVD initializes an approximation, not exact inherited function. Must retain two factors at runtime; multiplying them into a dense exported weight forfeits the reduction.",
+      "family": "B_internal_linear_factorization",
+      "gmac_per_second": 7.0988912,
+      "latent_history": {
+        "earliest_latent_offset_max": -19,
+        "earliest_latent_offset_min": -20,
+        "final_history_frames": 6,
+        "future_latent_frames": 0,
+        "initial_history_frames": 6,
+        "maximum_past_latent_frames": 20,
+        "note": "Offsets are in this box's input frames. Values vary over output polyphase positions; this describes receptive support, not added streaming latency.",
+        "samples_per_latent": 1920
+      },
+      "mac_per_second": 7098891200,
+      "mac_reduction_percent": 21.046611218346314,
+      "mac_saved_per_second": 1892352000,
+      "measured_cpu_gain": null,
+      "modified_stages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "name": "quarter_rank_residual_pointwise_all_stages",
+      "quality_validated": false,
+      "snake_reduction_percent": 0.0,
+      "snake_values_saved_per_second": 0
+    },
+    {
+      "details": "Match the COMPLETE teacher stage2-through4 black box output, not corresponding internal layers. Preserve outer1024@200Hz ->128@12000Hz, latent encoder, stages1/5/6 and finalconv/tanh. Internal stage2/3 widths256/128 replace512/256; stage4 output128 unchanged. Inherit selected effective weights and jointly adapt the entire group. Rate conditioning inside the group is selected consistently; outer conditioning can remain frozen.",
+      "family": "C_group_internal_width_and_depth",
+      "gmac_per_second": 5.1741296,
+      "group_candidate_mac_per_second": 2591078400,
+      "group_mac_reduction_percent": 59.56615532118888,
+      "group_reference_mac_per_second": 6408192000,
+      "group_student_history": {
+        "earliest_latent_offset_max": -18,
+        "earliest_latent_offset_min": -19,
+        "final_history_frames": 0,
+        "future_latent_frames": 0,
+        "initial_history_frames": 0,
+        "maximum_past_latent_frames": 19,
+        "note": "Offsets are in this box's input frames. Values vary over output polyphase positions; this describes receptive support, not added streaming latency.",
+        "samples_per_latent": 60
+      },
+      "group_teacher_history": {
+        "earliest_latent_offset_max": -18,
+        "earliest_latent_offset_min": -19,
+        "final_history_frames": 0,
+        "future_latent_frames": 0,
+        "initial_history_frames": 0,
+        "maximum_past_latent_frames": 19,
+        "note": "Offsets are in this box's input frames. Values vary over output polyphase positions; this describes receptive support, not added streaming latency.",
+        "samples_per_latent": 60
+      },
+      "internal_stages": [
+        {
+          "initial_dilations": [
+            1,
+            3,
+            9
+          ],
+          "input_channels": 1024,
+          "input_rate_hz": 200,
+          "output_channels": 256,
+          "output_rate_hz": 1200,
+          "residual_mac_per_second": 242380800,
+          "residual_units": 3,
+          "snake_values_per_second": 2048000,
+          "stage": 2,
+          "total_mac_per_second": 871526400,
+          "upsample_mac_per_second": 629145600
+        },
+        {
+          "initial_dilations": [
+            1,
+            3,
+            9
+          ],
+          "input_channels": 256,
+          "input_rate_hz": 1200,
+          "output_channels": 128,
+          "output_rate_hz": 6000,
+          "residual_mac_per_second": 311040000,
+          "residual_units": 3,
+          "snake_values_per_second": 4915200,
+          "stage": 3,
+          "total_mac_per_second": 704256000,
+          "upsample_mac_per_second": 393216000
+        },
+        {
+          "initial_dilations": [
+            1,
+            3,
+            9
+          ],
+          "input_channels": 128,
+          "input_rate_hz": 6000,
+          "output_channels": 128,
+          "output_rate_hz": 12000,
+          "residual_mac_per_second": 622080000,
+          "residual_units": 3,
+          "snake_values_per_second": 9984000,
+          "stage": 4,
+          "total_mac_per_second": 1015296000,
+          "upsample_mac_per_second": 393216000
+        }
+      ],
+      "latent_history": {
+        "earliest_latent_offset_max": -19,
+        "earliest_latent_offset_min": -20,
+        "final_history_frames": 6,
+        "future_latent_frames": 0,
+        "initial_history_frames": 6,
+        "maximum_past_latent_frames": 20,
+        "note": "Offsets are in this box's input frames. Values vary over output polyphase positions; this describes receptive support, not added streaming latency.",
+        "samples_per_latent": 1920
+      },
+      "mac_per_second": 5174129600,
+      "mac_reduction_percent": 42.453679820383456,
+      "mac_saved_per_second": 3817113600,
+      "measured_cpu_gain": null,
+      "modified_stages": [
+        2,
+        3,
+        4
+      ],
+      "name": "stage2_to4_group_internal_halfwidth_3_units",
+      "quality_validated": false,
+      "snake_reduction_percent": 15.424973767051416,
+      "snake_values_saved_per_second": 7526400,
+      "student_residual_unit_count": 9,
+      "teacher_residual_unit_count": 9
+    },
+    {
+      "details": "Match the COMPLETE teacher stage2-through4 black box output, not corresponding internal layers. Preserve outer1024@200Hz ->128@12000Hz, latent encoder, stages1/5/6 and finalconv/tanh. Internal stage2/3 widths256/128 replace512/256; stage4 output128 unchanged. Inherit selected effective weights and jointly adapt the entire group. Rate conditioning inside the group is selected consistently; outer conditioning can remain frozen.",
+      "family": "C_group_internal_width_and_depth",
+      "gmac_per_second": 4.782296,
+      "group_candidate_mac_per_second": 2199244800,
+      "group_mac_reduction_percent": 65.68072866730584,
+      "group_reference_mac_per_second": 6408192000,
+      "group_student_history": {
+        "earliest_latent_offset_max": -14,
+        "earliest_latent_offset_min": -15,
+        "final_history_frames": 0,
+        "future_latent_frames": 0,
+        "initial_history_frames": 0,
+        "maximum_past_latent_frames": 15,
+        "note": "Offsets are in this box's input frames. Values vary over output polyphase positions; this describes receptive support, not added streaming latency.",
+        "samples_per_latent": 60
+      },
+      "group_teacher_history": {
+        "earliest_latent_offset_max": -18,
+        "earliest_latent_offset_min": -19,
+        "final_history_frames": 0,
+        "future_latent_frames": 0,
+        "initial_history_frames": 0,
+        "maximum_past_latent_frames": 19,
+        "note": "Offsets are in this box's input frames. Values vary over output polyphase positions; this describes receptive support, not added streaming latency.",
+        "samples_per_latent": 60
+      },
+      "internal_stages": [
+        {
+          "initial_dilations": [
+            1,
+            9
+          ],
+          "input_channels": 1024,
+          "input_rate_hz": 200,
+          "output_channels": 256,
+          "output_rate_hz": 1200,
+          "residual_mac_per_second": 161587200,
+          "residual_units": 2,
+          "snake_values_per_second": 1433600,
+          "stage": 2,
+          "total_mac_per_second": 790732800,
+          "upsample_mac_per_second": 629145600
+        },
+        {
+          "initial_dilations": [
+            1,
+            9
+          ],
+          "input_channels": 256,
+          "input_rate_hz": 1200,
+          "output_channels": 128,
+          "output_rate_hz": 6000,
+          "residual_mac_per_second": 207360000,
+          "residual_units": 2,
+          "snake_values_per_second": 3379200,
+          "stage": 3,
+          "total_mac_per_second": 600576000,
+          "upsample_mac_per_second": 393216000
+        },
+        {
+          "initial_dilations": [
+            1,
+            9
+          ],
+          "input_channels": 128,
+          "input_rate_hz": 6000,
+          "output_channels": 128,
+          "output_rate_hz": 12000,
+          "residual_mac_per_second": 414720000,
+          "residual_units": 2,
+          "snake_values_per_second": 6912000,
+          "stage": 4,
+          "total_mac_per_second": 807936000,
+          "upsample_mac_per_second": 393216000
+        }
+      ],
+      "latent_history": {
+        "earliest_latent_offset_max": -18,
+        "earliest_latent_offset_min": -19,
+        "final_history_frames": 6,
+        "future_latent_frames": 0,
+        "initial_history_frames": 6,
+        "maximum_past_latent_frames": 19,
+        "note": "Offsets are in this box's input frames. Values vary over output polyphase positions; this describes receptive support, not added streaming latency.",
+        "samples_per_latent": 1920
+      },
+      "mac_per_second": 4782296000,
+      "mac_reduction_percent": 46.811626672493965,
+      "mac_saved_per_second": 4208947200,
+      "measured_cpu_gain": null,
+      "modified_stages": [
+        2,
+        3,
+        4
+      ],
+      "name": "stage2_to4_group_internal_halfwidth_2_units",
+      "quality_validated": false,
+      "snake_reduction_percent": 26.128016789087095,
+      "snake_values_saved_per_second": 12748800,
+      "student_residual_unit_count": 6,
+      "teacher_residual_unit_count": 9
+    },
+    {
+      "details": "Match the COMPLETE teacher stage2-through4 black box output, not corresponding internal layers. Preserve outer1024@200Hz ->128@12000Hz, latent encoder, stages1/5/6 and finalconv/tanh. Internal stage2/3 widths256/128 replace512/256; stage4 output128 unchanged. Inherit selected effective weights and jointly adapt the entire group. Rate conditioning inside the group is selected consistently; outer conditioning can remain frozen.",
+      "family": "C_group_internal_width_and_depth",
+      "gmac_per_second": 4.3904624,
+      "group_candidate_mac_per_second": 1807411200,
+      "group_mac_reduction_percent": 71.79530201342281,
+      "group_reference_mac_per_second": 6408192000,
+      "group_student_history": {
+        "earliest_latent_offset_max": -12,
+        "earliest_latent_offset_min": -13,
+        "final_history_frames": 0,
+        "future_latent_frames": 0,
+        "initial_history_frames": 0,
+        "maximum_past_latent_frames": 13,
+        "note": "Offsets are in this box's input frames. Values vary over output polyphase positions; this describes receptive support, not added streaming latency.",
+        "samples_per_latent": 60
+      },
+      "group_teacher_history": {
+        "earliest_latent_offset_max": -18,
+        "earliest_latent_offset_min": -19,
+        "final_history_frames": 0,
+        "future_latent_frames": 0,
+        "initial_history_frames": 0,
+        "maximum_past_latent_frames": 19,
+        "note": "Offsets are in this box's input frames. Values vary over output polyphase positions; this describes receptive support, not added streaming latency.",
+        "samples_per_latent": 60
+      },
+      "internal_stages": [
+        {
+          "initial_dilations": [
+            9
+          ],
+          "input_channels": 1024,
+          "input_rate_hz": 200,
+          "output_channels": 256,
+          "output_rate_hz": 1200,
+          "residual_mac_per_second": 80793600,
+          "residual_units": 1,
+          "snake_values_per_second": 819200,
+          "stage": 2,
+          "total_mac_per_second": 709939200,
+          "upsample_mac_per_second": 629145600
+        },
+        {
+          "initial_dilations": [
+            9
+          ],
+          "input_channels": 256,
+          "input_rate_hz": 1200,
+          "output_channels": 128,
+          "output_rate_hz": 6000,
+          "residual_mac_per_second": 103680000,
+          "residual_units": 1,
+          "snake_values_per_second": 1843200,
+          "stage": 3,
+          "total_mac_per_second": 496896000,
+          "upsample_mac_per_second": 393216000
+        },
+        {
+          "initial_dilations": [
+            9
+          ],
+          "input_channels": 128,
+          "input_rate_hz": 6000,
+          "output_channels": 128,
+          "output_rate_hz": 12000,
+          "residual_mac_per_second": 207360000,
+          "residual_units": 1,
+          "snake_values_per_second": 3840000,
+          "stage": 4,
+          "total_mac_per_second": 600576000,
+          "upsample_mac_per_second": 393216000
+        }
+      ],
+      "latent_history": {
+        "earliest_latent_offset_max": -18,
+        "earliest_latent_offset_min": -19,
+        "final_history_frames": 6,
+        "future_latent_frames": 0,
+        "initial_history_frames": 6,
+        "maximum_past_latent_frames": 19,
+        "note": "Offsets are in this box's input frames. Values vary over output polyphase positions; this describes receptive support, not added streaming latency.",
+        "samples_per_latent": 1920
+      },
+      "mac_per_second": 4390462400,
+      "mac_reduction_percent": 51.16957352460447,
+      "mac_saved_per_second": 4600780800,
+      "measured_cpu_gain": null,
+      "modified_stages": [
+        2,
+        3,
+        4
+      ],
+      "name": "stage2_to4_group_internal_halfwidth_1_units",
+      "quality_validated": false,
+      "snake_reduction_percent": 36.83105981112277,
+      "snake_values_saved_per_second": 17971200,
+      "student_residual_unit_count": 3,
+      "teacher_residual_unit_count": 9
+    },
+    {
+      "details": "Reference budget only, not first pilot. All decoder widths halve; stage interfaces and final-convolution input width change. Restoring each teacher interface with projections would incur additional uncounted cost and require a different design.",
+      "family": "C_stage_interface_change",
+      "gmac_per_second": 2.2878832,
+      "latent_history": {
+        "earliest_latent_offset_max": -19,
+        "earliest_latent_offset_min": -20,
+        "final_history_frames": 6,
+        "future_latent_frames": 0,
+        "initial_history_frames": 6,
+        "maximum_past_latent_frames": 20,
+        "note": "Offsets are in this box's input frames. Values vary over output polyphase positions; this describes receptive support, not added streaming latency.",
+        "samples_per_latent": 1920
+      },
+      "mac_per_second": 2287883200,
+      "mac_reduction_percent": 74.55431747191534,
+      "mac_saved_per_second": 6703360000,
+      "measured_cpu_gain": null,
+      "modified_stages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "name": "half_stage_widths_including_stem_and_final_input",
+      "quality_validated": false,
+      "snake_reduction_percent": 50.0,
+      "snake_values_saved_per_second": 24396800
+    }
+  ],
+  "config": {
+    "cond_dim": 128,
+    "cond_out_layer": false,
+    "cond_type": "scale_bias",
+    "decoder_dim": 2048,
+    "decoder_rates": [
+      8,
+      6,
+      5,
+      2,
+      2,
+      2
+    ],
+    "depthwise": true,
+    "encoder_dim": 128,
+    "encoder_rates": [
+      2,
+      5,
+      8,
+      8
+    ],
+    "latent_dim": 64,
+    "out_sample_rate": 48000,
+    "sample_rate": 16000,
+    "sr_bin_boundaries": [
+      20000,
+      30000,
+      40000
+    ],
+    "use_noise_block": false
+  },
+  "decoder_module_inventory": {
+    "final_snake": "decoder.model.8",
+    "final_tanh": "decoder.model.10",
+    "final_waveform_convolution": "decoder.model.9",
+    "initial_depthwise": "decoder.model.0",
+    "initial_pointwise": "decoder.model.1",
+    "stages": [
+      "decoder.model.2",
+      "decoder.model.3",
+      "decoder.model.4",
+      "decoder.model.5",
+      "decoder.model.6",
+      "decoder.model.7"
+    ]
+  },
+  "excluded": [
+    "Bias/residual/rate-conditioning arithmetic",
+    "Snake arithmetic cost beyond element count",
+    "Tanh and normalization",
+    "Memory movement, channel selection, matrix packing, dispatch, allocation",
+    "Streaming kernel implementation and repeated chunk warmup"
+  ],
+  "first_material_group_candidate": "stage2_to4_group_internal_halfwidth_3_units",
+  "group_boundary": {
+    "input": "decoder.model.2 output (stage1 output), before unchanged stage2 sample-rate conditioning",
+    "input_channels": 1024,
+    "input_rate_hz": 200,
+    "length_multiplier": 60,
+    "output": "decoder.model.5 output (after all stage4 residual units)",
+    "output_channels": 128,
+    "output_rate_hz": 12000,
+    "training_target": "T_group(x) versus S_group(x) with exact shared x and aligned whole-group output; differentiate through frozen downstream decoder for waveform supervision. No projection needed at external boundaries.",
+    "unchanged_outside": [
+      "encoder",
+      "decoder.model.0",
+      "decoder.model.1",
+      "decoder.model.2",
+      "decoder.model.6",
+      "decoder.model.7",
+      "decoder.model.8",
+      "decoder.model.9",
+      "decoder.model.10"
+    ]
+  },
+  "inputs": {
+    "outputs/intel-iteration2/data/architecture-costs.json": "b3a2cb458103183dfc13a8850bbd6e9887dd775ad94c2611d13c7274167a7c8e",
+    "work/convnext-natural-context-repair/upstream-source-audit/audio_vae_v2.py": "2efdff1708d8ec1471624aae6f232d0f933de26b788b6901c434246847e2d3a8"
+  },
+  "model_operations_executed": 0,
+  "scope": "Canonical neural contractions and Snake element evaluations, batch one per audio second. Static computation only; no claim of RTF or quality.",
+  "selection_basis": "Primary group distillation narrows only internal stage2\u20134 interfaces, retaining all9 residualunits, teacher dilations and receptive support:42.45%wholedecoder canonical MAC opportunity. The later9-to6-unit candidate saves another7.57%relative to this width-only candidate while reducing temporal support. If initialized from an accepted width-only student later, the ORIGINAL full teacher remains the distillation target. No quality or runtime promise; stage-hotspot evidence still governs pilot choice.",
+  "stages": [
+    {
+      "contract": "Stage prehook receives post-conditioning input; whole-stage output is after all residual units.",
+      "input_channels": 2048,
+      "input_rate_hz": 25,
+      "module": "decoder.model.2",
+      "output_channels": 1024,
+      "output_rate_hz": 200,
+      "residual_depthwise_mac_per_second": 4300800,
+      "residual_pointwise_mac_per_second": 629145600,
+      "residual_snake_values_per_second": 1228800,
+      "residual_state_float_values": 79872,
+      "sample_rate_condition_module": "decoder.sr_cond_model.2",
+      "stage": 1,
+      "total_mac_per_second": 1472307200,
+      "transpose": {
+        "future_input_frames": 0,
+        "kernel": 16,
+        "left_input_state_frames": 1,
+        "module": "decoder.model.2.block.1",
+        "output_length_multiplier": 8,
+        "right_trim": 8,
+        "stride": 8
+      },
+      "units": [
+        {
+          "depthwise_mac_per_second": 1433600,
+          "dilation": 1,
+          "input_output_channels": 1024,
+          "left_history_frames": 6,
+          "module": "decoder.model.2.block.2",
+          "pointwise_mac_per_second": 209715200,
+          "rate_hz": 200,
+          "snake_values_per_second": 409600
+        },
+        {
+          "depthwise_mac_per_second": 1433600,
+          "dilation": 3,
+          "input_output_channels": 1024,
+          "left_history_frames": 18,
+          "module": "decoder.model.2.block.3",
+          "pointwise_mac_per_second": 209715200,
+          "rate_hz": 200,
+          "snake_values_per_second": 409600
+        },
+        {
+          "depthwise_mac_per_second": 1433600,
+          "dilation": 9,
+          "input_output_channels": 1024,
+          "left_history_frames": 54,
+          "module": "decoder.model.2.block.4",
+          "pointwise_mac_per_second": 209715200,
+          "rate_hz": 200,
+          "snake_values_per_second": 409600
+        }
+      ],
+      "upsample_mac_per_second": 838860800,
+      "upsample_snake_values_per_second": 51200
+    },
+    {
+      "contract": "Stage prehook receives post-conditioning input; whole-stage output is after all residual units.",
+      "input_channels": 1024,
+      "input_rate_hz": 200,
+      "module": "decoder.model.3",
+      "output_channels": 512,
+      "output_rate_hz": 1200,
+      "residual_depthwise_mac_per_second": 12902400,
+      "residual_pointwise_mac_per_second": 943718400,
+      "residual_snake_values_per_second": 3686400,
+      "residual_state_float_values": 39936,
+      "sample_rate_condition_module": "decoder.sr_cond_model.3",
+      "stage": 2,
+      "total_mac_per_second": 2214912000,
+      "transpose": {
+        "future_input_frames": 0,
+        "kernel": 12,
+        "left_input_state_frames": 1,
+        "module": "decoder.model.3.block.1",
+        "output_length_multiplier": 6,
+        "right_trim": 6,
+        "stride": 6
+      },
+      "units": [
+        {
+          "depthwise_mac_per_second": 4300800,
+          "dilation": 1,
+          "input_output_channels": 512,
+          "left_history_frames": 6,
+          "module": "decoder.model.3.block.2",
+          "pointwise_mac_per_second": 314572800,
+          "rate_hz": 1200,
+          "snake_values_per_second": 1228800
+        },
+        {
+          "depthwise_mac_per_second": 4300800,
+          "dilation": 3,
+          "input_output_channels": 512,
+          "left_history_frames": 18,
+          "module": "decoder.model.3.block.3",
+          "pointwise_mac_per_second": 314572800,
+          "rate_hz": 1200,
+          "snake_values_per_second": 1228800
+        },
+        {
+          "depthwise_mac_per_second": 4300800,
+          "dilation": 9,
+          "input_output_channels": 512,
+          "left_history_frames": 54,
+          "module": "decoder.model.3.block.4",
+          "pointwise_mac_per_second": 314572800,
+          "rate_hz": 1200,
+          "snake_values_per_second": 1228800
+        }
+      ],
+      "upsample_mac_per_second": 1258291200,
+      "upsample_snake_values_per_second": 204800
+    },
+    {
+      "contract": "Stage prehook receives post-conditioning input; whole-stage output is after all residual units.",
+      "input_channels": 512,
+      "input_rate_hz": 1200,
+      "module": "decoder.model.4",
+      "output_channels": 256,
+      "output_rate_hz": 6000,
+      "residual_depthwise_mac_per_second": 32256000,
+      "residual_pointwise_mac_per_second": 1179648000,
+      "residual_snake_values_per_second": 9216000,
+      "residual_state_float_values": 19968,
+      "sample_rate_condition_module": "decoder.sr_cond_model.4",
+      "stage": 3,
+      "total_mac_per_second": 2784768000,
+      "transpose": {
+        "future_input_frames": 0,
+        "kernel": 10,
+        "left_input_state_frames": 1,
+        "module": "decoder.model.4.block.1",
+        "output_length_multiplier": 5,
+        "right_trim": 5,
+        "stride": 5
+      },
+      "units": [
+        {
+          "depthwise_mac_per_second": 10752000,
+          "dilation": 1,
+          "input_output_channels": 256,
+          "left_history_frames": 6,
+          "module": "decoder.model.4.block.2",
+          "pointwise_mac_per_second": 393216000,
+          "rate_hz": 6000,
+          "snake_values_per_second": 3072000
+        },
+        {
+          "depthwise_mac_per_second": 10752000,
+          "dilation": 3,
+          "input_output_channels": 256,
+          "left_history_frames": 18,
+          "module": "decoder.model.4.block.3",
+          "pointwise_mac_per_second": 393216000,
+          "rate_hz": 6000,
+          "snake_values_per_second": 3072000
+        },
+        {
+          "depthwise_mac_per_second": 10752000,
+          "dilation": 9,
+          "input_output_channels": 256,
+          "left_history_frames": 54,
+          "module": "decoder.model.4.block.4",
+          "pointwise_mac_per_second": 393216000,
+          "rate_hz": 6000,
+          "snake_values_per_second": 3072000
+        }
+      ],
+      "upsample_mac_per_second": 1572864000,
+      "upsample_snake_values_per_second": 614400
+    },
+    {
+      "contract": "Stage prehook receives post-conditioning input; whole-stage output is after all residual units.",
+      "input_channels": 256,
+      "input_rate_hz": 6000,
+      "module": "decoder.model.5",
+      "output_channels": 128,
+      "output_rate_hz": 12000,
+      "residual_depthwise_mac_per_second": 32256000,
+      "residual_pointwise_mac_per_second": 589824000,
+      "residual_snake_values_per_second": 9216000,
+      "residual_state_float_values": 9984,
+      "sample_rate_condition_module": "decoder.sr_cond_model.5",
+      "stage": 4,
+      "total_mac_per_second": 1408512000,
+      "transpose": {
+        "future_input_frames": 0,
+        "kernel": 4,
+        "left_input_state_frames": 1,
+        "module": "decoder.model.5.block.1",
+        "output_length_multiplier": 2,
+        "right_trim": 2,
+        "stride": 2
+      },
+      "units": [
+        {
+          "depthwise_mac_per_second": 10752000,
+          "dilation": 1,
+          "input_output_channels": 128,
+          "left_history_frames": 6,
+          "module": "decoder.model.5.block.2",
+          "pointwise_mac_per_second": 196608000,
+          "rate_hz": 12000,
+          "snake_values_per_second": 3072000
+        },
+        {
+          "depthwise_mac_per_second": 10752000,
+          "dilation": 3,
+          "input_output_channels": 128,
+          "left_history_frames": 18,
+          "module": "decoder.model.5.block.3",
+          "pointwise_mac_per_second": 196608000,
+          "rate_hz": 12000,
+          "snake_values_per_second": 3072000
+        },
+        {
+          "depthwise_mac_per_second": 10752000,
+          "dilation": 9,
+          "input_output_channels": 128,
+          "left_history_frames": 54,
+          "module": "decoder.model.5.block.4",
+          "pointwise_mac_per_second": 196608000,
+          "rate_hz": 12000,
+          "snake_values_per_second": 3072000
+        }
+      ],
+      "upsample_mac_per_second": 786432000,
+      "upsample_snake_values_per_second": 1536000
+    },
+    {
+      "contract": "Stage prehook receives post-conditioning input; whole-stage output is after all residual units.",
+      "input_channels": 128,
+      "input_rate_hz": 12000,
+      "module": "decoder.model.6",
+      "output_channels": 64,
+      "output_rate_hz": 24000,
+      "residual_depthwise_mac_per_second": 32256000,
+      "residual_pointwise_mac_per_second": 294912000,
+      "residual_snake_values_per_second": 9216000,
+      "residual_state_float_values": 4992,
+      "sample_rate_condition_module": "decoder.sr_cond_model.6",
+      "stage": 5,
+      "total_mac_per_second": 720384000,
+      "transpose": {
+        "future_input_frames": 0,
+        "kernel": 4,
+        "left_input_state_frames": 1,
+        "module": "decoder.model.6.block.1",
+        "output_length_multiplier": 2,
+        "right_trim": 2,
+        "stride": 2
+      },
+      "units": [
+        {
+          "depthwise_mac_per_second": 10752000,
+          "dilation": 1,
+          "input_output_channels": 64,
+          "left_history_frames": 6,
+          "module": "decoder.model.6.block.2",
+          "pointwise_mac_per_second": 98304000,
+          "rate_hz": 24000,
+          "snake_values_per_second": 3072000
+        },
+        {
+          "depthwise_mac_per_second": 10752000,
+          "dilation": 3,
+          "input_output_channels": 64,
+          "left_history_frames": 18,
+          "module": "decoder.model.6.block.3",
+          "pointwise_mac_per_second": 98304000,
+          "rate_hz": 24000,
+          "snake_values_per_second": 3072000
+        },
+        {
+          "depthwise_mac_per_second": 10752000,
+          "dilation": 9,
+          "input_output_channels": 64,
+          "left_history_frames": 54,
+          "module": "decoder.model.6.block.4",
+          "pointwise_mac_per_second": 98304000,
+          "rate_hz": 24000,
+          "snake_values_per_second": 3072000
+        }
+      ],
+      "upsample_mac_per_second": 393216000,
+      "upsample_snake_values_per_second": 1536000
+    },
+    {
+      "contract": "Stage prehook receives post-conditioning input; whole-stage output is after all residual units.",
+      "input_channels": 64,
+      "input_rate_hz": 24000,
+      "module": "decoder.model.7",
+      "output_channels": 32,
+      "output_rate_hz": 48000,
+      "residual_depthwise_mac_per_second": 32256000,
+      "residual_pointwise_mac_per_second": 147456000,
+      "residual_snake_values_per_second": 9216000,
+      "residual_state_float_values": 2496,
+      "sample_rate_condition_module": "decoder.sr_cond_model.7",
+      "stage": 6,
+      "total_mac_per_second": 376320000,
+      "transpose": {
+        "future_input_frames": 0,
+        "kernel": 4,
+        "left_input_state_frames": 1,
+        "module": "decoder.model.7.block.1",
+        "output_length_multiplier": 2,
+        "right_trim": 2,
+        "stride": 2
+      },
+      "units": [
+        {
+          "depthwise_mac_per_second": 10752000,
+          "dilation": 1,
+          "input_output_channels": 32,
+          "left_history_frames": 6,
+          "module": "decoder.model.7.block.2",
+          "pointwise_mac_per_second": 49152000,
+          "rate_hz": 48000,
+          "snake_values_per_second": 3072000
+        },
+        {
+          "depthwise_mac_per_second": 10752000,
+          "dilation": 3,
+          "input_output_channels": 32,
+          "left_history_frames": 18,
+          "module": "decoder.model.7.block.3",
+          "pointwise_mac_per_second": 49152000,
+          "rate_hz": 48000,
+          "snake_values_per_second": 3072000
+        },
+        {
+          "depthwise_mac_per_second": 10752000,
+          "dilation": 9,
+          "input_output_channels": 32,
+          "left_history_frames": 54,
+          "module": "decoder.model.7.block.4",
+          "pointwise_mac_per_second": 49152000,
+          "rate_hz": 48000,
+          "snake_values_per_second": 3072000
+        }
+      ],
+      "upsample_mac_per_second": 196608000,
+      "upsample_snake_values_per_second": 1536000
+    }
+  ],
+  "version": "audiovae2_static_compression_budget_v1"
+}

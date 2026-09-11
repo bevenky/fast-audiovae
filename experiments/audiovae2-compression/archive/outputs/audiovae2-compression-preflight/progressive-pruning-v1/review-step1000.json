@@ -1,0 +1,28 @@
+{
+  "cut_index": 1,
+  "cut_updates": 1000,
+  "checkpoint_sha256": "4272198a8d76168564651c49960ef370690859981a5591ba0de39d42053eef56",
+  "status": "reviewed_and_retained",
+  "integrity_audit_passed": true,
+  "teacher_cache_comparisons_passed": 12000,
+  "distinct_sources_consumed": 12000,
+  "all_90_optimizer_states_at_step": 1000,
+  "active_waveform_cosine": 0.9886974603319353,
+  "quiet_windows_passing": [358, 2544],
+  "sustained_silence_passing": [164, 164],
+  "interior_near_silence_passing": [49, 50],
+  "startup_near_silence_passing": [0, 13],
+  "active_RMS_ratio_to_teacher": 0.9364864653964056,
+  "overshoot_samples": 0,
+  "recommendation": "Retain the first cut and recover further at 384/256 before narrowing the next boundary. Review active amplitude matching along with waveform, spectral and all seven quiet-region errors. Improvement with more training remains a hypothesis.",
+  "reason": "Aggregate reconstruction continues improving, but 29 of 96 sources have worse waveform MAE since update 500. Active RMS drops from 97.50% to 93.65% of the teacher. One whistle source drops to 81.25% of teacher RMS and its MAE worsens 58.90%. Startup and quiet nonzero reference remain unresolved.",
+  "next_run_launched": false,
+  "next_run_requirements": "A same-width continuation must restore this saved optimizer, RNG and source cursor 12000. It must consume new sources and preserve losses and architecture. The existing first-cut runner is bounded to 1000 updates and has not been modified. Extra recovery consumes sources otherwise reserved for later cuts, so extend disjoint source preparation before that capacity is exhausted.",
+  "automatic_next_cut": false,
+  "followup_paused": true,
+  "reports": [
+    "evidence-final/report.md",
+    "evidence-final/quality-review.json",
+    "evidence-final/completion-integrity-audit.json"
+  ]
+}

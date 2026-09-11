@@ -1,0 +1,45 @@
+{
+  "pid": 1038336,
+  "log": "/tmp/fast-audiovae-projected-hints-v1.log",
+  "out": "/tmp/fast-audiovae-projected-hints-v1",
+  "source_sha256": "ae343073d1b1574e98fc3455e5e9684d6d4b2fc5b822c22db05c1afa19af0acc",
+  "command": [
+    "/tmp/fast-audiovae-recovery-20260909/venv214/bin/python",
+    "-u",
+    "/workspace/fast-audiovae-compression-20260910-v1/code/compare_projected_hints_v1.py",
+    "--checkpoint",
+    "/workspace/fast-audiovae-compression-20260910-v1/current-lowrate-fresh5000-v1/checkpoint-step4500.pt",
+    "--candidate",
+    "/tmp/fast-audiovae-accumulation-comparison-v1/accumulation12/final.pt",
+    "--anchor-checkpoint",
+    "/workspace/fast-audiovae-compression-20260910-v1/current-lowrate-continue1000-v1/checkpoint-step1000.pt",
+    "--screen-out",
+    "/workspace/fast-audiovae-compression-20260910-v1/settings-screen-v1",
+    "--base-out",
+    "/workspace/fast-audiovae-compression-20260910-v1/pilot",
+    "--manifest",
+    "/workspace/fast-audiovae-compression-20260910-v1/pilot-selection-v1.json",
+    "--fresh-manifest",
+    "/workspace/fast-audiovae-compression-20260910-v1/fresh-source-plan-v2/plan.json",
+    "--shards",
+    "/dev/shm/fast-audiovae-compression-fresh-shards-v2",
+    "--assets",
+    "/workspace/fast-audiovae-convnext-20260908-r1/assets",
+    "--out",
+    "/tmp/fast-audiovae-projected-hints-v1"
+  ],
+  "launch_time_unix": 1789045138.5535913,
+  "arms": [
+    "baseline",
+    "two_hints"
+  ],
+  "gradient_accumulation": 12,
+  "sources_each": 1500,
+  "starting_optimizer_step": 4625,
+  "final_optimizer_steps": [
+    4750,
+    4750
+  ],
+  "helper_sha256": "d0b2da60bf131ef12f21d20018b38a104dd3cd0dcd6a5dce431c7439650d5d9f",
+  "main_training_unchanged": true
+}

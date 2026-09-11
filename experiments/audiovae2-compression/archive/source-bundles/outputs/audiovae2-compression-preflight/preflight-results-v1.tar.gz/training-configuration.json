@@ -1,0 +1,32 @@
+{
+  "active_from_update": 1,
+  "additional_checks": [
+    "quiet absolute residual and amplitude",
+    "transitions",
+    "peak magnitude and transient fidelity",
+    "language and expressive groups",
+    "paired source-referenced audio scores",
+    "blind listening",
+    "causal streaming parity"
+  ],
+  "adversarial_and_discriminator_feature_matching": "Conditional later fine-tuning if texture deficits remain; step-based warmup, never gated on0.99 correlation",
+  "boundary_diagnostics": "Stages1\u20136, pre-tanh and waveform at fixed validation milestones; stages2/3 compare selected teacher coordinates only and do not add training penalties",
+  "coefficients": "Fixed after training-only pooled parameter-gradient calibration and disposable AdamW update checks",
+  "correlation_scope": "Waveform cosine over teacher-active20ms windows at native48k, report each source plus aggregate",
+  "correlation_target": 0.99,
+  "effective_batch_sources": 3,
+  "forward_batch_sources": 1,
+  "framework": "PyTorch; TensorBoard for monitoring",
+  "gradient_accumulation": 3,
+  "no_latent_or_kl_loss": "Encoder and latent coordinates are unchanged by construction",
+  "objectives": {
+    "feature": "Raw MSE at the entire stage2\u20134 group's128-channel output; partial feature cells weighted by valid waveform samples",
+    "mel": "Teacher magnitude mel linear+log errors at256/512/1024/2048/4096 sample windows, pooled by valid spectral elements",
+    "waveform": "Native48k aligned teacher waveform L1, pooled by valid samples"
+  },
+  "quality_interpretation": "0.99 correlation is a reconstruction target, not99percent perceptual accuracy",
+  "student": "Stages 2\u20134 internal widths 256/128/128, all nine residual units; rest frozen",
+  "teacher": "Frozen original AudioVAE2 encoder and decoder, verified checkpoint bytes",
+  "teacher_comparison": "Same frozen64-channel posterior-mean latents and causal history; no random latent sampling",
+  "teacher_feature_matching": "The direct group-output feature objective is active from step1 and is distinct from discriminator feature matching"
+}

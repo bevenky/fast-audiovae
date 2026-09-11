@@ -1,0 +1,13 @@
+# Completion audit before the fresh 2,000-update phase
+
+Prepared by read-only source review while qualification runs. This adds no training/source mutation. Run only after all twelve candidate dispositions are complete.
+
+1. Rehash plan/config/source manifest, confirm qualification.json against qualification.sha256, recompute the selector and compare its entire decision. Selection is training_probe_after.total only, with the declared tie break. Recompute each candidate's controller record from its completed report and journal, then compare the sealed record.
+2. Each completed candidate must have status awaiting_comparison, no failure,64 journal rows,768 unique sources,64 genuine nonzero updates, unchanged frozen/source receipts and matching initial-state/RNG/initializer/probe/ordinary-prefix identities. Recheck the original AdamW non-timing parity result.
+3. Apply the full existing corrected-policy row checks from startup_corrected_anchor_pilot.py: q_constraints12; constrained and gradient sources6; base and normal primal/KKT/budget flags1; correction_enabled1; final six anchor passes; accepted fraction in the declared grid and equal to base_fraction; normal_solves0..2; accepted normal requires base_fraction1; accepted normal norm within its budget; canonical_score_forwards equals startup_anchor_checks equals6*score_calls; gradient_forwards equals6+normal_gradient_sources; normal_gradient_sources equals6*normal_solves; finite scalar fields. This audit extends the controller's base-certificate check without changing the frozen controller.
+4. Confirm nine matrix counters at64, NorMuon row states three each at384x1/256x1/128x1, and Shampoo last root refresh60 for all nine matrices. These prove optimizer activity, not superiority.
+5. Confirm every qualification process has exited by its authenticated PID/start tick before dispatch. Check free space using the controller's conservative per-arm reserve; never delete previous evidence. The recovery controller enforces the gate again at each arm.
+6. Launch recovery exactly once using execution.md. Every arm rebuilds the same sealed fresh initializer and empty optimizer. No pilot endpoint is resumed. Its first768-source prefix and calibration probe must match qualification, and its complete ordinary prefix must contain24,000 unique sources.
+7. Preserve full optimizer/RNG snapshots at0/1000/2000 and group-only snapshots at500/1500. The latter are evaluation snapshots, not continuation states. Perform CPU-only metadata audits after full-arm completion.
+
+Do not start the deferred quiet-window mechanism audit or protection timing replays before the optimizer comparisons have a disposition. Preserve every prior file and result.

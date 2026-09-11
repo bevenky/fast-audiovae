@@ -1,0 +1,86 @@
+{
+  "utc": "2026-09-11T16:03:05.141449+00:00",
+  "plan_config_sources_verified": true,
+  "progress": {
+    "version": "audiovae2_optimizer_comparison_controller_v1",
+    "phase": "recovery",
+    "status": "running",
+    "trial": "muon",
+    "pid": 1131527,
+    "start_ticks": "4024831693",
+    "completed_updates": 235,
+    "target_updates": 2000,
+    "updated_at": "2026-09-11T16:02:53.749757+00:00"
+  },
+  "controller_alive": true,
+  "free_bytes": 1081589760,
+  "completed_methods": [
+    {
+      "method": "adamw",
+      "complete": true,
+      "status": "awaiting_comparison",
+      "updates": 2000
+    }
+  ],
+  "child_alive": true,
+  "updates": 238,
+  "nonzero_updates": 238,
+  "protection_certificates_passed": 238,
+  "ordinary_seconds": 152.39649640768766,
+  "protection_seconds": 544.0064986497164,
+  "unique_sources": 2856,
+  "milestones": {
+    "0": {
+      "correlation": 0.9619487287703434,
+      "waveform_mae": 0.007007033351513536,
+      "mel_error": 0.23751159012317657,
+      "overshoot_samples": 0,
+      "peak_abs_max": 0.988778829574585,
+      "quiet_passed": 597,
+      "quiet_total": 2544,
+      "quiet_residual_rms": 0.00015095620101098308,
+      "calibration_startup_passed": 6,
+      "calibration_startup_total": 6,
+      "development_startup_passed": 13,
+      "development_startup_total": 13,
+      "quiet_cohorts": {
+        "all_quiet": {
+          "passed": 597,
+          "windows": 2544
+        },
+        "near_after800ms": {
+          "passed": 48,
+          "windows": 50
+        },
+        "near_silence": {
+          "passed": 182,
+          "windows": 184
+        },
+        "near_startup_first20ms": {
+          "passed": 13,
+          "windows": 13
+        },
+        "quiet_nonzero_reference": {
+          "passed": 423,
+          "windows": 2359
+        },
+        "source_zero_20to40ms": {
+          "passed": 0,
+          "windows": 10
+        },
+        "source_zero_after40ms": {
+          "passed": 163,
+          "windows": 164
+        }
+      }
+    }
+  },
+  "checkpoint_receipts": {
+    "checkpoint-step0": {
+      "sha256_matches": true,
+      "step": 0,
+      "bytes": 27319361
+    }
+  }
+}
+

@@ -1,0 +1,169 @@
+{
+  "calibration": {
+    "before": {
+      "feature": 0.09932652365387185,
+      "mel": 1.7187848696485162,
+      "waveform": 0.025772777387828683
+    },
+    "coefficients": {
+      "feature": 0.009304078923434964,
+      "mel": 0.0006674012905982311,
+      "waveform": 1.0
+    },
+    "denominators": {
+      "mel_elements": [
+        4126080,
+        4118912,
+        2052416,
+        2038144,
+        1005056
+      ],
+      "samples": 8266341
+    },
+    "learning_rate": 0.0001,
+    "optimizer": {
+      "betas": [
+        0.9,
+        0.99
+      ],
+      "eps": 1e-08,
+      "name": "AdamW",
+      "weight_decay": 0
+    },
+    "optimizer_probes": [
+      {
+        "actual_changes": {
+          "feature": -0.003583771438570693,
+          "mel": -0.13685867749154568,
+          "waveform": -0.00014076552997721592
+        },
+        "after": {
+          "feature": 0.09574275221530115,
+          "mel": 1.5819261921569705,
+          "waveform": 0.025632011857851467
+        },
+        "all_branches_nonincreasing": true,
+        "learning_rate": 0.0001,
+        "predicted_changes": {
+          "feature": -0.0038158158696895796,
+          "mel": -0.1928851096499584,
+          "waveform": -0.00024071178646680014
+        }
+      }
+    ],
+    "passed": true,
+    "pooled_parameter_gradient_norms": {
+      "feature": 0.15782547569590122,
+      "mel": 2.2002065364409167,
+      "waveform": 0.0029368413640066637
+    },
+    "reduction": "all calibration samples and valid mel elements pooled before gradient summation",
+    "state_restored": true
+  },
+  "development": {
+    "group_cosine": 0.49919234949976504,
+    "group_mse": 0.09602618678802845,
+    "group_nrmse": 0.8821263814403318,
+    "group_nrmse_floor_applied": false,
+    "mae": 0.024809139200030608,
+    "mel": 1.6746591329574585,
+    "mel_linear": 0.02291998639702797,
+    "mel_log": 1.6517391204833984,
+    "mse": 0.003511610998956077,
+    "nonquiet_cosine_mean": 0.3278102118415309,
+    "nonquiet_samples": 8809920,
+    "overshoot_samples": 0,
+    "peak_abs_max": 0.009308340027928352,
+    "quiet_failed_windows": 2544,
+    "quiet_residual_rms_mean": 0.000970420188246357,
+    "quiet_windows": 2544,
+    "samples": 11246952,
+    "sources": 96,
+    "waveform_nrmse": 0.9951754859891111,
+    "waveform_nrmse_floor_applied": false,
+    "waveform_residual_rms": 0.05925884743189051
+  },
+  "export_verified": false,
+  "identity": {
+    "batch_size": 3,
+    "boundary_diagnostics_sha256": "27dd904061cbb0510c0205dc1c9c125d1c6d31a91c0ae8b071e447894f283151",
+    "boundary_panel": {
+      "coverage_limit": "Twelve diagnostic sources; expressive labels are recording-level, not timestamped event occupancy",
+      "selection": "Fixed source metadata only, without loss or model-output ranking",
+      "sources": [
+        {
+          "reason": "expressive/whistling",
+          "source_id": "freesound:428921"
+        },
+        {
+          "reason": "expressive/loud_vocalization",
+          "source_id": "freesound:421873"
+        },
+        {
+          "reason": "expressive/laughter",
+          "source_id": "freesound:277554"
+        },
+        {
+          "reason": "expressive/crying_or_whisper",
+          "source_id": "freesound:402835"
+        },
+        {
+          "reason": "quiet",
+          "source_id": "so_so:train:1179304877180760723.wav"
+        },
+        {
+          "reason": "quiet",
+          "source_id": "lb_lu:train:10437720223409828494.wav"
+        },
+        {
+          "reason": "transition",
+          "source_id": "2051-153962-0091"
+        },
+        {
+          "reason": "transition",
+          "source_id": "pl_pl:train:14002458340348798.wav"
+        },
+        {
+          "reason": "indic",
+          "source_id": "pa_in:train:16693733152628588519.wav"
+        },
+        {
+          "reason": "indic",
+          "source_id": "dogri:622d1198-0621-4e0c-9027-77e32a505100_1_chunk_8.flac"
+        },
+        {
+          "reason": "international",
+          "source_id": "cmn_hans_cn:train:10162125752145534325.wav"
+        },
+        {
+          "reason": "international",
+          "source_id": "ja_jp:train:12210528383264418745.wav"
+        }
+      ],
+      "version": "boundary-panel-v1"
+    },
+    "cache_sha256": "1125b32246ebd102ef4a4c3ce9feca878c18b73a985afa77ee16ee5226df4f23",
+    "cudnn": 92501,
+    "execution_batch_size": 1,
+    "fit_sources": 3000,
+    "gradient_accumulation_steps": 3,
+    "manifest_sha256": "b76341240028a0371b9acbb553fa5c1bd6714002da10d7900aa501cd998c3627",
+    "model_sha256": "2fcc0728bb6d7a6ac75ab9299090ccc066a3ae3afdd6d92e436e325414c803fe",
+    "monitoring_sha256": "ade253c0385bd8bdc73490ca2bbe1ffec211c3560b58cb0e8919713022801606",
+    "precision": "FP32 TF32 disabled",
+    "runner_sha256": "f80635b3d8d2e337db4a77a47a828ea09b8f8bc2ad21682336f64edd5f3e6cae",
+    "scored_fit_hours": 2.051632951388889,
+    "shared_helpers_sha256": {
+      "losses_distillation": "51d4d85f0fac45749bd9c5070715035717033be6a83b5cbd843863abc259587f",
+      "quiet_audio": "fa1e0816448f97bfc66cbf9380560b0c0dd12e2b389c4b60bb086081538913ff",
+      "reconstruction_v2": "676f849336e5c0aa33c5702a0a5e619c3ec33a4f16cfe7475946e79f049bffae",
+      "teacher": "2fb9b43b84f6f3d269085f6ebb95432f447e91d30364ed5851cc7bec6939c707"
+    },
+    "teacher_checkpoint_sha256": "94b5d51e107e0507d4acc976cfdadb64edd6fd06d1f751dadbf2fd1594274bf1",
+    "teacher_source_sha256": "2efdff1708d8ec1471624aae6f232d0f933de26b788b6901c434246847e2d3a8",
+    "torch": "2.14.0+cu126"
+  },
+  "initial_sha256": "c41c9bc24b0c2c0261f33edcda594880eba17a76be49500b9f5045bb310b6cb9",
+  "passed": true,
+  "selection_sha256": "7b943ea3a78c91da3df102d44743ef2e6d54c0ff5e3b61e81086b02fe97994e7"
+}

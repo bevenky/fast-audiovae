@@ -1,0 +1,783 @@
+{
+  "source_ids": [
+    "es_419:train:13461728374156750135.wav",
+    "kn_in:train:15096009457771558023.wav",
+    "kashmiri:1970324837177077_chunk_1.flac",
+    "freesound:428921"
+  ],
+  "preservation": {
+    "checkpoint_bytes": true,
+    "frozen_decoder": true,
+    "module_modes": true,
+    "optimizer_state_read_only": true,
+    "parameter_grad_slots": true,
+    "rng_restored": true,
+    "teacher": true
+  },
+  "checkpoint_sha256": {
+    "1000": "bfecd759eb58db1eeeca3dd693660b26be91bd69a93e3457b9d91523c5de0573",
+    "4500": "6e131e73ab5ff4b4ccd5c4ee0eca7f009a77509525cf5f51b736a4a3349aa0d1",
+    "5000": "da1d1ba67627b9fcd0c373e321422ee173a08304f0a3483b0e7cce2562f415a6"
+  },
+  "per_source": [
+    {
+      "step": 1000,
+      "source_id": "es_419:train:13461728374156750135.wav",
+      "active_rms_gain": 1.0679291486740112,
+      "mae": 0.004219036567569493,
+      "saved_mae_reproduced": true,
+      "near_summary": {
+        "passes": 42,
+        "residual_signed_mean_sample_pooled": -3.3949854525010804e-06,
+        "residual_signed_mean_window_median": -3.0809294637871666e-06,
+        "samples": 42240,
+        "student_signed_mean_sample_pooled": 6.1378585508095694e-06,
+        "student_signed_mean_window_median": 6.535436077115264e-06,
+        "teacher_signed_mean_sample_pooled": 9.53284400331065e-06,
+        "teacher_signed_mean_window_median": 9.628539597391258e-06,
+        "windows": 44,
+        "teacher_rms_sample_pooled": 9.623585464504104e-06,
+        "student_rms_sample_pooled": 1.0862399444253346e-05,
+        "teacher_dc_fraction_of_energy": 0.9812307673203736
+      },
+      "waveform_logmel_gradient_cosine": 0.35027920066827223,
+      "near_wave_feature_gradient_cosine": 0.10649394828847476,
+      "diagnostic_directions": {
+        "raw_gradient_descent_directional_derivatives": {
+          "waveform": -0.0007441050933446457,
+          "near_waveform": -6.374913968012217e-08,
+          "near_amplitude_violation": -7.235844460249672e-14,
+          "active_log_gain": -0.027760139282897327
+        },
+        "hypothetical_adam_directional_derivatives": {
+          "waveform": -2.1174041027493002e-05,
+          "near_waveform": 3.5686913866030358e-09,
+          "near_amplitude_violation": 2.492505835114662e-14,
+          "active_log_gain": 8.399391561053902e-06
+        },
+        "counterfactual_zero_first_moment_adam_directional_derivatives": {
+          "waveform": -1.8462257405728995e-05,
+          "near_waveform": -4.361825461296763e-09,
+          "near_amplitude_violation": -3.098916105547854e-15,
+          "active_log_gain": -0.0005675512091910426
+        },
+        "actual_4500_to_5000_local_directional_derivatives": {
+          "waveform": 8.92647662121903e-05,
+          "near_waveform": 4.863950420202399e-08,
+          "near_amplitude_violation": 7.559130419891124e-14,
+          "active_log_gain": 0.006582523552517208
+        }
+      }
+    },
+    {
+      "step": 1000,
+      "source_id": "kn_in:train:15096009457771558023.wav",
+      "active_rms_gain": 1.0138245820999146,
+      "mae": 0.0025658326530815824,
+      "saved_mae_reproduced": true,
+      "near_summary": {
+        "passes": 22,
+        "residual_signed_mean_sample_pooled": -3.2783559524724687e-06,
+        "residual_signed_mean_window_median": -2.700718317782957e-06,
+        "samples": 40320,
+        "student_signed_mean_sample_pooled": 6.32511780830259e-06,
+        "student_signed_mean_window_median": 6.9219190398447e-06,
+        "teacher_signed_mean_sample_pooled": 9.603473760775059e-06,
+        "teacher_signed_mean_window_median": 9.633362803166772e-06,
+        "windows": 42,
+        "teacher_rms_sample_pooled": 9.620045891543752e-06,
+        "student_rms_sample_pooled": 1.8375574767432212e-05,
+        "teacher_dc_fraction_of_energy": 0.9965576345834258
+      },
+      "waveform_logmel_gradient_cosine": 0.017137109982853116,
+      "near_wave_feature_gradient_cosine": 0.16667466324655783,
+      "diagnostic_directions": {
+        "raw_gradient_descent_directional_derivatives": {
+          "waveform": -0.00016111296895920878,
+          "near_waveform": -4.9474879043735894e-08,
+          "near_amplitude_violation": -5.914194922877561e-13,
+          "active_log_gain": -0.0017019604339109187
+        },
+        "hypothetical_adam_directional_derivatives": {
+          "waveform": 1.0287858147177606e-05,
+          "near_waveform": 3.4261712030768682e-09,
+          "near_amplitude_violation": 2.5227213314024928e-14,
+          "active_log_gain": 0.00036996418743286586
+        },
+        "counterfactual_zero_first_moment_adam_directional_derivatives": {
+          "waveform": -5.550495392696325e-06,
+          "near_waveform": -3.3516966473850257e-09,
+          "near_amplitude_violation": -1.0732782258214142e-14,
+          "active_log_gain": -2.9371225305478952e-05
+        },
+        "actual_4500_to_5000_local_directional_derivatives": {
+          "waveform": 3.0148585879399503e-05,
+          "near_waveform": 4.163739994078594e-08,
+          "near_amplitude_violation": 7.543083788104319e-13,
+          "active_log_gain": 0.001243160875679133
+        }
+      }
+    },
+    {
+      "step": 1000,
+      "source_id": "kashmiri:1970324837177077_chunk_1.flac",
+      "active_rms_gain": 1.0292695760726929,
+      "mae": 0.013920752077743436,
+      "saved_mae_reproduced": true,
+      "near_summary": {
+        "passes": 0,
+        "residual_signed_mean_sample_pooled": null,
+        "residual_signed_mean_window_median": null,
+        "samples": 0,
+        "student_signed_mean_sample_pooled": null,
+        "student_signed_mean_window_median": null,
+        "teacher_signed_mean_sample_pooled": null,
+        "teacher_signed_mean_window_median": null,
+        "windows": 0
+      },
+      "waveform_logmel_gradient_cosine": 0.5325962597427932,
+      "near_wave_feature_gradient_cosine": null,
+      "diagnostic_directions": {
+        "raw_gradient_descent_directional_derivatives": {
+          "waveform": -0.017047835261567126,
+          "near_waveform": -0.0,
+          "near_amplitude_violation": -0.0,
+          "active_log_gain": -0.05121385141903162
+        },
+        "hypothetical_adam_directional_derivatives": {
+          "waveform": -0.00012891149690148304,
+          "near_waveform": 0.0,
+          "near_amplitude_violation": 0.0,
+          "active_log_gain": -0.0001228729417101267
+        },
+        "counterfactual_zero_first_moment_adam_directional_derivatives": {
+          "waveform": -0.0002806760034913036,
+          "near_waveform": 0.0,
+          "near_amplitude_violation": 0.0,
+          "active_log_gain": -0.0006727740997235453
+        },
+        "actual_4500_to_5000_local_directional_derivatives": {
+          "waveform": 0.00047272305899376314,
+          "near_waveform": 0.0,
+          "near_amplitude_violation": 0.0,
+          "active_log_gain": 0.001050766384126857
+        }
+      }
+    },
+    {
+      "step": 1000,
+      "source_id": "freesound:428921",
+      "active_rms_gain": 1.3448798656463623,
+      "mae": 0.0017536225304327082,
+      "saved_mae_reproduced": true,
+      "near_summary": {
+        "passes": 0,
+        "residual_signed_mean_sample_pooled": null,
+        "residual_signed_mean_window_median": null,
+        "samples": 0,
+        "student_signed_mean_sample_pooled": null,
+        "student_signed_mean_window_median": null,
+        "teacher_signed_mean_sample_pooled": null,
+        "teacher_signed_mean_window_median": null,
+        "windows": 0
+      },
+      "waveform_logmel_gradient_cosine": 0.5169780866015061,
+      "near_wave_feature_gradient_cosine": null,
+      "diagnostic_directions": {
+        "raw_gradient_descent_directional_derivatives": {
+          "waveform": -0.00027879741712049505,
+          "near_waveform": -0.0,
+          "near_amplitude_violation": -0.0,
+          "active_log_gain": -0.12472868678494185
+        },
+        "hypothetical_adam_directional_derivatives": {
+          "waveform": -1.9863247484760525e-05,
+          "near_waveform": 0.0,
+          "near_amplitude_violation": 0.0,
+          "active_log_gain": -0.008537268404810502
+        },
+        "counterfactual_zero_first_moment_adam_directional_derivatives": {
+          "waveform": -1.0066990658333657e-05,
+          "near_waveform": 0.0,
+          "near_amplitude_violation": 0.0,
+          "active_log_gain": -0.004368400916318912
+        },
+        "actual_4500_to_5000_local_directional_derivatives": {
+          "waveform": 1.847189919841758e-05,
+          "near_waveform": 0.0,
+          "near_amplitude_violation": 0.0,
+          "active_log_gain": -0.00135201801908931
+        }
+      }
+    },
+    {
+      "step": 4500,
+      "source_id": "es_419:train:13461728374156750135.wav",
+      "active_rms_gain": 1.000412106513977,
+      "mae": 0.002567509145063666,
+      "saved_mae_reproduced": true,
+      "near_summary": {
+        "passes": 0,
+        "residual_signed_mean_sample_pooled": 6.762300471784714e-06,
+        "residual_signed_mean_window_median": 7.084472813782364e-06,
+        "samples": 42240,
+        "student_signed_mean_sample_pooled": 1.6295144475095365e-05,
+        "student_signed_mean_window_median": 1.6700838354684793e-05,
+        "teacher_signed_mean_sample_pooled": 9.53284400331065e-06,
+        "teacher_signed_mean_window_median": 9.628539597391258e-06,
+        "windows": 44,
+        "teacher_rms_sample_pooled": 9.623585464504104e-06,
+        "student_rms_sample_pooled": 1.7248799675509064e-05,
+        "teacher_dc_fraction_of_energy": 0.9812307673203736
+      },
+      "waveform_logmel_gradient_cosine": 0.17290584252317226,
+      "near_wave_feature_gradient_cosine": -0.104852494495812,
+      "diagnostic_directions": {
+        "raw_gradient_descent_directional_derivatives": {
+          "waveform": -0.00018770493096449074,
+          "near_waveform": -8.60243247165215e-08,
+          "near_amplitude_violation": -1.2856617474392744e-12,
+          "active_log_gain": -3.175158001700291e-05
+        },
+        "hypothetical_adam_directional_derivatives": {
+          "waveform": 1.8209751956426408e-05,
+          "near_waveform": -4.573820933587743e-08,
+          "near_amplitude_violation": -6.867810953101703e-13,
+          "active_log_gain": 7.076369352497414e-07
+        },
+        "counterfactual_zero_first_moment_adam_directional_derivatives": {
+          "waveform": -7.918508151348925e-06,
+          "near_waveform": -8.260797649879307e-09,
+          "near_amplitude_violation": -1.2323232169301983e-13,
+          "active_log_gain": -7.863496076651364e-07
+        },
+        "actual_4500_to_5000_local_directional_derivatives": {
+          "waveform": -0.00019521977538300637,
+          "near_waveform": -1.0627138780720583e-07,
+          "near_amplitude_violation": -1.5927118966357658e-12,
+          "active_log_gain": 4.7024563143035664e-05
+        }
+      }
+    },
+    {
+      "step": 4500,
+      "source_id": "kn_in:train:15096009457771558023.wav",
+      "active_rms_gain": 1.0412280559539795,
+      "mae": 0.0019517129766288832,
+      "saved_mae_reproduced": true,
+      "near_summary": {
+        "passes": 0,
+        "residual_signed_mean_sample_pooled": 7.446348869252905e-06,
+        "residual_signed_mean_window_median": 7.4746398354363915e-06,
+        "samples": 40320,
+        "student_signed_mean_sample_pooled": 1.7049822630027962e-05,
+        "student_signed_mean_window_median": 1.7107473054996566e-05,
+        "teacher_signed_mean_sample_pooled": 9.603473760775059e-06,
+        "teacher_signed_mean_window_median": 9.633362803166772e-06,
+        "windows": 42,
+        "teacher_rms_sample_pooled": 9.620045891543752e-06,
+        "student_rms_sample_pooled": 2.4248054376669663e-05,
+        "teacher_dc_fraction_of_energy": 0.9965576345834258
+      },
+      "waveform_logmel_gradient_cosine": 0.022436651455920102,
+      "near_wave_feature_gradient_cosine": -0.14697969052409016,
+      "diagnostic_directions": {
+        "raw_gradient_descent_directional_derivatives": {
+          "waveform": -0.00041345008335387816,
+          "near_waveform": -1.079181274640537e-07,
+          "near_amplitude_violation": -1.9978418346637303e-12,
+          "active_log_gain": -0.00822096193259255
+        },
+        "hypothetical_adam_directional_derivatives": {
+          "waveform": 9.025349495906112e-06,
+          "near_waveform": -4.626421214461611e-08,
+          "near_amplitude_violation": -8.801232345224018e-13,
+          "active_log_gain": 8.193385037897418e-05
+        },
+        "counterfactual_zero_first_moment_adam_directional_derivatives": {
+          "waveform": -1.4226326199001511e-05,
+          "near_waveform": -9.549954542560558e-09,
+          "near_amplitude_violation": -1.549241351583966e-13,
+          "active_log_gain": -0.00021226277410379624
+        },
+        "actual_4500_to_5000_local_directional_derivatives": {
+          "waveform": -3.326493092711766e-05,
+          "near_waveform": -9.415627494374822e-08,
+          "near_amplitude_violation": -1.7533228599999392e-12,
+          "active_log_gain": 0.0035929788855584193
+        }
+      }
+    },
+    {
+      "step": 4500,
+      "source_id": "kashmiri:1970324837177077_chunk_1.flac",
+      "active_rms_gain": 1.0730472803115845,
+      "mae": 0.012442534937887117,
+      "saved_mae_reproduced": true,
+      "near_summary": {
+        "passes": 0,
+        "residual_signed_mean_sample_pooled": null,
+        "residual_signed_mean_window_median": null,
+        "samples": 0,
+        "student_signed_mean_sample_pooled": null,
+        "student_signed_mean_window_median": null,
+        "teacher_signed_mean_sample_pooled": null,
+        "teacher_signed_mean_window_median": null,
+        "windows": 0
+      },
+      "waveform_logmel_gradient_cosine": 0.44076178480313033,
+      "near_wave_feature_gradient_cosine": null,
+      "diagnostic_directions": {
+        "raw_gradient_descent_directional_derivatives": {
+          "waveform": -0.060101788596087474,
+          "near_waveform": -0.0,
+          "near_amplitude_violation": -0.0,
+          "active_log_gain": -0.20102855661959748
+        },
+        "hypothetical_adam_directional_derivatives": {
+          "waveform": -0.0007057028809821047,
+          "near_waveform": 0.0,
+          "near_amplitude_violation": 0.0,
+          "active_log_gain": -0.002452871895885274
+        },
+        "counterfactual_zero_first_moment_adam_directional_derivatives": {
+          "waveform": -0.0010849446653753972,
+          "near_waveform": 0.0,
+          "near_amplitude_violation": 0.0,
+          "active_log_gain": -0.00343288699712794
+        },
+        "actual_4500_to_5000_local_directional_derivatives": {
+          "waveform": 0.0003928319008868905,
+          "near_waveform": 0.0,
+          "near_amplitude_violation": 0.0,
+          "active_log_gain": 0.004667877220316522
+        }
+      }
+    },
+    {
+      "step": 4500,
+      "source_id": "freesound:428921",
+      "active_rms_gain": 0.8708974719047546,
+      "mae": 0.0007943169404480685,
+      "saved_mae_reproduced": true,
+      "near_summary": {
+        "passes": 0,
+        "residual_signed_mean_sample_pooled": null,
+        "residual_signed_mean_window_median": null,
+        "samples": 0,
+        "student_signed_mean_sample_pooled": null,
+        "student_signed_mean_window_median": null,
+        "teacher_signed_mean_sample_pooled": null,
+        "teacher_signed_mean_window_median": null,
+        "windows": 0
+      },
+      "waveform_logmel_gradient_cosine": -0.30552573218958434,
+      "near_wave_feature_gradient_cosine": null,
+      "diagnostic_directions": {
+        "raw_gradient_descent_directional_derivatives": {
+          "waveform": -5.498051607417715e-05,
+          "near_waveform": -0.0,
+          "near_amplitude_violation": -0.0,
+          "active_log_gain": -0.01782110432400763
+        },
+        "hypothetical_adam_directional_derivatives": {
+          "waveform": -2.377599366881605e-06,
+          "near_waveform": 0.0,
+          "near_amplitude_violation": 0.0,
+          "active_log_gain": -0.0008557790542827655
+        },
+        "counterfactual_zero_first_moment_adam_directional_derivatives": {
+          "waveform": -3.6457528718904194e-06,
+          "near_waveform": 0.0,
+          "near_amplitude_violation": 0.0,
+          "active_log_gain": -0.0011527031806631012
+        },
+        "actual_4500_to_5000_local_directional_derivatives": {
+          "waveform": -2.452602741198298e-05,
+          "near_waveform": 0.0,
+          "near_amplitude_violation": 0.0,
+          "active_log_gain": -0.005958079005012393
+        }
+      }
+    },
+    {
+      "step": 5000,
+      "source_id": "es_419:train:13461728374156750135.wav",
+      "active_rms_gain": 1.1223901510238647,
+      "mae": 0.0031539698124670797,
+      "saved_mae_reproduced": true,
+      "near_summary": {
+        "passes": 0,
+        "residual_signed_mean_sample_pooled": 5.330988499513916e-06,
+        "residual_signed_mean_window_median": 5.568410974395495e-06,
+        "samples": 42240,
+        "student_signed_mean_sample_pooled": 1.4863832502824566e-05,
+        "student_signed_mean_window_median": 1.5184776515297926e-05,
+        "teacher_signed_mean_sample_pooled": 9.53284400331065e-06,
+        "teacher_signed_mean_window_median": 9.628539597391258e-06,
+        "windows": 44,
+        "teacher_rms_sample_pooled": 9.623585464504104e-06,
+        "student_rms_sample_pooled": 1.5696353400747678e-05,
+        "teacher_dc_fraction_of_energy": 0.9812307673203736
+      },
+      "waveform_logmel_gradient_cosine": 0.30497638570560565,
+      "near_wave_feature_gradient_cosine": -0.16398486931133124,
+      "diagnostic_directions": {
+        "raw_gradient_descent_directional_derivatives": {
+          "waveform": -0.0015414480284454597,
+          "near_waveform": -7.342909421458133e-08,
+          "near_amplitude_violation": -8.974243678908698e-13,
+          "active_log_gain": -0.059416722117047974
+        },
+        "hypothetical_adam_directional_derivatives": {
+          "waveform": -4.395186897009356e-05,
+          "near_waveform": 1.1428658586040247e-08,
+          "near_amplitude_violation": 1.4943137642931088e-13,
+          "active_log_gain": -0.0017703121658487566
+        },
+        "counterfactual_zero_first_moment_adam_directional_derivatives": {
+          "waveform": -4.54148177481198e-05,
+          "near_waveform": -5.492511770000103e-09,
+          "near_amplitude_violation": -6.610119797636057e-14,
+          "active_log_gain": -0.0016525855298830912
+        },
+        "actual_4500_to_5000_local_directional_derivatives": {
+          "waveform": 0.00046198959895724556,
+          "near_waveform": -1.3478347756441485e-07,
+          "near_amplitude_violation": -1.6475437342753582e-12,
+          "active_log_gain": 0.013313515282845646
+        }
+      },
+      "actual_delta_gain_by_stage": {
+        "stage2": 0.004901987606447598,
+        "stage3": 0.004230804242557437,
+        "stage4": 0.004180723433840612
+      },
+      "actual_delta_gain_by_component": {
+        "conditioning": 0.00016249283483471354,
+        "convolution": 0.013130191583632116,
+        "snake": 2.083086437881808e-05
+      }
+    },
+    {
+      "step": 5000,
+      "source_id": "kn_in:train:15096009457771558023.wav",
+      "active_rms_gain": 1.134328842163086,
+      "mae": 0.002569167105131213,
+      "saved_mae_reproduced": true,
+      "near_summary": {
+        "passes": 0,
+        "residual_signed_mean_sample_pooled": 6.0130794092549605e-06,
+        "residual_signed_mean_window_median": 5.9238057322848665e-06,
+        "samples": 40320,
+        "student_signed_mean_sample_pooled": 1.561655317003002e-05,
+        "student_signed_mean_window_median": 1.5555505139748975e-05,
+        "teacher_signed_mean_sample_pooled": 9.603473760775059e-06,
+        "teacher_signed_mean_window_median": 9.633362803166772e-06,
+        "windows": 42,
+        "teacher_rms_sample_pooled": 9.620045891543752e-06,
+        "student_rms_sample_pooled": 2.3194439914583777e-05,
+        "teacher_dc_fraction_of_energy": 0.9965576345834258
+      },
+      "waveform_logmel_gradient_cosine": 0.16785977289870083,
+      "near_wave_feature_gradient_cosine": -0.199435059659974,
+      "diagnostic_directions": {
+        "raw_gradient_descent_directional_derivatives": {
+          "waveform": -0.0014219983109431135,
+          "near_waveform": -7.784233851153905e-08,
+          "near_amplitude_violation": 1.0345802291882753e-13,
+          "active_log_gain": -0.05547714361005135
+        },
+        "hypothetical_adam_directional_derivatives": {
+          "waveform": -1.799741514824834e-05,
+          "near_waveform": 9.826397903409146e-09,
+          "near_amplitude_violation": 2.0668290520512154e-13,
+          "active_log_gain": -0.000676144097219758
+        },
+        "counterfactual_zero_first_moment_adam_directional_derivatives": {
+          "waveform": -3.867862302276396e-05,
+          "near_waveform": -6.916271805096153e-09,
+          "near_amplitude_violation": -7.803861708809738e-14,
+          "active_log_gain": -0.0013813698025224737
+        },
+        "actual_4500_to_5000_local_directional_derivatives": {
+          "waveform": 0.000341092410807304,
+          "near_waveform": -1.2327885541051685e-07,
+          "near_amplitude_violation": -1.436862068328943e-12,
+          "active_log_gain": 0.010367002033968965
+        }
+      },
+      "actual_delta_gain_by_stage": {
+        "stage2": 0.002218483429715306,
+        "stage3": 0.003405356027640248,
+        "stage4": 0.004743162576613413
+      },
+      "actual_delta_gain_by_component": {
+        "conditioning": 0.00017765670207201453,
+        "convolution": 0.010163727775892542,
+        "snake": 2.5617556004410504e-05
+      }
+    },
+    {
+      "step": 5000,
+      "source_id": "kashmiri:1970324837177077_chunk_1.flac",
+      "active_rms_gain": 1.1438028812408447,
+      "mae": 0.017400222603221462,
+      "saved_mae_reproduced": true,
+      "near_summary": {
+        "passes": 0,
+        "residual_signed_mean_sample_pooled": null,
+        "residual_signed_mean_window_median": null,
+        "samples": 0,
+        "student_signed_mean_sample_pooled": null,
+        "student_signed_mean_window_median": null,
+        "teacher_signed_mean_sample_pooled": null,
+        "teacher_signed_mean_window_median": null,
+        "windows": 0
+      },
+      "waveform_logmel_gradient_cosine": 0.5799759080934221,
+      "near_wave_feature_gradient_cosine": null,
+      "diagnostic_directions": {
+        "raw_gradient_descent_directional_derivatives": {
+          "waveform": -0.10717012686288277,
+          "near_waveform": -0.0,
+          "near_amplitude_violation": -0.0,
+          "active_log_gain": -0.5104384718454956
+        },
+        "hypothetical_adam_directional_derivatives": {
+          "waveform": -0.0014755297623273169,
+          "near_waveform": 0.0,
+          "near_amplitude_violation": 0.0,
+          "active_log_gain": -0.0068556191915474605
+        },
+        "counterfactual_zero_first_moment_adam_directional_derivatives": {
+          "waveform": -0.0017337429470255378,
+          "near_waveform": 0.0,
+          "near_amplitude_violation": 0.0,
+          "active_log_gain": -0.008064610251195791
+        },
+        "actual_4500_to_5000_local_directional_derivatives": {
+          "waveform": 0.0020540314295254564,
+          "near_waveform": 0.0,
+          "near_amplitude_violation": 0.0,
+          "active_log_gain": 0.008219223520958847
+        }
+      },
+      "actual_delta_gain_by_stage": {
+        "stage2": 0.0011461044827690452,
+        "stage3": 0.002466717507969155,
+        "stage4": 0.004606401530220646
+      },
+      "actual_delta_gain_by_component": {
+        "conditioning": 0.00016366586844545675,
+        "convolution": 0.00802710433380957,
+        "snake": 2.8453318703817677e-05
+      }
+    },
+    {
+      "step": 5000,
+      "source_id": "freesound:428921",
+      "active_rms_gain": 0.8896692991256714,
+      "mae": 0.0008607305195057818,
+      "saved_mae_reproduced": true,
+      "near_summary": {
+        "passes": 0,
+        "residual_signed_mean_sample_pooled": null,
+        "residual_signed_mean_window_median": null,
+        "samples": 0,
+        "student_signed_mean_sample_pooled": null,
+        "student_signed_mean_window_median": null,
+        "teacher_signed_mean_sample_pooled": null,
+        "teacher_signed_mean_window_median": null,
+        "windows": 0
+      },
+      "waveform_logmel_gradient_cosine": -0.3040536715251146,
+      "near_wave_feature_gradient_cosine": null,
+      "diagnostic_directions": {
+        "raw_gradient_descent_directional_derivatives": {
+          "waveform": -3.5077870997360624e-05,
+          "near_waveform": -0.0,
+          "near_amplitude_violation": -0.0,
+          "active_log_gain": -0.010062521500930798
+        },
+        "hypothetical_adam_directional_derivatives": {
+          "waveform": 9.504092020152078e-07,
+          "near_waveform": 0.0,
+          "near_amplitude_violation": 0.0,
+          "active_log_gain": 0.001022832615297626
+        },
+        "counterfactual_zero_first_moment_adam_directional_derivatives": {
+          "waveform": -2.6012739684614767e-06,
+          "near_waveform": 0.0,
+          "near_amplitude_violation": 0.0,
+          "active_log_gain": -0.0006597362814749529
+        },
+        "actual_4500_to_5000_local_directional_derivatives": {
+          "waveform": 3.96090637876761e-05,
+          "near_waveform": 0.0,
+          "near_amplitude_violation": 0.0,
+          "active_log_gain": -0.0005269282537728312
+        }
+      },
+      "actual_delta_gain_by_stage": {
+        "stage2": 0.004018058271055466,
+        "stage3": -0.002853735337668789,
+        "stage4": -0.0016912511871595075
+      },
+      "actual_delta_gain_by_component": {
+        "conditioning": -0.00013529966347586335,
+        "convolution": -0.0003604445382428492,
+        "snake": -3.118405205411783e-05
+      }
+    }
+  ],
+  "pooled": {
+    "1000": {
+      "weighted_gradient_norms": {
+        "feature": 0.0029870766231992335,
+        "mel_linear": 0.0001320571339118956,
+        "mel_log": 0.0027214845910453413,
+        "waveform": 0.16320391686642646
+      },
+      "waveform_vs_total_cosine": 0.9996824635809399,
+      "diagnostic_directions": {
+        "raw_gradient_descent_directional_derivatives": {
+          "active_log_gain": -0.7399807467841482,
+          "feature": -0.026007781057576347,
+          "mel_linear": -0.03198493561931553,
+          "mel_log": -0.3354397834630382,
+          "near_amplitude_violation": -3.718700618350892e-12,
+          "near_waveform": -3.1348438704782147e-07,
+          "waveform": -0.027097198903938097
+        },
+        "hypothetical_adam_directional_derivatives": {
+          "active_log_gain": -0.015853869515413378,
+          "feature": -0.00031117370998456667,
+          "mel_linear": -0.0002830119363116065,
+          "mel_log": -0.005292329102510368,
+          "near_amplitude_violation": -1.6210878669764442e-14,
+          "near_waveform": -1.0814648286424228e-09,
+          "waveform": -0.0002828098468723608
+        },
+        "counterfactual_zero_first_moment_adam_directional_derivatives": {
+          "active_log_gain": -0.01322144138946903,
+          "feature": -0.0004420571452865414,
+          "mel_linear": -0.00047954541604410894,
+          "mel_log": -0.005894971468636491,
+          "near_amplitude_violation": -8.005079435379775e-14,
+          "near_waveform": -1.5717422547451287e-08,
+          "waveform": -0.0004375395339874656
+        },
+        "actual_4500_to_5000_local_directional_derivatives": {
+          "active_log_gain": 0.007524432785478138,
+          "feature": -0.0007306679017542779,
+          "mel_linear": 0.0009680454454238261,
+          "mel_log": -0.0018378481130846118,
+          "near_amplitude_violation": 8.29899674900708e-13,
+          "near_waveform": 9.027690229444495e-08,
+          "waveform": 0.0006106083087692185
+        }
+      }
+    },
+    "4500": {
+      "weighted_gradient_norms": {
+        "feature": 0.001240779844436064,
+        "mel_linear": 0.00015454059238711256,
+        "mel_log": 0.0018664384794178585,
+        "waveform": 0.26585869668410816
+      },
+      "waveform_vs_total_cosine": 0.9999624350208655,
+      "diagnostic_directions": {
+        "raw_gradient_descent_directional_derivatives": {
+          "active_log_gain": -0.20232063056983213,
+          "feature": -0.015035657150817078,
+          "mel_linear": -0.060449223504363526,
+          "mel_log": -0.2475087871362555,
+          "near_amplitude_violation": -3.6094624516042555e-12,
+          "near_waveform": -4.2060273763456376e-07,
+          "waveform": -0.07101928903605936
+        },
+        "hypothetical_adam_directional_derivatives": {
+          "active_log_gain": -0.002665463352389043,
+          "feature": -0.00025933049695984697,
+          "mel_linear": -0.0007398791484882057,
+          "mel_log": -0.0031170207898384467,
+          "near_amplitude_violation": -1.5902816302219655e-12,
+          "near_waveform": -9.993130438485241e-08,
+          "waveform": -0.0008558528610531472
+        },
+        "counterfactual_zero_first_moment_adam_directional_derivatives": {
+          "active_log_gain": -0.004198512066329845,
+          "feature": -0.00030456287781420444,
+          "mel_linear": -0.0010676785398239124,
+          "mel_log": -0.005131915145422755,
+          "near_amplitude_violation": -3.2777299994304105e-13,
+          "near_waveform": -2.6980148888538887e-08,
+          "waveform": -0.0012806587985102398
+        },
+        "actual_4500_to_5000_local_directional_derivatives": {
+          "active_log_gain": 0.002349801667306058,
+          "feature": -0.00046091668952166726,
+          "mel_linear": 0.0005402232944321734,
+          "mel_log": -0.024115295855612763,
+          "near_amplitude_violation": -3.346034793484052e-12,
+          "near_waveform": -2.0042766253279428e-07,
+          "waveform": 0.00013982116852150934
+        }
+      }
+    },
+    "5000": {
+      "weighted_gradient_norms": {
+        "feature": 0.0013845320795476841,
+        "mel_linear": 0.00021750851278825963,
+        "mel_log": 0.0019356561754421565,
+        "waveform": 0.38575500858620815
+      },
+      "waveform_vs_total_cosine": 0.9999826975225429,
+      "diagnostic_directions": {
+        "raw_gradient_descent_directional_derivatives": {
+          "active_log_gain": -1.4060468685518035,
+          "feature": -0.031566686264533295,
+          "mel_linear": -0.12477041644458801,
+          "mel_log": -0.5800629600743887,
+          "near_amplitude_violation": 3.639931002162239e-12,
+          "near_waveform": -8.441256148012615e-08,
+          "waveform": -0.14956199897407696
+        },
+        "hypothetical_adam_directional_derivatives": {
+          "active_log_gain": -0.018812033911526423,
+          "feature": -0.000494842825875924,
+          "mel_linear": -0.0017628732298084887,
+          "mel_log": -0.009145380145000558,
+          "near_amplitude_violation": 3.153234699632346e-13,
+          "near_waveform": 1.192210448297355e-08,
+          "waveform": -0.002087130128465913
+        },
+        "counterfactual_zero_first_moment_adam_directional_derivatives": {
+          "active_log_gain": -0.022108813257476795,
+          "feature": -0.000583418397738106,
+          "mel_linear": -0.0019706949038777568,
+          "mel_log": -0.010232245363620107,
+          "near_amplitude_violation": -1.697382185168652e-13,
+          "near_waveform": -2.0594745021945583e-08,
+          "waveform": -0.0023640416595813213
+        },
+        "actual_4500_to_5000_local_directional_derivatives": {
+          "active_log_gain": 0.03137281259678185,
+          "feature": 0.0002282405569000986,
+          "mel_linear": 0.002449194572440328,
+          "mel_log": 0.018538998846635145,
+          "near_amplitude_violation": -3.0844058305087024e-12,
+          "near_waveform": -2.580623298200019e-07,
+          "waveform": 0.002896722504284678
+        }
+      },
+      "near_wave_raw_gradient_descent_contributions": {
+        "feature": 7.090750243731832e-08,
+        "mel_linear": 3.3725745804509665e-10,
+        "mel_log": -1.6978900130622935e-07,
+        "waveform": 1.4131699699212047e-08
+      }
+    }
+  }
+}

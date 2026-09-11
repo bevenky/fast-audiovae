@@ -1,0 +1,164 @@
+{
+  "name": "author-referenced DAC seven-scale mel at 48 kHz",
+  "authority": "Original AudioVAE collaborator reply https://github.com/OpenBMB/VoxCPM/issues/145#issuecomment-3767009845 references DAC. Exact historical dependency versions and complete AudioVAE2 recipe remain unverified.",
+  "sample_rate": 48000,
+  "window_lengths": [
+    32,
+    64,
+    128,
+    256,
+    512,
+    1024,
+    2048
+  ],
+  "n_mels": [
+    5,
+    10,
+    20,
+    40,
+    80,
+    160,
+    320
+  ],
+  "hop_lengths": [
+    8,
+    16,
+    32,
+    64,
+    128,
+    256,
+    512
+  ],
+  "window": {
+    "name": "hann",
+    "periodic": true,
+    "upstream_construction": "scipy.signal.get_window(window_type, window_length); convert to torch.float32",
+    "docstring_warning": "audiotools docstrings say sqrt_hann; actual default setter is hann"
+  },
+  "stft": {
+    "n_fft": "window_length",
+    "win_length": "window_length",
+    "center": true,
+    "pad_mode": "reflect",
+    "normalized": false,
+    "onesided": true,
+    "return_complex": true,
+    "match_stride": false,
+    "explicit_padding_before_stft": 0,
+    "dropped_output_frames": 0,
+    "frames_for_length_L": "L // hop_length + 1"
+  },
+  "mel": {
+    "magnitude": "abs(complex STFT), not squared magnitude",
+    "htk": false,
+    "norm": "slaney",
+    "dtype": "float32",
+    "fmin": 0.0,
+    "fmax": 24000.0,
+    "upstream_fmax_argument": null,
+    "normalization": "triangular bands multiplied by 2/(right_edge_hz-left_edge_hz)"
+  },
+  "loss": {
+    "pow": 1.0,
+    "clamp_eps": 1e-05,
+    "log_base": 10,
+    "log_weight": 1.0,
+    "mag_weight": 0.0,
+    "within_scale": "mean absolute difference over all batch, channel, mel, and frame elements",
+    "across_scales": "sum, no division by 7",
+    "operation_order": "mel magnitude, clamp minimum, power, log10, L1",
+    "prohibited_extra_processing": [
+      "amplitude normalization",
+      "STFT energy normalization",
+      "dB conversion factor10or20",
+      "maximum-level subtraction",
+      "mel per-frame normalization"
+    ]
+  },
+  "pilot_adaptations": [
+    "48 kHz sample rate rather than claiming exact historical original pretraining rate",
+    "variable-length sources pooled by actual per-resolution mel element counts; no padded-tail scoring",
+    "teacher waveform and complete-stage4 boundary losses retained",
+    "outer coefficient remains pilot policy, not automatically official mel15",
+    "no standalone STFT loss, GAN, KL or V2 low-band term included by this seven-scale loss definition"
+  ],
+  "source_manifest": {
+    "sources": [
+      {
+        "local_path": "outputs/audiovae2-compression-preflight/author-mel-upstream/dac_base.yml",
+        "url": "https://raw.githubusercontent.com/descriptinc/descript-audio-codec/c7cfc5d2647e26471dc394f95846a0830e7bec34/conf/base.yml",
+        "commit": "c7cfc5d2647e26471dc394f95846a0830e7bec34",
+        "sha256": "19cbf8c8f3c2102b0eb7b9a7cd781f384532c73051af1aa4fe56693a7e9339b8",
+        "bytes": 2732
+      },
+      {
+        "local_path": "outputs/audiovae2-compression-preflight/author-mel-upstream/dac_loss.py",
+        "url": "https://raw.githubusercontent.com/descriptinc/descript-audio-codec/c7cfc5d2647e26471dc394f95846a0830e7bec34/dac/nn/loss.py",
+        "commit": "c7cfc5d2647e26471dc394f95846a0830e7bec34",
+        "sha256": "47900c21076f850bf07fa9aa8b8a66b53613801d9ca3861867c35b3a6c8b3e70",
+        "bytes": 12042
+      },
+      {
+        "local_path": "outputs/audiovae2-compression-preflight/author-mel-upstream/audio_signal.py",
+        "url": "https://raw.githubusercontent.com/descriptinc/audiotools/348ebf2034ce24e2a91a553e3171cb00c0c71678/audiotools/core/audio_signal.py",
+        "commit": "348ebf2034ce24e2a91a553e3171cb00c0c71678",
+        "sha256": "b0e391b22ebdaff1e513820bef8dffd39f6effde3edeaddbe76005a8f1d525dc",
+        "bytes": 52373
+      },
+      {
+        "local_path": "outputs/audiovae2-compression-preflight/author-mel-upstream/librosa_filters.py",
+        "url": "https://raw.githubusercontent.com/librosa/librosa/f808bac0812469049fd8167c87f45813b7d57b32/librosa/filters.py",
+        "commit": "f808bac0812469049fd8167c87f45813b7d57b32",
+        "sha256": "e6ad4ce23931b9760afac2d17a96691dc865a2be4da11b824dc86362663bbec6",
+        "bytes": 43122
+      }
+    ],
+    "historical_limit": "These are pinned current author-referenced repository definitions. The author did not provide original training dependency lock versions."
+  },
+  "line_evidence": {
+    "dac_base.yml": [
+      61,
+      69
+    ],
+    "dac_loss.py_constructor": [
+      259,
+      283
+    ],
+    "dac_loss.py_forward": [
+      310,
+      327
+    ],
+    "audio_signal.py_window": [
+      1030,
+      1039
+    ],
+    "audio_signal.py_defaults": [
+      1064,
+      1086
+    ],
+    "audio_signal.py_padding": [
+      1089,
+      1121
+    ],
+    "audio_signal.py_stft": [
+      1167,
+      1209
+    ],
+    "audio_signal.py_mel": [
+      1323,
+      1369
+    ],
+    "librosa_filters.py_defaults": [
+      87,
+      98
+    ],
+    "librosa_filters.py_bank": [
+      177,
+      205
+    ]
+  },
+  "external_defaults": {
+    "scipy_periodic_hann": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.windows.get_window.html",
+    "torch_stft_defaults": "https://docs.pytorch.org/docs/2.14/generated/torch.stft.html"
+  }
+}

@@ -1,0 +1,328 @@
+{
+  "changes": {
+    "group_mse": {
+      "after": 0.009167703074471244,
+      "before": 0.009776420240808536,
+      "relative_change_percent": -6.226380938458398
+    },
+    "mae": {
+      "after": 0.00365497559731602,
+      "before": 0.003966812430363673,
+      "relative_change_percent": -7.861143891269496
+    },
+    "mel": {
+      "after": 0.29062387347221375,
+      "before": 0.30780625343322754,
+      "relative_change_percent": -5.582206264286038
+    },
+    "mse": {
+      "after": 0.00016781161642942944,
+      "before": 0.0002032284604964304,
+      "relative_change_percent": -17.427108378662847
+    },
+    "quiet_residual_rms_mean": {
+      "after": 0.0001532302876130547,
+      "before": 0.00016197116412093615,
+      "relative_change_percent": -5.396563366893536
+    }
+  },
+  "checkpoint_receipt": {
+    "checkpoint_sha256": "070ab149ccd23ac8a08d6792a0947071ac23323ca6a45db3d0eb7e995e6fbfbe",
+    "fresh_cursor": 30000,
+    "frozen_state_preserved": true,
+    "optimizer_and_rng_saved": true,
+    "optimizer_step": 6125,
+    "sources_consumed": 6000,
+    "teacher_cache_checks": 6000,
+    "total_source_count": 33000,
+    "updates": 500
+  },
+  "checkpoint_receipt_matches_report": true,
+  "correlation": {
+    "after": 0.9822250470567866,
+    "before": 0.9795207875458516
+  },
+  "fixed_sources": 96,
+  "fixed_window_identities_equal": true,
+  "gate_action": "continue",
+  "interpretation": "Most near-silence failures are output-level-only. Sustained residual and output-level errors rose by small absolute amounts while DC-removed residual fell. The increase in per-window mean residual energy indicates an offset component, without establishing a new unique architectural cause or audibility.",
+  "new_material_regressions": [
+    {
+      "metric": "active_level",
+      "references": [
+        {
+          "after": {
+            "absolute_error_db": 0.9165497931449368,
+            "rms_ratio": 0.8998549507010953
+          },
+          "before": {
+            "absolute_error_db": 0.24908473537622863,
+            "rms_ratio": 0.9717303410368514
+          },
+          "name": "start"
+        }
+      ],
+      "scope": "source",
+      "source_id": "freesound:428921"
+    }
+  ],
+  "new_region_material_regressions": [
+    {
+      "metric": "output_limit_excess_rms",
+      "references": [
+        {
+          "after": 2.3932650708409036e-06,
+          "before": 6.333524915481024e-07,
+          "name": "start"
+        }
+      ],
+      "region": "source_zero_after40ms"
+    },
+    {
+      "metric": "output_limit_excess_rms",
+      "references": [
+        {
+          "after": 1.973615119587961e-06,
+          "before": 4.5574503893633504e-07,
+          "name": "start"
+        }
+      ],
+      "region": "near_after800ms"
+    }
+  ],
+  "overshoot_samples": 0,
+  "peak_abs": 0.9639512896537781,
+  "recommendation": "Continue unchanged only to the already scheduled6625 review; the first-review continuous silence-level and whistling regressions require exact follow-up there. Aggregate improvement does not erase those regressions. No automatic freezing or checkpoint promotion.",
+  "reference_steps": [
+    5625,
+    6125
+  ],
+  "regions": {
+    "all_quiet": {
+      "after": {
+        "amplitude_failed": 396,
+        "centered_residual_rms": 0.0001521801305725388,
+        "failure_categories": {
+          "amplitude_only": 170,
+          "both": 226,
+          "passed": 211,
+          "residual_only": 1937
+        },
+        "output_limit_excess_rms": 8.608347545745156e-06,
+        "output_rms": 0.0004293589198222907,
+        "residual_rms": 0.0001532302920690966
+      },
+      "after_window_mean_residual_rms": 1.790894375739922e-05,
+      "before": {
+        "amplitude_failed": 294,
+        "centered_residual_rms": 0.00015981553060386803,
+        "failure_categories": {
+          "amplitude_only": 122,
+          "both": 172,
+          "passed": 220,
+          "residual_only": 2030
+        },
+        "output_limit_excess_rms": 9.070355094088071e-06,
+        "output_rms": 0.000430807787036503,
+        "residual_rms": 0.00016197116897019066
+      },
+      "before_window_mean_residual_rms": 2.633734526056446e-05,
+      "samples": 2437032,
+      "windows": 2544
+    },
+    "near_after800ms": {
+      "after": {
+        "amplitude_failed": 48,
+        "centered_residual_rms": 3.7158996248255426e-06,
+        "failure_categories": {
+          "amplitude_only": 48,
+          "both": 0,
+          "passed": 1,
+          "residual_only": 1
+        },
+        "output_limit_excess_rms": 1.973615119587961e-06,
+        "output_rms": 1.2702762988196235e-05,
+        "residual_rms": 4.604129363831196e-06
+      },
+      "after_window_mean_residual_rms": 2.718473317344507e-06,
+      "before": {
+        "amplitude_failed": 25,
+        "centered_residual_rms": 4.021204692264009e-06,
+        "failure_categories": {
+          "amplitude_only": 24,
+          "both": 1,
+          "passed": 25,
+          "residual_only": 0
+        },
+        "output_limit_excess_rms": 4.5574503893633504e-07,
+        "output_rms": 1.0851970880249183e-05,
+        "residual_rms": 4.4267886840493335e-06
+      },
+      "before_window_mean_residual_rms": 1.8510458870976551e-06,
+      "samples": 47235,
+      "windows": 50
+    },
+    "near_silence": {
+      "after": {
+        "amplitude_failed": 182,
+        "centered_residual_rms": 2.596063680431535e-05,
+        "failure_categories": {
+          "amplitude_only": 168,
+          "both": 14,
+          "passed": 1,
+          "residual_only": 1
+        },
+        "output_limit_excess_rms": 2.400327784582697e-05,
+        "output_rms": 2.9565990571285742e-05,
+        "residual_rms": 2.6566450598271033e-05
+      },
+      "after_window_mean_residual_rms": 5.64106675237961e-06,
+      "before": {
+        "amplitude_failed": 137,
+        "centered_residual_rms": 2.5960026330377595e-05,
+        "failure_categories": {
+          "amplitude_only": 122,
+          "both": 15,
+          "passed": 47,
+          "residual_only": 0
+        },
+        "output_limit_excess_rms": 2.3419377979587212e-05,
+        "output_rms": 2.8364578046142837e-05,
+        "residual_rms": 2.6147108603664384e-05
+      },
+      "before_window_mean_residual_rms": 3.1222301737575414e-06,
+      "samples": 175875,
+      "windows": 184
+    },
+    "near_startup_first20ms": {
+      "after": {
+        "amplitude_failed": 13,
+        "centered_residual_rms": 9.654204455910876e-05,
+        "failure_categories": {
+          "amplitude_only": 0,
+          "both": 13,
+          "passed": 0,
+          "residual_only": 0
+        },
+        "output_limit_excess_rms": 8.969378543794935e-05,
+        "output_rms": 0.00010039127639484277,
+        "residual_rms": 9.819491108358184e-05
+      },
+      "after_window_mean_residual_rms": 1.7940852684853173e-05,
+      "before": {
+        "amplitude_failed": 13,
+        "centered_residual_rms": 9.639891575613457e-05,
+        "failure_categories": {
+          "amplitude_only": 0,
+          "both": 13,
+          "passed": 0,
+          "residual_only": 0
+        },
+        "output_limit_excess_rms": 8.788346388806248e-05,
+        "output_rms": 9.858078865970142e-05,
+        "residual_rms": 9.695430599451501e-05
+      },
+      "before_window_mean_residual_rms": 1.0362745385259671e-05,
+      "samples": 12480,
+      "windows": 13
+    },
+    "quiet_nonzero_reference": {
+      "after": {
+        "amplitude_failed": 222,
+        "centered_residual_rms": 0.00015245415888587532,
+        "failure_categories": {
+          "amplitude_only": 7,
+          "both": 215,
+          "passed": 210,
+          "residual_only": 1927
+        },
+        "output_limit_excess_rms": 6.4421401270464e-06,
+        "output_rms": 0.000445771224389148,
+        "residual_rms": 0.00015357692769635885
+      },
+      "after_window_mean_residual_rms": 1.8536508815117186e-05,
+      "before": {
+        "amplitude_failed": 163,
+        "centered_residual_rms": 0.00016065260914692854,
+        "failure_categories": {
+          "amplitude_only": 3,
+          "both": 160,
+          "passed": 176,
+          "residual_only": 2020
+        },
+        "output_limit_excess_rms": 7.244433627673992e-06,
+        "output_rms": 0.0004472819986596409,
+        "residual_rms": 0.0001629613033042598
+      },
+      "before_window_mean_residual_rms": 2.7333597438082768e-05,
+      "samples": 2260197,
+      "windows": 2359
+    },
+    "source_zero_20to40ms": {
+      "after": {
+        "amplitude_failed": 0,
+        "centered_residual_rms": 0.0006296235485566386,
+        "failure_categories": {
+          "amplitude_only": 0,
+          "both": 0,
+          "passed": 0,
+          "residual_only": 10
+        },
+        "output_limit_excess_rms": 0.0,
+        "output_rms": 1.2369206160712538e-05,
+        "residual_rms": 0.0006296240351245078
+      },
+      "after_window_mean_residual_rms": 7.827575700618776e-07,
+      "before": {
+        "amplitude_failed": 0,
+        "centered_residual_rms": 0.0006299737557989616,
+        "failure_categories": {
+          "amplitude_only": 0,
+          "both": 0,
+          "passed": 0,
+          "residual_only": 10
+        },
+        "output_limit_excess_rms": 0.0,
+        "output_rms": 1.1447852830377924e-05,
+        "residual_rms": 0.0006299979305076067
+      },
+      "before_window_mean_residual_rms": 5.519007919680877e-06,
+      "samples": 9600,
+      "windows": 10
+    },
+    "source_zero_after40ms": {
+      "after": {
+        "amplitude_failed": 163,
+        "centered_residual_rms": 3.558190319493391e-06,
+        "failure_categories": {
+          "amplitude_only": 163,
+          "both": 0,
+          "passed": 1,
+          "residual_only": 0
+        },
+        "output_limit_excess_rms": 2.3932650708409036e-06,
+        "output_rms": 1.3122560484262706e-05,
+        "residual_rms": 4.703395816133595e-06
+      },
+      "after_window_mean_residual_rms": 3.0759086224214343e-06,
+      "before": {
+        "amplitude_failed": 120,
+        "centered_residual_rms": 3.815124415359679e-06,
+        "failure_categories": {
+          "amplitude_only": 119,
+          "both": 1,
+          "passed": 44,
+          "residual_only": 0
+        },
+        "output_limit_excess_rms": 6.333524915481024e-07,
+        "output_rms": 1.1156469165979155e-05,
+        "residual_rms": 3.996895855416118e-06
+      },
+      "before_window_mean_residual_rms": 1.1916384411259184e-06,
+      "samples": 156675,
+      "windows": 164
+    }
+  },
+  "repeated_regressions": [],
+  "sources_scored": 96
+}

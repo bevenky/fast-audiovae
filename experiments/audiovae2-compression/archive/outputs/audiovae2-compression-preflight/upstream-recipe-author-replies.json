@@ -1,0 +1,64 @@
+{
+  "retrieved_utc": "2026-09-10T08:09:00.860095+00:00",
+  "mode": "public repository text only; no audio, model or training execution",
+  "issues": [
+    {
+      "issue": 145,
+      "api_url": "https://api.github.com/repos/OpenBMB/VoxCPM/issues/145/comments?per_page=100",
+      "total_comments": 6,
+      "selected_comments": [
+        {
+          "id": 3767009845,
+          "html_url": "https://github.com/OpenBMB/VoxCPM/issues/145#issuecomment-3767009845",
+          "author_association": "COLLABORATOR",
+          "created_at": "2026-01-19T08:13:06Z",
+          "updated_at": "2026-01-19T08:16:27Z",
+          "body": "Hello,\n\nThank you for your concerns :)\n\n**1. List of Loss Functions & Loss Weights**\nOur implementation of the loss functions and their corresponding weights closely follows the DAC repository. You can refer to the base configuration file here: [DAC base.yml](https://github.com/descriptinc/descript-audio-codec/blob/main/conf/base.yml).\n\nThe composite loss and the weights we used are as follows:\n-   **mel/loss (Mel-spectrogram Reconstruction Loss)**: 15.0\n-   **adv/feat_loss (Adversarial Feature Matching Loss)**: 2.0\n-   **adv/gen_loss (Adversarial Generator Loss)**: 1.0\n-   **vae/kl_loss (KL-Divergence Loss)**: 5.0e-5\n\n**2. Mel-spectrogram Settings**\nThe settings for the Multi-Scale Mel-spectrogram reconstruction loss are consistent with the DAC implementation. Key hyperparameters include:\n-   `n_mels`: [5, 10, 20, 40, 80, 160, 320]\n-   `window_lengths`: [32, 64, 128, 256, 512, 1024, 2048]\n-   `mel_fmin`: [0, 0, 0, 0, 0, 0, 0]\n-   `mel_fmax`: [null, null, null, null, null, null, null]\n-   `pow`: 1.0\n-   `clamp_eps`: 1.0e-5\n-   `mag_weight`: 0.0\n\n**3. KL Divergence Strategy**\nThe weight for the KL-divergence loss (`vae/kl_loss: 5.0e-5`) was kept constant throughout the entire training process. We did not employ a KL warmup schedule.\n\n**4. Discriminator Configurations & Training Stability**\nThe architectures for the multi-period and multi-resolution discriminators are also based on the DAC codebase. To enhance training stability and prevent issues like KL collapse in the VAE, we applied a clipping constraint to the log-variance (`logvar`) output of the encoder, limiting its values to the range `[-20, 20]`. This is a common technique to stabilize VAE training.\n\nWe hope this information is helpful for your reproduction efforts. Please feel free to reach out if you have any further questions.",
+          "login": "Labmem-Zhouyx"
+        },
+        {
+          "id": 3771286634,
+          "html_url": "https://github.com/OpenBMB/VoxCPM/issues/145#issuecomment-3771286634",
+          "author_association": "COLLABORATOR",
+          "created_at": "2026-01-20T06:45:14Z",
+          "updated_at": "2026-01-20T06:45:33Z",
+          "body": "Here are the hyperparameters for AudioVAE training in VoxCPM:\n1. Global Batch Size: 128 (16 GPUs × 8 per GPU). Audio clips are 2 seconds each.\n2. Learning Rate: 3e-5, with cosine decay and 1000-step warmup.\n3. Total Training Steps: 1M.\n4. Optimization Schedule: Both the discriminator and generator are updated at every training step.\n\nWe did not observe sudden training collapse. Besides, the gradient clipping was applied with a threshold of 10.0 for the discriminator and 1000.0 for the generator.\nWe recommend first validating your pipeline on a standard speech dataset like LJSpeech. Alternatively, you could try training your data with the original DAC first to isolate whether potential issues (e.g., KL collapse) stem from introducing VAE design.\n\nHope this helps.",
+          "login": "Labmem-Zhouyx"
+        }
+      ]
+    },
+    {
+      "issue": 175,
+      "api_url": "https://api.github.com/repos/OpenBMB/VoxCPM/issues/175/comments?per_page=100",
+      "total_comments": 3,
+      "selected_comments": [
+        {
+          "id": 3841828687,
+          "html_url": "https://github.com/OpenBMB/VoxCPM/issues/175#issuecomment-3841828687",
+          "author_association": "CONTRIBUTOR",
+          "created_at": "2026-02-03T14:56:08Z",
+          "updated_at": "2026-02-03T14:56:08Z",
+          "body": "Our training code is based on DAC. And see https://github.com/OpenBMB/VoxCPM/issues/145#issuecomment-3767009845 for detailed information on hyperparameters.",
+          "login": "a710128"
+        }
+      ]
+    },
+    {
+      "issue": 353,
+      "api_url": "https://api.github.com/repos/OpenBMB/VoxCPM/issues/353/comments?per_page=100",
+      "total_comments": 1,
+      "selected_comments": [
+        {
+          "id": 4913099637,
+          "html_url": "https://github.com/OpenBMB/VoxCPM/issues/353#issuecomment-4913099637",
+          "author_association": "NONE",
+          "created_at": "2026-07-08T08:58:24Z",
+          "updated_at": "2026-07-08T08:58:24Z",
+          "body": "Hi, thank you for your concern.\n\nAudioVAE V2 largely reuses the previous training recipe disclosed at [#145](https://github.com/OpenBMB/VoxCPM/issues/145), just extending from 44.1kHz to 48kHz.\nHere are the incremental changes:\n1. Increase the **constant KL loss weight** to `5e-4` for stronger regularization but acceptable reconstruction.\n2. We reframe the mel-spec loss as the combination of a normal term and an additional **mel_16k loss** (i.e., fmax=8000) term to strengthen lower-band fidelity, and assign the loss weights as `mel/loss=5`, `mel/loss_16k=10`.\n\nThe underlying **SR distribution** displays a significant **discrepancy among various data sources**. \n1. The valid SR of dialects and low-resource languages hits the roof at 32kHz, with over half of the data under 24kHz.\n2. For large-scale languages like English and Mandarin, the roof lifts up to 44.1kHz or 48kHz, with half of the data over 32kHz.\n\nIn the end, the new AudioVAE V2 is trained **from scratch** on tens of thousands of hours of compound datasets, including speech, non-verbal sounds, and songs. The training ends after **~1.5M iterations**, where the 1st M steps use exponential lr decay from `1e-4` to `4e-6`, and the remaining 0.5 M steps use constant lr with increased data sampling prob from the high-SR datasets.\n\nThank you again for your feedback!",
+          "login": "Numanor"
+        }
+      ]
+    }
+  ],
+  "authority_note": "#145 Labmem-Zhouyx is repository COLLABORATOR; #175 a710128 is CONTRIBUTOR. #353 Numanor has author_association NONE, no public identifying profile fields, was absent from current contributor list and returned no repository commits; its reply must not be described as an independently verified author recipe."
+}

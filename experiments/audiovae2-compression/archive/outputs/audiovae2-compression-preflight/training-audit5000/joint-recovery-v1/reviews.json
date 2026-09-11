@@ -1,0 +1,782 @@
+[
+  {
+    "action": "continue",
+    "alerts": [
+      {
+        "after": 179,
+        "before": 166,
+        "detail": "Inspect continuous residual/output levels; threshold crossings alone do not trigger freezing or a pause.",
+        "kind": "count_only_alert",
+        "metric": "near_silence_failed_windows"
+      }
+    ],
+    "automatic_freezing": false,
+    "current_metrics": {
+      "active_level": {
+        "absolute_error_db": 0.20814296820596628,
+        "rms_ratio": 0.9763214963713729
+      },
+      "correlation": 0.9775264600045153,
+      "group_mse": 0.010942651007596074,
+      "mae": 0.004097699961515053,
+      "mel": 0.32651662826538086,
+      "near_rms": 2.927674714668393e-05,
+      "near_samples": 175875,
+      "near_silence_failed_windows": 179,
+      "quiet_failed_windows": 2388,
+      "quiet_residual_rms_mean": 0.0001718357190262166
+    },
+    "flags": [],
+    "interpretation": "Heuristic review gates, not audibility or statistical qualification. Pause requires diagnosis; it never freezes parameters.",
+    "material_regressions": [],
+    "repeated_regressions": [],
+    "review_index": 1,
+    "stall": {
+      "eligible": false,
+      "intervals": [
+        {
+          "correlation_improvement_absolute": 0.0015193314729277096,
+          "mae_improvement_fraction": 0.032274496658561774,
+          "mel_improvement_fraction": 0.025976872009263643,
+          "stalled": false
+        }
+      ],
+      "minimum_reviews": 4,
+      "two_intervals_stalled": false
+    },
+    "step": 4875,
+    "thresholds": {
+      "bounded_peak_tolerance": 1e-06,
+      "correlation_progress_absolute": 0.0001,
+      "error_progress_fraction": 0.002,
+      "error_regression_fraction": 0.05,
+      "expected_sources": 96,
+      "level_error_regression_db": 0.5,
+      "minimum_region_samples": 960,
+      "minimum_stall_reviews": 4,
+      "quiet_regression_absolute": 1e-05,
+      "quiet_regression_fraction": 0.1,
+      "source_waveform_regression_absolute": 0.0001
+    },
+    "updates": 250,
+    "version": "audiovae2_joint_recovery_review_gates_v1"
+  },
+  {
+    "action": "continue",
+    "alerts": [],
+    "automatic_freezing": false,
+    "current_metrics": {
+      "active_level": {
+        "absolute_error_db": 0.2515693563754524,
+        "rms_ratio": 0.9714524148341924
+      },
+      "correlation": 0.9787647873564231,
+      "group_mse": 0.010506036635606938,
+      "mae": 0.003998187372356758,
+      "mel": 0.31906411051750183,
+      "near_rms": 2.91701279314489e-05,
+      "near_samples": 175875,
+      "near_silence_failed_windows": 179,
+      "quiet_failed_windows": 2360,
+      "quiet_residual_rms_mean": 0.00016649928889284486
+    },
+    "flags": [],
+    "interpretation": "Heuristic review gates, not audibility or statistical qualification. Pause requires diagnosis; it never freezes parameters.",
+    "material_regressions": [],
+    "repeated_regressions": [],
+    "review_index": 2,
+    "stall": {
+      "eligible": false,
+      "intervals": [
+        {
+          "correlation_improvement_absolute": 0.0015193314729277096,
+          "mae_improvement_fraction": 0.032274496658561774,
+          "mel_improvement_fraction": 0.025976872009263643,
+          "stalled": false
+        },
+        {
+          "correlation_improvement_absolute": 0.0012383273519078752,
+          "mae_improvement_fraction": 0.02428498672252773,
+          "mel_improvement_fraction": 0.022824313075479552,
+          "stalled": false
+        }
+      ],
+      "minimum_reviews": 4,
+      "two_intervals_stalled": false
+    },
+    "step": 5125,
+    "thresholds": {
+      "bounded_peak_tolerance": 1e-06,
+      "correlation_progress_absolute": 0.0001,
+      "error_progress_fraction": 0.002,
+      "error_regression_fraction": 0.05,
+      "expected_sources": 96,
+      "level_error_regression_db": 0.5,
+      "minimum_region_samples": 960,
+      "minimum_stall_reviews": 4,
+      "quiet_regression_absolute": 1e-05,
+      "quiet_regression_fraction": 0.1,
+      "source_waveform_regression_absolute": 0.0001
+    },
+    "updates": 500,
+    "version": "audiovae2_joint_recovery_review_gates_v1"
+  },
+  {
+    "action": "continue",
+    "alerts": [
+      {
+        "after": 2381,
+        "before": 2360,
+        "detail": "Inspect continuous residual/output levels; threshold crossings alone do not trigger freezing or a pause.",
+        "kind": "count_only_alert",
+        "metric": "quiet_failed_windows"
+      },
+      {
+        "after": 182,
+        "before": 179,
+        "detail": "Inspect continuous residual/output levels; threshold crossings alone do not trigger freezing or a pause.",
+        "kind": "count_only_alert",
+        "metric": "near_silence_failed_windows"
+      }
+    ],
+    "automatic_freezing": false,
+    "current_metrics": {
+      "active_level": {
+        "absolute_error_db": 0.20957384581598176,
+        "rms_ratio": 0.9761606744445311
+      },
+      "correlation": 0.978604818443336,
+      "group_mse": 0.010071026717645527,
+      "mae": 0.004090306026400322,
+      "mel": 0.3174653947353363,
+      "near_rms": 2.7635215602549423e-05,
+      "near_samples": 175875,
+      "near_silence_failed_windows": 182,
+      "quiet_failed_windows": 2381,
+      "quiet_residual_rms_mean": 0.00016312452847398474
+    },
+    "flags": [],
+    "interpretation": "Heuristic review gates, not audibility or statistical qualification. Pause requires diagnosis; it never freezes parameters.",
+    "material_regressions": [
+      {
+        "metric": "mae",
+        "references": [
+          {
+            "after": 0.0014998676696287442,
+            "before": 0.0013384117520041834,
+            "name": "start"
+          },
+          {
+            "after": 0.0014998676696287442,
+            "before": 0.001276314712792074,
+            "name": "previous"
+          }
+        ],
+        "scope": "source",
+        "source_id": "ky_kg:train:15514578015847358890.wav"
+      },
+      {
+        "metric": "mae",
+        "references": [
+          {
+            "after": 0.0010349652156792732,
+            "before": 0.0008711086651823407,
+            "name": "start"
+          },
+          {
+            "after": 0.0010349652156792732,
+            "before": 0.0008078301348814154,
+            "name": "previous"
+          }
+        ],
+        "scope": "source",
+        "source_id": "lg_ug:train:12123343751639616808.wav"
+      },
+      {
+        "metric": "quiet_rms",
+        "references": [
+          {
+            "after": 9.757650649813136e-05,
+            "before": 8.690150827061509e-05,
+            "name": "start"
+          },
+          {
+            "after": 9.757650649813136e-05,
+            "before": 7.905446382968322e-05,
+            "name": "previous"
+          }
+        ],
+        "scope": "source",
+        "source_id": "lg_ug:train:12123343751639616808.wav"
+      },
+      {
+        "metric": "active_level",
+        "references": [
+          {
+            "after": {
+              "absolute_error_db": 0.7877413207937742,
+              "rms_ratio": 0.9132988987113252
+            },
+            "before": {
+              "absolute_error_db": 0.27947310632865097,
+              "rms_ratio": 0.9683365946254364
+            },
+            "name": "start"
+          },
+          {
+            "after": {
+              "absolute_error_db": 0.7877413207937742,
+              "rms_ratio": 0.9132988987113252
+            },
+            "before": {
+              "absolute_error_db": 0.07508550824933452,
+              "rms_ratio": 0.9913927179914226
+            },
+            "name": "previous"
+          }
+        ],
+        "scope": "source",
+        "source_id": "lg_ug:train:12123343751639616808.wav"
+      },
+      {
+        "metric": "mae",
+        "references": [
+          {
+            "after": 0.0018894348689954801,
+            "before": 0.0013211089797287318,
+            "name": "start"
+          },
+          {
+            "after": 0.0018894348689954801,
+            "before": 0.0011469401591942467,
+            "name": "previous"
+          }
+        ],
+        "scope": "source",
+        "source_id": "te_in:train:14751961982184477566.wav"
+      },
+      {
+        "metric": "mae",
+        "references": [
+          {
+            "after": 0.015081061125258277,
+            "before": 0.012858395424454735,
+            "name": "previous"
+          }
+        ],
+        "scope": "source",
+        "source_id": "freesound:402835"
+      },
+      {
+        "metric": "active_level",
+        "references": [
+          {
+            "after": {
+              "absolute_error_db": 0.8830007677802914,
+              "rms_ratio": 1.107006162158289
+            },
+            "before": {
+              "absolute_error_db": 0.00903456659107124,
+              "rms_ratio": 1.0010406840539612
+            },
+            "name": "previous"
+          }
+        ],
+        "scope": "source",
+        "source_id": "freesound:402835"
+      },
+      {
+        "metric": "mae",
+        "references": [
+          {
+            "after": 0.009503837315966261,
+            "before": 0.008892258481115346,
+            "name": "previous"
+          }
+        ],
+        "scope": "source",
+        "source_id": "konkani:4222124650671062_chunk_1.flac"
+      },
+      {
+        "metric": "mae",
+        "references": [
+          {
+            "after": 0.003473185789918339,
+            "before": 0.003200613682029744,
+            "name": "previous"
+          }
+        ],
+        "scope": "source",
+        "source_id": "cs_cz:train:10122716413664131344.wav"
+      },
+      {
+        "metric": "mae",
+        "references": [
+          {
+            "after": 0.004956176098768787,
+            "before": 0.004642837725606874,
+            "name": "previous"
+          }
+        ],
+        "scope": "source",
+        "source_id": "am_et:train:10477493006580119214.wav"
+      },
+      {
+        "metric": "mae",
+        "references": [
+          {
+            "after": 0.0031976674195327496,
+            "before": 0.003009623122376818,
+            "name": "previous"
+          }
+        ],
+        "scope": "source",
+        "source_id": "kn_in:train:14687240407945660913.wav"
+      },
+      {
+        "metric": "mae",
+        "references": [
+          {
+            "after": 0.002936645962440565,
+            "before": 0.0027198057238267885,
+            "name": "previous"
+          }
+        ],
+        "scope": "source",
+        "source_id": "ne_np:train:10865610629546253109.wav"
+      },
+      {
+        "metric": "mae",
+        "references": [
+          {
+            "after": 0.002144172798078984,
+            "before": 0.00203142147079185,
+            "name": "previous"
+          }
+        ],
+        "scope": "source",
+        "source_id": "bn_in:train:11819972204190731727.wav"
+      },
+      {
+        "metric": "mae",
+        "references": [
+          {
+            "after": 0.0032735221210225874,
+            "before": 0.003047585488877787,
+            "name": "previous"
+          }
+        ],
+        "scope": "source",
+        "source_id": "2051-153962-0091"
+      },
+      {
+        "metric": "mae",
+        "references": [
+          {
+            "after": 0.005583257004747851,
+            "before": 0.005193685815107137,
+            "name": "previous"
+          }
+        ],
+        "scope": "source",
+        "source_id": "cmn_hans_cn:train:10162125752145534325.wav"
+      },
+      {
+        "metric": "mae",
+        "references": [
+          {
+            "after": 0.0019680749128150174,
+            "before": 0.0018031609356245592,
+            "name": "previous"
+          }
+        ],
+        "scope": "source",
+        "source_id": "fi_fi:train:10893394073468230201.wav"
+      },
+      {
+        "metric": "mae",
+        "references": [
+          {
+            "after": 0.002323675832539355,
+            "before": 0.0021260282014288054,
+            "name": "previous"
+          }
+        ],
+        "scope": "source",
+        "source_id": "kam_ke:train:12154486779797187960.wav"
+      },
+      {
+        "metric": "mae",
+        "references": [
+          {
+            "after": 0.001985137011377095,
+            "before": 0.001837754488540207,
+            "name": "previous"
+          }
+        ],
+        "scope": "source",
+        "source_id": "ceb_ph:train:11416672701597922361.wav"
+      },
+      {
+        "metric": "mae",
+        "references": [
+          {
+            "after": 0.00559300726541189,
+            "before": 0.00531084003249435,
+            "name": "previous"
+          }
+        ],
+        "scope": "source",
+        "source_id": "maithili:844424930138733_chunk_1.flac"
+      },
+      {
+        "metric": "mae",
+        "references": [
+          {
+            "after": 0.00316789853826136,
+            "before": 0.0030066414021819345,
+            "name": "previous"
+          }
+        ],
+        "scope": "source",
+        "source_id": "en_us:train:13546164985487902870.wav"
+      },
+      {
+        "metric": "mae",
+        "references": [
+          {
+            "after": 0.0012087361336625246,
+            "before": 0.0010649674556553043,
+            "name": "previous"
+          }
+        ],
+        "scope": "source",
+        "source_id": "manipuri:6473924464419399_chunk_1.flac"
+      },
+      {
+        "metric": "active_level",
+        "references": [
+          {
+            "after": {
+              "absolute_error_db": 0.7441116150981548,
+              "rms_ratio": 0.9178979908426987
+            },
+            "before": {
+              "absolute_error_db": 0.010656134306381423,
+              "rms_ratio": 0.9987739194515585
+            },
+            "name": "previous"
+          }
+        ],
+        "scope": "source",
+        "source_id": "te_in:train:14751961982184477566.wav"
+      },
+      {
+        "metric": "mae",
+        "references": [
+          {
+            "after": 0.0032322639510466394,
+            "before": 0.0028730200168037325,
+            "name": "previous"
+          }
+        ],
+        "scope": "source",
+        "source_id": "ff_sn:train:14756055913832624081.wav"
+      },
+      {
+        "metric": "mae",
+        "references": [
+          {
+            "after": 0.002077177093943172,
+            "before": 0.0019218420143861435,
+            "name": "previous"
+          }
+        ],
+        "scope": "source",
+        "source_id": "hu_hu:train:11110713752589902328.wav"
+      },
+      {
+        "metric": "mae",
+        "references": [
+          {
+            "after": 0.0006371213418960557,
+            "before": 0.0005139357166105363,
+            "name": "previous"
+          }
+        ],
+        "scope": "source",
+        "source_id": "pl_pl:train:14002458340348798.wav"
+      },
+      {
+        "metric": "active_level",
+        "references": [
+          {
+            "after": {
+              "absolute_error_db": 0.6334110915734439,
+              "rms_ratio": 0.9296713458423603
+            },
+            "before": {
+              "absolute_error_db": 0.056170760938308306,
+              "rms_ratio": 0.9935539675415765
+            },
+            "name": "previous"
+          }
+        ],
+        "scope": "source",
+        "source_id": "pl_pl:train:14002458340348798.wav"
+      },
+      {
+        "metric": "mae",
+        "references": [
+          {
+            "after": 0.0044927853939033795,
+            "before": 0.003969230612601112,
+            "name": "previous"
+          }
+        ],
+        "scope": "source",
+        "source_id": "ur_pk:train:17356430244359180807.wav"
+      },
+      {
+        "metric": "active_level",
+        "references": [
+          {
+            "after": {
+              "absolute_error_db": 0.8636537337048229,
+              "rms_ratio": 0.9053516831183902
+            },
+            "before": {
+              "absolute_error_db": 0.16365445752582136,
+              "rms_ratio": 0.9813349742088558
+            },
+            "name": "previous"
+          }
+        ],
+        "scope": "source",
+        "source_id": "az_az:train:1439903150624501148.wav"
+      },
+      {
+        "metric": "quiet_rms",
+        "references": [
+          {
+            "after": 0.00012173571597688616,
+            "before": 0.00011028518845893313,
+            "name": "previous"
+          }
+        ],
+        "scope": "source",
+        "source_id": "hy_am:train:11186680517435167922.wav"
+      }
+    ],
+    "repeated_regressions": [],
+    "review_index": 3,
+    "stall": {
+      "eligible": false,
+      "intervals": [
+        {
+          "correlation_improvement_absolute": 0.0012383273519078752,
+          "mae_improvement_fraction": 0.02428498672252773,
+          "mel_improvement_fraction": 0.022824313075479552,
+          "stalled": false
+        },
+        {
+          "correlation_improvement_absolute": -0.00015996891308711625,
+          "mae_improvement_fraction": -0.023040104293377467,
+          "mel_improvement_fraction": 0.005010641214308031,
+          "stalled": false
+        }
+      ],
+      "minimum_reviews": 4,
+      "two_intervals_stalled": false
+    },
+    "step": 5375,
+    "thresholds": {
+      "bounded_peak_tolerance": 1e-06,
+      "correlation_progress_absolute": 0.0001,
+      "error_progress_fraction": 0.002,
+      "error_regression_fraction": 0.05,
+      "expected_sources": 96,
+      "level_error_regression_db": 0.5,
+      "minimum_region_samples": 960,
+      "minimum_stall_reviews": 4,
+      "quiet_regression_absolute": 1e-05,
+      "quiet_regression_fraction": 0.1,
+      "source_waveform_regression_absolute": 0.0001
+    },
+    "updates": 750,
+    "version": "audiovae2_joint_recovery_review_gates_v1"
+  },
+  {
+    "action": "continue",
+    "alerts": [],
+    "automatic_freezing": false,
+    "current_metrics": {
+      "active_level": {
+        "absolute_error_db": 0.2201391692258617,
+        "rms_ratio": 0.974974016120552
+      },
+      "correlation": 0.9795207875458516,
+      "group_mse": 0.009776420240808536,
+      "mae": 0.003966812430363673,
+      "mel": 0.30780625343322754,
+      "near_rms": 2.6147107466981215e-05,
+      "near_samples": 175875,
+      "near_silence_failed_windows": 137,
+      "quiet_failed_windows": 2324,
+      "quiet_residual_rms_mean": 0.00016197116412093615
+    },
+    "flags": [],
+    "interpretation": "Heuristic review gates, not audibility or statistical qualification. Pause requires diagnosis; it never freezes parameters.",
+    "material_regressions": [
+      {
+        "metric": "active_level",
+        "references": [
+          {
+            "after": {
+              "absolute_error_db": 0.8674593118983358,
+              "rms_ratio": 0.9049551052078889
+            },
+            "before": {
+              "absolute_error_db": 0.05085792333095637,
+              "rms_ratio": 0.9941618736735177
+            },
+            "name": "start"
+          },
+          {
+            "after": {
+              "absolute_error_db": 0.8674593118983358,
+              "rms_ratio": 0.9049551052078889
+            },
+            "before": {
+              "absolute_error_db": 0.3065686077782192,
+              "rms_ratio": 0.9653205898900701
+            },
+            "name": "previous"
+          }
+        ],
+        "scope": "source",
+        "source_id": "freesound:236508"
+      },
+      {
+        "metric": "active_level",
+        "references": [
+          {
+            "after": {
+              "absolute_error_db": 1.218809401280845,
+              "rms_ratio": 0.8690795482398039
+            },
+            "before": {
+              "absolute_error_db": 0.5278601803703545,
+              "rms_ratio": 0.9410376315978888
+            },
+            "name": "start"
+          },
+          {
+            "after": {
+              "absolute_error_db": 1.218809401280845,
+              "rms_ratio": 0.8690795482398039
+            },
+            "before": {
+              "absolute_error_db": 0.2700157341229931,
+              "rms_ratio": 0.969391513286796
+            },
+            "name": "previous"
+          }
+        ],
+        "scope": "source",
+        "source_id": "freesound:343940"
+      },
+      {
+        "metric": "mae",
+        "references": [
+          {
+            "after": 0.03330674683020912,
+            "before": 0.031154351915060614,
+            "name": "previous"
+          }
+        ],
+        "scope": "source",
+        "source_id": "freesound:343940"
+      },
+      {
+        "metric": "mae",
+        "references": [
+          {
+            "after": 0.012689802633114734,
+            "before": 0.012062544080807138,
+            "name": "previous"
+          }
+        ],
+        "scope": "source",
+        "source_id": "thorsten_emotional:whisper/37773d61d5c91c12d49e55e2b041c0cd.wav"
+      },
+      {
+        "metric": "mae",
+        "references": [
+          {
+            "after": 0.0075004675311141815,
+            "before": 0.006546934814479188,
+            "name": "previous"
+          }
+        ],
+        "scope": "source",
+        "source_id": "dogri:622d1198-0621-4e0c-9027-77e32a505100_1_chunk_8.flac"
+      },
+      {
+        "metric": "active_level",
+        "references": [
+          {
+            "after": {
+              "absolute_error_db": 1.0205770166962764,
+              "rms_ratio": 0.8891420488540074
+            },
+            "before": {
+              "absolute_error_db": 0.47067523699330704,
+              "rms_ratio": 0.9472535425949917
+            },
+            "name": "previous"
+          }
+        ],
+        "scope": "source",
+        "source_id": "freesound:343960"
+      }
+    ],
+    "repeated_regressions": [],
+    "review_index": 4,
+    "stall": {
+      "eligible": true,
+      "intervals": [
+        {
+          "correlation_improvement_absolute": -0.00015996891308711625,
+          "mae_improvement_fraction": -0.023040104293377467,
+          "mel_improvement_fraction": 0.005010641214308031,
+          "stalled": false
+        },
+        {
+          "correlation_improvement_absolute": 0.0009159691025155681,
+          "mae_improvement_fraction": 0.030191774219233684,
+          "mel_improvement_fraction": 0.030425808489020895,
+          "stalled": false
+        }
+      ],
+      "minimum_reviews": 4,
+      "two_intervals_stalled": false
+    },
+    "step": 5625,
+    "thresholds": {
+      "bounded_peak_tolerance": 1e-06,
+      "correlation_progress_absolute": 0.0001,
+      "error_progress_fraction": 0.002,
+      "error_regression_fraction": 0.05,
+      "expected_sources": 96,
+      "level_error_regression_db": 0.5,
+      "minimum_region_samples": 960,
+      "minimum_stall_reviews": 4,
+      "quiet_regression_absolute": 1e-05,
+      "quiet_regression_fraction": 0.1,
+      "source_waveform_regression_absolute": 0.0001
+    },
+    "updates": 1000,
+    "version": "audiovae2_joint_recovery_review_gates_v1"
+  }
+]

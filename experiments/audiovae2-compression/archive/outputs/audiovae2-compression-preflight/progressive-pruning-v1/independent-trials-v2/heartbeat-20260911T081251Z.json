@@ -1,0 +1,77 @@
+{
+  "recorded_at_utc": "2026-09-11T08:12:51.761Z",
+  "queue_status": "running",
+  "stage": "grail_recovery",
+  "failure_type": null,
+  "queue_identity": {
+    "active": true,
+    "command_matches": true,
+    "start_matches": true
+  },
+  "configuration_exact": true,
+  "controller_exact": true,
+  "shared_memory_free_bytes": 1816297472,
+  "dashboard_warning_count": 0,
+  "downstream_identity": {
+    "active": false,
+    "command_matches": null,
+    "start_matches": null
+  },
+  "trials": [
+    {
+      "name": "downstream",
+      "output_exists": true,
+      "completion_exists": true,
+      "updates": 2000,
+      "step_sequence_exact": true,
+      "finite_losses": true,
+      "teacher_cache_all_pass": true,
+      "checkpoint_count": 3,
+      "completion_status": "awaiting_review",
+      "complete_steps": 2000,
+      "failure_type": null,
+      "frozen_preserved": true,
+      "files_preserved": true
+    },
+    {
+      "name": "grail_initialization",
+      "output_exists": true,
+      "completion_exists": true,
+      "completion_status": "evaluated",
+      "complete_steps": 0,
+      "failure_type": null,
+      "frozen_preserved": {
+        "frozen_and_unselected": true,
+        "teacher": true
+      },
+      "files_preserved": true
+    },
+    {
+      "name": "grail_recovery",
+      "output_exists": true,
+      "completion_exists": false,
+      "updates": 951,
+      "step_sequence_exact": true,
+      "finite_losses": true,
+      "teacher_cache_all_pass": true,
+      "checkpoint_count": 1
+    },
+    {
+      "name": "quiet_recovery",
+      "output_exists": false,
+      "completion_exists": false
+    }
+  ],
+  "child_identity": {
+    "active": true,
+    "command_matches": true,
+    "start_matches": true
+  },
+  "completion_audits": {
+    "downstream": {
+      "passed": true,
+      "report": "../downstream-selection-v1/completed-repeat-aggregate.json",
+      "repeatability": "../downstream-selection-v1/repeatability-aggregate.json"
+    }
+  }
+}

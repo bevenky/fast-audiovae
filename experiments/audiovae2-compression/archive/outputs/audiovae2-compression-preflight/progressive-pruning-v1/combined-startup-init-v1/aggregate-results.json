@@ -1,0 +1,394 @@
+{
+  "pid": 1089583,
+  "active": false,
+  "completion": {
+    "complete": true,
+    "status": "evaluated",
+    "failure": null,
+    "files_preserved": true,
+    "states_preserved": {
+      "outer_and_unselected_tensors": true,
+      "stage2_b_operators": true,
+      "teacher": true
+    },
+    "stable_constraint_solution": true,
+    "native_fp32_constraints_passed": true,
+    "calibration_sources": 72,
+    "development_sources": 96,
+    "neural_training_updates": 0,
+    "elapsed_seconds": 31.402945905923843
+  },
+  "candidate_receipt": {
+    "all9_residual_units_preserved": true,
+    "automatic_promotion": false,
+    "b_operators_sha256": "7281436098cf01ac3aee09056651bdad4b7ddc112b82a22ad380edc2073866d7",
+    "base_b_state_sha256": "b6e8950402780c72951ccbae4da009d99e27e9bc0c1cf7ea2a161569d8c9cf22",
+    "candidate_state_sha256": "56687c88adf30f4e770537ae7cd13ff7424bacbcc65c6bbabda4ace28c3610f4",
+    "changed_native_paths": [
+      "model.3.block.2.block.3",
+      "model.3.block.3.block.3",
+      "model.3.block.4.block.3",
+      "model.4.block.1"
+    ],
+    "changed_relative_to_b": [
+      "model.4.block.1"
+    ],
+    "extra_inference_modules": 0,
+    "full_group_widths": [
+      384,
+      256,
+      128
+    ],
+    "native_fp32_constraints_passed": true,
+    "neural_training_updates": 0,
+    "operators_sha256": "3b450eafd4e3c00601d00f3e6998523c70bc681c9aad352da7e6ebeffacccbed",
+    "original_step0_pristine": {
+      "passed": true,
+      "student_state_sha256": "01fdc44c20b0dad261fbdf7d8138f1cd4917d3df351943a0d93fba1885928a32",
+      "teacher_state_sha256": "863109cec1a3cb1f17a90c9d2062dc7f781ee1362069d562567570970ffc07a2"
+    },
+    "stage2_b_operators_preserved": true,
+    "unchanged_frozen_and_unselected_tensors": true
+  },
+  "quality": {
+    "baseline_B": {
+      "aggregate": {
+        "group_cosine": 0.9898568405220824,
+        "group_mse": 0.0024960485387455107,
+        "group_nrmse": 0.14222059202193274,
+        "group_nrmse_floor_applied": false,
+        "mae": 0.006622764593833303,
+        "mel": 0.22257184982299805,
+        "mel_linear": 0.005264849867671728,
+        "mel_log": 0.21730700135231018,
+        "mse": 0.00036796691640037855,
+        "nonquiet_cosine_mean": 0.9659295770894164,
+        "nonquiet_samples": 8809920,
+        "overshoot_samples": 0,
+        "peak_abs_max": 0.9883900284767151,
+        "quiet_failed_windows": 1793,
+        "quiet_residual_rms_mean": 0.000136314824308403,
+        "quiet_windows": 2544,
+        "samples": 11246952,
+        "sources": 96,
+        "waveform_nrmse": 0.3221446000894798,
+        "waveform_nrmse_floor_applied": false,
+        "waveform_residual_rms": 0.019182463772945815
+      },
+      "regions": {
+        "all_quiet": {
+          "amplitude_failed": 433,
+          "centered_residual_rms": 0.00013458676388413497,
+          "failed": 1793,
+          "output_limit_excess_rms": 0.00004583116631731741,
+          "output_rms": 0.0004738584663162022,
+          "residual_rms": 0.00013631482796560906,
+          "samples": 2437032,
+          "teacher_rms": 0.00044858246659957283,
+          "windows": 2544,
+          "failure_categories": {
+            "amplitude_only": 9,
+            "both": 424,
+            "passed": 751,
+            "residual_only": 1360
+          }
+        },
+        "near_after800ms": {
+          "amplitude_failed": 0,
+          "centered_residual_rms": 0.0000012530823664165715,
+          "failed": 0,
+          "output_limit_excess_rms": 0,
+          "output_rms": 0.00000995785589262398,
+          "residual_rms": 0.0000012963740368501465,
+          "samples": 47235,
+          "teacher_rms": 0.00000963522157827406,
+          "windows": 50,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 50,
+            "residual_only": 0
+          }
+        },
+        "near_silence": {
+          "amplitude_failed": 13,
+          "centered_residual_rms": 0.0000075050685299003994,
+          "failed": 13,
+          "output_limit_excess_rms": 0.000005306953401182672,
+          "output_rms": 0.000012416644020396961,
+          "residual_rms": 0.000007537027098128574,
+          "samples": 175875,
+          "teacher_rms": 0.000009557728173311252,
+          "windows": 184,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 13,
+            "passed": 171,
+            "residual_only": 0
+          }
+        },
+        "near_startup_first20ms": {
+          "amplitude_failed": 13,
+          "centered_residual_rms": 0.0000278892222658132,
+          "failed": 13,
+          "output_limit_excess_rms": 0.00001992232574127352,
+          "output_rms": 0.000030593430247865326,
+          "residual_rms": 0.00002796608556695988,
+          "samples": 12480,
+          "teacher_rms": 0.000009333618658867093,
+          "windows": 13,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 13,
+            "passed": 0,
+            "residual_only": 0
+          }
+        },
+        "quiet_nonzero_reference": {
+          "amplitude_failed": 422,
+          "centered_residual_rms": 0.00013897360206341323,
+          "failed": 1772,
+          "output_limit_excess_rms": 0.0000475704733386871,
+          "output_rms": 0.0004910221003234824,
+          "residual_rms": 0.0001407776551011733,
+          "samples": 2260197,
+          "teacher_rms": 0.00046396347588343413,
+          "windows": 2359,
+          "failure_categories": {
+            "amplitude_only": 9,
+            "both": 413,
+            "passed": 587,
+            "residual_only": 1350
+          }
+        },
+        "source_zero_20to40ms": {
+          "amplitude_failed": 0,
+          "centered_residual_rms": 0.0002241422552562721,
+          "failed": 10,
+          "output_limit_excess_rms": 0,
+          "output_rms": 0.00048423105618661385,
+          "residual_rms": 0.00022416718964728211,
+          "samples": 9600,
+          "teacher_rms": 0.0006328312272720288,
+          "windows": 10,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 0,
+            "residual_only": 10
+          }
+        },
+        "source_zero_after40ms": {
+          "amplitude_failed": 0,
+          "centered_residual_rms": 9.486484142924957e-7,
+          "failed": 0,
+          "output_limit_excess_rms": 0,
+          "output_rms": 0.00000976507208457925,
+          "residual_rms": 0.0000010095980946488583,
+          "samples": 156675,
+          "teacher_rms": 0.000009596542630338276,
+          "windows": 164,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 164,
+            "residual_only": 0
+          }
+        }
+      }
+    },
+    "combined": {
+      "aggregate": {
+        "group_cosine": 0.9889850398072464,
+        "group_mse": 0.0027107605821185595,
+        "group_nrmse": 0.1482113795885526,
+        "group_nrmse_floor_applied": false,
+        "mae": 0.006883862363740526,
+        "mel": 0.23451410233974457,
+        "mel_linear": 0.005507742986083031,
+        "mel_log": 0.22900636494159698,
+        "mse": 0.00039002553879651127,
+        "nonquiet_cosine_mean": 0.9634479437983845,
+        "nonquiet_samples": 8809920,
+        "overshoot_samples": 0,
+        "peak_abs_max": 0.9896092414855957,
+        "quiet_failed_windows": 1915,
+        "quiet_residual_rms_mean": 0.00014836522013499077,
+        "quiet_windows": 2544,
+        "samples": 11246952,
+        "sources": 96,
+        "waveform_nrmse": 0.33165992026033186,
+        "waveform_nrmse_floor_applied": false,
+        "waveform_residual_rms": 0.019749064251161654
+      },
+      "regions": {
+        "all_quiet": {
+          "amplitude_failed": 511,
+          "centered_residual_rms": 0.00014648966543746408,
+          "failed": 1915,
+          "output_limit_excess_rms": 0.000052131171872450455,
+          "output_rms": 0.00048053631336225324,
+          "residual_rms": 0.00014836522448918757,
+          "samples": 2437032,
+          "teacher_rms": 0.00044858246659957283,
+          "windows": 2544,
+          "failure_categories": {
+            "amplitude_only": 17,
+            "both": 494,
+            "passed": 629,
+            "residual_only": 1404
+          }
+        },
+        "near_after800ms": {
+          "amplitude_failed": 2,
+          "centered_residual_rms": 0.0000017503463275759272,
+          "failed": 2,
+          "output_limit_excess_rms": 2.564971356167191e-7,
+          "output_rms": 0.000010315741734802709,
+          "residual_rms": 0.00000189166290702844,
+          "samples": 47235,
+          "teacher_rms": 0.00000963522157827406,
+          "windows": 50,
+          "failure_categories": {
+            "amplitude_only": 2,
+            "both": 0,
+            "passed": 48,
+            "residual_only": 0
+          }
+        },
+        "near_silence": {
+          "amplitude_failed": 2,
+          "centered_residual_rms": 0.0000015788323398883022,
+          "failed": 2,
+          "output_limit_excess_rms": 1.3292676151583482e-7,
+          "output_rms": 0.000010011313210305166,
+          "residual_rms": 0.0000016769524042997016,
+          "samples": 175875,
+          "teacher_rms": 0.000009557728173311252,
+          "windows": 184,
+          "failure_categories": {
+            "amplitude_only": 2,
+            "both": 0,
+            "passed": 182,
+            "residual_only": 0
+          }
+        },
+        "near_startup_first20ms": {
+          "amplitude_failed": 0,
+          "centered_residual_rms": 0.000001920823542915198,
+          "failed": 0,
+          "output_limit_excess_rms": 0,
+          "output_rms": 0.000009405917561446977,
+          "residual_rms": 0.0000019559648881146757,
+          "samples": 12480,
+          "teacher_rms": 0.000009333618658867093,
+          "windows": 13,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 13,
+            "residual_only": 0
+          }
+        },
+        "quiet_nonzero_reference": {
+          "amplitude_failed": 510,
+          "centered_residual_rms": 0.0001511921819797686,
+          "failed": 1904,
+          "output_limit_excess_rms": 0.000054132110066580385,
+          "output_rms": 0.0004981493180670275,
+          "residual_rms": 0.0001531511843194862,
+          "samples": 2260197,
+          "teacher_rms": 0.00046396347588343413,
+          "windows": 2359,
+          "failure_categories": {
+            "amplitude_only": 16,
+            "both": 494,
+            "passed": 455,
+            "residual_only": 1394
+          }
+        },
+        "source_zero_20to40ms": {
+          "amplitude_failed": 0,
+          "centered_residual_rms": 0.0002562706435654983,
+          "failed": 10,
+          "output_limit_excess_rms": 0,
+          "output_rms": 0.00043977145397083135,
+          "residual_rms": 0.00025629847125122876,
+          "samples": 9600,
+          "teacher_rms": 0.0006328312272720288,
+          "windows": 10,
+          "failure_categories": {
+            "amplitude_only": 0,
+            "both": 0,
+            "passed": 0,
+            "residual_only": 10
+          }
+        },
+        "source_zero_after40ms": {
+          "amplitude_failed": 1,
+          "centered_residual_rms": 0.0000014046860777555393,
+          "failed": 1,
+          "output_limit_excess_rms": 7.903781656671046e-9,
+          "output_rms": 0.000010078229603065107,
+          "residual_rms": 0.000001476370426336096,
+          "samples": 156675,
+          "teacher_rms": 0.000009596542630338276,
+          "windows": 164,
+          "failure_categories": {
+            "amplitude_only": 1,
+            "both": 0,
+            "passed": 163,
+            "residual_only": 0
+          }
+        }
+      }
+    }
+  },
+  "baseline_parity_passed": true,
+  "fit_flags": {
+    "all_valid_rows_included": true,
+    "change_from_ordinary_frobenius": 7.896595109571807,
+    "cholesky_positive": true,
+    "chunk_rows": 1024,
+    "constrained_bias_delta_l2": 0.4001903229141898,
+    "constrained_delta_frobenius": 7.892664186536784,
+    "constraint_outputs": 256,
+    "constraint_rows": 720,
+    "correction_frobenius": 0.03342537588910138,
+    "discarded_modes": 360,
+    "effective_rank": 3840,
+    "eigenvalue_max": 3.8626048126902854,
+    "eigenvalue_min": 0.0000036880124226425732,
+    "feasible": true,
+    "input_channels": 3840,
+    "intercept_l2": 0.0005004160045791276,
+    "intercept_only": false,
+    "native_fold_allclose": true,
+    "native_fp32_constraints_passed": true,
+    "normal_equation_relative_residual": 6.521279296637592e-12,
+    "observations": 72,
+    "observations_from_actual_b_chain": true,
+    "ordinary_bias_delta_l2": 0.0005004160045791276,
+    "ordinary_delta_frobenius": 0.03342537588910138,
+    "output_channels": 256,
+    "rank_absolute_cutoff": 0.2778655715983986,
+    "rank_relative_cutoff": 0.0004578828811645508,
+    "raw_after_error_sum": 1638070.8793833223,
+    "raw_condition": 1047340.5102910721,
+    "reason": null,
+    "retained_rank": 360,
+    "ridge_condition": 1041017.3706365024,
+    "ridge_factor": 0.000001,
+    "ridge_lambda": 2.2401009488350618e-8,
+    "ridge_unchanged": true,
+    "samples_per_cell": 8,
+    "shared_bias": true,
+    "stage2_b_operators_preserved": true,
+    "transplanted_a_coefficients": false,
+    "valid_feature_rows": 1033297,
+    "weighted_error_after": 0.0007740685234968051,
+    "weighted_error_before": 0.000673802478317146,
+    "weighted_sample_count": 8266341,
+    "whitened_projection_norm": 0.16021706835373603
+  }
+}

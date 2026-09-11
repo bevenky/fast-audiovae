@@ -1,0 +1,635 @@
+{
+  "archive_projection_version": 1,
+  "original_relative_path": "outputs/audiovae2-compression-preflight/training-audit5000/channel-contribution-v1/results-v2.tgz!/./plain.json",
+  "original_sha256": "6027ade72fca481bd714b872d16c73791f09d3623079461d3b8acb10faf0ba37",
+  "omitted_field_paths": [
+    "observations",
+    "quality.overview_window_metrics.by_source",
+    "quality.rows"
+  ],
+  "note": "Labelled projection. Omitted numerical payloads and listed bulk report collections remain outside Git; configuration metadata is retained.",
+  "report": {
+    "quality": {
+      "aggregate": {
+        "group_cosine": 0.49919234949976504,
+        "group_mse": 0.09602618678802845,
+        "group_nrmse": 0.8821263814403318,
+        "group_nrmse_floor_applied": false,
+        "mae": 0.024809139200030608,
+        "mel": 1.6746591329574585,
+        "mel_linear": 0.02291998639702797,
+        "mel_log": 1.6517391204833984,
+        "mse": 0.003511610998956077,
+        "nonquiet_cosine_mean": 0.3278102118415309,
+        "nonquiet_samples": 8809920,
+        "overshoot_samples": 0,
+        "peak_abs_max": 0.009308340027928352,
+        "quiet_failed_windows": 2544,
+        "quiet_residual_rms_mean": 0.000970420188246357,
+        "quiet_windows": 2544,
+        "samples": 11246952,
+        "sources": 96,
+        "waveform_nrmse": 0.9951754859891111,
+        "waveform_nrmse_floor_applied": false,
+        "waveform_residual_rms": 0.05925884743189051
+      },
+      "mel_elements": [
+        5614144,
+        5604672,
+        2792960,
+        2774144,
+        1368320
+      ],
+      "overview_window_metrics": {
+        "near_silence_failed_windows": 184,
+        "near_silence_windows": 184
+      },
+      "reduction": {
+        "group": "all channels pooled with exact valid waveform-sample weights, including partial cells",
+        "mel": "valid elements pooled per resolution, then resolutions averaged",
+        "nonquiet_cosine": "equal-source mean over only active teacher-conditioned20ms windows",
+        "nrmse": "root mean-square error divided by teacher RMS, teacher mean-square floor1e-8 explicitly flagged",
+        "quiet_residual": "RMS of sample-pooled quiet squared residual",
+        "waveform": "valid samples pooled"
+      }
+    },
+    "teacher_target_checks": [
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "hi_in:train:17472433744685771543.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "as_in:train:13453488421825608782.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "freesound:236508"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "sanskrit:2251799813734813_chunk_1.flac"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "freesound:402835"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "freesound:92375"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "freesound:343940"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "konkani:4222124650671062_chunk_1.flac"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "da_dk:train:12662536537047171941.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "thorsten_emotional:whisper/37773d61d5c91c12d49e55e2b041c0cd.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "cs_cz:train:10122716413664131344.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "pt_br:train:14525075052551707276.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "id_id:train:10850485351977338638.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "am_et:train:10477493006580119214.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "freesound:277554"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "freesound:36399"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "et_ee:train:16713145029159361863.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "kk_kz:train:13837639418509311322.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "kn_in:train:14687240407945660913.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "ha_ng:train:12490254919826375416.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "km_kh:train:10006360416725641613.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "bs_ba:train:11358760624286905521.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "freesound:421873"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "fr_fr:train:16715901780663941383.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "gl_es:train:10769481348315642515.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "luo_ke:train:15463642708286073509.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "or_in:train:14121683136407473853.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "kea_cv:train:11148966994412478534.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "af_za:train:12687107890474022499.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "ne_np:train:10865610629546253109.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "bn_in:train:11819972204190731727.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "lt_lt:train:15367591149256088428.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "ta_in:train:12079333390051219555.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "ml_in:train:10457389736210484635.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "kashmiri:1970324837177077_chunk_1.flac"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "cy_gb:train:10349599617049103526.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "2051-153962-0091"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "be_by:train:12518029196714550777.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "ln_cd:train:11959897544900910176.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "cmn_hans_cn:train:10162125752145534325.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "ky_kg:train:15514578015847358890.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "is_is:train:18143916026623202906.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "tg_tj:train:11851591230613317287.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "ast_es:train:16933683244427534350.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "5101-67853-0031"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "ca_es:train:10583803894773586508.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "ckb_iq:train:14031124210593524930.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "fa_ir:train:12074514968657073723.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "fi_fi:train:10893394073468230201.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "kam_ke:train:12154486779797187960.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "ka_ge:train:2993105044151469776.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "he_il:train:16823755323813467795.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "so_so:train:1179304877180760723.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "sd_in:train:13655315073103147391.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "ceb_ph:train:11416672701597922361.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "ko_kr:train:10359553883250105525.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "es_419:train:13461728374156750135.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "maithili:844424930138733_chunk_1.flac"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "freesound:428921"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "en_us:train:13546164985487902870.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "pa_in:train:16693733152628588519.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "lg_ug:train:12123343751639616808.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "manipuri:6473924464419399_chunk_1.flac"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "te_in:train:14751961982184477566.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "ar_eg:train:12360449360113063891.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "bodo:3659174697289264_chunk_3.flac"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "ff_sn:train:14756055913832624081.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "hr_hr:train:12137021049767807555.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "3242-67168-0001"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "5778-54535-0011"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "so_so:train:14842603451866844632.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "mr_in:train:10986875885056557364.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "ig_ng:train:10501649524957252930.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "santali:4785074604194847_chunk_1.flac"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "hu_hu:train:11110713752589902328.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "freesound:180341"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "pl_pl:train:14002458340348798.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "dogri:622d1198-0621-4e0c-9027-77e32a505100_1_chunk_8.flac"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "ga_ie:train:13963823416179330503.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "ur_pk:train:17356430244359180807.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "fil_ph:train:3075253886656038657.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "it_it:train:12677112187370521844.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "freesound:343960"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "ja_jp:train:12210528383264418745.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "az_az:train:1439903150624501148.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "gu_in:train:13687134359882365134.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "lb_lu:train:10437720223409828494.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "kn_in:train:15096009457771558023.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "jv_id:train:11045828164931236769.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "ur_pk:train:13989351609468149814.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "lo_la:train:10346663063780035215.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "el_gr:train:14520091198441206771.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "1363-139304-0012"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "hy_am:train:11186680517435167922.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "ps_af:train:15589493469027767437.wav"
+      },
+      {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "passed": true,
+        "source_id": "bg_bg:train:12760864941937536074.wav"
+      }
+    ]
+  }
+}
