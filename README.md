@@ -1,6 +1,6 @@
 # fast-audiovae
 
-Fast CPU inference for VoxCPM2's AudioVAE2 decoder, using ONNX graph rewrites and native kernels. Latents `[1, 64, L]` at 25 Hz produce mono audio `[1, 1, 1920*L]` at 48 kHz. Supports full-clip and stateful streaming decoding.
+Fast inference for VoxCPM2's AudioVAE2 decoder, with optimized CPU kernels and optional Apple GPU execution. Latents `[1, 64, L]` at 25 Hz produce mono audio `[1, 1, 1920*L]` at 48 kHz. Supports full-clip and stateful streaming decoding.
 
 ## Run
 
@@ -25,9 +25,17 @@ For a complete latent sequence, use `decoder = load(mode="batch")`, then `audio 
 
 The loader selects the CPU kernels automatically. Streaming and one inference thread are the defaults. Each latent frame produces 40 ms of audio; pass two frames for 80 ms packets. Use `load(threads=4)` to request four inference threads. `decoder.info` shows what was selected.
 
-Apple CPUs with SME/SME2 use the new streaming kernels. Other Apple CPUs retain the compatible native path; unsupported systems use portable ONNX with a fallback message. All decoding runs on the CPU.
+Apple CPUs with SME/SME2 use the new streaming kernels. Other Apple CPUs retain the compatible native path; unsupported systems use portable ONNX with a fallback message. CPU is always the default device.
 
 Native wheels currently cover Apple ARM on macOS 26.2 or newer and compatible Intel/AMD Linux x86 systems with glibc 2.38 or newer. The loader also checks native library compatibility before using them.
+
+For Apple GPU support from `main`:
+
+```sh
+python -m pip install --upgrade 'fast-audiovae[gpu] @ git+https://github.com/bevenky/fast-audiovae.git@main'
+```
+
+Use `load(device="gpu")`. CPU remains the default. GPU loading prepares the optimized 40/80 ms paths automatically; first compilation takes extra time. This requires PyTorch 2.14.x and is not in the v0.3.0 wheels. [GPU usage and validation](docs/apple-gpu.md).
 
 ## Decoder speed
 
@@ -51,6 +59,16 @@ Independent batch decoding on Apple M5 Max, **one CPU thread**, using `load(mode
 | 960 ms | 0.0715 | **0.0535** | 0.0343 |
 
 Short matched check on three recordings, with two warmups and three measured repetitions. Each batch call decodes its entire input with empty history; 40/80 ms rows are tiny independent inputs, not whole-recording throughput. In this same check, streaming the 960 ms inputs in 80 ms packets gave RTF 0.0763 for AudioVAE2 and 0.0560 for Mimi. These timings come from a different session than the streaming table above. The batch update is on `main`; v0.3.0 wheels retain the previous batch path. Streaming remains the default. [Batch validation and earlier full-clip results](docs/apple-batch-validation.md).
+
+Apple GPU causal streaming on the same M5 Max, using PyTorch 2.14.0, float32 and one host thread:
+
+| Decoder | Output rate | 40 ms RTF | 80 ms RTF |
+| --- | ---: | ---: | ---: |
+| Original AudioVAE2 GPU | 48 kHz | 0.1696 | 0.0933 |
+| Optimized AudioVAE2 GPU | 48 kHz | **0.0577** | **0.0321** |
+| Pocket Mimi GPU | 24 kHz | n/a | 0.0634 |
+
+Short matched check on three 960 ms multilingual segments, with one warmup and two measured repetitions. These are back-to-back stateful streaming calls returning completed CPU-ready audio, with load and compilation excluded. At 80 ms, optimized AudioVAE2 used about half Mimi's decoding time in this check. Paced live-stream latency can differ. Waveform and history checks passed; an additional eight-second continuation passed at both packet sizes. [GPU protocol and results](experiments/apple-gpu-v6/report.md).
 
 ## Reconstruction quality
 
