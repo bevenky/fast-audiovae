@@ -1,0 +1,38 @@
+{
+  "candidate": "hybrid_pointwise",
+  "status": "qualified_short_panel",
+  "implementation": "screen_repair.build(\"hybrid_pointwise\")",
+  "route": "Apple MPS GPU; explicit opt-in; CPU default unchanged",
+  "precision": "Original literal FP32 weights; no quantization or retraining",
+  "stage0": "One paired current-and-previous dot product per output phase",
+  "stages1_to_5": "V3 independent phase projections followed by overlap sum",
+  "pointwise": "19 weight-left matrix replacements",
+  "histories": "Original 26 activated-input histories, unchanged state schema",
+  "sample_rate": 48000,
+  "latent_channels": 64,
+  "validated_packet_ms": [
+    40,
+    80
+  ],
+  "host_threads": 1,
+  "checks": {
+    "waveform": 60,
+    "state_tensors": 1014,
+    "tolerances": {
+      "atol": 1e-05,
+      "rtol": 0.0001
+    },
+    "failed": 0
+  },
+  "scope": "Short state/numerical, three short speech timing clips, short paced80ms probe; not a long corpus perceptual qualification or public-loader promotion",
+  "receipts": {
+    "hybrid-pointwise-r1.json": "f90e2623bf3298c9e764e82a475253c83071a286b088466167bd6fb56dd90c29",
+    "screen-repair-r1.json": "060b3da943b046c44022c2c47515674031a2a9e26ab413c1330edadb9b44ac7c",
+    "paced-repair-r1.json": "f6eb8f0adfda8ddbeca64ac30ef5217a2d94b0d2effdb7927eb6dee750b4e824"
+  },
+  "sources": {
+    "candidates.py": "adbfddcf65360537e7fb7035a818ba1754b5ee5f4383c40a33cb398bc190c43f",
+    "repairs.py": "603f116acfe78c6aedf8204de4a23e98c32e3383170e3eeaa0fda9e99f6c9b32",
+    "screen_repair.py": "bfb892ff8201a5af6a909276123ebcf431eb080c0f4928304a8eeae7c5b4e41b"
+  }
+}

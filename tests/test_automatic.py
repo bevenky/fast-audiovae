@@ -120,7 +120,7 @@ class AutomaticTests(unittest.TestCase):
         import fast_audiovae
         with patch.object(automatic, "load", return_value="loaded") as load:
             self.assertEqual(fast_audiovae.load(), "loaded")
-        load.assert_called_once_with(mode="streaming", threads=1)
+        load.assert_called_once_with(mode="streaming", threads=1, device="cpu")
 
     def test_invalid_options_fail_before_build(self):
         for arguments in ({"mode": "auto"}, {"threads": 0}, {"threads": True}, {"build_native": "yes"}):

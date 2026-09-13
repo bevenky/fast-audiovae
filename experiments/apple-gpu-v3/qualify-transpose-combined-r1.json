@@ -1,0 +1,1001 @@
+{
+  "version": "apple_gpu_candidate_qualification_v1",
+  "status": "failed",
+  "arms": [
+    "before_compile"
+  ],
+  "calls": 35,
+  "gpu_api_calls": 20,
+  "cpu_reference_calls": 11,
+  "compilation_first_calls": 4,
+  "gpu_api_seconds": 0.3311363775283098,
+  "state_inspection_seconds": 0.009921669960021973,
+  "cpu_reference_seconds": 0.40327445790171623,
+  "compilation_first_call_seconds": 1.968443333171308,
+  "preparation": [
+    {
+      "arm": "before_compile",
+      "build_seconds": 0.45685604121536016,
+      "state_shapes": {
+        "stem.history": [
+          1,
+          64,
+          6
+        ],
+        "stage0.transpose.history": [
+          1,
+          2048,
+          1
+        ],
+        "stage0.residual0.history": [
+          1,
+          1024,
+          6
+        ],
+        "stage0.residual1.history": [
+          1,
+          1024,
+          18
+        ],
+        "stage0.residual2.history": [
+          1,
+          1024,
+          54
+        ],
+        "stage1.transpose.history": [
+          1,
+          1024,
+          1
+        ],
+        "stage1.residual0.history": [
+          1,
+          512,
+          6
+        ],
+        "stage1.residual1.history": [
+          1,
+          512,
+          18
+        ],
+        "stage1.residual2.history": [
+          1,
+          512,
+          54
+        ],
+        "stage2.transpose.history": [
+          1,
+          512,
+          1
+        ],
+        "stage2.residual0.history": [
+          1,
+          256,
+          6
+        ],
+        "stage2.residual1.history": [
+          1,
+          256,
+          18
+        ],
+        "stage2.residual2.history": [
+          1,
+          256,
+          54
+        ],
+        "stage3.transpose.history": [
+          1,
+          256,
+          1
+        ],
+        "stage3.residual0.history": [
+          1,
+          128,
+          6
+        ],
+        "stage3.residual1.history": [
+          1,
+          128,
+          18
+        ],
+        "stage3.residual2.history": [
+          1,
+          128,
+          54
+        ],
+        "stage4.transpose.history": [
+          1,
+          128,
+          1
+        ],
+        "stage4.residual0.history": [
+          1,
+          64,
+          6
+        ],
+        "stage4.residual1.history": [
+          1,
+          64,
+          18
+        ],
+        "stage4.residual2.history": [
+          1,
+          64,
+          54
+        ],
+        "stage5.transpose.history": [
+          1,
+          64,
+          1
+        ],
+        "stage5.residual0.history": [
+          1,
+          32,
+          6
+        ],
+        "stage5.residual1.history": [
+          1,
+          32,
+          18
+        ],
+        "stage5.residual2.history": [
+          1,
+          32,
+          54
+        ],
+        "final.history": [
+          1,
+          32,
+          6
+        ]
+      },
+      "state_bytes": 647424,
+      "source_identity": {
+        "graph_sha256": "fdd20e200675ab9649bf33f16bc5974101ba5cf47ab89fbfe29f3d36ff6c3c84",
+        "external_data_sha256": "3b76bd57356e96893655bd24a364989e016c5af2fc8c29195caaefb4eccf5143",
+        "coefficient_source": "literal_verified_onnx_initializers",
+        "precision": "float32",
+        "transpose_state": "previous_activated_input"
+      },
+      "compiler_counters": {
+        "unimplemented": {},
+        "stats": {
+          "calls_captured": 1100,
+          "unique_graphs": 2
+        },
+        "aot_autograd": {
+          "total": 2,
+          "autograd_cache_hit": 2,
+          "ok": 2
+        },
+        "inductor": {
+          "extern_calls": 90,
+          "fxgraph_cache_hit": 2
+        }
+      }
+    }
+  ],
+  "checks": [
+    {
+      "label": "before_compile/preparation/0/audio-eager",
+      "passed": true,
+      "max_abs": 4.452886059880257e-09
+    },
+    {
+      "label": "before_compile/preparation/1/audio-eager",
+      "passed": true,
+      "max_abs": 5.005858838558197e-09
+    },
+    {
+      "label": "before_compile/preparation/3/audio-eager",
+      "passed": true,
+      "max_abs": 3.7834979593753815e-09
+    },
+    {
+      "label": "before_compile/preparation/4/audio-eager",
+      "passed": true,
+      "max_abs": 4.642060957849026e-09
+    },
+    {
+      "label": "before_compile/preparation/full-reference",
+      "passed": true,
+      "max_abs": 5.296897143125534e-09
+    },
+    {
+      "label": "before_compile/Bengali/0/audio-eager",
+      "passed": true,
+      "max_abs": 5.122274160385132e-08
+    },
+    {
+      "label": "before_compile/Bengali/2/audio-eager",
+      "passed": true,
+      "max_abs": 1.0337680578231812e-07
+    },
+    {
+      "label": "before_compile/Bengali/3/audio-eager",
+      "passed": true,
+      "max_abs": 5.995389074087143e-08
+    },
+    {
+      "label": "before_compile/Bengali/5/audio-eager",
+      "passed": true,
+      "max_abs": 5.960464477539063e-08
+    },
+    {
+      "label": "before_compile/Bengali/original-full",
+      "passed": true,
+      "max_abs": 7.35744833946228e-08
+    },
+    {
+      "label": "before/Bengali/original-full",
+      "passed": true,
+      "max_abs": 6.100162863731384e-08
+    },
+    {
+      "label": "before_compile/English/0/audio-eager",
+      "passed": true,
+      "max_abs": 4.249159246683121e-09
+    },
+    {
+      "label": "before_compile/English/2/audio-eager",
+      "passed": true,
+      "max_abs": 3.7834979593753815e-09
+    },
+    {
+      "label": "before_compile/English/3/audio-eager",
+      "passed": true,
+      "max_abs": 3.7834979593753815e-09
+    },
+    {
+      "label": "before_compile/English/5/audio-eager",
+      "passed": true,
+      "max_abs": 5.908077582716942e-09
+    }
+  ],
+  "state_summary": {
+    "before_compile": {
+      "stem.history": {
+        "comparisons": 12,
+        "max_abs": 0.0,
+        "passed": true
+      },
+      "stage0.transpose.history": {
+        "comparisons": 12,
+        "max_abs": 5.960464477539062e-07,
+        "passed": true
+      },
+      "stage0.residual0.history": {
+        "comparisons": 12,
+        "max_abs": 4.0531158447265625e-06,
+        "passed": true
+      },
+      "stage0.residual1.history": {
+        "comparisons": 12,
+        "max_abs": 7.3909759521484375e-06,
+        "passed": true
+      },
+      "stage0.residual2.history": {
+        "comparisons": 12,
+        "max_abs": 1.84476375579834e-05,
+        "passed": true
+      },
+      "stage1.transpose.history": {
+        "comparisons": 12,
+        "max_abs": 3.159046173095703e-06,
+        "passed": true
+      },
+      "stage1.residual0.history": {
+        "comparisons": 12,
+        "max_abs": 4.291534423828125e-06,
+        "passed": true
+      },
+      "stage1.residual1.history": {
+        "comparisons": 12,
+        "max_abs": 2.1576881408691406e-05,
+        "passed": true
+      },
+      "stage1.residual2.history": {
+        "comparisons": 12,
+        "max_abs": 4.063546657562256e-05,
+        "passed": false
+      },
+      "stage2.transpose.history": {
+        "comparisons": 11,
+        "max_abs": 5.9604644775390625e-06,
+        "passed": true
+      },
+      "stage2.residual0.history": {
+        "comparisons": 11,
+        "max_abs": 1.4156103134155273e-06,
+        "passed": true
+      },
+      "stage2.residual1.history": {
+        "comparisons": 11,
+        "max_abs": 1.6838312149047852e-06,
+        "passed": true
+      },
+      "stage2.residual2.history": {
+        "comparisons": 11,
+        "max_abs": 2.7418136596679688e-06,
+        "passed": true
+      },
+      "stage3.transpose.history": {
+        "comparisons": 11,
+        "max_abs": 4.589557647705078e-06,
+        "passed": true
+      },
+      "stage3.residual0.history": {
+        "comparisons": 11,
+        "max_abs": 1.0132789611816406e-06,
+        "passed": true
+      },
+      "stage3.residual1.history": {
+        "comparisons": 11,
+        "max_abs": 1.9073486328125e-06,
+        "passed": true
+      },
+      "stage3.residual2.history": {
+        "comparisons": 11,
+        "max_abs": 4.5299530029296875e-06,
+        "passed": true
+      },
+      "stage4.transpose.history": {
+        "comparisons": 11,
+        "max_abs": 2.5033950805664062e-06,
+        "passed": true
+      },
+      "stage4.residual0.history": {
+        "comparisons": 11,
+        "max_abs": 2.0563602447509766e-06,
+        "passed": true
+      },
+      "stage4.residual1.history": {
+        "comparisons": 11,
+        "max_abs": 2.1457672119140625e-06,
+        "passed": true
+      },
+      "stage4.residual2.history": {
+        "comparisons": 11,
+        "max_abs": 3.814697265625e-06,
+        "passed": true
+      },
+      "stage5.transpose.history": {
+        "comparisons": 11,
+        "max_abs": 1.6689300537109375e-06,
+        "passed": true
+      },
+      "stage5.residual0.history": {
+        "comparisons": 11,
+        "max_abs": 1.7881393432617188e-06,
+        "passed": true
+      },
+      "stage5.residual1.history": {
+        "comparisons": 11,
+        "max_abs": 1.9073486328125e-06,
+        "passed": true
+      },
+      "stage5.residual2.history": {
+        "comparisons": 11,
+        "max_abs": 3.2186508178710938e-06,
+        "passed": true
+      },
+      "final.history": {
+        "comparisons": 11,
+        "max_abs": 1.6689300537109375e-06,
+        "passed": true
+      }
+    }
+  },
+  "files": {
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v2/qualify_candidates.py": "b337e2b694a93713bb1aca45c17912b014249a5dfa59f47ae75122eb6239fc12",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v2/experiment.py": "aac9c4bb76bf555a502212f1cce2e841d271c9421572ca7ca220031825e26253",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v2/mps_decoder_before.py": "72d51d8052d8376186730fb4cd2a0e5770eb717b37fb2a5deecca2f3ac689890",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v2/snake_candidates.py": "3134d2444f7b9bcd19e2a8f0cb354b030a6db10c8c868151d20b9147f8116fe5",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-streaming-promotion-v1/config-r3.json": "e34fd771ee7512a5fe6b5ca091d6adfafd8bfa5e7e95821c8cbe08fd4bad10dd",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/fast-audiovae-apple-gpu/src/fast_audiovae/mps_decoder.py": "d490015548d5777e00c8ef5a3f125b37cce9c108ad36e08c772eea8e4b2c6bc3",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/fast-audiovae-apple-gpu/src/fast_audiovae/gpu.py": "7665e1510d28aae3f8e0fe3ae6a7232f2f9be1a3db5a285e1fa53f24ef283491",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/audiovae2_onnx/audio_vae_decoder.onnx": "fdd20e200675ab9649bf33f16bc5974101ba5cf47ab89fbfe29f3d36ff6c3c84",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/audiovae2_onnx/audio_vae_decoder.onnx.data": "3b76bd57356e96893655bd24a364989e016c5af2fc8c29195caaefb4eccf5143",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/codec-quality-inputs/multilingual-encoded/fast_audiovae2.npz": "9b709b787c040591de57e094a5ba5a4515cc74e256e8014530ff8c7bb54d2d24",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-streaming-promotion-v1/extra-encoded-v1/latents.npz": "7392e27993227e58950be37804c8f535b69fc1f10380be3d1f044c1f2a2a801b",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v3/qualify_transpose.py": "596d187aa7c6cc33215337fd0d2bd8d1b93572750bb0d5ad9ca45b00da1a037d",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v3/screen_transpose.py": "31fe15796d9468d785fa1d796eb89aca63e47ec2a9dd813c781aed42fea8e5d7"
+  },
+  "state_snapshot_checks": [
+    {
+      "arm": "before_compile",
+      "tensors_per_stream": 26,
+      "streams": 2,
+      "before_sha256": [
+        "1c1334b54cfdda66209688abc268ae79455f0a6eb6aa789d1fc93a7337840d89",
+        "2c08de0f25d130429ef754ce7e83b181428b466d6becad0c3f7ff4ff10f2ac0e"
+      ],
+      "exact": true
+    }
+  ],
+  "per_call": [
+    {
+      "kind": "cpu",
+      "label": "Bengali/full",
+      "seconds": 0.04286995902657509
+    },
+    {
+      "kind": "cpu",
+      "label": "English/full",
+      "seconds": 0.0410943329334259
+    },
+    {
+      "kind": "cpu",
+      "label": "Spanish/full",
+      "seconds": 0.04092845879495144
+    },
+    {
+      "kind": "cpu",
+      "label": "Expressive0/full",
+      "seconds": 0.0407997090369463
+    },
+    {
+      "kind": "cpu",
+      "label": "Expressive1/full",
+      "seconds": 0.04074108274653554
+    },
+    {
+      "kind": "cpu",
+      "label": "Zero latent/full",
+      "seconds": 0.040852457750588655
+    },
+    {
+      "kind": "cpu",
+      "label": "Quiet latent/full",
+      "seconds": 0.04095033276826143
+    },
+    {
+      "kind": "cpu",
+      "label": "English/prefix2",
+      "seconds": 0.02131104189902544
+    },
+    {
+      "kind": "cpu",
+      "label": "English/prefix3",
+      "seconds": 0.02839783299714327
+    },
+    {
+      "kind": "cpu",
+      "label": "Spanish/prefix3",
+      "seconds": 0.028631167020648718
+    },
+    {
+      "kind": "cpu",
+      "label": "English/prefix6",
+      "seconds": 0.03669808292761445
+    },
+    {
+      "kind": "compile",
+      "label": "before_compile/preparation/0",
+      "seconds": 1.265975583344698
+    },
+    {
+      "kind": "gpu",
+      "label": "before/preparation/0",
+      "seconds": 0.10067316703498363
+    },
+    {
+      "kind": "compile",
+      "label": "before_compile/preparation/1",
+      "seconds": 0.693944666069001
+    },
+    {
+      "kind": "gpu",
+      "label": "before/preparation/1",
+      "seconds": 0.128003291785717
+    },
+    {
+      "kind": "compile",
+      "label": "before_compile/preparation/3",
+      "seconds": 0.004607041832059622
+    },
+    {
+      "kind": "gpu",
+      "label": "before/preparation/3",
+      "seconds": 0.010934291873127222
+    },
+    {
+      "kind": "compile",
+      "label": "before_compile/preparation/4",
+      "seconds": 0.003916041925549507
+    },
+    {
+      "kind": "gpu",
+      "label": "before/preparation/4",
+      "seconds": 0.011492582969367504
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Bengali/0",
+      "seconds": 0.0034232502803206444
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Bengali/0",
+      "seconds": 0.008470084052532911
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Bengali/2",
+      "seconds": 0.0026807920075953007
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Bengali/2",
+      "seconds": 0.006466875318437815
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Bengali/3",
+      "seconds": 0.003121249843388796
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Bengali/3",
+      "seconds": 0.008219750132411718
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Bengali/5",
+      "seconds": 0.002761333715170622
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Bengali/5",
+      "seconds": 0.006430125329643488
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/English/0",
+      "seconds": 0.00281654205173254
+    },
+    {
+      "kind": "gpu",
+      "label": "before/English/0",
+      "seconds": 0.007691166829317808
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/English/2",
+      "seconds": 0.0030465000309050083
+    },
+    {
+      "kind": "gpu",
+      "label": "before/English/2",
+      "seconds": 0.00577233312651515
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/English/3",
+      "seconds": 0.003158958163112402
+    },
+    {
+      "kind": "gpu",
+      "label": "before/English/3",
+      "seconds": 0.005922792013734579
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/English/5",
+      "seconds": 0.002862249966710806
+    },
+    {
+      "kind": "gpu",
+      "label": "before/English/5",
+      "seconds": 0.007189041003584862
+    }
+  ],
+  "runtime": {
+    "torch": "2.14.0",
+    "onnxruntime": "1.30.0",
+    "numpy": "2.5.3",
+    "fast_math": false,
+    "cpu_fallback": false
+  },
+  "inputs": [
+    {
+      "label": "Bengali",
+      "frames": 7,
+      "sha256": "e819ead2107427d257755a8afdeb2eb6d167bada3ee608a5a760921ca17f1d5d"
+    },
+    {
+      "label": "English",
+      "frames": 7,
+      "sha256": "0cebc821a7242ed2e03ba8c51714c5eb90f1a902fc9df4fa4628e3d866985a5f"
+    },
+    {
+      "label": "Spanish",
+      "frames": 7,
+      "sha256": "248ba2f7764deff255fc7cebb2974259e0aa2c91ec84475f8b3d9f86a5133c03"
+    },
+    {
+      "label": "Expressive0",
+      "frames": 7,
+      "sha256": "af056d9229e6c466490d0b55c2ffee740d003d4630b51be820183464be0314d7"
+    },
+    {
+      "label": "Expressive1",
+      "frames": 7,
+      "sha256": "6261afbb0d89e241b8b94e42490edb61314c06f44ed3421df5cc8e46b3209f7d"
+    },
+    {
+      "label": "Zero latent",
+      "frames": 7,
+      "sha256": "7b4fc1a8dbe6b6121f16ada516e2ac27e02964716bacea5fb7d07cf30595948e"
+    },
+    {
+      "label": "Quiet latent",
+      "frames": 7,
+      "sha256": "63eebb655a013d23a098062aaa096b7c52f5332139e999dacc44d6dbc25fec6a"
+    }
+  ],
+  "protocol": {
+    "atol": 1e-05,
+    "rtol": 0.0001,
+    "precision": "FP32",
+    "host_threads": 1,
+    "fixed_compile_lengths": [
+      1,
+      2
+    ],
+    "mixed_partition": [
+      2,
+      1,
+      2,
+      2
+    ],
+    "empty_on_public_fast_path": true,
+    "cpu_reference": "Original pinned full ONNX on the same seven-frame prefix.",
+    "state_reference": "Original eager decoder with the same input-history representation; candidate and reference evolve their own states.",
+    "state_checks": "All26 states: exact keys/shape/device/FP32/contiguity, finite values, per-state tolerance; one noninitial pre-call original-byte snapshot for both streams per arm.",
+    "budget": "Ordinary completed GPU API plus synchronized state-inspection wall time <15s; <250 total model/API calls including CPU references and preparation.",
+    "exclusions": "Model construction and four candidate preparation calls are reported separately; those call times include compilation plus completed decode.",
+    "benchmark": false,
+    "suppress_errors": false,
+    "fail_on_recompile_limit_hit": true
+  },
+  "error": "RuntimeError('State numerical gate failed: stage1.residual2.history')",
+  "qualification_adapter": {
+    "true_arm": "transpose_pointwise_mm",
+    "aliases": {
+      "before_compile": "transpose_pointwise_mm",
+      "before": "eager_original_input_history"
+    },
+    "aliases_retained_in_raw_labels": true,
+    "builder": "screen_transpose.main local build; exact existing combined route",
+    "expected_compilation_first_calls": 4,
+    "maximum_unique_graphs": 2,
+    "counter_after_timing_means": "After qualification, not a performance sweep",
+    "files": {
+      "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v3/qualify_transpose.py": "596d187aa7c6cc33215337fd0d2bd8d1b93572750bb0d5ad9ca45b00da1a037d",
+      "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v3/screen_transpose.py": "31fe15796d9468d785fa1d796eb89aca63e47ec2a9dd813c781aed42fea8e5d7",
+      "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v2/qualify_candidates.py": "b337e2b694a93713bb1aca45c17912b014249a5dfa59f47ae75122eb6239fc12"
+    },
+    "sources_unchanged": true
+  },
+  "compile_counters_after_preparation": {
+    "unimplemented": {},
+    "stats": {
+      "calls_captured": 1100,
+      "unique_graphs": 2
+    }
+  },
+  "compile_counters_after_timing": {},
+  "transpose_screen": {
+    "script_sha256": "31fe15796d9468d785fa1d796eb89aca63e47ec2a9dd813c781aed42fea8e5d7",
+    "cpu_math": {
+      "status": "passed",
+      "device": "cpu",
+      "independent_single_call_cases": [
+        {
+          "stride": 2,
+          "pattern": "signed",
+          "frames": 0,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 2,
+          "pattern": "signed",
+          "frames": 1,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 2,
+          "pattern": "signed",
+          "frames": 2,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 2,
+          "pattern": "signed",
+          "frames": 5,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 2,
+          "pattern": "quiet",
+          "frames": 0,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 2,
+          "pattern": "quiet",
+          "frames": 1,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 2,
+          "pattern": "quiet",
+          "frames": 2,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 2,
+          "pattern": "quiet",
+          "frames": 5,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 2,
+          "pattern": "zero",
+          "frames": 0,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 2,
+          "pattern": "zero",
+          "frames": 1,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 2,
+          "pattern": "zero",
+          "frames": 2,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 2,
+          "pattern": "zero",
+          "frames": 5,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 5,
+          "pattern": "signed",
+          "frames": 0,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 5,
+          "pattern": "signed",
+          "frames": 1,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 5,
+          "pattern": "signed",
+          "frames": 2,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 5,
+          "pattern": "signed",
+          "frames": 5,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 5,
+          "pattern": "quiet",
+          "frames": 0,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 5,
+          "pattern": "quiet",
+          "frames": 1,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 5,
+          "pattern": "quiet",
+          "frames": 2,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 5,
+          "pattern": "quiet",
+          "frames": 5,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 5,
+          "pattern": "zero",
+          "frames": 0,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 5,
+          "pattern": "zero",
+          "frames": 1,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 5,
+          "pattern": "zero",
+          "frames": 2,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 5,
+          "pattern": "zero",
+          "frames": 5,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 6,
+          "pattern": "signed",
+          "frames": 0,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 6,
+          "pattern": "signed",
+          "frames": 1,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 6,
+          "pattern": "signed",
+          "frames": 2,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 6,
+          "pattern": "signed",
+          "frames": 5,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 6,
+          "pattern": "quiet",
+          "frames": 0,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 6,
+          "pattern": "quiet",
+          "frames": 1,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 6,
+          "pattern": "quiet",
+          "frames": 2,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 6,
+          "pattern": "quiet",
+          "frames": 5,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 6,
+          "pattern": "zero",
+          "frames": 0,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 6,
+          "pattern": "zero",
+          "frames": 1,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 6,
+          "pattern": "zero",
+          "frames": 2,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 6,
+          "pattern": "zero",
+          "frames": 5,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 8,
+          "pattern": "signed",
+          "frames": 0,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 8,
+          "pattern": "signed",
+          "frames": 1,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 8,
+          "pattern": "signed",
+          "frames": 2,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 8,
+          "pattern": "signed",
+          "frames": 5,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 8,
+          "pattern": "quiet",
+          "frames": 0,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 8,
+          "pattern": "quiet",
+          "frames": 1,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 8,
+          "pattern": "quiet",
+          "frames": 2,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 8,
+          "pattern": "quiet",
+          "frames": 5,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 8,
+          "pattern": "zero",
+          "frames": 0,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 8,
+          "pattern": "zero",
+          "frames": 1,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 8,
+          "pattern": "zero",
+          "frames": 2,
+          "max_abs": 0.0
+        },
+        {
+          "stride": 8,
+          "pattern": "zero",
+          "frames": 5,
+          "max_abs": 0.0
+        }
+      ],
+      "cases": 48,
+      "uneven_stream_and_future_cases": 12,
+      "max_abs": 0.0,
+      "atol": 2e-07,
+      "rtol": 2e-06,
+      "model_weights_loaded": false
+    },
+    "original_input_history": true,
+    "packed_weight_bytes": {
+      "transpose_pointwise_mm": 165314560
+    },
+    "packing": "Once before compilation; literal FP32 permutation. Original weight buffers also retained.",
+    "prefer_metal": null,
+    "combined_pointwise": true,
+    "compile_graph_limit": 2,
+    "harness": "Unchanged V2 qualify_candidates.main: one combined arm, seven short fixtures, 39 paired state checks, 93 total model/API calls; no timing sweep.",
+    "script_unchanged": true
+  }
+}

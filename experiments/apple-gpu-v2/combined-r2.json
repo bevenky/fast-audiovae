@@ -1,0 +1,195 @@
+{
+  "status": "failed",
+  "arms": [
+    "before",
+    "before_compile",
+    "full_compile"
+  ],
+  "rows": [
+    {
+      "phase": "qualification",
+      "repetition": 0,
+      "clip": "Bengali",
+      "arm": "before",
+      "packet_ms": 40,
+      "packet_seconds": [
+        0.006472582928836346,
+        0.006264499854296446,
+        0.006729708984494209,
+        0.005408832803368568,
+        0.005351916886866093,
+        0.005904084071516991,
+        0.00534658320248127,
+        0.005365374963730574,
+        0.005977707915008068,
+        0.005237041972577572,
+        0.005499124992638826,
+        0.005856665782630444,
+        0.005079415626823902,
+        0.005713374819606543,
+        0.005838542245328426,
+        0.0050911251455545425,
+        0.0054712919518351555,
+        0.005880583077669144,
+        0.00519225001335144,
+        0.005651082843542099,
+        0.005869499873369932,
+        0.005122791975736618,
+        0.005774875171482563,
+        0.005881625227630138
+      ],
+      "flush_seconds": 5.791895091533661e-06,
+      "rtf": 0.1416524731515286,
+      "comparison": {
+        "passed": true,
+        "max_abs": 2.4656765162944794e-07,
+        "rms": 2.4334953519947225e-08
+      }
+    }
+  ],
+  "checks": [
+    {
+      "label": "before/prepared1",
+      "passed": true,
+      "max_abs": 1.2223608791828156e-08,
+      "rms": 3.2254717725924612e-09
+    },
+    {
+      "label": "before/prepared2",
+      "passed": true,
+      "max_abs": 1.4173565432429314e-08,
+      "rms": 2.9353331958770587e-09
+    },
+    {
+      "label": "before_compile/prepared1",
+      "passed": true,
+      "max_abs": 1.3504177331924438e-08,
+      "rms": 3.2981778959735603e-09
+    },
+    {
+      "label": "before_compile/prepared2",
+      "passed": true,
+      "max_abs": 1.367880031466484e-08,
+      "rms": 2.893677189953279e-09
+    },
+    {
+      "label": "full_compile/prepared1",
+      "passed": true,
+      "max_abs": 1.3504177331924438e-08,
+      "rms": 3.2981778959735603e-09
+    },
+    {
+      "label": "full_compile/prepared2",
+      "passed": true,
+      "max_abs": 1.367880031466484e-08,
+      "rms": 2.893677189953279e-09
+    }
+  ],
+  "preparation": [
+    {
+      "arm": "before",
+      "initialization_seconds": 0.2514906246215105,
+      "first_calls": [
+        {
+          "frames": 1,
+          "seconds": 0.349564959295094
+        },
+        {
+          "frames": 2,
+          "seconds": 0.16742224991321564
+        }
+      ]
+    },
+    {
+      "arm": "before_compile",
+      "initialization_seconds": 0.2008421658538282,
+      "first_calls": [
+        {
+          "frames": 1,
+          "seconds": 1.6671582497656345
+        },
+        {
+          "frames": 2,
+          "seconds": 0.7485153339803219
+        }
+      ]
+    },
+    {
+      "arm": "full_compile",
+      "initialization_seconds": 0.1705658328719437,
+      "first_calls": [
+        {
+          "frames": 1,
+          "seconds": 0.7728587500751019
+        },
+        {
+          "frames": 2,
+          "seconds": 0.6695765419863164
+        }
+      ]
+    }
+  ],
+  "protocol": {
+    "packet_ms": [
+      40,
+      80
+    ],
+    "duration_ms": 960,
+    "precision": "FP32",
+    "threads": 1,
+    "cpu_fallback": false,
+    "fast_math": false,
+    "boundary": "Identical public GPU API: owned input upload, all 26 histories and audio finite checks, owned CPU-ready output, synchronization, flush.",
+    "exclude": "Model construction and first compilation; ordinary fresh-state initialization remains timed.",
+    "repetitions": 2,
+    "warmup_sweeps": 1,
+    "order": "Reverse arm order on alternating clip plus repetition parity; all repetitions retained",
+    "short_evidence": true,
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "torch": "2.14.0",
+  "files": {
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v2/experiment.py": "d5cb945d8e5922f32391170738b09e0c5e3c76210c6c806e3edbcf624eb46e16",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v2/mps_decoder_before.py": "72d51d8052d8376186730fb4cd2a0e5770eb717b37fb2a5deecca2f3ac689890",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/fast-audiovae-apple-gpu/src/fast_audiovae/mps_decoder.py": "d490015548d5777e00c8ef5a3f125b37cce9c108ad36e08c772eea8e4b2c6bc3"
+  },
+  "inputs": [
+    {
+      "label": "Bengali",
+      "shape": [
+        1,
+        64,
+        24
+      ],
+      "sha256": "788bb43fa8767249769821f5deb134ed11ef682927e07810f99b91013264bbb3"
+    },
+    {
+      "label": "English",
+      "shape": [
+        1,
+        64,
+        24
+      ],
+      "sha256": "5adbb6f1c55b58cad2c56f918c56db1f43fad1a29be28b85aad26657cfe689af"
+    },
+    {
+      "label": "Spanish",
+      "shape": [
+        1,
+        64,
+        24
+      ],
+      "sha256": "7608c754059cd8304d96ebebedb9aa4005f903cce4aad8ff703c9961290ef8e5"
+    }
+  ],
+  "compile_counters_after_preparation": {
+    "unimplemented": {},
+    "stats": {
+      "calls_captured": 1676,
+      "unique_graphs": 4
+    }
+  },
+  "error": "ValueError('State shape/device/FP32/contiguity mismatch: stage0.transpose.history')",
+  "wall_seconds": 5.788684458006173
+}

@@ -1,0 +1,8 @@
+2026-09-13 21:55:57.735 Python[82436:64722886] 2026-09-13 21:55:57.735080 [W:onnxruntime:Default, telemetry.cc:800 operator()] Failed to persist telemetry device ID; using an in-memory identifier
+Traceback (most recent call last):
+  File "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v1/qualify_mimi.py", line 34, in <module>
+    m=MimiMPSAdapter(max_frames=40);r['model']=m.metadata
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v1/mimi_mps.py", line 109, in __init__
+    raise RuntimeError("MPS is unavailable in this process")
+RuntimeError: MPS is unavailable in this process

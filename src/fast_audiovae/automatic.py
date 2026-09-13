@@ -124,7 +124,7 @@ def _build(work, source, cpu, plan):
     return Path(build_recipe(work, source, cpu, plan["mode"], plan["threads"])).resolve()
 
 
-def setup(*, mode="streaming", threads=1, cache_dir=None, source=None, offline=False,
+def setup(*, mode="streaming", threads=1, device="cpu", cache_dir=None, source=None, offline=False,
           prefer_custom=True, build_native=False):
     """Download weights and prepare the CPU recipe, or verify and reuse its cache.
 
@@ -133,6 +133,12 @@ def setup(*, mode="streaming", threads=1, cache_dir=None, source=None, offline=F
     Maintainers can explicitly request source compilation with build_native.
     Build failures and corrupt artifacts are never hidden.
     """
+    if device not in ("cpu", "gpu"):
+        raise ValueError("device must be cpu or gpu")
+    if device == "gpu":
+        from .gpu import setup_gpu
+        return setup_gpu(mode=mode, threads=threads, cache_dir=cache_dir, source=source,
+                         offline=offline, prefer_custom=prefer_custom, build_native=build_native)
     from .platforms import detect_cpu, select_recipe
     from .build_resources import materialize_resources, resource_fingerprint
     from .native_payload import inspect_payload, materialize_payload, probe_payload
@@ -249,11 +255,17 @@ class AudioVAEDecoder:
         return self._decoder.streaming_decode()
 
 
-def load(*, mode="streaming", threads=1, cache_dir=None, source=None, offline=False,
+def load(*, mode="streaming", threads=1, device="cpu", cache_dir=None, source=None, offline=False,
          prefer_custom=True):
-    """Select, prepare and load the best validated recipe for this CPU and mode."""
+    """Load the CPU recipe by default, or explicitly request Apple GPU inference."""
     if mode not in ("batch", "streaming"):
         raise ValueError("mode must be batch or streaming")
+    if device not in ("cpu", "gpu"):
+        raise ValueError("device must be cpu or gpu")
+    if device == "gpu":
+        from .gpu import load_gpu
+        return load_gpu(mode=mode, threads=threads, cache_dir=cache_dir, source=source,
+                        offline=offline, prefer_custom=prefer_custom)
     result = setup(mode=mode, threads=threads, cache_dir=cache_dir, source=source,
                    offline=offline, prefer_custom=prefer_custom)
     from .runtime import load_decoder, load_streaming_decoder

@@ -1,0 +1,27 @@
+prepared before 1 0.269
+prepared before 2 0.16
+W0913 22:17:39.587000 84100 venv/lib/python3.12/site-packages/torch/_inductor/utils.py:1806] [0/0] Not enough SMs to use max_autotune_gemm mode
+prepared before_compile 1 3.186
+prepared before_compile 2 2.215
+prepared full_compile 1 0.38
+prepared full_compile 2 0.399
+Traceback (most recent call last):
+  File "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v2/experiment.py", line 139, in <module>
+    main(p.parse_args())
+  File "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v2/experiment.py", line 114, in main
+    begin=time.perf_counter();y=stream.decode_chunk(packet);times.append(time.perf_counter()-begin);parts.append(y)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/fast-audiovae-apple-gpu/src/fast_audiovae/gpu.py", line 200, in decode_chunk
+    audio, history = self._decoder._run(latents, self._history)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/fast-audiovae-apple-gpu/src/fast_audiovae/gpu.py", line 141, in _run
+    audio, next_history = self._model.decode(z, dict(history))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v2/experiment.py", line 34, in decode
+    history=self.model._checked_states(z,state)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v2/mps_decoder_before.py", line 278, in _checked_states
+    _require(isinstance(value, torch.Tensor) and value.dtype == torch.float32
+  File "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v2/mps_decoder_before.py", line 23, in _require
+    raise ValueError(message)
+ValueError: State shape/device/FP32/contiguity mismatch: stage0.transpose.history

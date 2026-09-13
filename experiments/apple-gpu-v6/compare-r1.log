@@ -1,0 +1,96 @@
+/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v1/venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v1/venv/lib/python3.12/site-packages/torch/nn/utils/weight_norm.py:145: FutureWarning: `torch.nn.utils.weight_norm` is deprecated in favor of `torch.nn.utils.parametrizations.weight_norm`.
+  WeightNorm.apply(module, name, dim)
+W0913 23:17:58.490000 88851 venv/lib/python3.12/site-packages/torch/_inductor/utils.py:1806] [0/0] Not enough SMs to use max_autotune_gemm mode
+qualification 0 complete
+warmup 0 complete
+measured 0 complete
+measured 1 complete
+[
+  {
+    "arm": "upstream_audiovae2_gpu",
+    "packet_ms": 40,
+    "streams": 6,
+    "rtf": 0.16958760914147003,
+    "mean_packet_ms": 6.783413222163087,
+    "median_packet_ms": 6.7751663736999035,
+    "p95_packet_ms": 7.571475044824183,
+    "stream_rtfs": [
+      0.16495221013125655,
+      0.17389974333733943,
+      0.18073207465931773,
+      0.16664717889701328,
+      0.16474535611147684,
+      0.16654909171241647
+    ]
+  },
+  {
+    "arm": "upstream_audiovae2_gpu",
+    "packet_ms": 80,
+    "streams": 6,
+    "rtf": 0.09328590167569928,
+    "mean_packet_ms": 7.462665542132324,
+    "median_packet_ms": 7.458833511918783,
+    "p95_packet_ms": 8.1566410837695,
+    "stream_rtfs": [
+      0.09099735422447945,
+      0.09602586651453748,
+      0.09581193347306302,
+      0.09051402109131838,
+      0.08977321995189413,
+      0.09659301479890323
+    ]
+  },
+  {
+    "arm": "fast_audiovae2_gpu",
+    "packet_ms": 40,
+    "streams": 6,
+    "rtf": 0.05770327528201354,
+    "mean_packet_ms": 2.3079819802660495,
+    "median_packet_ms": 2.17316672205925,
+    "p95_packet_ms": 3.0143936164677143,
+    "stream_rtfs": [
+      0.0513640625285916,
+      0.06372938320661585,
+      0.06367343788345656,
+      0.06265889339071389,
+      0.05322291350845869,
+      0.05157096117424469
+    ]
+  },
+  {
+    "arm": "fast_audiovae2_gpu",
+    "packet_ms": 80,
+    "streams": 6,
+    "rtf": 0.03205521699985386,
+    "mean_packet_ms": 2.5640116719942956,
+    "median_packet_ms": 2.4824170395731926,
+    "p95_packet_ms": 3.244993952102959,
+    "stream_rtfs": [
+      0.03321488717726122,
+      0.03319227835163474,
+      0.032951000321190804,
+      0.026759897688558947,
+      0.03186918377953892,
+      0.03434405468093853
+    ]
+  },
+  {
+    "arm": "pocket_mimi_gpu",
+    "packet_ms": 80,
+    "streams": 6,
+    "rtf": 0.06343785401744148,
+    "mean_packet_ms": 5.072795106874158,
+    "median_packet_ms": 5.060124909505248,
+    "p95_packet_ms": 5.766404187306763,
+    "stream_rtfs": [
+      0.064534941338934,
+      0.06540894052401806,
+      0.06786783827313533,
+      0.05985212483210489,
+      0.059117968582237765,
+      0.0638453105542188
+    ]
+  }
+]

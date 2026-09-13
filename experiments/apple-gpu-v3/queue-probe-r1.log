@@ -1,0 +1,52 @@
+[
+  {
+    "route": "public",
+    "paced": false,
+    "packets": 14,
+    "mean_ms": {
+      "total_ms": 6.749452428571429
+    },
+    "max_total_ms": 10.619667
+  },
+  {
+    "route": "public",
+    "paced": true,
+    "packets": 14,
+    "mean_ms": {
+      "total_ms": 12.159955214285715
+    },
+    "max_total_ms": 20.625416
+  },
+  {
+    "route": "split_wait",
+    "paced": false,
+    "packets": 14,
+    "mean_ms": {
+      "input_check_copy_ms": 0.0480535,
+      "upload_ms": 0.20432435714285715,
+      "model_host_ms": 2.148336214285714,
+      "remaining_model_gpu_wait_ms": 3.7157649285714287,
+      "metadata_ms": 0.02891964285714286,
+      "finite_check_after_completion_ms": 0.5993602857142857,
+      "output_ms": 0.248104,
+      "total_ms": 7.007357
+    },
+    "max_total_ms": 8.240333
+  },
+  {
+    "route": "split_wait",
+    "paced": true,
+    "packets": 14,
+    "mean_ms": {
+      "input_check_copy_ms": 0.07692271428571429,
+      "upload_ms": 0.5571637142857143,
+      "model_host_ms": 5.404934428571429,
+      "remaining_model_gpu_wait_ms": 4.773878071428571,
+      "metadata_ms": 0.04265778571428572,
+      "finite_check_after_completion_ms": 0.5143986428571429,
+      "output_ms": 0.24922942857142857,
+      "total_ms": 11.640625
+    },
+    "max_total_ms": 16.0295
+  }
+]

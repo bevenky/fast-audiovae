@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v1/qualify_audio.py", line 85, in <module>
+    p=argparse.ArgumentParser();p.add_argument('--output',type=Path,required=True);p.add_argument('--smoke',action='store_true');a=p.parse_args();main(a.output,a.smoke)
+                                                                                                                                                  ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v1/qualify_audio.py", line 67, in main
+    assert all(t.device.type=='mps' for t in s._states.values())
+                                             ^^^^^^^^^
+AttributeError: 'GPUStream' object has no attribute '_states'

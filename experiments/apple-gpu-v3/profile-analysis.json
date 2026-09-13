@@ -1,0 +1,478 @@
+{
+  "version": "apple_gpu_profile_readonly_analysis_v1",
+  "sources": [
+    {
+      "path": "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v3/profile_gpu.py",
+      "sha256": "2045709e94583e98df620a293eb8dd0de063b4bb0b2bc39ab3d17a4f3fd13e16"
+    },
+    {
+      "path": "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v3/profile-host-r2.json",
+      "sha256": "7c7bbd1378d26e7369582272da9e92ef7ea1c7729b93ee090bad64c2b6aec638"
+    },
+    {
+      "path": "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v3/queue_probe.py",
+      "sha256": "16cb593c4dc1374c87337c4bb98a4c67e2a8857f92efbdef45b82b012b7b0ab7"
+    },
+    {
+      "path": "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v3/queue-probe-r1.json",
+      "sha256": "042d89ec4ef037536164d7ff3b1119221e2db73b4798ff7ec5d68abba6cd5f6d"
+    }
+  ],
+  "checks": {
+    "host_summary_recomputed": true,
+    "queue_summary_recomputed": true,
+    "host_component_sums_exact": true,
+    "host_matching_packet_hashes_equal": true,
+    "queue_matching_packet_hashes_equal": true,
+    "host_measured_packets": 54,
+    "host_hooked_packets": 18,
+    "host_warmup_api_calls_from_source": 8,
+    "queue_measured_packets": 64,
+    "queue_warmup_api_calls_from_source": 4,
+    "queue_summary_excludes_initial_packets": 8
+  },
+  "host_phases": [
+    {
+      "packet_ms": 40,
+      "phase": "off_before",
+      "packets": 11,
+      "mean_ms": {
+        "input_validation_copy": 0.030420545454545457,
+        "upload": 0.17644663636363636,
+        "model_host": 1.7706478181818182,
+        "metadata": 0.012004,
+        "finite_check_and_wait": 2.794352181818182,
+        "output_copy_sync": 0.21657581818181817,
+        "total": 5.000447
+      }
+    },
+    {
+      "packet_ms": 40,
+      "phase": "on",
+      "packets": 11,
+      "mean_ms": {
+        "input_validation_copy": 0.02839390909090909,
+        "upload": 0.17758336363636365,
+        "model_host": 1.836681818181818,
+        "metadata": 0.011772545454545454,
+        "finite_check_and_wait": 2.3836591818181816,
+        "output_copy_sync": 0.19870836363636366,
+        "total": 4.636799181818182
+      }
+    },
+    {
+      "packet_ms": 40,
+      "phase": "off_after",
+      "packets": 11,
+      "mean_ms": {
+        "input_validation_copy": 0.026466090909090908,
+        "upload": 0.18003390909090908,
+        "model_host": 1.6141667272727274,
+        "metadata": 0.010920454545454546,
+        "finite_check_and_wait": 2.596984909090909,
+        "output_copy_sync": 0.19759072727272725,
+        "total": 4.626162818181818
+      }
+    },
+    {
+      "packet_ms": 80,
+      "phase": "off_before",
+      "packets": 5,
+      "mean_ms": {
+        "input_validation_copy": 0.029833,
+        "upload": 0.17347520000000002,
+        "model_host": 1.8657082,
+        "metadata": 0.012008399999999999,
+        "finite_check_and_wait": 2.6938584,
+        "output_copy_sync": 0.21395820000000002,
+        "total": 4.9888414
+      }
+    },
+    {
+      "packet_ms": 80,
+      "phase": "on",
+      "packets": 5,
+      "mean_ms": {
+        "input_validation_copy": 0.0270332,
+        "upload": 0.1566254,
+        "model_host": 1.7437331999999999,
+        "metadata": 0.0108666,
+        "finite_check_and_wait": 2.9819084,
+        "output_copy_sync": 0.194975,
+        "total": 5.1151418
+      }
+    },
+    {
+      "packet_ms": 80,
+      "phase": "off_after",
+      "packets": 5,
+      "mean_ms": {
+        "input_validation_copy": 0.027008400000000002,
+        "upload": 0.16538339999999999,
+        "model_host": 1.6203082,
+        "metadata": 0.009383200000000001,
+        "finite_check_and_wait": 3.1098504,
+        "output_copy_sync": 0.2062832,
+        "total": 5.1382167999999995
+      }
+    }
+  ],
+  "host_family_aggregates": [
+    {
+      "packet_ms": 40,
+      "packets": 11,
+      "family": "generated_metal_dispatch",
+      "calls_per_packet": 83,
+      "mean_host_us": 201.6631818181818,
+      "median_host_us": 199.664,
+      "min_host_us": 174.293,
+      "max_host_us": 237.298,
+      "percent_of_profiled_model_host_span": 10.979755982874256
+    },
+    {
+      "packet_ms": 40,
+      "packets": 11,
+      "family": "depthwise_convolution",
+      "calls_per_packet": 19,
+      "mean_host_us": 499.4839090909091,
+      "median_host_us": 480.497,
+      "min_host_us": 434.124,
+      "max_host_us": 675.081,
+      "percent_of_profiled_model_host_span": 27.194906823075215
+    },
+    {
+      "packet_ms": 40,
+      "packets": 11,
+      "family": "pointwise_convolution",
+      "calls_per_packet": 19,
+      "mean_host_us": 442.042,
+      "median_host_us": 436.25,
+      "min_host_us": 399.501,
+      "max_host_us": 548.875,
+      "percent_of_profiled_model_host_span": 24.067423961194844
+    },
+    {
+      "packet_ms": 40,
+      "packets": 11,
+      "family": "transposed_convolution",
+      "calls_per_packet": 6,
+      "mean_host_us": 170.90136363636364,
+      "median_host_us": 166.04,
+      "min_host_us": 143.75,
+      "max_host_us": 231.418,
+      "percent_of_profiled_model_host_span": 9.304897666245948
+    },
+    {
+      "packet_ms": 40,
+      "packets": 11,
+      "family": "final_convolution",
+      "calls_per_packet": 1,
+      "mean_host_us": 31.598636363636363,
+      "median_host_us": 32.375,
+      "min_host_us": 25.625,
+      "max_host_us": 40.084,
+      "percent_of_profiled_model_host_span": 1.720419729254832
+    },
+    {
+      "packet_ms": 40,
+      "packets": 11,
+      "family": "unhooked_model_host_and_hook_bookkeeping",
+      "calls_per_packet": null,
+      "mean_host_us": 490.9927272727273,
+      "median_host_us": 477.421,
+      "min_host_us": 429.213,
+      "max_host_us": 644.828,
+      "percent_of_profiled_model_host_span": 26.732595837354914
+    },
+    {
+      "packet_ms": 80,
+      "packets": 5,
+      "family": "generated_metal_dispatch",
+      "calls_per_packet": 84,
+      "mean_host_us": 211.2394,
+      "median_host_us": 211.413,
+      "min_host_us": 171.749,
+      "max_host_us": 248.247,
+      "percent_of_profiled_model_host_span": 12.114204168389982
+    },
+    {
+      "packet_ms": 80,
+      "packets": 5,
+      "family": "depthwise_convolution",
+      "calls_per_packet": 19,
+      "mean_host_us": 457.38340000000005,
+      "median_host_us": 460.291,
+      "min_host_us": 403.71,
+      "max_host_us": 492.042,
+      "percent_of_profiled_model_host_span": 26.23012511317672
+    },
+    {
+      "packet_ms": 80,
+      "packets": 5,
+      "family": "pointwise_convolution",
+      "calls_per_packet": 19,
+      "mean_host_us": 438.3676,
+      "median_host_us": 429.626,
+      "min_host_us": 406.669,
+      "max_host_us": 501.917,
+      "percent_of_profiled_model_host_span": 25.13960277868197
+    },
+    {
+      "packet_ms": 80,
+      "packets": 5,
+      "family": "transposed_convolution",
+      "calls_per_packet": 6,
+      "mean_host_us": 173.2334,
+      "median_host_us": 179.04,
+      "min_host_us": 142.877,
+      "max_host_us": 193.042,
+      "percent_of_profiled_model_host_span": 9.93462761390332
+    },
+    {
+      "packet_ms": 80,
+      "packets": 5,
+      "family": "final_convolution",
+      "calls_per_packet": 1,
+      "mean_host_us": 23.925,
+      "median_host_us": 24.417,
+      "min_host_us": 20.625,
+      "max_host_us": 26.542,
+      "percent_of_profiled_model_host_span": 1.3720562297030303
+    },
+    {
+      "packet_ms": 80,
+      "packets": 5,
+      "family": "unhooked_model_host_and_hook_bookkeeping",
+      "calls_per_packet": null,
+      "mean_host_us": 439.5844,
+      "median_host_us": 431.753,
+      "min_host_us": 418.292,
+      "max_host_us": 475.418,
+      "percent_of_profiled_model_host_span": 25.209384096144984
+    }
+  ],
+  "queue_by_repetition": [
+    {
+      "route": "public",
+      "paced": false,
+      "repetition": 0,
+      "steady_packets": 7,
+      "mean_ms": {
+        "total_ms": 5.335666857142857
+      },
+      "median_total_ms": 5.148959,
+      "steady_min_ms": 4.917584,
+      "steady_max_ms": 5.955042,
+      "all_packets": 8,
+      "all_max_ms": 5.955042
+    },
+    {
+      "route": "public",
+      "paced": false,
+      "repetition": 1,
+      "steady_packets": 7,
+      "mean_ms": {
+        "total_ms": 8.163238
+      },
+      "median_total_ms": 8.170666,
+      "steady_min_ms": 6.316917,
+      "steady_max_ms": 10.619667,
+      "all_packets": 8,
+      "all_max_ms": 11.71425
+    },
+    {
+      "route": "public",
+      "paced": false,
+      "repetition": "both",
+      "steady_packets": 14,
+      "mean_ms": {
+        "total_ms": 6.749452428571429
+      },
+      "median_total_ms": 6.1359794999999995,
+      "steady_min_ms": 4.917584,
+      "steady_max_ms": 10.619667,
+      "all_packets": 16,
+      "all_max_ms": 11.71425
+    },
+    {
+      "route": "public",
+      "paced": true,
+      "repetition": 0,
+      "steady_packets": 7,
+      "mean_ms": {
+        "total_ms": 12.303505857142857
+      },
+      "median_total_ms": 9.896125,
+      "steady_min_ms": 6.953792,
+      "steady_max_ms": 20.625416,
+      "all_packets": 8,
+      "all_max_ms": 20.625416
+    },
+    {
+      "route": "public",
+      "paced": true,
+      "repetition": 1,
+      "steady_packets": 7,
+      "mean_ms": {
+        "total_ms": 12.016404571428572
+      },
+      "median_total_ms": 12.141208,
+      "steady_min_ms": 5.569958,
+      "steady_max_ms": 16.992291,
+      "all_packets": 8,
+      "all_max_ms": 16.992291
+    },
+    {
+      "route": "public",
+      "paced": true,
+      "repetition": "both",
+      "steady_packets": 14,
+      "mean_ms": {
+        "total_ms": 12.159955214285715
+      },
+      "median_total_ms": 11.0186665,
+      "steady_min_ms": 5.569958,
+      "steady_max_ms": 20.625416,
+      "all_packets": 16,
+      "all_max_ms": 20.625416
+    },
+    {
+      "route": "split_wait",
+      "paced": false,
+      "repetition": 0,
+      "steady_packets": 7,
+      "mean_ms": {
+        "input_check_copy_ms": 0.038029714285714285,
+        "upload_ms": 0.19599985714285714,
+        "model_host_ms": 2.2755715714285714,
+        "remaining_model_gpu_wait_ms": 3.0999402857142857,
+        "metadata_ms": 0.025410714285714286,
+        "finite_check_after_completion_ms": 0.592667,
+        "output_ms": 0.24573785714285715,
+        "total_ms": 6.488976
+      },
+      "median_total_ms": 6.368666,
+      "steady_min_ms": 5.705458,
+      "steady_max_ms": 7.213417,
+      "all_packets": 8,
+      "all_max_ms": 9.410042
+    },
+    {
+      "route": "split_wait",
+      "paced": false,
+      "repetition": 1,
+      "steady_packets": 7,
+      "mean_ms": {
+        "input_check_copy_ms": 0.05807728571428571,
+        "upload_ms": 0.21264885714285714,
+        "model_host_ms": 2.0211008571428573,
+        "remaining_model_gpu_wait_ms": 4.331589571428571,
+        "metadata_ms": 0.03242857142857143,
+        "finite_check_after_completion_ms": 0.6060535714285714,
+        "output_ms": 0.25047014285714286,
+        "total_ms": 7.525738
+      },
+      "median_total_ms": 7.476708,
+      "steady_min_ms": 6.611208,
+      "steady_max_ms": 8.240333,
+      "all_packets": 8,
+      "all_max_ms": 8.240333
+    },
+    {
+      "route": "split_wait",
+      "paced": false,
+      "repetition": "both",
+      "steady_packets": 14,
+      "mean_ms": {
+        "input_check_copy_ms": 0.0480535,
+        "upload_ms": 0.20432435714285715,
+        "model_host_ms": 2.148336214285714,
+        "remaining_model_gpu_wait_ms": 3.7157649285714287,
+        "metadata_ms": 0.02891964285714286,
+        "finite_check_after_completion_ms": 0.5993602857142857,
+        "output_ms": 0.248104,
+        "total_ms": 7.007357
+      },
+      "median_total_ms": 7.0987085,
+      "steady_min_ms": 5.705458,
+      "steady_max_ms": 8.240333,
+      "all_packets": 16,
+      "all_max_ms": 9.410042
+    },
+    {
+      "route": "split_wait",
+      "paced": true,
+      "repetition": 0,
+      "steady_packets": 7,
+      "mean_ms": {
+        "input_check_copy_ms": 0.08296428571428571,
+        "upload_ms": 0.5061014285714286,
+        "model_host_ms": 5.851934428571429,
+        "remaining_model_gpu_wait_ms": 4.371732285714286,
+        "metadata_ms": 0.04430957142857143,
+        "finite_check_after_completion_ms": 0.5707675714285714,
+        "output_ms": 0.263542,
+        "total_ms": 11.71482157142857
+      },
+      "median_total_ms": 11.168708,
+      "steady_min_ms": 9.421459,
+      "steady_max_ms": 16.0295,
+      "all_packets": 8,
+      "all_max_ms": 16.0295
+    },
+    {
+      "route": "split_wait",
+      "paced": true,
+      "repetition": 1,
+      "steady_packets": 7,
+      "mean_ms": {
+        "input_check_copy_ms": 0.07088114285714285,
+        "upload_ms": 0.608226,
+        "model_host_ms": 4.957934428571429,
+        "remaining_model_gpu_wait_ms": 5.176023857142857,
+        "metadata_ms": 0.041006,
+        "finite_check_after_completion_ms": 0.45802971428571426,
+        "output_ms": 0.23491685714285715,
+        "total_ms": 11.56642842857143
+      },
+      "median_total_ms": 11.049625,
+      "steady_min_ms": 9.228083,
+      "steady_max_ms": 14.910667,
+      "all_packets": 8,
+      "all_max_ms": 14.910667
+    },
+    {
+      "route": "split_wait",
+      "paced": true,
+      "repetition": "both",
+      "steady_packets": 14,
+      "mean_ms": {
+        "input_check_copy_ms": 0.07692271428571429,
+        "upload_ms": 0.5571637142857143,
+        "model_host_ms": 5.404934428571429,
+        "remaining_model_gpu_wait_ms": 4.773878071428571,
+        "metadata_ms": 0.04265778571428572,
+        "finite_check_after_completion_ms": 0.5143986428571429,
+        "output_ms": 0.24922942857142857,
+        "total_ms": 11.640625
+      },
+      "median_total_ms": 11.1091665,
+      "steady_min_ms": 9.228083,
+      "steady_max_ms": 16.0295,
+      "all_packets": 16,
+      "all_max_ms": 16.0295
+    }
+  ],
+  "limitations": [
+    "Host hook spans measure dispatch, driver work and any internal blocking; they do not attribute exclusive GPU execution to layers.",
+    "The unhooked remainder includes model Python work, layout/state handling, record metadata/append bookkeeping and wrapper overhead; it is not a pure Python cost estimate.",
+    "Original finite_check_and_wait includes previously enqueued current-packet model work plus concatenation, isfinite, reduction and scalar readback. It is not the cost of validation alone.",
+    "Split-wait adds a completion barrier and reports post-completion finite-check cost. This changes scheduling and batching, so it cannot supply an exact subtraction from the unsplit public API.",
+    "Public API synchronizes and returns CPU-ready output for every packet. No unfinished previous-packet work can accumulate from these serial calls. A paced slowdown is not evidence of previous-packet GPU queue backlog.",
+    "Paced schedule sleeps toward 80ms absolute targets, but actual scheduled-arrival/start/completion timestamps and lateness are not recorded. All observed public service times are below80ms, but these short bursts do not establish sustained real-time deadlines.",
+    "Only two order-reversed repetitions of8packets are present; public unpaced steady means drift from5.3357 to8.1632ms. No causal power/clock/scheduler/queue explanation follows.",
+    "Output byte hashes agree across phases/routes for each matching packet. This audit does not independently rerun original-ONNX numerical or history checks.",
+    "Input hashes bind supplied snapshots only; profiler snapshots themselves do not pin model source, weights, generated-module contents or device identity. Existing qualification/provenance must be cited separately.",
+    "No GPU, model, build or benchmark execution was performed by this audit."
+  ]
+}

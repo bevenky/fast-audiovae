@@ -1,0 +1,79 @@
+{
+  "status": "completed",
+  "comparison_count": 892,
+  "failed_comparisons": 18,
+  "first_failure_by_arm_scope": {
+    "v3_transpose_mm/propagated": {
+      "packet": 3,
+      "label": "stage0.residual2.pointwise",
+      "arm": "v3_transpose_mm",
+      "scope": "propagated",
+      "shape": [
+        1,
+        1024,
+        16
+      ],
+      "elements": 16384,
+      "max_abs": 1.9073486328125e-05,
+      "rms": 1.1105186732116613e-06,
+      "failing_elements": 2,
+      "max_tolerance_ratio": 1.1292937033579091,
+      "passed": false,
+      "bitwise_equal": false
+    },
+    "v3_transpose_mm/propagated_state": {
+      "packet": 3,
+      "label": "stage1.residual2.history",
+      "arm": "v3_transpose_mm",
+      "scope": "propagated_state",
+      "shape": [
+        1,
+        512,
+        54
+      ],
+      "elements": 27648,
+      "max_abs": 4.088878631591797e-05,
+      "rms": 1.5864388404907106e-06,
+      "failing_elements": 1,
+      "max_tolerance_ratio": 1.2154645503739714,
+      "passed": false,
+      "bitwise_equal": false
+    },
+    "paired_projection/incoming": {
+      "packet": 3,
+      "label": "stage2.transpose/input",
+      "arm": "paired_projection",
+      "scope": "incoming",
+      "shape": [
+        1,
+        512,
+        96
+      ],
+      "elements": 49152,
+      "max_abs": 1.8805265426635742e-05,
+      "rms": 6.947758269762969e-07,
+      "failing_elements": 1,
+      "max_tolerance_ratio": 1.3937816070281874,
+      "passed": false,
+      "bitwise_equal": false
+    },
+    "compiled_v3_transpose_mm/compiled_state": {
+      "packet": 3,
+      "label": "stage1.residual2.history",
+      "arm": "compiled_v3_transpose_mm",
+      "scope": "compiled_state",
+      "shape": [
+        1,
+        512,
+        54
+      ],
+      "elements": 27648,
+      "max_abs": 4.342198371887207e-05,
+      "rms": 1.6587406843708762e-06,
+      "failing_elements": 1,
+      "max_tolerance_ratio": 1.2907666544423297,
+      "passed": false,
+      "bitwise_equal": false
+    }
+  }
+}

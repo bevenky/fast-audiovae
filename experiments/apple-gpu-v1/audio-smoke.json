@@ -1,0 +1,82 @@
+{
+  "status": "failed",
+  "device": "Apple GPU / MPS",
+  "torch": "2.14.0",
+  "onnxruntime": "1.30.0",
+  "fallback": false,
+  "fast_math": false,
+  "precision": "FP32",
+  "calls": 4,
+  "api_seconds": 1.4130736668594182,
+  "checks": [
+    {
+      "label": "English/fresh full",
+      "shape": [
+        1,
+        1,
+        3840
+      ],
+      "max_abs": 5.9371814131736755e-09,
+      "rms_error": 1.4041597884428825e-09,
+      "passed": true
+    },
+    {
+      "label": "English/stream40",
+      "shape": [
+        1,
+        1,
+        3840
+      ],
+      "max_abs": 4.889443516731262e-09,
+      "rms_error": 1.4102138345961635e-09,
+      "passed": true
+    }
+  ],
+  "smoke": true,
+  "info": {
+    "device": "gpu",
+    "backend": "mps",
+    "selected": "torch_mps",
+    "recipe": "apple_mps",
+    "precision": "FP32",
+    "mode": "streaming",
+    "threads": 1,
+    "cpu_only": false,
+    "fallback": false,
+    "reason": "Explicit Apple GPU request",
+    "model_path": "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/audiovae2_onnx/audio_vae_decoder.onnx",
+    "model_dir": "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/audiovae2_onnx",
+    "source_sha256": "fdd20e200675ab9649bf33f16bc5974101ba5cf47ab89fbfe29f3d36ff6c3c84",
+    "source_files": {
+      "audio_vae_decoder.onnx": "fdd20e200675ab9649bf33f16bc5974101ba5cf47ab89fbfe29f3d36ff6c3c84",
+      "audio_vae_decoder.onnx.data": "3b76bd57356e96893655bd24a364989e016c5af2fc8c29195caaefb4eccf5143"
+    },
+    "model_revision": "ecb511b96675f041424b42f148bf72e301262586",
+    "torch": "2.14.0",
+    "cache_hit": true,
+    "cache_kind": "verified_source",
+    "sample_rate": 48000,
+    "latent_rate": 25,
+    "latent_channels": 64,
+    "samples_per_latent": 1920,
+    "mps_cpu_fallback": false,
+    "mps_fast_math": false,
+    "cache_key": "4e54bc6bba0ff3641e624043a441c95c4705a90ddf398c15f5e42123d901c929",
+    "state_bytes_per_stream": 647424,
+    "state_device": "mps",
+    "output_device": "cpu",
+    "output_ready": true
+  },
+  "cases": [
+    {
+      "name": "English",
+      "shape": [
+        1,
+        64,
+        2
+      ],
+      "sha256": "076d88cf937da75965dd70bf13105edc236c7c78d2c503f0d2a0ded53a9f8fc9"
+    }
+  ],
+  "error": "AttributeError(\"'GPUStream' object has no attribute '_states'\")"
+}

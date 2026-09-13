@@ -1,0 +1,103 @@
+prepared before_compile 1 1.159
+prepared before_compile 2 0.613
+W0913 22:42:23.943000 85999 venv/lib/python3.12/site-packages/torch/_inductor/utils.py:1806] [0/2] Not enough SMs to use max_autotune_gemm mode
+prepared transpose_mm 1 2.671
+prepared transpose_mm 2 2.425
+prepared transpose_pointwise_mm 1 2.069
+prepared transpose_pointwise_mm 2 1.961
+qualification 1 rows 18
+warmup 1 rows 36
+measured 1 rows 54
+measured 2 rows 72
+[
+  {
+    "arm": "before_compile",
+    "packet_ms": 40,
+    "rtf": 0.12298947428159106,
+    "mean_packet_ms": 4.919355592897369,
+    "median_packet_ms": 4.852083511650562,
+    "stream_rtfs": [
+      0.12615052401088178,
+      0.1326194430779045,
+      0.12236215261509642,
+      0.11543498209600027,
+      0.11714856809703633,
+      0.12422117579262704
+    ]
+  },
+  {
+    "arm": "before_compile",
+    "packet_ms": 80,
+    "rtf": 0.06527531780496551,
+    "mean_packet_ms": 5.2216209264265165,
+    "median_packet_ms": 5.173791432753205,
+    "stream_rtfs": [
+      0.06780924304621294,
+      0.06839974036362644,
+      0.06303801928879693,
+      0.06281966003977384,
+      0.06289014806194852,
+      0.06669509602943435
+    ]
+  },
+  {
+    "arm": "transpose_mm",
+    "packet_ms": 40,
+    "rtf": 0.06682615656043507,
+    "mean_packet_ms": 2.6728639754259755,
+    "median_packet_ms": 2.6609788183122873,
+    "stream_rtfs": [
+      0.07023003515011321,
+      0.07265099751142165,
+      0.06766150133141006,
+      0.059729945011592164,
+      0.06067083158995956,
+      0.07001362876811376
+    ]
+  },
+  {
+    "arm": "transpose_mm",
+    "packet_ms": 80,
+    "rtf": 0.03292499960581255,
+    "mean_packet_ms": 2.633631902022494,
+    "median_packet_ms": 2.5417087599635124,
+    "stream_rtfs": [
+      0.035413586980818465,
+      0.03693697993488362,
+      0.029872090090066195,
+      0.029913975352731846,
+      0.030018400866538286,
+      0.03539496440983688
+    ]
+  },
+  {
+    "arm": "transpose_pointwise_mm",
+    "packet_ms": 40,
+    "rtf": 0.0599559603465928,
+    "mean_packet_ms": 2.39805757559629,
+    "median_packet_ms": 2.3130206391215324,
+    "stream_rtfs": [
+      0.06422383012250066,
+      0.07080377593714124,
+      0.055583373856885984,
+      0.05285212634286533,
+      0.053150002107334636,
+      0.06312265371282896
+    ]
+  },
+  {
+    "arm": "transpose_pointwise_mm",
+    "packet_ms": 80,
+    "rtf": 0.031657683171538845,
+    "mean_packet_ms": 2.53222227588089,
+    "median_packet_ms": 2.4569169618189335,
+    "stream_rtfs": [
+      0.03481961854655917,
+      0.03530764176199834,
+      0.027614543311453115,
+      0.028372353214460116,
+      0.03094318429551398,
+      0.032888757899248354
+    ]
+  }
+]

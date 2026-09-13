@@ -1,0 +1,1446 @@
+{
+  "version": "apple_gpu_candidate_qualification_v1",
+  "status": "passed",
+  "arms": [
+    "before_compile"
+  ],
+  "calls": 93,
+  "gpu_api_calls": 78,
+  "cpu_reference_calls": 11,
+  "compilation_first_calls": 4,
+  "gpu_api_seconds": 0.5394168766215444,
+  "state_inspection_seconds": 0.033516289200633764,
+  "cpu_reference_seconds": 0.4077411242760718,
+  "compilation_first_call_seconds": 5.354270956944674,
+  "preparation": [
+    {
+      "arm": "before_compile",
+      "build_seconds": 0.4622541246935725,
+      "state_shapes": {
+        "stem.history": [
+          1,
+          64,
+          6
+        ],
+        "stage0.transpose.history": [
+          1,
+          2048,
+          1
+        ],
+        "stage0.residual0.history": [
+          1,
+          1024,
+          6
+        ],
+        "stage0.residual1.history": [
+          1,
+          1024,
+          18
+        ],
+        "stage0.residual2.history": [
+          1,
+          1024,
+          54
+        ],
+        "stage1.transpose.history": [
+          1,
+          1024,
+          1
+        ],
+        "stage1.residual0.history": [
+          1,
+          512,
+          6
+        ],
+        "stage1.residual1.history": [
+          1,
+          512,
+          18
+        ],
+        "stage1.residual2.history": [
+          1,
+          512,
+          54
+        ],
+        "stage2.transpose.history": [
+          1,
+          512,
+          1
+        ],
+        "stage2.residual0.history": [
+          1,
+          256,
+          6
+        ],
+        "stage2.residual1.history": [
+          1,
+          256,
+          18
+        ],
+        "stage2.residual2.history": [
+          1,
+          256,
+          54
+        ],
+        "stage3.transpose.history": [
+          1,
+          256,
+          1
+        ],
+        "stage3.residual0.history": [
+          1,
+          128,
+          6
+        ],
+        "stage3.residual1.history": [
+          1,
+          128,
+          18
+        ],
+        "stage3.residual2.history": [
+          1,
+          128,
+          54
+        ],
+        "stage4.transpose.history": [
+          1,
+          128,
+          1
+        ],
+        "stage4.residual0.history": [
+          1,
+          64,
+          6
+        ],
+        "stage4.residual1.history": [
+          1,
+          64,
+          18
+        ],
+        "stage4.residual2.history": [
+          1,
+          64,
+          54
+        ],
+        "stage5.transpose.history": [
+          1,
+          64,
+          1
+        ],
+        "stage5.residual0.history": [
+          1,
+          32,
+          6
+        ],
+        "stage5.residual1.history": [
+          1,
+          32,
+          18
+        ],
+        "stage5.residual2.history": [
+          1,
+          32,
+          54
+        ],
+        "final.history": [
+          1,
+          32,
+          6
+        ]
+      },
+      "state_bytes": 647424,
+      "source_identity": {
+        "graph_sha256": "fdd20e200675ab9649bf33f16bc5974101ba5cf47ab89fbfe29f3d36ff6c3c84",
+        "external_data_sha256": "3b76bd57356e96893655bd24a364989e016c5af2fc8c29195caaefb4eccf5143",
+        "coefficient_source": "literal_verified_onnx_initializers",
+        "precision": "float32",
+        "transpose_state": "previous_activated_input"
+      },
+      "compiler_counters": {
+        "unimplemented": {},
+        "stats": {
+          "calls_captured": 1100,
+          "unique_graphs": 2
+        },
+        "aot_autograd": {
+          "total": 2,
+          "autograd_cache_miss": 2,
+          "autograd_cache_saved": 2,
+          "ok": 2
+        },
+        "inductor": {
+          "pattern_matcher_count": 24,
+          "pattern_matcher_nodes": 24,
+          "fxgraph_cache_miss": 2,
+          "extern_calls": 90
+        },
+        "graph_break": {},
+        "aten_mm_info": {
+          "aten.mm_2048_1_64": 1,
+          "aten.mm_8192_1_4096": 1,
+          "aten.mm_1024_8_1024": 3,
+          "aten.mm_6144_9_1024": 1,
+          "aten.mm_512_48_512": 3,
+          "aten.mm_2560_49_512": 1,
+          "aten.mm_256_240_256": 3,
+          "aten.mm_512_241_256": 1,
+          "aten.mm_128_480_128": 3,
+          "aten.mm_256_481_128": 1,
+          "aten.mm_64_960_64": 3,
+          "aten.mm_128_961_64": 1,
+          "aten.mm_32_1920_32": 3,
+          "aten.mm_2048_2_64": 1,
+          "aten.mm_8192_2_4096": 1,
+          "aten.mm_1024_16_1024": 3,
+          "aten.mm_6144_17_1024": 1,
+          "aten.mm_512_96_512": 3,
+          "aten.mm_2560_97_512": 1,
+          "aten.mm_256_480_256": 3,
+          "aten.mm_512_481_256": 1,
+          "aten.mm_128_960_128": 3,
+          "aten.mm_256_961_128": 1,
+          "aten.mm_64_1920_64": 3,
+          "aten.mm_128_1921_64": 1,
+          "aten.mm_32_3840_32": 3
+        }
+      },
+      "final_compiler_counters": {
+        "unimplemented": {},
+        "stats": {
+          "calls_captured": 1100,
+          "unique_graphs": 2
+        },
+        "aot_autograd": {
+          "total": 2,
+          "autograd_cache_miss": 2,
+          "autograd_cache_saved": 2,
+          "ok": 2
+        },
+        "inductor": {
+          "pattern_matcher_count": 24,
+          "pattern_matcher_nodes": 24,
+          "fxgraph_cache_miss": 2,
+          "extern_calls": 90
+        },
+        "graph_break": {},
+        "aten_mm_info": {
+          "aten.mm_2048_1_64": 1,
+          "aten.mm_8192_1_4096": 1,
+          "aten.mm_1024_8_1024": 3,
+          "aten.mm_6144_9_1024": 1,
+          "aten.mm_512_48_512": 3,
+          "aten.mm_2560_49_512": 1,
+          "aten.mm_256_240_256": 3,
+          "aten.mm_512_241_256": 1,
+          "aten.mm_128_480_128": 3,
+          "aten.mm_256_481_128": 1,
+          "aten.mm_64_960_64": 3,
+          "aten.mm_128_961_64": 1,
+          "aten.mm_32_1920_32": 3,
+          "aten.mm_2048_2_64": 1,
+          "aten.mm_8192_2_4096": 1,
+          "aten.mm_1024_16_1024": 3,
+          "aten.mm_6144_17_1024": 1,
+          "aten.mm_512_96_512": 3,
+          "aten.mm_2560_97_512": 1,
+          "aten.mm_256_480_256": 3,
+          "aten.mm_512_481_256": 1,
+          "aten.mm_128_960_128": 3,
+          "aten.mm_256_961_128": 1,
+          "aten.mm_64_1920_64": 3,
+          "aten.mm_128_1921_64": 1,
+          "aten.mm_32_3840_32": 3
+        }
+      }
+    }
+  ],
+  "checks": [
+    {
+      "label": "before_compile/preparation/0/audio-eager",
+      "passed": true,
+      "max_abs": 4.059984348714352e-09
+    },
+    {
+      "label": "before_compile/preparation/1/audio-eager",
+      "passed": true,
+      "max_abs": 4.132743924856186e-09
+    },
+    {
+      "label": "before_compile/preparation/3/audio-eager",
+      "passed": true,
+      "max_abs": 3.6670826375484467e-09
+    },
+    {
+      "label": "before_compile/preparation/4/audio-eager",
+      "passed": true,
+      "max_abs": 4.0745362639427185e-09
+    },
+    {
+      "label": "before_compile/preparation/full-reference",
+      "passed": true,
+      "max_abs": 4.729372449219227e-09
+    },
+    {
+      "label": "before_compile/Bengali/0/audio-eager",
+      "passed": true,
+      "max_abs": 6.146728992462158e-08
+    },
+    {
+      "label": "before_compile/Bengali/2/audio-eager",
+      "passed": true,
+      "max_abs": 5.681067705154419e-08
+    },
+    {
+      "label": "before_compile/Bengali/3/audio-eager",
+      "passed": true,
+      "max_abs": 6.449408829212189e-08
+    },
+    {
+      "label": "before_compile/Bengali/5/audio-eager",
+      "passed": true,
+      "max_abs": 4.842877388000488e-08
+    },
+    {
+      "label": "before_compile/Bengali/original-full",
+      "passed": true,
+      "max_abs": 4.936009645462036e-08
+    },
+    {
+      "label": "before/Bengali/original-full",
+      "passed": true,
+      "max_abs": 6.100162863731384e-08
+    },
+    {
+      "label": "before_compile/English/0/audio-eager",
+      "passed": true,
+      "max_abs": 4.452886059880257e-09
+    },
+    {
+      "label": "before_compile/English/2/audio-eager",
+      "passed": true,
+      "max_abs": 3.3760443329811096e-09
+    },
+    {
+      "label": "before_compile/English/3/audio-eager",
+      "passed": true,
+      "max_abs": 3.7834979593753815e-09
+    },
+    {
+      "label": "before_compile/English/5/audio-eager",
+      "passed": true,
+      "max_abs": 4.5438355300575495e-09
+    },
+    {
+      "label": "before_compile/English/original-full",
+      "passed": true,
+      "max_abs": 5.005858838558197e-09
+    },
+    {
+      "label": "before/English/original-full",
+      "passed": true,
+      "max_abs": 5.9371814131736755e-09
+    },
+    {
+      "label": "before_compile/Spanish/0/audio-eager",
+      "passed": true,
+      "max_abs": 8.498318493366241e-09
+    },
+    {
+      "label": "before_compile/Spanish/2/audio-eager",
+      "passed": true,
+      "max_abs": 9.691575542092323e-09
+    },
+    {
+      "label": "before_compile/Spanish/3/audio-eager",
+      "passed": true,
+      "max_abs": 9.313225746154785e-09
+    },
+    {
+      "label": "before_compile/Spanish/5/audio-eager",
+      "passed": true,
+      "max_abs": 8.731149137020111e-09
+    },
+    {
+      "label": "before_compile/Spanish/original-full",
+      "passed": true,
+      "max_abs": 1.0710209608078003e-08
+    },
+    {
+      "label": "before/Spanish/original-full",
+      "passed": true,
+      "max_abs": 1.2398231774568558e-08
+    },
+    {
+      "label": "before_compile/Expressive0/0/audio-eager",
+      "passed": true,
+      "max_abs": 1.894659362733364e-08
+    },
+    {
+      "label": "before_compile/Expressive0/2/audio-eager",
+      "passed": true,
+      "max_abs": 7.1668182499706745e-09
+    },
+    {
+      "label": "before_compile/Expressive0/3/audio-eager",
+      "passed": true,
+      "max_abs": 1.4202669262886047e-08
+    },
+    {
+      "label": "before_compile/Expressive0/5/audio-eager",
+      "passed": true,
+      "max_abs": 1.3336539268493652e-06
+    },
+    {
+      "label": "before_compile/Expressive0/original-full",
+      "passed": true,
+      "max_abs": 7.37607479095459e-07
+    },
+    {
+      "label": "before/Expressive0/original-full",
+      "passed": true,
+      "max_abs": 1.4603137969970703e-06
+    },
+    {
+      "label": "before_compile/Expressive1/0/audio-eager",
+      "passed": true,
+      "max_abs": 1.6298145055770874e-08
+    },
+    {
+      "label": "before_compile/Expressive1/2/audio-eager",
+      "passed": true,
+      "max_abs": 1.9081198843196034e-09
+    },
+    {
+      "label": "before_compile/Expressive1/3/audio-eager",
+      "passed": true,
+      "max_abs": 1.4901161193847656e-08
+    },
+    {
+      "label": "before_compile/Expressive1/5/audio-eager",
+      "passed": true,
+      "max_abs": 3.5390257835388184e-07
+    },
+    {
+      "label": "before_compile/Expressive1/original-full",
+      "passed": true,
+      "max_abs": 1.1920928955078125e-07
+    },
+    {
+      "label": "before/Expressive1/original-full",
+      "passed": true,
+      "max_abs": 2.9103830456733704e-07
+    },
+    {
+      "label": "before_compile/Zero latent/0/audio-eager",
+      "passed": true,
+      "max_abs": 6.565824151039124e-08
+    },
+    {
+      "label": "before_compile/Zero latent/2/audio-eager",
+      "passed": true,
+      "max_abs": 6.146728992462158e-08
+    },
+    {
+      "label": "before_compile/Zero latent/3/audio-eager",
+      "passed": true,
+      "max_abs": 6.615300662815571e-08
+    },
+    {
+      "label": "before_compile/Zero latent/5/audio-eager",
+      "passed": true,
+      "max_abs": 7.35744833946228e-08
+    },
+    {
+      "label": "before_compile/Zero latent/original-full",
+      "passed": true,
+      "max_abs": 5.3551048040390015e-08
+    },
+    {
+      "label": "before/Zero latent/original-full",
+      "passed": true,
+      "max_abs": 8.475035429000854e-08
+    },
+    {
+      "label": "before_compile/Quiet latent/0/audio-eager",
+      "passed": true,
+      "max_abs": 8.079223334789276e-08
+    },
+    {
+      "label": "before_compile/Quiet latent/2/audio-eager",
+      "passed": true,
+      "max_abs": 5.587935447692871e-08
+    },
+    {
+      "label": "before_compile/Quiet latent/3/audio-eager",
+      "passed": true,
+      "max_abs": 6.728805601596832e-08
+    },
+    {
+      "label": "before_compile/Quiet latent/5/audio-eager",
+      "passed": true,
+      "max_abs": 7.87986209616065e-08
+    },
+    {
+      "label": "before_compile/Quiet latent/original-full",
+      "passed": true,
+      "max_abs": 5.3085386753082275e-08
+    },
+    {
+      "label": "before/Quiet latent/original-full",
+      "passed": true,
+      "max_abs": 8.312053978443146e-08
+    },
+    {
+      "label": "before_compile/reset/before/audio-eager",
+      "passed": true,
+      "max_abs": 4.452886059880257e-09
+    },
+    {
+      "label": "before_compile/reset/after/audio-eager",
+      "passed": true,
+      "max_abs": 4.452886059880257e-09
+    },
+    {
+      "label": "before_compile/reset-repeat",
+      "passed": true,
+      "max_abs": 0.0
+    },
+    {
+      "label": "before_compile/reset-original-full",
+      "passed": true,
+      "max_abs": 4.685716703534126e-09
+    },
+    {
+      "label": "before_compile/changed-future/audio-eager",
+      "passed": true,
+      "max_abs": 4.452886059880257e-09
+    },
+    {
+      "label": "before_compile/prefix-invariance",
+      "passed": true,
+      "max_abs": 0.0
+    },
+    {
+      "label": "before/prefix-invariance",
+      "passed": true,
+      "max_abs": 0.0
+    },
+    {
+      "label": "before_compile/interleave/A1/audio-eager",
+      "passed": true,
+      "max_abs": 4.059984348714352e-09
+    },
+    {
+      "label": "before_compile/interleave/B1/audio-eager",
+      "passed": true,
+      "max_abs": 8.498318493366241e-09
+    },
+    {
+      "label": "before_compile/interleave/A2/audio-eager",
+      "passed": true,
+      "max_abs": 4.132743924856186e-09
+    },
+    {
+      "label": "before_compile/interleave/B2/audio-eager",
+      "passed": true,
+      "max_abs": 9.691575542092323e-09
+    },
+    {
+      "label": "before_compile/interleave/A-full",
+      "passed": true,
+      "max_abs": 4.925823304802179e-09
+    },
+    {
+      "label": "before_compile/interleave/B-full",
+      "passed": true,
+      "max_abs": 1.1059455573558807e-08
+    }
+  ],
+  "state_summary": {
+    "before_compile": {
+      "stem.history": {
+        "comparisons": 39,
+        "max_abs": 0.0,
+        "passed": true
+      },
+      "stage0.transpose.history": {
+        "comparisons": 39,
+        "max_abs": 5.960464477539062e-07,
+        "passed": true
+      },
+      "stage0.residual0.history": {
+        "comparisons": 39,
+        "max_abs": 2.86102294921875e-06,
+        "passed": true
+      },
+      "stage0.residual1.history": {
+        "comparisons": 39,
+        "max_abs": 5.125999450683594e-06,
+        "passed": true
+      },
+      "stage0.residual2.history": {
+        "comparisons": 39,
+        "max_abs": 1.1801719665527344e-05,
+        "passed": true
+      },
+      "stage1.transpose.history": {
+        "comparisons": 39,
+        "max_abs": 2.6226043701171875e-06,
+        "passed": true
+      },
+      "stage1.residual0.history": {
+        "comparisons": 39,
+        "max_abs": 3.069639205932617e-06,
+        "passed": true
+      },
+      "stage1.residual1.history": {
+        "comparisons": 39,
+        "max_abs": 1.3649463653564453e-05,
+        "passed": true
+      },
+      "stage1.residual2.history": {
+        "comparisons": 39,
+        "max_abs": 2.2530555725097656e-05,
+        "passed": true
+      },
+      "stage2.transpose.history": {
+        "comparisons": 39,
+        "max_abs": 5.125999450683594e-06,
+        "passed": true
+      },
+      "stage2.residual0.history": {
+        "comparisons": 39,
+        "max_abs": 1.6391277313232422e-06,
+        "passed": true
+      },
+      "stage2.residual1.history": {
+        "comparisons": 39,
+        "max_abs": 2.2649765014648438e-06,
+        "passed": true
+      },
+      "stage2.residual2.history": {
+        "comparisons": 39,
+        "max_abs": 5.424022674560547e-06,
+        "passed": true
+      },
+      "stage3.transpose.history": {
+        "comparisons": 39,
+        "max_abs": 2.9802322387695312e-06,
+        "passed": true
+      },
+      "stage3.residual0.history": {
+        "comparisons": 39,
+        "max_abs": 1.5497207641601562e-06,
+        "passed": true
+      },
+      "stage3.residual1.history": {
+        "comparisons": 39,
+        "max_abs": 2.1457672119140625e-06,
+        "passed": true
+      },
+      "stage3.residual2.history": {
+        "comparisons": 39,
+        "max_abs": 3.516674041748047e-06,
+        "passed": true
+      },
+      "stage4.transpose.history": {
+        "comparisons": 39,
+        "max_abs": 3.337860107421875e-06,
+        "passed": true
+      },
+      "stage4.residual0.history": {
+        "comparisons": 39,
+        "max_abs": 2.8014183044433594e-06,
+        "passed": true
+      },
+      "stage4.residual1.history": {
+        "comparisons": 39,
+        "max_abs": 4.291534423828125e-06,
+        "passed": true
+      },
+      "stage4.residual2.history": {
+        "comparisons": 39,
+        "max_abs": 9.5367431640625e-06,
+        "passed": true
+      },
+      "stage5.transpose.history": {
+        "comparisons": 39,
+        "max_abs": 1.6689300537109375e-06,
+        "passed": true
+      },
+      "stage5.residual0.history": {
+        "comparisons": 39,
+        "max_abs": 4.5299530029296875e-06,
+        "passed": true
+      },
+      "stage5.residual1.history": {
+        "comparisons": 39,
+        "max_abs": 5.602836608886719e-06,
+        "passed": true
+      },
+      "stage5.residual2.history": {
+        "comparisons": 39,
+        "max_abs": 1.1205673217773438e-05,
+        "passed": true
+      },
+      "final.history": {
+        "comparisons": 39,
+        "max_abs": 9.059906005859375e-06,
+        "passed": true
+      }
+    }
+  },
+  "files": {
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v2/qualify_candidates.py": "b337e2b694a93713bb1aca45c17912b014249a5dfa59f47ae75122eb6239fc12",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v2/experiment.py": "aac9c4bb76bf555a502212f1cce2e841d271c9421572ca7ca220031825e26253",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v2/mps_decoder_before.py": "72d51d8052d8376186730fb4cd2a0e5770eb717b37fb2a5deecca2f3ac689890",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v2/snake_candidates.py": "3134d2444f7b9bcd19e2a8f0cb354b030a6db10c8c868151d20b9147f8116fe5",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-streaming-promotion-v1/config-r3.json": "e34fd771ee7512a5fe6b5ca091d6adfafd8bfa5e7e95821c8cbe08fd4bad10dd",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/fast-audiovae-apple-gpu/src/fast_audiovae/mps_decoder.py": "d490015548d5777e00c8ef5a3f125b37cce9c108ad36e08c772eea8e4b2c6bc3",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/fast-audiovae-apple-gpu/src/fast_audiovae/gpu.py": "7665e1510d28aae3f8e0fe3ae6a7232f2f9be1a3db5a285e1fa53f24ef283491",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/audiovae2_onnx/audio_vae_decoder.onnx": "fdd20e200675ab9649bf33f16bc5974101ba5cf47ab89fbfe29f3d36ff6c3c84",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/audiovae2_onnx/audio_vae_decoder.onnx.data": "3b76bd57356e96893655bd24a364989e016c5af2fc8c29195caaefb4eccf5143",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/codec-quality-inputs/multilingual-encoded/fast_audiovae2.npz": "9b709b787c040591de57e094a5ba5a4515cc74e256e8014530ff8c7bb54d2d24",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-streaming-promotion-v1/extra-encoded-v1/latents.npz": "7392e27993227e58950be37804c8f535b69fc1f10380be3d1f044c1f2a2a801b",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v4/qualify_variants.py": "00f0d4ca0a099e878bf3cc76b6256eed245ab9a754221007d47708d752243c72",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v4/candidates.py": "adbfddcf65360537e7fb7035a818ba1754b5ee5f4383c40a33cb398bc190c43f",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v4/repairs.py": "603f116acfe78c6aedf8204de4a23e98c32e3383170e3eeaa0fda9e99f6c9b32"
+  },
+  "state_snapshot_checks": [
+    {
+      "arm": "before_compile",
+      "tensors_per_stream": 26,
+      "streams": 2,
+      "before_sha256": [
+        "685309416a2ce7c4b039540f41d41e9a59d6f6102fd21fb4a5948e63513834f6",
+        "2c08de0f25d130429ef754ce7e83b181428b466d6becad0c3f7ff4ff10f2ac0e"
+      ],
+      "exact": true
+    }
+  ],
+  "per_call": [
+    {
+      "kind": "cpu",
+      "label": "Bengali/full",
+      "seconds": 0.043802458327263594
+    },
+    {
+      "kind": "cpu",
+      "label": "English/full",
+      "seconds": 0.04036658303812146
+    },
+    {
+      "kind": "cpu",
+      "label": "Spanish/full",
+      "seconds": 0.040960750076919794
+    },
+    {
+      "kind": "cpu",
+      "label": "Expressive0/full",
+      "seconds": 0.040984457824379206
+    },
+    {
+      "kind": "cpu",
+      "label": "Expressive1/full",
+      "seconds": 0.04072770802304149
+    },
+    {
+      "kind": "cpu",
+      "label": "Zero latent/full",
+      "seconds": 0.04110562475398183
+    },
+    {
+      "kind": "cpu",
+      "label": "Quiet latent/full",
+      "seconds": 0.04087437503039837
+    },
+    {
+      "kind": "cpu",
+      "label": "English/prefix2",
+      "seconds": 0.021662416867911816
+    },
+    {
+      "kind": "cpu",
+      "label": "English/prefix3",
+      "seconds": 0.029450333211570978
+    },
+    {
+      "kind": "cpu",
+      "label": "Spanish/prefix3",
+      "seconds": 0.028518542181700468
+    },
+    {
+      "kind": "cpu",
+      "label": "English/prefix6",
+      "seconds": 0.039287874940782785
+    },
+    {
+      "kind": "compile",
+      "label": "before_compile/preparation/0",
+      "seconds": 3.1058077081106603
+    },
+    {
+      "kind": "gpu",
+      "label": "before/preparation/0",
+      "seconds": 0.09874608321115375
+    },
+    {
+      "kind": "compile",
+      "label": "before_compile/preparation/1",
+      "seconds": 2.2420410001650453
+    },
+    {
+      "kind": "gpu",
+      "label": "before/preparation/1",
+      "seconds": 0.09841074980795383
+    },
+    {
+      "kind": "compile",
+      "label": "before_compile/preparation/3",
+      "seconds": 0.003303457982838154
+    },
+    {
+      "kind": "gpu",
+      "label": "before/preparation/3",
+      "seconds": 0.006924583110958338
+    },
+    {
+      "kind": "compile",
+      "label": "before_compile/preparation/4",
+      "seconds": 0.0031187906861305237
+    },
+    {
+      "kind": "gpu",
+      "label": "before/preparation/4",
+      "seconds": 0.0077306660823524
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Bengali/0",
+      "seconds": 0.005208959337323904
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Bengali/0",
+      "seconds": 0.007354834116995335
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Bengali/2",
+      "seconds": 0.0032591246999800205
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Bengali/2",
+      "seconds": 0.006257792003452778
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Bengali/3",
+      "seconds": 0.003237874712795019
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Bengali/3",
+      "seconds": 0.006636499892920256
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Bengali/5",
+      "seconds": 0.002731500193476677
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Bengali/5",
+      "seconds": 0.006128666922450066
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/English/0",
+      "seconds": 0.002457374706864357
+    },
+    {
+      "kind": "gpu",
+      "label": "before/English/0",
+      "seconds": 0.006463041994720697
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/English/2",
+      "seconds": 0.0030343751423060894
+    },
+    {
+      "kind": "gpu",
+      "label": "before/English/2",
+      "seconds": 0.006514334119856358
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/English/3",
+      "seconds": 0.0026680827140808105
+    },
+    {
+      "kind": "gpu",
+      "label": "before/English/3",
+      "seconds": 0.0068221669644117355
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/English/5",
+      "seconds": 0.003075915854424238
+    },
+    {
+      "kind": "gpu",
+      "label": "before/English/5",
+      "seconds": 0.006759959273040295
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Spanish/0",
+      "seconds": 0.0027361251413822174
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Spanish/0",
+      "seconds": 0.006776957772672176
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Spanish/2",
+      "seconds": 0.002434124704450369
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Spanish/2",
+      "seconds": 0.005777749698609114
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Spanish/3",
+      "seconds": 0.0032296250574290752
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Spanish/3",
+      "seconds": 0.006304792128503323
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Spanish/5",
+      "seconds": 0.002985417377203703
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Spanish/5",
+      "seconds": 0.007187291979789734
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Expressive0/0",
+      "seconds": 0.0025117499753832817
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Expressive0/0",
+      "seconds": 0.006351917050778866
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Expressive0/2",
+      "seconds": 0.0025566252879798412
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Expressive0/2",
+      "seconds": 0.0063323331996798515
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Expressive0/3",
+      "seconds": 0.003817708697170019
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Expressive0/3",
+      "seconds": 0.006770374719053507
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Expressive0/5",
+      "seconds": 0.00246766721829772
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Expressive0/5",
+      "seconds": 0.00626375013962388
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Expressive1/0",
+      "seconds": 0.002519874833524227
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Expressive1/0",
+      "seconds": 0.0062136659398674965
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Expressive1/2",
+      "seconds": 0.0028981249779462814
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Expressive1/2",
+      "seconds": 0.006502917036414146
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Expressive1/3",
+      "seconds": 0.002357499673962593
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Expressive1/3",
+      "seconds": 0.006860916968435049
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Expressive1/5",
+      "seconds": 0.0030837496742606163
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Expressive1/5",
+      "seconds": 0.006386334076523781
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Zero latent/0",
+      "seconds": 0.0030946247279644012
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Zero latent/0",
+      "seconds": 0.0066122920252382755
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Zero latent/2",
+      "seconds": 0.002324374858289957
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Zero latent/2",
+      "seconds": 0.005841874983161688
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Zero latent/3",
+      "seconds": 0.003097166772931814
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Zero latent/3",
+      "seconds": 0.0061873747035861015
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Zero latent/5",
+      "seconds": 0.002926458138972521
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Zero latent/5",
+      "seconds": 0.00686245784163475
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Quiet latent/0",
+      "seconds": 0.0023832921870052814
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Quiet latent/0",
+      "seconds": 0.006269624922424555
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Quiet latent/2",
+      "seconds": 0.0030172918923199177
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Quiet latent/2",
+      "seconds": 0.0057302918285131454
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Quiet latent/3",
+      "seconds": 0.002367167267948389
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Quiet latent/3",
+      "seconds": 0.007138458080589771
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Quiet latent/5",
+      "seconds": 0.0027567497454583645
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Quiet latent/5",
+      "seconds": 0.006343916058540344
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/initial-empty",
+      "seconds": 1.2499745935201645e-05
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/flush",
+      "seconds": 1.0421499609947205e-06
+    },
+    {
+      "kind": "gpu",
+      "label": "before/initial-empty",
+      "seconds": 2.4996697902679443e-06
+    },
+    {
+      "kind": "gpu",
+      "label": "before/flush",
+      "seconds": 4.577450454235077e-07
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/reset/before",
+      "seconds": 0.0030655409209430218
+    },
+    {
+      "kind": "gpu",
+      "label": "before/reset/before",
+      "seconds": 0.005722917150706053
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/reset/after",
+      "seconds": 0.002547208219766617
+    },
+    {
+      "kind": "gpu",
+      "label": "before/reset/after",
+      "seconds": 0.007254874799400568
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/changed-future",
+      "seconds": 0.003220583312213421
+    },
+    {
+      "kind": "gpu",
+      "label": "before/changed-future",
+      "seconds": 0.006569541059434414
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/interleave/A1",
+      "seconds": 0.0025711250491440296
+    },
+    {
+      "kind": "gpu",
+      "label": "before/interleave/A1",
+      "seconds": 0.005659500136971474
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/interleave/B1",
+      "seconds": 0.003266457933932543
+    },
+    {
+      "kind": "gpu",
+      "label": "before/interleave/B1",
+      "seconds": 0.006975042168051004
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/interleave/A2",
+      "seconds": 0.0031423750333487988
+    },
+    {
+      "kind": "gpu",
+      "label": "before/interleave/A2",
+      "seconds": 0.006600500084459782
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/interleave/B2",
+      "seconds": 0.0025117918848991394
+    },
+    {
+      "kind": "gpu",
+      "label": "before/interleave/B2",
+      "seconds": 0.005589625332504511
+    }
+  ],
+  "runtime": {
+    "torch": "2.14.0",
+    "onnxruntime": "1.30.0",
+    "numpy": "2.5.3",
+    "fast_math": false,
+    "cpu_fallback": false
+  },
+  "inputs": [
+    {
+      "label": "Bengali",
+      "frames": 7,
+      "sha256": "e819ead2107427d257755a8afdeb2eb6d167bada3ee608a5a760921ca17f1d5d"
+    },
+    {
+      "label": "English",
+      "frames": 7,
+      "sha256": "0cebc821a7242ed2e03ba8c51714c5eb90f1a902fc9df4fa4628e3d866985a5f"
+    },
+    {
+      "label": "Spanish",
+      "frames": 7,
+      "sha256": "248ba2f7764deff255fc7cebb2974259e0aa2c91ec84475f8b3d9f86a5133c03"
+    },
+    {
+      "label": "Expressive0",
+      "frames": 7,
+      "sha256": "af056d9229e6c466490d0b55c2ffee740d003d4630b51be820183464be0314d7"
+    },
+    {
+      "label": "Expressive1",
+      "frames": 7,
+      "sha256": "6261afbb0d89e241b8b94e42490edb61314c06f44ed3421df5cc8e46b3209f7d"
+    },
+    {
+      "label": "Zero latent",
+      "frames": 7,
+      "sha256": "7b4fc1a8dbe6b6121f16ada516e2ac27e02964716bacea5fb7d07cf30595948e"
+    },
+    {
+      "label": "Quiet latent",
+      "frames": 7,
+      "sha256": "63eebb655a013d23a098062aaa096b7c52f5332139e999dacc44d6dbc25fec6a"
+    }
+  ],
+  "protocol": {
+    "atol": 1e-05,
+    "rtol": 0.0001,
+    "precision": "FP32",
+    "host_threads": 1,
+    "fixed_compile_lengths": [
+      1,
+      2
+    ],
+    "mixed_partition": [
+      2,
+      1,
+      2,
+      2
+    ],
+    "empty_on_public_fast_path": true,
+    "cpu_reference": "Original pinned full ONNX on the same seven-frame prefix.",
+    "state_reference": "Original eager model; each path evolves its own original activated-input history.",
+    "state_checks": "All26 states: exact keys/shape/device/FP32/contiguity, finite values, per-state tolerance; one noninitial pre-call original-byte snapshot for both streams per arm.",
+    "budget": "Ordinary completed GPU API plus synchronized state-inspection wall time <15s; <250 total model/API calls including CPU references and preparation.",
+    "exclusions": "Model construction/shader compilation and the four first full_compile/snake_compile calls are separately reported. Those first-call wall times include compilation AND decode, not pure compiler time.",
+    "benchmark": false,
+    "suppress_errors": false,
+    "fail_on_recompile_limit_hit": true
+  },
+  "artifacts_unchanged": true,
+  "completed_arms": 1,
+  "repair": {
+    "candidate": "hybrid",
+    "pointwise_mm": true,
+    "raw_alias": "before_compile",
+    "reference": "Original eager input-history decoder",
+    "cpu_algebra": [
+      {
+        "stride": 2,
+        "frames": 0,
+        "max_abs": 0.0
+      },
+      {
+        "stride": 2,
+        "frames": 1,
+        "max_abs": 0.0
+      },
+      {
+        "stride": 2,
+        "frames": 2,
+        "max_abs": 7.450580596923828e-09
+      },
+      {
+        "stride": 2,
+        "frames": 5,
+        "max_abs": 2.9802322387695312e-08
+      },
+      {
+        "stride": 5,
+        "frames": 0,
+        "max_abs": 0.0
+      },
+      {
+        "stride": 5,
+        "frames": 1,
+        "max_abs": 1.4901161193847656e-08
+      },
+      {
+        "stride": 5,
+        "frames": 2,
+        "max_abs": 5.960464477539063e-08
+      },
+      {
+        "stride": 5,
+        "frames": 5,
+        "max_abs": 5.960464477539063e-08
+      },
+      {
+        "stride": 6,
+        "frames": 0,
+        "max_abs": 0.0
+      },
+      {
+        "stride": 6,
+        "frames": 1,
+        "max_abs": 1.1920928955078125e-07
+      },
+      {
+        "stride": 6,
+        "frames": 2,
+        "max_abs": 2.9802322387695312e-08
+      },
+      {
+        "stride": 6,
+        "frames": 5,
+        "max_abs": 5.960464477539063e-08
+      },
+      {
+        "stride": 8,
+        "frames": 0,
+        "max_abs": 0.0
+      },
+      {
+        "stride": 8,
+        "frames": 1,
+        "max_abs": 2.9802322387695312e-08
+      },
+      {
+        "stride": 8,
+        "frames": 2,
+        "max_abs": 5.960464477539063e-08
+      },
+      {
+        "stride": 8,
+        "frames": 5,
+        "max_abs": 5.960464477539063e-08
+      },
+      {
+        "stride": 2,
+        "frames": 0,
+        "max_abs": 0.0
+      },
+      {
+        "stride": 2,
+        "frames": 1,
+        "max_abs": 2.9802322387695312e-08
+      },
+      {
+        "stride": 2,
+        "frames": 2,
+        "max_abs": 2.9802322387695312e-08
+      },
+      {
+        "stride": 2,
+        "frames": 5,
+        "max_abs": 5.960464477539063e-08
+      },
+      {
+        "stride": 5,
+        "frames": 0,
+        "max_abs": 0.0
+      },
+      {
+        "stride": 5,
+        "frames": 1,
+        "max_abs": 1.4901161193847656e-08
+      },
+      {
+        "stride": 5,
+        "frames": 2,
+        "max_abs": 2.9802322387695312e-08
+      },
+      {
+        "stride": 5,
+        "frames": 5,
+        "max_abs": 1.1920928955078125e-07
+      },
+      {
+        "stride": 6,
+        "frames": 0,
+        "max_abs": 0.0
+      },
+      {
+        "stride": 6,
+        "frames": 1,
+        "max_abs": 5.960464477539063e-08
+      },
+      {
+        "stride": 6,
+        "frames": 2,
+        "max_abs": 5.960464477539063e-08
+      },
+      {
+        "stride": 6,
+        "frames": 5,
+        "max_abs": 5.960464477539063e-08
+      },
+      {
+        "stride": 8,
+        "frames": 0,
+        "max_abs": 0.0
+      },
+      {
+        "stride": 8,
+        "frames": 1,
+        "max_abs": 5.960464477539063e-08
+      },
+      {
+        "stride": 8,
+        "frames": 2,
+        "max_abs": 5.960464477539063e-08
+      },
+      {
+        "stride": 8,
+        "frames": 5,
+        "max_abs": 1.1920928955078125e-07
+      }
+    ],
+    "tolerance_failures": [],
+    "unchanged_tolerances": true,
+    "sources_unchanged": true
+  },
+  "compile_counters_after_preparation": {
+    "unimplemented": {},
+    "stats": {
+      "calls_captured": 1100,
+      "unique_graphs": 2
+    },
+    "graph_break": {}
+  },
+  "compile_counters_after_qualification": {
+    "unimplemented": {},
+    "stats": {
+      "calls_captured": 1100,
+      "unique_graphs": 2
+    },
+    "graph_break": {}
+  }
+}

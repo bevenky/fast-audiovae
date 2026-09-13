@@ -1,0 +1,6467 @@
+{
+  "status": "passed",
+  "scope": "Read-only source/cache and saved-result arithmetic. No GPU execution.",
+  "files": {
+    "outputs/apple-gpu-v3/screen_transpose.py": "31fe15796d9468d785fa1d796eb89aca63e47ec2a9dd813c781aed42fea8e5d7",
+    "outputs/apple-gpu-v3/transpose-r1.json": "75895f22d62d74aaa8f56ce24776ca012171ce9ad223ad9d209efdfde8e217cd",
+    "outputs/apple-gpu-v3/shape-audit.json": "89778c129137e7cf13848c7448e35191155887a1c7eb276b57898cd9c0822f5e",
+    "outputs/apple-gpu-v2/experiment.py": "aac9c4bb76bf555a502212f1cce2e841d271c9421572ca7ca220031825e26253",
+    "outputs/apple-gpu-v2/mps_decoder_before.py": "72d51d8052d8376186730fb4cd2a0e5770eb717b37fb2a5deecca2f3ac689890"
+  },
+  "qualification": {
+    "run_status": "passed",
+    "compiler_counters_unchanged": true,
+    "script_matches_receipt": true
+  },
+  "wrappers": {
+    "40": {
+      "path": "outputs/apple-gpu-v2/inductor-cache/cd/ccdusqpxcjnjtuyl6c43jyq6hzoymzjmkrhkfbexpvu3jmwcgrnd.py",
+      "sha256": "c5c44918dd7d3edbe75d2bea92ca7c3c2b0dde4a7e923cc22af957dedd1e8079",
+      "events": [
+        {
+          "kind": "convolution",
+          "line": 2056,
+          "input": "buf0",
+          "input_shape": [
+            1,
+            64,
+            7
+          ],
+          "weight": "arg2_1",
+          "weight_shape": [
+            64,
+            1,
+            7
+          ],
+          "output": "buf1",
+          "stride": [
+            1
+          ],
+          "padding": [
+            0
+          ],
+          "dilation": [
+            1
+          ],
+          "transposed": false,
+          "output_padding": [
+            0
+          ],
+          "groups": 64,
+          "bias": null,
+          "operation": "stem.depthwise",
+          "original_type": "depthwise",
+          "logical_macs": 448
+        },
+        {
+          "kind": "mm",
+          "line": 2082,
+          "A": "reinterpret_tensor(arg4_1, (2048, 64), (64, 1), 0)",
+          "B": "reinterpret_tensor(buf2, (64, 1), (1, 0), 0)",
+          "A_shape": [
+            2048,
+            64
+          ],
+          "A_strides": [
+            64,
+            1
+          ],
+          "B_shape": [
+            64,
+            1
+          ],
+          "B_strides": [
+            1,
+            0
+          ],
+          "output": "buf3",
+          "output_shape": [
+            2048,
+            1
+          ],
+          "output_strides": [
+            1,
+            1
+          ],
+          "macs": 131072,
+          "operation": "stem.pointwise",
+          "original_type": "pointwise",
+          "logical_macs": 131072
+        },
+        {
+          "kind": "mm",
+          "line": 2103,
+          "A": "arg11_1",
+          "B": "reinterpret_tensor(buf6, (2048, 2), (2, 1), 0)",
+          "A_shape": [
+            16384,
+            2048
+          ],
+          "A_strides": [
+            2048,
+            1
+          ],
+          "B_shape": [
+            2048,
+            2
+          ],
+          "B_strides": [
+            2,
+            1
+          ],
+          "output": "buf7",
+          "output_shape": [
+            16384,
+            2
+          ],
+          "output_strides": [
+            2,
+            1
+          ],
+          "macs": 67108864,
+          "operation": "stage0.transpose",
+          "original_type": "transpose",
+          "logical_macs": 67108864
+        },
+        {
+          "kind": "convolution",
+          "line": 2116,
+          "input": "buf8",
+          "input_shape": [
+            1,
+            1024,
+            14
+          ],
+          "weight": "arg16_1",
+          "weight_shape": [
+            1024,
+            1,
+            7
+          ],
+          "output": "buf9",
+          "stride": [
+            1
+          ],
+          "padding": [
+            0
+          ],
+          "dilation": [
+            1
+          ],
+          "transposed": false,
+          "output_padding": [
+            0
+          ],
+          "groups": 1024,
+          "bias": null,
+          "operation": "stage0.residual0.depthwise",
+          "original_type": "depthwise",
+          "logical_macs": 57344
+        },
+        {
+          "kind": "mm",
+          "line": 2129,
+          "A": "reinterpret_tensor(arg20_1, (1024, 1024), (1024, 1), 0)",
+          "B": "reinterpret_tensor(buf10, (1024, 8), (8, 1), 0)",
+          "A_shape": [
+            1024,
+            1024
+          ],
+          "A_strides": [
+            1024,
+            1
+          ],
+          "B_shape": [
+            1024,
+            8
+          ],
+          "B_strides": [
+            8,
+            1
+          ],
+          "output": "buf11",
+          "output_shape": [
+            1024,
+            8
+          ],
+          "output_strides": [
+            8,
+            1
+          ],
+          "macs": 8388608,
+          "operation": "stage0.residual0.pointwise",
+          "original_type": "pointwise",
+          "logical_macs": 8388608
+        },
+        {
+          "kind": "convolution",
+          "line": 2146,
+          "input": "buf13",
+          "input_shape": [
+            1,
+            1024,
+            26
+          ],
+          "weight": "arg25_1",
+          "weight_shape": [
+            1024,
+            1,
+            7
+          ],
+          "output": "buf14",
+          "stride": [
+            1
+          ],
+          "padding": [
+            0
+          ],
+          "dilation": [
+            3
+          ],
+          "transposed": false,
+          "output_padding": [
+            0
+          ],
+          "groups": 1024,
+          "bias": null,
+          "operation": "stage0.residual1.depthwise",
+          "original_type": "depthwise",
+          "logical_macs": 57344
+        },
+        {
+          "kind": "mm",
+          "line": 2161,
+          "A": "reinterpret_tensor(arg29_1, (1024, 1024), (1024, 1), 0)",
+          "B": "reinterpret_tensor(buf15, (1024, 8), (8, 1), 0)",
+          "A_shape": [
+            1024,
+            1024
+          ],
+          "A_strides": [
+            1024,
+            1
+          ],
+          "B_shape": [
+            1024,
+            8
+          ],
+          "B_strides": [
+            8,
+            1
+          ],
+          "output": "buf16",
+          "output_shape": [
+            1024,
+            8
+          ],
+          "output_strides": [
+            8,
+            1
+          ],
+          "macs": 8388608,
+          "operation": "stage0.residual1.pointwise",
+          "original_type": "pointwise",
+          "logical_macs": 8388608
+        },
+        {
+          "kind": "convolution",
+          "line": 2172,
+          "input": "buf17",
+          "input_shape": [
+            1,
+            1024,
+            62
+          ],
+          "weight": "arg34_1",
+          "weight_shape": [
+            1024,
+            1,
+            7
+          ],
+          "output": "buf18",
+          "stride": [
+            1
+          ],
+          "padding": [
+            0
+          ],
+          "dilation": [
+            9
+          ],
+          "transposed": false,
+          "output_padding": [
+            0
+          ],
+          "groups": 1024,
+          "bias": null,
+          "operation": "stage0.residual2.depthwise",
+          "original_type": "depthwise",
+          "logical_macs": 57344
+        },
+        {
+          "kind": "mm",
+          "line": 2184,
+          "A": "reinterpret_tensor(arg38_1, (1024, 1024), (1024, 1), 0)",
+          "B": "reinterpret_tensor(buf19, (1024, 8), (8, 1), 0)",
+          "A_shape": [
+            1024,
+            1024
+          ],
+          "A_strides": [
+            1024,
+            1
+          ],
+          "B_shape": [
+            1024,
+            8
+          ],
+          "B_strides": [
+            8,
+            1
+          ],
+          "output": "buf20",
+          "output_shape": [
+            1024,
+            8
+          ],
+          "output_strides": [
+            8,
+            1
+          ],
+          "macs": 8388608,
+          "operation": "stage0.residual2.pointwise",
+          "original_type": "pointwise",
+          "logical_macs": 8388608
+        },
+        {
+          "kind": "mm",
+          "line": 2209,
+          "A": "arg45_1",
+          "B": "reinterpret_tensor(buf24, (1024, 9), (9, 1), 0)",
+          "A_shape": [
+            6144,
+            1024
+          ],
+          "A_strides": [
+            1024,
+            1
+          ],
+          "B_shape": [
+            1024,
+            9
+          ],
+          "B_strides": [
+            9,
+            1
+          ],
+          "output": "buf25",
+          "output_shape": [
+            6144,
+            9
+          ],
+          "output_strides": [
+            9,
+            1
+          ],
+          "macs": 56623104,
+          "operation": "stage1.transpose",
+          "original_type": "transpose",
+          "logical_macs": 56623104
+        },
+        {
+          "kind": "convolution",
+          "line": 2222,
+          "input": "buf26",
+          "input_shape": [
+            1,
+            512,
+            54
+          ],
+          "weight": "arg50_1",
+          "weight_shape": [
+            512,
+            1,
+            7
+          ],
+          "output": "buf27",
+          "stride": [
+            1
+          ],
+          "padding": [
+            0
+          ],
+          "dilation": [
+            1
+          ],
+          "transposed": false,
+          "output_padding": [
+            0
+          ],
+          "groups": 512,
+          "bias": null,
+          "operation": "stage1.residual0.depthwise",
+          "original_type": "depthwise",
+          "logical_macs": 172032
+        },
+        {
+          "kind": "mm",
+          "line": 2234,
+          "A": "reinterpret_tensor(arg54_1, (512, 512), (512, 1), 0)",
+          "B": "reinterpret_tensor(buf28, (512, 48), (48, 1), 0)",
+          "A_shape": [
+            512,
+            512
+          ],
+          "A_strides": [
+            512,
+            1
+          ],
+          "B_shape": [
+            512,
+            48
+          ],
+          "B_strides": [
+            48,
+            1
+          ],
+          "output": "buf29",
+          "output_shape": [
+            512,
+            48
+          ],
+          "output_strides": [
+            48,
+            1
+          ],
+          "macs": 12582912,
+          "operation": "stage1.residual0.pointwise",
+          "original_type": "pointwise",
+          "logical_macs": 12582912
+        },
+        {
+          "kind": "convolution",
+          "line": 2253,
+          "input": "buf31",
+          "input_shape": [
+            1,
+            512,
+            66
+          ],
+          "weight": "arg59_1",
+          "weight_shape": [
+            512,
+            1,
+            7
+          ],
+          "output": "buf32",
+          "stride": [
+            1
+          ],
+          "padding": [
+            0
+          ],
+          "dilation": [
+            3
+          ],
+          "transposed": false,
+          "output_padding": [
+            0
+          ],
+          "groups": 512,
+          "bias": null,
+          "operation": "stage1.residual1.depthwise",
+          "original_type": "depthwise",
+          "logical_macs": 172032
+        },
+        {
+          "kind": "mm",
+          "line": 2266,
+          "A": "reinterpret_tensor(arg63_1, (512, 512), (512, 1), 0)",
+          "B": "reinterpret_tensor(buf33, (512, 48), (48, 1), 0)",
+          "A_shape": [
+            512,
+            512
+          ],
+          "A_strides": [
+            512,
+            1
+          ],
+          "B_shape": [
+            512,
+            48
+          ],
+          "B_strides": [
+            48,
+            1
+          ],
+          "output": "buf34",
+          "output_shape": [
+            512,
+            48
+          ],
+          "output_strides": [
+            48,
+            1
+          ],
+          "macs": 12582912,
+          "operation": "stage1.residual1.pointwise",
+          "original_type": "pointwise",
+          "logical_macs": 12582912
+        },
+        {
+          "kind": "convolution",
+          "line": 2277,
+          "input": "buf35",
+          "input_shape": [
+            1,
+            512,
+            102
+          ],
+          "weight": "arg68_1",
+          "weight_shape": [
+            512,
+            1,
+            7
+          ],
+          "output": "buf36",
+          "stride": [
+            1
+          ],
+          "padding": [
+            0
+          ],
+          "dilation": [
+            9
+          ],
+          "transposed": false,
+          "output_padding": [
+            0
+          ],
+          "groups": 512,
+          "bias": null,
+          "operation": "stage1.residual2.depthwise",
+          "original_type": "depthwise",
+          "logical_macs": 172032
+        },
+        {
+          "kind": "mm",
+          "line": 2289,
+          "A": "reinterpret_tensor(arg72_1, (512, 512), (512, 1), 0)",
+          "B": "reinterpret_tensor(buf37, (512, 48), (48, 1), 0)",
+          "A_shape": [
+            512,
+            512
+          ],
+          "A_strides": [
+            512,
+            1
+          ],
+          "B_shape": [
+            512,
+            48
+          ],
+          "B_strides": [
+            48,
+            1
+          ],
+          "output": "buf38",
+          "output_shape": [
+            512,
+            48
+          ],
+          "output_strides": [
+            48,
+            1
+          ],
+          "macs": 12582912,
+          "operation": "stage1.residual2.pointwise",
+          "original_type": "pointwise",
+          "logical_macs": 12582912
+        },
+        {
+          "kind": "mm",
+          "line": 2314,
+          "A": "arg79_1",
+          "B": "reinterpret_tensor(buf42, (512, 49), (49, 1), 0)",
+          "A_shape": [
+            2560,
+            512
+          ],
+          "A_strides": [
+            512,
+            1
+          ],
+          "B_shape": [
+            512,
+            49
+          ],
+          "B_strides": [
+            49,
+            1
+          ],
+          "output": "buf43",
+          "output_shape": [
+            2560,
+            49
+          ],
+          "output_strides": [
+            49,
+            1
+          ],
+          "macs": 64225280,
+          "operation": "stage2.transpose",
+          "original_type": "transpose",
+          "logical_macs": 64225280
+        },
+        {
+          "kind": "convolution",
+          "line": 2328,
+          "input": "buf44",
+          "input_shape": [
+            1,
+            256,
+            246
+          ],
+          "weight": "arg84_1",
+          "weight_shape": [
+            256,
+            1,
+            7
+          ],
+          "output": "buf45",
+          "stride": [
+            1
+          ],
+          "padding": [
+            0
+          ],
+          "dilation": [
+            1
+          ],
+          "transposed": false,
+          "output_padding": [
+            0
+          ],
+          "groups": 256,
+          "bias": null,
+          "operation": "stage2.residual0.depthwise",
+          "original_type": "depthwise",
+          "logical_macs": 430080
+        },
+        {
+          "kind": "mm",
+          "line": 2341,
+          "A": "reinterpret_tensor(arg88_1, (256, 256), (256, 1), 0)",
+          "B": "reinterpret_tensor(buf46, (256, 240), (240, 1), 0)",
+          "A_shape": [
+            256,
+            256
+          ],
+          "A_strides": [
+            256,
+            1
+          ],
+          "B_shape": [
+            256,
+            240
+          ],
+          "B_strides": [
+            240,
+            1
+          ],
+          "output": "buf47",
+          "output_shape": [
+            256,
+            240
+          ],
+          "output_strides": [
+            240,
+            1
+          ],
+          "macs": 15728640,
+          "operation": "stage2.residual0.pointwise",
+          "original_type": "pointwise",
+          "logical_macs": 15728640
+        },
+        {
+          "kind": "convolution",
+          "line": 2360,
+          "input": "buf49",
+          "input_shape": [
+            1,
+            256,
+            258
+          ],
+          "weight": "arg93_1",
+          "weight_shape": [
+            256,
+            1,
+            7
+          ],
+          "output": "buf50",
+          "stride": [
+            1
+          ],
+          "padding": [
+            0
+          ],
+          "dilation": [
+            3
+          ],
+          "transposed": false,
+          "output_padding": [
+            0
+          ],
+          "groups": 256,
+          "bias": null,
+          "operation": "stage2.residual1.depthwise",
+          "original_type": "depthwise",
+          "logical_macs": 430080
+        },
+        {
+          "kind": "mm",
+          "line": 2373,
+          "A": "reinterpret_tensor(arg97_1, (256, 256), (256, 1), 0)",
+          "B": "reinterpret_tensor(buf51, (256, 240), (240, 1), 0)",
+          "A_shape": [
+            256,
+            256
+          ],
+          "A_strides": [
+            256,
+            1
+          ],
+          "B_shape": [
+            256,
+            240
+          ],
+          "B_strides": [
+            240,
+            1
+          ],
+          "output": "buf52",
+          "output_shape": [
+            256,
+            240
+          ],
+          "output_strides": [
+            240,
+            1
+          ],
+          "macs": 15728640,
+          "operation": "stage2.residual1.pointwise",
+          "original_type": "pointwise",
+          "logical_macs": 15728640
+        },
+        {
+          "kind": "convolution",
+          "line": 2386,
+          "input": "buf53",
+          "input_shape": [
+            1,
+            256,
+            294
+          ],
+          "weight": "arg102_1",
+          "weight_shape": [
+            256,
+            1,
+            7
+          ],
+          "output": "buf54",
+          "stride": [
+            1
+          ],
+          "padding": [
+            0
+          ],
+          "dilation": [
+            9
+          ],
+          "transposed": false,
+          "output_padding": [
+            0
+          ],
+          "groups": 256,
+          "bias": null,
+          "operation": "stage2.residual2.depthwise",
+          "original_type": "depthwise",
+          "logical_macs": 430080
+        },
+        {
+          "kind": "mm",
+          "line": 2399,
+          "A": "reinterpret_tensor(arg106_1, (256, 256), (256, 1), 0)",
+          "B": "reinterpret_tensor(buf55, (256, 240), (240, 1), 0)",
+          "A_shape": [
+            256,
+            256
+          ],
+          "A_strides": [
+            256,
+            1
+          ],
+          "B_shape": [
+            256,
+            240
+          ],
+          "B_strides": [
+            240,
+            1
+          ],
+          "output": "buf56",
+          "output_shape": [
+            256,
+            240
+          ],
+          "output_strides": [
+            240,
+            1
+          ],
+          "macs": 15728640,
+          "operation": "stage2.residual2.pointwise",
+          "original_type": "pointwise",
+          "logical_macs": 15728640
+        },
+        {
+          "kind": "mm",
+          "line": 2420,
+          "A": "arg113_1",
+          "B": "reinterpret_tensor(buf60, (256, 241), (241, 1), 0)",
+          "A_shape": [
+            512,
+            256
+          ],
+          "A_strides": [
+            256,
+            1
+          ],
+          "B_shape": [
+            256,
+            241
+          ],
+          "B_strides": [
+            241,
+            1
+          ],
+          "output": "buf61",
+          "output_shape": [
+            512,
+            241
+          ],
+          "output_strides": [
+            241,
+            1
+          ],
+          "macs": 31588352,
+          "operation": "stage3.transpose",
+          "original_type": "transpose",
+          "logical_macs": 31588352
+        },
+        {
+          "kind": "convolution",
+          "line": 2434,
+          "input": "buf62",
+          "input_shape": [
+            1,
+            128,
+            486
+          ],
+          "weight": "arg118_1",
+          "weight_shape": [
+            128,
+            1,
+            7
+          ],
+          "output": "buf63",
+          "stride": [
+            1
+          ],
+          "padding": [
+            0
+          ],
+          "dilation": [
+            1
+          ],
+          "transposed": false,
+          "output_padding": [
+            0
+          ],
+          "groups": 128,
+          "bias": null,
+          "operation": "stage3.residual0.depthwise",
+          "original_type": "depthwise",
+          "logical_macs": 430080
+        },
+        {
+          "kind": "mm",
+          "line": 2447,
+          "A": "reinterpret_tensor(arg122_1, (128, 128), (128, 1), 0)",
+          "B": "reinterpret_tensor(buf64, (128, 480), (480, 1), 0)",
+          "A_shape": [
+            128,
+            128
+          ],
+          "A_strides": [
+            128,
+            1
+          ],
+          "B_shape": [
+            128,
+            480
+          ],
+          "B_strides": [
+            480,
+            1
+          ],
+          "output": "buf65",
+          "output_shape": [
+            128,
+            480
+          ],
+          "output_strides": [
+            480,
+            1
+          ],
+          "macs": 7864320,
+          "operation": "stage3.residual0.pointwise",
+          "original_type": "pointwise",
+          "logical_macs": 7864320
+        },
+        {
+          "kind": "convolution",
+          "line": 2466,
+          "input": "buf67",
+          "input_shape": [
+            1,
+            128,
+            498
+          ],
+          "weight": "arg127_1",
+          "weight_shape": [
+            128,
+            1,
+            7
+          ],
+          "output": "buf68",
+          "stride": [
+            1
+          ],
+          "padding": [
+            0
+          ],
+          "dilation": [
+            3
+          ],
+          "transposed": false,
+          "output_padding": [
+            0
+          ],
+          "groups": 128,
+          "bias": null,
+          "operation": "stage3.residual1.depthwise",
+          "original_type": "depthwise",
+          "logical_macs": 430080
+        },
+        {
+          "kind": "mm",
+          "line": 2479,
+          "A": "reinterpret_tensor(arg131_1, (128, 128), (128, 1), 0)",
+          "B": "reinterpret_tensor(buf69, (128, 480), (480, 1), 0)",
+          "A_shape": [
+            128,
+            128
+          ],
+          "A_strides": [
+            128,
+            1
+          ],
+          "B_shape": [
+            128,
+            480
+          ],
+          "B_strides": [
+            480,
+            1
+          ],
+          "output": "buf70",
+          "output_shape": [
+            128,
+            480
+          ],
+          "output_strides": [
+            480,
+            1
+          ],
+          "macs": 7864320,
+          "operation": "stage3.residual1.pointwise",
+          "original_type": "pointwise",
+          "logical_macs": 7864320
+        },
+        {
+          "kind": "convolution",
+          "line": 2493,
+          "input": "buf71",
+          "input_shape": [
+            1,
+            128,
+            534
+          ],
+          "weight": "arg136_1",
+          "weight_shape": [
+            128,
+            1,
+            7
+          ],
+          "output": "buf72",
+          "stride": [
+            1
+          ],
+          "padding": [
+            0
+          ],
+          "dilation": [
+            9
+          ],
+          "transposed": false,
+          "output_padding": [
+            0
+          ],
+          "groups": 128,
+          "bias": null,
+          "operation": "stage3.residual2.depthwise",
+          "original_type": "depthwise",
+          "logical_macs": 430080
+        },
+        {
+          "kind": "mm",
+          "line": 2506,
+          "A": "reinterpret_tensor(arg140_1, (128, 128), (128, 1), 0)",
+          "B": "reinterpret_tensor(buf73, (128, 480), (480, 1), 0)",
+          "A_shape": [
+            128,
+            128
+          ],
+          "A_strides": [
+            128,
+            1
+          ],
+          "B_shape": [
+            128,
+            480
+          ],
+          "B_strides": [
+            480,
+            1
+          ],
+          "output": "buf74",
+          "output_shape": [
+            128,
+            480
+          ],
+          "output_strides": [
+            480,
+            1
+          ],
+          "macs": 7864320,
+          "operation": "stage3.residual2.pointwise",
+          "original_type": "pointwise",
+          "logical_macs": 7864320
+        },
+        {
+          "kind": "mm",
+          "line": 2527,
+          "A": "arg147_1",
+          "B": "reinterpret_tensor(buf78, (128, 481), (481, 1), 0)",
+          "A_shape": [
+            256,
+            128
+          ],
+          "A_strides": [
+            128,
+            1
+          ],
+          "B_shape": [
+            128,
+            481
+          ],
+          "B_strides": [
+            481,
+            1
+          ],
+          "output": "buf79",
+          "output_shape": [
+            256,
+            481
+          ],
+          "output_strides": [
+            481,
+            1
+          ],
+          "macs": 15761408,
+          "operation": "stage4.transpose",
+          "original_type": "transpose",
+          "logical_macs": 15761408
+        },
+        {
+          "kind": "convolution",
+          "line": 2541,
+          "input": "buf80",
+          "input_shape": [
+            1,
+            64,
+            966
+          ],
+          "weight": "arg152_1",
+          "weight_shape": [
+            64,
+            1,
+            7
+          ],
+          "output": "buf81",
+          "stride": [
+            1
+          ],
+          "padding": [
+            0
+          ],
+          "dilation": [
+            1
+          ],
+          "transposed": false,
+          "output_padding": [
+            0
+          ],
+          "groups": 64,
+          "bias": null,
+          "operation": "stage4.residual0.depthwise",
+          "original_type": "depthwise",
+          "logical_macs": 430080
+        },
+        {
+          "kind": "mm",
+          "line": 2554,
+          "A": "reinterpret_tensor(arg156_1, (64, 64), (64, 1), 0)",
+          "B": "reinterpret_tensor(buf82, (64, 960), (960, 1), 0)",
+          "A_shape": [
+            64,
+            64
+          ],
+          "A_strides": [
+            64,
+            1
+          ],
+          "B_shape": [
+            64,
+            960
+          ],
+          "B_strides": [
+            960,
+            1
+          ],
+          "output": "buf83",
+          "output_shape": [
+            64,
+            960
+          ],
+          "output_strides": [
+            960,
+            1
+          ],
+          "macs": 3932160,
+          "operation": "stage4.residual0.pointwise",
+          "original_type": "pointwise",
+          "logical_macs": 3932160
+        },
+        {
+          "kind": "convolution",
+          "line": 2573,
+          "input": "buf85",
+          "input_shape": [
+            1,
+            64,
+            978
+          ],
+          "weight": "arg161_1",
+          "weight_shape": [
+            64,
+            1,
+            7
+          ],
+          "output": "buf86",
+          "stride": [
+            1
+          ],
+          "padding": [
+            0
+          ],
+          "dilation": [
+            3
+          ],
+          "transposed": false,
+          "output_padding": [
+            0
+          ],
+          "groups": 64,
+          "bias": null,
+          "operation": "stage4.residual1.depthwise",
+          "original_type": "depthwise",
+          "logical_macs": 430080
+        },
+        {
+          "kind": "mm",
+          "line": 2586,
+          "A": "reinterpret_tensor(arg165_1, (64, 64), (64, 1), 0)",
+          "B": "reinterpret_tensor(buf87, (64, 960), (960, 1), 0)",
+          "A_shape": [
+            64,
+            64
+          ],
+          "A_strides": [
+            64,
+            1
+          ],
+          "B_shape": [
+            64,
+            960
+          ],
+          "B_strides": [
+            960,
+            1
+          ],
+          "output": "buf88",
+          "output_shape": [
+            64,
+            960
+          ],
+          "output_strides": [
+            960,
+            1
+          ],
+          "macs": 3932160,
+          "operation": "stage4.residual1.pointwise",
+          "original_type": "pointwise",
+          "logical_macs": 3932160
+        },
+        {
+          "kind": "convolution",
+          "line": 2600,
+          "input": "buf89",
+          "input_shape": [
+            1,
+            64,
+            1014
+          ],
+          "weight": "arg170_1",
+          "weight_shape": [
+            64,
+            1,
+            7
+          ],
+          "output": "buf90",
+          "stride": [
+            1
+          ],
+          "padding": [
+            0
+          ],
+          "dilation": [
+            9
+          ],
+          "transposed": false,
+          "output_padding": [
+            0
+          ],
+          "groups": 64,
+          "bias": null,
+          "operation": "stage4.residual2.depthwise",
+          "original_type": "depthwise",
+          "logical_macs": 430080
+        },
+        {
+          "kind": "mm",
+          "line": 2613,
+          "A": "reinterpret_tensor(arg174_1, (64, 64), (64, 1), 0)",
+          "B": "reinterpret_tensor(buf91, (64, 960), (960, 1), 0)",
+          "A_shape": [
+            64,
+            64
+          ],
+          "A_strides": [
+            64,
+            1
+          ],
+          "B_shape": [
+            64,
+            960
+          ],
+          "B_strides": [
+            960,
+            1
+          ],
+          "output": "buf92",
+          "output_shape": [
+            64,
+            960
+          ],
+          "output_strides": [
+            960,
+            1
+          ],
+          "macs": 3932160,
+          "operation": "stage4.residual2.pointwise",
+          "original_type": "pointwise",
+          "logical_macs": 3932160
+        },
+        {
+          "kind": "mm",
+          "line": 2635,
+          "A": "arg181_1",
+          "B": "reinterpret_tensor(buf96, (64, 961), (961, 1), 0)",
+          "A_shape": [
+            128,
+            64
+          ],
+          "A_strides": [
+            64,
+            1
+          ],
+          "B_shape": [
+            64,
+            961
+          ],
+          "B_strides": [
+            961,
+            1
+          ],
+          "output": "buf97",
+          "output_shape": [
+            128,
+            961
+          ],
+          "output_strides": [
+            961,
+            1
+          ],
+          "macs": 7872512,
+          "operation": "stage5.transpose",
+          "original_type": "transpose",
+          "logical_macs": 7872512
+        },
+        {
+          "kind": "convolution",
+          "line": 2649,
+          "input": "buf98",
+          "input_shape": [
+            1,
+            32,
+            1926
+          ],
+          "weight": "arg186_1",
+          "weight_shape": [
+            32,
+            1,
+            7
+          ],
+          "output": "buf99",
+          "stride": [
+            1
+          ],
+          "padding": [
+            0
+          ],
+          "dilation": [
+            1
+          ],
+          "transposed": false,
+          "output_padding": [
+            0
+          ],
+          "groups": 32,
+          "bias": null,
+          "operation": "stage5.residual0.depthwise",
+          "original_type": "depthwise",
+          "logical_macs": 430080
+        },
+        {
+          "kind": "mm",
+          "line": 2662,
+          "A": "reinterpret_tensor(arg190_1, (32, 32), (32, 1), 0)",
+          "B": "reinterpret_tensor(buf100, (32, 1920), (1920, 1), 0)",
+          "A_shape": [
+            32,
+            32
+          ],
+          "A_strides": [
+            32,
+            1
+          ],
+          "B_shape": [
+            32,
+            1920
+          ],
+          "B_strides": [
+            1920,
+            1
+          ],
+          "output": "buf101",
+          "output_shape": [
+            32,
+            1920
+          ],
+          "output_strides": [
+            1920,
+            1
+          ],
+          "macs": 1966080,
+          "operation": "stage5.residual0.pointwise",
+          "original_type": "pointwise",
+          "logical_macs": 1966080
+        },
+        {
+          "kind": "convolution",
+          "line": 2681,
+          "input": "buf103",
+          "input_shape": [
+            1,
+            32,
+            1938
+          ],
+          "weight": "arg195_1",
+          "weight_shape": [
+            32,
+            1,
+            7
+          ],
+          "output": "buf104",
+          "stride": [
+            1
+          ],
+          "padding": [
+            0
+          ],
+          "dilation": [
+            3
+          ],
+          "transposed": false,
+          "output_padding": [
+            0
+          ],
+          "groups": 32,
+          "bias": null,
+          "operation": "stage5.residual1.depthwise",
+          "original_type": "depthwise",
+          "logical_macs": 430080
+        },
+        {
+          "kind": "mm",
+          "line": 2694,
+          "A": "reinterpret_tensor(arg199_1, (32, 32), (32, 1), 0)",
+          "B": "reinterpret_tensor(buf105, (32, 1920), (1920, 1), 0)",
+          "A_shape": [
+            32,
+            32
+          ],
+          "A_strides": [
+            32,
+            1
+          ],
+          "B_shape": [
+            32,
+            1920
+          ],
+          "B_strides": [
+            1920,
+            1
+          ],
+          "output": "buf106",
+          "output_shape": [
+            32,
+            1920
+          ],
+          "output_strides": [
+            1920,
+            1
+          ],
+          "macs": 1966080,
+          "operation": "stage5.residual1.pointwise",
+          "original_type": "pointwise",
+          "logical_macs": 1966080
+        },
+        {
+          "kind": "convolution",
+          "line": 2708,
+          "input": "buf107",
+          "input_shape": [
+            1,
+            32,
+            1974
+          ],
+          "weight": "arg204_1",
+          "weight_shape": [
+            32,
+            1,
+            7
+          ],
+          "output": "buf108",
+          "stride": [
+            1
+          ],
+          "padding": [
+            0
+          ],
+          "dilation": [
+            9
+          ],
+          "transposed": false,
+          "output_padding": [
+            0
+          ],
+          "groups": 32,
+          "bias": null,
+          "operation": "stage5.residual2.depthwise",
+          "original_type": "depthwise",
+          "logical_macs": 430080
+        },
+        {
+          "kind": "mm",
+          "line": 2721,
+          "A": "reinterpret_tensor(arg208_1, (32, 32), (32, 1), 0)",
+          "B": "reinterpret_tensor(buf109, (32, 1920), (1920, 1), 0)",
+          "A_shape": [
+            32,
+            32
+          ],
+          "A_strides": [
+            32,
+            1
+          ],
+          "B_shape": [
+            32,
+            1920
+          ],
+          "B_strides": [
+            1920,
+            1
+          ],
+          "output": "buf110",
+          "output_shape": [
+            32,
+            1920
+          ],
+          "output_strides": [
+            1920,
+            1
+          ],
+          "macs": 1966080,
+          "operation": "stage5.residual2.pointwise",
+          "original_type": "pointwise",
+          "logical_macs": 1966080
+        },
+        {
+          "kind": "convolution",
+          "line": 2743,
+          "input": "buf112",
+          "input_shape": [
+            1,
+            32,
+            1926
+          ],
+          "weight": "arg213_1",
+          "weight_shape": [
+            1,
+            32,
+            7
+          ],
+          "output": "buf113",
+          "stride": [
+            1
+          ],
+          "padding": [
+            0
+          ],
+          "dilation": [
+            1
+          ],
+          "transposed": false,
+          "output_padding": [
+            0
+          ],
+          "groups": 1,
+          "bias": null,
+          "operation": "final.convolution",
+          "original_type": "final_conv",
+          "logical_macs": 430080
+        }
+      ],
+      "metal_launches": [
+        {
+          "name": "generated_kernel_0",
+          "line": 2033
+        },
+        {
+          "name": "generated_kernel_1",
+          "line": 2039
+        },
+        {
+          "name": "generated_kernel_2",
+          "line": 2045
+        },
+        {
+          "name": "generated_kernel_3",
+          "line": 2051
+        },
+        {
+          "name": "generated_kernel_4",
+          "line": 2060
+        },
+        {
+          "name": "generated_kernel_5",
+          "line": 2064
+        },
+        {
+          "name": "generated_kernel_6",
+          "line": 2071
+        },
+        {
+          "name": "generated_kernel_7",
+          "line": 2077
+        },
+        {
+          "name": "generated_kernel_8",
+          "line": 2088
+        },
+        {
+          "name": "generated_kernel_9",
+          "line": 2098
+        },
+        {
+          "name": "generated_kernel_10",
+          "line": 2108
+        },
+        {
+          "name": "generated_kernel_11",
+          "line": 2113
+        },
+        {
+          "name": "generated_kernel_12",
+          "line": 2122
+        },
+        {
+          "name": "generated_kernel_13",
+          "line": 2133
+        },
+        {
+          "name": "generated_kernel_14",
+          "line": 2140
+        },
+        {
+          "name": "generated_kernel_15",
+          "line": 2150
+        },
+        {
+          "name": "generated_kernel_12",
+          "line": 2154
+        },
+        {
+          "name": "generated_kernel_16",
+          "line": 2166
+        },
+        {
+          "name": "generated_kernel_12",
+          "line": 2177
+        },
+        {
+          "name": "generated_kernel_17",
+          "line": 2189
+        },
+        {
+          "name": "generated_kernel_18",
+          "line": 2200
+        },
+        {
+          "name": "generated_kernel_19",
+          "line": 2203
+        },
+        {
+          "name": "generated_kernel_20",
+          "line": 2214
+        },
+        {
+          "name": "generated_kernel_21",
+          "line": 2219
+        },
+        {
+          "name": "generated_kernel_22",
+          "line": 2227
+        },
+        {
+          "name": "generated_kernel_23",
+          "line": 2238
+        },
+        {
+          "name": "generated_kernel_24",
+          "line": 2245
+        },
+        {
+          "name": "generated_kernel_25",
+          "line": 2250
+        },
+        {
+          "name": "generated_kernel_22",
+          "line": 2259
+        },
+        {
+          "name": "generated_kernel_26",
+          "line": 2271
+        },
+        {
+          "name": "generated_kernel_22",
+          "line": 2282
+        },
+        {
+          "name": "generated_kernel_27",
+          "line": 2293
+        },
+        {
+          "name": "generated_kernel_28",
+          "line": 2297
+        },
+        {
+          "name": "generated_kernel_29",
+          "line": 2308
+        },
+        {
+          "name": "generated_kernel_30",
+          "line": 2320
+        },
+        {
+          "name": "generated_kernel_31",
+          "line": 2325
+        },
+        {
+          "name": "generated_kernel_32",
+          "line": 2334
+        },
+        {
+          "name": "generated_kernel_33",
+          "line": 2345
+        },
+        {
+          "name": "generated_kernel_34",
+          "line": 2352
+        },
+        {
+          "name": "generated_kernel_35",
+          "line": 2357
+        },
+        {
+          "name": "generated_kernel_32",
+          "line": 2366
+        },
+        {
+          "name": "generated_kernel_36",
+          "line": 2378
+        },
+        {
+          "name": "generated_kernel_37",
+          "line": 2383
+        },
+        {
+          "name": "generated_kernel_32",
+          "line": 2392
+        },
+        {
+          "name": "generated_kernel_38",
+          "line": 2404
+        },
+        {
+          "name": "generated_kernel_39",
+          "line": 2414
+        },
+        {
+          "name": "generated_kernel_40",
+          "line": 2426
+        },
+        {
+          "name": "generated_kernel_41",
+          "line": 2431
+        },
+        {
+          "name": "generated_kernel_42",
+          "line": 2440
+        },
+        {
+          "name": "generated_kernel_43",
+          "line": 2451
+        },
+        {
+          "name": "generated_kernel_44",
+          "line": 2458
+        },
+        {
+          "name": "generated_kernel_45",
+          "line": 2463
+        },
+        {
+          "name": "generated_kernel_42",
+          "line": 2472
+        },
+        {
+          "name": "generated_kernel_46",
+          "line": 2485
+        },
+        {
+          "name": "generated_kernel_47",
+          "line": 2490
+        },
+        {
+          "name": "generated_kernel_42",
+          "line": 2499
+        },
+        {
+          "name": "generated_kernel_48",
+          "line": 2511
+        },
+        {
+          "name": "generated_kernel_49",
+          "line": 2521
+        },
+        {
+          "name": "generated_kernel_50",
+          "line": 2533
+        },
+        {
+          "name": "generated_kernel_51",
+          "line": 2538
+        },
+        {
+          "name": "generated_kernel_52",
+          "line": 2547
+        },
+        {
+          "name": "generated_kernel_53",
+          "line": 2558
+        },
+        {
+          "name": "generated_kernel_54",
+          "line": 2565
+        },
+        {
+          "name": "generated_kernel_55",
+          "line": 2570
+        },
+        {
+          "name": "generated_kernel_52",
+          "line": 2579
+        },
+        {
+          "name": "generated_kernel_56",
+          "line": 2592
+        },
+        {
+          "name": "generated_kernel_57",
+          "line": 2597
+        },
+        {
+          "name": "generated_kernel_52",
+          "line": 2606
+        },
+        {
+          "name": "generated_kernel_58",
+          "line": 2618
+        },
+        {
+          "name": "generated_kernel_59",
+          "line": 2629
+        },
+        {
+          "name": "generated_kernel_60",
+          "line": 2641
+        },
+        {
+          "name": "generated_kernel_61",
+          "line": 2646
+        },
+        {
+          "name": "generated_kernel_62",
+          "line": 2655
+        },
+        {
+          "name": "generated_kernel_63",
+          "line": 2666
+        },
+        {
+          "name": "generated_kernel_64",
+          "line": 2673
+        },
+        {
+          "name": "generated_kernel_65",
+          "line": 2678
+        },
+        {
+          "name": "generated_kernel_62",
+          "line": 2687
+        },
+        {
+          "name": "generated_kernel_66",
+          "line": 2700
+        },
+        {
+          "name": "generated_kernel_67",
+          "line": 2705
+        },
+        {
+          "name": "generated_kernel_62",
+          "line": 2714
+        },
+        {
+          "name": "generated_kernel_68",
+          "line": 2725
+        },
+        {
+          "name": "generated_kernel_69",
+          "line": 2734
+        },
+        {
+          "name": "generated_kernel_61",
+          "line": 2740
+        },
+        {
+          "name": "generated_kernel_70",
+          "line": 2749
+        }
+      ],
+      "views": [
+        {
+          "name": "buf94",
+          "shape": [
+            1,
+            64,
+            1
+          ],
+          "strides": [
+            61504,
+            961,
+            1
+          ],
+          "line": 2032
+        },
+        {
+          "name": "buf76",
+          "shape": [
+            1,
+            128,
+            1
+          ],
+          "strides": [
+            61568,
+            481,
+            1
+          ],
+          "line": 2038
+        },
+        {
+          "name": "buf58",
+          "shape": [
+            1,
+            256,
+            1
+          ],
+          "strides": [
+            61696,
+            241,
+            1
+          ],
+          "line": 2044
+        },
+        {
+          "name": "buf40",
+          "shape": [
+            1,
+            512,
+            1
+          ],
+          "strides": [
+            25088,
+            49,
+            1
+          ],
+          "line": 2070
+        },
+        {
+          "name": "buf22",
+          "shape": [
+            1,
+            1024,
+            1
+          ],
+          "strides": [
+            9216,
+            9,
+            1
+          ],
+          "line": 2076
+        },
+        {
+          "name": "buf4",
+          "shape": [
+            1,
+            2048,
+            1
+          ],
+          "strides": [
+            4096,
+            2,
+            1
+          ],
+          "line": 2087
+        },
+        {
+          "name": "buf5",
+          "shape": [
+            1,
+            2048,
+            1
+          ],
+          "strides": [
+            4096,
+            2,
+            1
+          ],
+          "line": 2097
+        },
+        {
+          "name": "buf11",
+          "shape": [
+            1024,
+            8
+          ],
+          "strides": [
+            8,
+            1
+          ],
+          "line": 2127
+        },
+        {
+          "name": "buf15",
+          "shape": [
+            1,
+            1024,
+            8
+          ],
+          "strides": [
+            8192,
+            8,
+            1
+          ],
+          "line": 2153
+        },
+        {
+          "name": "buf16",
+          "shape": [
+            1024,
+            8
+          ],
+          "strides": [
+            8,
+            1
+          ],
+          "line": 2159
+        },
+        {
+          "name": "buf20",
+          "shape": [
+            1024,
+            8
+          ],
+          "strides": [
+            8,
+            1
+          ],
+          "line": 2182
+        },
+        {
+          "name": "buf23",
+          "shape": [
+            1,
+            1024,
+            8
+          ],
+          "strides": [
+            9216,
+            9,
+            1
+          ],
+          "line": 2188
+        },
+        {
+          "name": "buf29",
+          "shape": [
+            512,
+            48
+          ],
+          "strides": [
+            48,
+            1
+          ],
+          "line": 2232
+        },
+        {
+          "name": "buf121",
+          "shape": [
+            1,
+            512,
+            18
+          ],
+          "strides": [
+            9216,
+            18,
+            1
+          ],
+          "line": 2249
+        },
+        {
+          "name": "buf33",
+          "shape": [
+            1,
+            512,
+            48
+          ],
+          "strides": [
+            24576,
+            48,
+            1
+          ],
+          "line": 2258
+        },
+        {
+          "name": "buf34",
+          "shape": [
+            512,
+            48
+          ],
+          "strides": [
+            48,
+            1
+          ],
+          "line": 2264
+        },
+        {
+          "name": "buf38",
+          "shape": [
+            512,
+            48
+          ],
+          "strides": [
+            48,
+            1
+          ],
+          "line": 2287
+        },
+        {
+          "name": "buf41",
+          "shape": [
+            1,
+            512,
+            48
+          ],
+          "strides": [
+            25088,
+            49,
+            1
+          ],
+          "line": 2296
+        },
+        {
+          "name": "buf47",
+          "shape": [
+            256,
+            240
+          ],
+          "strides": [
+            240,
+            1
+          ],
+          "line": 2339
+        },
+        {
+          "name": "buf51",
+          "shape": [
+            1,
+            256,
+            240
+          ],
+          "strides": [
+            61440,
+            240,
+            1
+          ],
+          "line": 2365
+        },
+        {
+          "name": "buf52",
+          "shape": [
+            256,
+            240
+          ],
+          "strides": [
+            240,
+            1
+          ],
+          "line": 2371
+        },
+        {
+          "name": "buf56",
+          "shape": [
+            256,
+            240
+          ],
+          "strides": [
+            240,
+            1
+          ],
+          "line": 2397
+        },
+        {
+          "name": "buf59",
+          "shape": [
+            1,
+            256,
+            240
+          ],
+          "strides": [
+            61696,
+            241,
+            1
+          ],
+          "line": 2403
+        },
+        {
+          "name": "buf64",
+          "shape": [
+            1,
+            128,
+            480
+          ],
+          "strides": [
+            61440,
+            480,
+            1
+          ],
+          "line": 2439
+        },
+        {
+          "name": "buf65",
+          "shape": [
+            128,
+            480
+          ],
+          "strides": [
+            480,
+            1
+          ],
+          "line": 2445
+        },
+        {
+          "name": "buf69",
+          "shape": [
+            1,
+            128,
+            480
+          ],
+          "strides": [
+            61440,
+            480,
+            1
+          ],
+          "line": 2471
+        },
+        {
+          "name": "buf70",
+          "shape": [
+            128,
+            480
+          ],
+          "strides": [
+            480,
+            1
+          ],
+          "line": 2477
+        },
+        {
+          "name": "buf74",
+          "shape": [
+            128,
+            480
+          ],
+          "strides": [
+            480,
+            1
+          ],
+          "line": 2504
+        },
+        {
+          "name": "buf77",
+          "shape": [
+            1,
+            128,
+            480
+          ],
+          "strides": [
+            61568,
+            481,
+            1
+          ],
+          "line": 2510
+        },
+        {
+          "name": "buf82",
+          "shape": [
+            1,
+            64,
+            960
+          ],
+          "strides": [
+            61440,
+            960,
+            1
+          ],
+          "line": 2546
+        },
+        {
+          "name": "buf83",
+          "shape": [
+            64,
+            960
+          ],
+          "strides": [
+            960,
+            1
+          ],
+          "line": 2552
+        },
+        {
+          "name": "buf87",
+          "shape": [
+            1,
+            64,
+            960
+          ],
+          "strides": [
+            61440,
+            960,
+            1
+          ],
+          "line": 2578
+        },
+        {
+          "name": "buf88",
+          "shape": [
+            64,
+            960
+          ],
+          "strides": [
+            960,
+            1
+          ],
+          "line": 2584
+        },
+        {
+          "name": "buf92",
+          "shape": [
+            64,
+            960
+          ],
+          "strides": [
+            960,
+            1
+          ],
+          "line": 2611
+        },
+        {
+          "name": "buf95",
+          "shape": [
+            1,
+            64,
+            960
+          ],
+          "strides": [
+            61504,
+            961,
+            1
+          ],
+          "line": 2617
+        },
+        {
+          "name": "buf101",
+          "shape": [
+            32,
+            1920
+          ],
+          "strides": [
+            1920,
+            1
+          ],
+          "line": 2660
+        },
+        {
+          "name": "buf105",
+          "shape": [
+            1,
+            32,
+            1920
+          ],
+          "strides": [
+            61440,
+            1920,
+            1
+          ],
+          "line": 2686
+        },
+        {
+          "name": "buf106",
+          "shape": [
+            32,
+            1920
+          ],
+          "strides": [
+            1920,
+            1
+          ],
+          "line": 2692
+        },
+        {
+          "name": "buf110",
+          "shape": [
+            32,
+            1920
+          ],
+          "strides": [
+            1920,
+            1
+          ],
+          "line": 2719
+        }
+      ],
+      "allocations": [
+        {
+          "name": "buf96",
+          "shape": [
+            1,
+            64,
+            961
+          ],
+          "line": 2031
+        },
+        {
+          "name": "buf78",
+          "shape": [
+            1,
+            128,
+            481
+          ],
+          "line": 2037
+        },
+        {
+          "name": "buf60",
+          "shape": [
+            1,
+            256,
+            241
+          ],
+          "line": 2043
+        },
+        {
+          "name": "buf0",
+          "shape": [
+            1,
+            64,
+            7
+          ],
+          "line": 2050
+        },
+        {
+          "name": "buf115",
+          "shape": [
+            1,
+            64,
+            6
+          ],
+          "line": 2059
+        },
+        {
+          "name": "buf2",
+          "shape": [
+            1,
+            64,
+            1
+          ],
+          "line": 2063
+        },
+        {
+          "name": "buf42",
+          "shape": [
+            1,
+            512,
+            49
+          ],
+          "line": 2069
+        },
+        {
+          "name": "buf24",
+          "shape": [
+            1,
+            1024,
+            9
+          ],
+          "line": 2075
+        },
+        {
+          "name": "buf3",
+          "shape": [
+            2048,
+            1
+          ],
+          "line": 2080
+        },
+        {
+          "name": "buf6",
+          "shape": [
+            1,
+            2048,
+            2
+          ],
+          "line": 2086
+        },
+        {
+          "name": "buf7",
+          "shape": [
+            16384,
+            2
+          ],
+          "line": 2101
+        },
+        {
+          "name": "buf8",
+          "shape": [
+            1,
+            1024,
+            14
+          ],
+          "line": 2107
+        },
+        {
+          "name": "buf116",
+          "shape": [
+            1,
+            1024,
+            6
+          ],
+          "line": 2112
+        },
+        {
+          "name": "buf10",
+          "shape": [
+            1,
+            1024,
+            8
+          ],
+          "line": 2121
+        },
+        {
+          "name": "buf13",
+          "shape": [
+            1,
+            1024,
+            26
+          ],
+          "line": 2139
+        },
+        {
+          "name": "buf117",
+          "shape": [
+            1,
+            1024,
+            18
+          ],
+          "line": 2149
+        },
+        {
+          "name": "buf17",
+          "shape": [
+            1,
+            1024,
+            62
+          ],
+          "line": 2165
+        },
+        {
+          "name": "buf118",
+          "shape": [
+            1,
+            1024,
+            54
+          ],
+          "line": 2199
+        },
+        {
+          "name": "buf119",
+          "shape": [
+            1,
+            1024,
+            1
+          ],
+          "line": 2202
+        },
+        {
+          "name": "buf25",
+          "shape": [
+            6144,
+            9
+          ],
+          "line": 2207
+        },
+        {
+          "name": "buf26",
+          "shape": [
+            1,
+            512,
+            54
+          ],
+          "line": 2213
+        },
+        {
+          "name": "buf120",
+          "shape": [
+            1,
+            512,
+            6
+          ],
+          "line": 2218
+        },
+        {
+          "name": "buf28",
+          "shape": [
+            1,
+            512,
+            48
+          ],
+          "line": 2226
+        },
+        {
+          "name": "buf31",
+          "shape": [
+            1,
+            512,
+            66
+          ],
+          "line": 2244
+        },
+        {
+          "name": "buf35",
+          "shape": [
+            1,
+            512,
+            102
+          ],
+          "line": 2270
+        },
+        {
+          "name": "buf123",
+          "shape": [
+            1,
+            512,
+            1
+          ],
+          "line": 2307
+        },
+        {
+          "name": "buf43",
+          "shape": [
+            2560,
+            49
+          ],
+          "line": 2312
+        },
+        {
+          "name": "buf44",
+          "shape": [
+            1,
+            256,
+            246
+          ],
+          "line": 2319
+        },
+        {
+          "name": "buf124",
+          "shape": [
+            1,
+            256,
+            6
+          ],
+          "line": 2324
+        },
+        {
+          "name": "buf46",
+          "shape": [
+            1,
+            256,
+            240
+          ],
+          "line": 2333
+        },
+        {
+          "name": "buf49",
+          "shape": [
+            1,
+            256,
+            258
+          ],
+          "line": 2351
+        },
+        {
+          "name": "buf125",
+          "shape": [
+            1,
+            256,
+            18
+          ],
+          "line": 2356
+        },
+        {
+          "name": "buf53",
+          "shape": [
+            1,
+            256,
+            294
+          ],
+          "line": 2377
+        },
+        {
+          "name": "buf126",
+          "shape": [
+            1,
+            256,
+            54
+          ],
+          "line": 2382
+        },
+        {
+          "name": "buf127",
+          "shape": [
+            1,
+            256,
+            1
+          ],
+          "line": 2413
+        },
+        {
+          "name": "buf61",
+          "shape": [
+            512,
+            241
+          ],
+          "line": 2418
+        },
+        {
+          "name": "buf62",
+          "shape": [
+            1,
+            128,
+            486
+          ],
+          "line": 2425
+        },
+        {
+          "name": "buf128",
+          "shape": [
+            1,
+            128,
+            6
+          ],
+          "line": 2430
+        },
+        {
+          "name": "buf67",
+          "shape": [
+            1,
+            128,
+            498
+          ],
+          "line": 2457
+        },
+        {
+          "name": "buf129",
+          "shape": [
+            1,
+            128,
+            18
+          ],
+          "line": 2462
+        },
+        {
+          "name": "buf71",
+          "shape": [
+            1,
+            128,
+            534
+          ],
+          "line": 2484
+        },
+        {
+          "name": "buf130",
+          "shape": [
+            1,
+            128,
+            54
+          ],
+          "line": 2489
+        },
+        {
+          "name": "buf73",
+          "shape": [
+            1,
+            128,
+            480
+          ],
+          "line": 2498
+        },
+        {
+          "name": "buf131",
+          "shape": [
+            1,
+            128,
+            1
+          ],
+          "line": 2520
+        },
+        {
+          "name": "buf79",
+          "shape": [
+            256,
+            481
+          ],
+          "line": 2525
+        },
+        {
+          "name": "buf80",
+          "shape": [
+            1,
+            64,
+            966
+          ],
+          "line": 2532
+        },
+        {
+          "name": "buf132",
+          "shape": [
+            1,
+            64,
+            6
+          ],
+          "line": 2537
+        },
+        {
+          "name": "buf85",
+          "shape": [
+            1,
+            64,
+            978
+          ],
+          "line": 2564
+        },
+        {
+          "name": "buf133",
+          "shape": [
+            1,
+            64,
+            18
+          ],
+          "line": 2569
+        },
+        {
+          "name": "buf89",
+          "shape": [
+            1,
+            64,
+            1014
+          ],
+          "line": 2591
+        },
+        {
+          "name": "buf134",
+          "shape": [
+            1,
+            64,
+            54
+          ],
+          "line": 2596
+        },
+        {
+          "name": "buf91",
+          "shape": [
+            1,
+            64,
+            960
+          ],
+          "line": 2605
+        },
+        {
+          "name": "buf135",
+          "shape": [
+            1,
+            64,
+            1
+          ],
+          "line": 2628
+        },
+        {
+          "name": "buf97",
+          "shape": [
+            128,
+            961
+          ],
+          "line": 2633
+        },
+        {
+          "name": "buf98",
+          "shape": [
+            1,
+            32,
+            1926
+          ],
+          "line": 2640
+        },
+        {
+          "name": "buf136",
+          "shape": [
+            1,
+            32,
+            6
+          ],
+          "line": 2645
+        },
+        {
+          "name": "buf100",
+          "shape": [
+            1,
+            32,
+            1920
+          ],
+          "line": 2654
+        },
+        {
+          "name": "buf103",
+          "shape": [
+            1,
+            32,
+            1938
+          ],
+          "line": 2672
+        },
+        {
+          "name": "buf137",
+          "shape": [
+            1,
+            32,
+            18
+          ],
+          "line": 2677
+        },
+        {
+          "name": "buf107",
+          "shape": [
+            1,
+            32,
+            1974
+          ],
+          "line": 2699
+        },
+        {
+          "name": "buf138",
+          "shape": [
+            1,
+            32,
+            54
+          ],
+          "line": 2704
+        },
+        {
+          "name": "buf109",
+          "shape": [
+            1,
+            32,
+            1920
+          ],
+          "line": 2713
+        },
+        {
+          "name": "buf112",
+          "shape": [
+            1,
+            32,
+            1926
+          ],
+          "line": 2733
+        },
+        {
+          "name": "buf139",
+          "shape": [
+            1,
+            32,
+            6
+          ],
+          "line": 2739
+        },
+        {
+          "name": "buf114",
+          "shape": [
+            1,
+            1,
+            1920
+          ],
+          "line": 2748
+        }
+      ],
+      "conditional_alignment_copy_guards": [
+        {
+          "name": "arg180_1",
+          "line": 2030
+        },
+        {
+          "name": "arg146_1",
+          "line": 2036
+        },
+        {
+          "name": "arg112_1",
+          "line": 2042
+        },
+        {
+          "name": "arg0_1",
+          "line": 2048
+        },
+        {
+          "name": "arg1_1",
+          "line": 2049
+        },
+        {
+          "name": "arg78_1",
+          "line": 2068
+        },
+        {
+          "name": "arg44_1",
+          "line": 2074
+        },
+        {
+          "name": "arg10_1",
+          "line": 2096
+        },
+        {
+          "name": "arg15_1",
+          "line": 2106
+        },
+        {
+          "name": "arg24_1",
+          "line": 2138
+        },
+        {
+          "name": "arg33_1",
+          "line": 2164
+        },
+        {
+          "name": "arg49_1",
+          "line": 2212
+        },
+        {
+          "name": "arg58_1",
+          "line": 2243
+        },
+        {
+          "name": "arg67_1",
+          "line": 2269
+        },
+        {
+          "name": "arg83_1",
+          "line": 2318
+        },
+        {
+          "name": "arg92_1",
+          "line": 2350
+        },
+        {
+          "name": "arg101_1",
+          "line": 2376
+        },
+        {
+          "name": "arg117_1",
+          "line": 2424
+        },
+        {
+          "name": "arg126_1",
+          "line": 2456
+        },
+        {
+          "name": "arg135_1",
+          "line": 2483
+        },
+        {
+          "name": "arg151_1",
+          "line": 2531
+        },
+        {
+          "name": "arg160_1",
+          "line": 2563
+        },
+        {
+          "name": "arg169_1",
+          "line": 2590
+        },
+        {
+          "name": "arg185_1",
+          "line": 2639
+        },
+        {
+          "name": "arg194_1",
+          "line": 2671
+        },
+        {
+          "name": "arg203_1",
+          "line": 2698
+        },
+        {
+          "name": "arg212_1",
+          "line": 2732
+        }
+      ],
+      "counts": {
+        "convolution": 20,
+        "mm": 25,
+        "generated_metal_launches": 84,
+        "distinct_generated_metal_kernels": 71,
+        "explicit_allocations": 65,
+        "views": 39,
+        "alignment_guards": 27
+      },
+      "all45_route_shape_checks_passed": true,
+      "remaining_convolution_types": {
+        "depthwise": 19,
+        "final_conv": 1
+      },
+      "logical_macs": 400978368,
+      "mm_logical_macs": 394698752
+    },
+    "80": {
+      "path": "outputs/apple-gpu-v2/inductor-cache/me/cmexqr66vmhux3jze6n7bt3zs2slu7hvgr7fj4hm7tiqsqmpufxx.py",
+      "sha256": "249031b583e0a35bab57d88abd22ec7ca231d3d9bdc9f6b7acdcb59109bd6e3d",
+      "events": [
+        {
+          "kind": "convolution",
+          "line": 2072,
+          "input": "buf0",
+          "input_shape": [
+            1,
+            64,
+            8
+          ],
+          "weight": "arg2_1",
+          "weight_shape": [
+            64,
+            1,
+            7
+          ],
+          "output": "buf1",
+          "stride": [
+            1
+          ],
+          "padding": [
+            0
+          ],
+          "dilation": [
+            1
+          ],
+          "transposed": false,
+          "output_padding": [
+            0
+          ],
+          "groups": 64,
+          "bias": null,
+          "operation": "stem.depthwise",
+          "original_type": "depthwise",
+          "logical_macs": 896
+        },
+        {
+          "kind": "mm",
+          "line": 2103,
+          "A": "reinterpret_tensor(arg4_1, (2048, 64), (64, 1), 0)",
+          "B": "reinterpret_tensor(buf2, (64, 2), (2, 1), 0)",
+          "A_shape": [
+            2048,
+            64
+          ],
+          "A_strides": [
+            64,
+            1
+          ],
+          "B_shape": [
+            64,
+            2
+          ],
+          "B_strides": [
+            2,
+            1
+          ],
+          "output": "buf3",
+          "output_shape": [
+            2048,
+            2
+          ],
+          "output_strides": [
+            2,
+            1
+          ],
+          "macs": 262144,
+          "operation": "stem.pointwise",
+          "original_type": "pointwise",
+          "logical_macs": 262144
+        },
+        {
+          "kind": "mm",
+          "line": 2121,
+          "A": "arg11_1",
+          "B": "reinterpret_tensor(buf6, (2048, 3), (3, 1), 0)",
+          "A_shape": [
+            16384,
+            2048
+          ],
+          "A_strides": [
+            2048,
+            1
+          ],
+          "B_shape": [
+            2048,
+            3
+          ],
+          "B_strides": [
+            3,
+            1
+          ],
+          "output": "buf7",
+          "output_shape": [
+            16384,
+            3
+          ],
+          "output_strides": [
+            3,
+            1
+          ],
+          "macs": 100663296,
+          "operation": "stage0.transpose",
+          "original_type": "transpose",
+          "logical_macs": 100663296
+        },
+        {
+          "kind": "convolution",
+          "line": 2134,
+          "input": "buf8",
+          "input_shape": [
+            1,
+            1024,
+            22
+          ],
+          "weight": "arg16_1",
+          "weight_shape": [
+            1024,
+            1,
+            7
+          ],
+          "output": "buf9",
+          "stride": [
+            1
+          ],
+          "padding": [
+            0
+          ],
+          "dilation": [
+            1
+          ],
+          "transposed": false,
+          "output_padding": [
+            0
+          ],
+          "groups": 1024,
+          "bias": null,
+          "operation": "stage0.residual0.depthwise",
+          "original_type": "depthwise",
+          "logical_macs": 114688
+        },
+        {
+          "kind": "mm",
+          "line": 2147,
+          "A": "reinterpret_tensor(arg20_1, (1024, 1024), (1024, 1), 0)",
+          "B": "reinterpret_tensor(buf10, (1024, 16), (16, 1), 0)",
+          "A_shape": [
+            1024,
+            1024
+          ],
+          "A_strides": [
+            1024,
+            1
+          ],
+          "B_shape": [
+            1024,
+            16
+          ],
+          "B_strides": [
+            16,
+            1
+          ],
+          "output": "buf11",
+          "output_shape": [
+            1024,
+            16
+          ],
+          "output_strides": [
+            16,
+            1
+          ],
+          "macs": 16777216,
+          "operation": "stage0.residual0.pointwise",
+          "original_type": "pointwise",
+          "logical_macs": 16777216
+        },
+        {
+          "kind": "convolution",
+          "line": 2163,
+          "input": "buf13",
+          "input_shape": [
+            1,
+            1024,
+            34
+          ],
+          "weight": "arg25_1",
+          "weight_shape": [
+            1024,
+            1,
+            7
+          ],
+          "output": "buf14",
+          "stride": [
+            1
+          ],
+          "padding": [
+            0
+          ],
+          "dilation": [
+            3
+          ],
+          "transposed": false,
+          "output_padding": [
+            0
+          ],
+          "groups": 1024,
+          "bias": null,
+          "operation": "stage0.residual1.depthwise",
+          "original_type": "depthwise",
+          "logical_macs": 114688
+        },
+        {
+          "kind": "mm",
+          "line": 2178,
+          "A": "reinterpret_tensor(arg29_1, (1024, 1024), (1024, 1), 0)",
+          "B": "reinterpret_tensor(buf15, (1024, 16), (16, 1), 0)",
+          "A_shape": [
+            1024,
+            1024
+          ],
+          "A_strides": [
+            1024,
+            1
+          ],
+          "B_shape": [
+            1024,
+            16
+          ],
+          "B_strides": [
+            16,
+            1
+          ],
+          "output": "buf16",
+          "output_shape": [
+            1024,
+            16
+          ],
+          "output_strides": [
+            16,
+            1
+          ],
+          "macs": 16777216,
+          "operation": "stage0.residual1.pointwise",
+          "original_type": "pointwise",
+          "logical_macs": 16777216
+        },
+        {
+          "kind": "convolution",
+          "line": 2189,
+          "input": "buf17",
+          "input_shape": [
+            1,
+            1024,
+            70
+          ],
+          "weight": "arg34_1",
+          "weight_shape": [
+            1024,
+            1,
+            7
+          ],
+          "output": "buf18",
+          "stride": [
+            1
+          ],
+          "padding": [
+            0
+          ],
+          "dilation": [
+            9
+          ],
+          "transposed": false,
+          "output_padding": [
+            0
+          ],
+          "groups": 1024,
+          "bias": null,
+          "operation": "stage0.residual2.depthwise",
+          "original_type": "depthwise",
+          "logical_macs": 114688
+        },
+        {
+          "kind": "mm",
+          "line": 2201,
+          "A": "reinterpret_tensor(arg38_1, (1024, 1024), (1024, 1), 0)",
+          "B": "reinterpret_tensor(buf19, (1024, 16), (16, 1), 0)",
+          "A_shape": [
+            1024,
+            1024
+          ],
+          "A_strides": [
+            1024,
+            1
+          ],
+          "B_shape": [
+            1024,
+            16
+          ],
+          "B_strides": [
+            16,
+            1
+          ],
+          "output": "buf20",
+          "output_shape": [
+            1024,
+            16
+          ],
+          "output_strides": [
+            16,
+            1
+          ],
+          "macs": 16777216,
+          "operation": "stage0.residual2.pointwise",
+          "original_type": "pointwise",
+          "logical_macs": 16777216
+        },
+        {
+          "kind": "mm",
+          "line": 2226,
+          "A": "arg45_1",
+          "B": "reinterpret_tensor(buf24, (1024, 17), (17, 1), 0)",
+          "A_shape": [
+            6144,
+            1024
+          ],
+          "A_strides": [
+            1024,
+            1
+          ],
+          "B_shape": [
+            1024,
+            17
+          ],
+          "B_strides": [
+            17,
+            1
+          ],
+          "output": "buf25",
+          "output_shape": [
+            6144,
+            17
+          ],
+          "output_strides": [
+            17,
+            1
+          ],
+          "macs": 106954752,
+          "operation": "stage1.transpose",
+          "original_type": "transpose",
+          "logical_macs": 106954752
+        },
+        {
+          "kind": "convolution",
+          "line": 2240,
+          "input": "buf26",
+          "input_shape": [
+            1,
+            512,
+            102
+          ],
+          "weight": "arg50_1",
+          "weight_shape": [
+            512,
+            1,
+            7
+          ],
+          "output": "buf27",
+          "stride": [
+            1
+          ],
+          "padding": [
+            0
+          ],
+          "dilation": [
+            1
+          ],
+          "transposed": false,
+          "output_padding": [
+            0
+          ],
+          "groups": 512,
+          "bias": null,
+          "operation": "stage1.residual0.depthwise",
+          "original_type": "depthwise",
+          "logical_macs": 344064
+        },
+        {
+          "kind": "mm",
+          "line": 2253,
+          "A": "reinterpret_tensor(arg54_1, (512, 512), (512, 1), 0)",
+          "B": "reinterpret_tensor(buf28, (512, 96), (96, 1), 0)",
+          "A_shape": [
+            512,
+            512
+          ],
+          "A_strides": [
+            512,
+            1
+          ],
+          "B_shape": [
+            512,
+            96
+          ],
+          "B_strides": [
+            96,
+            1
+          ],
+          "output": "buf29",
+          "output_shape": [
+            512,
+            96
+          ],
+          "output_strides": [
+            96,
+            1
+          ],
+          "macs": 25165824,
+          "operation": "stage1.residual0.pointwise",
+          "original_type": "pointwise",
+          "logical_macs": 25165824
+        },
+        {
+          "kind": "convolution",
+          "line": 2272,
+          "input": "buf31",
+          "input_shape": [
+            1,
+            512,
+            114
+          ],
+          "weight": "arg59_1",
+          "weight_shape": [
+            512,
+            1,
+            7
+          ],
+          "output": "buf32",
+          "stride": [
+            1
+          ],
+          "padding": [
+            0
+          ],
+          "dilation": [
+            3
+          ],
+          "transposed": false,
+          "output_padding": [
+            0
+          ],
+          "groups": 512,
+          "bias": null,
+          "operation": "stage1.residual1.depthwise",
+          "original_type": "depthwise",
+          "logical_macs": 344064
+        },
+        {
+          "kind": "mm",
+          "line": 2285,
+          "A": "reinterpret_tensor(arg63_1, (512, 512), (512, 1), 0)",
+          "B": "reinterpret_tensor(buf33, (512, 96), (96, 1), 0)",
+          "A_shape": [
+            512,
+            512
+          ],
+          "A_strides": [
+            512,
+            1
+          ],
+          "B_shape": [
+            512,
+            96
+          ],
+          "B_strides": [
+            96,
+            1
+          ],
+          "output": "buf34",
+          "output_shape": [
+            512,
+            96
+          ],
+          "output_strides": [
+            96,
+            1
+          ],
+          "macs": 25165824,
+          "operation": "stage1.residual1.pointwise",
+          "original_type": "pointwise",
+          "logical_macs": 25165824
+        },
+        {
+          "kind": "convolution",
+          "line": 2298,
+          "input": "buf35",
+          "input_shape": [
+            1,
+            512,
+            150
+          ],
+          "weight": "arg68_1",
+          "weight_shape": [
+            512,
+            1,
+            7
+          ],
+          "output": "buf36",
+          "stride": [
+            1
+          ],
+          "padding": [
+            0
+          ],
+          "dilation": [
+            9
+          ],
+          "transposed": false,
+          "output_padding": [
+            0
+          ],
+          "groups": 512,
+          "bias": null,
+          "operation": "stage1.residual2.depthwise",
+          "original_type": "depthwise",
+          "logical_macs": 344064
+        },
+        {
+          "kind": "mm",
+          "line": 2311,
+          "A": "reinterpret_tensor(arg72_1, (512, 512), (512, 1), 0)",
+          "B": "reinterpret_tensor(buf37, (512, 96), (96, 1), 0)",
+          "A_shape": [
+            512,
+            512
+          ],
+          "A_strides": [
+            512,
+            1
+          ],
+          "B_shape": [
+            512,
+            96
+          ],
+          "B_strides": [
+            96,
+            1
+          ],
+          "output": "buf38",
+          "output_shape": [
+            512,
+            96
+          ],
+          "output_strides": [
+            96,
+            1
+          ],
+          "macs": 25165824,
+          "operation": "stage1.residual2.pointwise",
+          "original_type": "pointwise",
+          "logical_macs": 25165824
+        },
+        {
+          "kind": "mm",
+          "line": 2333,
+          "A": "arg79_1",
+          "B": "reinterpret_tensor(buf42, (512, 97), (97, 1), 0)",
+          "A_shape": [
+            2560,
+            512
+          ],
+          "A_strides": [
+            512,
+            1
+          ],
+          "B_shape": [
+            512,
+            97
+          ],
+          "B_strides": [
+            97,
+            1
+          ],
+          "output": "buf43",
+          "output_shape": [
+            2560,
+            97
+          ],
+          "output_strides": [
+            97,
+            1
+          ],
+          "macs": 127139840,
+          "operation": "stage2.transpose",
+          "original_type": "transpose",
+          "logical_macs": 127139840
+        },
+        {
+          "kind": "convolution",
+          "line": 2347,
+          "input": "buf44",
+          "input_shape": [
+            1,
+            256,
+            486
+          ],
+          "weight": "arg84_1",
+          "weight_shape": [
+            256,
+            1,
+            7
+          ],
+          "output": "buf45",
+          "stride": [
+            1
+          ],
+          "padding": [
+            0
+          ],
+          "dilation": [
+            1
+          ],
+          "transposed": false,
+          "output_padding": [
+            0
+          ],
+          "groups": 256,
+          "bias": null,
+          "operation": "stage2.residual0.depthwise",
+          "original_type": "depthwise",
+          "logical_macs": 860160
+        },
+        {
+          "kind": "mm",
+          "line": 2360,
+          "A": "reinterpret_tensor(arg88_1, (256, 256), (256, 1), 0)",
+          "B": "reinterpret_tensor(buf46, (256, 480), (480, 1), 0)",
+          "A_shape": [
+            256,
+            256
+          ],
+          "A_strides": [
+            256,
+            1
+          ],
+          "B_shape": [
+            256,
+            480
+          ],
+          "B_strides": [
+            480,
+            1
+          ],
+          "output": "buf47",
+          "output_shape": [
+            256,
+            480
+          ],
+          "output_strides": [
+            480,
+            1
+          ],
+          "macs": 31457280,
+          "operation": "stage2.residual0.pointwise",
+          "original_type": "pointwise",
+          "logical_macs": 31457280
+        },
+        {
+          "kind": "convolution",
+          "line": 2379,
+          "input": "buf49",
+          "input_shape": [
+            1,
+            256,
+            498
+          ],
+          "weight": "arg93_1",
+          "weight_shape": [
+            256,
+            1,
+            7
+          ],
+          "output": "buf50",
+          "stride": [
+            1
+          ],
+          "padding": [
+            0
+          ],
+          "dilation": [
+            3
+          ],
+          "transposed": false,
+          "output_padding": [
+            0
+          ],
+          "groups": 256,
+          "bias": null,
+          "operation": "stage2.residual1.depthwise",
+          "original_type": "depthwise",
+          "logical_macs": 860160
+        },
+        {
+          "kind": "mm",
+          "line": 2392,
+          "A": "reinterpret_tensor(arg97_1, (256, 256), (256, 1), 0)",
+          "B": "reinterpret_tensor(buf51, (256, 480), (480, 1), 0)",
+          "A_shape": [
+            256,
+            256
+          ],
+          "A_strides": [
+            256,
+            1
+          ],
+          "B_shape": [
+            256,
+            480
+          ],
+          "B_strides": [
+            480,
+            1
+          ],
+          "output": "buf52",
+          "output_shape": [
+            256,
+            480
+          ],
+          "output_strides": [
+            480,
+            1
+          ],
+          "macs": 31457280,
+          "operation": "stage2.residual1.pointwise",
+          "original_type": "pointwise",
+          "logical_macs": 31457280
+        },
+        {
+          "kind": "convolution",
+          "line": 2405,
+          "input": "buf53",
+          "input_shape": [
+            1,
+            256,
+            534
+          ],
+          "weight": "arg102_1",
+          "weight_shape": [
+            256,
+            1,
+            7
+          ],
+          "output": "buf54",
+          "stride": [
+            1
+          ],
+          "padding": [
+            0
+          ],
+          "dilation": [
+            9
+          ],
+          "transposed": false,
+          "output_padding": [
+            0
+          ],
+          "groups": 256,
+          "bias": null,
+          "operation": "stage2.residual2.depthwise",
+          "original_type": "depthwise",
+          "logical_macs": 860160
+        },
+        {
+          "kind": "mm",
+          "line": 2418,
+          "A": "reinterpret_tensor(arg106_1, (256, 256), (256, 1), 0)",
+          "B": "reinterpret_tensor(buf55, (256, 480), (480, 1), 0)",
+          "A_shape": [
+            256,
+            256
+          ],
+          "A_strides": [
+            256,
+            1
+          ],
+          "B_shape": [
+            256,
+            480
+          ],
+          "B_strides": [
+            480,
+            1
+          ],
+          "output": "buf56",
+          "output_shape": [
+            256,
+            480
+          ],
+          "output_strides": [
+            480,
+            1
+          ],
+          "macs": 31457280,
+          "operation": "stage2.residual2.pointwise",
+          "original_type": "pointwise",
+          "logical_macs": 31457280
+        },
+        {
+          "kind": "mm",
+          "line": 2439,
+          "A": "arg113_1",
+          "B": "reinterpret_tensor(buf60, (256, 481), (481, 1), 0)",
+          "A_shape": [
+            512,
+            256
+          ],
+          "A_strides": [
+            256,
+            1
+          ],
+          "B_shape": [
+            256,
+            481
+          ],
+          "B_strides": [
+            481,
+            1
+          ],
+          "output": "buf61",
+          "output_shape": [
+            512,
+            481
+          ],
+          "output_strides": [
+            481,
+            1
+          ],
+          "macs": 63045632,
+          "operation": "stage3.transpose",
+          "original_type": "transpose",
+          "logical_macs": 63045632
+        },
+        {
+          "kind": "convolution",
+          "line": 2453,
+          "input": "buf62",
+          "input_shape": [
+            1,
+            128,
+            966
+          ],
+          "weight": "arg118_1",
+          "weight_shape": [
+            128,
+            1,
+            7
+          ],
+          "output": "buf63",
+          "stride": [
+            1
+          ],
+          "padding": [
+            0
+          ],
+          "dilation": [
+            1
+          ],
+          "transposed": false,
+          "output_padding": [
+            0
+          ],
+          "groups": 128,
+          "bias": null,
+          "operation": "stage3.residual0.depthwise",
+          "original_type": "depthwise",
+          "logical_macs": 860160
+        },
+        {
+          "kind": "mm",
+          "line": 2466,
+          "A": "reinterpret_tensor(arg122_1, (128, 128), (128, 1), 0)",
+          "B": "reinterpret_tensor(buf64, (128, 960), (960, 1), 0)",
+          "A_shape": [
+            128,
+            128
+          ],
+          "A_strides": [
+            128,
+            1
+          ],
+          "B_shape": [
+            128,
+            960
+          ],
+          "B_strides": [
+            960,
+            1
+          ],
+          "output": "buf65",
+          "output_shape": [
+            128,
+            960
+          ],
+          "output_strides": [
+            960,
+            1
+          ],
+          "macs": 15728640,
+          "operation": "stage3.residual0.pointwise",
+          "original_type": "pointwise",
+          "logical_macs": 15728640
+        },
+        {
+          "kind": "convolution",
+          "line": 2485,
+          "input": "buf67",
+          "input_shape": [
+            1,
+            128,
+            978
+          ],
+          "weight": "arg127_1",
+          "weight_shape": [
+            128,
+            1,
+            7
+          ],
+          "output": "buf68",
+          "stride": [
+            1
+          ],
+          "padding": [
+            0
+          ],
+          "dilation": [
+            3
+          ],
+          "transposed": false,
+          "output_padding": [
+            0
+          ],
+          "groups": 128,
+          "bias": null,
+          "operation": "stage3.residual1.depthwise",
+          "original_type": "depthwise",
+          "logical_macs": 860160
+        },
+        {
+          "kind": "mm",
+          "line": 2498,
+          "A": "reinterpret_tensor(arg131_1, (128, 128), (128, 1), 0)",
+          "B": "reinterpret_tensor(buf69, (128, 960), (960, 1), 0)",
+          "A_shape": [
+            128,
+            128
+          ],
+          "A_strides": [
+            128,
+            1
+          ],
+          "B_shape": [
+            128,
+            960
+          ],
+          "B_strides": [
+            960,
+            1
+          ],
+          "output": "buf70",
+          "output_shape": [
+            128,
+            960
+          ],
+          "output_strides": [
+            960,
+            1
+          ],
+          "macs": 15728640,
+          "operation": "stage3.residual1.pointwise",
+          "original_type": "pointwise",
+          "logical_macs": 15728640
+        },
+        {
+          "kind": "convolution",
+          "line": 2512,
+          "input": "buf71",
+          "input_shape": [
+            1,
+            128,
+            1014
+          ],
+          "weight": "arg136_1",
+          "weight_shape": [
+            128,
+            1,
+            7
+          ],
+          "output": "buf72",
+          "stride": [
+            1
+          ],
+          "padding": [
+            0
+          ],
+          "dilation": [
+            9
+          ],
+          "transposed": false,
+          "output_padding": [
+            0
+          ],
+          "groups": 128,
+          "bias": null,
+          "operation": "stage3.residual2.depthwise",
+          "original_type": "depthwise",
+          "logical_macs": 860160
+        },
+        {
+          "kind": "mm",
+          "line": 2525,
+          "A": "reinterpret_tensor(arg140_1, (128, 128), (128, 1), 0)",
+          "B": "reinterpret_tensor(buf73, (128, 960), (960, 1), 0)",
+          "A_shape": [
+            128,
+            128
+          ],
+          "A_strides": [
+            128,
+            1
+          ],
+          "B_shape": [
+            128,
+            960
+          ],
+          "B_strides": [
+            960,
+            1
+          ],
+          "output": "buf74",
+          "output_shape": [
+            128,
+            960
+          ],
+          "output_strides": [
+            960,
+            1
+          ],
+          "macs": 15728640,
+          "operation": "stage3.residual2.pointwise",
+          "original_type": "pointwise",
+          "logical_macs": 15728640
+        },
+        {
+          "kind": "mm",
+          "line": 2546,
+          "A": "arg147_1",
+          "B": "reinterpret_tensor(buf78, (128, 961), (961, 1), 0)",
+          "A_shape": [
+            256,
+            128
+          ],
+          "A_strides": [
+            128,
+            1
+          ],
+          "B_shape": [
+            128,
+            961
+          ],
+          "B_strides": [
+            961,
+            1
+          ],
+          "output": "buf79",
+          "output_shape": [
+            256,
+            961
+          ],
+          "output_strides": [
+            961,
+            1
+          ],
+          "macs": 31490048,
+          "operation": "stage4.transpose",
+          "original_type": "transpose",
+          "logical_macs": 31490048
+        },
+        {
+          "kind": "convolution",
+          "line": 2560,
+          "input": "buf80",
+          "input_shape": [
+            1,
+            64,
+            1926
+          ],
+          "weight": "arg152_1",
+          "weight_shape": [
+            64,
+            1,
+            7
+          ],
+          "output": "buf81",
+          "stride": [
+            1
+          ],
+          "padding": [
+            0
+          ],
+          "dilation": [
+            1
+          ],
+          "transposed": false,
+          "output_padding": [
+            0
+          ],
+          "groups": 64,
+          "bias": null,
+          "operation": "stage4.residual0.depthwise",
+          "original_type": "depthwise",
+          "logical_macs": 860160
+        },
+        {
+          "kind": "mm",
+          "line": 2573,
+          "A": "reinterpret_tensor(arg156_1, (64, 64), (64, 1), 0)",
+          "B": "reinterpret_tensor(buf82, (64, 1920), (1920, 1), 0)",
+          "A_shape": [
+            64,
+            64
+          ],
+          "A_strides": [
+            64,
+            1
+          ],
+          "B_shape": [
+            64,
+            1920
+          ],
+          "B_strides": [
+            1920,
+            1
+          ],
+          "output": "buf83",
+          "output_shape": [
+            64,
+            1920
+          ],
+          "output_strides": [
+            1920,
+            1
+          ],
+          "macs": 7864320,
+          "operation": "stage4.residual0.pointwise",
+          "original_type": "pointwise",
+          "logical_macs": 7864320
+        },
+        {
+          "kind": "convolution",
+          "line": 2592,
+          "input": "buf85",
+          "input_shape": [
+            1,
+            64,
+            1938
+          ],
+          "weight": "arg161_1",
+          "weight_shape": [
+            64,
+            1,
+            7
+          ],
+          "output": "buf86",
+          "stride": [
+            1
+          ],
+          "padding": [
+            0
+          ],
+          "dilation": [
+            3
+          ],
+          "transposed": false,
+          "output_padding": [
+            0
+          ],
+          "groups": 64,
+          "bias": null,
+          "operation": "stage4.residual1.depthwise",
+          "original_type": "depthwise",
+          "logical_macs": 860160
+        },
+        {
+          "kind": "mm",
+          "line": 2605,
+          "A": "reinterpret_tensor(arg165_1, (64, 64), (64, 1), 0)",
+          "B": "reinterpret_tensor(buf87, (64, 1920), (1920, 1), 0)",
+          "A_shape": [
+            64,
+            64
+          ],
+          "A_strides": [
+            64,
+            1
+          ],
+          "B_shape": [
+            64,
+            1920
+          ],
+          "B_strides": [
+            1920,
+            1
+          ],
+          "output": "buf88",
+          "output_shape": [
+            64,
+            1920
+          ],
+          "output_strides": [
+            1920,
+            1
+          ],
+          "macs": 7864320,
+          "operation": "stage4.residual1.pointwise",
+          "original_type": "pointwise",
+          "logical_macs": 7864320
+        },
+        {
+          "kind": "convolution",
+          "line": 2619,
+          "input": "buf89",
+          "input_shape": [
+            1,
+            64,
+            1974
+          ],
+          "weight": "arg170_1",
+          "weight_shape": [
+            64,
+            1,
+            7
+          ],
+          "output": "buf90",
+          "stride": [
+            1
+          ],
+          "padding": [
+            0
+          ],
+          "dilation": [
+            9
+          ],
+          "transposed": false,
+          "output_padding": [
+            0
+          ],
+          "groups": 64,
+          "bias": null,
+          "operation": "stage4.residual2.depthwise",
+          "original_type": "depthwise",
+          "logical_macs": 860160
+        },
+        {
+          "kind": "mm",
+          "line": 2632,
+          "A": "reinterpret_tensor(arg174_1, (64, 64), (64, 1), 0)",
+          "B": "reinterpret_tensor(buf91, (64, 1920), (1920, 1), 0)",
+          "A_shape": [
+            64,
+            64
+          ],
+          "A_strides": [
+            64,
+            1
+          ],
+          "B_shape": [
+            64,
+            1920
+          ],
+          "B_strides": [
+            1920,
+            1
+          ],
+          "output": "buf92",
+          "output_shape": [
+            64,
+            1920
+          ],
+          "output_strides": [
+            1920,
+            1
+          ],
+          "macs": 7864320,
+          "operation": "stage4.residual2.pointwise",
+          "original_type": "pointwise",
+          "logical_macs": 7864320
+        },
+        {
+          "kind": "mm",
+          "line": 2654,
+          "A": "arg181_1",
+          "B": "reinterpret_tensor(buf96, (64, 1921), (1921, 1), 0)",
+          "A_shape": [
+            128,
+            64
+          ],
+          "A_strides": [
+            64,
+            1
+          ],
+          "B_shape": [
+            64,
+            1921
+          ],
+          "B_strides": [
+            1921,
+            1
+          ],
+          "output": "buf97",
+          "output_shape": [
+            128,
+            1921
+          ],
+          "output_strides": [
+            1921,
+            1
+          ],
+          "macs": 15736832,
+          "operation": "stage5.transpose",
+          "original_type": "transpose",
+          "logical_macs": 15736832
+        },
+        {
+          "kind": "convolution",
+          "line": 2668,
+          "input": "buf98",
+          "input_shape": [
+            1,
+            32,
+            3846
+          ],
+          "weight": "arg186_1",
+          "weight_shape": [
+            32,
+            1,
+            7
+          ],
+          "output": "buf99",
+          "stride": [
+            1
+          ],
+          "padding": [
+            0
+          ],
+          "dilation": [
+            1
+          ],
+          "transposed": false,
+          "output_padding": [
+            0
+          ],
+          "groups": 32,
+          "bias": null,
+          "operation": "stage5.residual0.depthwise",
+          "original_type": "depthwise",
+          "logical_macs": 860160
+        },
+        {
+          "kind": "mm",
+          "line": 2681,
+          "A": "reinterpret_tensor(arg190_1, (32, 32), (32, 1), 0)",
+          "B": "reinterpret_tensor(buf100, (32, 3840), (3840, 1), 0)",
+          "A_shape": [
+            32,
+            32
+          ],
+          "A_strides": [
+            32,
+            1
+          ],
+          "B_shape": [
+            32,
+            3840
+          ],
+          "B_strides": [
+            3840,
+            1
+          ],
+          "output": "buf101",
+          "output_shape": [
+            32,
+            3840
+          ],
+          "output_strides": [
+            3840,
+            1
+          ],
+          "macs": 3932160,
+          "operation": "stage5.residual0.pointwise",
+          "original_type": "pointwise",
+          "logical_macs": 3932160
+        },
+        {
+          "kind": "convolution",
+          "line": 2700,
+          "input": "buf103",
+          "input_shape": [
+            1,
+            32,
+            3858
+          ],
+          "weight": "arg195_1",
+          "weight_shape": [
+            32,
+            1,
+            7
+          ],
+          "output": "buf104",
+          "stride": [
+            1
+          ],
+          "padding": [
+            0
+          ],
+          "dilation": [
+            3
+          ],
+          "transposed": false,
+          "output_padding": [
+            0
+          ],
+          "groups": 32,
+          "bias": null,
+          "operation": "stage5.residual1.depthwise",
+          "original_type": "depthwise",
+          "logical_macs": 860160
+        },
+        {
+          "kind": "mm",
+          "line": 2713,
+          "A": "reinterpret_tensor(arg199_1, (32, 32), (32, 1), 0)",
+          "B": "reinterpret_tensor(buf105, (32, 3840), (3840, 1), 0)",
+          "A_shape": [
+            32,
+            32
+          ],
+          "A_strides": [
+            32,
+            1
+          ],
+          "B_shape": [
+            32,
+            3840
+          ],
+          "B_strides": [
+            3840,
+            1
+          ],
+          "output": "buf106",
+          "output_shape": [
+            32,
+            3840
+          ],
+          "output_strides": [
+            3840,
+            1
+          ],
+          "macs": 3932160,
+          "operation": "stage5.residual1.pointwise",
+          "original_type": "pointwise",
+          "logical_macs": 3932160
+        },
+        {
+          "kind": "convolution",
+          "line": 2727,
+          "input": "buf107",
+          "input_shape": [
+            1,
+            32,
+            3894
+          ],
+          "weight": "arg204_1",
+          "weight_shape": [
+            32,
+            1,
+            7
+          ],
+          "output": "buf108",
+          "stride": [
+            1
+          ],
+          "padding": [
+            0
+          ],
+          "dilation": [
+            9
+          ],
+          "transposed": false,
+          "output_padding": [
+            0
+          ],
+          "groups": 32,
+          "bias": null,
+          "operation": "stage5.residual2.depthwise",
+          "original_type": "depthwise",
+          "logical_macs": 860160
+        },
+        {
+          "kind": "mm",
+          "line": 2740,
+          "A": "reinterpret_tensor(arg208_1, (32, 32), (32, 1), 0)",
+          "B": "reinterpret_tensor(buf109, (32, 3840), (3840, 1), 0)",
+          "A_shape": [
+            32,
+            32
+          ],
+          "A_strides": [
+            32,
+            1
+          ],
+          "B_shape": [
+            32,
+            3840
+          ],
+          "B_strides": [
+            3840,
+            1
+          ],
+          "output": "buf110",
+          "output_shape": [
+            32,
+            3840
+          ],
+          "output_strides": [
+            3840,
+            1
+          ],
+          "macs": 3932160,
+          "operation": "stage5.residual2.pointwise",
+          "original_type": "pointwise",
+          "logical_macs": 3932160
+        },
+        {
+          "kind": "convolution",
+          "line": 2762,
+          "input": "buf112",
+          "input_shape": [
+            1,
+            32,
+            3846
+          ],
+          "weight": "arg213_1",
+          "weight_shape": [
+            1,
+            32,
+            7
+          ],
+          "output": "buf113",
+          "stride": [
+            1
+          ],
+          "padding": [
+            0
+          ],
+          "dilation": [
+            1
+          ],
+          "transposed": false,
+          "output_padding": [
+            0
+          ],
+          "groups": 1,
+          "bias": null,
+          "operation": "final.convolution",
+          "original_type": "final_conv",
+          "logical_macs": 860160
+        }
+      ],
+      "metal_launches": [
+        {
+          "name": "generated_kernel_0",
+          "line": 2049
+        },
+        {
+          "name": "generated_kernel_1",
+          "line": 2055
+        },
+        {
+          "name": "generated_kernel_2",
+          "line": 2061
+        },
+        {
+          "name": "generated_kernel_3",
+          "line": 2067
+        },
+        {
+          "name": "generated_kernel_4",
+          "line": 2076
+        },
+        {
+          "name": "generated_kernel_5",
+          "line": 2079
+        },
+        {
+          "name": "generated_kernel_6",
+          "line": 2086
+        },
+        {
+          "name": "generated_kernel_7",
+          "line": 2092
+        },
+        {
+          "name": "generated_kernel_8",
+          "line": 2098
+        },
+        {
+          "name": "generated_kernel_9",
+          "line": 2107
+        },
+        {
+          "name": "generated_kernel_10",
+          "line": 2115
+        },
+        {
+          "name": "generated_kernel_11",
+          "line": 2126
+        },
+        {
+          "name": "generated_kernel_12",
+          "line": 2131
+        },
+        {
+          "name": "generated_kernel_13",
+          "line": 2140
+        },
+        {
+          "name": "generated_kernel_14",
+          "line": 2151
+        },
+        {
+          "name": "generated_kernel_15",
+          "line": 2157
+        },
+        {
+          "name": "generated_kernel_16",
+          "line": 2167
+        },
+        {
+          "name": "generated_kernel_13",
+          "line": 2171
+        },
+        {
+          "name": "generated_kernel_17",
+          "line": 2183
+        },
+        {
+          "name": "generated_kernel_13",
+          "line": 2194
+        },
+        {
+          "name": "generated_kernel_18",
+          "line": 2206
+        },
+        {
+          "name": "generated_kernel_19",
+          "line": 2217
+        },
+        {
+          "name": "generated_kernel_20",
+          "line": 2220
+        },
+        {
+          "name": "generated_kernel_21",
+          "line": 2232
+        },
+        {
+          "name": "generated_kernel_22",
+          "line": 2237
+        },
+        {
+          "name": "generated_kernel_23",
+          "line": 2246
+        },
+        {
+          "name": "generated_kernel_24",
+          "line": 2257
+        },
+        {
+          "name": "generated_kernel_25",
+          "line": 2264
+        },
+        {
+          "name": "generated_kernel_26",
+          "line": 2269
+        },
+        {
+          "name": "generated_kernel_23",
+          "line": 2278
+        },
+        {
+          "name": "generated_kernel_27",
+          "line": 2290
+        },
+        {
+          "name": "generated_kernel_28",
+          "line": 2295
+        },
+        {
+          "name": "generated_kernel_23",
+          "line": 2304
+        },
+        {
+          "name": "generated_kernel_29",
+          "line": 2316
+        },
+        {
+          "name": "generated_kernel_30",
+          "line": 2327
+        },
+        {
+          "name": "generated_kernel_31",
+          "line": 2339
+        },
+        {
+          "name": "generated_kernel_32",
+          "line": 2344
+        },
+        {
+          "name": "generated_kernel_33",
+          "line": 2353
+        },
+        {
+          "name": "generated_kernel_34",
+          "line": 2364
+        },
+        {
+          "name": "generated_kernel_35",
+          "line": 2371
+        },
+        {
+          "name": "generated_kernel_36",
+          "line": 2376
+        },
+        {
+          "name": "generated_kernel_33",
+          "line": 2385
+        },
+        {
+          "name": "generated_kernel_37",
+          "line": 2397
+        },
+        {
+          "name": "generated_kernel_38",
+          "line": 2402
+        },
+        {
+          "name": "generated_kernel_33",
+          "line": 2411
+        },
+        {
+          "name": "generated_kernel_39",
+          "line": 2423
+        },
+        {
+          "name": "generated_kernel_40",
+          "line": 2433
+        },
+        {
+          "name": "generated_kernel_41",
+          "line": 2445
+        },
+        {
+          "name": "generated_kernel_42",
+          "line": 2450
+        },
+        {
+          "name": "generated_kernel_43",
+          "line": 2459
+        },
+        {
+          "name": "generated_kernel_44",
+          "line": 2470
+        },
+        {
+          "name": "generated_kernel_45",
+          "line": 2477
+        },
+        {
+          "name": "generated_kernel_46",
+          "line": 2482
+        },
+        {
+          "name": "generated_kernel_43",
+          "line": 2491
+        },
+        {
+          "name": "generated_kernel_47",
+          "line": 2504
+        },
+        {
+          "name": "generated_kernel_48",
+          "line": 2509
+        },
+        {
+          "name": "generated_kernel_43",
+          "line": 2518
+        },
+        {
+          "name": "generated_kernel_49",
+          "line": 2530
+        },
+        {
+          "name": "generated_kernel_50",
+          "line": 2540
+        },
+        {
+          "name": "generated_kernel_51",
+          "line": 2552
+        },
+        {
+          "name": "generated_kernel_52",
+          "line": 2557
+        },
+        {
+          "name": "generated_kernel_53",
+          "line": 2566
+        },
+        {
+          "name": "generated_kernel_54",
+          "line": 2577
+        },
+        {
+          "name": "generated_kernel_55",
+          "line": 2584
+        },
+        {
+          "name": "generated_kernel_56",
+          "line": 2589
+        },
+        {
+          "name": "generated_kernel_53",
+          "line": 2598
+        },
+        {
+          "name": "generated_kernel_57",
+          "line": 2611
+        },
+        {
+          "name": "generated_kernel_58",
+          "line": 2616
+        },
+        {
+          "name": "generated_kernel_53",
+          "line": 2625
+        },
+        {
+          "name": "generated_kernel_59",
+          "line": 2637
+        },
+        {
+          "name": "generated_kernel_60",
+          "line": 2648
+        },
+        {
+          "name": "generated_kernel_61",
+          "line": 2660
+        },
+        {
+          "name": "generated_kernel_62",
+          "line": 2665
+        },
+        {
+          "name": "generated_kernel_63",
+          "line": 2674
+        },
+        {
+          "name": "generated_kernel_64",
+          "line": 2685
+        },
+        {
+          "name": "generated_kernel_65",
+          "line": 2692
+        },
+        {
+          "name": "generated_kernel_66",
+          "line": 2697
+        },
+        {
+          "name": "generated_kernel_63",
+          "line": 2706
+        },
+        {
+          "name": "generated_kernel_67",
+          "line": 2719
+        },
+        {
+          "name": "generated_kernel_68",
+          "line": 2724
+        },
+        {
+          "name": "generated_kernel_63",
+          "line": 2733
+        },
+        {
+          "name": "generated_kernel_69",
+          "line": 2744
+        },
+        {
+          "name": "generated_kernel_70",
+          "line": 2753
+        },
+        {
+          "name": "generated_kernel_62",
+          "line": 2759
+        },
+        {
+          "name": "generated_kernel_71",
+          "line": 2768
+        }
+      ],
+      "views": [
+        {
+          "name": "buf94",
+          "shape": [
+            1,
+            64,
+            1
+          ],
+          "strides": [
+            122944,
+            1921,
+            1
+          ],
+          "line": 2048
+        },
+        {
+          "name": "buf76",
+          "shape": [
+            1,
+            128,
+            1
+          ],
+          "strides": [
+            123008,
+            961,
+            1
+          ],
+          "line": 2054
+        },
+        {
+          "name": "buf58",
+          "shape": [
+            1,
+            256,
+            1
+          ],
+          "strides": [
+            123136,
+            481,
+            1
+          ],
+          "line": 2060
+        },
+        {
+          "name": "buf40",
+          "shape": [
+            1,
+            512,
+            1
+          ],
+          "strides": [
+            49664,
+            97,
+            1
+          ],
+          "line": 2085
+        },
+        {
+          "name": "buf22",
+          "shape": [
+            1,
+            1024,
+            1
+          ],
+          "strides": [
+            17408,
+            17,
+            1
+          ],
+          "line": 2091
+        },
+        {
+          "name": "buf5",
+          "shape": [
+            1,
+            2048,
+            1
+          ],
+          "strides": [
+            6144,
+            3,
+            1
+          ],
+          "line": 2097
+        },
+        {
+          "name": "buf4",
+          "shape": [
+            1,
+            2048,
+            2
+          ],
+          "strides": [
+            6144,
+            3,
+            1
+          ],
+          "line": 2106
+        },
+        {
+          "name": "buf117",
+          "shape": [
+            1,
+            1024,
+            6
+          ],
+          "strides": [
+            6144,
+            6,
+            1
+          ],
+          "line": 2130
+        },
+        {
+          "name": "buf11",
+          "shape": [
+            1024,
+            16
+          ],
+          "strides": [
+            16,
+            1
+          ],
+          "line": 2145
+        },
+        {
+          "name": "buf15",
+          "shape": [
+            1,
+            1024,
+            16
+          ],
+          "strides": [
+            16384,
+            16,
+            1
+          ],
+          "line": 2170
+        },
+        {
+          "name": "buf16",
+          "shape": [
+            1024,
+            16
+          ],
+          "strides": [
+            16,
+            1
+          ],
+          "line": 2176
+        },
+        {
+          "name": "buf20",
+          "shape": [
+            1024,
+            16
+          ],
+          "strides": [
+            16,
+            1
+          ],
+          "line": 2199
+        },
+        {
+          "name": "buf23",
+          "shape": [
+            1,
+            1024,
+            16
+          ],
+          "strides": [
+            17408,
+            17,
+            1
+          ],
+          "line": 2205
+        },
+        {
+          "name": "buf28",
+          "shape": [
+            1,
+            512,
+            96
+          ],
+          "strides": [
+            49152,
+            96,
+            1
+          ],
+          "line": 2245
+        },
+        {
+          "name": "buf29",
+          "shape": [
+            512,
+            96
+          ],
+          "strides": [
+            96,
+            1
+          ],
+          "line": 2251
+        },
+        {
+          "name": "buf33",
+          "shape": [
+            1,
+            512,
+            96
+          ],
+          "strides": [
+            49152,
+            96,
+            1
+          ],
+          "line": 2277
+        },
+        {
+          "name": "buf34",
+          "shape": [
+            512,
+            96
+          ],
+          "strides": [
+            96,
+            1
+          ],
+          "line": 2283
+        },
+        {
+          "name": "buf38",
+          "shape": [
+            512,
+            96
+          ],
+          "strides": [
+            96,
+            1
+          ],
+          "line": 2309
+        },
+        {
+          "name": "buf41",
+          "shape": [
+            1,
+            512,
+            96
+          ],
+          "strides": [
+            49664,
+            97,
+            1
+          ],
+          "line": 2315
+        },
+        {
+          "name": "buf124",
+          "shape": [
+            1,
+            512,
+            1
+          ],
+          "strides": [
+            512,
+            1,
+            1
+          ],
+          "line": 2326
+        },
+        {
+          "name": "buf47",
+          "shape": [
+            256,
+            480
+          ],
+          "strides": [
+            480,
+            1
+          ],
+          "line": 2358
+        },
+        {
+          "name": "buf51",
+          "shape": [
+            1,
+            256,
+            480
+          ],
+          "strides": [
+            122880,
+            480,
+            1
+          ],
+          "line": 2384
+        },
+        {
+          "name": "buf52",
+          "shape": [
+            256,
+            480
+          ],
+          "strides": [
+            480,
+            1
+          ],
+          "line": 2390
+        },
+        {
+          "name": "buf56",
+          "shape": [
+            256,
+            480
+          ],
+          "strides": [
+            480,
+            1
+          ],
+          "line": 2416
+        },
+        {
+          "name": "buf59",
+          "shape": [
+            1,
+            256,
+            480
+          ],
+          "strides": [
+            123136,
+            481,
+            1
+          ],
+          "line": 2422
+        },
+        {
+          "name": "buf64",
+          "shape": [
+            1,
+            128,
+            960
+          ],
+          "strides": [
+            122880,
+            960,
+            1
+          ],
+          "line": 2458
+        },
+        {
+          "name": "buf65",
+          "shape": [
+            128,
+            960
+          ],
+          "strides": [
+            960,
+            1
+          ],
+          "line": 2464
+        },
+        {
+          "name": "buf69",
+          "shape": [
+            1,
+            128,
+            960
+          ],
+          "strides": [
+            122880,
+            960,
+            1
+          ],
+          "line": 2490
+        },
+        {
+          "name": "buf70",
+          "shape": [
+            128,
+            960
+          ],
+          "strides": [
+            960,
+            1
+          ],
+          "line": 2496
+        },
+        {
+          "name": "buf74",
+          "shape": [
+            128,
+            960
+          ],
+          "strides": [
+            960,
+            1
+          ],
+          "line": 2523
+        },
+        {
+          "name": "buf77",
+          "shape": [
+            1,
+            128,
+            960
+          ],
+          "strides": [
+            123008,
+            961,
+            1
+          ],
+          "line": 2529
+        },
+        {
+          "name": "buf132",
+          "shape": [
+            1,
+            128,
+            1
+          ],
+          "strides": [
+            128,
+            1,
+            1
+          ],
+          "line": 2539
+        },
+        {
+          "name": "buf82",
+          "shape": [
+            1,
+            64,
+            1920
+          ],
+          "strides": [
+            122880,
+            1920,
+            1
+          ],
+          "line": 2565
+        },
+        {
+          "name": "buf83",
+          "shape": [
+            64,
+            1920
+          ],
+          "strides": [
+            1920,
+            1
+          ],
+          "line": 2571
+        },
+        {
+          "name": "buf87",
+          "shape": [
+            1,
+            64,
+            1920
+          ],
+          "strides": [
+            122880,
+            1920,
+            1
+          ],
+          "line": 2597
+        },
+        {
+          "name": "buf88",
+          "shape": [
+            64,
+            1920
+          ],
+          "strides": [
+            1920,
+            1
+          ],
+          "line": 2603
+        },
+        {
+          "name": "buf92",
+          "shape": [
+            64,
+            1920
+          ],
+          "strides": [
+            1920,
+            1
+          ],
+          "line": 2630
+        },
+        {
+          "name": "buf95",
+          "shape": [
+            1,
+            64,
+            1920
+          ],
+          "strides": [
+            122944,
+            1921,
+            1
+          ],
+          "line": 2636
+        },
+        {
+          "name": "buf101",
+          "shape": [
+            32,
+            3840
+          ],
+          "strides": [
+            3840,
+            1
+          ],
+          "line": 2679
+        },
+        {
+          "name": "buf105",
+          "shape": [
+            1,
+            32,
+            3840
+          ],
+          "strides": [
+            122880,
+            3840,
+            1
+          ],
+          "line": 2705
+        },
+        {
+          "name": "buf106",
+          "shape": [
+            32,
+            3840
+          ],
+          "strides": [
+            3840,
+            1
+          ],
+          "line": 2711
+        },
+        {
+          "name": "buf110",
+          "shape": [
+            32,
+            3840
+          ],
+          "strides": [
+            3840,
+            1
+          ],
+          "line": 2738
+        }
+      ],
+      "allocations": [
+        {
+          "name": "buf96",
+          "shape": [
+            1,
+            64,
+            1921
+          ],
+          "line": 2047
+        },
+        {
+          "name": "buf78",
+          "shape": [
+            1,
+            128,
+            961
+          ],
+          "line": 2053
+        },
+        {
+          "name": "buf60",
+          "shape": [
+            1,
+            256,
+            481
+          ],
+          "line": 2059
+        },
+        {
+          "name": "buf0",
+          "shape": [
+            1,
+            64,
+            8
+          ],
+          "line": 2066
+        },
+        {
+          "name": "buf115",
+          "shape": [
+            1,
+            64,
+            6
+          ],
+          "line": 2075
+        },
+        {
+          "name": "buf2",
+          "shape": [
+            1,
+            64,
+            2
+          ],
+          "line": 2078
+        },
+        {
+          "name": "buf42",
+          "shape": [
+            1,
+            512,
+            97
+          ],
+          "line": 2084
+        },
+        {
+          "name": "buf24",
+          "shape": [
+            1,
+            1024,
+            17
+          ],
+          "line": 2090
+        },
+        {
+          "name": "buf6",
+          "shape": [
+            1,
+            2048,
+            3
+          ],
+          "line": 2096
+        },
+        {
+          "name": "buf3",
+          "shape": [
+            2048,
+            2
+          ],
+          "line": 2101
+        },
+        {
+          "name": "buf116",
+          "shape": [
+            1,
+            2048,
+            1
+          ],
+          "line": 2114
+        },
+        {
+          "name": "buf7",
+          "shape": [
+            16384,
+            3
+          ],
+          "line": 2119
+        },
+        {
+          "name": "buf8",
+          "shape": [
+            1,
+            1024,
+            22
+          ],
+          "line": 2125
+        },
+        {
+          "name": "buf10",
+          "shape": [
+            1,
+            1024,
+            16
+          ],
+          "line": 2139
+        },
+        {
+          "name": "buf13",
+          "shape": [
+            1,
+            1024,
+            34
+          ],
+          "line": 2156
+        },
+        {
+          "name": "buf118",
+          "shape": [
+            1,
+            1024,
+            18
+          ],
+          "line": 2166
+        },
+        {
+          "name": "buf17",
+          "shape": [
+            1,
+            1024,
+            70
+          ],
+          "line": 2182
+        },
+        {
+          "name": "buf119",
+          "shape": [
+            1,
+            1024,
+            54
+          ],
+          "line": 2216
+        },
+        {
+          "name": "buf120",
+          "shape": [
+            1,
+            1024,
+            1
+          ],
+          "line": 2219
+        },
+        {
+          "name": "buf25",
+          "shape": [
+            6144,
+            17
+          ],
+          "line": 2224
+        },
+        {
+          "name": "buf26",
+          "shape": [
+            1,
+            512,
+            102
+          ],
+          "line": 2231
+        },
+        {
+          "name": "buf121",
+          "shape": [
+            1,
+            512,
+            6
+          ],
+          "line": 2236
+        },
+        {
+          "name": "buf31",
+          "shape": [
+            1,
+            512,
+            114
+          ],
+          "line": 2263
+        },
+        {
+          "name": "buf122",
+          "shape": [
+            1,
+            512,
+            18
+          ],
+          "line": 2268
+        },
+        {
+          "name": "buf35",
+          "shape": [
+            1,
+            512,
+            150
+          ],
+          "line": 2289
+        },
+        {
+          "name": "buf123",
+          "shape": [
+            1,
+            512,
+            54
+          ],
+          "line": 2294
+        },
+        {
+          "name": "buf43",
+          "shape": [
+            2560,
+            97
+          ],
+          "line": 2331
+        },
+        {
+          "name": "buf44",
+          "shape": [
+            1,
+            256,
+            486
+          ],
+          "line": 2338
+        },
+        {
+          "name": "buf125",
+          "shape": [
+            1,
+            256,
+            6
+          ],
+          "line": 2343
+        },
+        {
+          "name": "buf46",
+          "shape": [
+            1,
+            256,
+            480
+          ],
+          "line": 2352
+        },
+        {
+          "name": "buf49",
+          "shape": [
+            1,
+            256,
+            498
+          ],
+          "line": 2370
+        },
+        {
+          "name": "buf126",
+          "shape": [
+            1,
+            256,
+            18
+          ],
+          "line": 2375
+        },
+        {
+          "name": "buf53",
+          "shape": [
+            1,
+            256,
+            534
+          ],
+          "line": 2396
+        },
+        {
+          "name": "buf127",
+          "shape": [
+            1,
+            256,
+            54
+          ],
+          "line": 2401
+        },
+        {
+          "name": "buf128",
+          "shape": [
+            1,
+            256,
+            1
+          ],
+          "line": 2432
+        },
+        {
+          "name": "buf61",
+          "shape": [
+            512,
+            481
+          ],
+          "line": 2437
+        },
+        {
+          "name": "buf62",
+          "shape": [
+            1,
+            128,
+            966
+          ],
+          "line": 2444
+        },
+        {
+          "name": "buf129",
+          "shape": [
+            1,
+            128,
+            6
+          ],
+          "line": 2449
+        },
+        {
+          "name": "buf67",
+          "shape": [
+            1,
+            128,
+            978
+          ],
+          "line": 2476
+        },
+        {
+          "name": "buf130",
+          "shape": [
+            1,
+            128,
+            18
+          ],
+          "line": 2481
+        },
+        {
+          "name": "buf71",
+          "shape": [
+            1,
+            128,
+            1014
+          ],
+          "line": 2503
+        },
+        {
+          "name": "buf131",
+          "shape": [
+            1,
+            128,
+            54
+          ],
+          "line": 2508
+        },
+        {
+          "name": "buf73",
+          "shape": [
+            1,
+            128,
+            960
+          ],
+          "line": 2517
+        },
+        {
+          "name": "buf79",
+          "shape": [
+            256,
+            961
+          ],
+          "line": 2544
+        },
+        {
+          "name": "buf80",
+          "shape": [
+            1,
+            64,
+            1926
+          ],
+          "line": 2551
+        },
+        {
+          "name": "buf133",
+          "shape": [
+            1,
+            64,
+            6
+          ],
+          "line": 2556
+        },
+        {
+          "name": "buf85",
+          "shape": [
+            1,
+            64,
+            1938
+          ],
+          "line": 2583
+        },
+        {
+          "name": "buf134",
+          "shape": [
+            1,
+            64,
+            18
+          ],
+          "line": 2588
+        },
+        {
+          "name": "buf89",
+          "shape": [
+            1,
+            64,
+            1974
+          ],
+          "line": 2610
+        },
+        {
+          "name": "buf135",
+          "shape": [
+            1,
+            64,
+            54
+          ],
+          "line": 2615
+        },
+        {
+          "name": "buf91",
+          "shape": [
+            1,
+            64,
+            1920
+          ],
+          "line": 2624
+        },
+        {
+          "name": "buf136",
+          "shape": [
+            1,
+            64,
+            1
+          ],
+          "line": 2647
+        },
+        {
+          "name": "buf97",
+          "shape": [
+            128,
+            1921
+          ],
+          "line": 2652
+        },
+        {
+          "name": "buf98",
+          "shape": [
+            1,
+            32,
+            3846
+          ],
+          "line": 2659
+        },
+        {
+          "name": "buf137",
+          "shape": [
+            1,
+            32,
+            6
+          ],
+          "line": 2664
+        },
+        {
+          "name": "buf100",
+          "shape": [
+            1,
+            32,
+            3840
+          ],
+          "line": 2673
+        },
+        {
+          "name": "buf103",
+          "shape": [
+            1,
+            32,
+            3858
+          ],
+          "line": 2691
+        },
+        {
+          "name": "buf138",
+          "shape": [
+            1,
+            32,
+            18
+          ],
+          "line": 2696
+        },
+        {
+          "name": "buf107",
+          "shape": [
+            1,
+            32,
+            3894
+          ],
+          "line": 2718
+        },
+        {
+          "name": "buf139",
+          "shape": [
+            1,
+            32,
+            54
+          ],
+          "line": 2723
+        },
+        {
+          "name": "buf109",
+          "shape": [
+            1,
+            32,
+            3840
+          ],
+          "line": 2732
+        },
+        {
+          "name": "buf112",
+          "shape": [
+            1,
+            32,
+            3846
+          ],
+          "line": 2752
+        },
+        {
+          "name": "buf140",
+          "shape": [
+            1,
+            32,
+            6
+          ],
+          "line": 2758
+        },
+        {
+          "name": "buf114",
+          "shape": [
+            1,
+            1,
+            3840
+          ],
+          "line": 2767
+        }
+      ],
+      "conditional_alignment_copy_guards": [
+        {
+          "name": "arg180_1",
+          "line": 2046
+        },
+        {
+          "name": "arg146_1",
+          "line": 2052
+        },
+        {
+          "name": "arg112_1",
+          "line": 2058
+        },
+        {
+          "name": "arg0_1",
+          "line": 2064
+        },
+        {
+          "name": "arg1_1",
+          "line": 2065
+        },
+        {
+          "name": "arg78_1",
+          "line": 2083
+        },
+        {
+          "name": "arg44_1",
+          "line": 2089
+        },
+        {
+          "name": "arg10_1",
+          "line": 2095
+        },
+        {
+          "name": "arg15_1",
+          "line": 2124
+        },
+        {
+          "name": "arg24_1",
+          "line": 2155
+        },
+        {
+          "name": "arg33_1",
+          "line": 2181
+        },
+        {
+          "name": "arg49_1",
+          "line": 2230
+        },
+        {
+          "name": "arg58_1",
+          "line": 2262
+        },
+        {
+          "name": "arg67_1",
+          "line": 2288
+        },
+        {
+          "name": "arg83_1",
+          "line": 2337
+        },
+        {
+          "name": "arg92_1",
+          "line": 2369
+        },
+        {
+          "name": "arg101_1",
+          "line": 2395
+        },
+        {
+          "name": "arg117_1",
+          "line": 2443
+        },
+        {
+          "name": "arg126_1",
+          "line": 2475
+        },
+        {
+          "name": "arg135_1",
+          "line": 2502
+        },
+        {
+          "name": "arg151_1",
+          "line": 2550
+        },
+        {
+          "name": "arg160_1",
+          "line": 2582
+        },
+        {
+          "name": "arg169_1",
+          "line": 2609
+        },
+        {
+          "name": "arg185_1",
+          "line": 2658
+        },
+        {
+          "name": "arg194_1",
+          "line": 2690
+        },
+        {
+          "name": "arg203_1",
+          "line": 2717
+        },
+        {
+          "name": "arg212_1",
+          "line": 2751
+        }
+      ],
+      "counts": {
+        "convolution": 20,
+        "mm": 25,
+        "generated_metal_launches": 85,
+        "distinct_generated_metal_kernels": 72,
+        "explicit_allocations": 64,
+        "views": 42,
+        "alignment_guards": 27
+      },
+      "all45_route_shape_checks_passed": true,
+      "remaining_convolution_types": {
+        "depthwise": 19,
+        "final_conv": 1
+      },
+      "logical_macs": 760628096,
+      "mm_logical_macs": 748068864
+    }
+  },
+  "paired_accounting": [
+    {
+      "packet_ms": 40,
+      "pairs": [
+        {
+          "clip": "Bengali",
+          "repetition": 0,
+          "baseline_seconds": 0.12110450305044651,
+          "candidate_seconds": 0.06165487691760063,
+          "reduction_percent": 49.08952568682101
+        },
+        {
+          "clip": "Bengali",
+          "repetition": 1,
+          "baseline_seconds": 0.11081758281216025,
+          "candidate_seconds": 0.050738041289150715,
+          "reduction_percent": 54.214809598262484
+        },
+        {
+          "clip": "English",
+          "repetition": 0,
+          "baseline_seconds": 0.1273146653547883,
+          "candidate_seconds": 0.06797162489965558,
+          "reduction_percent": 46.611315585491454
+        },
+        {
+          "clip": "English",
+          "repetition": 1,
+          "baseline_seconds": 0.11246262537315488,
+          "candidate_seconds": 0.05102400202304125,
+          "reduction_percent": 54.63025884933608
+        },
+        {
+          "clip": "Spanish",
+          "repetition": 0,
+          "baseline_seconds": 0.11746766651049256,
+          "candidate_seconds": 0.05336003890261054,
+          "reduction_percent": 54.574700862177885
+        },
+        {
+          "clip": "Spanish",
+          "repetition": 1,
+          "baseline_seconds": 0.11925232876092196,
+          "candidate_seconds": 0.060597747564315796,
+          "reduction_percent": 49.185271102082496
+        }
+      ],
+      "paired_wins": 6,
+      "paired_median_reduction_percent": 51.700040350172486,
+      "audio_seconds_per_arm": 5.76,
+      "baseline_seconds": 0.7084193718619645,
+      "candidate_seconds": 0.3453463315963745,
+      "baseline_pooled_rtf": 0.12298947428159106,
+      "candidate_pooled_rtf": 0.0599559603465928,
+      "pooled_reduction_percent": 51.25114511074307
+    },
+    {
+      "packet_ms": 80,
+      "pairs": [
+        {
+          "clip": "Bengali",
+          "repetition": 0,
+          "baseline_seconds": 0.06509687332436442,
+          "candidate_seconds": 0.0334268338046968,
+          "reduction_percent": 48.65063082502026
+        },
+        {
+          "clip": "Bengali",
+          "repetition": 1,
+          "baseline_seconds": 0.06030687363818288,
+          "candidate_seconds": 0.02723745908588171,
+          "reduction_percent": 54.83523279734981
+        },
+        {
+          "clip": "English",
+          "repetition": 0,
+          "baseline_seconds": 0.06566375074908137,
+          "candidate_seconds": 0.0338953360915184,
+          "reduction_percent": 48.38044475856781
+        },
+        {
+          "clip": "English",
+          "repetition": 1,
+          "baseline_seconds": 0.06037454213947058,
+          "candidate_seconds": 0.02970545692369342,
+          "reduction_percent": 50.79804190469691
+        },
+        {
+          "clip": "Spanish",
+          "repetition": 0,
+          "baseline_seconds": 0.060516498517245054,
+          "candidate_seconds": 0.02650996157899499,
+          "reduction_percent": 56.1938277518806
+        },
+        {
+          "clip": "Spanish",
+          "repetition": 1,
+          "baseline_seconds": 0.06402729218825698,
+          "candidate_seconds": 0.03157320758327842,
+          "reduction_percent": 50.68789182830826
+        }
+      ],
+      "paired_wins": 6,
+      "paired_median_reduction_percent": 50.742966866502584,
+      "audio_seconds_per_arm": 5.76,
+      "baseline_seconds": 0.3759858305566013,
+      "candidate_seconds": 0.18234825506806374,
+      "baseline_pooled_rtf": 0.06527531780496551,
+      "candidate_pooled_rtf": 0.031657683171538845,
+      "pooled_reduction_percent": 51.501295993490146
+    }
+  ],
+  "mechanism": {
+    "removed_transpose_convolutions": 6,
+    "removed_pointwise_convolutions": 19,
+    "added_mm_calls": 25,
+    "remaining_depthwise": 19,
+    "remaining_final_standard_conv": 1,
+    "backend_math_call_count_before": 45,
+    "backend_math_call_count_after": 45,
+    "packed_weight_bytes": 165314560,
+    "logical_macs_unchanged": true,
+    "activation_gemm_layout": "Weight-left A[N,K] @ B[K,time], output[N,time]. Pointwise inputs are BCT views; no activation transpose copy. Transpose matrix outputs use [Cout,2s,T+1] phase-major layout, indexed by generated fused kernels.",
+    "phase_fusion_evidence": {
+      "file": "outputs/apple-gpu-v2/inductor-cache/cd/ccdusqpxcjnjtuyl6c43jyq6hzoymzjmkrhkfbexpvu3jmwcgrnd.py",
+      "kernel10_definition_line": 209,
+      "current_plus_previous_bias_snake_history_concatenation": true,
+      "kernel13_definition_line": 299,
+      "phase_sum_bias_and_residual_add": true
+    }
+  },
+  "limitations": [
+    "Matching25MM/20Conv wrappers are identified by all45 route shapes and cachedsource, not by a cachefilename SHA recorded inside the original timed receipt. This does not prove exactbinary dispatch or give perGPUkernel timings.",
+    "extern_kernels.mm is the generated wrapper entrypoint. Source OriginalATen annotations identify aten.mm, but no directGPU kernel or MPSGraph-versus-Metal execution trace is available.",
+    "Same45 external math calls and same logical MACcount. Large timinggain cannot be explained as25fewer total mathcalls; observed change is convolution APIs replaced by MM APIs plus changed generated layout/fusion.",
+    "Compiletime packing/weights retained excludedfromstreamtimers.165,314,560additionalbytes of packedweights are present alongside originals in this experiment.",
+    "Only6matchedpairs perpacket size on3short960msclips. No sustainedperformance or statisticalsignificance claim."
+  ]
+}
