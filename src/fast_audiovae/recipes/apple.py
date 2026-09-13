@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import importlib.util
+import json
 from pathlib import Path
 import subprocess
 import sys
@@ -32,6 +33,10 @@ def build_recipe(work_dir, source, platform_info, mode, threads):
     def create_base(destination):
         prepare(destination, source=source, native_build=build_manifest)
         prepare_streaming(destination)
+        manifest_path = destination / "bundle.json"
+        manifest = json.loads(manifest_path.read_text())
+        manifest["onnxruntime"] = "1.30.0"
+        manifest_path.write_text(json.dumps(manifest, indent=2) + "\n")
     completed_bundle(base, create_base)
     if mode == "batch":
         return base
@@ -44,4 +49,16 @@ def build_recipe(work_dir, source, platform_info, mode, threads):
             raise RuntimeError("Apple streaming preparation failed: " + process.stderr)
         # The source completion marker describes the source graph, not this derivative.
         (destination / ".recipe-ready.json").unlink(missing_ok=True)
-    return completed_bundle(result, create_projection)
+    projection = completed_bundle(result, create_projection)
+    if platform_info.get("recipe") != "apple_stream_selected":
+        return projection
+    if threads not in (1, 4):
+        raise ValueError("Selected Apple streaming recipe supports ORT threads 1 or 4")
+    if prebuilt:
+        streaming_build = prebuilt["streaming_build"]
+    else:
+        streaming_build = _module(root / "tools/build_apple_streaming.py", "_apple_streaming_build").build(
+            offline=platform_info.get("offline", False))["build_manifest"]
+    from .apple_selected import prepare as prepare_selected
+    selected = root / "bundles/apple-stream-selected"
+    return completed_bundle(selected, lambda destination: prepare_selected(projection, destination, streaming_build))

@@ -58,6 +58,18 @@ def _load_session(model_dir, *, threads, prefer_custom, prefer_packed, streaming
     options.add_session_config_entry('session.intra_op.allow_spinning','0')
     options.add_session_config_entry('session.inter_op.allow_spinning','0')
     native=manifest['native'].get(key) if prefer_custom else None
+    if native and native.get('required_cpu_features') is not None:
+        required = native['required_cpu_features']
+        if (not isinstance(required, list) or not required or
+                any(name not in ('sme', 'sme2') for name in required) or len(set(required)) != len(required)):
+            raise RuntimeError('Invalid required CPU features in native bundle')
+        from .platforms import apple_matrix_features
+        available = apple_matrix_features() if key == 'Darwin/arm64' else {}
+        if not all(available.get(name) is True for name in required):
+            native = None
+            info['reason'] = 'Required Apple matrix instructions are unavailable; using standard ONNX'
+        else:
+            info['required_cpu_features'] = required
     required_backend=native.get('required_backend') if native else None
     if required_backend is not None:
         if type(required_backend) is not int or required_backend not in (4,5):
@@ -70,6 +82,17 @@ def _load_session(model_dir, *, threads, prefer_custom, prefer_packed, streaming
         native=None
         info['reason']='Native package requires the tested ORT version; using standard ONNX'
     if native:
+        from .assets import sha256
+        dependencies = native.get('dependencies', [])
+        if not isinstance(dependencies, list):
+            raise RuntimeError('Native dependencies must be an explicit hash inventory')
+        for record in dependencies:
+            if not isinstance(record, dict) or not isinstance(record.get('library'), str):
+                raise RuntimeError('Invalid native dependency record')
+            path = (root / record['library']).resolve()
+            if (not path.is_relative_to(root) or not path.is_file()
+                    or sha256(path) != record.get('sha256')):
+                raise RuntimeError('Native dependency is missing or differs from its manifest')
         try:library=ctypes.CDLL(str(root/native['library']))
         except OSError as error:
             info['reason']='Native library unavailable on this system; using standard ONNX'

@@ -95,6 +95,34 @@ def test_parallel_streams_share_session_but_not_history():
         assert list(pool.map(run, range(16))) == [2 * i + 1 for i in range(16)]
 
 
+def test_selected_shared_scratch_is_serialized_across_streams():
+    import threading
+    import time
+
+    class ScratchSession(Session):
+        busy = threading.Lock()
+
+        def run(self, outputs, feed):
+            if not self.busy.acquire(blocking=False):
+                raise RuntimeError("shared packing scratch is already in use")
+            try:
+                # Model a native call releasing the GIL while it owns scratch.
+                time.sleep(.01)
+                return super().run(outputs, feed)
+            finally:
+                self.busy.release()
+
+    decoder = StreamingDecoder(ScratchSession(), {**SPEC, "apple_stream_selected": {"matrix_nodes": ["test"]}})
+    start = threading.Barrier(4)
+    def run(value):
+        with decoder.streaming_decode() as stream:
+            start.wait(timeout=5)
+            stream.decode_chunk(z(value))
+            return stream.decode_chunk(z(value + 1))[0, 0, 0]
+    with ThreadPoolExecutor(max_workers=4) as pool:
+        assert list(pool.map(run, range(4))) == [1, 3, 5, 7]
+
+
 def test_wrong_manifest_or_provider_is_rejected():
     session = Session()
     wrong = {**SPEC, "latent_input": "other"}

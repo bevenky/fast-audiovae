@@ -19,6 +19,16 @@ def evidence(vendor="intel", *, system="Linux", machine="x86_64", maximum=8, pro
 
 
 class SelectionTests(unittest.TestCase):
+    def test_selected_apple_recipe_requires_both_matrix_features(self):
+        apple = evidence("apple", system="Darwin", machine="arm64")
+        for sme, sme2 in ((True, True), (True, False), (False, True), ("1", True), (True, 1)):
+            apple["usable"].update(sme=sme, sme2=sme2)
+            selected = platforms.select_recipe(apple, threads=4)
+            expected = "apple_stream_selected" if sme is True and sme2 is True else "apple_stream_projection"
+            self.assertEqual(selected["recipe"], expected)
+            self.assertEqual(selected["threads"], 4 if expected == "apple_stream_selected" else 1)
+            self.assertEqual(platforms.select_recipe(apple, "batch")["recipe"], "apple_native")
+
     def test_mode_and_vendor_select_separate_recipes(self):
         cases = [
             (evidence("apple", system="Darwin", machine="arm64"), "apple_native", "apple_stream_projection"),
@@ -110,6 +120,18 @@ class CgroupTests(unittest.TestCase):
 
 
 class ProbeTests(unittest.TestCase):
+    def test_apple_matrix_queries_fail_closed(self):
+        with patch.object(platforms.platform, "system", return_value="Darwin"), \
+             patch.object(platforms.platform, "machine", return_value="arm64"):
+            for response, expected in ((SimpleNamespace(returncode=0, stdout="1\n"), True),
+                                       (SimpleNamespace(returncode=0, stdout="Apple M5 Max\n"), False),
+                                       (SimpleNamespace(returncode=1, stdout="1\n"), False)):
+                with patch.object(platforms.subprocess, "run", return_value=response) as query:
+                    self.assertEqual(platforms.apple_matrix_features(), {"sme": expected, "sme2": expected})
+                self.assertEqual(query.call_count, 2)
+            with patch.object(platforms.subprocess, "run", side_effect=OSError):
+                self.assertEqual(platforms.apple_matrix_features(), {"sme": False, "sme2": False})
+
     def setUp(self):
         platforms._cached_x86_probe.cache_clear()
 
@@ -182,6 +204,7 @@ class ProbeTests(unittest.TestCase):
     def test_apple_native_abi_and_rosetta_are_distinct(self):
         with patch.object(platforms.platform, "system", return_value="Darwin"), \
              patch.object(platforms.platform, "machine", side_effect=["aarch64", "aarch64", "x86_64", "x86_64"]), \
+             patch.object(platforms, "apple_matrix_features", return_value={"sme": False, "sme2": False}), \
              patch.object(platforms.os, "cpu_count", return_value=16), \
              patch.object(platforms.os, "sched_getaffinity", side_effect=AttributeError, create=True), \
              patch.object(platforms.subprocess, "run", return_value=SimpleNamespace(returncode=0, stdout="Apple M5 Max\n")), \

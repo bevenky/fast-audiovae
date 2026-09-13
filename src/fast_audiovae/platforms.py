@@ -84,6 +84,25 @@ _NATIVE_DIR = Path(__file__).resolve().parent / "_native"
 _PROBE_FLAGS = ["-O2", "-std=c11", "-march=x86-64", "-mtune=generic"]
 
 
+def apple_matrix_features():
+    """Query OS-exposed instruction support without executing matrix kernels.
+
+    A model name is not evidence of SME support. Missing, denied or malformed
+    sysctl queries deliberately leave the existing NEON recipe selected.
+    """
+    result = {"sme": False, "sme2": False}
+    if platform.system() != "Darwin" or platform.machine().lower() not in ("arm64", "aarch64"):
+        return result
+    for name in result:
+        try:
+            query = subprocess.run(["/usr/sbin/sysctl", "-n", "hw.optional.arm.FEAT_" + name.upper()],
+                                   capture_output=True, text=True, timeout=2, check=False)
+            result[name] = query.returncode == 0 and query.stdout.strip() == "1"
+        except (OSError, subprocess.TimeoutExpired):
+            pass
+    return result
+
+
 def _read(path):
     try:
         return Path(path).read_text()
@@ -302,6 +321,7 @@ No neural models are loaded and no network access is used. On Linux x86 the
     if system == "Darwin" and machine == "arm64":
         result["vendor"] = "apple"
         result["usable"]["neon"] = True
+        result["usable"].update(apple_matrix_features())
         result["probe"] = {"status": "ok", "method": "native_arm64_abi",
                            "reason": "Native macOS arm64 ABI guarantees Advanced SIMD support"}
         try:
@@ -358,6 +378,8 @@ the bundle loader separately checks that compatible native artifacts exist.
     usable, proven = cpu.get("usable", {}), cpu.get("probe", {}).get("status") == "ok"
     if proven and system == "Darwin" and machine == "arm64" and vendor == "apple" and usable.get("neon") is True:
         recipe = "apple_stream_projection" if mode == "streaming" else "apple_native"
+        if mode == "streaming" and usable.get("sme") is True and usable.get("sme2") is True:
+            recipe = "apple_stream_selected"
         reason = "Native Apple arm64 recipe selected for " + mode
     elif (proven and system == "Linux" and machine == "x86_64"
           and all(usable.get(key) is True for key in ("avx2", "avx512", "avx512_vnni"))):
@@ -368,6 +390,7 @@ the bundle loader separately checks that compatible native artifacts exist.
             recipe = "amd_precision"
             reason = "Usable AVX512-VNNI verified; retained AMD recipe selected for " + mode
     validated = {"apple_native": [1, 4], "apple_stream_projection": [1],
+                 "apple_stream_selected": [1, 4],
                  "intel_precision": [1, 2], "intel_stream_projection": [1],
                  "amd_precision": [1, 4]}.get(recipe)
     selected_threads = max(value for value in validated if value <= available_budget) if validated else available_budget
