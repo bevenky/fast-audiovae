@@ -42,10 +42,24 @@ The final source suite passed 277 tests and 1,959 subtests. Package initializati
 
 ## Quality
 
-The README's perceptual quality table is the earlier one-thread, 80 ms streaming speech panel on 60 FLEURS recordings across ten languages, totaling 534.58 seconds. It uses the same original audio reference for all codecs. Those PESQ, STOI, UTMOS and DNSMOS scores were not recomputed for version 0.3.0; the new release is instead qualified for numerical agreement with stock as described above. The trained values remain unchanged.
+The README's perceptual quality table uses the earlier one-thread, 80 ms streaming speech panel on 60 FLEURS recordings across ten languages, totaling 534.58 seconds. PESQ and STOI compare each codec with the same original audio; UTMOS and DNSMOS are reference-free predictors. PESQ, STOI and UTMOS remain the earlier results. DNSMOS was subsequently rechecked on the saved waveforms as described below. No audio was re-encoded for this recheck, and it is not a fresh perceptual evaluation of the current kernels. The release is qualified separately for numerical agreement with stock. The trained values remain unchanged.
 
 Only terminal padding was removed before scoring. There was no fitted time alignment, gain normalization, clipping or silence removal. The source bandwidth and metric sample rate were 16 kHz. These scores do not assess fidelity above 8 kHz or establish music quality. UTMOS22 and DNSMOS are predictions, not human ratings. [Quality scores and scorer provenance](../benchmarks/streaming/apple-quality-20260913.json).
 
 The earlier panel had no missing scores or scorer warnings, and its 29 metric means were independently recomputed, including ESTOI and the additional DNSMOS components in the detailed report. UTMOS22 uses the pinned single strong learner. DNSMOS uses the non-personalized P.835 and P.808 models.
+
+### DNSMOS revalidation
+
+The earlier README's "DNSMOS overall" column meant P.835 overall. Those values were correct; the table now names P.835 explicitly and includes P.808, which ranks these codecs differently.
+
+| Audio | DNSMOS P.835 overall | DNSMOS P.808 |
+| --- | ---: | ---: |
+| Original recordings | 2.775 | 3.428 |
+| AudioVAE2 | 2.765 | 3.404 |
+| Pocket Mimi | 2.894 | 3.339 |
+
+The exact class from [Microsoft's pinned DNSMOS implementation](https://github.com/microsoft/DNS-Challenge/blob/591184a9fcb2cbdec02520fed81a32bbbf9d73ff/DNSMOS/dnsmos_local.py#L25-L112) was replayed on all 240 saved 16 kHz waveforms: original, stock AudioVAE2, optimized AudioVAE2 and Mimi for each recording. CPU-only ONNX Runtime 1.29.0 sessions used one thread. All 720 calibrated P.835 signal, background and overall per-recording values matched the saved scores exactly, with no warnings. The largest P.808 per-recording difference was 0.000000572, leaving every displayed mean unchanged. Source/output identities and pairing were checked before scoring.
+
+The replay retained the shared float32, 16 kHz metric inputs and official windowing and calibration. It did not substitute the upstream file loader's float64/librosa resampling path. Among the two codecs, Mimi leads P.835 overall on 44 of 60 recordings, while AudioVAE2 leads P.808 on 39 of 60. This is a difference between predictors, not evidence of a scoring reversal or a human listening preference.
 
 Meta DACVAE is excluded because the tested checkpoint requires future latent frames. Buffered decoding with lookahead does not qualify for this zero-lookahead decoder comparison. No new Intel or AMD speed measurement is claimed in this release; their existing native payload is preserved.

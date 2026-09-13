@@ -53,15 +53,17 @@ Each call starts with empty history, so these short measurements use a different
 
 ## Reconstruction quality
 
-Reference scores from the earlier one-thread, 80 ms streaming panel: the same 60 FLEURS recordings across ten languages. Higher is better. Scores use the original audio as reference at 16 kHz.
+Reference scores from the earlier one-thread, 80 ms streaming panel: the same 60 FLEURS recordings across ten languages. Higher is better. All metrics use 16 kHz audio; PESQ and STOI compare against the original, while UTMOS and DNSMOS score each recording without a reference.
 
-| Audio | PESQ-WB | STOI | UTMOS22 | DNSMOS overall |
-| --- | ---: | ---: | ---: | ---: |
-| Original recordings | Reference | Reference | 2.321 | 2.775 |
-| AudioVAE2 | 3.742 | 0.9360 | 2.257 | 2.765 |
-| Pocket Mimi | 2.130 | 0.8074 | 2.517 | 2.894 |
+| Audio | PESQ-WB | STOI | UTMOS22 | DNSMOS P.835 overall | DNSMOS P.808 |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Original recordings | Reference | Reference | 2.321 | 2.775 | 3.428 |
+| AudioVAE2 | 3.742 | 0.9360 | 2.257 | 2.765 | 3.404 |
+| Pocket Mimi | 2.130 | 0.8074 | 2.517 | 2.894 | 3.339 |
 
-The new kernels are checked separately for sample-level agreement with stock AudioVAE2; the perceptual scores above were not rerun for this release. UTMOS and DNSMOS are predictions, not human ratings. These metrics do not assess frequencies above 8 kHz. Meta DACVAE is excluded because the tested checkpoint requires future frames. [Quality results and validation](docs/streaming-baseline.md#quality).
+DNSMOS update: the earlier "overall" column was P.835, and its values were confirmed. The table now also shows P.808. Rechecking all saved recordings with Microsoft's pinned scorer confirmed that Mimi leads P.835 overall, while AudioVAE2 leads P.808. [Revalidation details](docs/streaming-baseline.md#dnsmos-revalidation).
+
+The new kernels are checked separately for sample-level agreement with stock AudioVAE2. PESQ, STOI and UTMOS above remain the earlier panel results; the DNSMOS recheck used its saved audio. UTMOS and DNSMOS are predictions, not human ratings. These metrics do not assess frequencies above 8 kHz. Meta DACVAE is excluded because the tested checkpoint requires future frames. [Quality results and validation](docs/streaming-baseline.md#quality).
 
 ## More
 
