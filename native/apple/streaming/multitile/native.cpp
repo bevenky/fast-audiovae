@@ -65,6 +65,13 @@ struct Region {
   std::vector<float> rhs,lhs,row_output;
   uint64_t runs=0,api_calls=0;
   std::atomic_flag busy=ATOMIC_FLAG_INIT;
+  // Experimental split-call lifecycle. Only begin/finish touch shared scratch;
+  // task callbacks share the packed LHS/RHS and own disjoint destination columns.
+  std::unique_ptr<std::atomic<unsigned>[]> task_states;
+  std::atomic<bool> tasks_active{false},task_failed{false};
+  size_t task_m=0,task_grain=0,tasks=0;
+  float* task_output=nullptr;
+  uint64_t tiled_runs=0,worker_checks=0;
   Region(size_t K,size_t N,size_t M,const float* weight,size_t count):k(K),n(N),max_m(M) {
     runtime();
     require(k==2048 && n==8192 && max_m==2,"Only first-pair K2048/N8192/M<=2 is supported");
@@ -85,6 +92,7 @@ struct Region {
     lhs_bytes=lhs_stride.m;rhs_bytes=(n/nr)*rhs_stride.n;
     lhs.resize(lhs_bytes/4,0.0f);rhs.resize(rhs_bytes/4,0.0f);
     row_output.resize(api.get_dst_size(&config,&ds,&dst_stride)/4);
+    task_states=std::make_unique<std::atomic<unsigned>[]>(n/(4*nr));
     // Exact layout required by the original kernel: for each 1VL N panel,
     // zero bias[nr], then k vectors of nr FP32 weights. Its assembly consumes
     // four such panels concurrently. No conversion or arithmetic on weights.
@@ -125,6 +133,89 @@ struct Region {
       y[column*m+row]=row_output[row*n+column];
     ++runs;
   }
+  void begin(size_t m,const float* x,size_t xc,float* y,size_t yc,size_t channels_per_task) {
+    require(m>0 && m<=max_m && x && y && xc==k*m && yc==n*m,"Invalid region input/output");
+    require(!overlaps(x,xc,y,yc),"Region input and output must not overlap");
+    runtime(vl);
+    // Multiples of four 1VL panels keep every subcall on the exact same
+    // 4vsx16vs bottom-edge implementation used by the original whole call.
+    require(channels_per_task>0 && channels_per_task<=n && channels_per_task%(4*nr)==0,
+            "Task channels must be a positive multiple of 4*nr and at most N");
+    require(!busy.test_and_set(std::memory_order_acquire),"A region may not run concurrently");
+    try {
+      std::fill(lhs.begin(),lhs.end(),0.0f);
+      for(size_t depth=0;depth<k;++depth) for(size_t row=0;row<m;++row)
+        lhs[depth*mr+row]=x[depth*m+row];
+      task_m=m;task_grain=channels_per_task;task_output=y;
+      tasks=(n+task_grain-1)/task_grain;
+      for(size_t task=0;task<tasks;++task)task_states[task].store(0,std::memory_order_relaxed);
+      task_failed.store(false,std::memory_order_relaxed);
+      tasks_active.store(true,std::memory_order_release);
+    }catch(...){busy.clear(std::memory_order_release);throw;}
+  }
+  void task(size_t index) {
+    bool claimed=false;
+    try {
+      require(tasks_active.load(std::memory_order_acquire),"No prepared tiled region");
+      require(index<tasks,"Tile task index out of bounds");
+      unsigned expected=0;
+      require(task_states[index].compare_exchange_strong(expected,1,std::memory_order_acq_rel),
+              "Tile task was already claimed");
+      claimed=true;
+      // Capability, FPCR and streaming vector length are checked on the actual
+      // ORT worker before it uses packed buffers created by the initiating thread.
+      runtime(vl);
+      const size_t column=index*task_grain;
+      const size_t width=std::min(task_grain,n-column);
+      const kai_matmul_uker_rhs_dim_args ri{column,0};
+      const kai_matmul_uker_dst_dim_args di{0,column};
+      const size_t ro=api.get_rhs_offset(&config,&ri,&rhs_stride);
+      const size_t yo=api.get_dst_offset(&config,&di,&dst_stride);
+      require(width>0 && width%(4*nr)==0 && ro%4==0 && yo%4==0 &&
+              ro==(column/nr)*rhs_stride.n && ro+(width/nr)*rhs_stride.n<=rhs_bytes &&
+              yo==column*4 && (task_m-1)*dst_stride.m+yo+width*4<=row_output.size()*4,
+              "Packed tile offset or extent changed");
+      const float lower=-std::numeric_limits<float>::infinity();
+      const float upper=std::numeric_limits<float>::infinity();
+      kai_matmul_uker_args args{};
+      args.flags=KAI_MATMUL_UKER_FLAGS_ARGS_CLAMP;args.shape={task_m,width,k};
+      args.operand.lhs={lhs.data(),lhs_stride};
+      args.operand.rhs={rhs.data()+ro/4,rhs_stride};
+      // Retain the full output row stride, even for a narrow column tile.
+      args.operand.dst={row_output.data()+yo/4,dst_stride};
+      args.activation.clamp={&lower,&upper};
+      api.run(&config,&args);
+      task_states[index].store(2,std::memory_order_release);
+    }catch(...){
+      if(claimed)task_states[index].store(3,std::memory_order_release);
+      task_failed.store(true,std::memory_order_release);
+      throw;
+    }
+  }
+  void finish(bool commit) {
+    require(tasks_active.load(std::memory_order_acquire),"No prepared tiled region");
+    // The caller must first join every dispatched callback. Do not release a
+    // region that is visibly still executing if that lifecycle contract is broken.
+    for(size_t index=0;index<tasks;++index)
+      require(task_states[index].load(std::memory_order_acquire)!=1,"Tile callback has not joined");
+    struct Release {
+      Region& region;
+      ~Release(){region.tasks_active.store(false,std::memory_order_release);
+                 region.task_output=nullptr;region.busy.clear(std::memory_order_release);}
+    } release{*this};
+    size_t completed=0;
+    for(size_t index=0;index<tasks;++index)
+      completed+=task_states[index].load(std::memory_order_acquire)==2;
+    // Publish counters only after the join, including completed work in an
+    // aborted call. No partial row_output is transposed into the caller's Y.
+    api_calls+=completed;worker_checks+=completed;
+    if(!commit)return;
+    require(!task_failed.load(std::memory_order_acquire) && completed==tasks,
+            "Incomplete or failed tiled region");
+    for(size_t column=0;column<n;++column) for(size_t row=0;row<task_m;++row)
+      task_output[column*task_m+row]=row_output[row*n+column];
+    ++runs;++tiled_runs;
+  }
 };
 }
 extern "C" {
@@ -141,13 +232,34 @@ EXPORT int av_multitile_run(void* handle,size_t m,const float* x,size_t xc,float
   error_text[0]=0;try {require(handle,"Missing region");static_cast<Region*>(handle)->run(m,x,xc,y,yc);return 0;}
   catch (...) {failed();return -1;}
 }
+// begin and finish are initiating-thread calls. task may run on ORT workers;
+// callers must collect its thread-local error immediately and join before finish.
+// finish(commit=0) aborts a successfully begun call and releases its guard.
+EXPORT int av_multitile_begin(void* handle,size_t m,const float* x,size_t xc,float* y,size_t yc,size_t channels_per_task) {
+  error_text[0]=0;try {require(handle,"Missing region");static_cast<Region*>(handle)->begin(m,x,xc,y,yc,channels_per_task);return 0;}
+  catch (...) {failed();return -1;}
+}
+EXPORT size_t av_multitile_task_count(void* handle) {
+  if(!handle)return 0;auto& p=*static_cast<Region*>(handle);
+  return p.tasks_active.load(std::memory_order_acquire)?p.tasks:0;
+}
+EXPORT int av_multitile_task(void* handle,size_t index) {
+  error_text[0]=0;try {require(handle,"Missing region");static_cast<Region*>(handle)->task(index);return 0;}
+  catch (...) {failed();return -1;}
+}
+EXPORT int av_multitile_finish(void* handle,int commit) {
+  error_text[0]=0;try {require(handle,"Missing region");require(commit==0 || commit==1,"Commit must be 0 or 1");
+    static_cast<Region*>(handle)->finish(commit!=0);return 0;}
+  catch (...) {failed();return -1;}
+}
 EXPORT uint64_t av_multitile_stat(void* handle,int field) {
   if (!handle) return 0;
   auto& p=*static_cast<Region*>(handle);
   switch(field) {
     case 0:return p.vl;case 1:return p.mr;case 2:return p.nr;case 3:return p.rhs_bytes;
     case 4:return p.lhs_bytes;case 5:return p.row_output.size()*4;
-    case 6:return p.runs;case 7:return p.api_calls;case 8:return 1;default:return 0;
+    case 6:return p.runs;case 7:return p.api_calls;case 8:return 1;
+    case 9:return p.tiled_runs;case 10:return p.worker_checks;case 11:return 4*p.nr;default:return 0;
   }
 }
 }

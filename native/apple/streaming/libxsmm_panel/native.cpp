@@ -1,12 +1,14 @@
 // Explicit FP32 SME JIT; constant transpose once, direct BCT-compatible output.
 #include "onnxruntime_c_api.h"
 #include "libxsmm.h"
+#include <array>
 #include <atomic>
 #include <cmath>
 #include <cstdint>
 #include <cstdio>
 #include <cstring>
 #include <mutex>
+#include <memory>
 #include <stdexcept>
 #include <vector>
 #include <sys/sysctl.h>
@@ -18,6 +20,7 @@ namespace {
 thread_local char error_text[256]={};
 std::mutex jit_mutex;
 std::atomic<uint64_t> jit_invocations{0};
+std::atomic<uint64_t> parallel_invocations{0},parallel_tasks{0},parallel_fpcr_checks{0};
 void require(bool ok,const char* message){if(!ok)throw std::invalid_argument(message);}
 void failed()noexcept{try{throw;}catch(const std::exception& e){std::snprintf(error_text,sizeof(error_text),"%s",e.what());}catch(...){std::snprintf(error_text,sizeof(error_text),"LIBXSMM error");}}
 bool flag(const char* key){int value=0;size_t size=sizeof(value);return sysctlbyname(key,&value,&size,nullptr,0)==0 && value==1;}
@@ -90,16 +93,130 @@ struct Region {
     }
     ++runs;
   }
+  // A task owns a contiguous group of complete N64 panels. ORT supplies the
+  // workers; neither packed weights nor JIT code is changed during execution.
+  struct TaskResult {
+    size_t completed=0;
+    bool fpcr_checked=false,done=false;
+    unsigned error=0;
+  };
+  struct ParallelWork {
+    Region* region;
+    size_t m,panels_per_task;
+    const float* x;
+    float* y;
+    std::array<TaskResult,128> results{};
+  };
+  static void panel_task(void* raw,size_t task)noexcept {
+    auto& work=*static_cast<ParallelWork*>(raw);
+    auto& result=work.results[task];
+    size_t completed=0;
+    try {
+      // FPCR is thread-local, so checking only the initiating thread is not
+      // sufficient when an ORT worker executes the existing SME kernel.
+      fpcr_check();result.fpcr_checked=true;
+      auto& r=*work.region;
+      const size_t begin=task*work.panels_per_task;
+      const size_t end=begin+work.panels_per_task<128?begin+work.panels_per_task:128;
+      libxsmm_gemm_param p{};p.a.primary=const_cast<float*>(work.x);
+      for(size_t panel=begin;panel<end;++panel){
+        p.b.primary=r.transposed_weight.data()+panel*64*r.k;
+        p.c.primary=work.y+panel*64*work.m;
+        r.code[work.m-1].fn(&p);++completed;
+      }
+    }catch(const std::exception&){result.error=1;}
+    catch(...){result.error=2;}
+    result.completed=completed;result.done=true;
+  }
+  void run_parallel(size_t m,const float* x,size_t xc,float* y,size_t yc,
+                    const OrtApi* api,const OrtKernelContext* context,size_t panels_per_task){
+    require(m>0 && m<=2 && x && y && xc==k*m && yc==n*m,"Invalid BCT buffers");fpcr_check();
+    require(api && context && api->KernelContext_ParallelFor,"ORT parallel context required");
+    require(panels_per_task>0 && panels_per_task<=128,"Panel group size must be in [1,128]");
+    auto xa=reinterpret_cast<uintptr_t>(x),ya=reinterpret_cast<uintptr_t>(y);
+    require(xa<=UINTPTR_MAX-xc*4 && ya<=UINTPTR_MAX-yc*4 && !(xa<ya+yc*4 && ya<xa+xc*4),"Buffers overlap or overflow");
+    require(!busy.test_and_set(std::memory_order_acquire),"Concurrent region reuse prohibited");
+    struct Release{std::atomic_flag& f;~Release(){f.clear(std::memory_order_release);}} release{busy};
+    ParallelWork work{this,m,panels_per_task,x,y,{}};
+    const size_t tasks=(128+panels_per_task-1)/panels_per_task;
+    // ParallelFor joins before returning. Each callback writes only its own
+    // result slot and output panels; the Region guard remains held throughout.
+    OrtStatus* status=api->KernelContext_ParallelFor(context,panel_task,tasks,0,&work);
+    struct StatusRelease{const OrtApi* api;OrtStatus* status;~StatusRelease(){if(status)api->ReleaseStatus(status);}} status_release{api,status};
+    size_t completed=0,finished=0,checked=0;unsigned callback_error=0;
+    for(size_t task=0;task<tasks;++task){
+      const auto& result=work.results[task];
+      completed+=result.completed;finished+=result.done;checked+=result.fpcr_checked;
+      callback_error|=result.error;
+    }
+    // Publish actual work only after all callbacks have joined, including any
+    // work completed before an error. Failed runs do not increment runs.
+    jit_invocations.fetch_add(completed,std::memory_order_relaxed);
+    parallel_tasks.fetch_add(finished,std::memory_order_relaxed);
+    parallel_fpcr_checks.fetch_add(checked,std::memory_order_relaxed);
+    if(status)throw std::runtime_error(api->GetErrorMessage(status));
+    require(!callback_error,"Parallel panel worker FPCR check or execution failed");
+    require(finished==tasks && checked==tasks && completed==128,"Incomplete parallel panel execution");
+    ++runs;parallel_invocations.fetch_add(1,std::memory_order_relaxed);
+  }
+};
+// External paired-region scheduler owns this lease until every task joins.
+// Region storage is immutable during the lease. Each tile owns whole N64 outputs.
+struct PanelWork {
+  Region* region;
+  size_t m;
+  const float* x;
+  float* y;
+  std::array<std::atomic<unsigned char>,128> panels{};
+  bool acquired=false;
+  PanelWork(Region* r,size_t M,const float* X,size_t xc,float* Y,size_t yc)
+      :region(r),m(M),x(X),y(Y) {
+    require(r && m>0 && m<=2 && x && y && xc==r->k*m && yc==r->n*m,"Invalid panel lease buffers");
+    fpcr_check();
+    auto xa=reinterpret_cast<uintptr_t>(x),ya=reinterpret_cast<uintptr_t>(y);
+    require(xa<=UINTPTR_MAX-xc*4 && ya<=UINTPTR_MAX-yc*4 && !(xa<ya+yc*4 && ya<xa+xc*4),"Panel lease buffers overlap");
+    require(!r->busy.test_and_set(std::memory_order_acquire),"Concurrent region reuse prohibited");
+    acquired=true;
+    for(auto& v:panels)v.store(0,std::memory_order_relaxed);
+  }
+  ~PanelWork(){if(acquired)region->busy.clear(std::memory_order_release);}
+  void tile(size_t first,size_t count) {
+    require(count && first<128 && count<=128-first,"Panel tile out of bounds");
+    fpcr_check();
+    for(size_t p=first;p<first+count;++p){
+      unsigned char zero=0;
+      require(panels[p].compare_exchange_strong(zero,1,std::memory_order_relaxed),"Panel scheduled twice");
+    }
+    libxsmm_gemm_param param{};param.a.primary=const_cast<float*>(x);
+    for(size_t p=first;p<first+count;++p){
+      param.b.primary=region->transposed_weight.data()+p*64*region->k;
+      param.c.primary=y+p*64*m;
+      region->code[m-1].fn(&param);
+      panels[p].store(2,std::memory_order_release);
+    }
+  }
+  void finish() {
+    for(auto& p:panels)require(p.load(std::memory_order_acquire)==2,"Incomplete panel lease");
+    jit_invocations.fetch_add(128,std::memory_order_relaxed);++region->runs;
+  }
 };
 }
 extern "C" {
 EXPORT OrtStatus* ORT_API_CALL RegisterCustomOps(OrtSessionOptions*,const OrtApiBase*){return nullptr;}
 EXPORT uint64_t av_libxsmm_panel_api_calls(){return jit_invocations.load(std::memory_order_relaxed);}
+EXPORT uint64_t av_libxsmm_panel_parallel_calls(){return parallel_invocations.load(std::memory_order_relaxed);}
+EXPORT uint64_t av_libxsmm_panel_parallel_tasks(){return parallel_tasks.load(std::memory_order_relaxed);}
+EXPORT uint64_t av_libxsmm_panel_parallel_fpcr_checks(){return parallel_fpcr_checks.load(std::memory_order_relaxed);}
 EXPORT int av_libxsmm_panel_supported(){return supported()?1:0;}
 EXPORT const char* av_libxsmm_panel_error(){return error_text;}
 EXPORT void* av_libxsmm_panel_create(size_t k,size_t n,size_t max_m,const float* w,size_t count){error_text[0]=0;try{return new Region(k,n,max_m,w,count);}catch(...){failed();return nullptr;}}
 EXPORT void av_libxsmm_panel_destroy(void* h){delete static_cast<Region*>(h);}
 EXPORT int av_libxsmm_panel_run(void* h,size_t m,const float* x,size_t xc,float* y,size_t yc){error_text[0]=0;try{require(h,"Missing handle");static_cast<Region*>(h)->run(m,x,xc,y,yc);return 0;}catch(...){failed();return -1;}}
+EXPORT int av_libxsmm_panel_run_parallel(void* h,size_t m,const float* x,size_t xc,float* y,size_t yc,const OrtApi* api,const OrtKernelContext* context,size_t panels_per_task){error_text[0]=0;try{require(h,"Missing handle");static_cast<Region*>(h)->run_parallel(m,x,xc,y,yc,api,context,panels_per_task);return 0;}catch(...){failed();return -1;}}
+EXPORT void* av_libxsmm_panel_begin(void* h,size_t m,const float* x,size_t xc,float* y,size_t yc){error_text[0]=0;try{return new PanelWork(static_cast<Region*>(h),m,x,xc,y,yc);}catch(...){failed();return nullptr;}}
+EXPORT int av_libxsmm_panel_tile(void* work,size_t first,size_t count){error_text[0]=0;try{require(work,"Missing panel lease");static_cast<PanelWork*>(work)->tile(first,count);return 0;}catch(...){failed();return -1;}}
+EXPORT int av_libxsmm_panel_finish(void* work){error_text[0]=0;std::unique_ptr<PanelWork> lease(static_cast<PanelWork*>(work));try{require(work,"Missing panel lease");lease->finish();return 0;}catch(...){failed();return -1;}}
+EXPORT void av_libxsmm_panel_abort(void* work){delete static_cast<PanelWork*>(work);}
 EXPORT uint64_t av_libxsmm_panel_stat(void* h,int field){
   if(!h)return 0;auto& p=*static_cast<Region*>(h);
   switch(field){case 0:return p.detected;case 1:return p.target;case 2:return p.transposed_weight.size()*4;case 3:return p.runs;}

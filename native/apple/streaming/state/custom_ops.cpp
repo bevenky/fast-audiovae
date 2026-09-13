@@ -7,12 +7,15 @@
 #include <arm_neon.h>
 #include <algorithm>
 #include <array>
+#include <atomic>
 #include <cmath>
+#include <cstdint>
 #include <cstring>
 #include <limits>
 #include <memory>
 #include <mutex>
 #include <stdexcept>
+#include <utility>
 #include <vector>
 
 #if defined(__FAST_MATH__)
@@ -50,6 +53,28 @@ std::vector<float> Constant(Ort::ConstKernelInfo info, size_t index, std::vector
   return {p, p + count};
 }
 
+int64_t ParallelChannels(Ort::ConstKernelInfo info) {
+  try { return info.GetAttribute<int64_t>("parallel_channels"); }
+  catch (const Ort::Exception& error) {
+    // ORT API29 has no optional typed-attribute getter. Only absence defaults
+    // to the legacy path; malformed present attributes must still fail.
+    if (error.GetOrtErrorCode() != ORT_FAIL ||
+        std::strcmp(error.what(), "No attribute with name:'parallel_channels'is defined.") != 0)
+      throw;
+    return 0;
+  }
+}
+
+void Disjoint(const float* a, size_t a_count, const float* b, size_t b_count) {
+  Require(a && b, "Null channel-work buffer");
+  const auto ap = reinterpret_cast<uintptr_t>(a), bp = reinterpret_cast<uintptr_t>(b);
+  Require(a_count <= (std::numeric_limits<uintptr_t>::max() - ap) / sizeof(float) &&
+          b_count <= (std::numeric_limits<uintptr_t>::max() - bp) / sizeof(float),
+          "Channel-work address overflow");
+  Require(ap + a_count * sizeof(float) <= bp || bp + b_count * sizeof(float) <= ap,
+          "Channel-work buffers overlap");
+}
+
 struct Kernel {
   const OrtApi& api;
   Mode mode;
@@ -57,6 +82,7 @@ struct Kernel {
   int32_t dilation;
   bool stateful, packed;
   size_t tile;
+  int64_t parallel_channels = 0;
   std::vector<float> weights, bias, alpha, reciprocal;
   // Preallocated bounded scratch is private to this operator instance, guarded
   // across simultaneous sessions/streams. It is not an audio-history cache.
@@ -78,6 +104,11 @@ struct Kernel {
       Require(value == 0 || value == 1, "packed_snake must be 0 or 1");
       packed = value == 1;
     }
+    parallel_channels = ParallelChannels(info);
+    Require(parallel_channels >= 0 && parallel_channels <= channels,
+            "parallel_channels must be zero or a channel-block size at most channels");
+    Require(!parallel_channels || (stateful && !packed),
+            "Channel scheduling requires unpacked stateful DW or DW+Snake");
     tile = kScratch;
     if (packed) {
       auto value = info.GetAttribute<int64_t>("scratch_elements");
@@ -97,6 +128,48 @@ struct Kernel {
     if (snake) {
       alpha = Constant(info, coefficient++, {channels});
       reciprocal = Constant(info, coefficient, {channels});
+    }
+  }
+
+  struct ChannelWork {
+    const Kernel* self;
+    const float* x;
+    const float* history;
+    float* y;
+    float* next;
+    int64_t time, halo;
+    std::atomic<int32_t> error{NCC_OK};
+  };
+
+  static void ChannelBlock(void* opaque, size_t block) noexcept {
+    auto& work = *static_cast<ChannelWork*>(opaque);
+    const auto& k = *work.self;
+    const int64_t first = static_cast<int64_t>(block) * k.parallel_channels;
+    const int64_t count = std::min(k.parallel_channels, k.channels - first);
+    const bool fused = k.mode == Mode::StateDWSnake;
+    // Split channels only: the original time tiles, vForce call lengths and
+    // FP32 tap/activation order remain intact. C scratch stays on each stack.
+    const int32_t status = ncc_dw7_f32_ex(
+        work.x + first * work.time, k.weights.data() + first * 7,
+        k.bias.data() + first, work.history + first * work.halo,
+        fused ? k.alpha.data() + first : nullptr,
+        fused ? k.reciprocal.data() + first : nullptr,
+        work.y + first * work.time, 1, count, work.time, k.dilation, NCC_NEON, 1);
+    if (status != NCC_OK) {
+      work.error.store(status, std::memory_order_relaxed);
+      return;
+    }
+    for (int64_t c = first; c < first + count; ++c) {
+      float* target = work.next + c * work.halo;
+      if (work.time >= work.halo)
+        std::memcpy(target, work.x + c * work.time + work.time - work.halo,
+                    static_cast<size_t>(work.halo) * sizeof(float));
+      else {
+        std::memcpy(target, work.history + c * work.halo + work.time,
+                    static_cast<size_t>(work.halo - work.time) * sizeof(float));
+        std::memcpy(target + work.halo - work.time, work.x + c * work.time,
+                    static_cast<size_t>(work.time) * sizeof(float));
+      }
     }
   }
 
@@ -161,6 +234,33 @@ struct Kernel {
       }
       auto yvalue = context.GetOutput(0, shape);
       float* y = yvalue.GetTensorMutableData<float>();
+      if (time && parallel_channels && parallel_channels < channels) {
+        auto nextvalue = context.GetOutput(1, std::vector<int64_t>{1, channels, halo});
+        float* next = nextvalue.GetTensorMutableData<float>();
+        const size_t data_count = static_cast<size_t>(channels) * static_cast<size_t>(time);
+        const size_t history_count = static_cast<size_t>(channels) * static_cast<size_t>(halo);
+        // Validate complete spans before splitting: per-block C checks alone
+        // cannot detect a write that aliases a different worker's read range.
+        Disjoint(y, data_count, next, history_count);
+        for (const auto& output : {std::make_pair(y, data_count), std::make_pair(next, history_count)}) {
+          Disjoint(output.first, output.second, x, data_count);
+          Disjoint(output.first, output.second, history, history_count);
+          Disjoint(output.first, output.second, weights.data(), weights.size());
+          Disjoint(output.first, output.second, bias.data(), bias.size());
+          if (mode == Mode::StateDWSnake) {
+            Disjoint(output.first, output.second, alpha.data(), alpha.size());
+            Disjoint(output.first, output.second, reciprocal.data(), reciprocal.size());
+          }
+        }
+        ChannelWork work{this, x, history, y, next, time, halo};
+        const size_t blocks = 1 + static_cast<size_t>((channels - 1) / parallel_channels);
+        // The existing ORT intra-op pool owns all workers. The attribute is a
+        // task size, never a thread count; every native C call still uses one.
+        context.ParallelFor(ChannelBlock, blocks, 0, &work);
+        const auto status = work.error.load(std::memory_order_relaxed);
+        if (status != NCC_OK) return api.CreateStatus(ORT_FAIL, ncc_status_string(status));
+        return nullptr;
+      }
       if (time) {
         if (mode == Mode::PackedSnake) Packed(x, y, time);
         else {

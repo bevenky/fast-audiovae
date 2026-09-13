@@ -5,6 +5,7 @@
 #include <Accelerate/Accelerate.h>
 #include <atomic>
 #include <cstdint>
+#include <cstring>
 #include <limits>
 #include <memory>
 #include <mutex>
@@ -20,6 +21,7 @@ const char* av_libxsmm_panel_error();
 void* av_libxsmm_panel_create(size_t,size_t,size_t,const float*,size_t);
 void av_libxsmm_panel_destroy(void*);
 int av_libxsmm_panel_run(void*,size_t,const float*,size_t,float*,size_t);
+int av_libxsmm_panel_run_parallel(void*,size_t,const float*,size_t,float*,size_t,const OrtApi*,const OrtKernelContext*,size_t);
 }
 namespace {
 constexpr const char* kDomain="fast.audiovae.apple.libxsmm.panel.v1";
@@ -49,12 +51,26 @@ size_t count(int64_t a,int64_t b,int64_t c=1) {
   require(result<=std::numeric_limits<size_t>::max()/4,"Byte count overflow");return result;
 }
 struct Destroy {void operator()(void* p)const{av_libxsmm_panel_destroy(p);}};
+int64_t parallel_panels(Ort::ConstKernelInfo info) {
+  try{return info.GetAttribute<int64_t>("parallel_panels");}
+  catch(const Ort::Exception& e){
+    // Only a missing optional attribute selects the legacy serial route.
+    // Wrong-type attributes and all other ORT errors remain errors.
+    if(e.GetOrtErrorCode()!=ORT_FAIL ||
+       std::strcmp(e.what(),"No attribute with name:'parallel_panels'is defined.")!=0)throw;
+    return 0;
+  }
+}
 struct Kernel {
-  const OrtApi& api;int64_t k,n,max_m;std::unique_ptr<void,Destroy> region;
+  const OrtApi& api;int64_t k,n,max_m,panel_group;std::unique_ptr<void,Destroy> region;
   Kernel(const OrtApi& a,const OrtKernelInfo* raw):api(a) {
     Ort::ConstKernelInfo info(raw);
     require(info.GetAttribute<int64_t>("matrix_abi")==1,"Matrix ABI mismatch");
     require(info.GetAttribute<int64_t>("threads")==1,"One thread required");
+    // This is N64 panels per ORT task, not the number of worker threads.
+    // The existing threads=1 attribute still describes each native kernel.
+    panel_group=parallel_panels(info);
+    require(panel_group>=0 && panel_group<=128,"parallel_panels must be in [0,128]");
     k=info.GetAttribute<int64_t>("k");n=info.GetAttribute<int64_t>("n");
     max_m=info.GetAttribute<int64_t>("max_m");
     require(k==2048 && n==8192 && max_m==2,"Only first-pair geometry is supported");
@@ -95,7 +111,10 @@ struct Kernel {
         return nullptr;
       }
       for(int64_t b=0;b<dims[0];++b) {
-        if(av_libxsmm_panel_run(region.get(),dims[2],xp+b*xc,xc,yp+b*yc,yc))
+        const int result=panel_group
+          ? av_libxsmm_panel_run_parallel(region.get(),dims[2],xp+b*xc,xc,yp+b*yc,yc,&api,raw,static_cast<size_t>(panel_group))
+          : av_libxsmm_panel_run(region.get(),dims[2],xp+b*xc,xc,yp+b*yc,yc);
+        if(result)
           throw std::runtime_error(av_libxsmm_panel_error());
         calls.fetch_add(1,std::memory_order_relaxed);
       }
