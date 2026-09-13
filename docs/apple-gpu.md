@@ -3,7 +3,7 @@
 CPU and streaming remain the defaults. Apple GPU decoding is explicit:
 
 ```sh
-python -m pip install --upgrade 'fast-audiovae[gpu] @ git+https://github.com/bevenky/fast-audiovae.git@main'
+python -m pip install 'fast-audiovae[gpu]==0.4.0' --find-links https://github.com/bevenky/fast-audiovae/releases/expanded_assets/v0.4.0
 ```
 
 ```python
@@ -14,7 +14,7 @@ with decoder.stream() as stream:
     audio = stream.decode_chunk(latents)  # float32 NumPy [1, 64, L]
 ```
 
-This source feature is not included in the v0.3.0 release wheels. It requires Apple Silicon, MPS and PyTorch 2.14.x. GPU requests fail if the device or required operation is unavailable; there is no CPU fallback. CPU worker counts are unrelated to GPU execution, so keep the default `threads=1` with this device.
+Apple GPU support is included in the v0.4.0 wheels. The optional extra installs PyTorch 2.14.x; ordinary CPU installation does not require it. GPU execution requires Apple Silicon and MPS. GPU requests fail if the device or required operation is unavailable; there is no CPU fallback. CPU worker counts are unrelated to GPU execution, so keep the default `threads=1` with this device.
 
 ## Execution
 

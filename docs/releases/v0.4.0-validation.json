@@ -1,0 +1,133 @@
+{
+  "version": "0.4.0",
+  "source_base_commit": "4edf4cf32c62d7c8bc164e888c253e91de9a1f7e",
+  "packaging_and_gpu_tests_passed": 122,
+  "platform": "Apple M5 Max, macOS 26.5.1, Python 3.12",
+  "benchmark": false,
+  "assets": [
+    {
+      "name": "fast_audiovae-0.4.0-py3-none-macosx_26_0_arm64.whl",
+      "sha256": "558a2ebfe64b23dbe8d7744d49fde70afabcd3ccdaaac0b1d9f2674674a00a94",
+      "bytes": 1431041
+    },
+    {
+      "name": "fast_audiovae-0.4.0-py3-none-linux_x86_64.whl",
+      "sha256": "40fa43aa201e090c573aed519ee6e087c3ff9ae4a4bca09fb20bec5c6402f229",
+      "bytes": 179888255
+    },
+    {
+      "name": "fast_audiovae-0.4.0-py3-none-any.whl",
+      "sha256": "78161c5d7380d0f39ae1081b78de07589e9145a41cbddc7fd63d63447479431e",
+      "bytes": 504816
+    },
+    {
+      "name": "fast_audiovae-0.4.0.tar.gz",
+      "sha256": "4d651d116fdb390fae37d54259e0768c4156a438e729eb2c33f890c234f3daf1",
+      "bytes": 388966
+    }
+  ],
+  "native_payloads": {
+    "apple_manifest_sha256": "efd82b3a0cab3f1f132cc45d8ac06c7a5c546fd3ab7593da910622bb0317182b",
+    "linux_manifest_sha256": "3d03a53ad3fe6ea91fab0fa8eaccfd8eb34f0e5772c4f044b01be75ca67d2cd6",
+    "provenance": "Unchanged v0.3.0 native CPU payloads; Linux runtime not rerun in this release check."
+  },
+  "smoke_scope": "Installed Apple wheel; English and zero latent inputs; mixed 40/80 ms streaming, empty calls, reset, exact sample counts, batch inputs of one and two latent frames. Original ONNX decoder is the smoke reference. This is package validation, not a new audio quality or RTF benchmark.",
+  "checks": {
+    "cpu": {
+      "status": "passed",
+      "torch_imported": false,
+      "package_unchanged": true,
+      "default_threads": 1,
+      "reference_atol": 1e-05,
+      "reference_rtol": 0.0001,
+      "comparisons": [
+        {
+          "label": "English/stream",
+          "passed": true,
+          "samples": 5760,
+          "max_abs": 4.540197551250458e-09
+        },
+        {
+          "label": "reset-repeat",
+          "passed": true,
+          "samples": 1920,
+          "max_abs": 4.773028194904327e-09
+        },
+        {
+          "label": "Zero/stream",
+          "passed": true,
+          "samples": 5760,
+          "max_abs": 6.472691893577576e-08
+        },
+        {
+          "label": "batch1",
+          "passed": true,
+          "samples": 1920,
+          "max_abs": 4.773028194904327e-09
+        },
+        {
+          "label": "batch2",
+          "passed": true,
+          "samples": 3840,
+          "max_abs": 4.540197551250458e-09
+        }
+      ],
+      "full_report_sha256": "2fdc766c246b8bd9fdedb9990dd4000ead20bf4088b9bd384bed44b85aeee11d"
+    },
+    "gpu": {
+      "status": "passed",
+      "torch_imported": true,
+      "package_unchanged": true,
+      "default_threads": 1,
+      "reference_atol": 1e-05,
+      "reference_rtol": 0.0001,
+      "comparisons": [
+        {
+          "label": "default-cpu-with-torch-installed",
+          "passed": true,
+          "samples": 1920,
+          "max_abs": 4.773028194904327e-09
+        },
+        {
+          "label": "English/stream",
+          "passed": true,
+          "samples": 5760,
+          "max_abs": 4.925823304802179e-09
+        },
+        {
+          "label": "reset-repeat",
+          "passed": true,
+          "samples": 1920,
+          "max_abs": 5.820766091346741e-09
+        },
+        {
+          "label": "Zero/stream",
+          "passed": true,
+          "samples": 5760,
+          "max_abs": 7.35744833946228e-08
+        },
+        {
+          "label": "batch1",
+          "passed": true,
+          "samples": 1920,
+          "max_abs": 5.122274160385132e-09
+        },
+        {
+          "label": "batch2",
+          "passed": true,
+          "samples": 3840,
+          "max_abs": 4.976755008101463e-09
+        }
+      ],
+      "full_report_sha256": "88d81dc05e394d27f2ac819848933ee80433a1e3e25f05650473f1196e6a9def",
+      "backend": "MPS",
+      "cpu_fallback": false,
+      "compiled_packet_ms": [
+        40,
+        80
+      ],
+      "torch": "2.14.0"
+    }
+  },
+  "validation_script_sha256": "edae958ef0ce869a2e6dc7321972027e9a09770b965cf5c368e0acbeab405730"
+}

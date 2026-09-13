@@ -7,7 +7,7 @@ Fast inference for VoxCPM2's AudioVAE2 decoder, with optimized CPU kernels and o
 Use Python 3.11 to 3.13. Install from the release wheels; pip picks the platform automatically:
 
 ```sh
-python -m pip install fast-audiovae==0.3.0 --find-links https://github.com/bevenky/fast-audiovae/releases/expanded_assets/v0.3.0
+python -m pip install fast-audiovae==0.4.0 --find-links https://github.com/bevenky/fast-audiovae/releases/expanded_assets/v0.4.0
 ```
 
 With uv, use `uv pip install` with the same arguments. The first load downloads the pinned weights and prepares a local cache. Native wheels include the kernels and their CPU dependencies; no compiler or kernel flags are needed.
@@ -29,13 +29,13 @@ Apple CPUs with SME/SME2 use the new streaming kernels. Other Apple CPUs retain 
 
 Native wheels currently cover Apple ARM on macOS 26.2 or newer and compatible Intel/AMD Linux x86 systems with glibc 2.38 or newer. The loader also checks native library compatibility before using them.
 
-For Apple GPU support from `main`:
+For Apple GPU support, add the optional `gpu` extra:
 
 ```sh
-python -m pip install --upgrade 'fast-audiovae[gpu] @ git+https://github.com/bevenky/fast-audiovae.git@main'
+python -m pip install 'fast-audiovae[gpu]==0.4.0' --find-links https://github.com/bevenky/fast-audiovae/releases/expanded_assets/v0.4.0
 ```
 
-Use `load(device="gpu")`. CPU remains the default. GPU loading prepares the optimized 40/80 ms paths automatically; first compilation takes extra time. This requires PyTorch 2.14.x and is not in the v0.3.0 wheels. [GPU usage and validation](docs/apple-gpu.md).
+Use `load(device="gpu")`. CPU remains the default, including when the extra is installed. GPU loading prepares the optimized 40/80 ms paths automatically; first compilation takes extra time. The extra installs the required PyTorch 2.14.x. [GPU usage and validation](docs/apple-gpu.md).
 
 ## Decoder speed
 
@@ -58,7 +58,7 @@ Independent batch decoding on Apple M5 Max, **one CPU thread**, using `load(mode
 | 80 ms | 0.2198 | **0.0743** | 0.0486 |
 | 960 ms | 0.0715 | **0.0535** | 0.0343 |
 
-Short matched check on three recordings, with two warmups and three measured repetitions. Each batch call decodes its entire input with empty history; 40/80 ms rows are tiny independent inputs, not whole-recording throughput. In this same check, streaming the 960 ms inputs in 80 ms packets gave RTF 0.0763 for AudioVAE2 and 0.0560 for Mimi. These timings come from a different session than the streaming table above. The batch update is on `main`; v0.3.0 wheels retain the previous batch path. Streaming remains the default. [Batch validation and earlier full-clip results](docs/apple-batch-validation.md).
+Short matched check on three recordings, with two warmups and three measured repetitions. Each batch call decodes its entire input with empty history; 40/80 ms rows are tiny independent inputs, not whole-recording throughput. In this same check, streaming the 960 ms inputs in 80 ms packets gave RTF 0.0763 for AudioVAE2 and 0.0560 for Mimi. These timings come from a different session than the streaming table above. Version 0.4.0 includes the updated batch path. Streaming remains the default. [Batch validation and earlier full-clip results](docs/apple-batch-validation.md).
 
 Apple GPU causal streaming on the same M5 Max, using PyTorch 2.14.0, float32 and one host thread:
 
