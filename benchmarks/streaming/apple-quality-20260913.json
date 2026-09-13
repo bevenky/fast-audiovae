@@ -1,0 +1,540 @@
+{
+  "version": "apple_streamed_quality_v1",
+  "complete": true,
+  "recordings": 60,
+  "languages": 10,
+  "source_duration_seconds": 534.58,
+  "source_sample_rate_counts": {
+    "16000": 60
+  },
+  "source_identity_sha256": "829b8070356f2dd37c65abee1d19b4445b2a3b4769055f623af7bac431e599bb",
+  "export_manifest_sha256": "f9e5ffd47acf30729144b4d83ab80424a65715aef3543d539a9330c2a62d387e",
+  "timing_result_sha256": "dd7e327faad3f06835b2454ee4845f268448a40d57dfc460feacabe71bc67b47",
+  "script_sha256": "41fbe3a33903f254f49a44c27afb5c289094bc2734c655d4f5a21136f6c16614",
+  "scorer_code": {
+    "score_speech.py": "91b8d580aafb4527708376658f06a1f56ce000e8e44642f621c42c803d2bda02",
+    "quality_metrics.py": "62e0ac7d2d6786f2f8d8cea022bbd9f5626b538d30a7fceccd77e13cfa30f090",
+    "metric_assets.json": "628c81cd349eb45819143a275efb5417da2b518db2c71e858d0c1a6fe7c713c0"
+  },
+  "scorer_provenance": {
+    "metric_sample_rate": 16000,
+    "sample_rate_limitation": "All reported quality metrics assess at most 0-8 kHz bandwidth",
+    "resampling": "scipy.signal.resample_poly, Kaiser beta 5.0, constant padding",
+    "alignment": "No external gain normalization, lag correction, time warping, or silence removal",
+    "metric_internal_processing": "pesq 0.0.4 scales both inputs by their common maximum absolute sample, then runs PESQ with its standard level/alignment processing. STOI/ESTOI retain standard normalization and silent-frame exclusion. SI-SDR uses its defining zero-mean scale projection only internally. These metric-specific operations do not alter the shared waveforms or other metrics.",
+    "mrstft": {
+      "fft_sizes": [
+        256,
+        512,
+        1024,
+        2048
+      ],
+      "hop": "fft_size // 4",
+      "window": "periodic Hann",
+      "boundary": "zeros",
+      "padded": true,
+      "log": "natural log, magnitude floor 1e-7"
+    },
+    "utmos": {
+      "implementation": "tarepan/SpeechMOS utmos22_strong",
+      "commit": "ed25eacbfa42b99156c36ebec67a733b5dbb9b79",
+      "device": "cpu",
+      "note": "Single strong learner via SpeechMOS reimplementation; not the full official UTMOS22 ensemble or UTMOSv2"
+    },
+    "dnsmos": {
+      "implementation": "microsoft/DNS-Challenge non-personalized P.835 + P.808",
+      "commit": "591184a9fcb2cbdec02520fed81a32bbbf9d73ff",
+      "device": "CPUExecutionProvider",
+      "threads": 1,
+      "window_seconds": 9.01,
+      "hop_seconds": 1,
+      "short_clip_handling": "Repeat waveform by doubling, following upstream"
+    },
+    "assets": {
+      "speechmos_source.zip": {
+        "url": "https://github.com/tarepan/SpeechMOS/archive/ed25eacbfa42b99156c36ebec67a733b5dbb9b79.zip",
+        "sha256": "2c948956d7b07b4f7eed11e249fed5a1b617802749f5a55a200c11dcbd271ed6",
+        "bytes": 15803
+      },
+      "utmos22_strong_step7459_v1.pt": {
+        "url": "https://github.com/tarepan/SpeechMOS/releases/download/v1.0.0/utmos22_strong_step7459_v1.pt",
+        "sha256": "38aa51ab79e2a4e09a1449758a4b37e9cbb2e8235a49662a732d33a9ba1e9bff",
+        "bytes": 411179119
+      },
+      "sig_bak_ovr.onnx": {
+        "url": "https://raw.githubusercontent.com/microsoft/DNS-Challenge/591184a9fcb2cbdec02520fed81a32bbbf9d73ff/DNSMOS/DNSMOS/sig_bak_ovr.onnx",
+        "sha256": "269fbebdb513aa23cddfbb593542ecc540284a91849ac50516870e1ac78f6edd",
+        "bytes": 1157965
+      },
+      "model_v8.onnx": {
+        "url": "https://raw.githubusercontent.com/microsoft/DNS-Challenge/591184a9fcb2cbdec02520fed81a32bbbf9d73ff/DNSMOS/DNSMOS/model_v8.onnx",
+        "sha256": "9246480c58567bc6affd4200938e77eef49468c8bc7ed3776d109c07456f6e91",
+        "bytes": 224860
+      },
+      "dnsmos_local.py": {
+        "url": "https://raw.githubusercontent.com/microsoft/DNS-Challenge/591184a9fcb2cbdec02520fed81a32bbbf9d73ff/DNSMOS/dnsmos_local.py",
+        "sha256": "1ab566afe006daab32ac7073296a5d0ef99f8b82f91c7266f3ccf26113d7a28b",
+        "bytes": 6491
+      },
+      "DNSMOS_LICENSE.txt": {
+        "url": "https://raw.githubusercontent.com/microsoft/DNS-Challenge/591184a9fcb2cbdec02520fed81a32bbbf9d73ff/LICENSE",
+        "sha256": "d6239afa918961b465b07bf7411cbe34ff6685854f58553db7966f4881a0211f",
+        "bytes": 19047
+      }
+    },
+    "versions": {
+      "numpy": "2.5.3",
+      "scipy": "1.18.1",
+      "librosa": "1.0.0",
+      "torch": "2.8.0",
+      "torchaudio": "2.8.0",
+      "onnxruntime": "1.29.0",
+      "pystoi": "0.4.1",
+      "pesq": "0.0.4"
+    },
+    "initialization_errors": {},
+    "cpu": {
+      "torch_threads": 1,
+      "torch_interop_threads": 1,
+      "ort_providers": [
+        [
+          "CPUExecutionProvider"
+        ],
+        [
+          "CPUExecutionProvider"
+        ]
+      ],
+      "environment": {
+        "CUDA_VISIBLE_DEVICES": "-1",
+        "NVIDIA_VISIBLE_DEVICES": "void",
+        "ROCR_VISIBLE_DEVICES": "-1",
+        "HIP_VISIBLE_DEVICES": "-1",
+        "PYTORCH_ENABLE_MPS_FALLBACK": "0",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      }
+    }
+  },
+  "stream_packet_ms": 80,
+  "metric_sample_rate": 16000,
+  "aggregation": "Equal weight per recording; all 60 required for every reported mean.",
+  "processing": "Whole original recordings. No external alignment, gain fitting, clipping, silence removal or startup trim. Remove only decoder terminal latent padding before scoring; unnormalized polyphase 16k metric copies.",
+  "scope": "Actual causal streaming decoder outputs from sealed continuous latents. Encoding is precomputed; no end-to-end timing or native high-band quality claim. UTMOS22 and DNSMOS are predictors, not listener ratings.",
+  "roles": {
+    "original": {
+      "mos": {
+        "utmos": {
+          "mean": 2.320664942264557,
+          "count": 60
+        },
+        "dnsmos_sig": {
+          "mean": 3.258729224931337,
+          "count": 60
+        },
+        "dnsmos_bak": {
+          "mean": 3.58342373496088,
+          "count": 60
+        },
+        "dnsmos_ovrl": {
+          "mean": 2.7750296489212123,
+          "count": 60
+        },
+        "dnsmos_p808": {
+          "mean": 3.4283738823069467,
+          "count": 60
+        }
+      }
+    },
+    "audiovae2_stock": {
+      "mos": {
+        "utmos": {
+          "mean": 2.256900604565938,
+          "count": 60
+        },
+        "dnsmos_sig": {
+          "mean": 3.234933926910669,
+          "count": 60
+        },
+        "dnsmos_bak": {
+          "mean": 3.6134004334894234,
+          "count": 60
+        },
+        "dnsmos_ovrl": {
+          "mean": 2.7653461384657416,
+          "count": 60
+        },
+        "dnsmos_p808": {
+          "mean": 3.403932138056982,
+          "count": 60
+        }
+      },
+      "vs_original": {
+        "pesq_wb": {
+          "mean": 3.7415469964345296,
+          "count": 60
+        },
+        "stoi": {
+          "mean": 0.9359857258696941,
+          "count": 60
+        },
+        "estoi": {
+          "mean": 0.8846353967418388,
+          "count": 60
+        }
+      }
+    },
+    "audiovae2_optimized": {
+      "mos": {
+        "utmos": {
+          "mean": 2.2569004356861115,
+          "count": 60
+        },
+        "dnsmos_sig": {
+          "mean": 3.2349345750047287,
+          "count": 60
+        },
+        "dnsmos_bak": {
+          "mean": 3.6134015394237555,
+          "count": 60
+        },
+        "dnsmos_ovrl": {
+          "mean": 2.7653468824287275,
+          "count": 60
+        },
+        "dnsmos_p808": {
+          "mean": 3.403931863620168,
+          "count": 60
+        }
+      },
+      "vs_original": {
+        "pesq_wb": {
+          "mean": 3.7415466785430906,
+          "count": 60
+        },
+        "stoi": {
+          "mean": 0.9359857302130825,
+          "count": 60
+        },
+        "estoi": {
+          "mean": 0.8846354079739512,
+          "count": 60
+        }
+      }
+    },
+    "mimi": {
+      "mos": {
+        "utmos": {
+          "mean": 2.51677685379982,
+          "count": 60
+        },
+        "dnsmos_sig": {
+          "mean": 3.3163474675857936,
+          "count": 60
+        },
+        "dnsmos_bak": {
+          "mean": 3.8202037558099815,
+          "count": 60
+        },
+        "dnsmos_ovrl": {
+          "mean": 2.894029058686404,
+          "count": 60
+        },
+        "dnsmos_p808": {
+          "mean": 3.338725914368554,
+          "count": 60
+        }
+      },
+      "vs_original": {
+        "pesq_wb": {
+          "mean": 2.130022801955541,
+          "count": 60
+        },
+        "stoi": {
+          "mean": 0.8073918021137548,
+          "count": 60
+        },
+        "estoi": {
+          "mean": 0.670706719759962,
+          "count": 60
+        }
+      }
+    }
+  },
+  "qualification": {
+    "audiovae2_stock": {
+      "stream_full_recordings": 60,
+      "stream_full_max_abs": 3.0994415283203125e-06,
+      "stream_full_bitwise_equal_count": 0,
+      "stream_chunks": 6703,
+      "flush_samples": 0,
+      "future_probe_recordings": 3,
+      "future_probe_cuts": 9,
+      "future_prefix_max_abs": 0.0,
+      "future_probe_atol": 1e-05,
+      "future_probe_rtol": 0.0001,
+      "all_checks_passed": true,
+      "artifact_sha256": [
+        "398552d56b72077771cb53ce2ea9613a73bddd71c7031cf33aa9371094998a9f",
+        "3b76bd57356e96893655bd24a364989e016c5af2fc8c29195caaefb4eccf5143",
+        "60675fdb97a2f2ac56b72fcd799b6754e72872de09911bf388be59839ac8a752",
+        "7e9dbc738d5b22a83a473196288add3bfa9594f6317eea3458856d2601179355",
+        "99a818d521e1ce8e967b0b3689ee687c4153070246690b1d57b46274f7c3511a",
+        "9b709b787c040591de57e094a5ba5a4515cc74e256e8014530ff8c7bb54d2d24",
+        "fdd20e200675ab9649bf33f16bc5974101ba5cf47ab89fbfe29f3d36ff6c3c84"
+      ],
+      "encoding_provenance": {
+        "name": "audiovae2",
+        "model_repo": "openbmb/VoxCPM2",
+        "model_revision": "32279effe8c19989596f05d353d1447f51d9e915",
+        "code_repo": "OpenBMB/VoxCPM",
+        "code_revision": "f772e498a45fbb5fb8e13fbf9b9c48be9fe33e69",
+        "source_sha256": "2efdff1708d8ec1471624aae6f232d0f933de26b788b6901c434246847e2d3a8",
+        "checkpoint_sha256": "94b5d51e107e0507d4acc976cfdadb64edd6fd06d1f751dadbf2fd1594274bf1",
+        "representation": "continuous VAE; encoder posterior mean",
+        "sample_rate_in": 16000,
+        "sample_rate_out": 48000,
+        "latent_dim": 64,
+        "latent_rate": 25.0,
+        "encoder_causal": true,
+        "decoder_causal": true,
+        "streaming": "official stateful decoder; no public streaming encoder wrapper",
+        "parameters_total": 94213954,
+        "encoder_parameters": 48435072,
+        "decoder_parameters": 45778882,
+        "weight_norm": "retained as upstream",
+        "precision": "float32",
+        "device": "cpu",
+        "license": "Apache-2.0"
+      }
+    },
+    "audiovae2_optimized": {
+      "stream_full_recordings": 60,
+      "stream_full_max_abs": 3.933906555175781e-06,
+      "stream_full_bitwise_equal_count": 0,
+      "stream_chunks": 6703,
+      "flush_samples": 0,
+      "future_probe_recordings": 3,
+      "future_probe_cuts": 9,
+      "future_prefix_max_abs": 0.0,
+      "future_probe_atol": 1e-05,
+      "future_probe_rtol": 0.0001,
+      "all_checks_passed": true,
+      "artifact_sha256": [
+        "224637c9cab6a840116556db872b8f0c3b45d388eafcca04cdd5cfeb7ba16805",
+        "398552d56b72077771cb53ce2ea9613a73bddd71c7031cf33aa9371094998a9f",
+        "7e9dbc738d5b22a83a473196288add3bfa9594f6317eea3458856d2601179355",
+        "90ca1e9d4bfa867a055919ec0d733bab615b06bd2e42f6c125a60a580da58376",
+        "9b709b787c040591de57e094a5ba5a4515cc74e256e8014530ff8c7bb54d2d24",
+        "c4797f745ee755bc66b63f13a9c2c626766f834cca566d13eb9eeee23abdc887",
+        "fa7992825e807cac7ab1be405912ae3735031fb941a18dd81006005dc597bde3"
+      ],
+      "encoding_provenance": {
+        "name": "audiovae2",
+        "model_repo": "openbmb/VoxCPM2",
+        "model_revision": "32279effe8c19989596f05d353d1447f51d9e915",
+        "code_repo": "OpenBMB/VoxCPM",
+        "code_revision": "f772e498a45fbb5fb8e13fbf9b9c48be9fe33e69",
+        "source_sha256": "2efdff1708d8ec1471624aae6f232d0f933de26b788b6901c434246847e2d3a8",
+        "checkpoint_sha256": "94b5d51e107e0507d4acc976cfdadb64edd6fd06d1f751dadbf2fd1594274bf1",
+        "representation": "continuous VAE; encoder posterior mean",
+        "sample_rate_in": 16000,
+        "sample_rate_out": 48000,
+        "latent_dim": 64,
+        "latent_rate": 25.0,
+        "encoder_causal": true,
+        "decoder_causal": true,
+        "streaming": "official stateful decoder; no public streaming encoder wrapper",
+        "parameters_total": 94213954,
+        "encoder_parameters": 48435072,
+        "decoder_parameters": 45778882,
+        "weight_norm": "retained as upstream",
+        "precision": "float32",
+        "device": "cpu",
+        "license": "Apache-2.0"
+      }
+    },
+    "mimi": {
+      "stream_full_recordings": 60,
+      "stream_full_max_abs": 2.950429916381836e-06,
+      "stream_full_bitwise_equal_count": 0,
+      "stream_chunks": 6703,
+      "flush_samples": 0,
+      "future_probe_recordings": 3,
+      "future_probe_cuts": 9,
+      "future_prefix_max_abs": 0.0,
+      "future_probe_atol": 1e-05,
+      "future_probe_rtol": 0.0001,
+      "all_checks_passed": true,
+      "artifact_sha256": [
+        "518afa11a2420952573dfc61defa8c84b4b87db23c0ebf3d3b61d8ef0ed3880d",
+        "7e9dbc738d5b22a83a473196288add3bfa9594f6317eea3458856d2601179355",
+        "8df0ca5b8128c7a5b1a10dcb7dfe9e20bf4e1a5eeceaf7fe297c87f98334c0f4",
+        "af2d68663daf71db954488721e8fffc5888437100772a309b13c62391df0d9c7",
+        "c28d281fe7dd5b78f39918f255997f044c6537c1620371d21242862352f4fd4e",
+        "e023777a2cee98a7e4a293f6af7712d4fed6364d1523cfc9a6283f112981e2f1",
+        "ea5f9edfe246d515effe49576ebb976d7806d3253b2a467cdaeaad67eba6e0de"
+      ],
+      "encoding_provenance": {
+        "name": "Pocket English Mimi continuous codec",
+        "repo": "kyutai/pocket-tts",
+        "revision": "39592ff23c9ef80098bb74895d104c26275fe2c9",
+        "file": "languages/english/model.safetensors",
+        "sha256": "473f47d99560bd50eb8b4509d3cacfe7f316ab20bdca86505403a2e6a936a6e9",
+        "source_revision": "f544a39b07db56fadeed575d57a33e1eda17c022",
+        "representation": "continuous 32D latent, 12.5Hz; not original Mimi RVQ",
+        "sample_rate_in": 24000,
+        "sample_rate_out": 24000,
+        "latent_rate": 12.5,
+        "latent_dim": 32
+      }
+    }
+  },
+  "decoder_runtime": {
+    "python": "3.12.14 (main, Aug 12 2026, 13:57:54) [Clang 21.0.0 (clang-2100.1.1.101)]",
+    "platform": "macOS-26.5.1-arm64-arm-64bit",
+    "machine": "arm64",
+    "packages": {
+      "numpy": "2.5.3",
+      "scipy": "1.18.1",
+      "soundfile": "0.14.0",
+      "onnxruntime": "1.29.0",
+      "torch": "2.8.0",
+      "torchaudio": null,
+      "pesq": null,
+      "pystoi": null,
+      "librosa": null
+    },
+    "threads": 1,
+    "device": "cpu"
+  },
+  "scorer_runtime": {
+    "python": "3.12.14 (main, Aug 12 2026, 13:57:54) [Clang 21.0.0 (clang-2100.1.1.101)]",
+    "platform": "macOS-26.5.1-arm64-arm-64bit",
+    "machine": "arm64",
+    "packages": {
+      "numpy": "2.5.3",
+      "scipy": "1.18.1",
+      "soundfile": "0.14.0",
+      "onnxruntime": "1.29.0",
+      "torch": "2.8.0",
+      "torchaudio": "2.8.0",
+      "pesq": "0.0.4",
+      "pystoi": "0.4.1",
+      "librosa": "1.0.0"
+    },
+    "threads": 1,
+    "device": "cpu"
+  },
+  "native_optimization_audit": {
+    "version": "apple_streamed_native_optimization_audit_v1",
+    "passed": true,
+    "scope": "Read-only audit of the actual saved FLOAT WAV exports. Direct optimized-versus-stock native48kHz comparison; recorded stream/full and future-probe results are authenticated and aggregated, not rerun. No model inference, resampling, normalization, clipping, alignment search or timing benchmark.",
+    "execution": {
+      "device": "cpu",
+      "numpy_threads": 1,
+      "numpy_version": "2.5.3",
+      "soundfile_version": "0.14.0",
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "VECLIB_MAXIMUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1"
+      }
+    },
+    "panel": {
+      "recordings": 60,
+      "languages": 10,
+      "recordings_per_language": 6,
+      "source_duration_seconds": 534.58,
+      "source_identity_sha256": "829b8070356f2dd37c65abee1d19b4445b2a3b4769055f623af7bac431e599bb",
+      "source_manifest_sha256": "cf0e74aba33517a3fced4268873b6f28d176413398eeb9affb2b413e0bbf417b",
+      "exact_recording_membership_verified": true,
+      "no_recordings_dropped": true
+    },
+    "native_comparison": {
+      "reference": "audiovae2_stock",
+      "candidate": "audiovae2_optimized",
+      "sample_rate": 48000,
+      "atol": 1e-05,
+      "rtol": 0.0001,
+      "rtol_reference": "stock sample magnitude",
+      "recordings_compared": 60,
+      "recording_failures": 0,
+      "samples_compared": 25659840,
+      "samples_outside_tolerance": 0,
+      "bitwise_equal_recordings": 0,
+      "max_abs": 1.9418075680732727e-06,
+      "worst_recording_rmse": 1.3083005696515614e-07,
+      "worst_nonexact_recording_snr_db": 116.26644144530147,
+      "global_energy_snr_db": 124.47054465948261,
+      "zero_reference_energy_with_nonzero_error_recordings": 0,
+      "snr_reference": "10*log10(sum(stock^2)/sum((optimized-stock)^2)); no gain fit, zero-energy exceptional cases separately counted."
+    },
+    "recorded_qualification": {
+      "stream_full_gates": 180,
+      "future_probes": 27,
+      "atol": 1e-05,
+      "rtol": 0.0001,
+      "by_role": {
+        "audiovae2_stock": {
+          "stream_full_gates": 60,
+          "stream_full_failed": 0,
+          "stream_full_max_abs": 3.0994415283203125e-06,
+          "manifest_reported_equal_count": 0,
+          "future_probe_recordings": 3,
+          "future_probes": 9,
+          "future_failed": 0,
+          "future_prefix_max_abs": 0.0,
+          "stream_chunks": 6703,
+          "export_files_authenticated": 60
+        },
+        "audiovae2_optimized": {
+          "stream_full_gates": 60,
+          "stream_full_failed": 0,
+          "stream_full_max_abs": 3.933906555175781e-06,
+          "manifest_reported_equal_count": 0,
+          "future_probe_recordings": 3,
+          "future_probes": 9,
+          "future_failed": 0,
+          "future_prefix_max_abs": 0.0,
+          "stream_chunks": 6703,
+          "export_files_authenticated": 60
+        },
+        "mimi": {
+          "stream_full_gates": 60,
+          "stream_full_failed": 0,
+          "stream_full_max_abs": 2.950429916381836e-06,
+          "manifest_reported_equal_count": 0,
+          "future_probe_recordings": 3,
+          "future_probes": 9,
+          "future_failed": 0,
+          "future_prefix_max_abs": 0.0,
+          "stream_chunks": 6703,
+          "export_files_authenticated": 60
+        }
+      },
+      "limitation": "Future invariance probes cover three recordings at three cuts per codec; they do not prove every possible input."
+    },
+    "provenance": {
+      "exports_private_sha256": "f9e5ffd47acf30729144b4d83ab80424a65715aef3543d539a9330c2a62d387e",
+      "timing_result_sha256": "dd7e327faad3f06835b2454ee4845f268448a40d57dfc460feacabe71bc67b47",
+      "timing_config_sha256": "7f91586eccb8f5714694075c8ecea6ec699ac6296a5b5a927f45689ae035daac",
+      "export_script_sha256": "41fbe3a33903f254f49a44c27afb5c289094bc2734c655d4f5a21136f6c16614",
+      "source_manifest_verified_current": true,
+      "manifest_unchanged_during_audit": true
+    }
+  },
+  "native_optimization_audit_sha256": "b9b5e3624327d9fa07b1c0b803bac60a6c5c1839a36044c091bfc4434f2c5fef",
+  "raw_quality_report_sha256": "976fe1b6353fbd92590c44f185151d8195b7c65da8bb1af72297e390eb39155a",
+  "score_accounting_audit": {
+    "passed": true,
+    "recordings": 60,
+    "requested_values": 1740,
+    "aggregate_means": 29,
+    "values_per_mean": 60,
+    "errors": 0,
+    "warnings": 0,
+    "sha256": "34f45093241fdc4e48a39a278f895fc4c71cfaab317306cc883472d7d115c0df"
+  }
+}

@@ -18,6 +18,8 @@ with decoder.stream() as stream:
 
 No kernel flags or compiler are needed with a supported platform wheel. Use `load(mode="batch")` for full-sequence calls. `decoder.info` reports the selected recipe and any fallback. To prepare the cache ahead of time, run `fast-audiovae setup`; `--mode both` also prepares batch mode. Set `FAST_AUDIOVAE_CACHE` to choose a different cache location.
 
+On supported Apple CPUs, `load()` selects the matrix and state kernels qualified for 40 ms and 80 ms packets. Use `load(threads=4)` for four ONNX inference threads; the default remains one. Individual custom operators retain their validated worker settings, so four inference threads do not imply four workers inside every matrix call. [Current Apple measurements and qualification](streaming-baseline.md).
+
 ### Existing model bundles
 
 The original explicit bundle API remains available. Prepare streaming alongside a manually prepared bundle:
@@ -77,6 +79,8 @@ These changes keep the trained weights. They can change rounding relative to the
 
 Each `streaming_decode()` call creates independent history. Streams can share a decoder and its immutable weights. Calls within one stream are serialized; send chunks in their intended audio order.
 
+The selected Apple recipe also serializes concurrent calls across streams sharing one decoder because its matrix operators reuse session-owned scratch buffers. Histories remain separate. Separate decoder instances have separate sessions.
+
 - `reset()` clears history for a new utterance without reloading weights.
 - `flush()` returns an empty waveform. Complete latent frames already emit all their samples; there is no delayed tail to append.
 - An empty chunk returns empty audio and leaves history unchanged.
@@ -93,7 +97,7 @@ The base path retains the trained weights and operations. Chunk boundaries must 
 
 The base floating-point path is checked directly against upstream AudioVAE2. INT8 already approximates that model. Its new canonical full-clip reference must be compared with the previously accepted INT8 output for quality, while streaming must independently pass the same strict numerical tolerance against that new reference. Passing streaming parity establishes no additional error beyond the tolerance; it does not remove the existing quantization approximation.
 
-## Validation results
+## Earlier validation results
 
 All three CPUs passed 540 streaming checks across the same 60 multilingual clips: one-, two- and five-frame chunks, uneven chunks, reset, final partial chunks and independent interleaved streams. Intel and AMD streaming outputs are bitwise identical to their respective canonical full decoders. Apple passed the strict numerical gate with maximum absolute difference 3.13e-6 and worst nonexact SNR 102.2 dB. Apple also passed 60 stored upstream comparisons and an additional 15-check run that included direct upstream streaming comparisons on one clip.
 
@@ -110,7 +114,7 @@ The [streaming projection recipes](../experiments/streaming-matrix/README.md) im
 
 These are new paired measurements on three frozen multilingual clips, with two warmups and five measured repetitions. Every clip improved at both chunk sizes. Each variant passed 126 timed waveform checks, 72 state checks and 180 complete streams across all 60 multilingual clips at 40, 80 and 160 ms. Intel remained bitwise identical to its accepted full decoder. Apple passed the existing strict tolerances against both accepted and stored upstream outputs, with maximum difference 3.93e-6 against the accepted decoder. [Results and provenance](../benchmarks/streaming/projection.json). Mimi was not rerun in this experiment, so use the earlier comparison below as historical context rather than a freshly matched speed ratio.
 
-The full-call graph is byte-identical between the paired variants. Its control timings varied by 4.0% on Apple and 0.2% on Intel; no full-call improvement is claimed. The automatic loader selects these projection recipes for one-thread streaming on their respective CPUs.
+The full-call graph is byte-identical between the paired variants. Its control timings varied by 4.0% on Apple and 0.2% on Intel; no full-call improvement is claimed. The automatic loader retains this projection recipe for Apple CPUs without SME/SME2 and for supported Intel CPUs. Newer Apple CPUs use the selected streaming recipe linked above.
 
 ### Earlier matched one-thread comparison
 
