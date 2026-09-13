@@ -10,6 +10,8 @@ Use Python 3.11 to 3.13. Install from the release wheels; pip picks the platform
 python -m pip install fast-audiovae==0.4.0 --find-links https://github.com/bevenky/fast-audiovae/releases/expanded_assets/v0.4.0
 ```
 
+This installs the CPU runtime and kernels without PyTorch or GPU dependencies. The wheel includes the small GPU integration code, but its dependencies are optional.
+
 With uv, use `uv pip install` with the same arguments. The first load downloads the pinned weights and prepares a local cache. Native wheels include the kernels and their CPU dependencies; no compiler or kernel flags are needed.
 
 ```python
@@ -35,7 +37,7 @@ For Apple GPU support, add the optional `gpu` extra:
 python -m pip install 'fast-audiovae[gpu]==0.4.0' --find-links https://github.com/bevenky/fast-audiovae/releases/expanded_assets/v0.4.0
 ```
 
-Use `load(device="gpu")`. CPU remains the default, including when the extra is installed. GPU loading prepares the optimized 40/80 ms paths automatically; first compilation takes extra time. The extra installs the required PyTorch 2.14.x. [GPU usage and validation](docs/apple-gpu.md).
+The extra adds PyTorch 2.14.x alongside CPU support, so both CPU and Apple GPU execution are available. CPU remains the default; GPU runs only when you select `load(device="gpu")`. GPU loading prepares the optimized 40/80 ms paths automatically; first compilation takes extra time. [GPU usage and validation](docs/apple-gpu.md).
 
 ## Decoder speed
 
