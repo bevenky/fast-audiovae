@@ -1,5 +1,6 @@
 """Backend selection tests do not require native binaries or model weights."""
 import json
+import hashlib
 from pathlib import Path
 import tempfile
 import unittest
@@ -31,6 +32,15 @@ class FakeSession:
 
     def get_providers(self):
         return self.providers
+
+    def get_inputs(self):
+        return [SimpleNamespace(name='z')]
+
+    def get_outputs(self):
+        return [SimpleNamespace(name='audio')]
+
+    def get_overridable_initializers(self):
+        return []
 
 
 class RuntimeTests(unittest.TestCase):
@@ -123,6 +133,31 @@ class RuntimeTests(unittest.TestCase):
         self.assertEqual(session.options.intra_op_num_threads, 2)
         self.assertEqual(info['threads'], 2)
         self.assertEqual(info['thread_policy'], 'visible_cpus_capped_at_four')
+
+    def test_selected_batch_is_hash_checked_and_serializes_session(self):
+        from fast_audiovae.batch_session import LockedBatchSession
+        data = b'prepared batch graph'
+        (self.root / 'batch.onnx').write_bytes(data)
+        self.manifest['native']['Darwin/arm64'] = {
+            'library': 'native.dylib', 'model': 'batch.onnx', 'math': 'vforce',
+            'experiment': 'selected_batch', 'tested_cpu': 'Apple M5 Max',
+            'apple_batch_selected': {'model_sha256': hashlib.sha256(data).hexdigest(),
+                                     'latent_input': 'z', 'audio_output': 'audio'}}
+        self.write_manifest()
+        native = self.native_library()
+        native.ncc_selected_backend.return_value = 2
+        native.ncc_capabilities.return_value = 32
+        with patch.object(runtime.platform, 'system', return_value='Darwin'), \
+             patch.object(runtime.platform, 'machine', return_value='arm64'), \
+             patch.object(runtime.ctypes, 'CDLL', return_value=native):
+            session, info = runtime.load_decoder(self.root, threads=1)
+            self.assertIsInstance(session, LockedBatchSession)
+            self.assertTrue(info['batch_selected'])
+            self.assertTrue(info['stateless'])
+            self.assertTrue(session.fallback_disabled)
+            (self.root / 'batch.onnx').write_bytes(b'changed graph')
+            with self.assertRaisesRegex(RuntimeError, 'batch graph'):
+                runtime.load_decoder(self.root, threads=1)
 
     def test_large_affinity_retains_four_worker_default(self):
         with patch.object(runtime.os, 'sched_getaffinity', return_value=set(range(18)), create=True):

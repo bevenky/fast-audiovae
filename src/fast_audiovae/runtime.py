@@ -222,6 +222,14 @@ def _load_session(model_dir, *, threads, prefer_custom, prefer_packed, streaming
                 raise RuntimeError('Additional native library is missing, duplicated or differs from its manifest')
             registered.add(path)
             options.register_custom_ops_library(str(path))
+    batch = (native.get('apple_batch_selected') if native and not streaming
+             and info['selected'] == 'native' and selected == native['model'] else None)
+    if batch is not None:
+        from .assets import sha256
+        path = (root / selected).resolve()
+        if (not isinstance(batch, dict) or not path.is_relative_to(root) or not path.is_file()
+                or sha256(path) != batch.get('model_sha256')):
+            raise RuntimeError('Selected batch graph differs from its prepared manifest')
     session=ort.InferenceSession(str(root/selected),sess_options=options,providers=['CPUExecutionProvider'])
     session.disable_fallback()
     if session.get_providers()!=['CPUExecutionProvider']:raise RuntimeError('CPU-only provider requirement failed')
@@ -229,4 +237,13 @@ def _load_session(model_dir, *, threads, prefer_custom, prefer_packed, streaming
     session._codec_packed_library=packed_library
     info['providers']=session.get_providers()
     info['model']=selected
+    if batch is not None:
+        if ([value.name for value in session.get_inputs()] != [batch.get('latent_input')]
+                or [value.name for value in session.get_outputs()] != [batch.get('audio_output')]
+                or session.get_overridable_initializers()):
+            raise RuntimeError('Selected batch graph must expose only latents and audio')
+        from .batch_session import LockedBatchSession
+        session = LockedBatchSession(session)
+        info.update(batch_selected=True, stateless=True,
+                    run_serialization='shared_native_matrix_scratch')
     return session,info
