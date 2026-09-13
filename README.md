@@ -42,6 +42,15 @@ CPU-only causal streaming on Apple M5 Max, using ONNX Runtime 1.30.0. Lower RTF 
 
 Same three multilingual recordings, two warmups and five measured repetitions per case. The one-thread run had substantial timing drift across all codecs, so these observations do not establish a thread-count speedup or reproduce the historical 0.07122 short-clip result. RTF includes decode calls and flush; loading and encoding are excluded. AudioVAE2 outputs 48 kHz; Pocket continuous Mimi outputs 24 kHz and has an 80 ms minimum frame. [Protocol and results](docs/streaming-baseline.md).
 
+Independent batch decoding on Apple M5 Max, **one CPU thread**, using `load(mode="batch")`:
+
+| Input length | Previous batch RTF | Updated batch RTF |
+| --- | ---: | ---: |
+| 40 ms | 0.3595 | **0.2121** |
+| 80 ms | 0.3542 | **0.1340** |
+
+Each call starts with empty history, so these short measurements use a different protocol from continuous streaming. The batch update reuses the existing kernels and is on `main`; the v0.3.0 wheels still use the previous batch path. Streaming remains the default. [Batch validation](docs/apple-batch-validation.md).
+
 ## Reconstruction quality
 
 Reference scores from the earlier one-thread, 80 ms streaming panel: the same 60 FLEURS recordings across ten languages. Higher is better. Scores use the original audio as reference at 16 kHz.

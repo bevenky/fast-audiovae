@@ -1,0 +1,465 @@
+{
+  "version": "apple_batch_validation_v1",
+  "date": "2026-09-13",
+  "complete": true,
+  "hardware": {
+    "cpu": "Apple M5 Max",
+    "os": "macOS",
+    "os_version": "26.5.1",
+    "execution_provider": "CPUExecutionProvider"
+  },
+  "implementation_status": "Unreleased source checkout using the unchanged verified v0.3.0 native payload",
+  "codec": {
+    "name": "AudioVAE2",
+    "precision": "FP32",
+    "batch_size": 1,
+    "latent_channels": 64,
+    "latent_rate_hz": 25,
+    "output_sample_rate_hz": 48000,
+    "samples_per_latent_frame": 1920
+  },
+  "runtime": {
+    "onnxruntime": "1.30.0",
+    "ort_intra_op_threads": [
+      1,
+      4
+    ],
+    "ort_inter_op_threads": 1,
+    "execution_mode": "sequential",
+    "blas_openmp_environment_threads": 1,
+    "custom_operator_policy": "Existing one-worker kernel policies retained"
+  },
+  "scope": "Independent full-graph 40/80 ms inputs with zero initial history on every call. This is not continuous-stream timing.",
+  "methods": {
+    "stock_batch": "Original stock full ONNX export",
+    "installed_batch": "Released v0.3.0 batch graph through the installed facade",
+    "selected_batch_candidate": "New independent batch graph through the source loader and unchanged installed facade",
+    "selected_stream_fresh_control": "Selected streaming graph, creating and closing a fresh stream for every call"
+  },
+  "protocol": {
+    "speech_sources": 3,
+    "languages": [
+      "Bengali",
+      "English",
+      "Spanish"
+    ],
+    "source": "Existing frozen real encoder latents, one fixed midpoint crop per speech source",
+    "numerical_sources": 5,
+    "numerical_categories": [
+      "speech",
+      "natural expressive audio",
+      "encoded silence"
+    ],
+    "numerical_latent_lengths": [
+      1,
+      2,
+      3,
+      4,
+      13
+    ],
+    "maximum_numerical_duration_ms": 520,
+    "warmup_groups": 2,
+    "measured_groups": 5,
+    "independent_calls_per_group": 5,
+    "summary": "Equal-input mean of per-input median API latency/RTF; 15 matched measured groups per packet size",
+    "timing_excludes": "Session creation, graph preparation/JIT, artifact hashing and output validation; timed API validation and output allocation remain included",
+    "group_timing": "One outer clock covers five independent calls and list appends. All batch arms use the same decode facade; output checks follow the timer.",
+    "fresh_stream_control_timing": "Includes stream creation, zero-state initialization, decode, empty flush and close for every call",
+    "ordering": "Deterministic randomized method order within each input/repetition; thread settings ran in separate sequential processes",
+    "numerical_tolerance": {
+      "atol": 1e-05,
+      "rtol": 0.0001
+    },
+    "reference": "Original stock full decode of the exact short input with zero history; no continuous-recording reference, output trimming or fitted alignment"
+  },
+  "graphs_sha256": {
+    "stock_full": "fdd20e200675ab9649bf33f16bc5974101ba5cf47ab89fbfe29f3d36ff6c3c84",
+    "released_batch": "fa7992825e807cac7ab1be405912ae3735031fb941a18dd81006005dc597bde3",
+    "selected_fresh_stream": "5918e523939aba3a6f72e32b88b27a0a1f39828a376b0ed748a7cb43e70ce841",
+    "new_batch": "d20ccf472ba021b3f838d1f707a2ee25c873c0fc8d52f2db826b01907e03a3cf"
+  },
+  "results": [
+    {
+      "threads": 1,
+      "packet_ms": 40,
+      "method": "stock_batch",
+      "milliseconds": 19.128277680526175,
+      "rtf": 0.47820694201315445,
+      "minimum_rtf": 0.42879146058112383,
+      "maximum_rtf": 0.5359954200685024
+    },
+    {
+      "threads": 1,
+      "packet_ms": 40,
+      "method": "installed_batch",
+      "milliseconds": 14.379041672994694,
+      "rtf": 0.3594760418248673,
+      "minimum_rtf": 0.32802958507090807,
+      "maximum_rtf": 0.3865295834839344
+    },
+    {
+      "threads": 1,
+      "packet_ms": 40,
+      "method": "selected_batch_candidate",
+      "milliseconds": 8.482969334969917,
+      "rtf": 0.21207423337424794,
+      "minimum_rtf": 0.1490566646680236,
+      "maximum_rtf": 0.23792729480192065
+    },
+    {
+      "threads": 1,
+      "packet_ms": 40,
+      "method": "selected_stream_fresh_control",
+      "milliseconds": 8.377549952516954,
+      "rtf": 0.20943874881292382,
+      "minimum_rtf": 0.13894770992919803,
+      "maximum_rtf": 0.2507216646336019
+    },
+    {
+      "threads": 1,
+      "packet_ms": 80,
+      "method": "stock_batch",
+      "milliseconds": 36.51620838791132,
+      "rtf": 0.4564526048488915,
+      "minimum_rtf": 0.38198416703380644,
+      "maximum_rtf": 0.567819062853232
+    },
+    {
+      "threads": 1,
+      "packet_ms": 80,
+      "method": "installed_batch",
+      "milliseconds": 28.339055522034567,
+      "rtf": 0.35423819402543205,
+      "minimum_rtf": 0.29024479212239385,
+      "maximum_rtf": 0.4278338549192995
+    },
+    {
+      "threads": 1,
+      "packet_ms": 80,
+      "method": "selected_batch_candidate",
+      "milliseconds": 10.72132506718238,
+      "rtf": 0.13401656333977977,
+      "minimum_rtf": 0.1140819804277271,
+      "maximum_rtf": 0.1693368749693036
+    },
+    {
+      "threads": 1,
+      "packet_ms": 80,
+      "method": "selected_stream_fresh_control",
+      "milliseconds": 11.43856393173337,
+      "rtf": 0.14298204914666712,
+      "minimum_rtf": 0.10939677245914936,
+      "maximum_rtf": 0.18360010464675725
+    },
+    {
+      "threads": 4,
+      "packet_ms": 40,
+      "method": "stock_batch",
+      "milliseconds": 17.010305542498827,
+      "rtf": 0.4252576385624707,
+      "minimum_rtf": 0.38434207905083895,
+      "maximum_rtf": 0.469118959736079
+    },
+    {
+      "threads": 4,
+      "packet_ms": 40,
+      "method": "installed_batch",
+      "milliseconds": 12.77560560653607,
+      "rtf": 0.3193901401634018,
+      "minimum_rtf": 0.27405082946643233,
+      "maximum_rtf": 0.3669518744572997
+    },
+    {
+      "threads": 4,
+      "packet_ms": 40,
+      "method": "selected_batch_candidate",
+      "milliseconds": 9.762461110949516,
+      "rtf": 0.2440615277737379,
+      "minimum_rtf": 0.16968270996585488,
+      "maximum_rtf": 0.28535145800560713
+    },
+    {
+      "threads": 4,
+      "packet_ms": 40,
+      "method": "selected_stream_fresh_control",
+      "milliseconds": 9.60633885115385,
+      "rtf": 0.24015847127884626,
+      "minimum_rtf": 0.1912447903305292,
+      "maximum_rtf": 0.30508770840242505
+    },
+    {
+      "threads": 4,
+      "packet_ms": 80,
+      "method": "stock_batch",
+      "milliseconds": 23.956902790814638,
+      "rtf": 0.299461284885183,
+      "minimum_rtf": 0.26109489495866,
+      "maximum_rtf": 0.3770832298323512
+    },
+    {
+      "threads": 4,
+      "packet_ms": 80,
+      "method": "installed_batch",
+      "milliseconds": 13.412538822740315,
+      "rtf": 0.16765673528425395,
+      "minimum_rtf": 0.1353789574932307,
+      "maximum_rtf": 0.23124458268284798
+    },
+    {
+      "threads": 4,
+      "packet_ms": 80,
+      "method": "selected_batch_candidate",
+      "milliseconds": 12.058122300853332,
+      "rtf": 0.15072652876066664,
+      "minimum_rtf": 0.11626645806245506,
+      "maximum_rtf": 0.1980440632905811
+    },
+    {
+      "threads": 4,
+      "packet_ms": 80,
+      "method": "selected_stream_fresh_control",
+      "milliseconds": 13.00865551456809,
+      "rtf": 0.16260819393210113,
+      "minimum_rtf": 0.11391114443540573,
+      "maximum_rtf": 0.21209406317211688
+    }
+  ],
+  "validation": [
+    {
+      "threads": 1,
+      "passed": true,
+      "cases": 25,
+      "full_reference_comparisons": 100,
+      "bitwise_aba_checks": 4,
+      "empty_api_checks": 4,
+      "future_prefix_checks": 12,
+      "concurrency": {
+        "calls": 2,
+        "maximum_simultaneous_native_runs": 1,
+        "returned_samples": 5760
+      },
+      "grouped_api_calls": 840,
+      "measured_api_calls": 600,
+      "total_api_calls": 1007,
+      "native_inference_calls": 1003,
+      "counted_api_wall_seconds": 19.509651794098318,
+      "timed_returned_samples": 2419200,
+      "maximum_reference_error": 2.1345913410186768e-06,
+      "maximum_timed_error": 5.960464477539063e-08,
+      "maximum_prefix_error": 5.960464477539063e-08,
+      "all_artifacts_unchanged": true,
+      "paired_comparisons": [
+        {
+          "packet_ms": 40,
+          "candidate": "selected_batch_candidate",
+          "baseline": "stock_batch",
+          "pairs": 15,
+          "median_paired_reduction_percent": 55.71993249999445,
+          "candidate_wins": 15
+        },
+        {
+          "packet_ms": 80,
+          "candidate": "selected_batch_candidate",
+          "baseline": "stock_batch",
+          "pairs": 15,
+          "median_paired_reduction_percent": 71.30092203850968,
+          "candidate_wins": 15
+        },
+        {
+          "packet_ms": 40,
+          "candidate": "selected_batch_candidate",
+          "baseline": "installed_batch",
+          "pairs": 15,
+          "median_paired_reduction_percent": 41.52357081433268,
+          "candidate_wins": 15
+        },
+        {
+          "packet_ms": 40,
+          "candidate": "selected_batch_candidate",
+          "baseline": "selected_stream_fresh_control",
+          "pairs": 15,
+          "median_paired_reduction_percent": 2.6366989464886026,
+          "candidate_wins": 10
+        },
+        {
+          "packet_ms": 80,
+          "candidate": "selected_batch_candidate",
+          "baseline": "installed_batch",
+          "pairs": 15,
+          "median_paired_reduction_percent": 62.80508514342784,
+          "candidate_wins": 15
+        },
+        {
+          "packet_ms": 80,
+          "candidate": "selected_batch_candidate",
+          "baseline": "selected_stream_fresh_control",
+          "pairs": 15,
+          "median_paired_reduction_percent": 6.325662216628835,
+          "candidate_wins": 10
+        }
+      ]
+    },
+    {
+      "threads": 4,
+      "passed": true,
+      "cases": 25,
+      "full_reference_comparisons": 100,
+      "bitwise_aba_checks": 4,
+      "empty_api_checks": 4,
+      "future_prefix_checks": 12,
+      "concurrency": {
+        "calls": 2,
+        "maximum_simultaneous_native_runs": 1,
+        "returned_samples": 5760
+      },
+      "grouped_api_calls": 840,
+      "measured_api_calls": 600,
+      "total_api_calls": 1007,
+      "native_inference_calls": 1003,
+      "counted_api_wall_seconds": 15.46523370128125,
+      "timed_returned_samples": 2419200,
+      "maximum_reference_error": 2.1345913410186768e-06,
+      "maximum_timed_error": 5.960464477539063e-08,
+      "maximum_prefix_error": 5.960464477539063e-08,
+      "all_artifacts_unchanged": true,
+      "paired_comparisons": [
+        {
+          "packet_ms": 40,
+          "candidate": "selected_batch_candidate",
+          "baseline": "stock_batch",
+          "pairs": 15,
+          "median_paired_reduction_percent": 42.592828700163835,
+          "candidate_wins": 15
+        },
+        {
+          "packet_ms": 80,
+          "candidate": "selected_batch_candidate",
+          "baseline": "stock_batch",
+          "pairs": 15,
+          "median_paired_reduction_percent": 50.35428117110301,
+          "candidate_wins": 15
+        },
+        {
+          "packet_ms": 40,
+          "candidate": "selected_batch_candidate",
+          "baseline": "installed_batch",
+          "pairs": 15,
+          "median_paired_reduction_percent": 23.972483574957025,
+          "candidate_wins": 15
+        },
+        {
+          "packet_ms": 40,
+          "candidate": "selected_batch_candidate",
+          "baseline": "selected_stream_fresh_control",
+          "pairs": 15,
+          "median_paired_reduction_percent": 1.5957575851210715,
+          "candidate_wins": 10
+        },
+        {
+          "packet_ms": 80,
+          "candidate": "selected_batch_candidate",
+          "baseline": "installed_batch",
+          "pairs": 15,
+          "median_paired_reduction_percent": 11.445809494125726,
+          "candidate_wins": 11
+        },
+        {
+          "packet_ms": 80,
+          "candidate": "selected_batch_candidate",
+          "baseline": "selected_stream_fresh_control",
+          "pairs": 15,
+          "median_paired_reduction_percent": 4.760987207772005,
+          "candidate_wins": 12
+        }
+      ]
+    }
+  ],
+  "graph_derivation": {
+    "original_nodes_unchanged": true,
+    "original_initializers_unchanged": true,
+    "kernel_output_arity_preserved": true,
+    "constant_zero_histories": 26,
+    "constant_zero_history_bytes": 683264,
+    "prepended_latent_frames": 0,
+    "new_kernel_code": false,
+    "new_kernel_build": false
+  },
+  "public_api_smoke": {
+    "scope": "Source checkout with unchanged verified v0.3.0 payload; not an installed release",
+    "passed": true,
+    "calls": 8,
+    "call_seconds": 0.10300795780494809,
+    "payload_manifest_sha256": "efd82b3a0cab3f1f132cc45d8ac06c7a5c546fd3ab7593da910622bb0317182b",
+    "loads": [
+      {
+        "mode": "batch",
+        "recipe": "apple_batch_selected",
+        "threads": 1,
+        "graph_sha256": "d20ccf472ba021b3f838d1f707a2ee25c873c0fc8d52f2db826b01907e03a3cf",
+        "inputs": 1,
+        "outputs": 1,
+        "platform": "Darwin/arm64",
+        "providers": [
+          "CPUExecutionProvider"
+        ]
+      },
+      {
+        "mode": "batch",
+        "recipe": "apple_batch_selected",
+        "threads": 4,
+        "graph_sha256": "d20ccf472ba021b3f838d1f707a2ee25c873c0fc8d52f2db826b01907e03a3cf",
+        "inputs": 1,
+        "outputs": 1,
+        "platform": "Darwin/arm64",
+        "providers": [
+          "CPUExecutionProvider"
+        ]
+      },
+      {
+        "mode": "streaming",
+        "recipe": "apple_stream_selected",
+        "threads": 1,
+        "graph_sha256": "5918e523939aba3a6f72e32b88b27a0a1f39828a376b0ed748a7cb43e70ce841",
+        "inputs": 27,
+        "outputs": 27,
+        "platform": "Darwin/arm64",
+        "providers": [
+          "CPUExecutionProvider"
+        ]
+      }
+    ],
+    "maximum_error": 5.448237061500549e-08,
+    "source_and_payload_unchanged": true
+  },
+  "limitations": [
+    "Only three short speech inputs were timed; no long-corpus benchmark or perceptual scores were rerun.",
+    "Reported minima/maxima preserve observed variability; compare methods within each matched run, not absolute values across runs or historical streaming tables.",
+    "Each batch window starts with zero history. It does not reproduce audio from the middle of a continuously decoded utterance.",
+    "Same trained weights and native kernels; graph boundary and batch loading/serialization only. Default streaming remains separate.",
+    "Separate one-thread and four-thread processes do not isolate the effect of thread count from run-to-run variability."
+  ],
+  "provenance": {
+    "source_summary_sha256": "3a923994a67073bd76cd5d23c63b9b73a640674735954a42b74acfa19cc3b316",
+    "matched_run_1thread_sha256": "8e856e2cc92edfd74cfa6e39241841cb4f45585ff56ee12464a7f64da0d4d687",
+    "matched_run_4threads_sha256": "5c78c20fdebc87289a7070d130b5a9843e4fe99c165ed94cb17f439fe9a57a42",
+    "graph_derivation_receipt_sha256": "dc660e166cc08030f54ccac35183ff0e5cc508c8db32e9c5c5c596d1955e7c8d",
+    "harness_sha256": "de8236159640a78660940e66b120f592d4e6bb563f591eba4c80226bfa2cfd8b",
+    "public_api_smoke_sha256": "fd5d080519f5fde0337f816dd3e8471c760871a1441642712d5553f81c603440"
+  },
+  "retained_failed_attempt": {
+    "stage": "Harness evidence-directory lookup",
+    "native_inference_calls": 0,
+    "resolution": "Separate corrected harness; graph, runtime and mathematical gates unchanged"
+  },
+  "process_status": {
+    "matched_runs_clean_exit": true,
+    "public_api_smoke_clean_exit": true
+  },
+  "source_test_suite": {
+    "passed": 314,
+    "subtests_passed": 1959,
+    "elapsed_seconds": 9.22,
+    "exit_code": 0,
+    "log_sha256": "85059fb340053f0e96990252615f520d109795559c69a129067095809ee95b03"
+  }
+}
