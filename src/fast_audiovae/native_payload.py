@@ -83,6 +83,21 @@ def materialize_payload(payload, destination, recipe):
         derived = destination.parent / (recipe + "-native-build.json")
         derived.write_text(json.dumps(record, indent=2) + "\n")
         result["base_build"] = str(derived)
+    if "streaming_build" in entry:
+        from .build_resources import validate_streaming_record
+        record = json.loads(_path(destination, entry["streaming_build"]).read_text())
+        validate_streaming_record(record, manifest["files"])
+        record["runtime_files"] = [{**item, "path": str(_path(destination, item["path"]))}
+                                   for item in record["runtime_files"]]
+        record["additional_libraries"] = [
+            {**item, "library": str(_path(destination, item["library"]))}
+            for item in record["additional_libraries"]]
+        if "license_files" in record:
+            record["license_files"] = [{**item, "path": str(_path(destination, item["path"]))}
+                                       for item in record["license_files"]]
+        derived = destination.parent / (recipe + "-streaming-build.json")
+        derived.write_text(json.dumps(record, indent=2) + "\n")
+        result["streaming_build"] = str(derived)
     return result
 
 
@@ -112,4 +127,17 @@ def probe_payload(prebuilt):
     else:
         record = json.loads(Path(prebuilt["base_build"]).read_text())
         paths, identities = (record["library"],), (record["library_sha256"],)
+        if "streaming_build" in prebuilt:
+            stream = json.loads(Path(prebuilt["streaming_build"]).read_text())
+            # Dependencies are load-only. Registration order remains explicit
+            # for the recipe; a transitive dylib is never an ORT custom op.
+            deps = [item for item in stream["runtime_files"] if not item["register"]]
+            paths += tuple(item["path"] for item in deps)
+            identities += tuple(item["sha256"] for item in deps)
+            paths += tuple(item["library"] for item in stream["additional_libraries"])
+            identities += tuple(item["sha256"] for item in stream["additional_libraries"])
+    for path, identity in zip(paths, identities):
+        file = Path(path)
+        if file.is_symlink() or not file.resolve().is_relative_to(root.resolve()) or sha256(file) != identity:
+            raise RuntimeError("Native load probe artifact changed or escaped its cache")
     return _load_probe(paths, identities)

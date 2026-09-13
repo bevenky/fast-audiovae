@@ -101,8 +101,8 @@ def phase_fixture(channels, stride, bias, custom):
 class AppleOperators(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        if ort.__version__ != "1.29.0":
-            raise RuntimeError("Operator acceptance requires ONNX Runtime 1.29.0")
+        if ort.__version__ not in ("1.29.0", "1.30.0"):
+            raise RuntimeError("Operator acceptance requires ONNX Runtime 1.29.0 or 1.30.0")
         spec = importlib.util.spec_from_file_location("build_apple", ROOT / "tools/build_apple.py")
         module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(module)

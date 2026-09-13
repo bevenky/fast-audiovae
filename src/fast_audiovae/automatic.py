@@ -12,7 +12,7 @@ import warnings
 
 from .assets import MODEL_FILES, MODEL_REVISION, fetch_model, sha256, verify_model
 
-RECIPE_VERSION = 1
+RECIPE_VERSION = 2
 
 
 def cache_directory(directory=None):
@@ -172,10 +172,11 @@ def setup(*, mode="streaming", threads=1, cache_dir=None, source=None, offline=F
             fetch_model(source_path.parent)
         for selected_mode in modes:
             plan = select_recipe(cpu, mode=selected_mode, threads=threads)
-            if not prefer_custom or ort.__version__ != "1.29.0":
+            required_runtime = "1.30.0" if cpu.get("platform") == "Darwin/arm64" else "1.29.0"
+            if not prefer_custom or ort.__version__ != required_runtime:
                 plan = {**plan, "recipe": "portable", "fallback": True, "reason": (
                     "Portable ONNX explicitly requested" if not prefer_custom else
-                    "Native recipes require ONNX Runtime 1.29.0")}
+                    "Native recipes on this platform require ONNX Runtime " + required_runtime)}
             if payload and not _payload_supported(payload, cpu):
                 plan = {**plan, "recipe": "portable", "fallback": True, "reason":
                         "The native wheel does not support this OS and process architecture; using portable ONNX"}

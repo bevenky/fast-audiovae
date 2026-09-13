@@ -74,10 +74,33 @@ class AutomaticTests(unittest.TestCase):
     def test_native_without_wheel_falls_back_without_building_native(self):
         self.cpu.update(system="Darwin", machine="arm64", platform="Darwin/arm64", vendor="apple",
                         usable={"neon": True}, probe={"status": "ok"})
-        result = self.setup()
+        with patch("onnxruntime.__version__", "1.30.0"):
+            result = self.setup()
         self.assertEqual(result["recipe"], "portable")
         self.assertIn("platform wheel", result["reason"])
         self.assertEqual(self.calls[0]["recipe"], "portable")
+
+    def test_selected_apple_is_automatic_and_four_thread_request_is_retained(self):
+        self.cpu.update(system="Darwin", machine="arm64", platform="Darwin/arm64", vendor="apple",
+                        usable={"neon": True, "sme": True, "sme2": True}, probe={"status": "ok"})
+        payload = {"identity": "selected-wheel", "manifest": {"wheel_platform": "macosx_26_0_arm64"}}
+        with patch("onnxruntime.__version__", "1.30.0"), \
+             patch("fast_audiovae.native_payload.inspect_payload", return_value=payload), \
+             patch("fast_audiovae.native_payload.materialize_payload", return_value={"base_build": "verified"}), \
+             patch("fast_audiovae.native_payload.probe_payload", return_value=(True, "")):
+            result = self.setup(threads=4)
+        self.assertEqual(result["recipe"], "apple_stream_selected")
+        self.assertEqual(result["mode"], "streaming")
+        self.assertEqual(result["threads"], 4)
+        self.assertFalse(result["fallback"])
+
+    def test_apple_runtime_contract_does_not_silently_load_legacy_runtime(self):
+        self.cpu.update(platform="Darwin/arm64", system="Darwin", machine="arm64", vendor="apple",
+                        usable={"neon": True, "sme": True, "sme2": True}, probe={"status": "ok"})
+        with patch("onnxruntime.__version__", "1.29.0"):
+            result = self.setup()
+        self.assertEqual(result["recipe"], "portable")
+        self.assertIn("1.30.0", result["reason"])
 
     def test_public_load_defaults_to_streaming(self):
         import fast_audiovae

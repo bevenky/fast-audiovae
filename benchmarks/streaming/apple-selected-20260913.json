@@ -1,0 +1,729 @@
+{
+  "version": "apple_streaming_promotion_public_v1",
+  "status": "passed",
+  "implementation": {
+    "package_version": "0.3.0",
+    "wheel_sha256": "38d544f897741d38bbb229a465cf0796109a1f1e962971ccdfc6ef67b5eeaf70",
+    "selected_stream_graph_sha256": "5918e523939aba3a6f72e32b88b27a0a1f39828a376b0ed748a7cb43e70ce841",
+    "onnxruntime": "1.30.0",
+    "cpu": "Apple M5 Max",
+    "runtime": "FP32 CPU",
+    "thread_policy": "ORT intra-op1 or4, inter-op1, sequentialgraph; native vector/matrix kernels retain their one-worker policy",
+    "r2_to_r3": "Only Python selected-decoder session serialization changed; all checked model/native bundle files identical",
+    "historical_to_package_native_build": "Selected graph5918 is unchanged. Rebuilt base native library adds two unused SnakeDW7SnakeF32/BiasResidualF32 registrations; active C arithmetic, tile256, compiler17, SDK26.2 and API29 header/flag identities remain unchanged per separate build audit. Fresh timings are reported rather than assigning any timing difference to this additive change.",
+    "checked_bundle_artifacts_sha256": {
+      "runtime/libfast_audiovae_apple_4e73b23e8afa.dylib": "4981d22585ef00f1e441d39f9a57b300addb43944b03a21781d9fbf32053d2d0",
+      "runtime/libapple_xsmm_panel_dependency.dylib": "493740955399f904a1a644cd90aad802f1ab901626b21653d86c42d04d508249",
+      "runtime/libapple_state_v2.dylib": "fc9c82372f4684f41bcd837b10a3eaa1d1c5a3065537cf9e956133c676ff9354",
+      "runtime/libapple_phase_state_v1.dylib": "a6c4c2d45526a70581887a25372663981c42c46a25e4ca6da2d750d7aa10605e",
+      "runtime/libapple_multitile_ort.dylib": "b7cf5e89774b69b8b8a5d6a819c7dc10f15dee39b620a66c18888c3ff3aa649b",
+      "runtime/libapple_multitile_core.dylib": "6bf9a91d274d6485e13f876cd12a83cf735d7f06ae525215b2ad961f4bca9159",
+      "runtime/libapple_multinext_ort.dylib": "e1d28d060873f5d941c3eccfcd781dd579344a9167111beeeeed05a67fd39250",
+      "runtime/libapple_multinext_core.dylib": "91523d62dd73943f7d017a8dc3e5e5948cf4c74dda8a46e995bb33b20408ba02",
+      "runtime/libapple_matrix_sweep_ort.dylib": "d73201b8eefada4d29cb72c80394df4847532ae10d5b0b8eccee9e8b2f0fd3be",
+      "runtime/libapple_matrix_sweep_core.dylib": "bf61a6335fd1ec7971402fc7e9b3227a135f84855371bfa50a6c67bb3688eef1",
+      "runtime/libapple_libxsmm_panel_ort.dylib": "511eda0dcf7089c87f678e01f9a2508efefa05ff80a3f1972b06fc7b90a8f971",
+      "runtime/libapple_libxsmm_panel_core.dylib": "0adc60e6baf03dc22bbca9eb3268f5cab7127fc46e7f4eacc478a53e162ff225",
+      "runtime/libapple_layout_v3.dylib": "4447b174949b578857f7d8789b40d3cf0190ea5c0089dbc40868cfb60566a149",
+      "streaming/decoder_1.onnx": "5918e523939aba3a6f72e32b88b27a0a1f39828a376b0ed748a7cb43e70ce841",
+      "decoder_native.onnx": "fa7992825e807cac7ab1be405912ae3735031fb941a18dd81006005dc597bde3",
+      "bundle.json": "a0dc3ad300b99b114842154dd6011816d5a01d0cd8c1bf14a67ce329ccc6f1c1"
+    },
+    "installed_python_module_sha256": {
+      "platforms.py": "de446fba32bfe21fcca6bf75a050d2771bc9c7ea260f49238d88e27f9ceca1f5",
+      "assets.py": "9492f1ef49352fc33dde180160753d7aa655a75c1b9e5322ae9bc89d1974f4bd",
+      "streaming.py": "d22115a91fa71fa2741c098be75a6540b2165ecfbb0cbf0daa78016a52c31827",
+      "__init__.py": "c9471e5a041d8e90691e71eff65ee7cc0733d7c5ff890e0f24e0447df4c3f979",
+      "runtime.py": "bd74e4ade93e17690d434f425193fb7b78505ab032959c8a1d43686400b8db66"
+    }
+  },
+  "scope": {
+    "natural_records": 72,
+    "natural_source_seconds": 659.0735137471656,
+    "frozen_speech_records": 60,
+    "frozen_speech_languages": 10,
+    "additional_natural_records": 12,
+    "encoded_controls": 4,
+    "constructed_latent_stress_seconds": [
+      60,
+      120
+    ],
+    "reference": "Original stock full decoder with the same frozen posterior means; full native samples retained including terminal latent padding",
+    "tolerance": {
+      "atol": 1e-05,
+      "rtol": 0.0001
+    },
+    "interpretation": "Numerical decoder/state qualification, not new perceptual scoring or an end-to-end streaming encoder claim"
+  },
+  "qualification": {
+    "threads1_r2": {
+      "totals": {
+        "records": 78,
+        "streams": 312,
+        "chunks": 64146,
+        "samples": 164121600,
+        "state_behavior_checks": 72,
+        "direct_history_checks": 6,
+        "max_abs": 4.000961780548096e-06,
+        "max_state_behavior_abs": 2.2351741790771484e-06
+      },
+      "categories": [
+        {
+          "category": "constructed_long_state_stress",
+          "records": 2,
+          "streams": 8,
+          "max_abs": 1.2069940567016602e-06,
+          "startup_200ms_max_abs": 3.650784492492676e-07,
+          "terminal_80ms_max_abs": 5.960464477539063e-08
+        },
+        {
+          "category": "encoded_quiet",
+          "records": 1,
+          "streams": 4,
+          "max_abs": 1.0244548320770264e-08,
+          "startup_200ms_max_abs": 1.0244548320770264e-08,
+          "terminal_80ms_max_abs": 4.940375220030546e-09
+        },
+        {
+          "category": "encoded_silence",
+          "records": 2,
+          "streams": 8,
+          "max_abs": 1.816079020500183e-08,
+          "startup_200ms_max_abs": 1.816079020500183e-08,
+          "terminal_80ms_max_abs": 5.2677933126688e-09
+        },
+        {
+          "category": "encoded_transition",
+          "records": 1,
+          "streams": 4,
+          "max_abs": 1.3969838619232178e-08,
+          "startup_200ms_max_abs": 1.3969838619232178e-08,
+          "terminal_80ms_max_abs": 4.685716703534126e-09
+        },
+        {
+          "category": "natural_expressive",
+          "records": 10,
+          "streams": 40,
+          "max_abs": 4.000961780548096e-06,
+          "startup_200ms_max_abs": 4.000961780548096e-06,
+          "terminal_80ms_max_abs": 1.4528632164001465e-07
+        },
+        {
+          "category": "natural_long_speech",
+          "records": 2,
+          "streams": 8,
+          "max_abs": 9.313225746154785e-08,
+          "startup_200ms_max_abs": 1.816079020500183e-08,
+          "terminal_80ms_max_abs": 8.614733815193176e-09
+        },
+        {
+          "category": "natural_multilingual_speech",
+          "records": 60,
+          "streams": 240,
+          "max_abs": 3.0994415283203125e-06,
+          "startup_200ms_max_abs": 7.748603820800781e-07,
+          "terminal_80ms_max_abs": 1.2721284292638302e-07
+        }
+      ]
+    },
+    "threads4_r3": {
+      "totals": {
+        "records": 78,
+        "streams": 312,
+        "chunks": 64146,
+        "samples": 164121600,
+        "state_behavior_checks": 72,
+        "direct_history_checks": 6,
+        "max_abs": 4.000961780548096e-06,
+        "max_state_behavior_abs": 2.2351741790771484e-06
+      },
+      "categories": [
+        {
+          "category": "constructed_long_state_stress",
+          "records": 2,
+          "streams": 8,
+          "max_abs": 1.2069940567016602e-06,
+          "startup_200ms_max_abs": 3.650784492492676e-07,
+          "terminal_80ms_max_abs": 5.960464477539063e-08
+        },
+        {
+          "category": "encoded_quiet",
+          "records": 1,
+          "streams": 4,
+          "max_abs": 1.0244548320770264e-08,
+          "startup_200ms_max_abs": 1.0244548320770264e-08,
+          "terminal_80ms_max_abs": 4.940375220030546e-09
+        },
+        {
+          "category": "encoded_silence",
+          "records": 2,
+          "streams": 8,
+          "max_abs": 1.816079020500183e-08,
+          "startup_200ms_max_abs": 1.816079020500183e-08,
+          "terminal_80ms_max_abs": 5.2677933126688e-09
+        },
+        {
+          "category": "encoded_transition",
+          "records": 1,
+          "streams": 4,
+          "max_abs": 1.3969838619232178e-08,
+          "startup_200ms_max_abs": 1.3969838619232178e-08,
+          "terminal_80ms_max_abs": 4.685716703534126e-09
+        },
+        {
+          "category": "natural_expressive",
+          "records": 10,
+          "streams": 40,
+          "max_abs": 4.000961780548096e-06,
+          "startup_200ms_max_abs": 4.000961780548096e-06,
+          "terminal_80ms_max_abs": 1.4528632164001465e-07
+        },
+        {
+          "category": "natural_long_speech",
+          "records": 2,
+          "streams": 8,
+          "max_abs": 9.313225746154785e-08,
+          "startup_200ms_max_abs": 1.816079020500183e-08,
+          "terminal_80ms_max_abs": 8.614733815193176e-09
+        },
+        {
+          "category": "natural_multilingual_speech",
+          "records": 60,
+          "streams": 240,
+          "max_abs": 3.0994415283203125e-06,
+          "startup_200ms_max_abs": 7.748603820800781e-07,
+          "terminal_80ms_max_abs": 1.2721284292638302e-07
+        }
+      ]
+    },
+    "r3_one_thread_bridge": {
+      "records": 3,
+      "streams": 6,
+      "samples": 1309440,
+      "chunks": 513,
+      "state_checks": 12,
+      "history_checks": 3,
+      "max_abs": 1.9222497940063477e-06
+    }
+  },
+  "default_load": {
+    "1": {
+      "passed": true,
+      "recipe": "apple_stream_selected",
+      "samples": 5760,
+      "max_abs": 4.540197551250458e-09
+    },
+    "4": {
+      "passed": true,
+      "recipe": "apple_stream_selected",
+      "samples": 5760,
+      "max_abs": 4.540197551250458e-09
+    }
+  },
+  "concurrent_streams": {
+    "1": {
+      "passed": true,
+      "caller_threads": 2,
+      "selected_stream_calls": 6,
+      "stock_full_reference_calls": 2,
+      "max_simultaneous_selected_native_calls": 1,
+      "total_samples": 19200,
+      "max_abs": 9.629729902371764e-09
+    },
+    "4": {
+      "passed": true,
+      "caller_threads": 2,
+      "selected_stream_calls": 6,
+      "stock_full_reference_calls": 2,
+      "max_simultaneous_selected_native_calls": 1,
+      "total_samples": 19200,
+      "max_abs": 9.629729902371764e-09
+    }
+  },
+  "timing_rows": [
+    {
+      "ort_threads": 1,
+      "packet_ms": 40,
+      "stock_rtf": 0.7049644399234734,
+      "selected_rtf": 0.23164402377122167,
+      "pocket_mimi_rtf": null,
+      "selected_speedup": 3.0433094212683707,
+      "stock_duration_weighted_rtf": 0.7402477050665766,
+      "selected_duration_weighted_rtf": 0.22239770211900273
+    },
+    {
+      "ort_threads": 1,
+      "packet_ms": 80,
+      "stock_rtf": 0.47055371161162113,
+      "selected_rtf": 0.13903512621094297,
+      "pocket_mimi_rtf": 0.10194979276159293,
+      "selected_speedup": 3.3844232348716026,
+      "stock_duration_weighted_rtf": 0.4994788782546918,
+      "selected_duration_weighted_rtf": 0.14357421009801327
+    },
+    {
+      "ort_threads": 4,
+      "packet_ms": 40,
+      "stock_rtf": 0.22794801450519833,
+      "selected_rtf": 0.09410134437293222,
+      "pocket_mimi_rtf": null,
+      "selected_speedup": 2.4223672469738533,
+      "stock_duration_weighted_rtf": 0.2283478355035186,
+      "selected_duration_weighted_rtf": 0.09427025423385203
+    },
+    {
+      "ort_threads": 4,
+      "packet_ms": 80,
+      "stock_rtf": 0.17054399626379774,
+      "selected_rtf": 0.0630996371608393,
+      "pocket_mimi_rtf": 0.03569103987103371,
+      "selected_speedup": 2.7027730100742993,
+      "stock_duration_weighted_rtf": 0.17046347794743877,
+      "selected_duration_weighted_rtf": 0.06325527888101835
+    }
+  ],
+  "timing_checks": {
+    "1": {
+      "per_clip_repeat_ranges": [
+        {
+          "adapter": "mimi",
+          "packet_ms": 80,
+          "language": "Bengali",
+          "minimum": 0.09479591604322195,
+          "median": 0.1297304962296039,
+          "maximum": 0.13407195890322327
+        },
+        {
+          "adapter": "mimi",
+          "packet_ms": 80,
+          "language": "English",
+          "minimum": 0.08566467971023585,
+          "median": 0.08880047787291308,
+          "maximum": 0.09398501987258592
+        },
+        {
+          "adapter": "mimi",
+          "packet_ms": 80,
+          "language": "Spanish",
+          "minimum": 0.050569231148231135,
+          "median": 0.08731840418226182,
+          "maximum": 0.11446727796032191
+        },
+        {
+          "adapter": "selected",
+          "packet_ms": 40,
+          "language": "Bengali",
+          "minimum": 0.23007860559648477,
+          "median": 0.32646999162356233,
+          "maximum": 0.3748254131911001
+        },
+        {
+          "adapter": "selected",
+          "packet_ms": 40,
+          "language": "English",
+          "minimum": 0.18049442468004093,
+          "median": 0.20200275026986167,
+          "maximum": 0.21465448735937198
+        },
+        {
+          "adapter": "selected",
+          "packet_ms": 40,
+          "language": "Spanish",
+          "minimum": 0.09210522743183877,
+          "median": 0.16645932942024105,
+          "maximum": 0.2007950936923876
+        },
+        {
+          "adapter": "selected",
+          "packet_ms": 80,
+          "language": "Bengali",
+          "minimum": 0.14442544225715548,
+          "median": 0.21544324811996823,
+          "maximum": 0.23997932607981273
+        },
+        {
+          "adapter": "selected",
+          "packet_ms": 80,
+          "language": "English",
+          "minimum": 0.11907742716613466,
+          "median": 0.13433926717240224,
+          "maximum": 0.1487324039744972
+        },
+        {
+          "adapter": "selected",
+          "packet_ms": 80,
+          "language": "Spanish",
+          "minimum": 0.06632776437045046,
+          "median": 0.06732286334045844,
+          "maximum": 0.1304050776462405
+        },
+        {
+          "adapter": "stock",
+          "packet_ms": 40,
+          "language": "Bengali",
+          "minimum": 0.8287459298646653,
+          "median": 0.9758383995969312,
+          "maximum": 1.0158324213960324
+        },
+        {
+          "adapter": "stock",
+          "packet_ms": 40,
+          "language": "English",
+          "minimum": 0.6835481486093529,
+          "median": 0.6946627122643231,
+          "maximum": 0.7525115784395624
+        },
+        {
+          "adapter": "stock",
+          "packet_ms": 40,
+          "language": "Spanish",
+          "minimum": 0.4256929825281813,
+          "median": 0.4443922079091658,
+          "maximum": 0.7328240750196241
+        },
+        {
+          "adapter": "stock",
+          "packet_ms": 80,
+          "language": "Bengali",
+          "minimum": 0.5000125878138924,
+          "median": 0.6353414077012534,
+          "maximum": 0.7272766110577048
+        },
+        {
+          "adapter": "stock",
+          "packet_ms": 80,
+          "language": "English",
+          "minimum": 0.46308809080747537,
+          "median": 0.4843671019706461,
+          "maximum": 0.5589092521134902
+        },
+        {
+          "adapter": "stock",
+          "packet_ms": 80,
+          "language": "Spanish",
+          "minimum": 0.2914119542584436,
+          "median": 0.291952625162964,
+          "maximum": 0.5072890520821531
+        }
+      ],
+      "streams": 105,
+      "measured_streams": 75,
+      "chunks": 18396,
+      "samples": 45373440,
+      "state_behavior_checks": 108,
+      "max_abs": 7.189810276031494e-07
+    },
+    "4": {
+      "per_clip_repeat_ranges": [
+        {
+          "adapter": "mimi",
+          "packet_ms": 80,
+          "language": "Bengali",
+          "minimum": 0.03557829107157886,
+          "median": 0.035780929308384654,
+          "maximum": 0.03596122502349317
+        },
+        {
+          "adapter": "mimi",
+          "packet_ms": 80,
+          "language": "English",
+          "minimum": 0.03541734224806229,
+          "median": 0.0356790074147284,
+          "maximum": 0.03696012323618763
+        },
+        {
+          "adapter": "mimi",
+          "packet_ms": 80,
+          "language": "Spanish",
+          "minimum": 0.03555920030239263,
+          "median": 0.03561318288998807,
+          "maximum": 0.0359213852789253
+        },
+        {
+          "adapter": "selected",
+          "packet_ms": 40,
+          "language": "Bengali",
+          "minimum": 0.09383215390362712,
+          "median": 0.09393505298581167,
+          "maximum": 0.09504956133424278
+        },
+        {
+          "adapter": "selected",
+          "packet_ms": 40,
+          "language": "English",
+          "minimum": 0.0938142285923715,
+          "median": 0.09421565643235764,
+          "maximum": 0.09491752345908294
+        },
+        {
+          "adapter": "selected",
+          "packet_ms": 40,
+          "language": "Spanish",
+          "minimum": 0.09386852480374373,
+          "median": 0.09415332370062733,
+          "maximum": 0.09588473138814688
+        },
+        {
+          "adapter": "selected",
+          "packet_ms": 80,
+          "language": "Bengali",
+          "minimum": 0.06281240744119786,
+          "median": 0.06333282759719823,
+          "maximum": 0.06428385185204954
+        },
+        {
+          "adapter": "selected",
+          "packet_ms": 80,
+          "language": "English",
+          "minimum": 0.0627001434892278,
+          "median": 0.06291020816812912,
+          "maximum": 0.06443107306646803
+        },
+        {
+          "adapter": "selected",
+          "packet_ms": 80,
+          "language": "Spanish",
+          "minimum": 0.06292992487178865,
+          "median": 0.06305587571719057,
+          "maximum": 0.06386347354925943
+        },
+        {
+          "adapter": "stock",
+          "packet_ms": 40,
+          "language": "Bengali",
+          "minimum": 0.2274552540176634,
+          "median": 0.227882740383287,
+          "maximum": 0.22865728289075943
+        },
+        {
+          "adapter": "stock",
+          "packet_ms": 40,
+          "language": "English",
+          "minimum": 0.2274096364379619,
+          "median": 0.22771430589879552,
+          "maximum": 0.23288411308183438
+        },
+        {
+          "adapter": "stock",
+          "packet_ms": 40,
+          "language": "Spanish",
+          "minimum": 0.22735469934260433,
+          "median": 0.22824699723351247,
+          "maximum": 0.22908756312877906
+        },
+        {
+          "adapter": "stock",
+          "packet_ms": 80,
+          "language": "Bengali",
+          "minimum": 0.17017458568338348,
+          "median": 0.1706584174855496,
+          "maximum": 0.17103447591003224
+        },
+        {
+          "adapter": "stock",
+          "packet_ms": 80,
+          "language": "English",
+          "minimum": 0.16920750469176304,
+          "median": 0.1704187960691612,
+          "maximum": 0.17084318756436306
+        },
+        {
+          "adapter": "stock",
+          "packet_ms": 80,
+          "language": "Spanish",
+          "minimum": 0.16993348747774056,
+          "median": 0.17055477523668244,
+          "maximum": 0.17097861172421736
+        }
+      ],
+      "streams": 105,
+      "measured_streams": 75,
+      "chunks": 18396,
+      "samples": 45373440,
+      "state_behavior_checks": 108,
+      "max_abs": 7.189810276031494e-07
+    }
+  },
+  "historical_only": {
+    "median_decoder_call_rtf": 0.07121946489182757,
+    "protocol": "One 2.04-second Spanish prefix, one warmup and three randomized matched rounds, causal 80 ms calls plus final 40 ms tail. Encoding, initialization and JIT setup excluded.",
+    "selected_graph_sha256": "5918e523939aba3a6f72e32b88b27a0a1f39828a376b0ed748a7cb43e70ce841",
+    "receipt_file_sha256": "6f182249372895d7bd16b20c7afb7c880aa6dd6230da58734573d14b07450b10",
+    "results_sha256": "9adfedee8093c957813aaf663ced94d2fc508a6cfebf8d97600eaf2f0147657d",
+    "comparison_warning": "Historical short Spanish prefix; not a fresh matched corpus RTF or a fixed performance guarantee"
+  },
+  "package_test_suite": {
+    "tests": 277,
+    "subtests": 1959,
+    "exit_code": 0,
+    "stdout_sha256": "bbf41e16ae5d1717d65ad6a08fbe9a17c93b748bd2928bba4ebdbdcf8e557d87",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "codec_contracts": {
+    "audiovae2": {
+      "sample_rate": 48000,
+      "latent_channels": 64,
+      "latent_rate_hz": 25,
+      "packet_ms": [
+        40,
+        80
+      ]
+    },
+    "pocket_mimi_continuous": {
+      "sample_rate": 24000,
+      "latent_channels": 32,
+      "latent_rate_hz": 12.5,
+      "packet_ms": [
+        80
+      ]
+    }
+  },
+  "retained_initial_attempt": {
+    "status": "failed_before_decoder",
+    "decoder_calls": 0,
+    "reason": "Sandbox denied SME/SME2 sysctl queries, so the unchanged selector correctly chose the older fallback. Final default checks ran on the normal host and passed; no feature spoofing."
+  },
+  "timing_protocol": {
+    "clips": 3,
+    "languages": [
+      "Bengali",
+      "English",
+      "Spanish"
+    ],
+    "warmups": 2,
+    "repeats": 5,
+    "headline": "Equal-clip mean of per-clip median decoder-plus-flush RTF",
+    "duration": "Actual emitted duration, percodec native sample rate",
+    "excludes": "Encoder, setup/JIT, output copies and bookkeeping; these are separately recorded in raw evidence",
+    "mimi_40ms": "Unsupported; one native latent covers80ms",
+    "comparability": "Fresh matched controls on one host; historical short-prefix RTF is not a directly matched baseline"
+  },
+  "instrumental_supplement": {
+    "records": 1,
+    "description": "Whole solo-trumpet recording; one instrumental example, not broad music-genre coverage",
+    "source_seconds": 5.333356009070295,
+    "source_sha256": "beb954ae2c9c16919b5ca6973d6d5196cdcb196b46a3c2a201dd8861e7e324de",
+    "qualification": [
+      {
+        "threads": 1,
+        "streams": 4,
+        "chunks": 402,
+        "samples": 1029120,
+        "max_abs": 2.0563602447509766e-06,
+        "state_checks": 12,
+        "history_checks": 2
+      },
+      {
+        "threads": 4,
+        "streams": 4,
+        "chunks": 402,
+        "samples": 1029120,
+        "max_abs": 2.0563602447509766e-06,
+        "state_checks": 12,
+        "history_checks": 2
+      }
+    ],
+    "source_credit": {
+      "title": "solo trumpet 06",
+      "artist": "Mihai Sorohan (sorohanro)",
+      "original_source_url": "https://freesound.org/people/sorohanro/sounds/77711/",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  },
+  "historical_vs_installed_spot": {
+    "protocol": "Same three full timing clips, one ORT thread,80ms, two warmups and three adjacent seeded measured pairs perclip",
+    "measured_pairs": 9,
+    "historical_mean_clip_median_rtf": 0.06664656533705988,
+    "installed_mean_clip_median_rtf": 0.06631004476566062,
+    "installed_to_historical_ratio": 0.9949506689549965,
+    "median_paired_reduction_percent": 0.5866079665725388,
+    "installed_wins": 7,
+    "all_cross_arm_waveform_hashes_equal": true,
+    "totals": {
+      "streams": 30,
+      "measured_pairs": 9,
+      "chunks": 3760,
+      "samples": 14400000,
+      "max_abs": 3.855675458908081e-07
+    },
+    "interpretation": "Both bundles use the same installed-r3 loader; contemporaneous bundle/build check only, not the old experimental frontend. Primary stock/Mimi timing rows remain unchanged",
+    "per_clip_repeats": [
+      {
+        "language": "Bengali",
+        "historical": [
+          0.06680300722953425,
+          0.06714129028467827,
+          0.06683573503623226
+        ],
+        "installed": [
+          0.0673673107722647,
+          0.06653299025936897,
+          0.06604759016983121
+        ]
+      },
+      {
+        "language": "English",
+        "historical": [
+          0.06638425975796525,
+          0.06642021256050577,
+          0.06702663859835377
+        ],
+        "installed": [
+          0.06717832957359927,
+          0.06603058630221144,
+          0.06596959898834703
+        ]
+      },
+      {
+        "language": "Spanish",
+        "historical": [
+          0.06645919973820899,
+          0.06668374841444162,
+          0.06706472783595388
+        ],
+        "installed": [
+          0.06616570113944413,
+          0.06636851472231797,
+          0.06636655773540144
+        ]
+      }
+    ],
+    "paired_reduction_percent": [
+      -0.8447277542334319,
+      0.9059999036809097,
+      1.1792267504408982,
+      -1.196171831288284,
+      0.5866079665725388,
+      1.5770440411623232,
+      0.4416222282558113,
+      0.4727294125166148,
+      1.0410391916600648
+    ],
+    "minimum_paired_reduction_percent": -1.196171831288284,
+    "maximum_paired_reduction_percent": 1.5770440411623232,
+    "equal_cross_arm_hash_pairs": 15,
+    "assessment": "No observed meaningful packaging regression in this matched spot; this does not identify the cause of the earlier drifting timing run."
+  },
+  "historical_spot_host_context": {
+    "observed_utc": "2026-09-13T15:31:50.586447+00:00",
+    "load_average": [
+      4.34033203125,
+      5.49462890625,
+      6.54443359375
+    ],
+    "power_source": "AC Power",
+    "thermal_report": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded\n",
+    "scope": "Lightweight snapshot immediately before spot; no warning does not establish absence of earlier thermal/frequency or scheduling changes"
+  },
+  "evidence_sha256": {
+    "qualification-1t.json": "a01b9c4de93f3f924bd3e2786842c11bd764b1ca61b28ab27ce9bf9fbdea53c3",
+    "qualification-4t-r3.json": "485aea77a54a4c36a3b10cf1c81ccf223532b113f44ddf26f315c0e4866fde69",
+    "qualification-1t-r3-subset.json": "009f01f18bd2c5ac0b136684f4e679f731417c502367743fbbf5e8d28ae1a6b2",
+    "benchmark-1t-r3.json": "f9498f8d4f8400e39373bc0d00ec2ec4f74923a64e9a158da90fbe8773ee3e7b",
+    "benchmark-4t-r3.json": "c9ef21abfa0b1025aa20e55fc2a77a2a6d0275393d30210fb63d6752422b90fe",
+    "music-qualification-1t-r3.json": "dfc9543ee4de360307bc4558babec5a1c6218b8523f03eb31cddc6d61d0898d1",
+    "music-qualification-4t-r3.json": "f0a804f9d0f7b48071b0cfb8e63342959c0524d07fde6d3aeb2ed1872ac0b611",
+    "historical-spot-r3.json": "3caa6665abba30ededbc89e006fc1b71da41856b20c41aa9b36cdf74d8445c9a"
+  }
+}

@@ -1,0 +1,241 @@
+{
+  "date": "2026-09-13",
+  "cpu": "Apple M5 Max",
+  "scope": "causal streaming decoder only; encoder run beforehand",
+  "runtime": "ONNX Runtime 1.29.0",
+  "threads": 1,
+  "provider": "CPUExecutionProvider",
+  "clip_ids": [
+    "bn_in_00151_1818",
+    "en_us_00103_1779",
+    "es_419_00060_1994"
+  ],
+  "warmups": 2,
+  "measured_repeats": 5,
+  "seed": 20260908,
+  "aggregation": "equal-clip mean of within-clip five-repeat medians",
+  "rtf": "decode calls plus flush divided by actual returned audio duration",
+  "excluded": [
+    "model loading",
+    "stream creation",
+    "encoding",
+    "resampling",
+    "quality scoring"
+  ],
+  "output_sample_rates_hz": {
+    "audiovae2_stock": 48000,
+    "audiovae2_optimized": 48000,
+    "mimi": 24000
+  },
+  "streaming_chunk_ms": [
+    80,
+    160
+  ],
+  "results": [
+    {
+      "adapter": "audiovae2_stock",
+      "mode": "stream_80",
+      "clips": 3,
+      "measured_runs": 15,
+      "mean_clip_median_sum_call_rtf": 0.29992328002375107,
+      "min_clip_median_sum_call_rtf": 0.29834366172559584,
+      "max_clip_median_sum_call_rtf": 0.30229206408236037,
+      "mean_clip_median_whole_loop_rtf": 0.30000562118613344,
+      "min_clip_median_whole_loop_rtf": 0.2984256400393853,
+      "max_clip_median_whole_loop_rtf": 0.3023743133181361,
+      "mean_clip_median_first_call_seconds": 0.023952110825727384,
+      "min_clip_median_first_call_seconds": 0.02376616606488824,
+      "max_clip_median_first_call_seconds": 0.024074291344732046,
+      "duration_weighted_sum_call_rtf": 0.3002551439249267
+    },
+    {
+      "adapter": "audiovae2_stock",
+      "mode": "stream_160",
+      "clips": 3,
+      "measured_runs": 15,
+      "mean_clip_median_sum_call_rtf": 0.1818741710643333,
+      "min_clip_median_sum_call_rtf": 0.18090540089693113,
+      "max_clip_median_sum_call_rtf": 0.18323750325685573,
+      "mean_clip_median_whole_loop_rtf": 0.18191653983917644,
+      "min_clip_median_whole_loop_rtf": 0.18094727240248495,
+      "max_clip_median_whole_loop_rtf": 0.18328139657603093,
+      "mean_clip_median_first_call_seconds": 0.029705805703997612,
+      "min_clip_median_first_call_seconds": 0.02905404195189476,
+      "max_clip_median_first_call_seconds": 0.030213000252842903,
+      "duration_weighted_sum_call_rtf": 0.18217219080775976
+    },
+    {
+      "adapter": "audiovae2_optimized",
+      "mode": "stream_80",
+      "clips": 3,
+      "measured_runs": 15,
+      "mean_clip_median_sum_call_rtf": 0.13195488212479217,
+      "min_clip_median_sum_call_rtf": 0.13051793821865604,
+      "max_clip_median_sum_call_rtf": 0.13446770138452174,
+      "mean_clip_median_whole_loop_rtf": 0.1320260946138811,
+      "min_clip_median_whole_loop_rtf": 0.1305860299939588,
+      "max_clip_median_whole_loop_rtf": 0.13454115354559487,
+      "mean_clip_median_first_call_seconds": 0.010552638676017523,
+      "min_clip_median_first_call_seconds": 0.010365208610892296,
+      "max_clip_median_first_call_seconds": 0.010768832638859749,
+      "duration_weighted_sum_call_rtf": 0.1325288375063489
+    },
+    {
+      "adapter": "audiovae2_optimized",
+      "mode": "stream_160",
+      "clips": 3,
+      "measured_runs": 15,
+      "mean_clip_median_sum_call_rtf": 0.07956195886102004,
+      "min_clip_median_sum_call_rtf": 0.07822507909166226,
+      "max_clip_median_sum_call_rtf": 0.08098064822627714,
+      "mean_clip_median_whole_loop_rtf": 0.07960112398807392,
+      "min_clip_median_whole_loop_rtf": 0.07826112782073966,
+      "max_clip_median_whole_loop_rtf": 0.08102275461337909,
+      "mean_clip_median_first_call_seconds": 0.012555624513576428,
+      "min_clip_median_first_call_seconds": 0.012443999759852886,
+      "max_clip_median_first_call_seconds": 0.0126287080347538,
+      "duration_weighted_sum_call_rtf": 0.079665814631929
+    },
+    {
+      "adapter": "mimi",
+      "mode": "stream_80",
+      "clips": 3,
+      "measured_runs": 15,
+      "mean_clip_median_sum_call_rtf": 0.052773179939625686,
+      "min_clip_median_sum_call_rtf": 0.05231777955777943,
+      "max_clip_median_sum_call_rtf": 0.053117847484019064,
+      "mean_clip_median_whole_loop_rtf": 0.05282045767907503,
+      "min_clip_median_whole_loop_rtf": 0.05236175828613341,
+      "max_clip_median_whole_loop_rtf": 0.053166249999776476,
+      "mean_clip_median_first_call_seconds": 0.004420221783220768,
+      "min_clip_median_first_call_seconds": 0.004372207913547754,
+      "max_clip_median_first_call_seconds": 0.0044751656241714954,
+      "duration_weighted_sum_call_rtf": 0.053451303284283366
+    },
+    {
+      "adapter": "mimi",
+      "mode": "stream_160",
+      "clips": 3,
+      "measured_runs": 15,
+      "mean_clip_median_sum_call_rtf": 0.0384959327127775,
+      "min_clip_median_sum_call_rtf": 0.038357912981882694,
+      "max_clip_median_sum_call_rtf": 0.03867724962118599,
+      "mean_clip_median_whole_loop_rtf": 0.03852712357020372,
+      "min_clip_median_whole_loop_rtf": 0.03838769579306245,
+      "max_clip_median_whole_loop_rtf": 0.038707310902989574,
+      "mean_clip_median_first_call_seconds": 0.006302889126042525,
+      "min_clip_median_first_call_seconds": 0.00620758393779397,
+      "max_clip_median_first_call_seconds": 0.006382333114743233,
+      "duration_weighted_sum_call_rtf": 0.03880603558153528
+    }
+  ],
+  "timing_validation": {
+    "runs_checked_including_full": 189,
+    "raw_calls_checked_including_full": 12054,
+    "sample_gaps_or_duplicates": 0,
+    "count_or_parity_failures": 0,
+    "max_abs_by_adapter": {
+      "audiovae2_stock": 7.245689630508423e-07,
+      "mimi": 3.2782554626464844e-07,
+      "audiovae2_optimized": 5.960464477539062e-07
+    },
+    "balanced_randomized_order_verified": true
+  },
+  "optimized_recipe": {
+    "recipe_version": 1,
+    "resources": "8cd171f8ec12063346ddbc86fdf94804f4093fbd86e9991b9d7ad6b7ada5f9a4",
+    "generation": "a9dcb6b40c58d4877d534866a6b5ff09c6b13baa4b65b575a3302742918d15f1",
+    "model_revision": "ecb511b96675f041424b42f148bf72e301262586",
+    "model_files": {
+      "audio_vae_decoder.onnx": "fdd20e200675ab9649bf33f16bc5974101ba5cf47ab89fbfe29f3d36ff6c3c84",
+      "audio_vae_decoder.onnx.data": "3b76bd57356e96893655bd24a364989e016c5af2fc8c29195caaefb4eccf5143"
+    },
+    "runtime": "1.29.0",
+    "platform": "Darwin/arm64",
+    "recipe": "apple_stream_projection",
+    "mode": "streaming",
+    "threads": 1
+  },
+  "provenance": {
+    "raw_report_sha256": "dd7e327faad3f06835b2454ee4845f268448a40d57dfc460feacabe71bc67b47",
+    "auditor_sha256": "3ea91343b0ed4c2def15122f1c9b83ecaef6a80bfc111a3a95056fba736470f5",
+    "driver_sha256": "7e9dbc738d5b22a83a473196288add3bfa9594f6317eea3458856d2601179355",
+    "mimi_adapter_sha256": "518afa11a2420952573dfc61defa8c84b4b87db23c0ebf3d3b61d8ef0ed3880d",
+    "optimized_receipt_sha256": "53b9ab802bb055060b7a4ad4a7a0c78d2a25d39537e0fd6de1f66bf4094e5791"
+  },
+  "artifacts": {
+    "audiovae2_stock": [
+      {
+        "file": "fast_audiovae2.npz",
+        "sha256": "9b709b787c040591de57e094a5ba5a4515cc74e256e8014530ff8c7bb54d2d24",
+        "bytes": 106192558
+      },
+      {
+        "file": "decoder_0.onnx",
+        "sha256": "99a818d521e1ce8e967b0b3689ee687c4153070246690b1d57b46274f7c3511a",
+        "bytes": 184067819
+      },
+      {
+        "file": "audio_vae_decoder.onnx",
+        "sha256": "fdd20e200675ab9649bf33f16bc5974101ba5cf47ab89fbfe29f3d36ff6c3c84",
+        "bytes": 1058148
+      },
+      {
+        "file": "audio_vae_decoder.onnx.data",
+        "sha256": "3b76bd57356e96893655bd24a364989e016c5af2fc8c29195caaefb4eccf5143",
+        "bytes": 183042048
+      }
+    ],
+    "audiovae2_optimized": [
+      {
+        "file": "fast_audiovae2.npz",
+        "sha256": "9b709b787c040591de57e094a5ba5a4515cc74e256e8014530ff8c7bb54d2d24",
+        "bytes": 106192558
+      },
+      {
+        "file": "libfast_audiovae_apple_880f8ca68b61.dylib",
+        "sha256": "c4797f745ee755bc66b63f13a9c2c626766f834cca566d13eb9eeee23abdc887",
+        "bytes": 114936
+      },
+      {
+        "file": "decoder_1.onnx",
+        "sha256": "90ca1e9d4bfa867a055919ec0d733bab615b06bd2e42f6c125a60a580da58376",
+        "bytes": 183435622
+      },
+      {
+        "file": "decoder_native.onnx",
+        "sha256": "fa7992825e807cac7ab1be405912ae3735031fb941a18dd81006005dc597bde3",
+        "bytes": 183353314
+      }
+    ],
+    "mimi": [
+      {
+        "file": "mimi_vae.npz",
+        "sha256": "af2d68663daf71db954488721e8fffc5888437100772a309b13c62391df0d9c7",
+        "bytes": 52369710
+      },
+      {
+        "file": "mimi_streaming.onnx",
+        "sha256": "ea5f9edfe246d515effe49576ebb976d7806d3253b2a467cdaeaad67eba6e0de",
+        "bytes": 41287164
+      },
+      {
+        "file": "mimi_full.onnx",
+        "sha256": "e023777a2cee98a7e4a293f6af7712d4fed6364d1523cfc9a6283f112981e2f1",
+        "bytes": 41330143
+      }
+    ]
+  },
+  "os": "macOS 26.5.1 arm64",
+  "process_monitor": {
+    "process_samples": 113,
+    "sample_interval_seconds": 2,
+    "process_cpu_percent_median": 99.6,
+    "process_cpu_percent_max": 100.5,
+    "peak_rss_bytes": 3755835392,
+    "exit_code": 0,
+    "monitor_start_covers_benchmark": true,
+    "os_cpu_affinity": "macOS does not expose the Linux affinity pin used by the harness. ORT sessions explicitly use one intra-op/inter-op thread and sequential execution.",
+    "host_wide_idle_or_thermal_claim": false
+  }
+}

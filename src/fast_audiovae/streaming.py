@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import threading
+from contextlib import nullcontext
 
 import numpy as np
 
@@ -17,6 +18,10 @@ class StreamingDecoder:
         if session.get_providers() != ["CPUExecutionProvider"]:
             raise ValueError("Streaming requires a CPU-only ONNX session")
         self._session = session
+        # Selected Apple matrix operators reuse session-owned packing scratch.
+        # Serialize their runs across streams while keeping each history private.
+        self._inference_lock = (threading.Lock() if specification.get("apple_stream_selected")
+                                else nullcontext())
         self._latent = specification["latent_input"]
         self._audio = specification["audio_output"]
         states = specification["states"]
@@ -89,7 +94,8 @@ class DecoderStream:
                 return np.empty((1, 1, 0), dtype=np.float32)
             decoder = self._decoder
             feed = {decoder._latent: np.ascontiguousarray(latents), **self._history}
-            values = decoder._session.run(decoder._outputs, feed)
+            with decoder._inference_lock:
+                values = decoder._session.run(decoder._outputs, feed)
             if len(values) != len(decoder._outputs):
                 raise RuntimeError("Streaming graph returned an incomplete result")
             audio = values[0]

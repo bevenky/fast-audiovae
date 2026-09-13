@@ -27,6 +27,44 @@ native/amd/packed_a.h
 native/amd/custom_op.cpp
 tools/build.py
 tools/build_apple.py
+native/apple/streaming/sources.json
+native/apple/streaming/kleidiai/LICENSES/Apache-2.0.txt
+native/apple/streaming/kleidiai/kai/kai_common.h
+native/apple/streaming/kleidiai/kai/kai_common_sme_asm.S
+native/apple/streaming/kleidiai/kai/ukernels/matmul/kai_matmul.h
+native/apple/streaming/kleidiai/kai/ukernels/matmul/kai_matmul_types.h
+native/apple/streaming/kleidiai/kai/ukernels/matmul/matmul_clamp_f32_f32p_f32p/kai_matmul_clamp_f32_f32p2vlx1_f32p2vlx1biasf32_sme2_mopa.c
+native/apple/streaming/kleidiai/kai/ukernels/matmul/matmul_clamp_f32_f32p_f32p/kai_matmul_clamp_f32_f32p2vlx1_f32p2vlx1biasf32_sme2_mopa.h
+native/apple/streaming/kleidiai/kai/ukernels/matmul/matmul_clamp_f32_f32p_f32p/kai_matmul_clamp_f32_f32p2vlx1_f32p2vlx1biasf32_sme2_mopa_asm.S
+native/apple/streaming/kleidiai/kai/ukernels/matmul/matmul_clamp_f32_f32p_f32p/kai_matmul_clamp_f32_f32p4vsx1_f32p4vsx1bf32_16vsx4vs_sme2_mopa_asm.S
+native/apple/streaming/kleidiai/kai/ukernels/matmul/matmul_clamp_f32_f32p_f32p/kai_matmul_clamp_f32_f32p4vsx1_f32p4vsx1bf32_4vsx16vs_sme2_mopa_asm.S
+native/apple/streaming/kleidiai/kai/ukernels/matmul/matmul_clamp_f32_f32p_f32p/kai_matmul_clamp_f32_f32p4vsx1_f32p4vsx1bf32_4vsx4vs_sme2_mopa_asm.S
+native/apple/streaming/kleidiai/kai/ukernels/matmul/matmul_clamp_f32_f32p_f32p/kai_matmul_clamp_f32_f32p4vsx1_f32p4vsx1bf32_4vsx8vs_sme2_mopa_asm.S
+native/apple/streaming/kleidiai/kai/ukernels/matmul/matmul_clamp_f32_f32p_f32p/kai_matmul_clamp_f32_f32p4vsx1_f32p4vsx1bf32_8vsx4vs_sme2_mopa_asm.S
+native/apple/streaming/kleidiai/kai/ukernels/matmul/matmul_clamp_f32_f32p_f32p/kai_matmul_clamp_f32_f32p4vsx1_f32p4vsx1bf32_8vsx8vs_sme2_mopa.c
+native/apple/streaming/kleidiai/kai/ukernels/matmul/matmul_clamp_f32_f32p_f32p/kai_matmul_clamp_f32_f32p4vsx1_f32p4vsx1bf32_8vsx8vs_sme2_mopa_asm.S
+native/apple/streaming/kleidiai/kai/ukernels/matmul/pack/kai_lhs_pack_f32p2vlx1_f32_sme.c
+native/apple/streaming/kleidiai/kai/ukernels/matmul/pack/kai_lhs_pack_f32p2vlx1_f32_sme.h
+native/apple/streaming/kleidiai/kai/ukernels/matmul/pack/kai_lhs_pack_f32p2vlx1_f32_sme_asm.S
+native/apple/streaming/kleidiai/kai/ukernels/matmul/pack/kai_rhs_pack_kxn_f32p2vlx1biasf32_f32_f32_sme.c
+native/apple/streaming/kleidiai/kai/ukernels/matmul/pack/kai_rhs_pack_kxn_f32p2vlx1biasf32_f32_f32_sme.h
+native/apple/streaming/kleidiai/kai/ukernels/matmul/pack/kai_rhs_pack_kxn_f32p2vlx1biasf32_f32_f32_sme_asm.S
+native/apple/streaming/layout/native_ops.cpp
+native/apple/streaming/libxsmm_panel/native.cpp
+native/apple/streaming/libxsmm_panel/ort_ops.cpp
+native/apple/streaming/licenses/KleidiAI-LICENSE.txt
+native/apple/streaming/licenses/LIBXSMM-LICENSE.md
+native/apple/streaming/multinext/native.cpp
+native/apple/streaming/multinext/ort_ops.cpp
+native/apple/streaming/multitile/native.cpp
+native/apple/streaming/multitile/ort_ops.cpp
+native/apple/streaming/phase/native_ops.cpp
+native/apple/streaming/state/custom_ops.cpp
+native/apple/streaming/sweep/geometry.h
+native/apple/streaming/sweep/native.cpp
+native/apple/streaming/sweep/ort_ops.cpp
+tools/build_apple_streaming.py
+tools/package_apple_native.py
 tools/build_x86.py
 tools/build_amd.py
 tools/build_aocl.py
@@ -247,4 +285,52 @@ def validate_native_payload(root: str | Path) -> dict:
             actual.add(path.relative_to(root).as_posix())
     if actual != set(files) | {"manifest.json"}:
         raise ValueError("Native payload has files outside its hash inventory")
+    recipes = manifest.get("recipes", {})
+    if not isinstance(recipes, dict):
+        raise ValueError("Native payload recipes must be a mapping")
+    for entry in recipes.values():
+        if not isinstance(entry, dict) or "streaming_build" not in entry:
+            continue
+        for key in ("base_build", "streaming_build"):
+            if entry.get(key) not in files:
+                raise ValueError("Selected Apple build record is outside the wheel inventory")
+        record = json.loads((root / entry["streaming_build"]).read_text())
+        check_metadata(record)
+        validate_streaming_record(record, files)
     return manifest
+
+
+def validate_streaming_record(record: dict, files: dict) -> None:
+    """Validate the relative selected-Apple closure before copying or loading."""
+    if not isinstance(record, dict) or record.get("version") != "apple_stream_selected_build_v1" or record.get("complete") is not True:
+        raise ValueError("Selected Apple streaming build version is required")
+    runtime = record.get("runtime_files")
+    additional = record.get("additional_libraries")
+    if not isinstance(runtime, list) or not runtime or not isinstance(additional, list) or not additional:
+        raise ValueError("Selected Apple runtime and registration inventories are required")
+    indexed = {}
+    for item in runtime:
+        if not isinstance(item, dict) or type(item.get("register")) is not bool:
+            raise ValueError("Selected Apple runtime registration policy is required")
+        name = item.get("path")
+        if not isinstance(name, str) or name not in files or item.get("sha256") != files[name] or name in indexed:
+            raise ValueError("Selected Apple runtime file is outside its unique hash inventory")
+        if item["register"] and (not isinstance(item.get("domain"), str) or not item["domain"]):
+            raise ValueError("Registered Apple libraries require a domain")
+        indexed[name] = item
+    seen = set()
+    for item in additional:
+        if not isinstance(item, dict):
+            raise ValueError("Invalid Apple registration record")
+        name = item.get("library")
+        if not isinstance(name, str) or name not in indexed or name in seen:
+            raise ValueError("Apple registration must reference a unique runtime file")
+        value = indexed[name]
+        if not value["register"] or item.get("sha256") != value["sha256"] or item.get("domain") != value["domain"]:
+            raise ValueError("Apple registration does not match its runtime file")
+        seen.add(name)
+    if seen != {name for name, value in indexed.items() if value["register"]}:
+        raise ValueError("Apple registration inventory is incomplete")
+    for item in record.get("license_files", []):
+        if not isinstance(item, dict) or item.get("path") not in files or item.get("sha256") != files[item["path"]]:
+            raise ValueError("Apple license is outside its hash inventory")

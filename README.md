@@ -7,7 +7,7 @@ Fast CPU inference for VoxCPM2's AudioVAE2 decoder, using ONNX graph rewrites an
 Use Python 3.11 to 3.13. Install from the release wheels; pip picks the platform automatically:
 
 ```sh
-python -m pip install fast-audiovae==0.2.0 --find-links https://github.com/bevenky/fast-audiovae/releases/expanded_assets/v0.2.0
+python -m pip install fast-audiovae==0.3.0 --find-links https://github.com/bevenky/fast-audiovae/releases/expanded_assets/v0.3.0
 ```
 
 With uv, use `uv pip install` with the same arguments. The first load downloads the pinned weights and prepares a local cache. Native wheels include the kernels and their CPU dependencies; no compiler or kernel flags are needed.
@@ -23,39 +23,36 @@ with decoder.stream() as stream:
 
 For a complete latent sequence, use `decoder = load(mode="batch")`, then `audio = decoder.decode(latents)`. Both return 48 kHz audio. [Streaming usage and validation](docs/streaming.md).
 
-The loader selects the retained Apple, Intel or AMD recipe for the requested mode. Inference uses the CPU only and defaults to one thread. `decoder.info` shows the selection. Unsupported CPU or OS combinations use standard ONNX with an explicit fallback message.
+The loader selects the CPU kernels automatically. Streaming and one inference thread are the defaults. Each latent frame produces 40 ms of audio; pass two frames for 80 ms packets. Use `load(threads=4)` to request four inference threads. `decoder.info` shows what was selected.
+
+Apple CPUs with SME/SME2 use the new streaming kernels. Other Apple CPUs retain the compatible native path; unsupported systems use portable ONNX with a fallback message. All decoding runs on the CPU.
 
 Native wheels currently cover Apple ARM on macOS 26.2 or newer and compatible Intel/AMD Linux x86 systems with glibc 2.38 or newer. The loader also checks native library compatibility before using them.
 
-The tables below report the previously accepted full-clip builds. [Streaming validation](docs/streaming.md#validation-results) covers the new API.
-
 ## Decoder speed
 
-This table compares full-clip decoding. Lower RTF is better. RTF is total decoding time divided by generated audio duration; it excludes loading, encoding and TTS generation. Streaming chunk latency is measured separately.
+CPU-only causal streaming on Apple M5 Max, using ONNX Runtime 1.30.0. Lower RTF is better; 1.0 is real time. All decoders carry history between calls and need no future latent frames.
 
-| CPU | Threads | Base AudioVAE2 | Optimized AudioVAE2 | Mimi | Meta DAC-VAE, earlier run |
-| --- | ---: | ---: | ---: | ---: | ---: |
-| Apple M5 Max | 4 | 0.09280 | **0.02470** | 0.02815 | 0.54146 |
-| AMD EPYC 9654 | 4 | 0.25556 | **0.03435** | 0.05201 | 0.66065 |
-| Intel Xeon Platinum 8280 VM | 2 | 0.65769 | **0.16411** | 0.17002 | 2.06885 |
+| Threads | Output chunk | Base AudioVAE2 RTF | Optimized AudioVAE2 RTF | Pocket Mimi RTF |
+| ---: | --- | ---: | ---: | ---: |
+| 1 | 40 ms | 0.7050 | **0.2316** | n/a |
+| 1 | 80 ms | 0.4706 | **0.1390** | 0.1019 |
+| 4 | 40 ms | 0.2279 | **0.0941** | n/a |
+| 4 | 80 ms | 0.1705 | **0.0631** | 0.0357 |
 
-CPU-only, ONNX Runtime 1.29. Base, optimized and Mimi values are matched within each row: ten clips on Apple and Intel, three on AMD, with five repetitions after warmup. DAC timings come from the earlier comparison and are shown for reference.
-
-Measured results: [Apple](docs/apple-precision.md), [AMD](experiments/amd-precision/README.md), [Intel](experiments/intel-precision/README.md). These full-clip measurements use the thread counts shown; they are separate from the default one-thread streaming path.
+Same three multilingual recordings, two warmups and five measured repetitions per case. The one-thread run had substantial timing drift across all codecs, so these observations do not establish a thread-count speedup or reproduce the historical 0.07122 short-clip result. RTF includes decode calls and flush; loading and encoding are excluded. AudioVAE2 outputs 48 kHz; Pocket continuous Mimi outputs 24 kHz and has an 80 ms minimum frame. [Protocol and results](docs/streaming-baseline.md).
 
 ## Reconstruction quality
 
-Higher is better. These results use 60 FLEURS clips across ten languages, scored in the common 16 kHz source bandwidth.
+Reference scores from the earlier one-thread, 80 ms streaming panel: the same 60 FLEURS recordings across ten languages. Higher is better. Scores use the original audio as reference at 16 kHz.
 
-| Codec | PESQ | STOI | UTMOS22 | DNSMOS overall |
+| Audio | PESQ-WB | STOI | UTMOS22 | DNSMOS overall |
 | --- | ---: | ---: | ---: | ---: |
-| Base AudioVAE2 | 3.742 | 0.9360 | 2.257 | 2.765 |
-| Optimized AudioVAE2, Apple | 3.742 | 0.9360 | 2.257 | 2.765 |
-| Optimized AudioVAE2, Intel and AMD | 3.717 | 0.9344 | 2.252 | 2.760 |
-| Mimi | 2.130 | 0.8074 | 2.517 | 2.894 |
-| Meta DAC-VAE | 4.284 | 0.9731 | 2.222 | 2.779 |
+| Original recordings | Reference | Reference | 2.321 | 2.775 |
+| AudioVAE2 | 3.742 | 0.9360 | 2.257 | 2.765 |
+| Pocket Mimi | 2.130 | 0.8074 | 2.517 | 2.894 |
 
-Intel and AMD were scored independently and agree at the displayed precision. UTMOS and DNSMOS are predictions, not listening-panel ratings. AudioVAE2 outputs 48 kHz and the tested continuous Mimi outputs 24 kHz; both decoders are causal. The tested 48 kHz Meta DAC-VAE is noncausal. [Methodology and detailed results](docs/multilingual.md).
+The new kernels are checked separately for sample-level agreement with stock AudioVAE2; the perceptual scores above were not rerun for this release. UTMOS and DNSMOS are predictions, not human ratings. These metrics do not assess frequencies above 8 kHz. Meta DACVAE is excluded because the tested checkpoint requires future frames. [Quality results and validation](docs/streaming-baseline.md#quality).
 
 ## More
 

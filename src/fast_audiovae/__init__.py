@@ -1,4 +1,10 @@
 """CPU inference for AudioVAE2."""
+import os as _os
+
+# Avoid starting ORT's telemetry uploader for local CPU decoding. This must
+# precede runtime initialization; disabling events later leaves its worker alive.
+_os.environ.setdefault("ORT_DISABLE_TELEMETRY", "1")
+
 from .runtime import load_decoder, load_streaming_decoder
 
 

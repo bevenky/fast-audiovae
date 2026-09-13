@@ -86,6 +86,35 @@ class RuntimeTests(unittest.TestCase):
             with self.subTest(value=value), self.assertRaises(ValueError):
                 runtime.load_decoder(self.root, threads=value)
 
+    def test_changed_transitive_dependency_is_rejected_before_loading(self):
+        self.manifest['native']['Linux/x86_64']['dependencies'] = [
+            {'library': 'dependency.so', 'sha256': '0' * 64}]
+        (self.root / 'dependency.so').write_bytes(b'changed dependency')
+        self.write_manifest()
+        with patch.object(runtime.platform, 'system', return_value='Linux'), \
+             patch.object(runtime.platform, 'machine', return_value='x86_64'), \
+             patch.object(runtime.ctypes, 'CDLL') as native:
+            with self.assertRaisesRegex(RuntimeError, 'dependency'):
+                runtime.load_decoder(self.root)
+        native.assert_not_called()
+
+    def test_selected_apple_requires_features_before_loading_any_library(self):
+        self.manifest['native']['Darwin/arm64'] = {
+            'library': 'native.dylib', 'model': 'native.onnx', 'math': 'vforce',
+            'experiment': 'selected', 'tested_cpu': 'Apple M5 Max',
+            'required_cpu_features': ['sme', 'sme2']}
+        self.write_manifest()
+        with patch.object(runtime.platform, 'system', return_value='Darwin'), \
+             patch.object(runtime.platform, 'machine', return_value='arm64'), \
+             patch('fast_audiovae.platforms.apple_matrix_features', return_value={'sme': True, 'sme2': False}), \
+             patch.object(runtime.ctypes, 'CDLL') as native:
+            session, info = runtime.load_decoder(self.root, threads=4)
+        native.assert_not_called()
+        self.assertEqual(info['selected'], 'portable_onnx')
+        self.assertEqual(session.options.libraries, [])
+        self.assertEqual(session.options.intra_op_num_threads, 4)
+
+
     def test_automatic_workers_respect_process_affinity(self):
         with patch.object(runtime.os, 'sched_getaffinity', return_value={6, 7}, create=True), \
              patch.object(runtime.os, 'cpu_count', return_value=192), \
