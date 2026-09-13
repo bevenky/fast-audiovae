@@ -1,0 +1,14 @@
+W0913 22:53:20.406000 86779 venv/lib/python3.12/site-packages/torch/_inductor/utils.py:1806] [0/0] Not enough SMs to use max_autotune_gemm mode
+Traceback (most recent call last):
+  File "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v4/qualify.py", line 97, in <module>
+    main(parser.parse_args())
+  File "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v4/qualify.py", line 63, in main
+    qualifier.main(output, ['before_compile'])
+  File "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v2/qualify_candidates.py", line 239, in main
+    cy, ey = pair(label + f"/{position}", cs, es, z[..., position:position + count].copy(),
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v2/qualify_candidates.py", line 214, in pair
+    require(compared["passed"], "State numerical gate failed: " + name)
+  File "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v2/qualify_candidates.py", line 35, in require
+    raise RuntimeError(message)
+RuntimeError: State numerical gate failed: stage5.residual2.history

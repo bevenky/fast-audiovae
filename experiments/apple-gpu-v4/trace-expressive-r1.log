@@ -1,0 +1,43 @@
+{
+  "status": "completed",
+  "comparison_count": 892,
+  "failed_comparisons": 3,
+  "first_failure_by_arm_scope": {
+    "paired_projection/propagated_state": {
+      "packet": 3,
+      "label": "stage5.residual2.history",
+      "arm": "paired_projection",
+      "scope": "propagated_state",
+      "shape": [
+        1,
+        32,
+        54
+      ],
+      "elements": 1728,
+      "max_abs": 3.8623809814453125e-05,
+      "rms": 6.2485380103122435e-06,
+      "failing_elements": 1,
+      "max_tolerance_ratio": 1.1481878828269447,
+      "passed": false,
+      "bitwise_equal": false
+    },
+    "v3_transpose_mm/propagated": {
+      "packet": 3,
+      "label": "stage5.residual2.residual_add",
+      "arm": "v3_transpose_mm",
+      "scope": "propagated",
+      "shape": [
+        1,
+        32,
+        3840
+      ],
+      "elements": 122880,
+      "max_abs": 1.9550323486328125e-05,
+      "rms": 1.6536343450921952e-06,
+      "failing_elements": 1,
+      "max_tolerance_ratio": 1.2423852139594402,
+      "passed": false,
+      "bitwise_equal": false
+    }
+  }
+}

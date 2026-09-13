@@ -1,0 +1,36 @@
+{
+  "source_sha256": "74c2b79445f80ee4fa7a0a118d1bba48e8c15d8163a8c7a82ce769ec0fa416c5",
+  "graph_sha256": "5918e523939aba3a6f72e32b88b27a0a1f39828a376b0ed748a7cb43e70ce841",
+  "control_nodes": [
+    "ncc_up_1_split_matmul_current_node_fixed_right",
+    "ncc_up_1_split_matmul_previous_unshifted_node_fixed_right",
+    "ncc_phase_finish_17_op_direct"
+  ],
+  "threads": [
+    1,
+    4
+  ],
+  "frames": [
+    1,
+    2
+  ],
+  "dtype": "FP32",
+  "provider": "CPUExecutionProvider",
+  "warmups": 2,
+  "paired_repeats": 6,
+  "pair_order": "Three AB and three BA orders, shuffled deterministically per geometry",
+  "mathematical_scope": "Actual first-upsample weights; deterministic synthetic signed/quiet/zero activations",
+  "control": "Frozen native LIBXSMM panel64 + Kleidi multitile + native phase/state finish",
+  "candidate": "GPU stage0 algebra: one standard ORT W[8192,4096] @ features[1,4096,T]",
+  "state_difference": "Control [1,8192,1] previous projection; candidate [1,2048,1] activated input.",
+  "state_validation": "Independent histories carried through signed, quiet and zero packets; compare every output; candidate next state equals final input.",
+  "timing_boundary": "Whole session.run, including concat, matmul, transpose, bias, output and next-state allocation",
+  "excluded": "One-time literal weight preparation, session construction, numerical assertions and hashes",
+  "limits": {
+    "exact_calls": 88,
+    "completed_session_run_seconds": 2.0
+  },
+  "production_change": false,
+  "gpu_used": false,
+  "limitation": "Regional backend test; no full decoder, retained state-schema compatibility, arbitrary packet or perceptual qualification"
+}

@@ -1,0 +1,576 @@
+...........................................................................................................................................................................EEEEEEEEEEEEEEEE........... [ 55%]
+.................................................................... [ 74%]
+............................................s. [ 87%]
+.............................................                            [100%]
+==================================== ERRORS ====================================
+__________ ERROR at setup of AppleOperators.test_abi_and_vector_math ___________
+
+cls = <class 'test_native_apple.AppleOperators'>
+
+    @classmethod
+    def setUpClass(cls):
+        if ort.__version__ not in ("1.29.0", "1.30.0"):
+            raise RuntimeError("Operator acceptance requires ONNX Runtime 1.29.0 or 1.30.0")
+        spec = importlib.util.spec_from_file_location("build_apple", ROOT / "tools/build_apple.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+>       cls.build = module.build()
+                    ^^^^^^^^^^^^^^
+
+tests/test_native_apple.py:109: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def build():
+        """Return library, domain, native_abi, hashes and a build_manifest path.
+    
+        Paths returned to callers are absolute. Source paths inside the generated
+        build fingerprint are relative to the repository. No previous build or
+        model checkpoint is needed. Concurrent invocations serialize on a file lock.
+        """
+        if platform.system() != "Darwin" or platform.machine().lower() not in ("arm64", "aarch64"):
+            raise RuntimeError("This build requires native Apple ARM macOS")
+        includes = ROOT / ".deps/onnxruntime/include"
+        for name, expected in HEADER_SHA256.items():
+            path = includes / name
+            if not path.is_file():
+>               raise RuntimeError(f"Missing pinned ORT header: .deps/onnxruntime/include/{name}")
+E               RuntimeError: Missing pinned ORT header: .deps/onnxruntime/include/onnxruntime_c_api.h
+
+tools/build_apple.py:59: RuntimeError
+_ ERROR at setup of AppleOperators.test_malformed_attributes_and_nonconstant_weights_are_rejected _
+
+cls = <class 'test_native_apple.AppleOperators'>
+
+    @classmethod
+    def setUpClass(cls):
+        if ort.__version__ not in ("1.29.0", "1.30.0"):
+            raise RuntimeError("Operator acceptance requires ONNX Runtime 1.29.0 or 1.30.0")
+        spec = importlib.util.spec_from_file_location("build_apple", ROOT / "tools/build_apple.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+>       cls.build = module.build()
+                    ^^^^^^^^^^^^^^
+
+tests/test_native_apple.py:109: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def build():
+        """Return library, domain, native_abi, hashes and a build_manifest path.
+    
+        Paths returned to callers are absolute. Source paths inside the generated
+        build fingerprint are relative to the repository. No previous build or
+        model checkpoint is needed. Concurrent invocations serialize on a file lock.
+        """
+        if platform.system() != "Darwin" or platform.machine().lower() not in ("arm64", "aarch64"):
+            raise RuntimeError("This build requires native Apple ARM macOS")
+        includes = ROOT / ".deps/onnxruntime/include"
+        for name, expected in HEADER_SHA256.items():
+            path = includes / name
+            if not path.is_file():
+>               raise RuntimeError(f"Missing pinned ORT header: .deps/onnxruntime/include/{name}")
+E               RuntimeError: Missing pinned ORT header: .deps/onnxruntime/include/onnxruntime_c_api.h
+
+tools/build_apple.py:59: RuntimeError
+_ ERROR at setup of AppleOperators.test_phase_interleave_signed_zero_tails_and_session_ownership _
+
+cls = <class 'test_native_apple.AppleOperators'>
+
+    @classmethod
+    def setUpClass(cls):
+        if ort.__version__ not in ("1.29.0", "1.30.0"):
+            raise RuntimeError("Operator acceptance requires ONNX Runtime 1.29.0 or 1.30.0")
+        spec = importlib.util.spec_from_file_location("build_apple", ROOT / "tools/build_apple.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+>       cls.build = module.build()
+                    ^^^^^^^^^^^^^^
+
+tests/test_native_apple.py:109: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def build():
+        """Return library, domain, native_abi, hashes and a build_manifest path.
+    
+        Paths returned to callers are absolute. Source paths inside the generated
+        build fingerprint are relative to the repository. No previous build or
+        model checkpoint is needed. Concurrent invocations serialize on a file lock.
+        """
+        if platform.system() != "Darwin" or platform.machine().lower() not in ("arm64", "aarch64"):
+            raise RuntimeError("This build requires native Apple ARM macOS")
+        includes = ROOT / ".deps/onnxruntime/include"
+        for name, expected in HEADER_SHA256.items():
+            path = includes / name
+            if not path.is_file():
+>               raise RuntimeError(f"Missing pinned ORT header: .deps/onnxruntime/include/{name}")
+E               RuntimeError: Missing pinned ORT header: .deps/onnxruntime/include/onnxruntime_c_api.h
+
+tools/build_apple.py:59: RuntimeError
+_ ERROR at setup of AppleOperators.test_snake_depthwise_dynamic_shapes_and_session_ownership _
+
+cls = <class 'test_native_apple.AppleOperators'>
+
+    @classmethod
+    def setUpClass(cls):
+        if ort.__version__ not in ("1.29.0", "1.30.0"):
+            raise RuntimeError("Operator acceptance requires ONNX Runtime 1.29.0 or 1.30.0")
+        spec = importlib.util.spec_from_file_location("build_apple", ROOT / "tools/build_apple.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+>       cls.build = module.build()
+                    ^^^^^^^^^^^^^^
+
+tests/test_native_apple.py:109: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def build():
+        """Return library, domain, native_abi, hashes and a build_manifest path.
+    
+        Paths returned to callers are absolute. Source paths inside the generated
+        build fingerprint are relative to the repository. No previous build or
+        model checkpoint is needed. Concurrent invocations serialize on a file lock.
+        """
+        if platform.system() != "Darwin" or platform.machine().lower() not in ("arm64", "aarch64"):
+            raise RuntimeError("This build requires native Apple ARM macOS")
+        includes = ROOT / ".deps/onnxruntime/include"
+        for name, expected in HEADER_SHA256.items():
+            path = includes / name
+            if not path.is_file():
+>               raise RuntimeError(f"Missing pinned ORT header: .deps/onnxruntime/include/{name}")
+E               RuntimeError: Missing pinned ORT header: .deps/onnxruntime/include/onnxruntime_c_api.h
+
+tools/build_apple.py:59: RuntimeError
+__________ ERROR at setup of AppleOperators.test_abi_and_vector_math ___________
+
+cls = <class 'test_native_apple.AppleOperators'>
+
+    @classmethod
+    def setUpClass(cls):
+        if ort.__version__ not in ("1.29.0", "1.30.0"):
+            raise RuntimeError("Operator acceptance requires ONNX Runtime 1.29.0 or 1.30.0")
+        spec = importlib.util.spec_from_file_location("build_apple", ROOT / "tools/build_apple.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+>       cls.build = module.build()
+                    ^^^^^^^^^^^^^^
+
+tests/test_native_apple.py:109: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def build():
+        """Return library, domain, native_abi, hashes and a build_manifest path.
+    
+        Paths returned to callers are absolute. Source paths inside the generated
+        build fingerprint are relative to the repository. No previous build or
+        model checkpoint is needed. Concurrent invocations serialize on a file lock.
+        """
+        if platform.system() != "Darwin" or platform.machine().lower() not in ("arm64", "aarch64"):
+            raise RuntimeError("This build requires native Apple ARM macOS")
+        includes = ROOT / ".deps/onnxruntime/include"
+        for name, expected in HEADER_SHA256.items():
+            path = includes / name
+            if not path.is_file():
+>               raise RuntimeError(f"Missing pinned ORT header: .deps/onnxruntime/include/{name}")
+E               RuntimeError: Missing pinned ORT header: .deps/onnxruntime/include/onnxruntime_c_api.h
+
+tools/build_apple.py:59: RuntimeError
+_ ERROR at setup of AppleOperators.test_malformed_attributes_and_nonconstant_weights_are_rejected _
+
+cls = <class 'test_native_apple.AppleOperators'>
+
+    @classmethod
+    def setUpClass(cls):
+        if ort.__version__ not in ("1.29.0", "1.30.0"):
+            raise RuntimeError("Operator acceptance requires ONNX Runtime 1.29.0 or 1.30.0")
+        spec = importlib.util.spec_from_file_location("build_apple", ROOT / "tools/build_apple.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+>       cls.build = module.build()
+                    ^^^^^^^^^^^^^^
+
+tests/test_native_apple.py:109: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def build():
+        """Return library, domain, native_abi, hashes and a build_manifest path.
+    
+        Paths returned to callers are absolute. Source paths inside the generated
+        build fingerprint are relative to the repository. No previous build or
+        model checkpoint is needed. Concurrent invocations serialize on a file lock.
+        """
+        if platform.system() != "Darwin" or platform.machine().lower() not in ("arm64", "aarch64"):
+            raise RuntimeError("This build requires native Apple ARM macOS")
+        includes = ROOT / ".deps/onnxruntime/include"
+        for name, expected in HEADER_SHA256.items():
+            path = includes / name
+            if not path.is_file():
+>               raise RuntimeError(f"Missing pinned ORT header: .deps/onnxruntime/include/{name}")
+E               RuntimeError: Missing pinned ORT header: .deps/onnxruntime/include/onnxruntime_c_api.h
+
+tools/build_apple.py:59: RuntimeError
+_ ERROR at setup of AppleOperators.test_phase_interleave_signed_zero_tails_and_session_ownership _
+
+cls = <class 'test_native_apple.AppleOperators'>
+
+    @classmethod
+    def setUpClass(cls):
+        if ort.__version__ not in ("1.29.0", "1.30.0"):
+            raise RuntimeError("Operator acceptance requires ONNX Runtime 1.29.0 or 1.30.0")
+        spec = importlib.util.spec_from_file_location("build_apple", ROOT / "tools/build_apple.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+>       cls.build = module.build()
+                    ^^^^^^^^^^^^^^
+
+tests/test_native_apple.py:109: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def build():
+        """Return library, domain, native_abi, hashes and a build_manifest path.
+    
+        Paths returned to callers are absolute. Source paths inside the generated
+        build fingerprint are relative to the repository. No previous build or
+        model checkpoint is needed. Concurrent invocations serialize on a file lock.
+        """
+        if platform.system() != "Darwin" or platform.machine().lower() not in ("arm64", "aarch64"):
+            raise RuntimeError("This build requires native Apple ARM macOS")
+        includes = ROOT / ".deps/onnxruntime/include"
+        for name, expected in HEADER_SHA256.items():
+            path = includes / name
+            if not path.is_file():
+>               raise RuntimeError(f"Missing pinned ORT header: .deps/onnxruntime/include/{name}")
+E               RuntimeError: Missing pinned ORT header: .deps/onnxruntime/include/onnxruntime_c_api.h
+
+tools/build_apple.py:59: RuntimeError
+_ ERROR at setup of AppleOperators.test_snake_depthwise_dynamic_shapes_and_session_ownership _
+
+cls = <class 'test_native_apple.AppleOperators'>
+
+    @classmethod
+    def setUpClass(cls):
+        if ort.__version__ not in ("1.29.0", "1.30.0"):
+            raise RuntimeError("Operator acceptance requires ONNX Runtime 1.29.0 or 1.30.0")
+        spec = importlib.util.spec_from_file_location("build_apple", ROOT / "tools/build_apple.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+>       cls.build = module.build()
+                    ^^^^^^^^^^^^^^
+
+tests/test_native_apple.py:109: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def build():
+        """Return library, domain, native_abi, hashes and a build_manifest path.
+    
+        Paths returned to callers are absolute. Source paths inside the generated
+        build fingerprint are relative to the repository. No previous build or
+        model checkpoint is needed. Concurrent invocations serialize on a file lock.
+        """
+        if platform.system() != "Darwin" or platform.machine().lower() not in ("arm64", "aarch64"):
+            raise RuntimeError("This build requires native Apple ARM macOS")
+        includes = ROOT / ".deps/onnxruntime/include"
+        for name, expected in HEADER_SHA256.items():
+            path = includes / name
+            if not path.is_file():
+>               raise RuntimeError(f"Missing pinned ORT header: .deps/onnxruntime/include/{name}")
+E               RuntimeError: Missing pinned ORT header: .deps/onnxruntime/include/onnxruntime_c_api.h
+
+tools/build_apple.py:59: RuntimeError
+________ ERROR at setup of AppleBlockOperators.test_abi_and_vector_math ________
+
+cls = <class 'test_native_block_fusion_apple.AppleBlockOperators'>
+
+    @classmethod
+    def setUpClass(cls):
+        if ort.__version__ not in ("1.29.0", "1.30.0"):
+            raise RuntimeError("Operator acceptance requires ONNX Runtime 1.29.0 or 1.30.0")
+        spec = importlib.util.spec_from_file_location("build_apple", ROOT / "tools/build_apple.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+>       cls.build = module.build()
+                    ^^^^^^^^^^^^^^
+
+tests/test_native_apple.py:109: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def build():
+        """Return library, domain, native_abi, hashes and a build_manifest path.
+    
+        Paths returned to callers are absolute. Source paths inside the generated
+        build fingerprint are relative to the repository. No previous build or
+        model checkpoint is needed. Concurrent invocations serialize on a file lock.
+        """
+        if platform.system() != "Darwin" or platform.machine().lower() not in ("arm64", "aarch64"):
+            raise RuntimeError("This build requires native Apple ARM macOS")
+        includes = ROOT / ".deps/onnxruntime/include"
+        for name, expected in HEADER_SHA256.items():
+            path = includes / name
+            if not path.is_file():
+>               raise RuntimeError(f"Missing pinned ORT header: .deps/onnxruntime/include/{name}")
+E               RuntimeError: Missing pinned ORT header: .deps/onnxruntime/include/onnxruntime_c_api.h
+
+tools/build_apple.py:59: RuntimeError
+_ ERROR at setup of AppleBlockOperators.test_bias_residual_exact_order_signed_zero_and_shape_rejection _
+
+cls = <class 'test_native_block_fusion_apple.AppleBlockOperators'>
+
+    @classmethod
+    def setUpClass(cls):
+        if ort.__version__ not in ("1.29.0", "1.30.0"):
+            raise RuntimeError("Operator acceptance requires ONNX Runtime 1.29.0 or 1.30.0")
+        spec = importlib.util.spec_from_file_location("build_apple", ROOT / "tools/build_apple.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+>       cls.build = module.build()
+                    ^^^^^^^^^^^^^^
+
+tests/test_native_apple.py:109: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def build():
+        """Return library, domain, native_abi, hashes and a build_manifest path.
+    
+        Paths returned to callers are absolute. Source paths inside the generated
+        build fingerprint are relative to the repository. No previous build or
+        model checkpoint is needed. Concurrent invocations serialize on a file lock.
+        """
+        if platform.system() != "Darwin" or platform.machine().lower() not in ("arm64", "aarch64"):
+            raise RuntimeError("This build requires native Apple ARM macOS")
+        includes = ROOT / ".deps/onnxruntime/include"
+        for name, expected in HEADER_SHA256.items():
+            path = includes / name
+            if not path.is_file():
+>               raise RuntimeError(f"Missing pinned ORT header: .deps/onnxruntime/include/{name}")
+E               RuntimeError: Missing pinned ORT header: .deps/onnxruntime/include/onnxruntime_c_api.h
+
+tools/build_apple.py:59: RuntimeError
+_ ERROR at setup of AppleBlockOperators.test_chain_boundaries_changing_lengths_causality_and_ownership _
+
+cls = <class 'test_native_block_fusion_apple.AppleBlockOperators'>
+
+    @classmethod
+    def setUpClass(cls):
+        if ort.__version__ not in ("1.29.0", "1.30.0"):
+            raise RuntimeError("Operator acceptance requires ONNX Runtime 1.29.0 or 1.30.0")
+        spec = importlib.util.spec_from_file_location("build_apple", ROOT / "tools/build_apple.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+>       cls.build = module.build()
+                    ^^^^^^^^^^^^^^
+
+tests/test_native_apple.py:109: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def build():
+        """Return library, domain, native_abi, hashes and a build_manifest path.
+    
+        Paths returned to callers are absolute. Source paths inside the generated
+        build fingerprint are relative to the repository. No previous build or
+        model checkpoint is needed. Concurrent invocations serialize on a file lock.
+        """
+        if platform.system() != "Darwin" or platform.machine().lower() not in ("arm64", "aarch64"):
+            raise RuntimeError("This build requires native Apple ARM macOS")
+        includes = ROOT / ".deps/onnxruntime/include"
+        for name, expected in HEADER_SHA256.items():
+            path = includes / name
+            if not path.is_file():
+>               raise RuntimeError(f"Missing pinned ORT header: .deps/onnxruntime/include/{name}")
+E               RuntimeError: Missing pinned ORT header: .deps/onnxruntime/include/onnxruntime_c_api.h
+
+tools/build_apple.py:59: RuntimeError
+_ ERROR at setup of AppleBlockOperators.test_malformed_attributes_and_nonconstant_weights_are_rejected _
+
+cls = <class 'test_native_block_fusion_apple.AppleBlockOperators'>
+
+    @classmethod
+    def setUpClass(cls):
+        if ort.__version__ not in ("1.29.0", "1.30.0"):
+            raise RuntimeError("Operator acceptance requires ONNX Runtime 1.29.0 or 1.30.0")
+        spec = importlib.util.spec_from_file_location("build_apple", ROOT / "tools/build_apple.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+>       cls.build = module.build()
+                    ^^^^^^^^^^^^^^
+
+tests/test_native_apple.py:109: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def build():
+        """Return library, domain, native_abi, hashes and a build_manifest path.
+    
+        Paths returned to callers are absolute. Source paths inside the generated
+        build fingerprint are relative to the repository. No previous build or
+        model checkpoint is needed. Concurrent invocations serialize on a file lock.
+        """
+        if platform.system() != "Darwin" or platform.machine().lower() not in ("arm64", "aarch64"):
+            raise RuntimeError("This build requires native Apple ARM macOS")
+        includes = ROOT / ".deps/onnxruntime/include"
+        for name, expected in HEADER_SHA256.items():
+            path = includes / name
+            if not path.is_file():
+>               raise RuntimeError(f"Missing pinned ORT header: .deps/onnxruntime/include/{name}")
+E               RuntimeError: Missing pinned ORT header: .deps/onnxruntime/include/onnxruntime_c_api.h
+
+tools/build_apple.py:59: RuntimeError
+_ ERROR at setup of AppleBlockOperators.test_new_c_abi_safety_and_scalar_parity _
+
+cls = <class 'test_native_block_fusion_apple.AppleBlockOperators'>
+
+    @classmethod
+    def setUpClass(cls):
+        if ort.__version__ not in ("1.29.0", "1.30.0"):
+            raise RuntimeError("Operator acceptance requires ONNX Runtime 1.29.0 or 1.30.0")
+        spec = importlib.util.spec_from_file_location("build_apple", ROOT / "tools/build_apple.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+>       cls.build = module.build()
+                    ^^^^^^^^^^^^^^
+
+tests/test_native_apple.py:109: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def build():
+        """Return library, domain, native_abi, hashes and a build_manifest path.
+    
+        Paths returned to callers are absolute. Source paths inside the generated
+        build fingerprint are relative to the repository. No previous build or
+        model checkpoint is needed. Concurrent invocations serialize on a file lock.
+        """
+        if platform.system() != "Darwin" or platform.machine().lower() not in ("arm64", "aarch64"):
+            raise RuntimeError("This build requires native Apple ARM macOS")
+        includes = ROOT / ".deps/onnxruntime/include"
+        for name, expected in HEADER_SHA256.items():
+            path = includes / name
+            if not path.is_file():
+>               raise RuntimeError(f"Missing pinned ORT header: .deps/onnxruntime/include/{name}")
+E               RuntimeError: Missing pinned ORT header: .deps/onnxruntime/include/onnxruntime_c_api.h
+
+tools/build_apple.py:59: RuntimeError
+_ ERROR at setup of AppleBlockOperators.test_new_op_bad_attributes_and_overridable_coefficients_rejected _
+
+cls = <class 'test_native_block_fusion_apple.AppleBlockOperators'>
+
+    @classmethod
+    def setUpClass(cls):
+        if ort.__version__ not in ("1.29.0", "1.30.0"):
+            raise RuntimeError("Operator acceptance requires ONNX Runtime 1.29.0 or 1.30.0")
+        spec = importlib.util.spec_from_file_location("build_apple", ROOT / "tools/build_apple.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+>       cls.build = module.build()
+                    ^^^^^^^^^^^^^^
+
+tests/test_native_apple.py:109: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def build():
+        """Return library, domain, native_abi, hashes and a build_manifest path.
+    
+        Paths returned to callers are absolute. Source paths inside the generated
+        build fingerprint are relative to the repository. No previous build or
+        model checkpoint is needed. Concurrent invocations serialize on a file lock.
+        """
+        if platform.system() != "Darwin" or platform.machine().lower() not in ("arm64", "aarch64"):
+            raise RuntimeError("This build requires native Apple ARM macOS")
+        includes = ROOT / ".deps/onnxruntime/include"
+        for name, expected in HEADER_SHA256.items():
+            path = includes / name
+            if not path.is_file():
+>               raise RuntimeError(f"Missing pinned ORT header: .deps/onnxruntime/include/{name}")
+E               RuntimeError: Missing pinned ORT header: .deps/onnxruntime/include/onnxruntime_c_api.h
+
+tools/build_apple.py:59: RuntimeError
+_ ERROR at setup of AppleBlockOperators.test_phase_interleave_signed_zero_tails_and_session_ownership _
+
+cls = <class 'test_native_block_fusion_apple.AppleBlockOperators'>
+
+    @classmethod
+    def setUpClass(cls):
+        if ort.__version__ not in ("1.29.0", "1.30.0"):
+            raise RuntimeError("Operator acceptance requires ONNX Runtime 1.29.0 or 1.30.0")
+        spec = importlib.util.spec_from_file_location("build_apple", ROOT / "tools/build_apple.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+>       cls.build = module.build()
+                    ^^^^^^^^^^^^^^
+
+tests/test_native_apple.py:109: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def build():
+        """Return library, domain, native_abi, hashes and a build_manifest path.
+    
+        Paths returned to callers are absolute. Source paths inside the generated
+        build fingerprint are relative to the repository. No previous build or
+        model checkpoint is needed. Concurrent invocations serialize on a file lock.
+        """
+        if platform.system() != "Darwin" or platform.machine().lower() not in ("arm64", "aarch64"):
+            raise RuntimeError("This build requires native Apple ARM macOS")
+        includes = ROOT / ".deps/onnxruntime/include"
+        for name, expected in HEADER_SHA256.items():
+            path = includes / name
+            if not path.is_file():
+>               raise RuntimeError(f"Missing pinned ORT header: .deps/onnxruntime/include/{name}")
+E               RuntimeError: Missing pinned ORT header: .deps/onnxruntime/include/onnxruntime_c_api.h
+
+tools/build_apple.py:59: RuntimeError
+_ ERROR at setup of AppleBlockOperators.test_snake_depthwise_dynamic_shapes_and_session_ownership _
+
+cls = <class 'test_native_block_fusion_apple.AppleBlockOperators'>
+
+    @classmethod
+    def setUpClass(cls):
+        if ort.__version__ not in ("1.29.0", "1.30.0"):
+            raise RuntimeError("Operator acceptance requires ONNX Runtime 1.29.0 or 1.30.0")
+        spec = importlib.util.spec_from_file_location("build_apple", ROOT / "tools/build_apple.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+>       cls.build = module.build()
+                    ^^^^^^^^^^^^^^
+
+tests/test_native_apple.py:109: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def build():
+        """Return library, domain, native_abi, hashes and a build_manifest path.
+    
+        Paths returned to callers are absolute. Source paths inside the generated
+        build fingerprint are relative to the repository. No previous build or
+        model checkpoint is needed. Concurrent invocations serialize on a file lock.
+        """
+        if platform.system() != "Darwin" or platform.machine().lower() not in ("arm64", "aarch64"):
+            raise RuntimeError("This build requires native Apple ARM macOS")
+        includes = ROOT / ".deps/onnxruntime/include"
+        for name, expected in HEADER_SHA256.items():
+            path = includes / name
+            if not path.is_file():
+>               raise RuntimeError(f"Missing pinned ORT header: .deps/onnxruntime/include/{name}")
+E               RuntimeError: Missing pinned ORT header: .deps/onnxruntime/include/onnxruntime_c_api.h
+
+tools/build_apple.py:59: RuntimeError
+=============================== warnings summary ===============================
+../../outputs/apple-gpu-v1/venv/lib/python3.12/site-packages/_pytest/python.py:124
+  /Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v1/venv/lib/python3.12/site-packages/_pytest/python.py:124: PytestRemovedIn10Warning: Passing a non-Collection iterable to parametrize is deprecated.
+  Test: tests/test_batch_session.py::test_real_callers_share_one_lock_across_execution_methods, argvalues type: combinations_with_replacement
+  Please convert to a list or tuple.
+  See https://docs.pytest.org/en/stable/deprecations.html#parametrize-iterators
+    metafunc.parametrize(*marker.args, **marker.kwargs, _param_mark=marker)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+ERROR tests/test_native_apple.py::AppleOperators::test_abi_and_vector_math - ...
+ERROR tests/test_native_apple.py::AppleOperators::test_malformed_attributes_and_nonconstant_weights_are_rejected
+ERROR tests/test_native_apple.py::AppleOperators::test_phase_interleave_signed_zero_tails_and_session_ownership
+ERROR tests/test_native_apple.py::AppleOperators::test_snake_depthwise_dynamic_shapes_and_session_ownership
+ERROR tests/test_native_block_fusion_apple.py::AppleOperators::test_abi_and_vector_math
+ERROR tests/test_native_block_fusion_apple.py::AppleOperators::test_malformed_attributes_and_nonconstant_weights_are_rejected
+ERROR tests/test_native_block_fusion_apple.py::AppleOperators::test_phase_interleave_signed_zero_tails_and_session_ownership
+ERROR tests/test_native_block_fusion_apple.py::AppleOperators::test_snake_depthwise_dynamic_shapes_and_session_ownership
+ERROR tests/test_native_block_fusion_apple.py::AppleBlockOperators::test_abi_and_vector_math
+ERROR tests/test_native_block_fusion_apple.py::AppleBlockOperators::test_bias_residual_exact_order_signed_zero_and_shape_rejection
+ERROR tests/test_native_block_fusion_apple.py::AppleBlockOperators::test_chain_boundaries_changing_lengths_causality_and_ownership
+ERROR tests/test_native_block_fusion_apple.py::AppleBlockOperators::test_malformed_attributes_and_nonconstant_weights_are_rejected
+ERROR tests/test_native_block_fusion_apple.py::AppleBlockOperators::test_new_c_abi_safety_and_scalar_parity
+ERROR tests/test_native_block_fusion_apple.py::AppleBlockOperators::test_new_op_bad_attributes_and_overridable_coefficients_rejected
+ERROR tests/test_native_block_fusion_apple.py::AppleBlockOperators::test_phase_interleave_signed_zero_tails_and_session_ownership
+ERROR tests/test_native_block_fusion_apple.py::AppleBlockOperators::test_snake_depthwise_dynamic_shapes_and_session_ownership
+340 passed, 1 skipped, 1 warning, 16 errors, 192 subtests passed in 5.66s

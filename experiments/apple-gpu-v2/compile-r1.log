@@ -1,0 +1,71 @@
+prepared overlap 1 0.36
+prepared overlap 2 0.265
+W0913 22:16:29.226000 84045 venv/lib/python3.12/site-packages/torch/_inductor/utils.py:1806] [0/0] Not enough SMs to use max_autotune_gemm mode
+prepared full_compile 1 3.824
+prepared full_compile 2 2.391
+qualification 1 rows 12
+warmup 1 rows 24
+measured 1 rows 36
+measured 2 rows 48
+[
+  {
+    "arm": "overlap",
+    "packet_ms": 40,
+    "rtf": 0.14732776916288357,
+    "mean_packet_ms": 5.8928816029543265,
+    "median_packet_ms": 5.7944373693317175,
+    "stream_rtfs": [
+      0.1408264283478881,
+      0.15100238718635714,
+      0.15752977293838438,
+      0.15753788660125187,
+      0.13859922231252617,
+      0.1384709175908938
+    ]
+  },
+  {
+    "arm": "overlap",
+    "packet_ms": 80,
+    "rtf": 0.0784909429461954,
+    "mean_packet_ms": 6.278624415345903,
+    "median_packet_ms": 6.325771100819111,
+    "stream_rtfs": [
+      0.07472070428775623,
+      0.08227274083765224,
+      0.08223255135817453,
+      0.07785954949213192,
+      0.07574006061380109,
+      0.07812005108765638
+    ]
+  },
+  {
+    "arm": "full_compile",
+    "packet_ms": 40,
+    "rtf": 0.12055040569975972,
+    "mean_packet_ms": 4.821803550132447,
+    "median_packet_ms": 4.689916968345642,
+    "stream_rtfs": [
+      0.11613528622547165,
+      0.11740077946645519,
+      0.12881428022713712,
+      0.1304713170005319,
+      0.11636327932743977,
+      0.11411749195152274
+    ]
+  },
+  {
+    "arm": "full_compile",
+    "packet_ms": 80,
+    "rtf": 0.06533163250423968,
+    "mean_packet_ms": 5.226094243375377,
+    "median_packet_ms": 5.239458288997412,
+    "stream_rtfs": [
+      0.06347122446944317,
+      0.06923979963175952,
+      0.06828459105842437,
+      0.06528059845246996,
+      0.06317308725556359,
+      0.06254049415777749
+    ]
+  }
+]

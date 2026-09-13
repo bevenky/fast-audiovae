@@ -1,0 +1,2221 @@
+{
+  "version": "apple_gpu_candidate_qualification_v1",
+  "status": "passed",
+  "arms": [
+    "before_compile",
+    "full_compile"
+  ],
+  "calls": 175,
+  "gpu_api_calls": 156,
+  "cpu_reference_calls": 11,
+  "compilation_first_calls": 8,
+  "gpu_api_seconds": 1.1448957500979304,
+  "state_inspection_seconds": 0.060530828312039375,
+  "cpu_reference_seconds": 0.41920757992193103,
+  "compilation_first_call_seconds": 2.80160745838657,
+  "preparation": [
+    {
+      "arm": "before_compile",
+      "build_seconds": 0.42227791575714946,
+      "state_shapes": {
+        "stem.history": [
+          1,
+          64,
+          6
+        ],
+        "stage0.transpose.history": [
+          1,
+          2048,
+          1
+        ],
+        "stage0.residual0.history": [
+          1,
+          1024,
+          6
+        ],
+        "stage0.residual1.history": [
+          1,
+          1024,
+          18
+        ],
+        "stage0.residual2.history": [
+          1,
+          1024,
+          54
+        ],
+        "stage1.transpose.history": [
+          1,
+          1024,
+          1
+        ],
+        "stage1.residual0.history": [
+          1,
+          512,
+          6
+        ],
+        "stage1.residual1.history": [
+          1,
+          512,
+          18
+        ],
+        "stage1.residual2.history": [
+          1,
+          512,
+          54
+        ],
+        "stage2.transpose.history": [
+          1,
+          512,
+          1
+        ],
+        "stage2.residual0.history": [
+          1,
+          256,
+          6
+        ],
+        "stage2.residual1.history": [
+          1,
+          256,
+          18
+        ],
+        "stage2.residual2.history": [
+          1,
+          256,
+          54
+        ],
+        "stage3.transpose.history": [
+          1,
+          256,
+          1
+        ],
+        "stage3.residual0.history": [
+          1,
+          128,
+          6
+        ],
+        "stage3.residual1.history": [
+          1,
+          128,
+          18
+        ],
+        "stage3.residual2.history": [
+          1,
+          128,
+          54
+        ],
+        "stage4.transpose.history": [
+          1,
+          128,
+          1
+        ],
+        "stage4.residual0.history": [
+          1,
+          64,
+          6
+        ],
+        "stage4.residual1.history": [
+          1,
+          64,
+          18
+        ],
+        "stage4.residual2.history": [
+          1,
+          64,
+          54
+        ],
+        "stage5.transpose.history": [
+          1,
+          64,
+          1
+        ],
+        "stage5.residual0.history": [
+          1,
+          32,
+          6
+        ],
+        "stage5.residual1.history": [
+          1,
+          32,
+          18
+        ],
+        "stage5.residual2.history": [
+          1,
+          32,
+          54
+        ],
+        "final.history": [
+          1,
+          32,
+          6
+        ]
+      },
+      "state_bytes": 647424,
+      "source_identity": {
+        "graph_sha256": "fdd20e200675ab9649bf33f16bc5974101ba5cf47ab89fbfe29f3d36ff6c3c84",
+        "external_data_sha256": "3b76bd57356e96893655bd24a364989e016c5af2fc8c29195caaefb4eccf5143",
+        "coefficient_source": "literal_verified_onnx_initializers",
+        "precision": "float32",
+        "transpose_state": "previous_activated_input"
+      },
+      "compiler_counters": {
+        "unimplemented": {},
+        "stats": {
+          "calls_captured": 814,
+          "unique_graphs": 2
+        },
+        "aot_autograd": {
+          "total": 2,
+          "autograd_cache_hit": 2,
+          "ok": 2
+        },
+        "inductor": {
+          "extern_calls": 90,
+          "fxgraph_cache_hit": 2
+        }
+      },
+      "final_compiler_counters": {
+        "unimplemented": {},
+        "stats": {
+          "calls_captured": 814,
+          "unique_graphs": 2
+        },
+        "aot_autograd": {
+          "total": 2,
+          "autograd_cache_hit": 2,
+          "ok": 2
+        },
+        "inductor": {
+          "extern_calls": 90,
+          "fxgraph_cache_hit": 2
+        }
+      }
+    },
+    {
+      "arm": "full_compile",
+      "build_seconds": 0.3079998749308288,
+      "state_shapes": {
+        "stem.history": [
+          1,
+          64,
+          6
+        ],
+        "stage0.transpose.history": [
+          1,
+          1024,
+          8
+        ],
+        "stage0.residual0.history": [
+          1,
+          1024,
+          6
+        ],
+        "stage0.residual1.history": [
+          1,
+          1024,
+          18
+        ],
+        "stage0.residual2.history": [
+          1,
+          1024,
+          54
+        ],
+        "stage1.transpose.history": [
+          1,
+          512,
+          6
+        ],
+        "stage1.residual0.history": [
+          1,
+          512,
+          6
+        ],
+        "stage1.residual1.history": [
+          1,
+          512,
+          18
+        ],
+        "stage1.residual2.history": [
+          1,
+          512,
+          54
+        ],
+        "stage2.transpose.history": [
+          1,
+          256,
+          5
+        ],
+        "stage2.residual0.history": [
+          1,
+          256,
+          6
+        ],
+        "stage2.residual1.history": [
+          1,
+          256,
+          18
+        ],
+        "stage2.residual2.history": [
+          1,
+          256,
+          54
+        ],
+        "stage3.transpose.history": [
+          1,
+          128,
+          2
+        ],
+        "stage3.residual0.history": [
+          1,
+          128,
+          6
+        ],
+        "stage3.residual1.history": [
+          1,
+          128,
+          18
+        ],
+        "stage3.residual2.history": [
+          1,
+          128,
+          54
+        ],
+        "stage4.transpose.history": [
+          1,
+          64,
+          2
+        ],
+        "stage4.residual0.history": [
+          1,
+          64,
+          6
+        ],
+        "stage4.residual1.history": [
+          1,
+          64,
+          18
+        ],
+        "stage4.residual2.history": [
+          1,
+          64,
+          54
+        ],
+        "stage5.transpose.history": [
+          1,
+          32,
+          2
+        ],
+        "stage5.residual0.history": [
+          1,
+          32,
+          6
+        ],
+        "stage5.residual1.history": [
+          1,
+          32,
+          18
+        ],
+        "stage5.residual2.history": [
+          1,
+          32,
+          54
+        ],
+        "final.history": [
+          1,
+          32,
+          6
+        ]
+      },
+      "state_bytes": 683264,
+      "source_identity": {
+        "graph_sha256": "fdd20e200675ab9649bf33f16bc5974101ba5cf47ab89fbfe29f3d36ff6c3c84",
+        "external_data_sha256": "3b76bd57356e96893655bd24a364989e016c5af2fc8c29195caaefb4eccf5143",
+        "coefficient_source": "literal_verified_onnx_initializers",
+        "precision": "float32",
+        "transpose_state": "bias_free_projected_overlap"
+      },
+      "compiler_counters": {
+        "unimplemented": {},
+        "stats": {
+          "calls_captured": 1676,
+          "unique_graphs": 4
+        },
+        "aot_autograd": {
+          "total": 4,
+          "autograd_cache_hit": 4,
+          "ok": 4
+        },
+        "inductor": {
+          "extern_calls": 180,
+          "fxgraph_cache_hit": 4
+        }
+      },
+      "final_compiler_counters": {
+        "unimplemented": {},
+        "stats": {
+          "calls_captured": 1676,
+          "unique_graphs": 4
+        },
+        "aot_autograd": {
+          "total": 4,
+          "autograd_cache_hit": 4,
+          "ok": 4
+        },
+        "inductor": {
+          "extern_calls": 180,
+          "fxgraph_cache_hit": 4
+        }
+      }
+    }
+  ],
+  "checks": [
+    {
+      "label": "before_compile/preparation/0/audio-eager",
+      "passed": true,
+      "max_abs": 3.3905962482094765e-09
+    },
+    {
+      "label": "before_compile/preparation/1/audio-eager",
+      "passed": true,
+      "max_abs": 3.026798367500305e-09
+    },
+    {
+      "label": "before_compile/preparation/3/audio-eager",
+      "passed": true,
+      "max_abs": 2.9103830456733704e-09
+    },
+    {
+      "label": "before_compile/preparation/4/audio-eager",
+      "passed": true,
+      "max_abs": 3.6670826375484467e-09
+    },
+    {
+      "label": "before_compile/preparation/full-reference",
+      "passed": true,
+      "max_abs": 5.238689482212067e-09
+    },
+    {
+      "label": "before_compile/Bengali/0/audio-eager",
+      "passed": true,
+      "max_abs": 3.259629011154175e-08
+    },
+    {
+      "label": "before_compile/Bengali/2/audio-eager",
+      "passed": true,
+      "max_abs": 3.4458935260772705e-08
+    },
+    {
+      "label": "before_compile/Bengali/3/audio-eager",
+      "passed": true,
+      "max_abs": 3.026798367500305e-08
+    },
+    {
+      "label": "before_compile/Bengali/5/audio-eager",
+      "passed": true,
+      "max_abs": 2.9685907065868378e-08
+    },
+    {
+      "label": "before_compile/Bengali/original-full",
+      "passed": true,
+      "max_abs": 6.449408829212189e-08
+    },
+    {
+      "label": "before/Bengali/original-full",
+      "passed": true,
+      "max_abs": 6.100162863731384e-08
+    },
+    {
+      "label": "before_compile/English/0/audio-eager",
+      "passed": true,
+      "max_abs": 3.230525180697441e-09
+    },
+    {
+      "label": "before_compile/English/2/audio-eager",
+      "passed": true,
+      "max_abs": 3.026798367500305e-09
+    },
+    {
+      "label": "before_compile/English/3/audio-eager",
+      "passed": true,
+      "max_abs": 3.6670826375484467e-09
+    },
+    {
+      "label": "before_compile/English/5/audio-eager",
+      "passed": true,
+      "max_abs": 3.346940502524376e-09
+    },
+    {
+      "label": "before_compile/English/original-full",
+      "passed": true,
+      "max_abs": 5.4424162954092026e-09
+    },
+    {
+      "label": "before/English/original-full",
+      "passed": true,
+      "max_abs": 5.9371814131736755e-09
+    },
+    {
+      "label": "before_compile/Spanish/0/audio-eager",
+      "passed": true,
+      "max_abs": 8.96397978067398e-09
+    },
+    {
+      "label": "before_compile/Spanish/2/audio-eager",
+      "passed": true,
+      "max_abs": 6.6356733441352844e-09
+    },
+    {
+      "label": "before_compile/Spanish/3/audio-eager",
+      "passed": true,
+      "max_abs": 7.450580596923828e-09
+    },
+    {
+      "label": "before_compile/Spanish/5/audio-eager",
+      "passed": true,
+      "max_abs": 6.752088665962219e-09
+    },
+    {
+      "label": "before_compile/Spanish/original-full",
+      "passed": true,
+      "max_abs": 1.2165401130914688e-08
+    },
+    {
+      "label": "before/Spanish/original-full",
+      "passed": true,
+      "max_abs": 1.2398231774568558e-08
+    },
+    {
+      "label": "before_compile/Expressive0/0/audio-eager",
+      "passed": true,
+      "max_abs": 9.313225746154785e-09
+    },
+    {
+      "label": "before_compile/Expressive0/2/audio-eager",
+      "passed": true,
+      "max_abs": 5.326000973582268e-09
+    },
+    {
+      "label": "before_compile/Expressive0/3/audio-eager",
+      "passed": true,
+      "max_abs": 1.3969838619232178e-08
+    },
+    {
+      "label": "before_compile/Expressive0/5/audio-eager",
+      "passed": true,
+      "max_abs": 9.201467037200928e-07
+    },
+    {
+      "label": "before_compile/Expressive0/original-full",
+      "passed": true,
+      "max_abs": 1.4510005712509155e-06
+    },
+    {
+      "label": "before/Expressive0/original-full",
+      "passed": true,
+      "max_abs": 1.4603137969970703e-06
+    },
+    {
+      "label": "before_compile/Expressive1/0/audio-eager",
+      "passed": true,
+      "max_abs": 2.6775524020195007e-09
+    },
+    {
+      "label": "before_compile/Expressive1/2/audio-eager",
+      "passed": true,
+      "max_abs": 1.8444552551954985e-09
+    },
+    {
+      "label": "before_compile/Expressive1/3/audio-eager",
+      "passed": true,
+      "max_abs": 1.0826624929904938e-08
+    },
+    {
+      "label": "before_compile/Expressive1/5/audio-eager",
+      "passed": true,
+      "max_abs": 1.8673017621040344e-07
+    },
+    {
+      "label": "before_compile/Expressive1/original-full",
+      "passed": true,
+      "max_abs": 2.7101486921310425e-07
+    },
+    {
+      "label": "before/Expressive1/original-full",
+      "passed": true,
+      "max_abs": 2.9103830456733704e-07
+    },
+    {
+      "label": "before_compile/Zero latent/0/audio-eager",
+      "passed": true,
+      "max_abs": 3.771856427192688e-08
+    },
+    {
+      "label": "before_compile/Zero latent/2/audio-eager",
+      "passed": true,
+      "max_abs": 3.818422555923462e-08
+    },
+    {
+      "label": "before_compile/Zero latent/3/audio-eager",
+      "passed": true,
+      "max_abs": 3.7369318306446075e-08
+    },
+    {
+      "label": "before_compile/Zero latent/5/audio-eager",
+      "passed": true,
+      "max_abs": 4.516914486885071e-08
+    },
+    {
+      "label": "before_compile/Zero latent/original-full",
+      "passed": true,
+      "max_abs": 8.966890163719654e-08
+    },
+    {
+      "label": "before/Zero latent/original-full",
+      "passed": true,
+      "max_abs": 8.475035429000854e-08
+    },
+    {
+      "label": "before_compile/Quiet latent/0/audio-eager",
+      "passed": true,
+      "max_abs": 3.777677193284035e-08
+    },
+    {
+      "label": "before_compile/Quiet latent/2/audio-eager",
+      "passed": true,
+      "max_abs": 3.4924596548080444e-08
+    },
+    {
+      "label": "before_compile/Quiet latent/3/audio-eager",
+      "passed": true,
+      "max_abs": 4.1443854570388794e-08
+    },
+    {
+      "label": "before_compile/Quiet latent/5/audio-eager",
+      "passed": true,
+      "max_abs": 4.470348358154297e-08
+    },
+    {
+      "label": "before_compile/Quiet latent/original-full",
+      "passed": true,
+      "max_abs": 9.103678166866302e-08
+    },
+    {
+      "label": "before/Quiet latent/original-full",
+      "passed": true,
+      "max_abs": 8.312053978443146e-08
+    },
+    {
+      "label": "before_compile/reset/before/audio-eager",
+      "passed": true,
+      "max_abs": 3.230525180697441e-09
+    },
+    {
+      "label": "before_compile/reset/after/audio-eager",
+      "passed": true,
+      "max_abs": 3.230525180697441e-09
+    },
+    {
+      "label": "before_compile/reset-repeat",
+      "passed": true,
+      "max_abs": 0.0
+    },
+    {
+      "label": "before_compile/reset-original-full",
+      "passed": true,
+      "max_abs": 5.122274160385132e-09
+    },
+    {
+      "label": "before_compile/changed-future/audio-eager",
+      "passed": true,
+      "max_abs": 3.2014213502407074e-09
+    },
+    {
+      "label": "before_compile/prefix-invariance",
+      "passed": true,
+      "max_abs": 0.0
+    },
+    {
+      "label": "before/prefix-invariance",
+      "passed": true,
+      "max_abs": 0.0
+    },
+    {
+      "label": "before_compile/interleave/A1/audio-eager",
+      "passed": true,
+      "max_abs": 3.3905962482094765e-09
+    },
+    {
+      "label": "before_compile/interleave/B1/audio-eager",
+      "passed": true,
+      "max_abs": 8.96397978067398e-09
+    },
+    {
+      "label": "before_compile/interleave/A2/audio-eager",
+      "passed": true,
+      "max_abs": 3.026798367500305e-09
+    },
+    {
+      "label": "before_compile/interleave/B2/audio-eager",
+      "passed": true,
+      "max_abs": 6.6356733441352844e-09
+    },
+    {
+      "label": "before_compile/interleave/A-full",
+      "passed": true,
+      "max_abs": 5.791662260890007e-09
+    },
+    {
+      "label": "before_compile/interleave/B-full",
+      "passed": true,
+      "max_abs": 1.2514647096395493e-08
+    },
+    {
+      "label": "full_compile/preparation/0/audio-eager",
+      "passed": true,
+      "max_abs": 3.3905962482094765e-09
+    },
+    {
+      "label": "full_compile/preparation/1/audio-eager",
+      "passed": true,
+      "max_abs": 3.14321368932724e-09
+    },
+    {
+      "label": "full_compile/preparation/3/audio-eager",
+      "passed": true,
+      "max_abs": 2.5029294192790985e-09
+    },
+    {
+      "label": "full_compile/preparation/4/audio-eager",
+      "passed": true,
+      "max_abs": 3.725290298461914e-09
+    },
+    {
+      "label": "full_compile/preparation/full-reference",
+      "passed": true,
+      "max_abs": 5.587935447692871e-09
+    },
+    {
+      "label": "full_compile/Bengali/0/audio-eager",
+      "passed": true,
+      "max_abs": 3.259629011154175e-08
+    },
+    {
+      "label": "full_compile/Bengali/2/audio-eager",
+      "passed": true,
+      "max_abs": 4.0512531995773315e-08
+    },
+    {
+      "label": "full_compile/Bengali/3/audio-eager",
+      "passed": true,
+      "max_abs": 3.3527612686157227e-08
+    },
+    {
+      "label": "full_compile/Bengali/5/audio-eager",
+      "passed": true,
+      "max_abs": 3.055902197957039e-08
+    },
+    {
+      "label": "full_compile/Bengali/original-full",
+      "passed": true,
+      "max_abs": 8.475035429000854e-08
+    },
+    {
+      "label": "overlap/Bengali/original-full",
+      "passed": true,
+      "max_abs": 7.916241884231567e-08
+    },
+    {
+      "label": "full_compile/English/0/audio-eager",
+      "passed": true,
+      "max_abs": 3.230525180697441e-09
+    },
+    {
+      "label": "full_compile/English/2/audio-eager",
+      "passed": true,
+      "max_abs": 3.230525180697441e-09
+    },
+    {
+      "label": "full_compile/English/3/audio-eager",
+      "passed": true,
+      "max_abs": 2.7939677238464355e-09
+    },
+    {
+      "label": "full_compile/English/5/audio-eager",
+      "passed": true,
+      "max_abs": 2.8812792152166367e-09
+    },
+    {
+      "label": "full_compile/English/original-full",
+      "passed": true,
+      "max_abs": 5.762558430433273e-09
+    },
+    {
+      "label": "overlap/English/original-full",
+      "passed": true,
+      "max_abs": 6.111804395914078e-09
+    },
+    {
+      "label": "full_compile/Spanish/0/audio-eager",
+      "passed": true,
+      "max_abs": 8.96397978067398e-09
+    },
+    {
+      "label": "full_compile/Spanish/2/audio-eager",
+      "passed": true,
+      "max_abs": 6.984919309616089e-09
+    },
+    {
+      "label": "full_compile/Spanish/3/audio-eager",
+      "passed": true,
+      "max_abs": 7.479684427380562e-09
+    },
+    {
+      "label": "full_compile/Spanish/5/audio-eager",
+      "passed": true,
+      "max_abs": 6.984919309616089e-09
+    },
+    {
+      "label": "full_compile/Spanish/original-full",
+      "passed": true,
+      "max_abs": 1.5541445463895798e-08
+    },
+    {
+      "label": "overlap/Spanish/original-full",
+      "passed": true,
+      "max_abs": 1.3329554349184036e-08
+    },
+    {
+      "label": "full_compile/Expressive0/0/audio-eager",
+      "passed": true,
+      "max_abs": 9.313225746154785e-09
+    },
+    {
+      "label": "full_compile/Expressive0/2/audio-eager",
+      "passed": true,
+      "max_abs": 7.101334631443024e-09
+    },
+    {
+      "label": "full_compile/Expressive0/3/audio-eager",
+      "passed": true,
+      "max_abs": 1.022453943733126e-08
+    },
+    {
+      "label": "full_compile/Expressive0/5/audio-eager",
+      "passed": true,
+      "max_abs": 7.37607479095459e-07
+    },
+    {
+      "label": "full_compile/Expressive0/original-full",
+      "passed": true,
+      "max_abs": 1.562759280204773e-06
+    },
+    {
+      "label": "overlap/Expressive0/original-full",
+      "passed": true,
+      "max_abs": 1.6801059246063232e-06
+    },
+    {
+      "label": "full_compile/Expressive1/0/audio-eager",
+      "passed": true,
+      "max_abs": 2.6775524020195007e-09
+    },
+    {
+      "label": "full_compile/Expressive1/2/audio-eager",
+      "passed": true,
+      "max_abs": 1.635271473787725e-09
+    },
+    {
+      "label": "full_compile/Expressive1/3/audio-eager",
+      "passed": true,
+      "max_abs": 1.5832483768463135e-08
+    },
+    {
+      "label": "full_compile/Expressive1/5/audio-eager",
+      "passed": true,
+      "max_abs": 2.0116567611694336e-07
+    },
+    {
+      "label": "full_compile/Expressive1/original-full",
+      "passed": true,
+      "max_abs": 2.3096799850463867e-07
+    },
+    {
+      "label": "overlap/Expressive1/original-full",
+      "passed": true,
+      "max_abs": 2.7194619178771973e-07
+    },
+    {
+      "label": "full_compile/Zero latent/0/audio-eager",
+      "passed": true,
+      "max_abs": 3.771856427192688e-08
+    },
+    {
+      "label": "full_compile/Zero latent/2/audio-eager",
+      "passed": true,
+      "max_abs": 3.166496753692627e-08
+    },
+    {
+      "label": "full_compile/Zero latent/3/audio-eager",
+      "passed": true,
+      "max_abs": 4.377216100692749e-08
+    },
+    {
+      "label": "full_compile/Zero latent/5/audio-eager",
+      "passed": true,
+      "max_abs": 4.889443516731262e-08
+    },
+    {
+      "label": "full_compile/Zero latent/original-full",
+      "passed": true,
+      "max_abs": 7.636845111846924e-08
+    },
+    {
+      "label": "overlap/Zero latent/original-full",
+      "passed": true,
+      "max_abs": 7.264316082000732e-08
+    },
+    {
+      "label": "full_compile/Quiet latent/0/audio-eager",
+      "passed": true,
+      "max_abs": 3.777677193284035e-08
+    },
+    {
+      "label": "full_compile/Quiet latent/2/audio-eager",
+      "passed": true,
+      "max_abs": 3.4924596548080444e-08
+    },
+    {
+      "label": "full_compile/Quiet latent/3/audio-eager",
+      "passed": true,
+      "max_abs": 4.0512531995773315e-08
+    },
+    {
+      "label": "full_compile/Quiet latent/5/audio-eager",
+      "passed": true,
+      "max_abs": 3.818422555923462e-08
+    },
+    {
+      "label": "full_compile/Quiet latent/original-full",
+      "passed": true,
+      "max_abs": 8.800998330116272e-08
+    },
+    {
+      "label": "overlap/Quiet latent/original-full",
+      "passed": true,
+      "max_abs": 9.220093488693237e-08
+    },
+    {
+      "label": "full_compile/reset/before/audio-eager",
+      "passed": true,
+      "max_abs": 3.230525180697441e-09
+    },
+    {
+      "label": "full_compile/reset/after/audio-eager",
+      "passed": true,
+      "max_abs": 3.230525180697441e-09
+    },
+    {
+      "label": "full_compile/reset-repeat",
+      "passed": true,
+      "max_abs": 0.0
+    },
+    {
+      "label": "full_compile/reset-original-full",
+      "passed": true,
+      "max_abs": 5.122274160385132e-09
+    },
+    {
+      "label": "full_compile/changed-future/audio-eager",
+      "passed": true,
+      "max_abs": 3.2014213502407074e-09
+    },
+    {
+      "label": "full_compile/prefix-invariance",
+      "passed": true,
+      "max_abs": 0.0
+    },
+    {
+      "label": "overlap/prefix-invariance",
+      "passed": true,
+      "max_abs": 0.0
+    },
+    {
+      "label": "full_compile/interleave/A1/audio-eager",
+      "passed": true,
+      "max_abs": 3.3905962482094765e-09
+    },
+    {
+      "label": "full_compile/interleave/B1/audio-eager",
+      "passed": true,
+      "max_abs": 8.96397978067398e-09
+    },
+    {
+      "label": "full_compile/interleave/A2/audio-eager",
+      "passed": true,
+      "max_abs": 3.14321368932724e-09
+    },
+    {
+      "label": "full_compile/interleave/B2/audio-eager",
+      "passed": true,
+      "max_abs": 6.984919309616089e-09
+    },
+    {
+      "label": "full_compile/interleave/A-full",
+      "passed": true,
+      "max_abs": 5.791662260890007e-09
+    },
+    {
+      "label": "full_compile/interleave/B-full",
+      "passed": true,
+      "max_abs": 1.0943040251731873e-08
+    }
+  ],
+  "state_summary": {
+    "before_compile": {
+      "stem.history": {
+        "comparisons": 39,
+        "max_abs": 0.0,
+        "passed": true
+      },
+      "stage0.transpose.history": {
+        "comparisons": 39,
+        "max_abs": 0.0,
+        "passed": true
+      },
+      "stage0.residual0.history": {
+        "comparisons": 39,
+        "max_abs": 0.0,
+        "passed": true
+      },
+      "stage0.residual1.history": {
+        "comparisons": 39,
+        "max_abs": 7.152557373046875e-07,
+        "passed": true
+      },
+      "stage0.residual2.history": {
+        "comparisons": 39,
+        "max_abs": 1.430511474609375e-06,
+        "passed": true
+      },
+      "stage1.transpose.history": {
+        "comparisons": 39,
+        "max_abs": 7.152557373046875e-07,
+        "passed": true
+      },
+      "stage1.residual0.history": {
+        "comparisons": 39,
+        "max_abs": 1.1920928955078125e-06,
+        "passed": true
+      },
+      "stage1.residual1.history": {
+        "comparisons": 39,
+        "max_abs": 1.430511474609375e-06,
+        "passed": true
+      },
+      "stage1.residual2.history": {
+        "comparisons": 39,
+        "max_abs": 2.9206275939941406e-06,
+        "passed": true
+      },
+      "stage2.transpose.history": {
+        "comparisons": 39,
+        "max_abs": 2.9802322387695312e-06,
+        "passed": true
+      },
+      "stage2.residual0.history": {
+        "comparisons": 39,
+        "max_abs": 7.152557373046875e-07,
+        "passed": true
+      },
+      "stage2.residual1.history": {
+        "comparisons": 39,
+        "max_abs": 1.430511474609375e-06,
+        "passed": true
+      },
+      "stage2.residual2.history": {
+        "comparisons": 39,
+        "max_abs": 2.4437904357910156e-06,
+        "passed": true
+      },
+      "stage3.transpose.history": {
+        "comparisons": 39,
+        "max_abs": 1.1920928955078125e-06,
+        "passed": true
+      },
+      "stage3.residual0.history": {
+        "comparisons": 39,
+        "max_abs": 8.940696716308594e-07,
+        "passed": true
+      },
+      "stage3.residual1.history": {
+        "comparisons": 39,
+        "max_abs": 1.430511474609375e-06,
+        "passed": true
+      },
+      "stage3.residual2.history": {
+        "comparisons": 39,
+        "max_abs": 2.5033950805664062e-06,
+        "passed": true
+      },
+      "stage4.transpose.history": {
+        "comparisons": 39,
+        "max_abs": 2.86102294921875e-06,
+        "passed": true
+      },
+      "stage4.residual0.history": {
+        "comparisons": 39,
+        "max_abs": 2.0265579223632812e-06,
+        "passed": true
+      },
+      "stage4.residual1.history": {
+        "comparisons": 39,
+        "max_abs": 2.6226043701171875e-06,
+        "passed": true
+      },
+      "stage4.residual2.history": {
+        "comparisons": 39,
+        "max_abs": 6.198883056640625e-06,
+        "passed": true
+      },
+      "stage5.transpose.history": {
+        "comparisons": 39,
+        "max_abs": 1.4007091522216797e-06,
+        "passed": true
+      },
+      "stage5.residual0.history": {
+        "comparisons": 39,
+        "max_abs": 3.0994415283203125e-06,
+        "passed": true
+      },
+      "stage5.residual1.history": {
+        "comparisons": 39,
+        "max_abs": 5.0067901611328125e-06,
+        "passed": true
+      },
+      "stage5.residual2.history": {
+        "comparisons": 39,
+        "max_abs": 9.298324584960938e-06,
+        "passed": true
+      },
+      "final.history": {
+        "comparisons": 39,
+        "max_abs": 7.152557373046875e-06,
+        "passed": true
+      }
+    },
+    "full_compile": {
+      "stem.history": {
+        "comparisons": 39,
+        "max_abs": 0.0,
+        "passed": true
+      },
+      "stage0.transpose.history": {
+        "comparisons": 39,
+        "max_abs": 0.0,
+        "passed": true
+      },
+      "stage0.residual0.history": {
+        "comparisons": 39,
+        "max_abs": 0.0,
+        "passed": true
+      },
+      "stage0.residual1.history": {
+        "comparisons": 39,
+        "max_abs": 7.152557373046875e-07,
+        "passed": true
+      },
+      "stage0.residual2.history": {
+        "comparisons": 39,
+        "max_abs": 1.1920928955078125e-06,
+        "passed": true
+      },
+      "stage1.transpose.history": {
+        "comparisons": 39,
+        "max_abs": 2.682209014892578e-07,
+        "passed": true
+      },
+      "stage1.residual0.history": {
+        "comparisons": 39,
+        "max_abs": 9.5367431640625e-07,
+        "passed": true
+      },
+      "stage1.residual1.history": {
+        "comparisons": 39,
+        "max_abs": 1.3113021850585938e-06,
+        "passed": true
+      },
+      "stage1.residual2.history": {
+        "comparisons": 39,
+        "max_abs": 3.039836883544922e-06,
+        "passed": true
+      },
+      "stage2.transpose.history": {
+        "comparisons": 39,
+        "max_abs": 3.0547380447387695e-07,
+        "passed": true
+      },
+      "stage2.residual0.history": {
+        "comparisons": 39,
+        "max_abs": 7.152557373046875e-07,
+        "passed": true
+      },
+      "stage2.residual1.history": {
+        "comparisons": 39,
+        "max_abs": 1.5497207641601562e-06,
+        "passed": true
+      },
+      "stage2.residual2.history": {
+        "comparisons": 39,
+        "max_abs": 2.4437904357910156e-06,
+        "passed": true
+      },
+      "stage3.transpose.history": {
+        "comparisons": 39,
+        "max_abs": 1.9371509552001953e-07,
+        "passed": true
+      },
+      "stage3.residual0.history": {
+        "comparisons": 39,
+        "max_abs": 8.940696716308594e-07,
+        "passed": true
+      },
+      "stage3.residual1.history": {
+        "comparisons": 39,
+        "max_abs": 2.384185791015625e-06,
+        "passed": true
+      },
+      "stage3.residual2.history": {
+        "comparisons": 39,
+        "max_abs": 2.86102294921875e-06,
+        "passed": true
+      },
+      "stage4.transpose.history": {
+        "comparisons": 39,
+        "max_abs": 8.046627044677734e-07,
+        "passed": true
+      },
+      "stage4.residual0.history": {
+        "comparisons": 39,
+        "max_abs": 1.7285346984863281e-06,
+        "passed": true
+      },
+      "stage4.residual1.history": {
+        "comparisons": 39,
+        "max_abs": 5.0067901611328125e-06,
+        "passed": true
+      },
+      "stage4.residual2.history": {
+        "comparisons": 39,
+        "max_abs": 6.4373016357421875e-06,
+        "passed": true
+      },
+      "stage5.transpose.history": {
+        "comparisons": 39,
+        "max_abs": 5.960464477539062e-07,
+        "passed": true
+      },
+      "stage5.residual0.history": {
+        "comparisons": 39,
+        "max_abs": 2.2649765014648438e-06,
+        "passed": true
+      },
+      "stage5.residual1.history": {
+        "comparisons": 39,
+        "max_abs": 4.76837158203125e-06,
+        "passed": true
+      },
+      "stage5.residual2.history": {
+        "comparisons": 39,
+        "max_abs": 8.821487426757812e-06,
+        "passed": true
+      },
+      "final.history": {
+        "comparisons": 39,
+        "max_abs": 5.4836273193359375e-06,
+        "passed": true
+      }
+    }
+  },
+  "files": {
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v2/qualify_candidates.py": "b337e2b694a93713bb1aca45c17912b014249a5dfa59f47ae75122eb6239fc12",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v2/experiment.py": "aac9c4bb76bf555a502212f1cce2e841d271c9421572ca7ca220031825e26253",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v2/mps_decoder_before.py": "72d51d8052d8376186730fb4cd2a0e5770eb717b37fb2a5deecca2f3ac689890",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v2/snake_candidates.py": "3134d2444f7b9bcd19e2a8f0cb354b030a6db10c8c868151d20b9147f8116fe5",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-streaming-promotion-v1/config-r3.json": "e34fd771ee7512a5fe6b5ca091d6adfafd8bfa5e7e95821c8cbe08fd4bad10dd",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/fast-audiovae-apple-gpu/src/fast_audiovae/mps_decoder.py": "d490015548d5777e00c8ef5a3f125b37cce9c108ad36e08c772eea8e4b2c6bc3",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/fast-audiovae-apple-gpu/src/fast_audiovae/gpu.py": "7665e1510d28aae3f8e0fe3ae6a7232f2f9be1a3db5a285e1fa53f24ef283491",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/audiovae2_onnx/audio_vae_decoder.onnx": "fdd20e200675ab9649bf33f16bc5974101ba5cf47ab89fbfe29f3d36ff6c3c84",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/audiovae2_onnx/audio_vae_decoder.onnx.data": "3b76bd57356e96893655bd24a364989e016c5af2fc8c29195caaefb4eccf5143",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/codec-quality-inputs/multilingual-encoded/fast_audiovae2.npz": "9b709b787c040591de57e094a5ba5a4515cc74e256e8014530ff8c7bb54d2d24",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-streaming-promotion-v1/extra-encoded-v1/latents.npz": "7392e27993227e58950be37804c8f535b69fc1f10380be3d1f044c1f2a2a801b"
+  },
+  "state_snapshot_checks": [
+    {
+      "arm": "before_compile",
+      "tensors_per_stream": 26,
+      "streams": 2,
+      "before_sha256": [
+        "39fe82d04972e906431b66f43615fddbcb3ceeaaa0055379df57dda58ac68ae5",
+        "2c08de0f25d130429ef754ce7e83b181428b466d6becad0c3f7ff4ff10f2ac0e"
+      ],
+      "exact": true
+    },
+    {
+      "arm": "full_compile",
+      "tensors_per_stream": 26,
+      "streams": 2,
+      "before_sha256": [
+        "a71f54536e491ad74ceab2f6d72b4fa5057d45538235138d622d4e942443641b",
+        "f98273cbbf945371f32eff4d74235b3083fa7944d8190c4c78b286b58b9f1012"
+      ],
+      "exact": true
+    }
+  ],
+  "per_call": [
+    {
+      "kind": "cpu",
+      "label": "Bengali/full",
+      "seconds": 0.04595362488180399
+    },
+    {
+      "kind": "cpu",
+      "label": "English/full",
+      "seconds": 0.042197625152766705
+    },
+    {
+      "kind": "cpu",
+      "label": "Spanish/full",
+      "seconds": 0.04199970792979002
+    },
+    {
+      "kind": "cpu",
+      "label": "Expressive0/full",
+      "seconds": 0.04214229201897979
+    },
+    {
+      "kind": "cpu",
+      "label": "Expressive1/full",
+      "seconds": 0.042079624719917774
+    },
+    {
+      "kind": "cpu",
+      "label": "Zero latent/full",
+      "seconds": 0.042659000027924776
+    },
+    {
+      "kind": "cpu",
+      "label": "Quiet latent/full",
+      "seconds": 0.04112754110246897
+    },
+    {
+      "kind": "cpu",
+      "label": "English/prefix2",
+      "seconds": 0.021472207736223936
+    },
+    {
+      "kind": "cpu",
+      "label": "English/prefix3",
+      "seconds": 0.028946582693606615
+    },
+    {
+      "kind": "cpu",
+      "label": "Spanish/prefix3",
+      "seconds": 0.028905415907502174
+    },
+    {
+      "kind": "cpu",
+      "label": "English/prefix6",
+      "seconds": 0.04172395775094628
+    },
+    {
+      "kind": "compile",
+      "label": "before_compile/preparation/0",
+      "seconds": 1.2008564588613808
+    },
+    {
+      "kind": "gpu",
+      "label": "before/preparation/0",
+      "seconds": 0.06675541587173939
+    },
+    {
+      "kind": "compile",
+      "label": "before_compile/preparation/1",
+      "seconds": 0.725517500191927
+    },
+    {
+      "kind": "gpu",
+      "label": "before/preparation/1",
+      "seconds": 0.20315941609442234
+    },
+    {
+      "kind": "compile",
+      "label": "before_compile/preparation/3",
+      "seconds": 0.014021333772689104
+    },
+    {
+      "kind": "gpu",
+      "label": "before/preparation/3",
+      "seconds": 0.010975582990795374
+    },
+    {
+      "kind": "compile",
+      "label": "before_compile/preparation/4",
+      "seconds": 0.009950915817171335
+    },
+    {
+      "kind": "gpu",
+      "label": "before/preparation/4",
+      "seconds": 0.009533832781016827
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Bengali/0",
+      "seconds": 0.006627750117331743
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Bengali/0",
+      "seconds": 0.007988874800503254
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Bengali/2",
+      "seconds": 0.006141374818980694
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Bengali/2",
+      "seconds": 0.005868582986295223
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Bengali/3",
+      "seconds": 0.005929166916757822
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Bengali/3",
+      "seconds": 0.0059035420417785645
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Bengali/5",
+      "seconds": 0.005173833109438419
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Bengali/5",
+      "seconds": 0.006506250239908695
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/English/0",
+      "seconds": 0.0058254580944776535
+    },
+    {
+      "kind": "gpu",
+      "label": "before/English/0",
+      "seconds": 0.006550209131091833
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/English/2",
+      "seconds": 0.004931208211928606
+    },
+    {
+      "kind": "gpu",
+      "label": "before/English/2",
+      "seconds": 0.005880041979253292
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/English/3",
+      "seconds": 0.005558375269174576
+    },
+    {
+      "kind": "gpu",
+      "label": "before/English/3",
+      "seconds": 0.006642958149313927
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/English/5",
+      "seconds": 0.00577233312651515
+    },
+    {
+      "kind": "gpu",
+      "label": "before/English/5",
+      "seconds": 0.005841166712343693
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Spanish/0",
+      "seconds": 0.004984125029295683
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Spanish/0",
+      "seconds": 0.006957207806408405
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Spanish/2",
+      "seconds": 0.00555687490850687
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Spanish/2",
+      "seconds": 0.006491666194051504
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Spanish/3",
+      "seconds": 0.005734665784984827
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Spanish/3",
+      "seconds": 0.005835624877363443
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Spanish/5",
+      "seconds": 0.0051633333787322044
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Spanish/5",
+      "seconds": 0.0058222077786922455
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Expressive0/0",
+      "seconds": 0.0053159999661147594
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Expressive0/0",
+      "seconds": 0.006874625105410814
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Expressive0/2",
+      "seconds": 0.004577042069286108
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Expressive0/2",
+      "seconds": 0.006372708827257156
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Expressive0/3",
+      "seconds": 0.005810791160911322
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Expressive0/3",
+      "seconds": 0.008072792086750269
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Expressive0/5",
+      "seconds": 0.005036083981394768
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Expressive0/5",
+      "seconds": 0.0060289157554507256
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Expressive1/0",
+      "seconds": 0.004966458771377802
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Expressive1/0",
+      "seconds": 0.006265667267143726
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Expressive1/2",
+      "seconds": 0.0058881668373942375
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Expressive1/2",
+      "seconds": 0.006208749953657389
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Expressive1/3",
+      "seconds": 0.005934541113674641
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Expressive1/3",
+      "seconds": 0.005828833673149347
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Expressive1/5",
+      "seconds": 0.005197625141590834
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Expressive1/5",
+      "seconds": 0.005780250299721956
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Zero latent/0",
+      "seconds": 0.005451708100736141
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Zero latent/0",
+      "seconds": 0.006243124604225159
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Zero latent/2",
+      "seconds": 0.004685666877776384
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Zero latent/2",
+      "seconds": 0.006265709176659584
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Zero latent/3",
+      "seconds": 0.0054215420968830585
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Zero latent/3",
+      "seconds": 0.00572116719558835
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Zero latent/5",
+      "seconds": 0.004932667128741741
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Zero latent/5",
+      "seconds": 0.006854708306491375
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Quiet latent/0",
+      "seconds": 0.0063811661675572395
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Quiet latent/0",
+      "seconds": 0.005829208996146917
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Quiet latent/2",
+      "seconds": 0.00490366667509079
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Quiet latent/2",
+      "seconds": 0.005471082869917154
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Quiet latent/3",
+      "seconds": 0.006177582778036594
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Quiet latent/3",
+      "seconds": 0.005800500046461821
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Quiet latent/5",
+      "seconds": 0.0052465409971773624
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Quiet latent/5",
+      "seconds": 0.0056792087852954865
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/initial-empty",
+      "seconds": 1.3290904462337494e-05
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/flush",
+      "seconds": 1.0407529771327972e-06
+    },
+    {
+      "kind": "gpu",
+      "label": "before/initial-empty",
+      "seconds": 2.500135451555252e-06
+    },
+    {
+      "kind": "gpu",
+      "label": "before/flush",
+      "seconds": 4.5821070671081543e-07
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/reset/before",
+      "seconds": 0.005022125318646431
+    },
+    {
+      "kind": "gpu",
+      "label": "before/reset/before",
+      "seconds": 0.005796417128294706
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/reset/after",
+      "seconds": 0.005865541752427816
+    },
+    {
+      "kind": "gpu",
+      "label": "before/reset/after",
+      "seconds": 0.006055958103388548
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/changed-future",
+      "seconds": 0.004918250255286694
+    },
+    {
+      "kind": "gpu",
+      "label": "before/changed-future",
+      "seconds": 0.007126125041395426
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/interleave/A1",
+      "seconds": 0.005428875330835581
+    },
+    {
+      "kind": "gpu",
+      "label": "before/interleave/A1",
+      "seconds": 0.0064119999296963215
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/interleave/B1",
+      "seconds": 0.005510709248483181
+    },
+    {
+      "kind": "gpu",
+      "label": "before/interleave/B1",
+      "seconds": 0.00582879176363349
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/interleave/A2",
+      "seconds": 0.005296250339597464
+    },
+    {
+      "kind": "gpu",
+      "label": "before/interleave/A2",
+      "seconds": 0.006487333215773106
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/interleave/B2",
+      "seconds": 0.0057692499831318855
+    },
+    {
+      "kind": "gpu",
+      "label": "before/interleave/B2",
+      "seconds": 0.0054716248996555805
+    },
+    {
+      "kind": "compile",
+      "label": "full_compile/preparation/0",
+      "seconds": 0.3728151246905327
+    },
+    {
+      "kind": "gpu",
+      "label": "overlap/preparation/0",
+      "seconds": 0.007981000002473593
+    },
+    {
+      "kind": "compile",
+      "label": "full_compile/preparation/1",
+      "seconds": 0.4655456659384072
+    },
+    {
+      "kind": "gpu",
+      "label": "overlap/preparation/1",
+      "seconds": 0.00928166601806879
+    },
+    {
+      "kind": "compile",
+      "label": "full_compile/preparation/3",
+      "seconds": 0.006152084097266197
+    },
+    {
+      "kind": "gpu",
+      "label": "overlap/preparation/3",
+      "seconds": 0.00864995876327157
+    },
+    {
+      "kind": "compile",
+      "label": "full_compile/preparation/4",
+      "seconds": 0.00674837501719594
+    },
+    {
+      "kind": "gpu",
+      "label": "overlap/preparation/4",
+      "seconds": 0.006129459012299776
+    },
+    {
+      "kind": "gpu",
+      "label": "full_compile/Bengali/0",
+      "seconds": 0.0058302078396081924
+    },
+    {
+      "kind": "gpu",
+      "label": "overlap/Bengali/0",
+      "seconds": 0.006974500138312578
+    },
+    {
+      "kind": "gpu",
+      "label": "full_compile/Bengali/2",
+      "seconds": 0.005619540810585022
+    },
+    {
+      "kind": "gpu",
+      "label": "overlap/Bengali/2",
+      "seconds": 0.007050583604723215
+    },
+    {
+      "kind": "gpu",
+      "label": "full_compile/Bengali/3",
+      "seconds": 0.0058280411176383495
+    },
+    {
+      "kind": "gpu",
+      "label": "overlap/Bengali/3",
+      "seconds": 0.006575665902346373
+    },
+    {
+      "kind": "gpu",
+      "label": "full_compile/Bengali/5",
+      "seconds": 0.005328791681677103
+    },
+    {
+      "kind": "gpu",
+      "label": "overlap/Bengali/5",
+      "seconds": 0.005762625019997358
+    },
+    {
+      "kind": "gpu",
+      "label": "full_compile/English/0",
+      "seconds": 0.0053308745846152306
+    },
+    {
+      "kind": "gpu",
+      "label": "overlap/English/0",
+      "seconds": 0.006886166986078024
+    },
+    {
+      "kind": "gpu",
+      "label": "full_compile/English/2",
+      "seconds": 0.005362417083233595
+    },
+    {
+      "kind": "gpu",
+      "label": "overlap/English/2",
+      "seconds": 0.006214624736458063
+    },
+    {
+      "kind": "gpu",
+      "label": "full_compile/English/3",
+      "seconds": 0.0056817918084561825
+    },
+    {
+      "kind": "gpu",
+      "label": "overlap/English/3",
+      "seconds": 0.006158041767776012
+    },
+    {
+      "kind": "gpu",
+      "label": "full_compile/English/5",
+      "seconds": 0.005805124994367361
+    },
+    {
+      "kind": "gpu",
+      "label": "overlap/English/5",
+      "seconds": 0.006585292052477598
+    },
+    {
+      "kind": "gpu",
+      "label": "full_compile/Spanish/0",
+      "seconds": 0.0060632498934865
+    },
+    {
+      "kind": "gpu",
+      "label": "overlap/Spanish/0",
+      "seconds": 0.006833541207015514
+    },
+    {
+      "kind": "gpu",
+      "label": "full_compile/Spanish/2",
+      "seconds": 0.004880750086158514
+    },
+    {
+      "kind": "gpu",
+      "label": "overlap/Spanish/2",
+      "seconds": 0.0057512917555868626
+    },
+    {
+      "kind": "gpu",
+      "label": "full_compile/Spanish/3",
+      "seconds": 0.005837500095367432
+    },
+    {
+      "kind": "gpu",
+      "label": "overlap/Spanish/3",
+      "seconds": 0.006395125295966864
+    },
+    {
+      "kind": "gpu",
+      "label": "full_compile/Spanish/5",
+      "seconds": 0.006034207995980978
+    },
+    {
+      "kind": "gpu",
+      "label": "overlap/Spanish/5",
+      "seconds": 0.0058961668983101845
+    },
+    {
+      "kind": "gpu",
+      "label": "full_compile/Expressive0/0",
+      "seconds": 0.005261209327727556
+    },
+    {
+      "kind": "gpu",
+      "label": "overlap/Expressive0/0",
+      "seconds": 0.006466499995440245
+    },
+    {
+      "kind": "gpu",
+      "label": "full_compile/Expressive0/2",
+      "seconds": 0.005117916036397219
+    },
+    {
+      "kind": "gpu",
+      "label": "overlap/Expressive0/2",
+      "seconds": 0.00664933305233717
+    },
+    {
+      "kind": "gpu",
+      "label": "full_compile/Expressive0/3",
+      "seconds": 0.00522691709920764
+    },
+    {
+      "kind": "gpu",
+      "label": "overlap/Expressive0/3",
+      "seconds": 0.005856040865182877
+    },
+    {
+      "kind": "gpu",
+      "label": "full_compile/Expressive0/5",
+      "seconds": 0.004940041806548834
+    },
+    {
+      "kind": "gpu",
+      "label": "overlap/Expressive0/5",
+      "seconds": 0.006599250249564648
+    },
+    {
+      "kind": "gpu",
+      "label": "full_compile/Expressive1/0",
+      "seconds": 0.006005332805216312
+    },
+    {
+      "kind": "gpu",
+      "label": "overlap/Expressive1/0",
+      "seconds": 0.006994541734457016
+    },
+    {
+      "kind": "gpu",
+      "label": "full_compile/Expressive1/2",
+      "seconds": 0.0048506250604987144
+    },
+    {
+      "kind": "gpu",
+      "label": "overlap/Expressive1/2",
+      "seconds": 0.005720790941268206
+    },
+    {
+      "kind": "gpu",
+      "label": "full_compile/Expressive1/3",
+      "seconds": 0.00512275006622076
+    },
+    {
+      "kind": "gpu",
+      "label": "overlap/Expressive1/3",
+      "seconds": 0.006661582738161087
+    },
+    {
+      "kind": "gpu",
+      "label": "full_compile/Expressive1/5",
+      "seconds": 0.005811790935695171
+    },
+    {
+      "kind": "gpu",
+      "label": "overlap/Expressive1/5",
+      "seconds": 0.006281666923314333
+    },
+    {
+      "kind": "gpu",
+      "label": "full_compile/Zero latent/0",
+      "seconds": 0.006069708149880171
+    },
+    {
+      "kind": "gpu",
+      "label": "overlap/Zero latent/0",
+      "seconds": 0.005981583148241043
+    },
+    {
+      "kind": "gpu",
+      "label": "full_compile/Zero latent/2",
+      "seconds": 0.004844458773732185
+    },
+    {
+      "kind": "gpu",
+      "label": "overlap/Zero latent/2",
+      "seconds": 0.006105834152549505
+    },
+    {
+      "kind": "gpu",
+      "label": "full_compile/Zero latent/3",
+      "seconds": 0.0059907091781497
+    },
+    {
+      "kind": "gpu",
+      "label": "overlap/Zero latent/3",
+      "seconds": 0.005769999697804451
+    },
+    {
+      "kind": "gpu",
+      "label": "full_compile/Zero latent/5",
+      "seconds": 0.005073375068604946
+    },
+    {
+      "kind": "gpu",
+      "label": "overlap/Zero latent/5",
+      "seconds": 0.006597749888896942
+    },
+    {
+      "kind": "gpu",
+      "label": "full_compile/Quiet latent/0",
+      "seconds": 0.0055236672051250935
+    },
+    {
+      "kind": "gpu",
+      "label": "overlap/Quiet latent/0",
+      "seconds": 0.0067163328640162945
+    },
+    {
+      "kind": "gpu",
+      "label": "full_compile/Quiet latent/2",
+      "seconds": 0.00490187481045723
+    },
+    {
+      "kind": "gpu",
+      "label": "overlap/Quiet latent/2",
+      "seconds": 0.005534416995942593
+    },
+    {
+      "kind": "gpu",
+      "label": "full_compile/Quiet latent/3",
+      "seconds": 0.0057967910543084145
+    },
+    {
+      "kind": "gpu",
+      "label": "overlap/Quiet latent/3",
+      "seconds": 0.00647916691377759
+    },
+    {
+      "kind": "gpu",
+      "label": "full_compile/Quiet latent/5",
+      "seconds": 0.0050055827014148235
+    },
+    {
+      "kind": "gpu",
+      "label": "overlap/Quiet latent/5",
+      "seconds": 0.005865584127604961
+    },
+    {
+      "kind": "gpu",
+      "label": "full_compile/initial-empty",
+      "seconds": 1.2209173291921616e-05
+    },
+    {
+      "kind": "gpu",
+      "label": "full_compile/flush",
+      "seconds": 5.83939254283905e-07
+    },
+    {
+      "kind": "gpu",
+      "label": "overlap/initial-empty",
+      "seconds": 2.250075340270996e-06
+    },
+    {
+      "kind": "gpu",
+      "label": "overlap/flush",
+      "seconds": 2.919696271419525e-07
+    },
+    {
+      "kind": "gpu",
+      "label": "full_compile/reset/before",
+      "seconds": 0.0050030420534312725
+    },
+    {
+      "kind": "gpu",
+      "label": "overlap/reset/before",
+      "seconds": 0.006441458128392696
+    },
+    {
+      "kind": "gpu",
+      "label": "full_compile/reset/after",
+      "seconds": 0.0058999997563660145
+    },
+    {
+      "kind": "gpu",
+      "label": "overlap/reset/after",
+      "seconds": 0.00734541704878211
+    },
+    {
+      "kind": "gpu",
+      "label": "full_compile/changed-future",
+      "seconds": 0.005035583395510912
+    },
+    {
+      "kind": "gpu",
+      "label": "overlap/changed-future",
+      "seconds": 0.0058534168638288975
+    },
+    {
+      "kind": "gpu",
+      "label": "full_compile/interleave/A1",
+      "seconds": 0.004974875133484602
+    },
+    {
+      "kind": "gpu",
+      "label": "overlap/interleave/A1",
+      "seconds": 0.006269207689911127
+    },
+    {
+      "kind": "gpu",
+      "label": "full_compile/interleave/B1",
+      "seconds": 0.00587054155766964
+    },
+    {
+      "kind": "gpu",
+      "label": "overlap/interleave/B1",
+      "seconds": 0.007796458899974823
+    },
+    {
+      "kind": "gpu",
+      "label": "full_compile/interleave/A2",
+      "seconds": 0.004982790909707546
+    },
+    {
+      "kind": "gpu",
+      "label": "overlap/interleave/A2",
+      "seconds": 0.005956375040113926
+    },
+    {
+      "kind": "gpu",
+      "label": "full_compile/interleave/B2",
+      "seconds": 0.005096125416457653
+    },
+    {
+      "kind": "gpu",
+      "label": "overlap/interleave/B2",
+      "seconds": 0.005461667198687792
+    }
+  ],
+  "runtime": {
+    "torch": "2.14.0",
+    "onnxruntime": "1.30.0",
+    "numpy": "2.5.3",
+    "fast_math": false,
+    "cpu_fallback": false
+  },
+  "inputs": [
+    {
+      "label": "Bengali",
+      "frames": 7,
+      "sha256": "e819ead2107427d257755a8afdeb2eb6d167bada3ee608a5a760921ca17f1d5d"
+    },
+    {
+      "label": "English",
+      "frames": 7,
+      "sha256": "0cebc821a7242ed2e03ba8c51714c5eb90f1a902fc9df4fa4628e3d866985a5f"
+    },
+    {
+      "label": "Spanish",
+      "frames": 7,
+      "sha256": "248ba2f7764deff255fc7cebb2974259e0aa2c91ec84475f8b3d9f86a5133c03"
+    },
+    {
+      "label": "Expressive0",
+      "frames": 7,
+      "sha256": "af056d9229e6c466490d0b55c2ffee740d003d4630b51be820183464be0314d7"
+    },
+    {
+      "label": "Expressive1",
+      "frames": 7,
+      "sha256": "6261afbb0d89e241b8b94e42490edb61314c06f44ed3421df5cc8e46b3209f7d"
+    },
+    {
+      "label": "Zero latent",
+      "frames": 7,
+      "sha256": "7b4fc1a8dbe6b6121f16ada516e2ac27e02964716bacea5fb7d07cf30595948e"
+    },
+    {
+      "label": "Quiet latent",
+      "frames": 7,
+      "sha256": "63eebb655a013d23a098062aaa096b7c52f5332139e999dacc44d6dbc25fec6a"
+    }
+  ],
+  "protocol": {
+    "atol": 1e-05,
+    "rtol": 0.0001,
+    "precision": "FP32",
+    "host_threads": 1,
+    "fixed_compile_lengths": [
+      1,
+      2
+    ],
+    "mixed_partition": [
+      2,
+      1,
+      2,
+      2
+    ],
+    "empty_on_public_fast_path": true,
+    "cpu_reference": "Original pinned full ONNX on the same seven-frame prefix.",
+    "state_reference": "Separate eager model with the candidate's identical overlap representation; each arm evolves its own state.",
+    "state_checks": "All26 states: exact keys/shape/device/FP32/contiguity, finite values, per-state tolerance; one noninitial pre-call original-byte snapshot for both streams per arm.",
+    "budget": "Ordinary completed GPU API plus synchronized state-inspection wall time <15s; <250 total model/API calls including CPU references and preparation.",
+    "exclusions": "Model construction/shader compilation and the four first full_compile/snake_compile calls are separately reported. Those first-call wall times include compilation AND decode, not pure compiler time.",
+    "benchmark": false,
+    "suppress_errors": false,
+    "fail_on_recompile_limit_hit": true
+  },
+  "artifacts_unchanged": true,
+  "completed_arms": 2
+}

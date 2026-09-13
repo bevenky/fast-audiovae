@@ -1,0 +1,919 @@
+{
+  "version": "apple_gpu_candidate_qualification_v1",
+  "status": "failed",
+  "arms": [
+    "before_compile"
+  ],
+  "calls": 51,
+  "gpu_api_calls": 36,
+  "cpu_reference_calls": 11,
+  "compilation_first_calls": 4,
+  "gpu_api_seconds": 0.38746683206409216,
+  "state_inspection_seconds": 0.014498001430183649,
+  "cpu_reference_seconds": 0.4061752501875162,
+  "compilation_first_call_seconds": 6.3739944151602685,
+  "preparation": [
+    {
+      "arm": "before_compile",
+      "build_seconds": 0.46482116589322686,
+      "state_shapes": {
+        "stem.history": [
+          1,
+          64,
+          6
+        ],
+        "stage0.transpose.history": [
+          1,
+          2048,
+          1
+        ],
+        "stage0.residual0.history": [
+          1,
+          1024,
+          6
+        ],
+        "stage0.residual1.history": [
+          1,
+          1024,
+          18
+        ],
+        "stage0.residual2.history": [
+          1,
+          1024,
+          54
+        ],
+        "stage1.transpose.history": [
+          1,
+          1024,
+          1
+        ],
+        "stage1.residual0.history": [
+          1,
+          512,
+          6
+        ],
+        "stage1.residual1.history": [
+          1,
+          512,
+          18
+        ],
+        "stage1.residual2.history": [
+          1,
+          512,
+          54
+        ],
+        "stage2.transpose.history": [
+          1,
+          512,
+          1
+        ],
+        "stage2.residual0.history": [
+          1,
+          256,
+          6
+        ],
+        "stage2.residual1.history": [
+          1,
+          256,
+          18
+        ],
+        "stage2.residual2.history": [
+          1,
+          256,
+          54
+        ],
+        "stage3.transpose.history": [
+          1,
+          256,
+          1
+        ],
+        "stage3.residual0.history": [
+          1,
+          128,
+          6
+        ],
+        "stage3.residual1.history": [
+          1,
+          128,
+          18
+        ],
+        "stage3.residual2.history": [
+          1,
+          128,
+          54
+        ],
+        "stage4.transpose.history": [
+          1,
+          128,
+          1
+        ],
+        "stage4.residual0.history": [
+          1,
+          64,
+          6
+        ],
+        "stage4.residual1.history": [
+          1,
+          64,
+          18
+        ],
+        "stage4.residual2.history": [
+          1,
+          64,
+          54
+        ],
+        "stage5.transpose.history": [
+          1,
+          64,
+          1
+        ],
+        "stage5.residual0.history": [
+          1,
+          32,
+          6
+        ],
+        "stage5.residual1.history": [
+          1,
+          32,
+          18
+        ],
+        "stage5.residual2.history": [
+          1,
+          32,
+          54
+        ],
+        "final.history": [
+          1,
+          32,
+          6
+        ]
+      },
+      "state_bytes": 647424,
+      "source_identity": {
+        "graph_sha256": "fdd20e200675ab9649bf33f16bc5974101ba5cf47ab89fbfe29f3d36ff6c3c84",
+        "external_data_sha256": "3b76bd57356e96893655bd24a364989e016c5af2fc8c29195caaefb4eccf5143",
+        "coefficient_source": "literal_verified_onnx_initializers",
+        "precision": "float32",
+        "transpose_state": "previous_activated_input"
+      },
+      "compiler_counters": {
+        "unimplemented": {},
+        "stats": {
+          "calls_captured": 910,
+          "unique_graphs": 2
+        },
+        "aot_autograd": {
+          "total": 2,
+          "autograd_cache_miss": 2,
+          "autograd_cache_saved": 2,
+          "ok": 2
+        },
+        "inductor": {
+          "pattern_matcher_count": 24,
+          "pattern_matcher_nodes": 24,
+          "fxgraph_cache_miss": 2,
+          "extern_calls": 90
+        },
+        "graph_break": {},
+        "aten_mm_info": {
+          "aten.mm_8192_1_4096": 1,
+          "aten.mm_3072_8_2048": 1,
+          "aten.mm_1280_48_1024": 1,
+          "aten.mm_256_240_512": 1,
+          "aten.mm_128_480_256": 1,
+          "aten.mm_64_960_128": 1,
+          "aten.mm_8192_2_4096": 1,
+          "aten.mm_3072_16_2048": 1,
+          "aten.mm_1280_96_1024": 1,
+          "aten.mm_256_480_512": 1,
+          "aten.mm_128_960_256": 1,
+          "aten.mm_64_1920_128": 1
+        }
+      }
+    }
+  ],
+  "checks": [
+    {
+      "label": "before_compile/preparation/0/audio-eager",
+      "passed": true,
+      "max_abs": 5.471520125865936e-09
+    },
+    {
+      "label": "before_compile/preparation/1/audio-eager",
+      "passed": true,
+      "max_abs": 5.0640664994716644e-09
+    },
+    {
+      "label": "before_compile/preparation/3/audio-eager",
+      "passed": true,
+      "max_abs": 4.394678398966789e-09
+    },
+    {
+      "label": "before_compile/preparation/4/audio-eager",
+      "passed": true,
+      "max_abs": 4.918547347187996e-09
+    },
+    {
+      "label": "before_compile/preparation/full-reference",
+      "passed": true,
+      "max_abs": 6.56291376799345e-09
+    },
+    {
+      "label": "before_compile/Bengali/0/audio-eager",
+      "passed": true,
+      "max_abs": 7.299240678548813e-08
+    },
+    {
+      "label": "before_compile/Bengali/2/audio-eager",
+      "passed": true,
+      "max_abs": 7.962808012962341e-08
+    },
+    {
+      "label": "before_compile/Bengali/3/audio-eager",
+      "passed": true,
+      "max_abs": 6.193295121192932e-08
+    },
+    {
+      "label": "before_compile/Bengali/5/audio-eager",
+      "passed": true,
+      "max_abs": 5.471520125865936e-08
+    },
+    {
+      "label": "before_compile/Bengali/original-full",
+      "passed": true,
+      "max_abs": 9.220093488693237e-08
+    },
+    {
+      "label": "before/Bengali/original-full",
+      "passed": true,
+      "max_abs": 6.100162863731384e-08
+    },
+    {
+      "label": "before_compile/English/0/audio-eager",
+      "passed": true,
+      "max_abs": 5.238689482212067e-09
+    },
+    {
+      "label": "before_compile/English/2/audio-eager",
+      "passed": true,
+      "max_abs": 5.0640664994716644e-09
+    },
+    {
+      "label": "before_compile/English/3/audio-eager",
+      "passed": true,
+      "max_abs": 4.71482053399086e-09
+    },
+    {
+      "label": "before_compile/English/5/audio-eager",
+      "passed": true,
+      "max_abs": 5.387846613302827e-09
+    },
+    {
+      "label": "before_compile/English/original-full",
+      "passed": true,
+      "max_abs": 6.344635039567947e-09
+    },
+    {
+      "label": "before/English/original-full",
+      "passed": true,
+      "max_abs": 5.9371814131736755e-09
+    },
+    {
+      "label": "before_compile/Spanish/0/audio-eager",
+      "passed": true,
+      "max_abs": 1.1918018572032452e-08
+    },
+    {
+      "label": "before_compile/Spanish/2/audio-eager",
+      "passed": true,
+      "max_abs": 1.1408701539039612e-08
+    },
+    {
+      "label": "before_compile/Spanish/3/audio-eager",
+      "passed": true,
+      "max_abs": 1.155422069132328e-08
+    },
+    {
+      "label": "before_compile/Spanish/5/audio-eager",
+      "passed": true,
+      "max_abs": 1.0826624929904938e-08
+    },
+    {
+      "label": "before_compile/Spanish/original-full",
+      "passed": true,
+      "max_abs": 1.2980308383703232e-08
+    },
+    {
+      "label": "before/Spanish/original-full",
+      "passed": true,
+      "max_abs": 1.2398231774568558e-08
+    },
+    {
+      "label": "before_compile/Expressive0/0/audio-eager",
+      "passed": true,
+      "max_abs": 3.172317519783974e-08
+    },
+    {
+      "label": "before_compile/Expressive0/2/audio-eager",
+      "passed": true,
+      "max_abs": 1.0390067473053932e-08
+    },
+    {
+      "label": "before_compile/Expressive0/3/audio-eager",
+      "passed": true,
+      "max_abs": 2.1886080503463745e-08
+    },
+    {
+      "label": "before_compile/Expressive0/5/audio-eager",
+      "passed": true,
+      "max_abs": 2.3096799850463867e-06
+    }
+  ],
+  "state_summary": {
+    "before_compile": {
+      "stem.history": {
+        "comparisons": 20,
+        "max_abs": 0.0,
+        "passed": true
+      },
+      "stage0.transpose.history": {
+        "comparisons": 20,
+        "max_abs": 0.0,
+        "passed": true
+      },
+      "stage0.residual0.history": {
+        "comparisons": 20,
+        "max_abs": 3.337860107421875e-06,
+        "passed": true
+      },
+      "stage0.residual1.history": {
+        "comparisons": 20,
+        "max_abs": 5.245208740234375e-06,
+        "passed": true
+      },
+      "stage0.residual2.history": {
+        "comparisons": 20,
+        "max_abs": 1.1801719665527344e-05,
+        "passed": true
+      },
+      "stage1.transpose.history": {
+        "comparisons": 20,
+        "max_abs": 2.384185791015625e-06,
+        "passed": true
+      },
+      "stage1.residual0.history": {
+        "comparisons": 20,
+        "max_abs": 4.291534423828125e-06,
+        "passed": true
+      },
+      "stage1.residual1.history": {
+        "comparisons": 20,
+        "max_abs": 1.239776611328125e-05,
+        "passed": true
+      },
+      "stage1.residual2.history": {
+        "comparisons": 20,
+        "max_abs": 2.0265579223632812e-05,
+        "passed": true
+      },
+      "stage2.transpose.history": {
+        "comparisons": 20,
+        "max_abs": 4.827976226806641e-06,
+        "passed": true
+      },
+      "stage2.residual0.history": {
+        "comparisons": 20,
+        "max_abs": 2.5033950805664062e-06,
+        "passed": true
+      },
+      "stage2.residual1.history": {
+        "comparisons": 20,
+        "max_abs": 3.933906555175781e-06,
+        "passed": true
+      },
+      "stage2.residual2.history": {
+        "comparisons": 20,
+        "max_abs": 9.000301361083984e-06,
+        "passed": true
+      },
+      "stage3.transpose.history": {
+        "comparisons": 20,
+        "max_abs": 2.123415470123291e-06,
+        "passed": true
+      },
+      "stage3.residual0.history": {
+        "comparisons": 20,
+        "max_abs": 2.5033950805664062e-06,
+        "passed": true
+      },
+      "stage3.residual1.history": {
+        "comparisons": 20,
+        "max_abs": 4.291534423828125e-06,
+        "passed": true
+      },
+      "stage3.residual2.history": {
+        "comparisons": 20,
+        "max_abs": 7.510185241699219e-06,
+        "passed": true
+      },
+      "stage4.transpose.history": {
+        "comparisons": 20,
+        "max_abs": 4.76837158203125e-06,
+        "passed": true
+      },
+      "stage4.residual0.history": {
+        "comparisons": 20,
+        "max_abs": 4.0531158447265625e-06,
+        "passed": true
+      },
+      "stage4.residual1.history": {
+        "comparisons": 20,
+        "max_abs": 7.3909759521484375e-06,
+        "passed": true
+      },
+      "stage4.residual2.history": {
+        "comparisons": 20,
+        "max_abs": 2.8252601623535156e-05,
+        "passed": true
+      },
+      "stage5.transpose.history": {
+        "comparisons": 20,
+        "max_abs": 3.814697265625e-06,
+        "passed": true
+      },
+      "stage5.residual0.history": {
+        "comparisons": 20,
+        "max_abs": 7.510185241699219e-06,
+        "passed": true
+      },
+      "stage5.residual1.history": {
+        "comparisons": 20,
+        "max_abs": 1.3113021850585938e-05,
+        "passed": true
+      },
+      "stage5.residual2.history": {
+        "comparisons": 20,
+        "max_abs": 4.00543212890625e-05,
+        "passed": false
+      },
+      "final.history": {
+        "comparisons": 19,
+        "max_abs": 4.172325134277344e-06,
+        "passed": true
+      }
+    }
+  },
+  "files": {
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v2/qualify_candidates.py": "b337e2b694a93713bb1aca45c17912b014249a5dfa59f47ae75122eb6239fc12",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v2/experiment.py": "aac9c4bb76bf555a502212f1cce2e841d271c9421572ca7ca220031825e26253",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v2/mps_decoder_before.py": "72d51d8052d8376186730fb4cd2a0e5770eb717b37fb2a5deecca2f3ac689890",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v2/snake_candidates.py": "3134d2444f7b9bcd19e2a8f0cb354b030a6db10c8c868151d20b9147f8116fe5",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-streaming-promotion-v1/config-r3.json": "e34fd771ee7512a5fe6b5ca091d6adfafd8bfa5e7e95821c8cbe08fd4bad10dd",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/fast-audiovae-apple-gpu/src/fast_audiovae/mps_decoder.py": "d490015548d5777e00c8ef5a3f125b37cce9c108ad36e08c772eea8e4b2c6bc3",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/fast-audiovae-apple-gpu/src/fast_audiovae/gpu.py": "7665e1510d28aae3f8e0fe3ae6a7232f2f9be1a3db5a285e1fa53f24ef283491",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/audiovae2_onnx/audio_vae_decoder.onnx": "fdd20e200675ab9649bf33f16bc5974101ba5cf47ab89fbfe29f3d36ff6c3c84",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/audiovae2_onnx/audio_vae_decoder.onnx.data": "3b76bd57356e96893655bd24a364989e016c5af2fc8c29195caaefb4eccf5143",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/codec-quality-inputs/multilingual-encoded/fast_audiovae2.npz": "9b709b787c040591de57e094a5ba5a4515cc74e256e8014530ff8c7bb54d2d24",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-streaming-promotion-v1/extra-encoded-v1/latents.npz": "7392e27993227e58950be37804c8f535b69fc1f10380be3d1f044c1f2a2a801b",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v4/qualify.py": "218c08e44315d948f7cd35e651538f1ad4a1900a9fce52c10a54c0f32087977e",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v4/candidates.py": "adbfddcf65360537e7fb7035a818ba1754b5ee5f4383c40a33cb398bc190c43f"
+  },
+  "state_snapshot_checks": [
+    {
+      "arm": "before_compile",
+      "tensors_per_stream": 26,
+      "streams": 2,
+      "before_sha256": [
+        "4be12fcc8e5f436157e43a67f6609367642ad6ca89c64798afaf8d20511a8efe",
+        "2c08de0f25d130429ef754ce7e83b181428b466d6becad0c3f7ff4ff10f2ac0e"
+      ],
+      "exact": true
+    }
+  ],
+  "per_call": [
+    {
+      "kind": "cpu",
+      "label": "Bengali/full",
+      "seconds": 0.04560141731053591
+    },
+    {
+      "kind": "cpu",
+      "label": "English/full",
+      "seconds": 0.041234458796679974
+    },
+    {
+      "kind": "cpu",
+      "label": "Spanish/full",
+      "seconds": 0.04093137476593256
+    },
+    {
+      "kind": "cpu",
+      "label": "Expressive0/full",
+      "seconds": 0.040548665914684534
+    },
+    {
+      "kind": "cpu",
+      "label": "Expressive1/full",
+      "seconds": 0.04060416715219617
+    },
+    {
+      "kind": "cpu",
+      "label": "Zero latent/full",
+      "seconds": 0.04070358304306865
+    },
+    {
+      "kind": "cpu",
+      "label": "Quiet latent/full",
+      "seconds": 0.04105554195120931
+    },
+    {
+      "kind": "cpu",
+      "label": "English/prefix2",
+      "seconds": 0.021556083112955093
+    },
+    {
+      "kind": "cpu",
+      "label": "English/prefix3",
+      "seconds": 0.027806167025119066
+    },
+    {
+      "kind": "cpu",
+      "label": "Spanish/prefix3",
+      "seconds": 0.029127500019967556
+    },
+    {
+      "kind": "cpu",
+      "label": "English/prefix6",
+      "seconds": 0.0370062910951674
+    },
+    {
+      "kind": "compile",
+      "label": "before_compile/preparation/0",
+      "seconds": 3.5369834159500897
+    },
+    {
+      "kind": "gpu",
+      "label": "before/preparation/0",
+      "seconds": 0.09652454080060124
+    },
+    {
+      "kind": "compile",
+      "label": "before_compile/preparation/1",
+      "seconds": 2.831238375045359
+    },
+    {
+      "kind": "gpu",
+      "label": "before/preparation/1",
+      "seconds": 0.13296250021085143
+    },
+    {
+      "kind": "compile",
+      "label": "before_compile/preparation/3",
+      "seconds": 0.002606166061013937
+    },
+    {
+      "kind": "gpu",
+      "label": "before/preparation/3",
+      "seconds": 0.005650416947901249
+    },
+    {
+      "kind": "compile",
+      "label": "before_compile/preparation/4",
+      "seconds": 0.0031664581038057804
+    },
+    {
+      "kind": "gpu",
+      "label": "before/preparation/4",
+      "seconds": 0.006437917239964008
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Bengali/0",
+      "seconds": 0.003179332707077265
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Bengali/0",
+      "seconds": 0.006481040734797716
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Bengali/2",
+      "seconds": 0.0024067917838692665
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Bengali/2",
+      "seconds": 0.0055989171378314495
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Bengali/3",
+      "seconds": 0.0030580000020563602
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Bengali/3",
+      "seconds": 0.0064945830963552
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Bengali/5",
+      "seconds": 0.003193665761500597
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Bengali/5",
+      "seconds": 0.006635542027652264
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/English/0",
+      "seconds": 0.0025421660393476486
+    },
+    {
+      "kind": "gpu",
+      "label": "before/English/0",
+      "seconds": 0.0062034158036112785
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/English/2",
+      "seconds": 0.00326541718095541
+    },
+    {
+      "kind": "gpu",
+      "label": "before/English/2",
+      "seconds": 0.006085708737373352
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/English/3",
+      "seconds": 0.003642459399998188
+    },
+    {
+      "kind": "gpu",
+      "label": "before/English/3",
+      "seconds": 0.006836375221610069
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/English/5",
+      "seconds": 0.0023911669850349426
+    },
+    {
+      "kind": "gpu",
+      "label": "before/English/5",
+      "seconds": 0.005862124729901552
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Spanish/0",
+      "seconds": 0.0024728327989578247
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Spanish/0",
+      "seconds": 0.005842499900609255
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Spanish/2",
+      "seconds": 0.0030237501487135887
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Spanish/2",
+      "seconds": 0.006001582834869623
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Spanish/3",
+      "seconds": 0.0029915408231317997
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Spanish/3",
+      "seconds": 0.00663220789283514
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Spanish/5",
+      "seconds": 0.0024591670371592045
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Spanish/5",
+      "seconds": 0.0060064587742090225
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Expressive0/0",
+      "seconds": 0.0034011248499155045
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Expressive0/0",
+      "seconds": 0.006643500179052353
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Expressive0/2",
+      "seconds": 0.0033140419982373714
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Expressive0/2",
+      "seconds": 0.00629349984228611
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Expressive0/3",
+      "seconds": 0.002419124823063612
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Expressive0/3",
+      "seconds": 0.006052583921700716
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Expressive0/5",
+      "seconds": 0.0024452502839267254
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Expressive0/5",
+      "seconds": 0.006015583407133818
+    }
+  ],
+  "runtime": {
+    "torch": "2.14.0",
+    "onnxruntime": "1.30.0",
+    "numpy": "2.5.3",
+    "fast_math": false,
+    "cpu_fallback": false
+  },
+  "inputs": [
+    {
+      "label": "Bengali",
+      "frames": 7,
+      "sha256": "e819ead2107427d257755a8afdeb2eb6d167bada3ee608a5a760921ca17f1d5d"
+    },
+    {
+      "label": "English",
+      "frames": 7,
+      "sha256": "0cebc821a7242ed2e03ba8c51714c5eb90f1a902fc9df4fa4628e3d866985a5f"
+    },
+    {
+      "label": "Spanish",
+      "frames": 7,
+      "sha256": "248ba2f7764deff255fc7cebb2974259e0aa2c91ec84475f8b3d9f86a5133c03"
+    },
+    {
+      "label": "Expressive0",
+      "frames": 7,
+      "sha256": "af056d9229e6c466490d0b55c2ffee740d003d4630b51be820183464be0314d7"
+    },
+    {
+      "label": "Expressive1",
+      "frames": 7,
+      "sha256": "6261afbb0d89e241b8b94e42490edb61314c06f44ed3421df5cc8e46b3209f7d"
+    },
+    {
+      "label": "Zero latent",
+      "frames": 7,
+      "sha256": "7b4fc1a8dbe6b6121f16ada516e2ac27e02964716bacea5fb7d07cf30595948e"
+    },
+    {
+      "label": "Quiet latent",
+      "frames": 7,
+      "sha256": "63eebb655a013d23a098062aaa096b7c52f5332139e999dacc44d6dbc25fec6a"
+    }
+  ],
+  "protocol": {
+    "atol": 1e-05,
+    "rtol": 0.0001,
+    "precision": "FP32",
+    "host_threads": 1,
+    "fixed_compile_lengths": [
+      1,
+      2
+    ],
+    "mixed_partition": [
+      2,
+      1,
+      2,
+      2
+    ],
+    "empty_on_public_fast_path": true,
+    "cpu_reference": "Original pinned full ONNX on the same seven-frame prefix.",
+    "state_reference": "Original eager model; each path evolves its own original activated-input history.",
+    "state_checks": "All26 states: exact keys/shape/device/FP32/contiguity, finite values, per-state tolerance; one noninitial pre-call original-byte snapshot for both streams per arm.",
+    "budget": "Ordinary completed GPU API plus synchronized state-inspection wall time <15s; <250 total model/API calls including CPU references and preparation.",
+    "exclusions": "Model construction/shader compilation and the four first full_compile/snake_compile calls are separately reported. Those first-call wall times include compilation AND decode, not pure compiler time.",
+    "benchmark": false,
+    "suppress_errors": false,
+    "fail_on_recompile_limit_hit": true
+  },
+  "error": "RuntimeError('State numerical gate failed: stage5.residual2.history')",
+  "repair": {
+    "candidate": "paired_projection",
+    "pointwise_mm": false,
+    "raw_alias": "before_compile",
+    "reference": "Original eager input-history decoder",
+    "cpu_algebra": [
+      {
+        "stride": 2,
+        "frames": 0,
+        "max_abs": 0.0
+      },
+      {
+        "stride": 2,
+        "frames": 1,
+        "max_abs": 0.0
+      },
+      {
+        "stride": 2,
+        "frames": 2,
+        "max_abs": 7.450580596923828e-09
+      },
+      {
+        "stride": 2,
+        "frames": 5,
+        "max_abs": 2.9802322387695312e-08
+      },
+      {
+        "stride": 5,
+        "frames": 0,
+        "max_abs": 0.0
+      },
+      {
+        "stride": 5,
+        "frames": 1,
+        "max_abs": 1.4901161193847656e-08
+      },
+      {
+        "stride": 5,
+        "frames": 2,
+        "max_abs": 5.960464477539063e-08
+      },
+      {
+        "stride": 5,
+        "frames": 5,
+        "max_abs": 5.960464477539063e-08
+      },
+      {
+        "stride": 6,
+        "frames": 0,
+        "max_abs": 0.0
+      },
+      {
+        "stride": 6,
+        "frames": 1,
+        "max_abs": 1.1920928955078125e-07
+      },
+      {
+        "stride": 6,
+        "frames": 2,
+        "max_abs": 2.9802322387695312e-08
+      },
+      {
+        "stride": 6,
+        "frames": 5,
+        "max_abs": 5.960464477539063e-08
+      },
+      {
+        "stride": 8,
+        "frames": 0,
+        "max_abs": 0.0
+      },
+      {
+        "stride": 8,
+        "frames": 1,
+        "max_abs": 2.9802322387695312e-08
+      },
+      {
+        "stride": 8,
+        "frames": 2,
+        "max_abs": 5.960464477539063e-08
+      },
+      {
+        "stride": 8,
+        "frames": 5,
+        "max_abs": 5.960464477539063e-08
+      }
+    ],
+    "tolerance_failures": [
+      {
+        "elements": 1728,
+        "failing_elements": 2,
+        "max_abs": 4.00543212890625e-05,
+        "rms": 6.497194111766326e-06,
+        "maximum_tolerance_ratio": 1.2601976621676445
+      }
+    ],
+    "unchanged_tolerances": true,
+    "sources_unchanged": true
+  }
+}

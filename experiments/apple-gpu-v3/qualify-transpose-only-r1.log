@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v3/qualify_transpose_only.py", line 131, in <module>
+    main(parser.parse_args().name)
+  File "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v3/qualify_transpose_only.py", line 112, in main
+    screen.main(argparse.Namespace(name=name, cpu_only=False, combined=True))
+  File "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v3/screen_transpose.py", line 129, in main
+    exp.main(argparse.Namespace(name="../apple-gpu-v3/" + args.name, arms=arms, repetitions=2))
+  File "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v3/qualify_transpose_only.py", line 61, in qualify_instead_of_screen
+    qual.main(output, ["before_compile"])
+  File "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v2/qualify_candidates.py", line 239, in main
+    cy, ey = pair(label + f"/{position}", cs, es, z[..., position:position + count].copy(),
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v2/qualify_candidates.py", line 214, in pair
+    require(compared["passed"], "State numerical gate failed: " + name)
+  File "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v2/qualify_candidates.py", line 35, in require
+    raise RuntimeError(message)
+RuntimeError: State numerical gate failed: stage1.residual2.history

@@ -1,0 +1,1274 @@
+{
+  "version": "apple_gpu_candidate_qualification_v1",
+  "status": "passed",
+  "arms": [
+    "before_compile"
+  ],
+  "calls": 93,
+  "gpu_api_calls": 78,
+  "cpu_reference_calls": 11,
+  "compilation_first_calls": 4,
+  "gpu_api_seconds": 0.5554567952640355,
+  "state_inspection_seconds": 0.029473508708178997,
+  "cpu_reference_seconds": 0.46775712352246046,
+  "compilation_first_call_seconds": 0.0127011239528656,
+  "preparation": [
+    {
+      "arm": "before_compile",
+      "build_seconds": 2.5777262090705335,
+      "state_shapes": {
+        "stem.history": [
+          1,
+          64,
+          6
+        ],
+        "stage0.transpose.history": [
+          1,
+          2048,
+          1
+        ],
+        "stage0.residual0.history": [
+          1,
+          1024,
+          6
+        ],
+        "stage0.residual1.history": [
+          1,
+          1024,
+          18
+        ],
+        "stage0.residual2.history": [
+          1,
+          1024,
+          54
+        ],
+        "stage1.transpose.history": [
+          1,
+          1024,
+          1
+        ],
+        "stage1.residual0.history": [
+          1,
+          512,
+          6
+        ],
+        "stage1.residual1.history": [
+          1,
+          512,
+          18
+        ],
+        "stage1.residual2.history": [
+          1,
+          512,
+          54
+        ],
+        "stage2.transpose.history": [
+          1,
+          512,
+          1
+        ],
+        "stage2.residual0.history": [
+          1,
+          256,
+          6
+        ],
+        "stage2.residual1.history": [
+          1,
+          256,
+          18
+        ],
+        "stage2.residual2.history": [
+          1,
+          256,
+          54
+        ],
+        "stage3.transpose.history": [
+          1,
+          256,
+          1
+        ],
+        "stage3.residual0.history": [
+          1,
+          128,
+          6
+        ],
+        "stage3.residual1.history": [
+          1,
+          128,
+          18
+        ],
+        "stage3.residual2.history": [
+          1,
+          128,
+          54
+        ],
+        "stage4.transpose.history": [
+          1,
+          128,
+          1
+        ],
+        "stage4.residual0.history": [
+          1,
+          64,
+          6
+        ],
+        "stage4.residual1.history": [
+          1,
+          64,
+          18
+        ],
+        "stage4.residual2.history": [
+          1,
+          64,
+          54
+        ],
+        "stage5.transpose.history": [
+          1,
+          64,
+          1
+        ],
+        "stage5.residual0.history": [
+          1,
+          32,
+          6
+        ],
+        "stage5.residual1.history": [
+          1,
+          32,
+          18
+        ],
+        "stage5.residual2.history": [
+          1,
+          32,
+          54
+        ],
+        "final.history": [
+          1,
+          32,
+          6
+        ]
+      },
+      "state_bytes": 647424,
+      "source_identity": {
+        "graph_sha256": "fdd20e200675ab9649bf33f16bc5974101ba5cf47ab89fbfe29f3d36ff6c3c84",
+        "external_data_sha256": "3b76bd57356e96893655bd24a364989e016c5af2fc8c29195caaefb4eccf5143",
+        "coefficient_source": "literal_verified_onnx_initializers",
+        "precision": "float32",
+        "transpose_state": "previous_activated_input"
+      },
+      "compiler_counters": {
+        "unimplemented": {},
+        "stats": {
+          "calls_captured": 1100,
+          "unique_graphs": 2
+        },
+        "aot_autograd": {
+          "total": 2,
+          "autograd_cache_hit": 2,
+          "ok": 2
+        },
+        "inductor": {
+          "extern_calls": 90,
+          "fxgraph_cache_hit": 2
+        }
+      },
+      "final_compiler_counters": {
+        "unimplemented": {},
+        "stats": {
+          "calls_captured": 1100,
+          "unique_graphs": 2
+        },
+        "aot_autograd": {
+          "total": 2,
+          "autograd_cache_hit": 2,
+          "ok": 2
+        },
+        "inductor": {
+          "extern_calls": 90,
+          "fxgraph_cache_hit": 2
+        }
+      }
+    }
+  ],
+  "checks": [
+    {
+      "label": "before_compile/preparation/0/audio-eager",
+      "passed": true,
+      "max_abs": 4.059984348714352e-09
+    },
+    {
+      "label": "before_compile/preparation/1/audio-eager",
+      "passed": true,
+      "max_abs": 4.132743924856186e-09
+    },
+    {
+      "label": "before_compile/preparation/3/audio-eager",
+      "passed": true,
+      "max_abs": 3.6670826375484467e-09
+    },
+    {
+      "label": "before_compile/preparation/4/audio-eager",
+      "passed": true,
+      "max_abs": 4.0745362639427185e-09
+    },
+    {
+      "label": "before_compile/preparation/full-reference",
+      "passed": true,
+      "max_abs": 4.729372449219227e-09
+    },
+    {
+      "label": "before_compile/Bengali/0/audio-eager",
+      "passed": true,
+      "max_abs": 6.146728992462158e-08
+    },
+    {
+      "label": "before_compile/Bengali/2/audio-eager",
+      "passed": true,
+      "max_abs": 5.681067705154419e-08
+    },
+    {
+      "label": "before_compile/Bengali/3/audio-eager",
+      "passed": true,
+      "max_abs": 6.449408829212189e-08
+    },
+    {
+      "label": "before_compile/Bengali/5/audio-eager",
+      "passed": true,
+      "max_abs": 4.842877388000488e-08
+    },
+    {
+      "label": "before_compile/Bengali/original-full",
+      "passed": true,
+      "max_abs": 4.936009645462036e-08
+    },
+    {
+      "label": "before/Bengali/original-full",
+      "passed": true,
+      "max_abs": 6.100162863731384e-08
+    },
+    {
+      "label": "before_compile/English/0/audio-eager",
+      "passed": true,
+      "max_abs": 4.452886059880257e-09
+    },
+    {
+      "label": "before_compile/English/2/audio-eager",
+      "passed": true,
+      "max_abs": 3.3760443329811096e-09
+    },
+    {
+      "label": "before_compile/English/3/audio-eager",
+      "passed": true,
+      "max_abs": 3.7834979593753815e-09
+    },
+    {
+      "label": "before_compile/English/5/audio-eager",
+      "passed": true,
+      "max_abs": 4.5438355300575495e-09
+    },
+    {
+      "label": "before_compile/English/original-full",
+      "passed": true,
+      "max_abs": 5.005858838558197e-09
+    },
+    {
+      "label": "before/English/original-full",
+      "passed": true,
+      "max_abs": 5.9371814131736755e-09
+    },
+    {
+      "label": "before_compile/Spanish/0/audio-eager",
+      "passed": true,
+      "max_abs": 8.498318493366241e-09
+    },
+    {
+      "label": "before_compile/Spanish/2/audio-eager",
+      "passed": true,
+      "max_abs": 9.691575542092323e-09
+    },
+    {
+      "label": "before_compile/Spanish/3/audio-eager",
+      "passed": true,
+      "max_abs": 9.313225746154785e-09
+    },
+    {
+      "label": "before_compile/Spanish/5/audio-eager",
+      "passed": true,
+      "max_abs": 8.731149137020111e-09
+    },
+    {
+      "label": "before_compile/Spanish/original-full",
+      "passed": true,
+      "max_abs": 1.0710209608078003e-08
+    },
+    {
+      "label": "before/Spanish/original-full",
+      "passed": true,
+      "max_abs": 1.2398231774568558e-08
+    },
+    {
+      "label": "before_compile/Expressive0/0/audio-eager",
+      "passed": true,
+      "max_abs": 1.894659362733364e-08
+    },
+    {
+      "label": "before_compile/Expressive0/2/audio-eager",
+      "passed": true,
+      "max_abs": 7.1668182499706745e-09
+    },
+    {
+      "label": "before_compile/Expressive0/3/audio-eager",
+      "passed": true,
+      "max_abs": 1.4202669262886047e-08
+    },
+    {
+      "label": "before_compile/Expressive0/5/audio-eager",
+      "passed": true,
+      "max_abs": 1.3336539268493652e-06
+    },
+    {
+      "label": "before_compile/Expressive0/original-full",
+      "passed": true,
+      "max_abs": 7.37607479095459e-07
+    },
+    {
+      "label": "before/Expressive0/original-full",
+      "passed": true,
+      "max_abs": 1.4603137969970703e-06
+    },
+    {
+      "label": "before_compile/Expressive1/0/audio-eager",
+      "passed": true,
+      "max_abs": 1.6298145055770874e-08
+    },
+    {
+      "label": "before_compile/Expressive1/2/audio-eager",
+      "passed": true,
+      "max_abs": 1.9081198843196034e-09
+    },
+    {
+      "label": "before_compile/Expressive1/3/audio-eager",
+      "passed": true,
+      "max_abs": 1.4901161193847656e-08
+    },
+    {
+      "label": "before_compile/Expressive1/5/audio-eager",
+      "passed": true,
+      "max_abs": 3.5390257835388184e-07
+    },
+    {
+      "label": "before_compile/Expressive1/original-full",
+      "passed": true,
+      "max_abs": 1.1920928955078125e-07
+    },
+    {
+      "label": "before/Expressive1/original-full",
+      "passed": true,
+      "max_abs": 2.9103830456733704e-07
+    },
+    {
+      "label": "before_compile/Zero latent/0/audio-eager",
+      "passed": true,
+      "max_abs": 6.565824151039124e-08
+    },
+    {
+      "label": "before_compile/Zero latent/2/audio-eager",
+      "passed": true,
+      "max_abs": 6.146728992462158e-08
+    },
+    {
+      "label": "before_compile/Zero latent/3/audio-eager",
+      "passed": true,
+      "max_abs": 6.615300662815571e-08
+    },
+    {
+      "label": "before_compile/Zero latent/5/audio-eager",
+      "passed": true,
+      "max_abs": 7.35744833946228e-08
+    },
+    {
+      "label": "before_compile/Zero latent/original-full",
+      "passed": true,
+      "max_abs": 5.3551048040390015e-08
+    },
+    {
+      "label": "before/Zero latent/original-full",
+      "passed": true,
+      "max_abs": 8.475035429000854e-08
+    },
+    {
+      "label": "before_compile/Quiet latent/0/audio-eager",
+      "passed": true,
+      "max_abs": 8.079223334789276e-08
+    },
+    {
+      "label": "before_compile/Quiet latent/2/audio-eager",
+      "passed": true,
+      "max_abs": 5.587935447692871e-08
+    },
+    {
+      "label": "before_compile/Quiet latent/3/audio-eager",
+      "passed": true,
+      "max_abs": 6.728805601596832e-08
+    },
+    {
+      "label": "before_compile/Quiet latent/5/audio-eager",
+      "passed": true,
+      "max_abs": 7.87986209616065e-08
+    },
+    {
+      "label": "before_compile/Quiet latent/original-full",
+      "passed": true,
+      "max_abs": 5.3085386753082275e-08
+    },
+    {
+      "label": "before/Quiet latent/original-full",
+      "passed": true,
+      "max_abs": 8.312053978443146e-08
+    },
+    {
+      "label": "before_compile/reset/before/audio-eager",
+      "passed": true,
+      "max_abs": 4.452886059880257e-09
+    },
+    {
+      "label": "before_compile/reset/after/audio-eager",
+      "passed": true,
+      "max_abs": 4.452886059880257e-09
+    },
+    {
+      "label": "before_compile/reset-repeat",
+      "passed": true,
+      "max_abs": 0.0
+    },
+    {
+      "label": "before_compile/reset-original-full",
+      "passed": true,
+      "max_abs": 4.685716703534126e-09
+    },
+    {
+      "label": "before_compile/changed-future/audio-eager",
+      "passed": true,
+      "max_abs": 4.452886059880257e-09
+    },
+    {
+      "label": "before_compile/prefix-invariance",
+      "passed": true,
+      "max_abs": 0.0
+    },
+    {
+      "label": "before/prefix-invariance",
+      "passed": true,
+      "max_abs": 0.0
+    },
+    {
+      "label": "before_compile/interleave/A1/audio-eager",
+      "passed": true,
+      "max_abs": 4.059984348714352e-09
+    },
+    {
+      "label": "before_compile/interleave/B1/audio-eager",
+      "passed": true,
+      "max_abs": 8.498318493366241e-09
+    },
+    {
+      "label": "before_compile/interleave/A2/audio-eager",
+      "passed": true,
+      "max_abs": 4.132743924856186e-09
+    },
+    {
+      "label": "before_compile/interleave/B2/audio-eager",
+      "passed": true,
+      "max_abs": 9.691575542092323e-09
+    },
+    {
+      "label": "before_compile/interleave/A-full",
+      "passed": true,
+      "max_abs": 4.925823304802179e-09
+    },
+    {
+      "label": "before_compile/interleave/B-full",
+      "passed": true,
+      "max_abs": 1.1059455573558807e-08
+    }
+  ],
+  "state_summary": {
+    "before_compile": {
+      "stem.history": {
+        "comparisons": 39,
+        "max_abs": 0.0,
+        "passed": true
+      },
+      "stage0.transpose.history": {
+        "comparisons": 39,
+        "max_abs": 5.960464477539062e-07,
+        "passed": true
+      },
+      "stage0.residual0.history": {
+        "comparisons": 39,
+        "max_abs": 2.86102294921875e-06,
+        "passed": true
+      },
+      "stage0.residual1.history": {
+        "comparisons": 39,
+        "max_abs": 5.125999450683594e-06,
+        "passed": true
+      },
+      "stage0.residual2.history": {
+        "comparisons": 39,
+        "max_abs": 1.1801719665527344e-05,
+        "passed": true
+      },
+      "stage1.transpose.history": {
+        "comparisons": 39,
+        "max_abs": 2.6226043701171875e-06,
+        "passed": true
+      },
+      "stage1.residual0.history": {
+        "comparisons": 39,
+        "max_abs": 3.069639205932617e-06,
+        "passed": true
+      },
+      "stage1.residual1.history": {
+        "comparisons": 39,
+        "max_abs": 1.3649463653564453e-05,
+        "passed": true
+      },
+      "stage1.residual2.history": {
+        "comparisons": 39,
+        "max_abs": 2.2530555725097656e-05,
+        "passed": true
+      },
+      "stage2.transpose.history": {
+        "comparisons": 39,
+        "max_abs": 5.125999450683594e-06,
+        "passed": true
+      },
+      "stage2.residual0.history": {
+        "comparisons": 39,
+        "max_abs": 1.6391277313232422e-06,
+        "passed": true
+      },
+      "stage2.residual1.history": {
+        "comparisons": 39,
+        "max_abs": 2.2649765014648438e-06,
+        "passed": true
+      },
+      "stage2.residual2.history": {
+        "comparisons": 39,
+        "max_abs": 5.424022674560547e-06,
+        "passed": true
+      },
+      "stage3.transpose.history": {
+        "comparisons": 39,
+        "max_abs": 2.9802322387695312e-06,
+        "passed": true
+      },
+      "stage3.residual0.history": {
+        "comparisons": 39,
+        "max_abs": 1.5497207641601562e-06,
+        "passed": true
+      },
+      "stage3.residual1.history": {
+        "comparisons": 39,
+        "max_abs": 2.1457672119140625e-06,
+        "passed": true
+      },
+      "stage3.residual2.history": {
+        "comparisons": 39,
+        "max_abs": 3.516674041748047e-06,
+        "passed": true
+      },
+      "stage4.transpose.history": {
+        "comparisons": 39,
+        "max_abs": 3.337860107421875e-06,
+        "passed": true
+      },
+      "stage4.residual0.history": {
+        "comparisons": 39,
+        "max_abs": 2.8014183044433594e-06,
+        "passed": true
+      },
+      "stage4.residual1.history": {
+        "comparisons": 39,
+        "max_abs": 4.291534423828125e-06,
+        "passed": true
+      },
+      "stage4.residual2.history": {
+        "comparisons": 39,
+        "max_abs": 9.5367431640625e-06,
+        "passed": true
+      },
+      "stage5.transpose.history": {
+        "comparisons": 39,
+        "max_abs": 1.6689300537109375e-06,
+        "passed": true
+      },
+      "stage5.residual0.history": {
+        "comparisons": 39,
+        "max_abs": 4.5299530029296875e-06,
+        "passed": true
+      },
+      "stage5.residual1.history": {
+        "comparisons": 39,
+        "max_abs": 5.602836608886719e-06,
+        "passed": true
+      },
+      "stage5.residual2.history": {
+        "comparisons": 39,
+        "max_abs": 1.1205673217773438e-05,
+        "passed": true
+      },
+      "final.history": {
+        "comparisons": 39,
+        "max_abs": 9.059906005859375e-06,
+        "passed": true
+      }
+    }
+  },
+  "files": {
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v2/qualify_candidates.py": "b337e2b694a93713bb1aca45c17912b014249a5dfa59f47ae75122eb6239fc12",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v2/experiment.py": "aac9c4bb76bf555a502212f1cce2e841d271c9421572ca7ca220031825e26253",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v2/mps_decoder_before.py": "72d51d8052d8376186730fb4cd2a0e5770eb717b37fb2a5deecca2f3ac689890",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v2/snake_candidates.py": "3134d2444f7b9bcd19e2a8f0cb354b030a6db10c8c868151d20b9147f8116fe5",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-streaming-promotion-v1/config-r3.json": "e34fd771ee7512a5fe6b5ca091d6adfafd8bfa5e7e95821c8cbe08fd4bad10dd",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/fast-audiovae-apple-gpu/src/fast_audiovae/mps_decoder.py": "cec702ca200a5ade3226646cbcd8d6d5f5ace4d4360563789dfdd65b0b2e4bb4",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/fast-audiovae-apple-gpu/src/fast_audiovae/gpu.py": "baec725dfeae417c2a36591271e7bfadaa6c0658fa5da0029ff39bd8973ca06a",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/audiovae2_onnx/audio_vae_decoder.onnx": "fdd20e200675ab9649bf33f16bc5974101ba5cf47ab89fbfe29f3d36ff6c3c84",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/audiovae2_onnx/audio_vae_decoder.onnx.data": "3b76bd57356e96893655bd24a364989e016c5af2fc8c29195caaefb4eccf5143",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/codec-quality-inputs/multilingual-encoded/fast_audiovae2.npz": "9b709b787c040591de57e094a5ba5a4515cc74e256e8014530ff8c7bb54d2d24",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-streaming-promotion-v1/extra-encoded-v1/latents.npz": "7392e27993227e58950be37804c8f535b69fc1f10380be3d1f044c1f2a2a801b",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-gpu-v6/qualify_public.py": "6b5ab11788782692e3a35ee09858ada1a97d05cdb7ac75f1a6285987f2e26da3",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/fast-audiovae-apple-gpu/src/fast_audiovae/__init__.py": "3e79f17acbc045a3df6f867866fdb89680b9524c68445797c2f86d026bbb49d7",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/fast-audiovae-apple-gpu/src/fast_audiovae/assets.py": "9492f1ef49352fc33dde180160753d7aa655a75c1b9e5322ae9bc89d1974f4bd",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/fast-audiovae-apple-gpu/src/fast_audiovae/automatic.py": "2eb3ff42e2d2b430429f59d1c4cc004cbc2b483bb4814691d49ae649e1fed5a6",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/fast-audiovae-apple-gpu/src/fast_audiovae/batch_session.py": "0f9c887b8d724a687ecb216e0f882832952e1cebaa4956572e6a64787d503a85",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/fast-audiovae-apple-gpu/src/fast_audiovae/build_resources.py": "bd6e89ef0a60094cd6449c3482eeb75dffeec9822633d717560265aff5b14f86",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/fast-audiovae-apple-gpu/src/fast_audiovae/cli.py": "347a145a7b6d3038a4881d2e1946e0c6b9116ef5e1002f7f2dbc937f556930ef",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/fast-audiovae-apple-gpu/src/fast_audiovae/encoder.py": "dd4cc05211283c091022e1b06a9c54339e6f80a0817693572910a8669f489eb7",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/fast-audiovae-apple-gpu/src/fast_audiovae/mps_compiled.py": "523111791fb5f5e6f8137dd05d45a47952d3fff4e4628ffff2178560fac2a85c",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/fast-audiovae-apple-gpu/src/fast_audiovae/native_payload.py": "01e1342c43ef2474026fe209601d189843fe3f25e859d0a5d35e2c0153989928",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/fast-audiovae-apple-gpu/src/fast_audiovae/platforms.py": "088c0fe688ef054fadb1cd9357beda23a7f8d35542c5fa1285386795fa60a81e",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/fast-audiovae-apple-gpu/src/fast_audiovae/prepare.py": "81c80e9cede669a277e7198adeb00956e8f5c763bfe4edf0764d2c2e979449ac",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/fast-audiovae-apple-gpu/src/fast_audiovae/prepare_streaming.py": "0274bbf8d723fa8c6e04f0fdd3d0656897a484f4ada4d3a1c0cfc2da82ea351c",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/fast-audiovae-apple-gpu/src/fast_audiovae/runtime.py": "0c5c9829e794e7d1553ef47a366ce909ef67c74a9e7adf675d1a00bf9bed070b",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/fast-audiovae-apple-gpu/src/fast_audiovae/streaming.py": "d22115a91fa71fa2741c098be75a6540b2165ecfbb0cbf0daa78016a52c31827"
+  },
+  "state_snapshot_checks": [
+    {
+      "arm": "before_compile",
+      "tensors_per_stream": 26,
+      "streams": 2,
+      "before_sha256": [
+        "685309416a2ce7c4b039540f41d41e9a59d6f6102fd21fb4a5948e63513834f6",
+        "2c08de0f25d130429ef754ce7e83b181428b466d6becad0c3f7ff4ff10f2ac0e"
+      ],
+      "exact": true
+    }
+  ],
+  "per_call": [
+    {
+      "kind": "cpu",
+      "label": "Bengali/full",
+      "seconds": 0.047105707693845034
+    },
+    {
+      "kind": "cpu",
+      "label": "English/full",
+      "seconds": 0.04867258295416832
+    },
+    {
+      "kind": "cpu",
+      "label": "Spanish/full",
+      "seconds": 0.043602457735687494
+    },
+    {
+      "kind": "cpu",
+      "label": "Expressive0/full",
+      "seconds": 0.04533466696739197
+    },
+    {
+      "kind": "cpu",
+      "label": "Expressive1/full",
+      "seconds": 0.04414941603317857
+    },
+    {
+      "kind": "cpu",
+      "label": "Zero latent/full",
+      "seconds": 0.04738320829346776
+    },
+    {
+      "kind": "cpu",
+      "label": "Quiet latent/full",
+      "seconds": 0.04471583291888237
+    },
+    {
+      "kind": "cpu",
+      "label": "English/prefix2",
+      "seconds": 0.03326812479645014
+    },
+    {
+      "kind": "cpu",
+      "label": "English/prefix3",
+      "seconds": 0.03384766727685928
+    },
+    {
+      "kind": "cpu",
+      "label": "Spanish/prefix3",
+      "seconds": 0.036737166810780764
+    },
+    {
+      "kind": "cpu",
+      "label": "English/prefix6",
+      "seconds": 0.04294029204174876
+    },
+    {
+      "kind": "compile",
+      "label": "before_compile/preparation/0",
+      "seconds": 0.0029724156484007835
+    },
+    {
+      "kind": "gpu",
+      "label": "before/preparation/0",
+      "seconds": 0.1004506666213274
+    },
+    {
+      "kind": "compile",
+      "label": "before_compile/preparation/1",
+      "seconds": 0.0035138330422341824
+    },
+    {
+      "kind": "gpu",
+      "label": "before/preparation/1",
+      "seconds": 0.09500333433970809
+    },
+    {
+      "kind": "compile",
+      "label": "before_compile/preparation/3",
+      "seconds": 0.003224375192075968
+    },
+    {
+      "kind": "gpu",
+      "label": "before/preparation/3",
+      "seconds": 0.011311042122542858
+    },
+    {
+      "kind": "compile",
+      "label": "before_compile/preparation/4",
+      "seconds": 0.002990500070154667
+    },
+    {
+      "kind": "gpu",
+      "label": "before/preparation/4",
+      "seconds": 0.012608709279447794
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Bengali/0",
+      "seconds": 0.0030677090398967266
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Bengali/0",
+      "seconds": 0.011750916950404644
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Bengali/2",
+      "seconds": 0.002726582810282707
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Bengali/2",
+      "seconds": 0.008973042014986277
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Bengali/3",
+      "seconds": 0.0027837082743644714
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Bengali/3",
+      "seconds": 0.008512458764016628
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Bengali/5",
+      "seconds": 0.003316208254545927
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Bengali/5",
+      "seconds": 0.009060250129550695
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/English/0",
+      "seconds": 0.0031644580885767937
+    },
+    {
+      "kind": "gpu",
+      "label": "before/English/0",
+      "seconds": 0.01130283297970891
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/English/2",
+      "seconds": 0.0025389580987393856
+    },
+    {
+      "kind": "gpu",
+      "label": "before/English/2",
+      "seconds": 0.007565249688923359
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/English/3",
+      "seconds": 0.0031407498754560947
+    },
+    {
+      "kind": "gpu",
+      "label": "before/English/3",
+      "seconds": 0.009195125196129084
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/English/5",
+      "seconds": 0.0024785418063402176
+    },
+    {
+      "kind": "gpu",
+      "label": "before/English/5",
+      "seconds": 0.007593750022351742
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Spanish/0",
+      "seconds": 0.0028841248713433743
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Spanish/0",
+      "seconds": 0.007666292134672403
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Spanish/2",
+      "seconds": 0.002546541392803192
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Spanish/2",
+      "seconds": 0.007010334171354771
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Spanish/3",
+      "seconds": 0.0033241668716073036
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Spanish/3",
+      "seconds": 0.00637320801615715
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Spanish/5",
+      "seconds": 0.0024839588440954685
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Spanish/5",
+      "seconds": 0.007141333073377609
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Expressive0/0",
+      "seconds": 0.002437000162899494
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Expressive0/0",
+      "seconds": 0.007078541908413172
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Expressive0/2",
+      "seconds": 0.0028860829770565033
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Expressive0/2",
+      "seconds": 0.005703917238861322
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Expressive0/3",
+      "seconds": 0.002454875037074089
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Expressive0/3",
+      "seconds": 0.007077791262418032
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Expressive0/5",
+      "seconds": 0.0024950001388788223
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Expressive0/5",
+      "seconds": 0.006857125088572502
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Expressive1/0",
+      "seconds": 0.003345958888530731
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Expressive1/0",
+      "seconds": 0.006097791250795126
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Expressive1/2",
+      "seconds": 0.002254499588161707
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Expressive1/2",
+      "seconds": 0.005660000257194042
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Expressive1/3",
+      "seconds": 0.0025380002334713936
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Expressive1/3",
+      "seconds": 0.006630249787122011
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Expressive1/5",
+      "seconds": 0.0023247920908033848
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Expressive1/5",
+      "seconds": 0.0062563749961555
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Zero latent/0",
+      "seconds": 0.002469958271831274
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Zero latent/0",
+      "seconds": 0.005834917072206736
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Zero latent/2",
+      "seconds": 0.002738791983574629
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Zero latent/2",
+      "seconds": 0.005422416143119335
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Zero latent/3",
+      "seconds": 0.0024162502959370613
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Zero latent/3",
+      "seconds": 0.005928582977503538
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Zero latent/5",
+      "seconds": 0.002542000263929367
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Zero latent/5",
+      "seconds": 0.006245666649192572
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Quiet latent/0",
+      "seconds": 0.002658125013113022
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Quiet latent/0",
+      "seconds": 0.006618083920329809
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Quiet latent/2",
+      "seconds": 0.0029720417223870754
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Quiet latent/2",
+      "seconds": 0.005430999677628279
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Quiet latent/3",
+      "seconds": 0.0023895418271422386
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Quiet latent/3",
+      "seconds": 0.005785791203379631
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/Quiet latent/5",
+      "seconds": 0.0025390409864485264
+    },
+    {
+      "kind": "gpu",
+      "label": "before/Quiet latent/5",
+      "seconds": 0.006306125316768885
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/initial-empty",
+      "seconds": 1.095794141292572e-05
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/flush",
+      "seconds": 7.920898497104645e-07
+    },
+    {
+      "kind": "gpu",
+      "label": "before/initial-empty",
+      "seconds": 2.5420449674129486e-06
+    },
+    {
+      "kind": "gpu",
+      "label": "before/flush",
+      "seconds": 4.172325134277344e-07
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/reset/before",
+      "seconds": 0.0023157503455877304
+    },
+    {
+      "kind": "gpu",
+      "label": "before/reset/before",
+      "seconds": 0.0059826672077178955
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/reset/after",
+      "seconds": 0.0027046669274568558
+    },
+    {
+      "kind": "gpu",
+      "label": "before/reset/after",
+      "seconds": 0.0059540001675486565
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/changed-future",
+      "seconds": 0.0030879583209753036
+    },
+    {
+      "kind": "gpu",
+      "label": "before/changed-future",
+      "seconds": 0.005643750075250864
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/interleave/A1",
+      "seconds": 0.002273166086524725
+    },
+    {
+      "kind": "gpu",
+      "label": "before/interleave/A1",
+      "seconds": 0.005277375224977732
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/interleave/B1",
+      "seconds": 0.002534416038542986
+    },
+    {
+      "kind": "gpu",
+      "label": "before/interleave/B1",
+      "seconds": 0.006386165972799063
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/interleave/A2",
+      "seconds": 0.0023529999889433384
+    },
+    {
+      "kind": "gpu",
+      "label": "before/interleave/A2",
+      "seconds": 0.006097165867686272
+    },
+    {
+      "kind": "gpu",
+      "label": "before_compile/interleave/B2",
+      "seconds": 0.002321290783584118
+    },
+    {
+      "kind": "gpu",
+      "label": "before/interleave/B2",
+      "seconds": 0.00614012498408556
+    }
+  ],
+  "runtime": {
+    "torch": "2.14.0",
+    "onnxruntime": "1.30.0",
+    "numpy": "2.5.3",
+    "fast_math": false,
+    "cpu_fallback": false
+  },
+  "inputs": [
+    {
+      "label": "Bengali",
+      "frames": 7,
+      "sha256": "e819ead2107427d257755a8afdeb2eb6d167bada3ee608a5a760921ca17f1d5d"
+    },
+    {
+      "label": "English",
+      "frames": 7,
+      "sha256": "0cebc821a7242ed2e03ba8c51714c5eb90f1a902fc9df4fa4628e3d866985a5f"
+    },
+    {
+      "label": "Spanish",
+      "frames": 7,
+      "sha256": "248ba2f7764deff255fc7cebb2974259e0aa2c91ec84475f8b3d9f86a5133c03"
+    },
+    {
+      "label": "Expressive0",
+      "frames": 7,
+      "sha256": "af056d9229e6c466490d0b55c2ffee740d003d4630b51be820183464be0314d7"
+    },
+    {
+      "label": "Expressive1",
+      "frames": 7,
+      "sha256": "6261afbb0d89e241b8b94e42490edb61314c06f44ed3421df5cc8e46b3209f7d"
+    },
+    {
+      "label": "Zero latent",
+      "frames": 7,
+      "sha256": "7b4fc1a8dbe6b6121f16ada516e2ac27e02964716bacea5fb7d07cf30595948e"
+    },
+    {
+      "label": "Quiet latent",
+      "frames": 7,
+      "sha256": "63eebb655a013d23a098062aaa096b7c52f5332139e999dacc44d6dbc25fec6a"
+    }
+  ],
+  "protocol": {
+    "atol": 1e-05,
+    "rtol": 0.0001,
+    "precision": "FP32",
+    "host_threads": 1,
+    "fixed_compile_lengths": [
+      1,
+      2
+    ],
+    "mixed_partition": [
+      2,
+      1,
+      2,
+      2
+    ],
+    "empty_on_public_fast_path": true,
+    "cpu_reference": "Original pinned full ONNX on the same seven-frame prefix.",
+    "state_reference": "Original eager literal-ONNX-weight FP32 MPS port; actual upstream class waveform checks are in compare.py",
+    "state_checks": "All26 states: exact keys/shape/device/FP32/contiguity, finite values, per-state tolerance; one noninitial pre-call original-byte snapshot for both streams per arm.",
+    "budget": "Ordinary completed GPU API plus synchronized state-inspection wall time <15s; <250 total model/API calls including CPU references and preparation.",
+    "exclusions": "Model construction/shader compilation and the four first full_compile/snake_compile calls are separately reported. Those first-call wall times include compilation AND decode, not pure compiler time.",
+    "benchmark": false,
+    "suppress_errors": false,
+    "fail_on_recompile_limit_hit": true,
+    "public_load_exclusion": "The public loader performs two zero-input compile+decode preparations; their combined load time is separately reported, outside the unchanged93-call panel"
+  },
+  "artifacts_unchanged": true,
+  "completed_arms": 1,
+  "public_integration": {
+    "true_arm": "integrated_public_gpu",
+    "raw_alias": "before_compile",
+    "reference": "Original eager literal-ONNX-weight FP32 MPS port; actual upstream class waveform checks are in compare.py",
+    "candidate_factory": "fast_audiovae.load(device='gpu', mode='streaming', threads=1, offline=True)",
+    "public_load_internal_preparation_calls": 2,
+    "unchanged_tolerances": true,
+    "load_seconds": 2.4003475829958916,
+    "info": {
+      "device": "gpu",
+      "backend": "mps",
+      "selected": "torch_mps_hybrid",
+      "recipe": "apple_mps_hybrid_v1",
+      "precision": "FP32",
+      "mode": "streaming",
+      "threads": 1,
+      "cpu_only": false,
+      "fallback": false,
+      "reason": "Explicit Apple GPU request",
+      "model_path": "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/audiovae2_onnx/audio_vae_decoder.onnx",
+      "model_dir": "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/audiovae2_onnx",
+      "source_sha256": "fdd20e200675ab9649bf33f16bc5974101ba5cf47ab89fbfe29f3d36ff6c3c84",
+      "source_files": {
+        "audio_vae_decoder.onnx": "fdd20e200675ab9649bf33f16bc5974101ba5cf47ab89fbfe29f3d36ff6c3c84",
+        "audio_vae_decoder.onnx.data": "3b76bd57356e96893655bd24a364989e016c5af2fc8c29195caaefb4eccf5143"
+      },
+      "model_revision": "ecb511b96675f041424b42f148bf72e301262586",
+      "torch": "2.14.0",
+      "cache_hit": true,
+      "cache_kind": "verified_source",
+      "sample_rate": 48000,
+      "latent_rate": 25,
+      "latent_channels": 64,
+      "samples_per_latent": 1920,
+      "mps_cpu_fallback": false,
+      "mps_fast_math": false,
+      "compiled_packet_ms": [
+        40,
+        80
+      ],
+      "compilation": "load_time",
+      "other_packet_sizes": "eager_mps",
+      "cache_key": "4e54bc6bba0ff3641e624043a441c95c4705a90ddf398c15f5e42123d901c929",
+      "state_bytes_per_stream": 647424,
+      "state_device": "mps",
+      "output_device": "cpu",
+      "output_ready": true
+    },
+    "counters_after_public_load": {
+      "unimplemented": {},
+      "stats": {
+        "calls_captured": 1100,
+        "unique_graphs": 2
+      }
+    },
+    "counters_final": {
+      "unimplemented": {},
+      "stats": {
+        "calls_captured": 1100,
+        "unique_graphs": 2
+      }
+    },
+    "sources_unchanged": true,
+    "ordinary_panel_gpu_and_inspection_seconds": 0.5976314279250801,
+    "total_calls_including_public_load": 95
+  }
+}
