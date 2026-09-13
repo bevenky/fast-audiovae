@@ -60,7 +60,7 @@ def test_package_preserves_relative_runtime_closure_licenses_and_fallback(tmp_pa
     root, manifest = payload(tmp_path)
     assert manifest["wheel_platform"] == "macosx_26_0_arm64"
     assert manifest["minimum_macos"] == "26.2"
-    assert set(manifest["recipes"]) == {"apple_native", "apple_stream_projection", "apple_stream_selected"}
+    assert set(manifest["recipes"]) == {"apple_native", "apple_stream_projection", "apple_stream_selected", "apple_batch_selected"}
     stream = json.loads((root / "apple/streaming-build.json").read_text())
     assert stream["complete"] and stream["required_cpu_features"] == ["sme", "sme2"]
     assert [Path(x["library"]).name for x in stream["additional_libraries"]] == ["core.dylib", "bridge.dylib"]
@@ -90,6 +90,19 @@ def test_materialize_rebases_and_load_probes_dependencies_before_bridges(tmp_pat
     with pytest.raises(RuntimeError, match="changed"):
         native_payload.probe_payload(result)
     assert len(calls) == 1
+
+
+def test_batch_reuses_verified_streaming_payload_from_existing_wheel(tmp_path, monkeypatch):
+    root, manifest = payload(tmp_path)
+    del manifest["recipes"]["apple_batch_selected"]
+    (root / "manifest.json").write_text(json.dumps(manifest))
+    monkeypatch.setattr(native_payload, "PAYLOAD_ROOT", root)
+    observed = native_payload.inspect_payload()
+    result = native_payload.materialize_payload(observed, tmp_path / "cache/prebuilt", "apple_batch_selected")
+    assert result is not None
+    assert Path(result["base_build"]).is_file()
+    assert Path(result["streaming_build"]).is_file()
+    assert json.loads(Path(result["streaming_build"]).read_text())["complete"]
 
 
 @pytest.mark.parametrize("failure", ["missing", "duplicate", "transitive_registered", "domain", "private", "license", "incomplete"])

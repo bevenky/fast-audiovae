@@ -41,6 +41,10 @@ def materialize_payload(payload, destination, recipe):
     """Copy wheel artifacts, then adapt relative build records for the cache."""
     manifest = payload["manifest"]
     entry = manifest.get("recipes", {}).get(recipe)
+    # Batch specialization uses the same verified native closure as streaming.
+    # This also permits reuse of the existing 0.3.0 Apple payload.
+    if entry is None and recipe == "apple_batch_selected":
+        entry = manifest.get("recipes", {}).get("apple_stream_selected")
     if entry is None:
         return None
     destination = Path(destination).resolve()

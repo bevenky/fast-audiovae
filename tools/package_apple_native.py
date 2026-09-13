@@ -108,7 +108,8 @@ def package(base_build, streaming_build, output, *, inspect_library=macho_info):
     base_entry = {"base_build": "apple/base-build.json"}
     manifest = {"version": 1, "wheel_platform": f"macosx_{major}_0_arm64", "minimum_macos": minimum,
         "files": files, "recipes": {"apple_native": base_entry, "apple_stream_projection": base_entry,
-            "apple_stream_selected": {**base_entry, "streaming_build": "apple/streaming-build.json"}}}
+            "apple_stream_selected": {**base_entry, "streaming_build": "apple/streaming-build.json"},
+            "apple_batch_selected": {**base_entry, "streaming_build": "apple/streaming-build.json"}}}
     (output / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
     resources["validate_native_payload"](output)
     return manifest

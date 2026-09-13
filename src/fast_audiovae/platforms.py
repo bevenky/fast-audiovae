@@ -378,8 +378,8 @@ the bundle loader separately checks that compatible native artifacts exist.
     usable, proven = cpu.get("usable", {}), cpu.get("probe", {}).get("status") == "ok"
     if proven and system == "Darwin" and machine == "arm64" and vendor == "apple" and usable.get("neon") is True:
         recipe = "apple_stream_projection" if mode == "streaming" else "apple_native"
-        if mode == "streaming" and usable.get("sme") is True and usable.get("sme2") is True:
-            recipe = "apple_stream_selected"
+        if usable.get("sme") is True and usable.get("sme2") is True:
+            recipe = "apple_stream_selected" if mode == "streaming" else "apple_batch_selected"
         reason = "Native Apple arm64 recipe selected for " + mode
     elif (proven and system == "Linux" and machine == "x86_64"
           and all(usable.get(key) is True for key in ("avx2", "avx512", "avx512_vnni"))):
@@ -390,7 +390,7 @@ the bundle loader separately checks that compatible native artifacts exist.
             recipe = "amd_precision"
             reason = "Usable AVX512-VNNI verified; retained AMD recipe selected for " + mode
     validated = {"apple_native": [1, 4], "apple_stream_projection": [1],
-                 "apple_stream_selected": [1, 4],
+                 "apple_stream_selected": [1, 4], "apple_batch_selected": [1, 4],
                  "intel_precision": [1, 2], "intel_stream_projection": [1],
                  "amd_precision": [1, 4]}.get(recipe)
     selected_threads = max(value for value in validated if value <= available_budget) if validated else available_budget

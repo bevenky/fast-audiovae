@@ -38,7 +38,7 @@ def build_recipe(work_dir, source, platform_info, mode, threads):
         manifest["onnxruntime"] = "1.30.0"
         manifest_path.write_text(json.dumps(manifest, indent=2) + "\n")
     completed_bundle(base, create_base)
-    if mode == "batch":
+    if mode == "batch" and platform_info.get("recipe") != "apple_batch_selected":
         return base
     result = root / "bundles/apple-stream-projection"
     def create_projection(destination):
@@ -50,7 +50,7 @@ def build_recipe(work_dir, source, platform_info, mode, threads):
         # The source completion marker describes the source graph, not this derivative.
         (destination / ".recipe-ready.json").unlink(missing_ok=True)
     projection = completed_bundle(result, create_projection)
-    if platform_info.get("recipe") != "apple_stream_selected":
+    if platform_info.get("recipe") not in ("apple_stream_selected", "apple_batch_selected"):
         return projection
     if threads not in (1, 4):
         raise ValueError("Selected Apple streaming recipe supports ORT threads 1 or 4")
@@ -61,4 +61,9 @@ def build_recipe(work_dir, source, platform_info, mode, threads):
             offline=platform_info.get("offline", False))["build_manifest"]
     from .apple_selected import prepare as prepare_selected
     selected = root / "bundles/apple-stream-selected"
-    return completed_bundle(selected, lambda destination: prepare_selected(projection, destination, streaming_build))
+    selected = completed_bundle(selected, lambda destination: prepare_selected(projection, destination, streaming_build))
+    if mode == "batch":
+        from .apple_batch import prepare as prepare_batch
+        return completed_bundle(root / "bundles/apple-batch-selected",
+                                lambda destination: prepare_batch(selected, destination))
+    return selected

@@ -27,7 +27,8 @@ class SelectionTests(unittest.TestCase):
             expected = "apple_stream_selected" if sme is True and sme2 is True else "apple_stream_projection"
             self.assertEqual(selected["recipe"], expected)
             self.assertEqual(selected["threads"], 4 if expected == "apple_stream_selected" else 1)
-            self.assertEqual(platforms.select_recipe(apple, "batch")["recipe"], "apple_native")
+            batch_expected = "apple_batch_selected" if sme is True and sme2 is True else "apple_native"
+            self.assertEqual(platforms.select_recipe(apple, "batch")["recipe"], batch_expected)
 
     def test_mode_and_vendor_select_separate_recipes(self):
         cases = [

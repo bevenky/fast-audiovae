@@ -102,6 +102,20 @@ class AutomaticTests(unittest.TestCase):
         self.assertEqual(result["recipe"], "portable")
         self.assertIn("1.30.0", result["reason"])
 
+    def test_selected_apple_batch_does_not_change_streaming_default(self):
+        self.cpu.update(system="Darwin", machine="arm64", platform="Darwin/arm64", vendor="apple",
+                        usable={"neon": True, "sme": True, "sme2": True}, probe={"status": "ok"})
+        payload = {"identity": "selected-wheel", "manifest": {"wheel_platform": "macosx_26_0_arm64"}}
+        with patch("onnxruntime.__version__", "1.30.0"), \
+             patch("fast_audiovae.native_payload.inspect_payload", return_value=payload), \
+             patch("fast_audiovae.native_payload.materialize_payload", return_value={"base_build": "verified"}), \
+             patch("fast_audiovae.native_payload.probe_payload", return_value=(True, "")):
+            batch = self.setup(mode="batch", threads=4)
+            default = self.setup()
+        self.assertEqual((batch["recipe"], batch["mode"], batch["threads"]), ("apple_batch_selected", "batch", 4))
+        self.assertEqual((default["recipe"], default["mode"], default["threads"]), ("apple_stream_selected", "streaming", 1))
+        self.assertNotEqual(batch["cache_key"], default["cache_key"])
+
     def test_public_load_defaults_to_streaming(self):
         import fast_audiovae
         with patch.object(automatic, "load", return_value="loaded") as load:
