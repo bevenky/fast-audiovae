@@ -1,0 +1,30 @@
+{
+  "version": "apple_streaming_promotion_v1",
+  "bundle": "${WORKSPACE}/outputs/fast-audiovae-v0.3.0/validation-r3-cache/build/25fabca430594111c9a56bfaf37d9fcf1f54525a5560ce03fe606f00be09b824/bundles/apple-stream-selected",
+  "bundle_manifest_sha256": "a0dc3ad300b99b114842154dd6011816d5a01d0cd8c1bf14a67ce329ccc6f1c1",
+  "stream_graph_sha256": "5918e523939aba3a6f72e32b88b27a0a1f39828a376b0ed748a7cb43e70ce841",
+  "stock_bundle": "${WORKSPACE}/work/streaming-comparison/stock-audiovae",
+  "mimi_bundle": "${WORKSPACE}/work/streaming-comparison/mimi_onnx",
+  "latents": "${WORKSPACE}/work/codec-quality-inputs/multilingual-encoded/fast_audiovae2.npz",
+  "latent_manifest": "${WORKSPACE}/work/codec-quality-inputs/multilingual-encoded/fast_audiovae2.json",
+  "mimi_latents": "${WORKSPACE}/work/codec-quality-inputs/multilingual-encoded/mimi_vae.npz",
+  "mimi_latent_manifest": "${WORKSPACE}/work/codec-quality-inputs/multilingual-encoded/mimi_vae.json",
+  "extra_latents": "${WORKSPACE}/outputs/apple-streaming-promotion-v1/extra-encoded-v1/latents.npz",
+  "extra_manifest": "${WORKSPACE}/outputs/apple-streaming-promotion-v1/extra-encoded-v1/manifest.json",
+  "stock_identity": {
+    "original_graph_sha256": "fdd20e200675ab9649bf33f16bc5974101ba5cf47ab89fbfe29f3d36ff6c3c84",
+    "original_external_weights_sha256": "3b76bd57356e96893655bd24a364989e016c5af2fc8c29195caaefb4eccf5143",
+    "manifest_sha256": "60675fdb97a2f2ac56b72fcd799b6754e72872de09911bf388be59839ac8a752",
+    "streaming_modification": "Explicit causal states only; prepare_stock.py starts by copying this original graph"
+  },
+  "inputs_sha256": {
+    "latents": "9b709b787c040591de57e094a5ba5a4515cc74e256e8014530ff8c7bb54d2d24",
+    "latent_manifest": "398552d56b72077771cb53ce2ea9613a73bddd71c7031cf33aa9371094998a9f",
+    "mimi_latents": "af2d68663daf71db954488721e8fffc5888437100772a309b13c62391df0d9c7",
+    "mimi_latent_manifest": "8df0ca5b8128c7a5b1a10dcb7dfe9e20bf4e1a5eeceaf7fe297c87f98334c0f4",
+    "extra_latents": "7392e27993227e58950be37804c8f535b69fc1f10380be3d1f044c1f2a2a801b",
+    "extra_manifest": "e74e339e23190b914f86fe65be03e6cf30fc93b3e6d624fd66c4c5cd29a38018"
+  },
+  "scope": "Same installed package loader and exact selected5918 exported bundle. Two separate processes per thread setting; qualification before publication timing; no silent fallback.",
+  "template_note": "Expand ${WORKSPACE} before use. Frozen audio/latent fixtures are external and not included. Preserve input and graph hashes."
+}

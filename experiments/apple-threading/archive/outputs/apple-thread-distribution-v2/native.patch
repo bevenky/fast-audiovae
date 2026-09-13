@@ -1,0 +1,577 @@
+diff --git a/native/apple/streaming/libxsmm_panel/native.cpp b/native/apple/streaming/libxsmm_panel/native.cpp
+index 45185c0..3afaded 100644
+--- a/native/apple/streaming/libxsmm_panel/native.cpp
++++ b/native/apple/streaming/libxsmm_panel/native.cpp
+@@ -1,12 +1,14 @@
+ // Explicit FP32 SME JIT; constant transpose once, direct BCT-compatible output.
+ #include "onnxruntime_c_api.h"
+ #include "libxsmm.h"
++#include <array>
+ #include <atomic>
+ #include <cmath>
+ #include <cstdint>
+ #include <cstdio>
+ #include <cstring>
+ #include <mutex>
++#include <memory>
+ #include <stdexcept>
+ #include <vector>
+ #include <sys/sysctl.h>
+@@ -18,6 +20,7 @@ namespace {
+ thread_local char error_text[256]={};
+ std::mutex jit_mutex;
+ std::atomic<uint64_t> jit_invocations{0};
++std::atomic<uint64_t> parallel_invocations{0},parallel_tasks{0},parallel_fpcr_checks{0};
+ void require(bool ok,const char* message){if(!ok)throw std::invalid_argument(message);}
+ void failed()noexcept{try{throw;}catch(const std::exception& e){std::snprintf(error_text,sizeof(error_text),"%s",e.what());}catch(...){std::snprintf(error_text,sizeof(error_text),"LIBXSMM error");}}
+ bool flag(const char* key){int value=0;size_t size=sizeof(value);return sysctlbyname(key,&value,&size,nullptr,0)==0 && value==1;}
+@@ -90,16 +93,130 @@ struct Region {
+     }
+     ++runs;
+   }
++  // A task owns a contiguous group of complete N64 panels. ORT supplies the
++  // workers; neither packed weights nor JIT code is changed during execution.
++  struct TaskResult {
++    size_t completed=0;
++    bool fpcr_checked=false,done=false;
++    unsigned error=0;
++  };
++  struct ParallelWork {
++    Region* region;
++    size_t m,panels_per_task;
++    const float* x;
++    float* y;
++    std::array<TaskResult,128> results{};
++  };
++  static void panel_task(void* raw,size_t task)noexcept {
++    auto& work=*static_cast<ParallelWork*>(raw);
++    auto& result=work.results[task];
++    size_t completed=0;
++    try {
++      // FPCR is thread-local, so checking only the initiating thread is not
++      // sufficient when an ORT worker executes the existing SME kernel.
++      fpcr_check();result.fpcr_checked=true;
++      auto& r=*work.region;
++      const size_t begin=task*work.panels_per_task;
++      const size_t end=begin+work.panels_per_task<128?begin+work.panels_per_task:128;
++      libxsmm_gemm_param p{};p.a.primary=const_cast<float*>(work.x);
++      for(size_t panel=begin;panel<end;++panel){
++        p.b.primary=r.transposed_weight.data()+panel*64*r.k;
++        p.c.primary=work.y+panel*64*work.m;
++        r.code[work.m-1].fn(&p);++completed;
++      }
++    }catch(const std::exception&){result.error=1;}
++    catch(...){result.error=2;}
++    result.completed=completed;result.done=true;
++  }
++  void run_parallel(size_t m,const float* x,size_t xc,float* y,size_t yc,
++                    const OrtApi* api,const OrtKernelContext* context,size_t panels_per_task){
++    require(m>0 && m<=2 && x && y && xc==k*m && yc==n*m,"Invalid BCT buffers");fpcr_check();
++    require(api && context && api->KernelContext_ParallelFor,"ORT parallel context required");
++    require(panels_per_task>0 && panels_per_task<=128,"Panel group size must be in [1,128]");
++    auto xa=reinterpret_cast<uintptr_t>(x),ya=reinterpret_cast<uintptr_t>(y);
++    require(xa<=UINTPTR_MAX-xc*4 && ya<=UINTPTR_MAX-yc*4 && !(xa<ya+yc*4 && ya<xa+xc*4),"Buffers overlap or overflow");
++    require(!busy.test_and_set(std::memory_order_acquire),"Concurrent region reuse prohibited");
++    struct Release{std::atomic_flag& f;~Release(){f.clear(std::memory_order_release);}} release{busy};
++    ParallelWork work{this,m,panels_per_task,x,y,{}};
++    const size_t tasks=(128+panels_per_task-1)/panels_per_task;
++    // ParallelFor joins before returning. Each callback writes only its own
++    // result slot and output panels; the Region guard remains held throughout.
++    OrtStatus* status=api->KernelContext_ParallelFor(context,panel_task,tasks,0,&work);
++    struct StatusRelease{const OrtApi* api;OrtStatus* status;~StatusRelease(){if(status)api->ReleaseStatus(status);}} status_release{api,status};
++    size_t completed=0,finished=0,checked=0;unsigned callback_error=0;
++    for(size_t task=0;task<tasks;++task){
++      const auto& result=work.results[task];
++      completed+=result.completed;finished+=result.done;checked+=result.fpcr_checked;
++      callback_error|=result.error;
++    }
++    // Publish actual work only after all callbacks have joined, including any
++    // work completed before an error. Failed runs do not increment runs.
++    jit_invocations.fetch_add(completed,std::memory_order_relaxed);
++    parallel_tasks.fetch_add(finished,std::memory_order_relaxed);
++    parallel_fpcr_checks.fetch_add(checked,std::memory_order_relaxed);
++    if(status)throw std::runtime_error(api->GetErrorMessage(status));
++    require(!callback_error,"Parallel panel worker FPCR check or execution failed");
++    require(finished==tasks && checked==tasks && completed==128,"Incomplete parallel panel execution");
++    ++runs;parallel_invocations.fetch_add(1,std::memory_order_relaxed);
++  }
++};
++// External paired-region scheduler owns this lease until every task joins.
++// Region storage is immutable during the lease. Each tile owns whole N64 outputs.
++struct PanelWork {
++  Region* region;
++  size_t m;
++  const float* x;
++  float* y;
++  std::array<std::atomic<unsigned char>,128> panels{};
++  bool acquired=false;
++  PanelWork(Region* r,size_t M,const float* X,size_t xc,float* Y,size_t yc)
++      :region(r),m(M),x(X),y(Y) {
++    require(r && m>0 && m<=2 && x && y && xc==r->k*m && yc==r->n*m,"Invalid panel lease buffers");
++    fpcr_check();
++    auto xa=reinterpret_cast<uintptr_t>(x),ya=reinterpret_cast<uintptr_t>(y);
++    require(xa<=UINTPTR_MAX-xc*4 && ya<=UINTPTR_MAX-yc*4 && !(xa<ya+yc*4 && ya<xa+xc*4),"Panel lease buffers overlap");
++    require(!r->busy.test_and_set(std::memory_order_acquire),"Concurrent region reuse prohibited");
++    acquired=true;
++    for(auto& v:panels)v.store(0,std::memory_order_relaxed);
++  }
++  ~PanelWork(){if(acquired)region->busy.clear(std::memory_order_release);}
++  void tile(size_t first,size_t count) {
++    require(count && first<128 && count<=128-first,"Panel tile out of bounds");
++    fpcr_check();
++    for(size_t p=first;p<first+count;++p){
++      unsigned char zero=0;
++      require(panels[p].compare_exchange_strong(zero,1,std::memory_order_relaxed),"Panel scheduled twice");
++    }
++    libxsmm_gemm_param param{};param.a.primary=const_cast<float*>(x);
++    for(size_t p=first;p<first+count;++p){
++      param.b.primary=region->transposed_weight.data()+p*64*region->k;
++      param.c.primary=y+p*64*m;
++      region->code[m-1].fn(&param);
++      panels[p].store(2,std::memory_order_release);
++    }
++  }
++  void finish() {
++    for(auto& p:panels)require(p.load(std::memory_order_acquire)==2,"Incomplete panel lease");
++    jit_invocations.fetch_add(128,std::memory_order_relaxed);++region->runs;
++  }
+ };
+ }
+ extern "C" {
+ EXPORT OrtStatus* ORT_API_CALL RegisterCustomOps(OrtSessionOptions*,const OrtApiBase*){return nullptr;}
+ EXPORT uint64_t av_libxsmm_panel_api_calls(){return jit_invocations.load(std::memory_order_relaxed);}
++EXPORT uint64_t av_libxsmm_panel_parallel_calls(){return parallel_invocations.load(std::memory_order_relaxed);}
++EXPORT uint64_t av_libxsmm_panel_parallel_tasks(){return parallel_tasks.load(std::memory_order_relaxed);}
++EXPORT uint64_t av_libxsmm_panel_parallel_fpcr_checks(){return parallel_fpcr_checks.load(std::memory_order_relaxed);}
+ EXPORT int av_libxsmm_panel_supported(){return supported()?1:0;}
+ EXPORT const char* av_libxsmm_panel_error(){return error_text;}
+ EXPORT void* av_libxsmm_panel_create(size_t k,size_t n,size_t max_m,const float* w,size_t count){error_text[0]=0;try{return new Region(k,n,max_m,w,count);}catch(...){failed();return nullptr;}}
+ EXPORT void av_libxsmm_panel_destroy(void* h){delete static_cast<Region*>(h);}
+ EXPORT int av_libxsmm_panel_run(void* h,size_t m,const float* x,size_t xc,float* y,size_t yc){error_text[0]=0;try{require(h,"Missing handle");static_cast<Region*>(h)->run(m,x,xc,y,yc);return 0;}catch(...){failed();return -1;}}
++EXPORT int av_libxsmm_panel_run_parallel(void* h,size_t m,const float* x,size_t xc,float* y,size_t yc,const OrtApi* api,const OrtKernelContext* context,size_t panels_per_task){error_text[0]=0;try{require(h,"Missing handle");static_cast<Region*>(h)->run_parallel(m,x,xc,y,yc,api,context,panels_per_task);return 0;}catch(...){failed();return -1;}}
++EXPORT void* av_libxsmm_panel_begin(void* h,size_t m,const float* x,size_t xc,float* y,size_t yc){error_text[0]=0;try{return new PanelWork(static_cast<Region*>(h),m,x,xc,y,yc);}catch(...){failed();return nullptr;}}
++EXPORT int av_libxsmm_panel_tile(void* work,size_t first,size_t count){error_text[0]=0;try{require(work,"Missing panel lease");static_cast<PanelWork*>(work)->tile(first,count);return 0;}catch(...){failed();return -1;}}
++EXPORT int av_libxsmm_panel_finish(void* work){error_text[0]=0;std::unique_ptr<PanelWork> lease(static_cast<PanelWork*>(work));try{require(work,"Missing panel lease");lease->finish();return 0;}catch(...){failed();return -1;}}
++EXPORT void av_libxsmm_panel_abort(void* work){delete static_cast<PanelWork*>(work);}
+ EXPORT uint64_t av_libxsmm_panel_stat(void* h,int field){
+   if(!h)return 0;auto& p=*static_cast<Region*>(h);
+   switch(field){case 0:return p.detected;case 1:return p.target;case 2:return p.transposed_weight.size()*4;case 3:return p.runs;}
+diff --git a/native/apple/streaming/libxsmm_panel/ort_ops.cpp b/native/apple/streaming/libxsmm_panel/ort_ops.cpp
+index 91ad9fd..50088ac 100644
+--- a/native/apple/streaming/libxsmm_panel/ort_ops.cpp
++++ b/native/apple/streaming/libxsmm_panel/ort_ops.cpp
+@@ -5,6 +5,7 @@
+ #include <Accelerate/Accelerate.h>
+ #include <atomic>
+ #include <cstdint>
++#include <cstring>
+ #include <limits>
+ #include <memory>
+ #include <mutex>
+@@ -20,6 +21,7 @@ const char* av_libxsmm_panel_error();
+ void* av_libxsmm_panel_create(size_t,size_t,size_t,const float*,size_t);
+ void av_libxsmm_panel_destroy(void*);
+ int av_libxsmm_panel_run(void*,size_t,const float*,size_t,float*,size_t);
++int av_libxsmm_panel_run_parallel(void*,size_t,const float*,size_t,float*,size_t,const OrtApi*,const OrtKernelContext*,size_t);
+ }
+ namespace {
+ constexpr const char* kDomain="fast.audiovae.apple.libxsmm.panel.v1";
+@@ -49,12 +51,26 @@ size_t count(int64_t a,int64_t b,int64_t c=1) {
+   require(result<=std::numeric_limits<size_t>::max()/4,"Byte count overflow");return result;
+ }
+ struct Destroy {void operator()(void* p)const{av_libxsmm_panel_destroy(p);}};
++int64_t parallel_panels(Ort::ConstKernelInfo info) {
++  try{return info.GetAttribute<int64_t>("parallel_panels");}
++  catch(const Ort::Exception& e){
++    // Only a missing optional attribute selects the legacy serial route.
++    // Wrong-type attributes and all other ORT errors remain errors.
++    if(e.GetOrtErrorCode()!=ORT_FAIL ||
++       std::strcmp(e.what(),"No attribute with name:'parallel_panels'is defined.")!=0)throw;
++    return 0;
++  }
++}
+ struct Kernel {
+-  const OrtApi& api;int64_t k,n,max_m;std::unique_ptr<void,Destroy> region;
++  const OrtApi& api;int64_t k,n,max_m,panel_group;std::unique_ptr<void,Destroy> region;
+   Kernel(const OrtApi& a,const OrtKernelInfo* raw):api(a) {
+     Ort::ConstKernelInfo info(raw);
+     require(info.GetAttribute<int64_t>("matrix_abi")==1,"Matrix ABI mismatch");
+     require(info.GetAttribute<int64_t>("threads")==1,"One thread required");
++    // This is N64 panels per ORT task, not the number of worker threads.
++    // The existing threads=1 attribute still describes each native kernel.
++    panel_group=parallel_panels(info);
++    require(panel_group>=0 && panel_group<=128,"parallel_panels must be in [0,128]");
+     k=info.GetAttribute<int64_t>("k");n=info.GetAttribute<int64_t>("n");
+     max_m=info.GetAttribute<int64_t>("max_m");
+     require(k==2048 && n==8192 && max_m==2,"Only first-pair geometry is supported");
+@@ -95,7 +111,10 @@ struct Kernel {
+         return nullptr;
+       }
+       for(int64_t b=0;b<dims[0];++b) {
+-        if(av_libxsmm_panel_run(region.get(),dims[2],xp+b*xc,xc,yp+b*yc,yc))
++        const int result=panel_group
++          ? av_libxsmm_panel_run_parallel(region.get(),dims[2],xp+b*xc,xc,yp+b*yc,yc,&api,raw,static_cast<size_t>(panel_group))
++          : av_libxsmm_panel_run(region.get(),dims[2],xp+b*xc,xc,yp+b*yc,yc);
++        if(result)
+           throw std::runtime_error(av_libxsmm_panel_error());
+         calls.fetch_add(1,std::memory_order_relaxed);
+       }
+diff --git a/native/apple/streaming/multitile/native.cpp b/native/apple/streaming/multitile/native.cpp
+index a467fb5..2d97af6 100644
+--- a/native/apple/streaming/multitile/native.cpp
++++ b/native/apple/streaming/multitile/native.cpp
+@@ -65,6 +65,13 @@ struct Region {
+   std::vector<float> rhs,lhs,row_output;
+   uint64_t runs=0,api_calls=0;
+   std::atomic_flag busy=ATOMIC_FLAG_INIT;
++  // Experimental split-call lifecycle. Only begin/finish touch shared scratch;
++  // task callbacks share the packed LHS/RHS and own disjoint destination columns.
++  std::unique_ptr<std::atomic<unsigned>[]> task_states;
++  std::atomic<bool> tasks_active{false},task_failed{false};
++  size_t task_m=0,task_grain=0,tasks=0;
++  float* task_output=nullptr;
++  uint64_t tiled_runs=0,worker_checks=0;
+   Region(size_t K,size_t N,size_t M,const float* weight,size_t count):k(K),n(N),max_m(M) {
+     runtime();
+     require(k==2048 && n==8192 && max_m==2,"Only first-pair K2048/N8192/M<=2 is supported");
+@@ -85,6 +92,7 @@ struct Region {
+     lhs_bytes=lhs_stride.m;rhs_bytes=(n/nr)*rhs_stride.n;
+     lhs.resize(lhs_bytes/4,0.0f);rhs.resize(rhs_bytes/4,0.0f);
+     row_output.resize(api.get_dst_size(&config,&ds,&dst_stride)/4);
++    task_states=std::make_unique<std::atomic<unsigned>[]>(n/(4*nr));
+     // Exact layout required by the original kernel: for each 1VL N panel,
+     // zero bias[nr], then k vectors of nr FP32 weights. Its assembly consumes
+     // four such panels concurrently. No conversion or arithmetic on weights.
+@@ -125,6 +133,89 @@ struct Region {
+       y[column*m+row]=row_output[row*n+column];
+     ++runs;
+   }
++  void begin(size_t m,const float* x,size_t xc,float* y,size_t yc,size_t channels_per_task) {
++    require(m>0 && m<=max_m && x && y && xc==k*m && yc==n*m,"Invalid region input/output");
++    require(!overlaps(x,xc,y,yc),"Region input and output must not overlap");
++    runtime(vl);
++    // Multiples of four 1VL panels keep every subcall on the exact same
++    // 4vsx16vs bottom-edge implementation used by the original whole call.
++    require(channels_per_task>0 && channels_per_task<=n && channels_per_task%(4*nr)==0,
++            "Task channels must be a positive multiple of 4*nr and at most N");
++    require(!busy.test_and_set(std::memory_order_acquire),"A region may not run concurrently");
++    try {
++      std::fill(lhs.begin(),lhs.end(),0.0f);
++      for(size_t depth=0;depth<k;++depth) for(size_t row=0;row<m;++row)
++        lhs[depth*mr+row]=x[depth*m+row];
++      task_m=m;task_grain=channels_per_task;task_output=y;
++      tasks=(n+task_grain-1)/task_grain;
++      for(size_t task=0;task<tasks;++task)task_states[task].store(0,std::memory_order_relaxed);
++      task_failed.store(false,std::memory_order_relaxed);
++      tasks_active.store(true,std::memory_order_release);
++    }catch(...){busy.clear(std::memory_order_release);throw;}
++  }
++  void task(size_t index) {
++    bool claimed=false;
++    try {
++      require(tasks_active.load(std::memory_order_acquire),"No prepared tiled region");
++      require(index<tasks,"Tile task index out of bounds");
++      unsigned expected=0;
++      require(task_states[index].compare_exchange_strong(expected,1,std::memory_order_acq_rel),
++              "Tile task was already claimed");
++      claimed=true;
++      // Capability, FPCR and streaming vector length are checked on the actual
++      // ORT worker before it uses packed buffers created by the initiating thread.
++      runtime(vl);
++      const size_t column=index*task_grain;
++      const size_t width=std::min(task_grain,n-column);
++      const kai_matmul_uker_rhs_dim_args ri{column,0};
++      const kai_matmul_uker_dst_dim_args di{0,column};
++      const size_t ro=api.get_rhs_offset(&config,&ri,&rhs_stride);
++      const size_t yo=api.get_dst_offset(&config,&di,&dst_stride);
++      require(width>0 && width%(4*nr)==0 && ro%4==0 && yo%4==0 &&
++              ro==(column/nr)*rhs_stride.n && ro+(width/nr)*rhs_stride.n<=rhs_bytes &&
++              yo==column*4 && (task_m-1)*dst_stride.m+yo+width*4<=row_output.size()*4,
++              "Packed tile offset or extent changed");
++      const float lower=-std::numeric_limits<float>::infinity();
++      const float upper=std::numeric_limits<float>::infinity();
++      kai_matmul_uker_args args{};
++      args.flags=KAI_MATMUL_UKER_FLAGS_ARGS_CLAMP;args.shape={task_m,width,k};
++      args.operand.lhs={lhs.data(),lhs_stride};
++      args.operand.rhs={rhs.data()+ro/4,rhs_stride};
++      // Retain the full output row stride, even for a narrow column tile.
++      args.operand.dst={row_output.data()+yo/4,dst_stride};
++      args.activation.clamp={&lower,&upper};
++      api.run(&config,&args);
++      task_states[index].store(2,std::memory_order_release);
++    }catch(...){
++      if(claimed)task_states[index].store(3,std::memory_order_release);
++      task_failed.store(true,std::memory_order_release);
++      throw;
++    }
++  }
++  void finish(bool commit) {
++    require(tasks_active.load(std::memory_order_acquire),"No prepared tiled region");
++    // The caller must first join every dispatched callback. Do not release a
++    // region that is visibly still executing if that lifecycle contract is broken.
++    for(size_t index=0;index<tasks;++index)
++      require(task_states[index].load(std::memory_order_acquire)!=1,"Tile callback has not joined");
++    struct Release {
++      Region& region;
++      ~Release(){region.tasks_active.store(false,std::memory_order_release);
++                 region.task_output=nullptr;region.busy.clear(std::memory_order_release);}
++    } release{*this};
++    size_t completed=0;
++    for(size_t index=0;index<tasks;++index)
++      completed+=task_states[index].load(std::memory_order_acquire)==2;
++    // Publish counters only after the join, including completed work in an
++    // aborted call. No partial row_output is transposed into the caller's Y.
++    api_calls+=completed;worker_checks+=completed;
++    if(!commit)return;
++    require(!task_failed.load(std::memory_order_acquire) && completed==tasks,
++            "Incomplete or failed tiled region");
++    for(size_t column=0;column<n;++column) for(size_t row=0;row<task_m;++row)
++      task_output[column*task_m+row]=row_output[row*n+column];
++    ++runs;++tiled_runs;
++  }
+ };
+ }
+ extern "C" {
+@@ -141,13 +232,34 @@ EXPORT int av_multitile_run(void* handle,size_t m,const float* x,size_t xc,float
+   error_text[0]=0;try {require(handle,"Missing region");static_cast<Region*>(handle)->run(m,x,xc,y,yc);return 0;}
+   catch (...) {failed();return -1;}
+ }
++// begin and finish are initiating-thread calls. task may run on ORT workers;
++// callers must collect its thread-local error immediately and join before finish.
++// finish(commit=0) aborts a successfully begun call and releases its guard.
++EXPORT int av_multitile_begin(void* handle,size_t m,const float* x,size_t xc,float* y,size_t yc,size_t channels_per_task) {
++  error_text[0]=0;try {require(handle,"Missing region");static_cast<Region*>(handle)->begin(m,x,xc,y,yc,channels_per_task);return 0;}
++  catch (...) {failed();return -1;}
++}
++EXPORT size_t av_multitile_task_count(void* handle) {
++  if(!handle)return 0;auto& p=*static_cast<Region*>(handle);
++  return p.tasks_active.load(std::memory_order_acquire)?p.tasks:0;
++}
++EXPORT int av_multitile_task(void* handle,size_t index) {
++  error_text[0]=0;try {require(handle,"Missing region");static_cast<Region*>(handle)->task(index);return 0;}
++  catch (...) {failed();return -1;}
++}
++EXPORT int av_multitile_finish(void* handle,int commit) {
++  error_text[0]=0;try {require(handle,"Missing region");require(commit==0 || commit==1,"Commit must be 0 or 1");
++    static_cast<Region*>(handle)->finish(commit!=0);return 0;}
++  catch (...) {failed();return -1;}
++}
+ EXPORT uint64_t av_multitile_stat(void* handle,int field) {
+   if (!handle) return 0;
+   auto& p=*static_cast<Region*>(handle);
+   switch(field) {
+     case 0:return p.vl;case 1:return p.mr;case 2:return p.nr;case 3:return p.rhs_bytes;
+     case 4:return p.lhs_bytes;case 5:return p.row_output.size()*4;
+-    case 6:return p.runs;case 7:return p.api_calls;case 8:return 1;default:return 0;
++    case 6:return p.runs;case 7:return p.api_calls;case 8:return 1;
++    case 9:return p.tiled_runs;case 10:return p.worker_checks;case 11:return 4*p.nr;default:return 0;
+   }
+ }
+ }
+diff --git a/native/apple/streaming/sources.json b/native/apple/streaming/sources.json
+index 331b142..d1a5a71 100644
+--- a/native/apple/streaming/sources.json
++++ b/native/apple/streaming/sources.json
+@@ -1,11 +1,13 @@
+ {
+   "version": 1,
+   "selected_graph_sha256": "5918e523939aba3a6f72e32b88b27a0a1f39828a376b0ed748a7cb43e70ce841",
+-  "native_sources_copied_without_changes": true,
++  "native_sources_copied_without_changes": false,
+   "files": {
+     "state/custom_ops.cpp": {
+-      "sha256": "f7cc60d7b9939b8ae7b0f14916efba54ce29c64a42834b7a51ea68afe4e9811c",
+-      "original_source": "experiments/apple-streaming-v2/state/custom_ops.cpp"
++      "sha256": "d919a1079ce633ccce5820a836b2992c271bbe3df1947d893c0f0cc55c2c066b",
++      "original_source": "experiments/apple-streaming-v2/state/custom_ops.cpp",
++      "original_sha256": "f7cc60d7b9939b8ae7b0f14916efba54ce29c64a42834b7a51ea68afe4e9811c",
++      "modification": "Optional ORT worker scheduling; absent or zero scheduling attribute preserves the serial route."
+     },
+     "phase/native_ops.cpp": {
+       "sha256": "fc9e20fa8d63643d43c2e919235da869b9f4510d0869d23d70eb1a34a7a4263d",
+@@ -28,8 +30,10 @@
+       "original_source": "experiments/apple-streaming-v2/matrix-sweep-v1/geometry.h"
+     },
+     "multitile/native.cpp": {
+-      "sha256": "b0d7b64bab351f4e13354ce81e72dd843e65d3053f9986b1e44ee51d4eb10d6c",
+-      "original_source": "experiments/apple-streaming-v2/matrix-multitile-v1/native.cpp"
++      "sha256": "6295f9ccf35ef74efd63b3a2c4bdfe4e9e93cce30d0ce5274db8845ee163b448",
++      "original_source": "experiments/apple-streaming-v2/matrix-multitile-v1/native.cpp",
++      "original_sha256": "b0d7b64bab351f4e13354ce81e72dd843e65d3053f9986b1e44ee51d4eb10d6c",
++      "modification": "Preserved serial route; added guarded tiled execution for an opt-in shared ORT worker experiment."
+     },
+     "multitile/ort_ops.cpp": {
+       "sha256": "df2d6a1158d88b1cbc05746b2bb4d934e6e54d053d35aa25458b7a05f80fb8b7",
+@@ -44,12 +48,16 @@
+       "original_source": "experiments/apple-streaming-v2/matrix-multitile-next-v1/ort_ops.cpp"
+     },
+     "libxsmm_panel/native.cpp": {
+-      "sha256": "71f240d00cff2d17bf6dc72f4858efa07bf3d9a5d4f4758c34389fa5126b4eb8",
+-      "original_source": "experiments/apple-streaming-v2/libxsmm-v1/panel64/native.cpp"
++      "sha256": "80f58b9e750e7968f82cdc48dec3b1aa27def0eb462ecbe24643882d59e25caf",
++      "original_source": "experiments/apple-streaming-v2/libxsmm-v1/panel64/native.cpp",
++      "original_sha256": "71f240d00cff2d17bf6dc72f4858efa07bf3d9a5d4f4758c34389fa5126b4eb8",
++      "modification": "Preserved serial route; added guarded tiled execution for an opt-in shared ORT worker experiment."
+     },
+     "libxsmm_panel/ort_ops.cpp": {
+-      "sha256": "4561d81ca2256e6785a91643b0721b3fe3c18301357d2a290a027e57f709ad69",
+-      "original_source": "experiments/apple-streaming-v2/libxsmm-v1/panel64/ort_ops.cpp"
++      "sha256": "322ff5de877080d6df30c0cca61bef257f88fcf1c5fe519986f35990eb63eb7e",
++      "original_source": "experiments/apple-streaming-v2/libxsmm-v1/panel64/ort_ops.cpp",
++      "original_sha256": "4561d81ca2256e6785a91643b0721b3fe3c18301357d2a290a027e57f709ad69",
++      "modification": "Optional ORT worker scheduling; absent or zero scheduling attribute preserves the serial route."
+     },
+     "kleidiai/kai/ukernels/matmul/matmul_clamp_f32_f32p_f32p/kai_matmul_clamp_f32_f32p2vlx1_f32p2vlx1biasf32_sme2_mopa.c": {
+       "sha256": "0a5084928760ec479b99246276fcfce4cb8152e7248f28862cb46b1ceaed0fb0",
+diff --git a/native/apple/streaming/state/custom_ops.cpp b/native/apple/streaming/state/custom_ops.cpp
+index 8c67e10..df40929 100644
+--- a/native/apple/streaming/state/custom_ops.cpp
++++ b/native/apple/streaming/state/custom_ops.cpp
+@@ -7,12 +7,15 @@
+ #include <arm_neon.h>
+ #include <algorithm>
+ #include <array>
++#include <atomic>
+ #include <cmath>
++#include <cstdint>
+ #include <cstring>
+ #include <limits>
+ #include <memory>
+ #include <mutex>
+ #include <stdexcept>
++#include <utility>
+ #include <vector>
+ 
+ #if defined(__FAST_MATH__)
+@@ -50,6 +53,28 @@ std::vector<float> Constant(Ort::ConstKernelInfo info, size_t index, std::vector
+   return {p, p + count};
+ }
+ 
++int64_t ParallelChannels(Ort::ConstKernelInfo info) {
++  try { return info.GetAttribute<int64_t>("parallel_channels"); }
++  catch (const Ort::Exception& error) {
++    // ORT API29 has no optional typed-attribute getter. Only absence defaults
++    // to the legacy path; malformed present attributes must still fail.
++    if (error.GetOrtErrorCode() != ORT_FAIL ||
++        std::strcmp(error.what(), "No attribute with name:'parallel_channels'is defined.") != 0)
++      throw;
++    return 0;
++  }
++}
++
++void Disjoint(const float* a, size_t a_count, const float* b, size_t b_count) {
++  Require(a && b, "Null channel-work buffer");
++  const auto ap = reinterpret_cast<uintptr_t>(a), bp = reinterpret_cast<uintptr_t>(b);
++  Require(a_count <= (std::numeric_limits<uintptr_t>::max() - ap) / sizeof(float) &&
++          b_count <= (std::numeric_limits<uintptr_t>::max() - bp) / sizeof(float),
++          "Channel-work address overflow");
++  Require(ap + a_count * sizeof(float) <= bp || bp + b_count * sizeof(float) <= ap,
++          "Channel-work buffers overlap");
++}
++
+ struct Kernel {
+   const OrtApi& api;
+   Mode mode;
+@@ -57,6 +82,7 @@ struct Kernel {
+   int32_t dilation;
+   bool stateful, packed;
+   size_t tile;
++  int64_t parallel_channels = 0;
+   std::vector<float> weights, bias, alpha, reciprocal;
+   // Preallocated bounded scratch is private to this operator instance, guarded
+   // across simultaneous sessions/streams. It is not an audio-history cache.
+@@ -78,6 +104,11 @@ struct Kernel {
+       Require(value == 0 || value == 1, "packed_snake must be 0 or 1");
+       packed = value == 1;
+     }
++    parallel_channels = ParallelChannels(info);
++    Require(parallel_channels >= 0 && parallel_channels <= channels,
++            "parallel_channels must be zero or a channel-block size at most channels");
++    Require(!parallel_channels || (stateful && !packed),
++            "Channel scheduling requires unpacked stateful DW or DW+Snake");
+     tile = kScratch;
+     if (packed) {
+       auto value = info.GetAttribute<int64_t>("scratch_elements");
+@@ -100,6 +131,48 @@ struct Kernel {
+     }
+   }
+ 
++  struct ChannelWork {
++    const Kernel* self;
++    const float* x;
++    const float* history;
++    float* y;
++    float* next;
++    int64_t time, halo;
++    std::atomic<int32_t> error{NCC_OK};
++  };
++
++  static void ChannelBlock(void* opaque, size_t block) noexcept {
++    auto& work = *static_cast<ChannelWork*>(opaque);
++    const auto& k = *work.self;
++    const int64_t first = static_cast<int64_t>(block) * k.parallel_channels;
++    const int64_t count = std::min(k.parallel_channels, k.channels - first);
++    const bool fused = k.mode == Mode::StateDWSnake;
++    // Split channels only: the original time tiles, vForce call lengths and
++    // FP32 tap/activation order remain intact. C scratch stays on each stack.
++    const int32_t status = ncc_dw7_f32_ex(
++        work.x + first * work.time, k.weights.data() + first * 7,
++        k.bias.data() + first, work.history + first * work.halo,
++        fused ? k.alpha.data() + first : nullptr,
++        fused ? k.reciprocal.data() + first : nullptr,
++        work.y + first * work.time, 1, count, work.time, k.dilation, NCC_NEON, 1);
++    if (status != NCC_OK) {
++      work.error.store(status, std::memory_order_relaxed);
++      return;
++    }
++    for (int64_t c = first; c < first + count; ++c) {
++      float* target = work.next + c * work.halo;
++      if (work.time >= work.halo)
++        std::memcpy(target, work.x + c * work.time + work.time - work.halo,
++                    static_cast<size_t>(work.halo) * sizeof(float));
++      else {
++        std::memcpy(target, work.history + c * work.halo + work.time,
++                    static_cast<size_t>(work.halo - work.time) * sizeof(float));
++        std::memcpy(target + work.halo - work.time, work.x + c * work.time,
++                    static_cast<size_t>(work.time) * sizeof(float));
++      }
++    }
++  }
++
+   // Flattening BCT changes only sine call granularity. Channel coefficients,
+   // multiplication/addition order and original x in the Snake finish are kept.
+   // input==output is permitted: a whole scratch tile is read before its finish.
+@@ -161,6 +234,33 @@ struct Kernel {
+       }
+       auto yvalue = context.GetOutput(0, shape);
+       float* y = yvalue.GetTensorMutableData<float>();
++      if (time && parallel_channels && parallel_channels < channels) {
++        auto nextvalue = context.GetOutput(1, std::vector<int64_t>{1, channels, halo});
++        float* next = nextvalue.GetTensorMutableData<float>();
++        const size_t data_count = static_cast<size_t>(channels) * static_cast<size_t>(time);
++        const size_t history_count = static_cast<size_t>(channels) * static_cast<size_t>(halo);
++        // Validate complete spans before splitting: per-block C checks alone
++        // cannot detect a write that aliases a different worker's read range.
++        Disjoint(y, data_count, next, history_count);
++        for (const auto& output : {std::make_pair(y, data_count), std::make_pair(next, history_count)}) {
++          Disjoint(output.first, output.second, x, data_count);
++          Disjoint(output.first, output.second, history, history_count);
++          Disjoint(output.first, output.second, weights.data(), weights.size());
++          Disjoint(output.first, output.second, bias.data(), bias.size());
++          if (mode == Mode::StateDWSnake) {
++            Disjoint(output.first, output.second, alpha.data(), alpha.size());
++            Disjoint(output.first, output.second, reciprocal.data(), reciprocal.size());
++          }
++        }
++        ChannelWork work{this, x, history, y, next, time, halo};
++        const size_t blocks = 1 + static_cast<size_t>((channels - 1) / parallel_channels);
++        // The existing ORT intra-op pool owns all workers. The attribute is a
++        // task size, never a thread count; every native C call still uses one.
++        context.ParallelFor(ChannelBlock, blocks, 0, &work);
++        const auto status = work.error.load(std::memory_order_relaxed);
++        if (status != NCC_OK) return api.CreateStatus(ORT_FAIL, ncc_status_string(status));
++        return nullptr;
++      }
+       if (time) {
+         if (mode == Mode::PackedSnake) Packed(x, y, time);
+         else {

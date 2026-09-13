@@ -1,0 +1,96 @@
+{
+  "version": "apple_thread_state_edges_v1",
+  "status": "passed",
+  "cpu_only": true,
+  "onnxruntime": "1.30.0",
+  "session_run_calls": 60,
+  "call_seconds": 0.00105300173163414,
+  "output_bitwise_checks": 36,
+  "history_bitwise_checks": 36,
+  "history_oracle_checks": 60,
+  "input_nonmutation_checks": 60,
+  "constructor_rejections": 11,
+  "coverage": {
+    "absent/threads1": 2,
+    "absent/threads2": 2,
+    "absent/threads4": 2,
+    "fused/d1/edges": 4,
+    "fused/d3/edges": 4,
+    "fused/d9/edges": 4,
+    "pattern/quiet": 12,
+    "pattern/zero": 12,
+    "positive_grain/threads1": 8,
+    "positive_grain/threads2": 8,
+    "positive_grain/threads4": 8,
+    "unfused/d1/edges": 4,
+    "unfused/d3/edges": 4,
+    "unfused/d9/edges": 4,
+    "zero/threads1": 2,
+    "zero/threads2": 2,
+    "zero/threads4": 2
+  },
+  "context": null,
+  "protocol": {
+    "channels": 7,
+    "dilations": [
+      1,
+      3,
+      9
+    ],
+    "modes": [
+      "StatefulDW7F32",
+      "StatefulDW7SnakeF32"
+    ],
+    "lengths": [
+      "0",
+      "1",
+      "halo-1",
+      "halo+1"
+    ],
+    "patterns": [
+      "zero",
+      "quiet"
+    ],
+    "history": "fixed nonzero per case",
+    "threads": [
+      1,
+      2,
+      4
+    ],
+    "attributes": [
+      "absent",
+      0,
+      3
+    ],
+    "design": "24 old/new boundary pairs plus12 legacy-attribute calls; threads and input patterns rotate across edges, not full Cartesian coverage",
+    "expected_session_run_calls": 60,
+    "call_cap": 80,
+    "native_seconds_cap": 2,
+    "timing": "Correctness-call accounting only; no performance comparison. Session construction and native constructor queries are excluded."
+  },
+  "artifacts_before": {
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-thread-optimization-v1/state_edges.py": "16a5e5c63d85271a0ad11cf2cba8646231ec5de8007038c36b848e4aadd2c9d7",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-streaming-promotion-v1/config-r3.json": "e34fd771ee7512a5fe6b5ca091d6adfafd8bfa5e7e95821c8cbe08fd4bad10dd",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/fast-audiovae-v0.3.0/validation-r3-cache/build/25fabca430594111c9a56bfaf37d9fcf1f54525a5560ce03fe606f00be09b824/bundles/apple-stream-selected/bundle.json": "a0dc3ad300b99b114842154dd6011816d5a01d0cd8c1bf14a67ce329ccc6f1c1",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/fast-audiovae-v0.3.0/validation-r3-cache/build/25fabca430594111c9a56bfaf37d9fcf1f54525a5560ce03fe606f00be09b824/bundles/apple-stream-selected/runtime/libapple_state_v2.dylib": "fc9c82372f4684f41bcd837b10a3eaa1d1c5a3065537cf9e956133c676ff9354",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-thread-optimization-v1/build/libthread_state.dylib": "4bd459ef2761aaf7cdd1935f1b1a78a15427d7e9f5547230b899a154b5a597ce",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-thread-optimization-v1/build/receipt.json": "04d2304185219ee087a07526ad2cf5ed0293a32de574c16932e7b63351c93e58",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/fast-audiovae-streaming-baseline/native/apple/streaming/state/custom_ops.cpp": "d919a1079ce633ccce5820a836b2992c271bbe3df1947d893c0f0cc55c2c066b"
+  },
+  "coefficient_sha256": {
+    "weight": "a54c305cedc096d267a631ae08f8c23e0a3b852ba1d732a8588881cc45e85f51",
+    "bias": "26f582c6f6c3202b5ef68f09ceba2c2877f6ebebf5daf44d5d1d3e1944134f2d",
+    "alpha": "8c00ed8793afacd5c6f7e7620fc2274ee5c1aa3c51c580b0c0f5d94cde45c8cc",
+    "reciprocal": "a376cdd8c44bb631cb63ebb6d0ac902a2a71087b8c8fbea18ef360b3ac099bc6"
+  },
+  "artifacts_after": {
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-thread-optimization-v1/state_edges.py": "16a5e5c63d85271a0ad11cf2cba8646231ec5de8007038c36b848e4aadd2c9d7",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-streaming-promotion-v1/config-r3.json": "e34fd771ee7512a5fe6b5ca091d6adfafd8bfa5e7e95821c8cbe08fd4bad10dd",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/fast-audiovae-v0.3.0/validation-r3-cache/build/25fabca430594111c9a56bfaf37d9fcf1f54525a5560ce03fe606f00be09b824/bundles/apple-stream-selected/bundle.json": "a0dc3ad300b99b114842154dd6011816d5a01d0cd8c1bf14a67ce329ccc6f1c1",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/fast-audiovae-v0.3.0/validation-r3-cache/build/25fabca430594111c9a56bfaf37d9fcf1f54525a5560ce03fe606f00be09b824/bundles/apple-stream-selected/runtime/libapple_state_v2.dylib": "fc9c82372f4684f41bcd837b10a3eaa1d1c5a3065537cf9e956133c676ff9354",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-thread-optimization-v1/build/libthread_state.dylib": "4bd459ef2761aaf7cdd1935f1b1a78a15427d7e9f5547230b899a154b5a597ce",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-thread-optimization-v1/build/receipt.json": "04d2304185219ee087a07526ad2cf5ed0293a32de574c16932e7b63351c93e58",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/fast-audiovae-streaming-baseline/native/apple/streaming/state/custom_ops.cpp": "d919a1079ce633ccce5820a836b2992c271bbe3df1947d893c0f0cc55c2c066b"
+  },
+  "artifacts_unchanged": true
+}

@@ -1,0 +1,225 @@
+{
+  "version": "apple_thread_matrix_edges_v1",
+  "status": "passed",
+  "cpu_only": true,
+  "onnxruntime": "1.30.0",
+  "threads": 4,
+  "session_run_calls": 12,
+  "call_seconds": 0.016299915965646505,
+  "constructor_rejections": [
+    {
+      "attribute": -1,
+      "error": "[ONNXRuntimeError] : 6 : RUNTIME_EXCEPTION : Exception during initialization: parallel_panels must be in [0,128]"
+    },
+    {
+      "attribute": 129,
+      "error": "[ONNXRuntimeError] : 6 : RUNTIME_EXCEPTION : Exception during initialization: parallel_panels must be in [0,128]"
+    },
+    {
+      "attribute": 1.5,
+      "error": "[ONNXRuntimeError] : 6 : RUNTIME_EXCEPTION : Exception during initialization: Attribute name and type don't match"
+    },
+    {
+      "attribute": "31",
+      "error": "[ONNXRuntimeError] : 6 : RUNTIME_EXCEPTION : Exception during initialization: Attribute name and type don't match"
+    }
+  ],
+  "cases": [
+    {
+      "length": 1,
+      "pattern": "zero",
+      "arms": {
+        "old_absent": {
+          "counter_delta": {
+            "panels": 0,
+            "parallel_calls": 0,
+            "tasks": 0,
+            "fpcr_checks": 0
+          },
+          "bitwise_equal": true,
+          "output_sha256": "c35020473aed1b4642cd726cad727b63fff2824ad68cedd7ffb73c7cbd890479"
+        },
+        "new_explicit_zero": {
+          "counter_delta": {
+            "panels": 128,
+            "parallel_calls": 0,
+            "tasks": 0,
+            "fpcr_checks": 0
+          },
+          "bitwise_equal": true,
+          "output_sha256": "c35020473aed1b4642cd726cad727b63fff2824ad68cedd7ffb73c7cbd890479"
+        },
+        "new_grain31": {
+          "counter_delta": {
+            "panels": 128,
+            "parallel_calls": 1,
+            "tasks": 5,
+            "fpcr_checks": 5
+          },
+          "bitwise_equal": true,
+          "output_sha256": "c35020473aed1b4642cd726cad727b63fff2824ad68cedd7ffb73c7cbd890479"
+        }
+      }
+    },
+    {
+      "length": 1,
+      "pattern": "quiet",
+      "arms": {
+        "old_absent": {
+          "counter_delta": {
+            "panels": 0,
+            "parallel_calls": 0,
+            "tasks": 0,
+            "fpcr_checks": 0
+          },
+          "bitwise_equal": true,
+          "output_sha256": "a3b686645ad9505460d6108f210feaa434fdd175002d1881014b977ba4484440"
+        },
+        "new_explicit_zero": {
+          "counter_delta": {
+            "panels": 128,
+            "parallel_calls": 0,
+            "tasks": 0,
+            "fpcr_checks": 0
+          },
+          "bitwise_equal": true,
+          "output_sha256": "a3b686645ad9505460d6108f210feaa434fdd175002d1881014b977ba4484440"
+        },
+        "new_grain31": {
+          "counter_delta": {
+            "panels": 128,
+            "parallel_calls": 1,
+            "tasks": 5,
+            "fpcr_checks": 5
+          },
+          "bitwise_equal": true,
+          "output_sha256": "a3b686645ad9505460d6108f210feaa434fdd175002d1881014b977ba4484440"
+        }
+      }
+    },
+    {
+      "length": 2,
+      "pattern": "zero",
+      "arms": {
+        "old_absent": {
+          "counter_delta": {
+            "panels": 0,
+            "parallel_calls": 0,
+            "tasks": 0,
+            "fpcr_checks": 0
+          },
+          "bitwise_equal": true,
+          "output_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31"
+        },
+        "new_explicit_zero": {
+          "counter_delta": {
+            "panels": 128,
+            "parallel_calls": 0,
+            "tasks": 0,
+            "fpcr_checks": 0
+          },
+          "bitwise_equal": true,
+          "output_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31"
+        },
+        "new_grain31": {
+          "counter_delta": {
+            "panels": 128,
+            "parallel_calls": 1,
+            "tasks": 5,
+            "fpcr_checks": 5
+          },
+          "bitwise_equal": true,
+          "output_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31"
+        }
+      }
+    },
+    {
+      "length": 2,
+      "pattern": "quiet",
+      "arms": {
+        "old_absent": {
+          "counter_delta": {
+            "panels": 0,
+            "parallel_calls": 0,
+            "tasks": 0,
+            "fpcr_checks": 0
+          },
+          "bitwise_equal": true,
+          "output_sha256": "1a27988d9841d1fd7dc06624b03f8e7f88d8d58f8a3fb399f968e41272bd7c3e"
+        },
+        "new_explicit_zero": {
+          "counter_delta": {
+            "panels": 128,
+            "parallel_calls": 0,
+            "tasks": 0,
+            "fpcr_checks": 0
+          },
+          "bitwise_equal": true,
+          "output_sha256": "1a27988d9841d1fd7dc06624b03f8e7f88d8d58f8a3fb399f968e41272bd7c3e"
+        },
+        "new_grain31": {
+          "counter_delta": {
+            "panels": 128,
+            "parallel_calls": 1,
+            "tasks": 5,
+            "fpcr_checks": 5
+          },
+          "bitwise_equal": true,
+          "output_sha256": "1a27988d9841d1fd7dc06624b03f8e7f88d8d58f8a3fb399f968e41272bd7c3e"
+        }
+      }
+    }
+  ],
+  "protocol": {
+    "lengths": [
+      1,
+      2
+    ],
+    "patterns": [
+      "zero",
+      "quiet"
+    ],
+    "arms": [
+      "old_absent",
+      "new_explicit_zero",
+      "new_grain31"
+    ],
+    "expected_calls": 12,
+    "maximum_malformed_constructions": 4,
+    "native_session_seconds_cap": 2,
+    "counters": "New core only; grain31 is five tasks covering 31+31+31+31+4 panels. FPCR checks count callbacks, not unique workers.",
+    "timing": "Correctness-call accounting only. No latency comparison; construction, counter queries and artifact hashing excluded."
+  },
+  "artifacts_before": {
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-thread-optimization-v1/matrix_edges.py": "271cb8bb541222f2072ac05c5177b140072508fffbc31c4818205e53c2cef8a8",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-thread-optimization-v1/micro.py": "c15c0a6811a71aaf31ad32ac23a2fbb8dfe60e47eaa0b20fb3e7bf10197111ee",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-streaming-promotion-v1/config-r3.json": "e34fd771ee7512a5fe6b5ca091d6adfafd8bfa5e7e95821c8cbe08fd4bad10dd",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/fast-audiovae-v0.3.0/validation-r3-cache/build/25fabca430594111c9a56bfaf37d9fcf1f54525a5560ce03fe606f00be09b824/bundles/apple-stream-selected/bundle.json": "a0dc3ad300b99b114842154dd6011816d5a01d0cd8c1bf14a67ce329ccc6f1c1",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/fast-audiovae-v0.3.0/validation-r3-cache/build/25fabca430594111c9a56bfaf37d9fcf1f54525a5560ce03fe606f00be09b824/bundles/apple-stream-selected/streaming/decoder_1.onnx": "5918e523939aba3a6f72e32b88b27a0a1f39828a376b0ed748a7cb43e70ce841",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-thread-optimization-v1/build/receipt.json": "04d2304185219ee087a07526ad2cf5ed0293a32de574c16932e7b63351c93e58",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/fast-audiovae-v0.3.0/validation-r3-cache/build/25fabca430594111c9a56bfaf37d9fcf1f54525a5560ce03fe606f00be09b824/bundles/apple-stream-selected/runtime/libapple_libxsmm_panel_ort.dylib": "511eda0dcf7089c87f678e01f9a2508efefa05ff80a3f1972b06fc7b90a8f971",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/fast-audiovae-streaming-baseline/native/apple/streaming/libxsmm_panel/native.cpp": "3411ddd51910e95c8d93793f609a65e03f45ff1557b4f85bb34816483a95a0d1",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/fast-audiovae-streaming-baseline/native/apple/streaming/libxsmm_panel/ort_ops.cpp": "322ff5de877080d6df30c0cca61bef257f88fcf1c5fe519986f35990eb63eb7e",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-thread-optimization-v1/build/libthread_xsmm_core.dylib": "bc804643e7356091240f752531820f4d56c7b9e72610a2486c41be8566a0a044",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-thread-optimization-v1/build/libthread_xsmm_ort.dylib": "c68f0c58725e72a56e16f9c3e46b817539a1434b54a0a2d1e23ec375738ef67c",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-thread-optimization-v1/build/libapple_xsmm_panel_dependency.dylib": "493740955399f904a1a644cd90aad802f1ab901626b21653d86c42d04d508249"
+  },
+  "node": "ncc_up_1_split_matmul_current_node_fixed_right",
+  "output_bitwise_comparisons": 8,
+  "input_nonmutation_checks": 12,
+  "artifacts_after": {
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-thread-optimization-v1/matrix_edges.py": "271cb8bb541222f2072ac05c5177b140072508fffbc31c4818205e53c2cef8a8",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-thread-optimization-v1/micro.py": "c15c0a6811a71aaf31ad32ac23a2fbb8dfe60e47eaa0b20fb3e7bf10197111ee",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-streaming-promotion-v1/config-r3.json": "e34fd771ee7512a5fe6b5ca091d6adfafd8bfa5e7e95821c8cbe08fd4bad10dd",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/fast-audiovae-v0.3.0/validation-r3-cache/build/25fabca430594111c9a56bfaf37d9fcf1f54525a5560ce03fe606f00be09b824/bundles/apple-stream-selected/bundle.json": "a0dc3ad300b99b114842154dd6011816d5a01d0cd8c1bf14a67ce329ccc6f1c1",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/fast-audiovae-v0.3.0/validation-r3-cache/build/25fabca430594111c9a56bfaf37d9fcf1f54525a5560ce03fe606f00be09b824/bundles/apple-stream-selected/streaming/decoder_1.onnx": "5918e523939aba3a6f72e32b88b27a0a1f39828a376b0ed748a7cb43e70ce841",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-thread-optimization-v1/build/receipt.json": "04d2304185219ee087a07526ad2cf5ed0293a32de574c16932e7b63351c93e58",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/fast-audiovae-v0.3.0/validation-r3-cache/build/25fabca430594111c9a56bfaf37d9fcf1f54525a5560ce03fe606f00be09b824/bundles/apple-stream-selected/runtime/libapple_libxsmm_panel_ort.dylib": "511eda0dcf7089c87f678e01f9a2508efefa05ff80a3f1972b06fc7b90a8f971",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/fast-audiovae-streaming-baseline/native/apple/streaming/libxsmm_panel/native.cpp": "3411ddd51910e95c8d93793f609a65e03f45ff1557b4f85bb34816483a95a0d1",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/work/fast-audiovae-streaming-baseline/native/apple/streaming/libxsmm_panel/ort_ops.cpp": "322ff5de877080d6df30c0cca61bef257f88fcf1c5fe519986f35990eb63eb7e",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-thread-optimization-v1/build/libthread_xsmm_core.dylib": "bc804643e7356091240f752531820f4d56c7b9e72610a2486c41be8566a0a044",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-thread-optimization-v1/build/libthread_xsmm_ort.dylib": "c68f0c58725e72a56e16f9c3e46b817539a1434b54a0a2d1e23ec375738ef67c",
+    "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-thread-optimization-v1/build/libapple_xsmm_panel_dependency.dylib": "493740955399f904a1a644cd90aad802f1ab901626b21653d86c42d04d508249"
+  },
+  "artifacts_unchanged": true
+}

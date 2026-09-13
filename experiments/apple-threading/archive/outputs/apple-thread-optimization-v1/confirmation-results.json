@@ -1,0 +1,297 @@
+{
+  "status": "passed",
+  "metadata": {
+    "serial": {
+      "kind": "serial",
+      "threads": 4,
+      "changed_nodes": [],
+      "model_sha256": "5918e523939aba3a6f72e32b88b27a0a1f39828a376b0ed748a7cb43e70ce841",
+      "libraries": {
+        "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/fast-audiovae-v0.3.0/validation-r3-cache/build/25fabca430594111c9a56bfaf37d9fcf1f54525a5560ce03fe606f00be09b824/bundles/apple-stream-selected/runtime/libfast_audiovae_apple_4e73b23e8afa.dylib": "4981d22585ef00f1e441d39f9a57b300addb43944b03a21781d9fbf32053d2d0",
+        "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-thread-optimization-v1/build/libthread_state.dylib": "4bd459ef2761aaf7cdd1935f1b1a78a15427d7e9f5547230b899a154b5a597ce",
+        "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/fast-audiovae-v0.3.0/validation-r3-cache/build/25fabca430594111c9a56bfaf37d9fcf1f54525a5560ce03fe606f00be09b824/bundles/apple-stream-selected/runtime/libapple_matrix_sweep_core.dylib": "bf61a6335fd1ec7971402fc7e9b3227a135f84855371bfa50a6c67bb3688eef1",
+        "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/fast-audiovae-v0.3.0/validation-r3-cache/build/25fabca430594111c9a56bfaf37d9fcf1f54525a5560ce03fe606f00be09b824/bundles/apple-stream-selected/runtime/libapple_matrix_sweep_ort.dylib": "d73201b8eefada4d29cb72c80394df4847532ae10d5b0b8eccee9e8b2f0fd3be",
+        "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/fast-audiovae-v0.3.0/validation-r3-cache/build/25fabca430594111c9a56bfaf37d9fcf1f54525a5560ce03fe606f00be09b824/bundles/apple-stream-selected/runtime/libapple_layout_v3.dylib": "4447b174949b578857f7d8789b40d3cf0190ea5c0089dbc40868cfb60566a149",
+        "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/fast-audiovae-v0.3.0/validation-r3-cache/build/25fabca430594111c9a56bfaf37d9fcf1f54525a5560ce03fe606f00be09b824/bundles/apple-stream-selected/runtime/libapple_multitile_core.dylib": "6bf9a91d274d6485e13f876cd12a83cf735d7f06ae525215b2ad961f4bca9159",
+        "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/fast-audiovae-v0.3.0/validation-r3-cache/build/25fabca430594111c9a56bfaf37d9fcf1f54525a5560ce03fe606f00be09b824/bundles/apple-stream-selected/runtime/libapple_multitile_ort.dylib": "b7cf5e89774b69b8b8a5d6a819c7dc10f15dee39b620a66c18888c3ff3aa649b",
+        "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/fast-audiovae-v0.3.0/validation-r3-cache/build/25fabca430594111c9a56bfaf37d9fcf1f54525a5560ce03fe606f00be09b824/bundles/apple-stream-selected/runtime/libapple_multinext_core.dylib": "91523d62dd73943f7d017a8dc3e5e5948cf4c74dda8a46e995bb33b20408ba02",
+        "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/fast-audiovae-v0.3.0/validation-r3-cache/build/25fabca430594111c9a56bfaf37d9fcf1f54525a5560ce03fe606f00be09b824/bundles/apple-stream-selected/runtime/libapple_multinext_ort.dylib": "e1d28d060873f5d941c3eccfcd781dd579344a9167111beeeeed05a67fd39250",
+        "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/fast-audiovae-v0.3.0/validation-r3-cache/build/25fabca430594111c9a56bfaf37d9fcf1f54525a5560ce03fe606f00be09b824/bundles/apple-stream-selected/runtime/libapple_phase_state_v1.dylib": "a6c4c2d45526a70581887a25372663981c42c46a25e4ca6da2d750d7aa10605e",
+        "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-thread-optimization-v1/build/libthread_xsmm_core.dylib": "bc804643e7356091240f752531820f4d56c7b9e72610a2486c41be8566a0a044",
+        "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-thread-optimization-v1/build/libthread_xsmm_ort.dylib": "c68f0c58725e72a56e16f9c3e46b817539a1434b54a0a2d1e23ec375738ef67c"
+      }
+    },
+    "combined": {
+      "kind": "combined",
+      "threads": 4,
+      "changed_nodes": [
+        "ncc_up_1_split_matmul_current_node_fixed_right",
+        "ncc_node_add_542_direct_state_v2",
+        "ncc_node_add_604_direct_state_v2",
+        "ncc_node_add_666_direct_state_v2",
+        "ncc_node_add_764_direct_state_v2",
+        "ncc_node_add_826_direct_state_v2",
+        "ncc_node_add_888_direct_state_v2",
+        "ncc_node_add_986_direct_state_v2",
+        "ncc_node_add_1048_direct_state_v2",
+        "ncc_node_add_1110_direct_state_v2",
+        "ncc_node_add_1208_direct_state_v2",
+        "ncc_node_add_1270_direct_state_v2",
+        "ncc_node_add_1332_direct_state_v2"
+      ],
+      "model_sha256": "02702c572031a76b231ea8021af37da49ba3ca222f16ba6daa09b038797e8ad5",
+      "libraries": {
+        "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/fast-audiovae-v0.3.0/validation-r3-cache/build/25fabca430594111c9a56bfaf37d9fcf1f54525a5560ce03fe606f00be09b824/bundles/apple-stream-selected/runtime/libfast_audiovae_apple_4e73b23e8afa.dylib": "4981d22585ef00f1e441d39f9a57b300addb43944b03a21781d9fbf32053d2d0",
+        "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-thread-optimization-v1/build/libthread_state.dylib": "4bd459ef2761aaf7cdd1935f1b1a78a15427d7e9f5547230b899a154b5a597ce",
+        "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/fast-audiovae-v0.3.0/validation-r3-cache/build/25fabca430594111c9a56bfaf37d9fcf1f54525a5560ce03fe606f00be09b824/bundles/apple-stream-selected/runtime/libapple_matrix_sweep_core.dylib": "bf61a6335fd1ec7971402fc7e9b3227a135f84855371bfa50a6c67bb3688eef1",
+        "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/fast-audiovae-v0.3.0/validation-r3-cache/build/25fabca430594111c9a56bfaf37d9fcf1f54525a5560ce03fe606f00be09b824/bundles/apple-stream-selected/runtime/libapple_matrix_sweep_ort.dylib": "d73201b8eefada4d29cb72c80394df4847532ae10d5b0b8eccee9e8b2f0fd3be",
+        "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/fast-audiovae-v0.3.0/validation-r3-cache/build/25fabca430594111c9a56bfaf37d9fcf1f54525a5560ce03fe606f00be09b824/bundles/apple-stream-selected/runtime/libapple_layout_v3.dylib": "4447b174949b578857f7d8789b40d3cf0190ea5c0089dbc40868cfb60566a149",
+        "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/fast-audiovae-v0.3.0/validation-r3-cache/build/25fabca430594111c9a56bfaf37d9fcf1f54525a5560ce03fe606f00be09b824/bundles/apple-stream-selected/runtime/libapple_multitile_core.dylib": "6bf9a91d274d6485e13f876cd12a83cf735d7f06ae525215b2ad961f4bca9159",
+        "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/fast-audiovae-v0.3.0/validation-r3-cache/build/25fabca430594111c9a56bfaf37d9fcf1f54525a5560ce03fe606f00be09b824/bundles/apple-stream-selected/runtime/libapple_multitile_ort.dylib": "b7cf5e89774b69b8b8a5d6a819c7dc10f15dee39b620a66c18888c3ff3aa649b",
+        "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/fast-audiovae-v0.3.0/validation-r3-cache/build/25fabca430594111c9a56bfaf37d9fcf1f54525a5560ce03fe606f00be09b824/bundles/apple-stream-selected/runtime/libapple_multinext_core.dylib": "91523d62dd73943f7d017a8dc3e5e5948cf4c74dda8a46e995bb33b20408ba02",
+        "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/fast-audiovae-v0.3.0/validation-r3-cache/build/25fabca430594111c9a56bfaf37d9fcf1f54525a5560ce03fe606f00be09b824/bundles/apple-stream-selected/runtime/libapple_multinext_ort.dylib": "e1d28d060873f5d941c3eccfcd781dd579344a9167111beeeeed05a67fd39250",
+        "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/fast-audiovae-v0.3.0/validation-r3-cache/build/25fabca430594111c9a56bfaf37d9fcf1f54525a5560ce03fe606f00be09b824/bundles/apple-stream-selected/runtime/libapple_phase_state_v1.dylib": "a6c4c2d45526a70581887a25372663981c42c46a25e4ca6da2d750d7aa10605e",
+        "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-thread-optimization-v1/build/libthread_xsmm_core.dylib": "bc804643e7356091240f752531820f4d56c7b9e72610a2486c41be8566a0a044",
+        "/Users/venky/Documents/Codex/2026-09-07/https-arxiv-org-html-2402-10533v2/outputs/apple-thread-optimization-v1/build/libthread_xsmm_ort.dylib": "c68f0c58725e72a56e16f9c3e46b817539a1434b54a0a2d1e23ec375738ef67c"
+      }
+    }
+  },
+  "scope": "80ms only, same-build control, two warmups per input/arm, four balanced paired repetitions on each of three960ms prefixes; no spins;12s call cap",
+  "rows": [
+    {
+      "uid": "bn_in_00151_1818",
+      "repeat": 0,
+      "order": [
+        "serial",
+        "combined"
+      ],
+      "serial": {
+        "seconds": 0.10584741737693548,
+        "rtf": 0.1102577264343078,
+        "cpu_seconds": 0.15900799999999982
+      },
+      "combined": {
+        "seconds": 0.10726970853284001,
+        "rtf": 0.11173927972170836,
+        "cpu_seconds": 0.2029639999999997
+      },
+      "reduction_percent": -1.3437183364045424
+    },
+    {
+      "uid": "bn_in_00151_1818",
+      "repeat": 1,
+      "order": [
+        "combined",
+        "serial"
+      ],
+      "combined": {
+        "seconds": 0.08205150393769145,
+        "rtf": 0.08547031660176194,
+        "cpu_seconds": 0.17678899999999942
+      },
+      "serial": {
+        "seconds": 0.0992637905292213,
+        "rtf": 0.10339978180127218,
+        "cpu_seconds": 0.15484899999999957
+      },
+      "reduction_percent": 17.33994490817161
+    },
+    {
+      "uid": "bn_in_00151_1818",
+      "repeat": 2,
+      "order": [
+        "serial",
+        "combined"
+      ],
+      "serial": {
+        "seconds": 0.11399641539901495,
+        "rtf": 0.11874626604064058,
+        "cpu_seconds": 0.16947400000000012
+      },
+      "combined": {
+        "seconds": 0.08524791430681944,
+        "rtf": 0.08879991073627025,
+        "cpu_seconds": 0.15354699999999966
+      },
+      "reduction_percent": 25.218776390089836
+    },
+    {
+      "uid": "bn_in_00151_1818",
+      "repeat": 3,
+      "order": [
+        "combined",
+        "serial"
+      ],
+      "combined": {
+        "seconds": 0.08595108240842819,
+        "rtf": 0.08953237750877938,
+        "cpu_seconds": 0.15488100000000005
+      },
+      "serial": {
+        "seconds": 0.0970362494699657,
+        "rtf": 0.10107942653121427,
+        "cpu_seconds": 0.1390210000000005
+      },
+      "reduction_percent": 11.423738161859342
+    },
+    {
+      "uid": "en_us_00103_1779",
+      "repeat": 0,
+      "order": [
+        "serial",
+        "combined"
+      ],
+      "serial": {
+        "seconds": 0.141397709492594,
+        "rtf": 0.1472892807214521,
+        "cpu_seconds": 0.19969099999999784
+      },
+      "combined": {
+        "seconds": 0.13500508340075612,
+        "rtf": 0.14063029520912096,
+        "cpu_seconds": 0.24560800000000071
+      },
+      "reduction_percent": 4.52102520951565
+    },
+    {
+      "uid": "en_us_00103_1779",
+      "repeat": 1,
+      "order": [
+        "combined",
+        "serial"
+      ],
+      "combined": {
+        "seconds": 0.1367784570902586,
+        "rtf": 0.14247755946901938,
+        "cpu_seconds": 0.2549260000000002
+      },
+      "serial": {
+        "seconds": 0.14755149884149432,
+        "rtf": 0.15369947795988992,
+        "cpu_seconds": 0.216606999999998
+      },
+      "reduction_percent": 7.301207941512377
+    },
+    {
+      "uid": "en_us_00103_1779",
+      "repeat": 2,
+      "order": [
+        "serial",
+        "combined"
+      ],
+      "serial": {
+        "seconds": 0.10847433283925056,
+        "rtf": 0.11299409670755267,
+        "cpu_seconds": 0.17384999999999984
+      },
+      "combined": {
+        "seconds": 0.09375066962093115,
+        "rtf": 0.09765694752180329,
+        "cpu_seconds": 0.20319999999999983
+      },
+      "reduction_percent": 13.573407489989908
+    },
+    {
+      "uid": "en_us_00103_1779",
+      "repeat": 3,
+      "order": [
+        "combined",
+        "serial"
+      ],
+      "combined": {
+        "seconds": 0.10022208373993635,
+        "rtf": 0.10439800389576703,
+        "cpu_seconds": 0.2116920000000011
+      },
+      "serial": {
+        "seconds": 0.14886274933815002,
+        "rtf": 0.1550653638939063,
+        "cpu_seconds": 0.21921700000000044
+      },
+      "reduction_percent": 32.674840290450156
+    },
+    {
+      "uid": "es_419_00060_1994",
+      "repeat": 0,
+      "order": [
+        "serial",
+        "combined"
+      ],
+      "serial": {
+        "seconds": 0.18125708447769284,
+        "rtf": 0.1888094629975967,
+        "cpu_seconds": 0.25136799999999937
+      },
+      "combined": {
+        "seconds": 0.15614124992862344,
+        "rtf": 0.1626471353423161,
+        "cpu_seconds": 0.2757790000000018
+      },
+      "reduction_percent": 13.856470560277822
+    },
+    {
+      "uid": "es_419_00060_1994",
+      "repeat": 1,
+      "order": [
+        "combined",
+        "serial"
+      ],
+      "combined": {
+        "seconds": 0.11735366797074676,
+        "rtf": 0.12224340413619454,
+        "cpu_seconds": 0.21788899999999956
+      },
+      "serial": {
+        "seconds": 0.17539683124050498,
+        "rtf": 0.1827050325421927,
+        "cpu_seconds": 0.24597900000000106
+      },
+      "reduction_percent": 33.092481123657905
+    },
+    {
+      "uid": "es_419_00060_1994",
+      "repeat": 2,
+      "order": [
+        "serial",
+        "combined"
+      ],
+      "serial": {
+        "seconds": 0.15850362554192543,
+        "rtf": 0.165107943272839,
+        "cpu_seconds": 0.22757400000000239
+      },
+      "combined": {
+        "seconds": 0.14572225185111165,
+        "rtf": 0.15179401234490797,
+        "cpu_seconds": 0.27022499999999994
+      },
+      "reduction_percent": 8.06377371313378
+    },
+    {
+      "uid": "es_419_00060_1994",
+      "repeat": 3,
+      "order": [
+        "combined",
+        "serial"
+      ],
+      "combined": {
+        "seconds": 0.12584562646225095,
+        "rtf": 0.1310891942315114,
+        "cpu_seconds": 0.23926299999999934
+      },
+      "serial": {
+        "seconds": 0.12365133361890912,
+        "rtf": 0.128803472519697,
+        "cpu_seconds": 0.18886999999999965
+      },
+      "reduction_percent": -1.7745808145544162
+    }
+  ],
+  "median_reduction_percent": 12.498572825924626,
+  "wins": 10,
+  "max_abs": 0.0,
+  "checks": 11664,
+  "call_seconds": 4.887761045712978,
+  "serial_rtf": 0.1437432071219923,
+  "combined_rtf": 0.11770729898772617
+}

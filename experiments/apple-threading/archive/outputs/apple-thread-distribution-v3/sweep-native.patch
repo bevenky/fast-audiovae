@@ -1,0 +1,141 @@
+diff --git a/native/apple/streaming/sweep/native.cpp b/native/apple/streaming/sweep/native.cpp
+index 6557fcb..c0fe2c6 100644
+--- a/native/apple/streaming/sweep/native.cpp
++++ b/native/apple/streaming/sweep/native.cpp
+@@ -61,6 +61,12 @@ struct Region {
+   std::vector<float> rhs,lhs,row_input,row_output;
+   uint64_t runs=0,lhs_packs=0;
+   std::atomic_flag busy=ATOMIC_FLAG_INIT;
++  // Optional second-stage lifecycle; the existing serial entry point is intact.
++  std::unique_ptr<std::atomic<unsigned>[]> task_states;
++  std::atomic<bool> tasks_active{false},task_failed{false};
++  size_t task_nstep=0,task_m=0,task_grain=0,tasks=0;
++  float* task_output=nullptr;
++  uint64_t tiled_runs=0,tile_calls=0;
+   Region(size_t K,size_t N,size_t M,const float* weight,size_t count):k(K),n(N),max_m(M) {
+     runtime();
+     require(approved_max_m(k,n)>0 && max_m==approved_max_m(k,n),"Unapproved matrix geometry");
+@@ -74,6 +80,14 @@ struct Region {
+     require(rhs_bytes%4==0 && lhs_bytes%4==0,"Packed size alignment failed");
+     rhs.resize(rhs_bytes/4,0.0f);lhs.resize(lhs_bytes/4,0.0f);
+     row_input.resize(max_m*k);row_output.resize(max_m*n);
++    if(k==1024 && n==3072 && max_m==16) {
++      const size_t step=kai_get_n_step_matmul_clamp_f32_f32p2vlx1_f32p2vlx1biasf32_sme2_mopa();
++      // Keep serial construction available even if a different machine's VL
++      // does not permit this experiment's complete aligned output tiles.
++      if(step==nr && step>0 && n%step==0) {
++        task_nstep=step;task_states=std::make_unique<std::atomic<unsigned>[]>(n/task_nstep);
++      }
++    }
+     std::vector<float> transposed(k*n),zero_bias(n,0.0f);
+     for (size_t row=0;row<n;++row) for (size_t col=0;col<k;++col) {
+       const float value=weight[row*k+col];require(std::isfinite(value),"Nonfinite weight");
+@@ -102,6 +116,75 @@ struct Region {
+     for (size_t c=0;c<n;++c) for (size_t t=0;t<m;++t) y[c*m+t]=row_output[t*n+c];
+     ++runs;
+   }
++  void begin(size_t m,const float* x,size_t xc,float* y,size_t yc,size_t channels_per_task) {
++    require(k==1024 && n==3072 && max_m==16 && task_states,"Only second-stage tiled execution is supported");
++    require(m>0 && m<=max_m && x && y && xc==k*m && yc==n*m,"Invalid region input/output");
++    require(!overlaps(x,xc,y,yc),"Region input and output must not overlap");
++    runtime(vl);
++    require(channels_per_task>0 && channels_per_task<=n && channels_per_task%task_nstep==0,
++            "Task channels must be a positive N-step multiple and at most N");
++    require(!busy.test_and_set(std::memory_order_acquire),"A region may not run concurrently");
++    try {
++      // Identical BCT-to-row conversion and original LHS pack, once per branch.
++      for(size_t t=0;t<m;++t) for(size_t c=0;c<k;++c)row_input[t*k+c]=x[c*m+t];
++      kai_run_lhs_pack_f32p2vlx1_f32_sme(m,k,mr,1,1,0,row_input.data(),k*4,lhs.data());
++      ++lhs_packs;
++      task_m=m;task_grain=channels_per_task;task_output=y;
++      tasks=(n+task_grain-1)/task_grain;
++      for(size_t index=0;index<tasks;++index)task_states[index].store(0,std::memory_order_relaxed);
++      task_failed.store(false,std::memory_order_relaxed);
++      tasks_active.store(true,std::memory_order_release);
++    }catch(...){busy.clear(std::memory_order_release);throw;}
++  }
++  void task(size_t index) {
++    bool claimed=false;
++    try {
++      require(tasks_active.load(std::memory_order_acquire),"No prepared tiled region");
++      require(index<tasks,"Tile task index out of bounds");
++      unsigned expected=0;
++      require(task_states[index].compare_exchange_strong(expected,1,std::memory_order_acq_rel),
++              "Tile task was already claimed");
++      claimed=true;
++      // FPCR and streaming vector length belong to the actual executing worker.
++      runtime(vl);
++      const size_t column=index*task_grain,width=std::min(task_grain,n-column);
++      const size_t lo=kai_get_lhs_packed_offset_matmul_clamp_f32_f32p2vlx1_f32p2vlx1biasf32_sme2_mopa(0,k);
++      const size_t ro=kai_get_rhs_packed_offset_matmul_clamp_f32_f32p2vlx1_f32p2vlx1biasf32_sme2_mopa(column,k);
++      const size_t yo=kai_get_dst_offset_matmul_clamp_f32_f32p2vlx1_f32p2vlx1biasf32_sme2_mopa(0,column,n*4);
++      require(width>0 && column%task_nstep==0 && width%task_nstep==0 && lo==0 && ro%4==0 && yo%4==0 &&
++              ro==column*(k+1)*4 && ro+width*(k+1)*4<=rhs_bytes && yo==column*4 &&
++              (task_m-1)*n*4+yo+width*4<=row_output.size()*4,"Packed tile offset or extent changed");
++      // Keep the full output row stride when writing a disjoint column tile.
++      kai_run_matmul_clamp_f32_f32p2vlx1_f32p2vlx1biasf32_sme2_mopa(
++        task_m,width,k,lhs.data()+lo/4,rhs.data()+ro/4,row_output.data()+yo/4,n*4,4,
++        -std::numeric_limits<float>::infinity(),std::numeric_limits<float>::infinity());
++      task_states[index].store(2,std::memory_order_release);
++    }catch(...){
++      if(claimed)task_states[index].store(3,std::memory_order_release);
++      task_failed.store(true,std::memory_order_release);
++      throw;
++    }
++  }
++  void finish(bool commit) {
++    require(tasks_active.load(std::memory_order_acquire),"No prepared tiled region");
++    // The caller must join all dispatched callbacks before either commit or abort.
++    for(size_t index=0;index<tasks;++index)
++      require(task_states[index].load(std::memory_order_acquire)!=1,"Tile callback has not joined");
++    struct Release {
++      Region& region;
++      ~Release(){region.tasks_active.store(false,std::memory_order_release);
++                 region.task_output=nullptr;region.busy.clear(std::memory_order_release);}
++    } release{*this};
++    size_t completed=0;
++    for(size_t index=0;index<tasks;++index)
++      completed+=task_states[index].load(std::memory_order_acquire)==2;
++    tile_calls+=completed;
++    if(!commit)return;
++    require(!task_failed.load(std::memory_order_acquire) && completed==tasks,
++            "Incomplete or failed tiled region");
++    for(size_t c=0;c<n;++c) for(size_t t=0;t<task_m;++t)task_output[c*task_m+t]=row_output[t*n+c];
++    ++runs;++tiled_runs;
++  }
+ };
+ }
+ extern "C" {
+@@ -118,13 +201,31 @@ EXPORT int av_sweep_run(void* handle,size_t m,const float* x,size_t xc,float* y,
+   error_text[0]=0;try {require(handle,"Missing region");static_cast<Region*>(handle)->run(m,x,xc,y,yc);return 0;}
+   catch (...) {failed();return -1;}
+ }
++EXPORT int av_sweep_begin(void* handle,size_t m,const float* x,size_t xc,float* y,size_t yc,size_t channels_per_task) {
++  error_text[0]=0;try {require(handle,"Missing region");static_cast<Region*>(handle)->begin(m,x,xc,y,yc,channels_per_task);return 0;}
++  catch (...) {failed();return -1;}
++}
++EXPORT size_t av_sweep_task_count(void* handle) {
++  if(!handle)return 0;auto& p=*static_cast<Region*>(handle);
++  return p.tasks_active.load(std::memory_order_acquire)?p.tasks:0;
++}
++EXPORT int av_sweep_task(void* handle,size_t index) {
++  error_text[0]=0;try {require(handle,"Missing region");static_cast<Region*>(handle)->task(index);return 0;}
++  catch (...) {failed();return -1;}
++}
++EXPORT int av_sweep_finish(void* handle,int commit) {
++  error_text[0]=0;try {require(handle,"Missing region");require(commit==0 || commit==1,"Commit must be 0 or 1");
++    static_cast<Region*>(handle)->finish(commit!=0);return 0;}
++  catch (...) {failed();return -1;}
++}
+ EXPORT uint64_t av_sweep_stat(void* handle,int field) {
+   if (!handle) return 0;
+   auto& p=*static_cast<Region*>(handle);
+   switch(field) {
+     case 0:return p.vl;case 1:return p.mr;case 2:return p.nr;case 3:return p.rhs_bytes;
+     case 4:return p.lhs_bytes;case 5:return (p.row_input.size()+p.row_output.size())*4+p.lhs_bytes;
+-    case 6:return p.runs;case 7:return p.lhs_packs;case 8:return 1;default:return 0;
++    case 6:return p.runs;case 7:return p.lhs_packs;case 8:return 1;
++    case 9:return p.tiled_runs;case 10:return p.tile_calls;case 11:return p.task_nstep;default:return 0;
+   }
+ }
+ }

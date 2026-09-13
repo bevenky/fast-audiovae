@@ -1,0 +1,30 @@
+[
+  {
+    "file": "multitile/native.cpp",
+    "before": {
+      "sha256": "b0d7b64bab351f4e13354ce81e72dd843e65d3053f9986b1e44ee51d4eb10d6c",
+      "original_source": "experiments/apple-streaming-v2/matrix-multitile-v1/native.cpp"
+    },
+    "after": {
+      "sha256": "6295f9ccf35ef74efd63b3a2c4bdfe4e9e93cce30d0ce5274db8845ee163b448",
+      "original_source": "experiments/apple-streaming-v2/matrix-multitile-v1/native.cpp",
+      "original_sha256": "b0d7b64bab351f4e13354ce81e72dd843e65d3053f9986b1e44ee51d4eb10d6c",
+      "modification": "Preserved serial route; added guarded tiled execution for an opt-in shared ORT worker experiment."
+    }
+  },
+  {
+    "file": "libxsmm_panel/native.cpp",
+    "before": {
+      "sha256": "3411ddd51910e95c8d93793f609a65e03f45ff1557b4f85bb34816483a95a0d1",
+      "original_source": "experiments/apple-streaming-v2/libxsmm-v1/panel64/native.cpp",
+      "original_sha256": "71f240d00cff2d17bf6dc72f4858efa07bf3d9a5d4f4758c34389fa5126b4eb8",
+      "modification": "Optional ORT worker scheduling; absent or zero scheduling attribute preserves the serial route."
+    },
+    "after": {
+      "sha256": "80f58b9e750e7968f82cdc48dec3b1aa27def0eb462ecbe24643882d59e25caf",
+      "original_source": "experiments/apple-streaming-v2/libxsmm-v1/panel64/native.cpp",
+      "original_sha256": "71f240d00cff2d17bf6dc72f4858efa07bf3d9a5d4f4758c34389fa5126b4eb8",
+      "modification": "Preserved serial route; added guarded tiled execution for an opt-in shared ORT worker experiment."
+    }
+  }
+]
