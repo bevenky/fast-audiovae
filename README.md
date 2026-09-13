@@ -44,12 +44,13 @@ Same three multilingual recordings, two warmups and five measured repetitions pe
 
 Independent batch decoding on Apple M5 Max, **one CPU thread**, using `load(mode="batch")`:
 
-| Input length | Previous batch RTF | Updated batch RTF |
-| --- | ---: | ---: |
-| 40 ms | 0.3595 | **0.2121** |
-| 80 ms | 0.3542 | **0.1340** |
+| Complete input length | Previous AudioVAE2 batch RTF | Updated AudioVAE2 batch RTF | Pocket Mimi batch RTF |
+| --- | ---: | ---: | ---: |
+| 40 ms | 0.2341 | **0.1051** | n/a |
+| 80 ms | 0.2198 | **0.0743** | 0.0486 |
+| 960 ms | 0.0715 | **0.0535** | 0.0343 |
 
-Each call starts with empty history, so these short measurements use a different protocol from continuous streaming. The batch update reuses the existing kernels and is on `main`; the v0.3.0 wheels still use the previous batch path. Streaming remains the default. [Batch validation](docs/apple-batch-validation.md).
+Short matched check on three recordings, with two warmups and three measured repetitions. Each batch call decodes its entire input with empty history; 40/80 ms rows are tiny independent inputs, not whole-recording throughput. In this same check, streaming the 960 ms inputs in 80 ms packets gave RTF 0.0763 for AudioVAE2 and 0.0560 for Mimi. These timings come from a different session than the streaming table above. The batch update is on `main`; v0.3.0 wheels retain the previous batch path. Streaming remains the default. [Batch validation and earlier full-clip results](docs/apple-batch-validation.md).
 
 ## Reconstruction quality
 

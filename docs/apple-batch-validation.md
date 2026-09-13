@@ -4,6 +4,26 @@ The new batch path reuses the selected Apple kernels for independent inputs. Thi
 
 The batch graph accepts one complete `[1, 64, L]` input and returns all `1,920 * L` samples at 48 kHz. Each call starts with zero history. It preserves the trained tensors and native kernels, replacing the 26 external history inputs with constants. It does not carry state between calls or prepend latent frames.
 
+## Follow-up with Pocket Mimi
+
+The earlier batch table omitted Mimi and timed only independent 40/80 ms inputs. Those are small complete inputs, not the multi-second whole recordings used by older batch benchmarks. Batch and a fresh streaming call perform similar work at those lengths.
+
+A short follow-up used the same Bengali, English and Spanish recording prefixes for both codecs, one CPU thread, ONNX Runtime 1.30.0, two warmups and three measured repetitions. Methods were interleaved with seeded order. Each value below is the mean of the three per-recording medians. Models, kernels and trained weights were unchanged. Pocket continuous Mimi outputs 24 kHz and accepts one latent per 80 ms; an independent 40 ms input is not supported. AudioVAE2 outputs 48 kHz.
+
+| Complete input | Previous AudioVAE2 batch | Current AudioVAE2 batch | Pocket Mimi batch |
+| --- | ---: | ---: | ---: |
+| 40 ms | 0.2341 | 0.1051 | n/a |
+| 80 ms | 0.2198 | 0.0743 | 0.0486 |
+| 960 ms | 0.0715 | 0.0535 | 0.0343 |
+
+For the same 960 ms inputs, carried-history streaming in 80 ms packets measured 0.0763 for AudioVAE2 and 0.0560 for Mimi. Batch reduced time by a median paired **29.83%** and **40.12%**, respectively, winning all nine comparisons for each codec. Current AudioVAE2 batch beat its previous route at every tested length, also winning all nine pairs per length. This establishes no regression for these short one-thread cases; it does not qualify longer inputs or four-thread throughput.
+
+All **150 output checks** passed against stock AudioVAE2 or the exact same full Mimi decoder on the corresponding input, at `atol=1e-5, rtol=1e-4`. Maximum absolute difference was **3.595e-7**. Input bytes, expected output sample counts and all recorded artifacts remained unchanged. The 525 API calls, including references, warmups and streaming flushes, totaled **5.46 seconds**. Session/model setup, external output checks and concatenation were excluded from timing. [Measurements and protocol](../benchmarks/batch/apple-mimi-audit-20260913.json).
+
+The historical **0.02470 AudioVAE2 / 0.02815 Mimi** batch results used **four threads, ONNX Runtime 1.29, and ten complete recordings of 7.68–10.80 seconds each**. Those were corpus-weighted full-clip results, so they cannot be substituted into the 40/80 ms table. [Historical record](../benchmarks/apple-precision/sme2-panels.json).
+
+The current batch route always uses the selected graph. Above two latent frames (80 ms), eight specialized early matrices switch to their general single-threaded BLAS fallback; ten later selected matrices use that BLAS path at all lengths. The previous full graph lets ORT execute those matrix operations. This difference warrants a matched check before claiming four-thread or long-recording performance. It did not cause a measured one-thread regression at 960 ms in this follow-up.
+
 ## Matched short measurements
 
 Apple M5 Max, macOS 26.5.1, FP32 and ONNX Runtime 1.30.0 CPU execution. Thread counts are ORT intra-op threads; inter-op and nested BLAS/OpenMP workers are limited to one. Existing custom kernels retain their one-worker policies.
