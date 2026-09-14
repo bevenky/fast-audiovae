@@ -1,8 +1,8 @@
 # AMD CPU serving
 
-The source checkout automatically selects the accepted AMD streaming kernels on
+The native wheel automatically selects the accepted AMD streaming kernels on
 compatible Linux CPUs with usable AVX512-VNNI. CPU, streaming and one thread
-remain the defaults. This update is not in the published v0.4.0 wheels yet.
+remain the defaults. These kernels are included in the v0.4.1 native wheels.
 
 The recipe combines the first two projections, processes six early convolution
 histories directly, and assembles the first upsampling output without temporary

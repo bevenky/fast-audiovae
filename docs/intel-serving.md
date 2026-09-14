@@ -3,7 +3,7 @@
 The selected Intel recipe combines the accepted raw-history and phase-assembly
 changes with the exact-output oneDNN BRGeMM64 matrix pair. It targets compatible
 Linux Intel CPUs with usable AVX512-VNNI. CPU, streaming and one thread remain
-the defaults. This update is not in the published v0.4.0 wheels yet.
+the defaults. These kernels are included in the v0.4.1 native wheels.
 
 ## What changes
 
@@ -83,5 +83,4 @@ large graph objects after their final use to reduce temporary memory usage.
 The package uses oneDNN 3.13.2 with a sequential CPU runtime and no GPU runtime.
 Its library inventory, hashes, redistribution notices and relative dependency
 paths are verified during packaging. The native wheel supplies these dependencies;
-ordinary installation does not compile them. Publishing updated wheels is a
-separate step from merging this source change into `main`.
+ordinary installation does not compile them. Version 0.4.1 packages this validated native implementation.

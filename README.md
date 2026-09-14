@@ -7,7 +7,7 @@ Fast inference for VoxCPM2's AudioVAE2 decoder, with optimized CPU kernels and o
 Use Python 3.11 to 3.13. Install from the release wheels; pip picks the platform automatically:
 
 ```sh
-python -m pip install fast-audiovae==0.4.0 --find-links https://github.com/bevenky/fast-audiovae/releases/expanded_assets/v0.4.0
+python -m pip install fast-audiovae==0.4.1 --find-links https://github.com/bevenky/fast-audiovae/releases/expanded_assets/v0.4.1
 ```
 
 This installs the CPU runtime and kernels without PyTorch or GPU dependencies. The wheel includes the small GPU integration code, but its dependencies are optional.
@@ -29,14 +29,14 @@ The loader selects the CPU kernels automatically. Streaming and one inference th
 
 Apple CPUs with SME/SME2 use the new streaming kernels. Other Apple CPUs retain the compatible native path; unsupported systems use portable ONNX with a fallback message. CPU is always the default device.
 
-The source checkout includes updated AMD and Intel kernels for one-thread streaming. These updates are not in the published v0.4.0 wheels yet. Older wheels keep their existing kernels. [AMD validation](docs/amd-serving.md) and [Intel validation](docs/intel-serving.md).
+The native wheels include the validated AMD and Intel kernels for one-thread streaming. Older wheels keep their existing kernels. [AMD validation](docs/amd-serving.md) and [Intel validation](docs/intel-serving.md).
 
 Native wheels currently cover Apple ARM on macOS 26.2 or newer and compatible Intel/AMD Linux x86 systems with glibc 2.38 or newer. The loader also checks native library compatibility before using them.
 
 For Apple GPU support, add the optional `gpu` extra:
 
 ```sh
-python -m pip install 'fast-audiovae[gpu]==0.4.0' --find-links https://github.com/bevenky/fast-audiovae/releases/expanded_assets/v0.4.0
+python -m pip install 'fast-audiovae[gpu]==0.4.1' --find-links https://github.com/bevenky/fast-audiovae/releases/expanded_assets/v0.4.1
 ```
 
 The extra adds PyTorch 2.14.x alongside CPU support, so both CPU and Apple GPU execution are available. CPU remains the default; GPU runs only when you select `load(device="gpu")`. GPU loading prepares the optimized 40/80 ms paths automatically; first compilation takes extra time. [GPU usage and validation](docs/apple-gpu.md).
