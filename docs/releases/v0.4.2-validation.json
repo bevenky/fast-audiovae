@@ -1,0 +1,85 @@
+{
+  "version": "0.4.2",
+  "status": "qualified",
+  "assets": [
+    {
+      "kind": "apple",
+      "name": "fast_audiovae-0.4.2-py3-none-macosx_26_0_arm64.whl",
+      "sha256": "12b18b6f0efe9ff14a96e22d368688c9e08dd60216950eae90b9bb3f5918ab41",
+      "bytes": 1556874,
+      "record_verified": true,
+      "native_payload_manifest_sha256": "8dd907c78a1bb9366f28dabda70eab77462ecc0fd21c4e44c38590aee9ac0cbe",
+      "native_payload_unchanged": false
+    },
+    {
+      "kind": "linux",
+      "name": "fast_audiovae-0.4.2-py3-none-linux_x86_64.whl",
+      "sha256": "8640c497706070d25ebc28753364a7319f32e3886572916599f7f81b4d232d7f",
+      "bytes": 194999846,
+      "record_verified": true,
+      "native_payload_manifest_sha256": "6886a0f55d34a1e0e1c3f2fb343f7ea086002bc6cfe178fe890f2b748ddc93e2",
+      "native_payload_unchanged": true
+    },
+    {
+      "kind": "portable",
+      "name": "fast_audiovae-0.4.2-py3-none-any.whl",
+      "sha256": "22f87e4c61213924efd1c1668bd28d684e639223aa03763f59d13d336fd581a9",
+      "bytes": 596944,
+      "record_verified": true,
+      "native_payload_manifest_sha256": null,
+      "native_payload_unchanged": false
+    },
+    {
+      "kind": "sdist",
+      "name": "fast_audiovae-0.4.2.tar.gz",
+      "sha256": "096a8a04d225c8bd05733ed94c0c1c65211b367e885ce6bd34a9ee12b89fd95a",
+      "bytes": 458856
+    }
+  ],
+  "unit_tests": {
+    "status": "passed",
+    "suite": "Tracked maintained non-native tests plus new Apple INT8 recipe/runtime tests",
+    "passed": 563,
+    "subtests_passed": 1963,
+    "warnings": 1,
+    "warning": "Existing pytest parametrize iterator deprecation in test_batch_session.py",
+    "seconds": 15.38
+  },
+  "installed_wheel": {
+    "status": "passed",
+    "decoder_calls": 26,
+    "waveform_checks": 26,
+    "receipt_sha256": "9934e07762b0a8c7463362921ef2c8cb6fa1fc054199bce2e036490387151d97",
+    "cpu_default_threads": 1,
+    "torch_imported": false,
+    "gpu_inference": false
+  },
+  "retained_payloads": {
+    "status": "passed",
+    "prior_apple_native_libraries_unchanged": 13,
+    "added_library": "libapple_firstpair_int8.dylib",
+    "linux_payload_manifest_unchanged": "6886a0f55d34a1e0e1c3f2fb343f7ea086002bc6cfe178fe890f2b748ddc93e2",
+    "gpu_modules_unchanged": 3
+  },
+  "shipping_decoder": {
+    "records": 79,
+    "streams": 158,
+    "output_samples": 82575360,
+    "packet_ms": [
+      40,
+      80
+    ],
+    "all_waveforms_byte_exact_to_qualified_candidate": true,
+    "failures": 0,
+    "receipt_sha256": "0646be38537cfddbd8fbfef8faaf310798b9fc8ce992ac91aac10277eb0ca45c",
+    "additional_checks": [
+      "qualified_bridge_full_decoder_exact",
+      "qualified_bridge_full_decoder_exact",
+      "explicit_four_threads_fp32_fallback_exact",
+      "arbitrary_packet_equivalence",
+      "arbitrary_packet_equivalence",
+      "arbitrary_packet_equivalence",
+      "reset_empty_independent_streams_future_prefix"
+    ]
+  }
+}

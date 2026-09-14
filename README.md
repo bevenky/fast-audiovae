@@ -7,7 +7,7 @@ Fast inference for VoxCPM2's AudioVAE2 decoder, with optimized CPU kernels and o
 Use Python 3.11 to 3.13. Install from the release wheels; pip picks the platform automatically:
 
 ```sh
-python -m pip install fast-audiovae==0.4.1 --find-links https://github.com/bevenky/fast-audiovae/releases/expanded_assets/v0.4.1
+python -m pip install fast-audiovae==0.4.2 --find-links https://github.com/bevenky/fast-audiovae/releases/expanded_assets/v0.4.2
 ```
 
 This installs the CPU runtime and kernels without PyTorch or GPU dependencies. The wheel includes the small GPU integration code, but its dependencies are optional.
@@ -27,7 +27,7 @@ For a complete latent sequence, use `decoder = load(mode="batch")`, then `audio 
 
 The loader selects the CPU kernels automatically. Streaming and one inference thread are the defaults. Each latent frame produces 40 ms of audio; pass two frames for 80 ms packets. Use `load(threads=4)` to request four inference threads. `decoder.info` shows what was selected.
 
-Apple CPUs with SME/SME2 use the new streaming kernels. Other Apple CPUs retain the compatible native path; unsupported systems use portable ONNX with a fallback message. CPU is always the default device.
+Apple CPUs with SME/SME2 automatically use the faster one-thread streaming kernels. Multiple threads and batch mode retain their existing kernels. Other Apple CPUs retain the compatible native path; unsupported systems use portable ONNX with a fallback message. CPU is always the default device. [Apple update and quality checks](docs/apple-int8.md).
 
 The native wheels include the validated AMD and Intel kernels for one-thread streaming. Older wheels keep their existing kernels. [AMD validation](docs/amd-serving.md) and [Intel validation](docs/intel-serving.md).
 
@@ -36,7 +36,7 @@ Native wheels currently cover Apple ARM on macOS 26.2 or newer and compatible In
 For Apple GPU support, add the optional `gpu` extra:
 
 ```sh
-python -m pip install 'fast-audiovae[gpu]==0.4.1' --find-links https://github.com/bevenky/fast-audiovae/releases/expanded_assets/v0.4.1
+python -m pip install 'fast-audiovae[gpu]==0.4.2' --find-links https://github.com/bevenky/fast-audiovae/releases/expanded_assets/v0.4.2
 ```
 
 The extra adds PyTorch 2.14.x alongside CPU support, so both CPU and Apple GPU execution are available. CPU remains the default; GPU runs only when you select `load(device="gpu")`. GPU loading prepares the optimized 40/80 ms paths automatically; first compilation takes extra time. [GPU usage and validation](docs/apple-gpu.md).
@@ -44,6 +44,17 @@ The extra adds PyTorch 2.14.x alongside CPU support, so both CPU and Apple GPU e
 ## Decoder speed
 
 CPU-only causal streaming on Apple M5 Max, using ONNX Runtime 1.30.0. Lower RTF is better; 1.0 is real time. All decoders carry history between calls and need no future latent frames.
+
+Version 0.4.2, one thread, 79 recordings totaling 860 seconds:
+
+| Output chunk | Previous optimized RTF | Updated default RTF | Less decoding time |
+| --- | ---: | ---: | ---: |
+| 40 ms | 0.1693 | **0.1263** | 25.4% |
+| 80 ms | 0.1146 | **0.0996** | 13.1% |
+
+These are matched confirmation timings with state validation between calls. They are separate from the earlier three-codec comparison below; Mimi was not rerun in this check. [Protocol and quality](docs/apple-int8.md).
+
+Earlier comparison, before the one-thread update:
 
 | Threads | Output chunk | Base AudioVAE2 RTF | Optimized AudioVAE2 RTF | Pocket Mimi RTF |
 | ---: | --- | ---: | ---: | ---: |
@@ -85,17 +96,17 @@ Short matched check on three 960 ms multilingual segments, with one warmup and t
 
 ## Reconstruction quality
 
-Reference scores from the earlier one-thread, 80 ms streaming panel: the same 60 FLEURS recordings across ten languages. Higher is better. All metrics use 16 kHz audio; PESQ and STOI compare against the original, while UTMOS and DNSMOS score each recording without a reference.
+One-thread, 80 ms streaming on the same 60 FLEURS recordings across ten languages. AudioVAE2 was rescored for the new Apple default; original and Mimi scores are the retained reference results. Higher is better. All metrics use 16 kHz audio; PESQ and STOI compare against the original, while UTMOS and DNSMOS score each recording without a reference.
 
 | Audio | PESQ-WB | STOI | UTMOS22 | DNSMOS P.835 overall | DNSMOS P.808 |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | Original recordings | Reference | Reference | 2.321 | 2.775 | 3.428 |
-| AudioVAE2 | 3.742 | 0.9360 | 2.257 | 2.765 | 3.404 |
+| AudioVAE2 | 3.741 | 0.9360 | 2.257 | 2.766 | 3.403 |
 | Pocket Mimi | 2.130 | 0.8074 | 2.517 | 2.894 | 3.339 |
 
 DNSMOS update: the earlier "overall" column was P.835, and its values were confirmed. The table now also shows P.808. Rechecking all saved recordings with Microsoft's pinned scorer confirmed that Mimi leads P.835 overall, while AudioVAE2 leads P.808. [Revalidation details](docs/streaming-baseline.md#dnsmos-revalidation).
 
-The new kernels are checked separately for sample-level agreement with stock AudioVAE2. PESQ, STOI and UTMOS above remain the earlier panel results; the DNSMOS recheck used its saved audio. UTMOS and DNSMOS are predictions, not human ratings. These metrics do not assess frequencies above 8 kHz. Meta DACVAE is excluded because the tested checkpoint requires future frames. [Quality results and validation](docs/streaming-baseline.md#quality).
+The Apple update introduces small numerical differences; its paired quality scores stayed very close to the previous default. [Detailed comparison](docs/apple-int8.md). UTMOS and DNSMOS are predictions, not human ratings. These metrics do not assess frequencies above 8 kHz. Meta DACVAE is excluded because the tested checkpoint requires future frames. [Earlier quality results](docs/streaming-baseline.md#quality).
 
 ## More
 
