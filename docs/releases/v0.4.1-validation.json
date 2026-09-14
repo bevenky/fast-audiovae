@@ -1,0 +1,434 @@
+{
+  "version": "0.4.1",
+  "status": "release_validation_passed_with_documented_scope",
+  "source_commit": "e97888ef2913eacb43f2e5f7006c6edc61b7fd2d",
+  "baseline_commit": "cb6b4fba86439c81c0a557cdf169072de549e796",
+  "artifacts": [
+    {
+      "kind": "apple",
+      "name": "fast_audiovae-0.4.1-py3-none-macosx_26_0_arm64.whl",
+      "sha256": "e4de2f6dc46b29b852a8d012d48def3b01e95e99de0c370a69f20d30dd28ff34",
+      "bytes": 1480847,
+      "gpu_modules": [
+        "gpu.py",
+        "mps_decoder.py",
+        "mps_compiled.py"
+      ],
+      "requirements": [
+        "numpy>=1.26",
+        "onnxruntime==1.30.0; sys_platform == \"darwin\" and platform_machine == \"arm64\"",
+        "onnxruntime==1.29.0; sys_platform != \"darwin\" or platform_machine != \"arm64\"",
+        "onnx==1.22.0",
+        "torch>=2.8; extra == \"encoder\"",
+        "torch<2.15,>=2.14; extra == \"gpu\"",
+        "pytest>=8; extra == \"test\""
+      ],
+      "record_verified": true,
+      "native_payload": "apple-payload",
+      "native_payload_manifest_sha256": "efd82b3a0cab3f1f132cc45d8ac06c7a5c546fd3ab7593da910622bb0317182b",
+      "native_payload_unchanged": true
+    },
+    {
+      "kind": "linux",
+      "name": "fast_audiovae-0.4.1-py3-none-linux_x86_64.whl",
+      "sha256": "8a05255fd642185555855eea24b10b8df4c1d9a4b564173f837f2f6e4829c3bf",
+      "bytes": 194955272,
+      "gpu_modules": [
+        "gpu.py",
+        "mps_decoder.py",
+        "mps_compiled.py"
+      ],
+      "requirements": [
+        "numpy>=1.26",
+        "onnxruntime==1.30.0; sys_platform == \"darwin\" and platform_machine == \"arm64\"",
+        "onnxruntime==1.29.0; sys_platform != \"darwin\" or platform_machine != \"arm64\"",
+        "onnx==1.22.0",
+        "torch>=2.8; extra == \"encoder\"",
+        "torch<2.15,>=2.14; extra == \"gpu\"",
+        "pytest>=8; extra == \"test\""
+      ],
+      "record_verified": true,
+      "native_payload": "linux-payload",
+      "native_payload_manifest_sha256": "6886a0f55d34a1e0e1c3f2fb343f7ea086002bc6cfe178fe890f2b748ddc93e2",
+      "native_payload_unchanged": true
+    },
+    {
+      "kind": "portable",
+      "name": "fast_audiovae-0.4.1-py3-none-any.whl",
+      "sha256": "60ccbd8431b74b3f8d3f89a6ba38dbd3e872890c4b73c591e878508703ceafdd",
+      "bytes": 553631,
+      "gpu_modules": [
+        "gpu.py",
+        "mps_decoder.py",
+        "mps_compiled.py"
+      ],
+      "requirements": [
+        "numpy>=1.26",
+        "onnxruntime==1.30.0; sys_platform == \"darwin\" and platform_machine == \"arm64\"",
+        "onnxruntime==1.29.0; sys_platform != \"darwin\" or platform_machine != \"arm64\"",
+        "onnx==1.22.0",
+        "torch>=2.8; extra == \"encoder\"",
+        "torch<2.15,>=2.14; extra == \"gpu\"",
+        "pytest>=8; extra == \"test\""
+      ],
+      "record_verified": true,
+      "native_payload": null,
+      "native_payload_manifest_sha256": null,
+      "native_payload_unchanged": false
+    },
+    {
+      "kind": "sdist",
+      "name": "fast_audiovae-0.4.1.tar.gz",
+      "sha256": "a5ac0f36100c84cf816940078446409817a6bbcb043934a25702e8ceb82ad2d2",
+      "bytes": 426891
+    }
+  ],
+  "maintained_tests": {
+    "passed": 528,
+    "subtests_passed": 1963,
+    "warnings": [
+      "PytestRemovedIn10Warning for existing parametrization iterable"
+    ],
+    "log_sha256": "d0fc50ab179edc2a188ecfd3920a1fe5aed8d87000cd10aa2bc718ff9765d532"
+  },
+  "apple": {
+    "status": "passed",
+    "cpu_only": true,
+    "torch_imported": false,
+    "fresh_automatic_setup": true,
+    "recipe": "apple_stream_selected",
+    "runtime": "1.30.0",
+    "native_calls_and_checks": 14,
+    "comparisons": [
+      {
+        "label": "English/stream",
+        "passed": true,
+        "samples": 5760,
+        "max_abs": 4.540197551250458e-09
+      },
+      {
+        "label": "reset-repeat",
+        "passed": true,
+        "samples": 1920,
+        "max_abs": 4.773028194904327e-09
+      },
+      {
+        "label": "Zero/stream",
+        "passed": true,
+        "samples": 5760,
+        "max_abs": 6.472691893577576e-08
+      },
+      {
+        "label": "batch1",
+        "passed": true,
+        "samples": 1920,
+        "max_abs": 4.773028194904327e-09
+      },
+      {
+        "label": "batch2",
+        "passed": true,
+        "samples": 3840,
+        "max_abs": 4.540197551250458e-09
+      }
+    ],
+    "original_atol": 1e-05,
+    "original_rtol": 0.0001,
+    "receipt_sha256": "aa498e7864b721a2e88d321560f712247937ab083fd6ee702aec88078a8fc61d",
+    "unchanged_gpu_and_native_payload": {
+      "status": "pass",
+      "compared_to": "v0.4.0",
+      "gpu_execution_rerun": false,
+      "gpu_module_and_apple_native_hashes": {
+        "gpu.py": "baec725dfeae417c2a36591271e7bfadaa6c0658fa5da0029ff39bd8973ca06a",
+        "mps_compiled.py": "523111791fb5f5e6f8137dd05d45a47952d3fff4e4628ffff2178560fac2a85c",
+        "mps_decoder.py": "cec702ca200a5ade3226646cbcd8d6d5f5ace4d4360563789dfdd65b0b2e4bb4",
+        "_native/manifest.json": "efd82b3a0cab3f1f132cc45d8ac06c7a5c546fd3ab7593da910622bb0317182b",
+        "_native/apple/base-build.json": "ee8c2604b60ca265ae423e50e6780ebbc7c8a6c07146b9f16130cea2a176622c",
+        "_native/apple/macho-closure.json": "62a18da7068180ad231028b3ca17399f273655e68cf57f4c4db36b7943db4b97",
+        "_native/apple/streaming-build.json": "badbacf385ad77e60ef1cdb50ecddc9c1182c5ac54e0a8954c8b426fb938905e",
+        "_native/apple/runtime/libapple_layout_v3.dylib": "4447b174949b578857f7d8789b40d3cf0190ea5c0089dbc40868cfb60566a149",
+        "_native/apple/runtime/libapple_libxsmm_panel_core.dylib": "0adc60e6baf03dc22bbca9eb3268f5cab7127fc46e7f4eacc478a53e162ff225",
+        "_native/apple/runtime/libapple_libxsmm_panel_ort.dylib": "511eda0dcf7089c87f678e01f9a2508efefa05ff80a3f1972b06fc7b90a8f971",
+        "_native/apple/runtime/libapple_matrix_sweep_core.dylib": "bf61a6335fd1ec7971402fc7e9b3227a135f84855371bfa50a6c67bb3688eef1",
+        "_native/apple/runtime/libapple_matrix_sweep_ort.dylib": "d73201b8eefada4d29cb72c80394df4847532ae10d5b0b8eccee9e8b2f0fd3be",
+        "_native/apple/runtime/libapple_multinext_core.dylib": "91523d62dd73943f7d017a8dc3e5e5948cf4c74dda8a46e995bb33b20408ba02",
+        "_native/apple/runtime/libapple_multinext_ort.dylib": "e1d28d060873f5d941c3eccfcd781dd579344a9167111beeeeed05a67fd39250",
+        "_native/apple/runtime/libapple_multitile_core.dylib": "6bf9a91d274d6485e13f876cd12a83cf735d7f06ae525215b2ad961f4bca9159",
+        "_native/apple/runtime/libapple_multitile_ort.dylib": "b7cf5e89774b69b8b8a5d6a819c7dc10f15dee39b620a66c18888c3ff3aa649b",
+        "_native/apple/runtime/libapple_phase_state_v1.dylib": "a6c4c2d45526a70581887a25372663981c42c46a25e4ca6da2d750d7aa10605e",
+        "_native/apple/runtime/libapple_state_v2.dylib": "fc9c82372f4684f41bcd837b10a3eaa1d1c5a3065537cf9e956133c676ff9354",
+        "_native/apple/runtime/libapple_xsmm_panel_dependency.dylib": "493740955399f904a1a644cd90aad802f1ab901626b21653d86c42d04d508249",
+        "_native/apple/runtime/libfast_audiovae_apple_4e73b23e8afa.dylib": "4981d22585ef00f1e441d39f9a57b300addb43944b03a21781d9fbf32053d2d0",
+        "_native/licenses/KleidiAI-LICENSE.txt": "074e6e32c86a4c0ef8b3ed25b721ca23aca83df277cd88106ef7177c354615ff",
+        "_native/licenses/LIBXSMM-LICENSE.md": "e60bc806cb48bb16fe29f5b03f5e33384f13063aa1c217dad62d983e318fba46",
+        "_native/licenses/ONNXRUNTIME-LICENSE": "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c",
+        "_native/licenses/fast-audiovae-LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+      }
+    }
+  },
+  "amd": {
+    "status": "passed_with_explicit_scope",
+    "release_wheel_sha256": "8a05255fd642185555855eea24b10b8df4c1d9a4b564173f837f2f6e4829c3bf",
+    "runtime": "1.29.0",
+    "cpu_only": true,
+    "installation": "pip --no-deps into isolated /dev/shm directory; original install unchanged",
+    "unmodified_detect_cpu": {
+      "system": "Linux",
+      "machine": "x86_64",
+      "platform": "Linux/x86_64",
+      "vendor": "unknown",
+      "model": "AMD EPYC 9654 96-Core Processor",
+      "logical_cpus": 192,
+      "affinity": [
+        0
+      ],
+      "cgroup_quota_cpus": 16.15,
+      "cpu_budget": 1.0,
+      "max_threads": 1,
+      "usable": {
+        "neon": false,
+        "avx2": false,
+        "avx512": false,
+        "avx512_vnni": false
+      },
+      "probe": {
+        "status": "unavailable",
+        "method": "child_cpuid_xgetbv",
+        "reason": "The isolated CPU/OS probe is unavailable"
+      }
+    },
+    "unmodified_selection": {
+      "recipe": "portable",
+      "mode": "streaming",
+      "threads": 1,
+      "requested_threads": 1,
+      "thread_budget": 1,
+      "threads_capped": false,
+      "validated_threads": null,
+      "thread_policy": "one_worker_default_or_explicit_budget_capped_to_available_cpu_and_validated_schedule",
+      "cpu_platform": "Linux/x86_64",
+      "cpu_vendor": "unknown",
+      "fallback": true,
+      "reason": "CPU/OS support for a validated native recipe was not proven"
+    },
+    "noexec_safely_selected_portable": true,
+    "probe_relocation": {
+      "path": "/workspace/fast-audiovae-v0.4.1-probe-check/cpu_probe",
+      "sha256": "da026882d40dab3d02f35bc48480f84ac6eb26204244b38186e2d49218af0445",
+      "source_manifest_sha256": "6886a0f55d34a1e0e1c3f2fb343f7ea086002bc6cfe178fe890f2b748ddc93e2",
+      "same_byte_binary": true
+    },
+    "real_probe_result": {
+      "vendor": "amd",
+      "avx2": true,
+      "avx512": true,
+      "avx512_vnni": true,
+      "cpus": [
+        0
+      ]
+    },
+    "real_probe_evidence": {
+      "status": "ok",
+      "method": "packaged_child_cpuid_xgetbv",
+      "probe_sha256": "da026882d40dab3d02f35bc48480f84ac6eb26204244b38186e2d49218af0445",
+      "cpus_checked": [
+        0
+      ],
+      "reason": "CPU features and OS vector-state support verified on every allowed CPU"
+    },
+    "previous_probe_result": {
+      "vendor": "amd",
+      "avx2": true,
+      "avx512": true,
+      "avx512_vnni": true,
+      "cpus": [
+        0
+      ]
+    },
+    "previous_probe_evidence": {
+      "status": "ok",
+      "method": "packaged_child_cpuid_xgetbv",
+      "probe_sha256": "798a304a7ed63bb621bfafea549e554f97c1a3e95cc0191044a96d5c423d95a2",
+      "cpus_checked": [
+        0
+      ],
+      "reason": "CPU features and OS vector-state support verified on every allowed CPU"
+    },
+    "real_probe_results_equal": true,
+    "selection_from_real_relocated_probe": {
+      "recipe": "amd_stream_selected",
+      "mode": "streaming",
+      "threads": 1,
+      "requested_threads": 1,
+      "thread_budget": 1,
+      "threads_capped": false,
+      "validated_threads": [
+        1
+      ],
+      "thread_policy": "one_worker_default_or_explicit_budget_capped_to_available_cpu_and_validated_schedule",
+      "cpu_platform": "Linux/x86_64",
+      "cpu_vendor": "amd",
+      "fallback": false,
+      "reason": "Usable AVX512-VNNI verified; selected AMD streaming kernels with one worker"
+    },
+    "native_info": {
+      "platform": "Linux/x86_64",
+      "selected": "native",
+      "reason": "Compatible CPU vector-math backend",
+      "sample_rate": 48000,
+      "latent_rate": 25,
+      "latent_channels": 64,
+      "fresh_call_only": false,
+      "threads": 1,
+      "thread_policy": "explicit",
+      "onnxruntime": "1.29.0",
+      "tested_runtime": "1.29.0",
+      "required_backend": 5,
+      "native_streaming_math_version": 1,
+      "backend": 5,
+      "sine_math": "sleef-u10-avx512f-fma",
+      "experiment": "amd_canonical_1_worker",
+      "tested_cpu": "AMD EPYC 9654",
+      "streaming": true,
+      "full_call_model": "streaming/decoder_1_full.onnx",
+      "providers": [
+        "CPUExecutionProvider"
+      ],
+      "model": "streaming/decoder_amd_selected.onnx",
+      "state_bytes_per_stream": 683264
+    },
+    "packet_sequence_ms": [
+      40,
+      80,
+      80
+    ],
+    "exact_audio_and_state_checks": 57,
+    "all_18_states_each_packet": true,
+    "release_native_calls": 4,
+    "reference_native_calls": 4,
+    "total_native_calls": 8,
+    "empty_before_after_no_native_call": true,
+    "empty_preserves_states": true,
+    "reset_replay_exact": true,
+    "all_11_native_files_equal_prior_qualified_and_release_payload": true,
+    "loaded_libraries": {
+      "libamd_aocl_precision_upsample.so": "e07e970bca29288456a760a23156da954138bc5122755328933a65c12962e837",
+      "libamd_aocl_precision_stage.so": "4ba8d985f115516a964e9ed4bab3fa3a94495c3544930d252985ce3665d2a2df",
+      "libaocl-dlp.so": "b615ed338b80d719bcf990638cadecc213e0bd339e1394354f967fcebc428672",
+      "libaudiovae_amd_a2_rawhistory.so": "73a92451fd3ee482745cb2edc9c4916b1357c6fb4624e55588f4421f43a73c59",
+      "libgomp.so.1": "16c68465193c58900805106b70b26eecd6da5da42155f237ccddb922a3280ee6",
+      "libfast_audiovae_x86_f39bdde646b8.so": "12b9e4175021cdb04e54c6942f305467d750d9646d530ac00acc8ce9db79b4c4",
+      "liba4_phase.so": "94f2d44949e7f2864acd2cc39999d6a0d2a4b9223d8bb18b7604ea25be8d730c",
+      "libamd_int8_paired_projection.so": "fd2c0b970ac3af53f237e23b41e0351d14020008f0fc80c4b6dc898c21c729cd",
+      "libamd_aocl_precision_core.so": "a73c73f83d057491409c725f4fb062ece01514da9202518ac9f44b05fd8f3275",
+      "libamd_aocl_precision_ops.so": "53984715a05abc18373d528c00070f5f67c41ab3a971768f9d378f2d545561ca",
+      "libstage_pipeline.so": "e15d8bcec4f484a62789f76909df846128e40bc1b5368d53fcd1fa9e13f8190e"
+    },
+    "reference_receipt_sha256": "4f0a1057927cea45c037c1c4df7107ed17aac23b612545b5aafdc3d247085098",
+    "graph_sha256": "7fc62af2b701c0f65ff7adeedcd46d30b47dd775d41e0f3f7fa5cd6dcce2966c",
+    "bundle_manifest_unchanged": "02f99a2c48bad2aaaca74da3600f3c6bd5eb39c57f5a9b3ef1e2bbaf8a7144c4",
+    "setup_or_graph_preparation_run": false,
+    "benchmark_run": false,
+    "scope": "Installed release Python public load_streaming_decoder used the prior qualified cached bundle with exact installed AMD binary hashes. Unmodified detect_cpu safely rejected execution from noexec tmpfs. The exact generic probe was separately copied to executable storage and measured; no flags were forced. Fresh top-level automatic load/setup was not validated."
+  },
+  "intel": {
+    "qualified_wheel_sha256": "46053d1ab90341e7986467b319e9d05d6fc580c5d72f3b3875ee829cda3a30b7",
+    "vendor_files": 44,
+    "all_vendor_files_byte_identical": true,
+    "vendor_sha256": {
+      "_native/intel/manifest.json": "84b25bfdf1d74c83ac13bd585e655ee01bef53310d92a9091fa2aba4c2dc4587",
+      "_native/intel/native-build.json": "34a8c801a9bae8eb1e301445a717abb8a21931bd2f8e1e036a5f89ca7d1afeb5",
+      "_native/intel/libs/libdnnl.so.3": "6d2c19aac8c8bd8ae7e3d612fe584301692a083cf38375c6a807ae1e5f54f134",
+      "_native/intel/libs/libfast_audiovae_x86_8eed60d94b7f.so": "7cf6ddb02a8377a28a4582b78ec605b8cf750d3ba65d18a4f45cf1cc40c35318",
+      "_native/intel/libs/libintel_phase.so": "b8f5d1fd0de5cc50b57f4256389e775e818b817c8dd12932612a96c315041d3d",
+      "_native/intel/libs/libintel_precision_core.so": "a08d38e5c9589d63fb749b07092836e03fca529c99ff9a0d82b2688dfff1a26c",
+      "_native/intel/libs/libintel_rawhistory.so": "8b24225fc181959aad0851740ade29b8cd4755fd9bf75fe8939dbae2b5551ea1",
+      "_native/intel/libs/libintel_stream_matrix.so": "e28ca411aee5bd2074f6a0b5f6d42518c11799e41cd57b3caf5872c9c6ee1f06",
+      "_native/intel/libs/libintel_stream_matrix_ops.so": "4baf004c22d56fee47f382c19f94db3f878afd5da1e1e41d38555ce648304a9a",
+      "_native/intel/libs/libmkl_avx10.so.3": "f4bcdd330026e8395c87ff4fac9c7f35400670b4f0d6aa2f29cffc0ef476a47f",
+      "_native/intel/libs/libmkl_avx2.so.3": "7afebac38a9b9d35ea62aa992e0a4c38657e8f19172e0649546f3a71702f8aa2",
+      "_native/intel/libs/libmkl_avx512.so.3": "28886b3e2f4a7b9a34f4e6e1f1464b672edaf4c90082726b60a75c41317c75ef",
+      "_native/intel/libs/libmkl_core.so.3": "9cf5c086ec288e876cfc32ae6292726b313e20821ba2d9a421d180ecc183b8d7",
+      "_native/intel/libs/libmkl_def.so.3": "50fff085e41a714f2b828b2247dd16b1206c06cd2cea3e25bf336031c230a746",
+      "_native/intel/libs/libmkl_intel_lp64.so.3": "2d14e54527032a6071f6be1e5ec859323b48f26663b5be0d9ceb10de4f38bd50",
+      "_native/intel/libs/libmkl_mc3.so.3": "5064b17073eb2944fe918ea3c26201fb1114bdcdcf8fffadcacf923f25e8b138",
+      "_native/intel/libs/libmkl_sequential.so.3": "a46f992d6d11c8649350e15f708cafa92452557a29a783bd5885b4f0d88edba9",
+      "_native/intel/libs/libmkl_vml_avx10.so.3": "c99a2c70a4af726fd5e6bf1f7e268c79e9aa64c8caba9c3254891a2b5b02a00f",
+      "_native/intel/libs/libmkl_vml_avx2.so.3": "816fdda02cec28bc0f3344f3d9c77717453c3ba8561abf5639d64e0dcc3fe532",
+      "_native/intel/libs/libmkl_vml_avx512.so.3": "3acb2627bbb4fbbac7b073c37a718eb3248c5b84012df71774ab7f1c113100aa",
+      "_native/intel/libs/libmkl_vml_cmpt.so.3": "fee558c91d8dfe891000751381305dbf8a0bd0962dbecd8f3839b716565f6dcc",
+      "_native/intel/libs/libmkl_vml_def.so.3": "55e5f5276822d79f987beaaefca66e8f0375e0465cf32c565502f20b143f423d",
+      "_native/intel/libs/libmkl_vml_mc3.so.3": "adfd2dacfc30d5d2ac475ffa853bcec7c14d14edc3ce7e5ea4540e18ab88fa48",
+      "_native/intel/libs/libpaired_projection.so": "caf4322d1f6c812766bba82496b32527b2309597f49aebbada2f330802044457",
+      "_native/intel/libs/libprecision_stage.so": "4189b444ac698a1028a424ed1f3a9d7a3c72f42c72072c02d7a0d2d90b61ee81",
+      "_native/intel/libs/libprecision_upsample.so": "721711f572d4557d537e91be6077bb0494176931b4c8c9020ce561e101047cc7",
+      "_native/intel/libs/libstage_pipeline.so": "ea20f2e96abdc6b7b4d662bd1ef7be5474053ac7773e0614b5b9e7eb6fcea5f6",
+      "_native/intel/libs/precision_ops.so": "c58fa9a3519b7946b9a0c19e036ff0b30d54439d92565a1f8841b3b80f3171b0",
+      "_native/intel/licenses/intel/libxsmm-LICENSE.md": "e60bc806cb48bb16fe29f5b03f5e33384f13063aa1c217dad62d983e318fba46",
+      "_native/intel/licenses/intel/onnxruntime-LICENSE": "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c",
+      "_native/intel/licenses/intel/sleef-LICENSE.txt": "c9bff75738922193e67fa726fa225535870d2aa1059f91452c411736284ad566",
+      "_native/intel/licenses/intel/onemkl/LICENSE.txt": "7721633d0ddff43fae25ebfd405f8166a0ce730cbcec44f2f3ad9d5eb8ac9a6f",
+      "_native/intel/licenses/intel/onemkl/third-party-programs-IntelMPI.txt": "82fa46762c37662a52ab9df58781813c1dc6c268ae2b6f9cf2d83183e706aa09",
+      "_native/intel/licenses/intel/onemkl/third-party-programs-benchmarks.txt": "1f1224af12a7d3e51150ce6f762e32472076a31f6e44db41d3b651a7fa20f2f5",
+      "_native/intel/licenses/intel/onemkl/third-party-programs-level-zero.txt": "cfe7d2ba4b4cd53271c7f91937e906256c0f14ea62ba33ffb556664b8d39aa59",
+      "_native/intel/licenses/intel/onemkl/third-party-programs-oneMath.txt": "2ba4e9858c253331691370f4e8e3899ca6a5baa20907f189f5970635870b860d",
+      "_native/intel/licenses/intel/onemkl/third-party-programs-oneTBB.txt": "d507da4fffae647ebc1bbb7e12cc5cca8087d36b0d78cc75caa96cae37688cb1",
+      "_native/intel/licenses/intel/onemkl/third-party-programs-openmp.txt": "8fdfbbdfed13bca3641da35182e7ee1bb92a99f302ce8b0deb981ac1f18adee2",
+      "_native/intel/licenses/intel/onemkl/third-party-programs-safestring.txt": "415000d1887939ffc6826e0ed3f099cebcab6aaeda2da0acb017110a456b3d42",
+      "_native/intel/licenses/intel/onemkl/third-party-programs.txt": "a38d77d3d57579b827e3ac86cafdb71f1461a24fbd6f224e7f40e19c1bd0ea3a",
+      "_native/intel/licenses/intel/onemkl/top_level.txt": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "_native/intel/licenses/onednn/LICENSE": "e9fc874fc09801b9acf3411ba72394098473704d832d713404b6c4861a086318",
+      "_native/intel/licenses/onednn/THIRD-PARTY-PROGRAMS": "2567c1c5cab0ed7709dac7ac0d0aea504f6fb8bb4bd221ef8718defadecf0fa3",
+      "_native/intel/licenses/project/LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "old_python_count": 37,
+    "new_python_count": 37,
+    "unchanged_python": [
+      "__init__.py",
+      "assets.py",
+      "automatic.py",
+      "batch_session.py",
+      "build_resources.py",
+      "cli.py",
+      "encoder.py",
+      "gpu.py",
+      "graph/__init__.py",
+      "graph/block_fusion.py",
+      "graph/canonical.py",
+      "graph/elementwise.py",
+      "graph/packed.py",
+      "graph/phase.py",
+      "graph/pointwise.py",
+      "graph/portable.py",
+      "graph/shapes.py",
+      "graph/streaming.py",
+      "graph/upsampling.py",
+      "mps_compiled.py",
+      "mps_decoder.py",
+      "native_payload.py",
+      "platforms.py",
+      "prepare.py",
+      "prepare_streaming.py",
+      "recipes/__init__.py",
+      "recipes/amd_streaming.py",
+      "recipes/apple.py",
+      "recipes/apple_batch.py",
+      "recipes/apple_selected.py",
+      "recipes/common.py",
+      "recipes/dependencies.py",
+      "recipes/intel_streaming.py",
+      "recipes/portable.py",
+      "recipes/x86.py",
+      "runtime.py",
+      "streaming.py"
+    ],
+    "changed_python": [],
+    "added_python": [],
+    "removed_python": []
+  },
+  "native_payload_audit_sha256": "98aa311ef0edfeb87ede96bd80b3854c457d7e7cd0f0381d9b3d3db89e9ccc4e",
+  "combined_payload_manifest_sha256": "6886a0f55d34a1e0e1c3f2fb343f7ea086002bc6cfe178fe890f2b748ddc93e2",
+  "new_gpu_execution": false,
+  "new_benchmarks": false,
+  "apple_int8_promoted": false
+}
