@@ -2,6 +2,8 @@
 
 These are manual alternatives to the automatic decoder setup. Normal use is `load()`; see the [AMD serving validation](amd-serving.md) for its current automatic recipe.
 
+The [Intel streaming recipe](intel-serving.md) describes its exact matrix replacement and validation.
+
 ## Optional fused decoder
 
 On compatible Linux x86 CPUs, enable AVX512 and fuse adjacent Snake, depthwise and residual operations:

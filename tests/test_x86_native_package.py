@@ -230,3 +230,56 @@ def test_manifest_glibc_uses_all_vendors_and_probe_with_existing_floor(tmp_path,
     result = packager.package(amd, tmp_path / "payload", intel=intel,
                               inspect_library=inspect, build_probe=inert_probe)
     assert result["minimum_glibc"] == ("2.40" if newer else "2.38")
+
+
+def selected_intel_export(root):
+    root, manifest = exported(root, "intel", selected=True)
+    for role in sorted(packager.INTEL_ROLES):
+        manifest["libraries"][role] = file(root, "libs/"+role+".so", role.encode())
+    manifest["onnxruntime"] = "1.29.0"
+    for name in ("LICENSE", "THIRD-PARTY-PROGRAMS"):
+        manifest["license_files"].append(file(root, "licenses/onednn/"+name, name.encode()))
+    (root / "manifest.json").write_text(json.dumps(manifest))
+    return root, manifest
+
+
+def test_intel_only_selected_package_keeps_legacy_and_batch_recipes(tmp_path, monkeypatch):
+    intel, _ = selected_intel_export(tmp_path / "intel")
+    output = tmp_path / "payload"
+    manifest = packager.package(None, output, intel=intel, inspect_library=inert_audit, build_probe=inert_probe)
+    assert set(manifest["recipes"]) == {"intel_precision", "intel_stream_projection", "intel_stream_selected"}
+    assert not (output / "amd").exists()
+    assert build_resources.validate_native_payload(output) == manifest
+    monkeypatch.setattr(native_payload, "PAYLOAD_ROOT", output)
+    payload = native_payload.inspect_payload()
+    ready = native_payload.materialize_payload(payload, tmp_path / "cache", "intel_stream_selected")
+    assert ready["manifest"]["vendor"] == "intel"
+    assert packager.INTEL_ROLES | {"pair"} <= set(ready["manifest"]["libraries"])
+    for name in ("LICENSE", "THIRD-PARTY-PROGRAMS"):
+        assert (Path(ready["root"]) / "licenses/onednn" / name).is_file()
+
+
+def test_combined_package_advertises_selected_intel_only_with_complete_roles(tmp_path):
+    amd, _ = exported(tmp_path / "amd")
+    intel, _ = selected_intel_export(tmp_path / "intel")
+    result = packager.package(amd, tmp_path / "payload", intel=intel, inspect_library=inert_audit, build_probe=inert_probe)
+    assert set(result["recipes"]) == {"amd_precision", "amd_stream_selected", "intel_precision", "intel_stream_projection", "intel_stream_selected"}
+
+
+@pytest.mark.parametrize("missing", [*sorted(packager.INTEL_ROLES), "pair"])
+def test_selected_intel_partial_closure_is_rejected_before_probe(tmp_path, missing):
+    root, manifest = selected_intel_export(tmp_path / "intel")
+    removed = manifest["libraries"].pop(missing)
+    (root / removed["path"]).unlink()
+    (root / "manifest.json").write_text(json.dumps(manifest))
+    calls = []
+    with pytest.raises(ValueError, match="requires"):
+        packager.package(None, tmp_path / "payload", intel=root, inspect_library=inert_audit,
+                         build_probe=lambda _: calls.append("probe"))
+    assert not calls and not (tmp_path / "payload").exists()
+
+
+def test_packager_requires_at_least_one_vendor(tmp_path):
+    with pytest.raises(ValueError, match="At least one vendor"):
+        packager.package(None, tmp_path / "payload", inspect_library=inert_audit, build_probe=inert_probe)
+    assert not (tmp_path / "payload").exists()

@@ -29,7 +29,7 @@ The loader selects the CPU kernels automatically. Streaming and one inference th
 
 Apple CPUs with SME/SME2 use the new streaming kernels. Other Apple CPUs retain the compatible native path; unsupported systems use portable ONNX with a fallback message. CPU is always the default device.
 
-The current branch also selects the updated AMD kernels automatically for one-thread streaming. The packaged path passed 40/80 ms audio and state checks and measured 0.1375 RTF on EPYC 9654 with ONNX Runtime 1.29.0. This AMD update is not in the published v0.4.0 wheels yet. [AMD validation](docs/amd-serving.md).
+The source checkout includes updated AMD and Intel kernels for one-thread streaming. These updates are not in the published v0.4.0 wheels yet. Older wheels keep their existing kernels. [AMD validation](docs/amd-serving.md) and [Intel validation](docs/intel-serving.md).
 
 Native wheels currently cover Apple ARM on macOS 26.2 or newer and compatible Intel/AMD Linux x86 systems with glibc 2.38 or newer. The loader also checks native library compatibility before using them.
 
@@ -53,6 +53,15 @@ CPU-only causal streaming on Apple M5 Max, using ONNX Runtime 1.30.0. Lower RTF 
 | 4 | 80 ms | 0.1705 | **0.0631** | 0.0357 |
 
 Same three multilingual recordings, two warmups and five measured repetitions per case. The one-thread run had substantial timing drift across all codecs, so these observations do not establish a thread-count speedup or reproduce the historical 0.07122 short-clip result. RTF includes decode calls and flush; loading and encoding are excluded. AudioVAE2 outputs 48 kHz; Pocket continuous Mimi outputs 24 kHz and has an 80 ms minimum frame. [Protocol and results](docs/streaming-baseline.md).
+
+Intel Xeon Platinum 8280 VM, **one CPU thread**, ONNX Runtime 1.29.0, causal streaming:
+
+| Output chunk | Previous optimized AudioVAE2 RTF | New matrix baseline RTF |
+| --- | ---: | ---: |
+| 40 ms | 0.4243 | **0.3936** |
+| 80 ms | 0.2829 | **0.2723** |
+
+Short matched check on three 1.6-second multilingual prefixes, one warmup and three measured repetitions. Every measured pair improved. Outputs and all streaming states matched the previous optimized Intel baseline exactly; this is not a claim of bit-for-bit agreement with stock FP32. The Snake experiment is excluded. [Intel protocol and validation](docs/intel-serving.md).
 
 Independent batch decoding on Apple M5 Max, **one CPU thread**, using `load(mode="batch")`:
 

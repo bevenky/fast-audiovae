@@ -1,14 +1,14 @@
 # AMD CPU serving
 
-The current branch automatically selects the accepted AMD streaming kernels on
+The source checkout automatically selects the accepted AMD streaming kernels on
 compatible Linux CPUs with usable AVX512-VNNI. CPU, streaming and one thread
 remain the defaults. This update is not in the published v0.4.0 wheels yet.
 
 The recipe combines the first two projections, processes six early convolution
 histories directly, and assembles the first upsampling output without temporary
 concatenations. It keeps the existing quantization, weights and 18 history states.
-Batch and four-thread AMD use their existing recipes. Intel and Apple kernels
-are unchanged. Older wheels retain their earlier AMD path.
+Batch and four-thread AMD use their existing recipes. Apple kernels are unchanged;
+Intel has its own separately validated recipe. Older wheels retain their earlier AMD path.
 
 ## Short validation
 

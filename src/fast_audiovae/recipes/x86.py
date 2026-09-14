@@ -582,6 +582,10 @@ def export_native_payload(work_dir, bundle, destination):
         from .amd_streaming import LIBRARIES
         for role, name in LIBRARIES.items():
             libraries[role] = record("libs/" + name)
+    if recipe.get("intel_stream_selected"):
+        from .intel_streaming import LIBRARIES
+        for role, name in LIBRARIES.items():
+            libraries[role] = record("libs/" + name)
     native_record_path = work / (".build/prebuilt-native.json" if recipe.get("prebuilt")
                                   else ".build/x86/build.json")
     native_record = json.loads(native_record_path.read_text())
@@ -618,6 +622,11 @@ def build_recipe(work_dir: Path, source: Path, platform_info: dict, mode: str, t
     work, source = Path(work_dir).resolve(), Path(source).resolve()
     vendor = validate_selection(platform_info, mode, threads)
     amd_selected = platform_info.get("recipe") == "amd_stream_selected"
+    intel_selected = platform_info.get("recipe") == "intel_stream_selected"
+    if intel_selected and (vendor != "intel" or mode != "streaming" or threads != 1):
+        raise ValueError("Selected Intel streaming requires Intel, streaming mode and one worker")
+    if intel_selected and platform_info.get("onnxruntime") != "1.29.0":
+        raise ValueError("Selected Intel streaming requires ONNX Runtime 1.29.0")
     if amd_selected and (vendor != "amd" or mode != "streaming" or threads != 1):
         raise ValueError("Selected AMD streaming requires AMD, streaming mode and one worker")
     if amd_selected and platform_info.get("onnxruntime") not in ("1.29.0", "1.30.0"):
@@ -635,11 +644,15 @@ def build_recipe(work_dir: Path, source: Path, platform_info: dict, mode: str, t
         from .amd_streaming import LIBRARIES
         if not set(LIBRARIES).issubset(payload[1]["libraries"]):
             raise ValueError("Prebuilt AMD streaming payload lacks its selected kernel libraries")
+    if payload and intel_selected:
+        from .intel_streaming import LIBRARIES
+        if not set(LIBRARIES).issubset(payload[1]["libraries"]):
+            raise ValueError("Prebuilt Intel streaming payload lacks its selected kernel libraries")
     if not payload:
         for tool in ("gcc", "g++", "make", "cmake", "nm", "readelf"):
             if not shutil.which(tool):
                 raise RuntimeError("CPU source setup requires " + tool)
-    suffix = ("-selected-ort" + platform_info["onnxruntime"]) if amd_selected else ""
+    suffix = ("-selected-ort" + platform_info["onnxruntime"]) if amd_selected or intel_selected else ""
     output = work / "bundles" / (f"{vendor}-{mode}-{threads}" + suffix)
     commands = []
     work.mkdir(parents=True, exist_ok=True)
@@ -689,6 +702,10 @@ def build_recipe(work_dir: Path, source: Path, platform_info: dict, mode: str, t
                 from .amd_streaming import augment
                 augment(work, destination, commands, payload=payload,
                         onnxruntime_version=platform_info["onnxruntime"])
+            if intel_selected:
+                from .intel_streaming import augment
+                augment(work, destination, commands, payload=payload,
+                        onnxruntime_version=platform_info["onnxruntime"], offline=offline, jobs=jobs)
             build_evidence["runtime_dependencies"] = (
                 {"verification": "Prebuilt payload hashes checked; ELF metadata checked during wheel assembly"}
                 if payload else _runtime_dependency_audit(destination))
@@ -699,7 +716,7 @@ def build_recipe(work_dir: Path, source: Path, platform_info: dict, mode: str, t
                 "precision": "selective_int8", "cpu_only": True, "inner_threads": 1,
                 "required_cpu_flags": sorted(REQUIRED_FLAGS),
                 "first_projection_pair": (vendor == "intel" and mode == "streaming") or amd_selected,
-                "amd_stream_selected": amd_selected,
+                "amd_stream_selected": amd_selected, "intel_stream_selected": intel_selected,
                 "prebuilt": payload is not None, "source_model_sha256": sha256(source),
                 "recipe_math": "Existing accepted scales, integer values, complete-K reduction and canonical streaming sine",
                 "build_validation": "Graph identity checked; fresh binary runtime validation is pending"}

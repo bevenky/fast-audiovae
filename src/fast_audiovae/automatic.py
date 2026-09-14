@@ -184,13 +184,14 @@ def setup(*, mode="streaming", threads=1, device="cpu", cache_dir=None, source=N
             fetch_model(source_path.parent)
         for selected_mode in modes:
             plan = select_recipe(cpu, mode=selected_mode, threads=threads)
-            # Older installed Linux wheels retain their existing AMD recipe.
-            # Never fall back to portable merely because they predate this port.
-            if (plan["recipe"] == "amd_stream_selected" and payload and not build_native
-                    and "amd_stream_selected" not in payload["manifest"].get("recipes", {})
-                    and "amd_precision" in payload["manifest"].get("recipes", {})):
-                plan = {**plan, "recipe": "amd_precision", "reason":
-                        "Installed wheel predates selected AMD streaming kernels; using its retained AMD recipe"}
+            # Older native wheels keep their qualified vendor recipe.
+            legacy = {"amd_stream_selected": "amd_precision",
+                      "intel_stream_selected": "intel_stream_projection"}.get(plan["recipe"])
+            if (legacy and payload and not build_native
+                    and plan["recipe"] not in payload["manifest"].get("recipes", {})
+                    and legacy in payload["manifest"].get("recipes", {})):
+                plan = {**plan, "recipe": legacy, "reason":
+                        "Installed wheel predates selected streaming kernels; using its retained vendor recipe"}
             required_runtimes = _recipe_runtimes(plan["recipe"], cpu)
             if not prefer_custom or ort.__version__ not in required_runtimes:
                 plan = {**plan, "recipe": "portable", "fallback": True, "reason": (

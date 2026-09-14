@@ -1,0 +1,27 @@
+{
+  "version": "3.13.2",
+  "archive_url": "https://github.com/uxlfoundation/oneDNN/archive/refs/tags/v3.13.2.tar.gz",
+  "archive_sha256": "6f2240c94557117fdc1954145148c9dff440d1e5c1aeafc1096f3c7bc03a41b8",
+  "configuration": {
+    "CMAKE_BUILD_TYPE": "Release",
+    "ONEDNN_CPU_RUNTIME": "SEQ",
+    "ONEDNN_GPU_RUNTIME": "NONE",
+    "ONEDNN_BUILD_GRAPH": "OFF",
+    "ONEDNN_BUILD_TESTS": "OFF",
+    "ONEDNN_BUILD_EXAMPLES": "OFF",
+    "ONEDNN_ENABLE_PRIMITIVE": "MATMUL;REORDER",
+    "ONEDNN_ENABLE_PRIMITIVE_CPU_ISA": "AVX512",
+    "ONEDNN_EXPERIMENTAL_UKERNEL": "ON",
+    "CMAKE_INSTALL_RPATH": "$ORIGIN",
+    "CMAKE_INSTALL_RPATH_USE_LINK_PATH": "OFF"
+  },
+  "qualified_prebuilt": {
+    "library_sha256": "6d2c19aac8c8bd8ae7e3d612fe584301692a083cf38375c6a807ae1e5f54f134",
+    "headers": {
+      "source/include/oneapi/dnnl/dnnl.hpp": "a5137e4f6e68a29ff38d5ba7ad471a8a6a9912ca02847d4a9087bca1c37bb7c5",
+      "source/include/oneapi/dnnl/dnnl_ukernel.hpp": "9b99be1058b9f5d60ca2076847d9ccce8b5013d7e9f87a46864a09764917f316",
+      "build/include/oneapi/dnnl/dnnl_config.h": "477eeb0e380b87e5b1c2d4c3a0b2cbd08e97006a991826dd711299d5e89f3256",
+      "build/include/oneapi/dnnl/dnnl_version.h": "08dbeed206f22f8e91f4f34645119734ab55443fef64fe7ff738910c2d2ae936"
+    }
+  }
+}

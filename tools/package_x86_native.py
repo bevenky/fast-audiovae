@@ -19,6 +19,8 @@ resources = runpy.run_path(str(ROOT / "src/fast_audiovae/build_resources.py"))
 platforms = runpy.run_path(str(ROOT / "src/fast_audiovae/platforms.py"))
 BASE_ROLES = {"native", "core", "ops", "stage", "upsample", "fp32_stage"}
 AMD_ROLES = {"amd_stream_pair", "amd_stream_history", "amd_stream_phase"}
+INTEL_ROLES = {"intel_stream_history", "intel_stream_phase", "intel_stream_matrix",
+               "intel_stream_matrix_ops", "intel_stream_onednn"}
 SYSTEM_LIBRARIES = {"libc.so.6", "libm.so.6", "libdl.so.2", "libpthread.so.0",
                     "librt.so.1", "libgcc_s.so.1", "libstdc++.so.6", "ld-linux-x86-64.so.2"}
 GPU_NAMES = re.compile(r"cuda|cudnn|cublas|hip|rocm|rocblas|opencl|sycl|level.zero|ze_loader", re.I)
@@ -114,11 +116,14 @@ def inspect_export(root, vendor, inspect_library):
     require(isinstance(flags, list) and all(isinstance(flag, str) for flag in flags)
             and {"avx2", "avx512f", "avx512_vnni"}.issubset(flags), "Missing CPU requirements")
     libraries = manifest.get("libraries", {})
-    allowed = BASE_ROLES | (AMD_ROLES if vendor == "amd" else {"pair"})
+    allowed = BASE_ROLES | (AMD_ROLES if vendor == "amd" else {"pair"} | INTEL_ROLES)
     require(isinstance(libraries, dict) and BASE_ROLES <= set(libraries) <= allowed,
             "Missing or unknown CPU library role")
-    selected = AMD_ROLES & set(libraries)
-    require(not selected or selected == AMD_ROLES, "Selected AMD requires all three library roles")
+    selected_roles = AMD_ROLES if vendor == "amd" else INTEL_ROLES
+    selected = selected_roles & set(libraries)
+    require(not selected or selected == selected_roles, "Selected vendor requires all library roles")
+    require(not selected or vendor != "intel" or "pair" in libraries,
+            "Selected Intel requires its retained first projection pair")
     runtime, licenses = manifest.get("runtime_files"), manifest.get("license_files")
     require(isinstance(runtime, list) and isinstance(licenses, list) and bool(licenses),
             "CPU runtime and license inventories required")
@@ -169,7 +174,8 @@ def package(amd, output, *, intel=None, inspect_library=elf_info, build_probe=No
     output = Path(output).resolve()
     if output.exists():
         raise FileExistsError(output)
-    inputs = {"amd": inspect_export(amd, "amd", inspect_library)}
+    require(amd is not None or intel is not None, "At least one vendor payload is required")
+    inputs = {"amd": inspect_export(amd, "amd", inspect_library)} if amd is not None else {}
     if intel is not None:
         inputs["intel"] = inspect_export(intel, "intel", inspect_library)
     # All libraries are checked before compiling even the baseline-ISA helper.
@@ -197,6 +203,8 @@ def package(amd, output, *, intel=None, inspect_library=elf_info, build_probe=No
                 recipes["amd_stream_selected"] = entry
             if vendor == "intel" and "pair" in copied["libraries"]:
                 recipes["intel_stream_projection"] = entry
+                if INTEL_ROLES <= set(copied["libraries"]):
+                    recipes["intel_stream_selected"] = entry
             audits[vendor] = audit
         license_path = staging / "licenses/fast-audiovae-LICENSE"
         license_path.parent.mkdir()
@@ -225,7 +233,7 @@ def package(amd, output, *, intel=None, inspect_library=elf_info, build_probe=No
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__, allow_abbrev=False)
-    parser.add_argument("--amd", type=Path, required=True, help="Exported AMD CPU payload directory")
+    parser.add_argument("--amd", type=Path, help="Exported AMD CPU payload directory")
     parser.add_argument("--intel", type=Path, help="Exported Intel payload; supply for a combined release wheel")
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()

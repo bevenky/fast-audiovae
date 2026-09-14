@@ -32,6 +32,11 @@ native/amd/streaming/phase/native_ops.cpp
 native/amd/streaming/pair/paired_projection.cpp
 native/amd/streaming/pair/precision.h
 tools/build_amd_streaming.py
+native/intel/streaming/sources.json
+native/intel/streaming/onednn.json
+native/intel/streaming/matrix.cpp
+native/intel/streaming/custom_ops.cpp
+tools/build_intel_streaming.py
 tools/package_x86_native.py
 tools/build.py
 tools/build_apple.py

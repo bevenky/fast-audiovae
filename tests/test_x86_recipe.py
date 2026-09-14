@@ -418,3 +418,114 @@ def test_intel_pair_stays_unpublished_on_failure_and_retries(tmp_path, monkeypat
     assert original_files == {p.name: x86.sha256(p) for p in original.iterdir() if p.is_file()}
     monkeypatch.setattr(x86, "_pair", lambda *args, **kw: pytest.fail("completed pair was rebuilt"))
     assert x86.build_recipe(work, source, info, "streaming", 1) == final
+
+
+@pytest.mark.parametrize("prebuilt", [False, True])
+def test_selected_intel_export_preserves_full_closure_and_actual_build(tmp_path, monkeypatch, prebuilt):
+    from fast_audiovae.recipes.intel_streaming import LIBRARIES
+    work, bundle = tmp_path / "work", tmp_path / "bundle"
+    names = ["base.so", "libintel_precision_core.so", "libstage_pipeline.so", "libintel_precision_ops.so",
+             "libintel_precision_stage.so", "libintel_precision_upsample.so", "libpaired_projection.so", *LIBRARIES.values()]
+    for name in names:
+        _record(bundle, "libs/"+name, name.encode())
+    def row(name):
+        return {"library": "libs/"+name, "sha256": x86.sha256(bundle / "libs" / name)}
+    native = {"library": "libs/base.so", "additional_libraries": [row(x) for x in names[2:6]]}
+    manifest = {"onnxruntime": "1.29.0", "native": {"Linux/x86_64": native},
+                "automatic_recipe": {"vendor": "intel", "intel_stream_selected": True, "prebuilt": prebuilt}}
+    (bundle / "bundle.json").write_text(json.dumps(manifest))
+    build = {"library_sha256": x86.sha256(bundle / "libs/base.so"), "native_abi": 1,
+             "ort_api_version": 29, "domain": "venky.audio.cpu.portable", "fingerprint": {"explicit_avx512_backend": 5}}
+    record = ".build/prebuilt-native.json" if prebuilt else ".build/x86/build.json"
+    _record(work, record, json.dumps(build).encode())
+    other = ".build/x86/build.json" if prebuilt else ".build/prebuilt-native.json"
+    _record(work, other, b"invalid stale build")
+    monkeypatch.setattr(x86, "_runtime_dependency_audit", lambda _: {})
+    result = x86.export_native_payload(work, bundle, tmp_path / "export")
+    assert result["onnxruntime"] == "1.29.0"
+    assert set(LIBRARIES) | {"pair"} <= set(result["libraries"])
+    assert len(result["libraries"]) == 12
+    assert result["runtime_files"] == []
+
+
+@pytest.mark.parametrize("vendor,mode,threads,runtime", [
+    ("amd", "streaming", 1, "1.29.0"), ("intel", "batch", 1, "1.29.0"),
+    ("intel", "streaming", 2, "1.29.0"), ("intel", "streaming", 1, "1.30.0"),
+    ("intel", "streaming", 1, None),
+])
+def test_selected_intel_scope_rejected_before_host_or_model_access(tmp_path, monkeypatch, vendor, mode, threads, runtime):
+    monkeypatch.setattr(x86, "_host_gate", lambda *_: pytest.fail("unexpected host access"))
+    monkeypatch.setattr(x86, "verify_model", lambda *_: pytest.fail("unexpected model access"))
+    with pytest.raises(ValueError):
+        x86.build_recipe(tmp_path / "work", tmp_path / "source", {
+            "vendor": vendor, "recipe": "intel_stream_selected", "onnxruntime": runtime}, mode, threads)
+    assert not (tmp_path / "work").exists()
+
+
+@pytest.mark.parametrize("missing", ["pair", "intel_stream_history", "intel_stream_phase", "intel_stream_matrix", "intel_stream_matrix_ops", "intel_stream_onednn"])
+def test_selected_intel_requires_every_prebuilt_role_before_build(tmp_path, monkeypatch, missing):
+    from fast_audiovae.recipes.intel_streaming import LIBRARIES
+    roles = set(LIBRARIES) | {"native", "core", "ops", "stage", "upsample", "fp32_stage", "pair"}
+    roles.remove(missing)
+    monkeypatch.setattr(x86, "_host_gate", lambda *_: None)
+    monkeypatch.setattr(x86, "verify_model", lambda *_: None)
+    monkeypatch.setattr(x86, "_read_payload", lambda *_: (tmp_path, {"libraries": {key: {} for key in roles}}))
+    with pytest.raises(ValueError, match="lacks"):
+        x86.build_recipe(tmp_path / "work", tmp_path / "source", {"vendor": "intel", "recipe": "intel_stream_selected",
+            "onnxruntime": "1.29.0", "prebuilt": {"root": tmp_path}}, "streaming", 1)
+    assert not (tmp_path / "work").exists()
+
+
+def test_selected_intel_augmentation_stays_private_and_retries(tmp_path, monkeypatch):
+    from fast_audiovae.recipes import intel_streaming
+    import fast_audiovae.prepare as prepare_module
+    work, payload, source = tmp_path / "work", tmp_path / "payload", tmp_path / "model.onnx"
+    payload.mkdir(); source.write_bytes(b"source")
+    roles = {"native", "core", "ops", "stage", "upsample", "fp32_stage", "pair"} | set(intel_streaming.LIBRARIES)
+    libraries = {name: _record(payload, "libs/"+name+".so") for name in roles}
+    metadata = {"library_sha256": libraries["native"]["sha256"]}
+    manifest = {"schema_version": 1, "vendor": "intel", "libraries": libraries,
+                "native_build": _record(payload, "native-build.json", json.dumps(metadata).encode()),
+                "runtime_files": [], "license_files": []}
+    info = {"vendor": "intel", "prebuilt": {"root": payload, "manifest": manifest},
+            "recipe": "intel_stream_selected", "onnxruntime": "1.29.0", "offline": True, "build_jobs": 1}
+    monkeypatch.setattr(x86, "_host_gate", lambda *_: None)
+    monkeypatch.setattr(x86, "verify_model", lambda *_: None)
+    def canonical(destination):
+        destination.mkdir(parents=True)
+        for name in ("decoder_portable.onnx", "decoder_native.onnx", "stream.onnx"):
+            (destination / name).write_bytes(name.encode())
+        (destination / "bundle.json").write_text(json.dumps({"fallback": "decoder_portable.onnx"}))
+    monkeypatch.setattr(prepare_module, "prepare", lambda destination, **kw: canonical(destination))
+    monkeypatch.setattr(x86, "assemble_graphs", lambda *_: source)
+    monkeypatch.setattr(x86, "_bundle", lambda *args, **kw: canonical(args[8]))
+    calls = []
+    def pair(_work, staged, commands, **kw):
+        assert (staged / "stream.onnx").read_bytes() == b"stream.onnx"
+        (staged / "stream.onnx").write_bytes(b"paired")
+        calls.append("pair")
+    monkeypatch.setattr(x86, "_pair", pair)
+    final = work / "bundles/intel-streaming-1-selected-ort1.29.0"
+    def augment(_work, staged, commands, **kw):
+        assert not final.exists() and not (staged / ".recipe-ready.json").exists()
+        assert (staged / "stream.onnx").read_bytes() == b"paired"
+        assert kw["onnxruntime_version"] == "1.29.0" and kw["offline"] is True and kw["jobs"] == 1
+        assert kw["payload"][1] == manifest
+        calls.append("augment")
+        if len(calls) == 2:
+            (staged / "stream.onnx").write_bytes(b"incomplete")
+            raise RuntimeError("overlay interrupted")
+        (staged / "stream.onnx").write_bytes(b"selected")
+    monkeypatch.setattr(intel_streaming, "augment", augment)
+    with pytest.raises(RuntimeError, match="overlay interrupted"):
+        x86.build_recipe(work, source, info, "streaming", 1)
+    assert not final.exists()
+    assert x86.build_recipe(work, source, info, "streaming", 1) == final
+    assert calls == ["pair", "augment", "pair", "augment"]
+    saved = json.loads((final / "bundle.json").read_text())
+    assert saved["automatic_recipe"]["intel_stream_selected"] is True
+    assert saved["automatic_recipe"]["amd_stream_selected"] is False
+    assert (final / "stream.onnx").read_bytes() == b"selected"
+    assert (final / "decoder_native.onnx").read_bytes() == b"decoder_native.onnx"
+    assert x86.build_recipe(work, source, info, "streaming", 1) == final
+    assert len(calls) == 4

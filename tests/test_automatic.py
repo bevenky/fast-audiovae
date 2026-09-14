@@ -136,6 +136,46 @@ class AutomaticTests(unittest.TestCase):
         self.assertFalse(result["fallback"])
         self.assertIn("predates", result["reason"])
 
+    def test_selected_intel_is_default_with_qualified_runtime_and_payload(self):
+        self.cpu.update(platform="Linux/x86_64", system="Linux", machine="x86_64", vendor="intel",
+                        usable={"avx2": True, "avx512": True, "avx512_vnni": True}, probe={"status": "ok"})
+        payload = {"identity": "selected-intel", "manifest": {"wheel_platform": "linux_x86_64",
+                   "recipes": {"intel_stream_selected": {}, "intel_stream_projection": {}, "intel_precision": {}}}}
+        with patch("onnxruntime.__version__", "1.29.0"), \
+             patch("fast_audiovae.native_payload.inspect_payload", return_value=payload), \
+             patch("fast_audiovae.native_payload.materialize_payload", return_value={"manifest": "verified"}), \
+             patch("fast_audiovae.native_payload.probe_payload", return_value=(True, "")):
+            streaming = self.setup()
+            batch = self.setup(mode="batch", threads=2)
+        self.assertEqual((streaming["recipe"], streaming["mode"], streaming["threads"]), ("intel_stream_selected", "streaming", 1))
+        self.assertFalse(streaming["fallback"])
+        self.assertEqual((batch["recipe"], batch["threads"]), ("intel_precision", 2))
+        self.assertNotEqual(streaming["cache_key"], batch["cache_key"])
+        self.assertEqual(automatic._recipe_runtimes("intel_stream_selected", self.cpu), ("1.29.0",))
+
+    def test_legacy_intel_wheel_retains_its_paired_streaming_recipe(self):
+        self.cpu.update(platform="Linux/x86_64", system="Linux", machine="x86_64", vendor="intel",
+                        usable={"avx2": True, "avx512": True, "avx512_vnni": True}, probe={"status": "ok"})
+        payload = {"identity": "legacy-intel", "manifest": {"wheel_platform": "linux_x86_64",
+                   "recipes": {"intel_stream_projection": {}, "intel_precision": {}}}}
+        with patch("onnxruntime.__version__", "1.29.0"), \
+             patch("fast_audiovae.native_payload.inspect_payload", return_value=payload), \
+             patch("fast_audiovae.native_payload.materialize_payload", return_value={"manifest": "verified"}), \
+             patch("fast_audiovae.native_payload.probe_payload", return_value=(True, "")):
+            result = self.setup()
+        self.assertEqual(result["recipe"], "intel_stream_projection")
+        self.assertFalse(result["fallback"])
+        self.assertIn("predates", result["reason"])
+
+    def test_selected_intel_does_not_load_unqualified_runtime(self):
+        self.cpu.update(platform="Linux/x86_64", system="Linux", machine="x86_64", vendor="intel",
+                        usable={"avx2": True, "avx512": True, "avx512_vnni": True}, probe={"status": "ok"})
+        with patch("onnxruntime.__version__", "1.30.0"):
+            result = self.setup()
+        self.assertEqual(result["recipe"], "portable")
+        self.assertIn("1.29.0", result["reason"])
+        self.assertFalse(any(row["recipe"] == "intel_stream_selected" for row in self.calls))
+
     def test_selected_apple_batch_does_not_change_streaming_default(self):
         self.cpu.update(system="Darwin", machine="arm64", platform="Darwin/arm64", vendor="apple",
                         usable={"neon": True, "sme": True, "sme2": True}, probe={"status": "ok"})
