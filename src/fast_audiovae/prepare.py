@@ -113,6 +113,7 @@ def prepare(output="artifacts", *, source=None, native_build=None, amd_build=Non
     stock = onnx.load(source, load_external_data=True)
     fallback, _ = upsampling.rewrite(stock, mode="split-matmul")
     _save(fallback, output / "decoder_portable.onnx")
+    del fallback
     manifest = {"onnxruntime": "1.29.0", "fallback": "decoder_portable.onnx", "native": {},
                 "interface": "FP32 [1,64,L] to [1,1,1920*L] at 48000 Hz; fresh causal calls",
                 "source_sha256": sha256(source), "precision": "FP32", "providers": ["CPUExecutionProvider"],
@@ -123,10 +124,13 @@ def prepare(output="artifacts", *, source=None, native_build=None, amd_build=Non
         with tempfile.TemporaryDirectory(dir=output, prefix=".prepare-") as temporary:
             temporary = Path(temporary)
             fused, audit = elementwise.rewrite(stock, source.parent, "fused", enable_snake=True)
+            del stock
             if audit["fused_depthwise"] != 18 or audit["matched_snakes"] != 43:
                 raise ValueError("Expected the validated 18 fused depthwise and 43 Snake patterns")
             up, _ = upsampling.rewrite(fused, mode="split-matmul")
+            del fused
             _save(up, temporary / "up.onnx")
+            del up
             pointwise.rewrite(temporary / "up.onnx", temporary / "pointwise.onnx", "bct")
             phase.rewrite(temporary / "pointwise.onnx", temporary / "native.onnx")
             destination = temporary / "native-platform.onnx" if rewrite_requested else output / "decoder_native.onnx"

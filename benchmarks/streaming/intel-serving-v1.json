@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "date": "2026-09-14",
+  "cpu": "Intel Xeon Platinum 8280, two-vCPU KVM VM",
+  "threads": 1,
+  "mode": "causal streaming",
+  "output_rate_hz": 48000,
+  "latent_rate_hz": 25,
+  "runtime": "1.29.0",
+  "graph_export_onnx": "1.22.0",
+  "reference": "Accepted exact-output matrix experiment, already optimized INT8; not original FP32",
+  "recipe": "intel_stream_selected",
+  "cpu_only": true,
+  "all_waveform_and_state_hashes_exact": true,
+  "state_arrays_compared": 4266,
+  "waveform_sequence_pairs": 40,
+  "behavior_checks_per_variant": 16,
+  "native_seconds": 27.65839590318501,
+  "timings": {
+    "40": {
+      "candidate": {
+        "pooled_rtf": 0.39407933531846434,
+        "median_clip_rtf": 0.39439038606360555
+      },
+      "reference": {
+        "pooled_rtf": 0.39595030804371667,
+        "median_clip_rtf": 0.3958522609900683
+      },
+      "paired_rounds": 9,
+      "candidate_faster_rounds": 5,
+      "time_reduction_percent": 0.47252715485847085
+    },
+    "80": {
+      "candidate": {
+        "pooled_rtf": 0.2665546986584862,
+        "median_clip_rtf": 0.2668970369268209
+      },
+      "reference": {
+        "pooled_rtf": 0.2652124029635969,
+        "median_clip_rtf": 0.26427054312080145
+      },
+      "paired_rounds": 9,
+      "candidate_faster_rounds": 3,
+      "time_reduction_percent": -0.5061210108916248
+    }
+  },
+  "timing_boundary": "Completed Session.run within public streaming calls; setup, Python validation, hashing and IPC excluded",
+  "installation": {
+    "unpublished_wheel": "0.4.1.dev20260914",
+    "wheel_sha256": "46053d1ab90341e7986467b319e9d05d6fc580c5d72f3b3875ee829cda3a30b7",
+    "public_defaults_passed": true,
+    "cache": {
+      "first_cache_hit": false,
+      "second_cache_hit": true,
+      "key": "6111f9f8db8d8acaee03b308a4e6ea051a9400cbe54e3426b3dc011ab1a45f73",
+      "reuse_cache_requested": true,
+      "defaults": {
+        "device": "cpu",
+        "mode": "streaming",
+        "threads": 1
+      }
+    },
+    "native_mappings_verified": 15,
+    "repeated_load_preserves_stdin": true,
+    "compiled_on_user_load": false,
+    "preparation_scope": "Original installed-wheel graph preparation completed before a runtime-only lifetime fix; the completed 50-file recipe was moved unchanged into the new implementation generation and verified before new public cache publication/reuse"
+  },
+  "local_suite": {
+    "passed": 528,
+    "subtests_passed": 1963,
+    "warnings": 1
+  },
+  "raw_result": "../../experiments/intel-serving-v1/result.json",
+  "raw_result_sha256": "165c0047ce11b7648173c775d552232b0e6ee4e9d72bc7a1e2fc9bc37534e723"
+}

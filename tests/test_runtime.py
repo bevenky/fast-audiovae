@@ -1,7 +1,11 @@
 """Backend selection tests do not require native binaries or model weights."""
 import json
 import hashlib
+import os
 from pathlib import Path
+import shutil
+import subprocess
+import sys
 import tempfile
 import unittest
 from unittest.mock import Mock, patch
@@ -107,6 +111,71 @@ class RuntimeTests(unittest.TestCase):
             with self.assertRaisesRegex(RuntimeError, 'dependency'):
                 runtime.load_decoder(self.root)
         native.assert_not_called()
+
+    def test_verified_additional_library_is_retained_between_sessions(self):
+        path = self.root / 'extra.so'
+        path.write_bytes(b'verified native fixture')
+        digest = hashlib.sha256(path.read_bytes()).hexdigest()
+        self.manifest['native']['Linux/x86_64']['additional_libraries'] = [
+            {'library': path.name, 'sha256': digest}]
+        self.write_manifest()
+        main = self.native_library()
+        retained = object()
+        with patch.object(runtime.platform, 'system', return_value='Linux'), \
+             patch.object(runtime.platform, 'machine', return_value='x86_64'), \
+             patch.object(runtime, '_NATIVE_LIBRARY_HANDLES', {}) as handles, \
+             patch.object(runtime.ctypes, 'CDLL', side_effect=[main, retained, main, main]) as load:
+            first, _ = runtime.load_decoder(self.root, threads=1)
+            self.assertEqual(first.options.libraries[-1], str(path.resolve()))
+            del first
+            second, _ = runtime.load_decoder(self.root, threads=1)
+            self.assertEqual(second.options.libraries[-1], str(path.resolve()))
+            self.assertIs(handles[(str(path.resolve()), digest)], retained)
+            self.assertEqual(load.call_count, 3)  # Two primary loads, one retained extra.
+            path.write_bytes(b'tampered after first load')
+            with self.assertRaisesRegex(RuntimeError, 'differs from its manifest'):
+                runtime.load_decoder(self.root, threads=1)
+            self.assertEqual(len(handles), 1)
+
+    @unittest.skipUnless(sys.platform.startswith(('linux', 'darwin')), 'POSIX loader lifetime test')
+    def test_native_finalizer_cannot_close_stdin_between_sessions(self):
+        compiler = shutil.which('cc')
+        if not compiler:
+            self.skipTest('C compiler unavailable')
+        source = self.root / 'lifetime.c'
+        library = self.root / ('lifetime.dylib' if sys.platform == 'darwin' else 'lifetime.so')
+        # Reproduce the observed LIBXSMM unload defect in a child process only.
+        source.write_text('#include <unistd.h>\n__attribute__((destructor)) '
+                          'static void finalize(void) { close(0); }\n')
+        subprocess.run([compiler, '-dynamiclib' if sys.platform == 'darwin' else '-shared',
+                        '-fPIC', str(source), '-o', str(library)], check=True, capture_output=True)
+        script = '''
+import _ctypes, gc, hashlib, os, sys
+from pathlib import Path
+from fast_audiovae import runtime
+path = Path(sys.argv[1])
+first = _ctypes.dlopen(str(path))
+if sys.argv[2] == 'retain':
+    runtime._retain_verified_library(path, hashlib.sha256(path.read_bytes()).hexdigest())
+_ctypes.dlclose(first)
+gc.collect()
+try:
+    os.fstat(0)
+except OSError:
+    print('closed')
+else:
+    second = _ctypes.dlopen(str(path))
+    _ctypes.dlclose(second)
+    os.fstat(0)
+    print('open')
+'''
+        environment = dict(os.environ)
+        environment['PYTHONPATH'] = str(Path(runtime.__file__).resolve().parents[1])
+        for mode, expected in [('unretained', 'closed'), ('retain', 'open')]:
+            with self.subTest(mode=mode):
+                result = subprocess.run([sys.executable, '-c', script, str(library), mode],
+                                        input='', text=True, capture_output=True, check=True, env=environment)
+                self.assertEqual(result.stdout.strip(), expected)
 
     def test_selected_apple_requires_features_before_loading_any_library(self):
         self.manifest['native']['Darwin/arm64'] = {

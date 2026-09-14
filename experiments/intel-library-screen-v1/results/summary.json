@@ -1,0 +1,1061 @@
+{
+  "date": "2026-09-14",
+  "status": "short_experiments_complete",
+  "production_changed": false,
+  "cpu": "Intel Xeon Platinum 8280 identity, 2-vCPU KVM",
+  "threads": 1,
+  "device": "cpu",
+  "ort": "1.29.0",
+  "onednn": "3.13.2",
+  "baseline_graph_sha256": "ada257599e8f40c57203fa9dbcfd3954476f34807a7328fe0511b49641b61a40",
+  "baseline": "Existing combined Intel INT8 candidate; no older graph substituted",
+  "protocol": "3 frozen Bengali/English/Spanish prefixes, 1.6s each; one warm pass and three alternating measured repetitions; 40/80ms causal stateful decoding; timed passes retain only audio and final states. Setup and checking excluded.",
+  "full_decoder": {
+    "matrix": {
+      "40": {
+        "timing": {
+          "baseline": {
+            "pooled_rtf": 0.42427990701388885,
+            "median_prefix_rtf": 0.422937104375,
+            "packets": 360
+          },
+          "candidate": {
+            "pooled_rtf": 0.39364808368055554,
+            "median_prefix_rtf": 0.39140878687499997,
+            "packets": 360
+          },
+          "time_reduction_percent": 7.219720478615688,
+          "improved_pairs": 9
+        },
+        "waveform": {
+          "arrays": 420,
+          "elements": 883200,
+          "shape_and_finite_checks_passed": true,
+          "bitwise_exact_arrays": 420,
+          "different_elements": 0,
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "relative_l2": 0.0,
+          "cosine": 1.0
+        },
+        "state_max_abs": 0.0,
+        "state_arrays_checked": 3402,
+        "quiet_and_mixed_cases": 20,
+        "public_api": {
+          "0": {
+            "empty_before_after_no_native_call": true,
+            "empty_preserves_all_states_and_frame_count": true,
+            "reset_clears_all_states": true,
+            "reset_replay_all_states_and_audio_exact": true
+          },
+          "2": {
+            "empty_before_after_no_native_call": true,
+            "empty_preserves_all_states_and_frame_count": true,
+            "reset_clears_all_states": true,
+            "reset_replay_all_states_and_audio_exact": true
+          }
+        },
+        "native_seconds": 18.383666239
+      },
+      "80": {
+        "timing": {
+          "baseline": {
+            "pooled_rtf": 0.2829131607638889,
+            "median_prefix_rtf": 0.28155968625,
+            "packets": 180
+          },
+          "candidate": {
+            "pooled_rtf": 0.272309244375,
+            "median_prefix_rtf": 0.27213428562499997,
+            "packets": 180
+          },
+          "time_reduction_percent": 3.7481170406698183,
+          "improved_pairs": 9
+        },
+        "waveform": {
+          "arrays": 240,
+          "elements": 883200,
+          "shape_and_finite_checks_passed": true,
+          "bitwise_exact_arrays": 240,
+          "different_elements": 0,
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "relative_l2": 0.0,
+          "cosine": 1.0
+        },
+        "state_max_abs": 0.0,
+        "state_arrays_checked": 2322,
+        "quiet_and_mixed_cases": 20,
+        "public_api": {
+          "0": {
+            "empty_before_after_no_native_call": true,
+            "empty_preserves_all_states_and_frame_count": true,
+            "reset_clears_all_states": true,
+            "reset_replay_all_states_and_audio_exact": true
+          },
+          "2": {
+            "empty_before_after_no_native_call": true,
+            "empty_preserves_all_states_and_frame_count": true,
+            "reset_clears_all_states": true,
+            "reset_replay_all_states_and_audio_exact": true
+          }
+        },
+        "native_seconds": 13.252982918
+      }
+    },
+    "snake": {
+      "40": {
+        "timing": {
+          "baseline": {
+            "pooled_rtf": 0.39381353027777777,
+            "median_prefix_rtf": 0.39266576625,
+            "packets": 360
+          },
+          "candidate": {
+            "pooled_rtf": 0.3872712773611111,
+            "median_prefix_rtf": 0.386258956875,
+            "packets": 360
+          },
+          "time_reduction_percent": 1.6612565119466738,
+          "improved_pairs": 6
+        },
+        "waveform": {
+          "arrays": 540,
+          "elements": 1113600,
+          "shape_and_finite_checks_passed": true,
+          "bitwise_exact_arrays": 0,
+          "different_elements": 358432,
+          "max_abs": 0.00017822346126195043,
+          "rms_error": 6.729223993021887e-07,
+          "relative_l2": 2.116953427707217e-05,
+          "cosine": 0.9999999997759508
+        },
+        "state_max_abs": 1.9073486328125e-06,
+        "state_arrays_checked": 3402,
+        "quiet_and_mixed_cases": 20,
+        "public_api": {
+          "0": {
+            "empty_before_after_no_native_call": true,
+            "empty_preserves_all_states_and_frame_count": true,
+            "reset_clears_all_states": true,
+            "reset_replay_all_states_and_audio_exact": true
+          },
+          "2": {
+            "empty_before_after_no_native_call": true,
+            "empty_preserves_all_states_and_frame_count": true,
+            "reset_clears_all_states": true,
+            "reset_replay_all_states_and_audio_exact": true
+          }
+        },
+        "native_seconds": 17.523441218
+      },
+      "80": {
+        "timing": {
+          "baseline": {
+            "pooled_rtf": 0.2604993734722222,
+            "median_prefix_rtf": 0.260906398125,
+            "packets": 180
+          },
+          "candidate": {
+            "pooled_rtf": 0.25387489291666665,
+            "median_prefix_rtf": 0.25417079624999994,
+            "packets": 180
+          },
+          "time_reduction_percent": 2.542992893709173,
+          "improved_pairs": 8
+        },
+        "waveform": {
+          "arrays": 300,
+          "elements": 1113600,
+          "shape_and_finite_checks_passed": true,
+          "bitwise_exact_arrays": 0,
+          "different_elements": 358432,
+          "max_abs": 0.00017822346126195043,
+          "rms_error": 6.729223993021886e-07,
+          "relative_l2": 2.116953427707216e-05,
+          "cosine": 0.9999999997759498
+        },
+        "state_max_abs": 1.9073486328125e-06,
+        "state_arrays_checked": 2322,
+        "quiet_and_mixed_cases": 20,
+        "public_api": {
+          "0": {
+            "empty_before_after_no_native_call": true,
+            "empty_preserves_all_states_and_frame_count": true,
+            "reset_clears_all_states": true,
+            "reset_replay_all_states_and_audio_exact": true
+          },
+          "2": {
+            "empty_before_after_no_native_call": true,
+            "empty_preserves_all_states_and_frame_count": true,
+            "reset_clears_all_states": true,
+            "reset_replay_all_states_and_audio_exact": true
+          }
+        },
+        "native_seconds": 12.433429867
+      }
+    },
+    "combined": {
+      "40": {
+        "timing": {
+          "baseline": {
+            "pooled_rtf": 0.42915543,
+            "median_prefix_rtf": 0.430532903125,
+            "packets": 360
+          },
+          "candidate": {
+            "pooled_rtf": 0.39192672972222226,
+            "median_prefix_rtf": 0.39164650375,
+            "packets": 360
+          },
+          "time_reduction_percent": 8.674875738558818,
+          "improved_pairs": 9
+        },
+        "waveform": {
+          "arrays": 420,
+          "elements": 883200,
+          "shape_and_finite_checks_passed": true,
+          "bitwise_exact_arrays": 0,
+          "different_elements": 286837,
+          "max_abs": 0.00017822346126195043,
+          "rms_error": 6.543811317092132e-07,
+          "relative_l2": 2.1163680781769405e-05,
+          "cosine": 0.9999999997760775
+        },
+        "state_max_abs": 7.152557373046875e-07,
+        "state_arrays_checked": 3402,
+        "quiet_and_mixed_cases": 20,
+        "public_api": {
+          "0": {
+            "empty_before_after_no_native_call": true,
+            "empty_preserves_all_states_and_frame_count": true,
+            "reset_clears_all_states": true,
+            "reset_replay_all_states_and_audio_exact": true
+          },
+          "2": {
+            "empty_before_after_no_native_call": true,
+            "empty_preserves_all_states_and_frame_count": true,
+            "reset_clears_all_states": true,
+            "reset_replay_all_states_and_audio_exact": true
+          }
+        },
+        "native_seconds": 18.342827159
+      },
+      "80": {
+        "timing": {
+          "baseline": {
+            "pooled_rtf": 0.27860125326388885,
+            "median_prefix_rtf": 0.27618137375,
+            "packets": 180
+          },
+          "candidate": {
+            "pooled_rtf": 0.2639576652083333,
+            "median_prefix_rtf": 0.26392741625,
+            "packets": 180
+          },
+          "time_reduction_percent": 5.256109900440853,
+          "improved_pairs": 9
+        },
+        "waveform": {
+          "arrays": 240,
+          "elements": 883200,
+          "shape_and_finite_checks_passed": true,
+          "bitwise_exact_arrays": 0,
+          "different_elements": 286837,
+          "max_abs": 0.00017822346126195043,
+          "rms_error": 6.54381131709213e-07,
+          "relative_l2": 2.1163680781769388e-05,
+          "cosine": 0.9999999997760765
+        },
+        "state_max_abs": 7.152557373046875e-07,
+        "state_arrays_checked": 2322,
+        "quiet_and_mixed_cases": 20,
+        "public_api": {
+          "0": {
+            "empty_before_after_no_native_call": true,
+            "empty_preserves_all_states_and_frame_count": true,
+            "reset_clears_all_states": true,
+            "reset_replay_all_states_and_audio_exact": true
+          },
+          "2": {
+            "empty_before_after_no_native_call": true,
+            "empty_preserves_all_states_and_frame_count": true,
+            "reset_clears_all_states": true,
+            "reset_replay_all_states_and_audio_exact": true
+          }
+        },
+        "native_seconds": 12.987317726
+      }
+    }
+  },
+  "micro_matrix": [
+    {
+      "M": 3072,
+      "K": 1024,
+      "T": 8,
+      "packet_ms": 40,
+      "completed_call_seconds": 0.05703377599999999,
+      "completed_calls": 47,
+      "status": "complete",
+      "methods": [
+        {
+          "name": "oneMKL_current_separate_prepare",
+          "setup_seconds": 0.10718738846480846,
+          "implementation": "existing core: two independent preparations",
+          "retained_weight_bytes": 6316448,
+          "onednn_scratchpad_bytes": 0,
+          "captured_output_checks": [
+            {
+              "bitwise_equal": true,
+              "finite": true,
+              "different_values": 0,
+              "max_abs_error": 0.0,
+              "rms_error": 0.0
+            },
+            {
+              "bitwise_equal": true,
+              "finite": true,
+              "different_values": 0,
+              "max_abs_error": 0.0,
+              "rms_error": 0.0
+            }
+          ],
+          "status": "qualified",
+          "preparation_checks": {
+            "all_zero": [
+              {
+                "bitwise_equal": true,
+                "finite": true,
+                "different_values": 0,
+                "max_abs_error": 0.0,
+                "rms_error": 0.0
+              },
+              {
+                "bitwise_equal": true,
+                "finite": true,
+                "different_values": 0,
+                "max_abs_error": 0.0,
+                "rms_error": 0.0
+              }
+            ],
+            "rounding_ties_and_zero_column": [
+              {
+                "bitwise_equal": true,
+                "finite": true,
+                "different_values": 0,
+                "max_abs_error": 0.0,
+                "rms_error": 0.0
+              },
+              {
+                "bitwise_equal": true,
+                "finite": true,
+                "different_values": 0,
+                "max_abs_error": 0.0,
+                "rms_error": 0.0
+              }
+            ]
+          },
+          "pair_ms_median": 1.705655,
+          "pair_ms_samples": [
+            1.705655,
+            1.873008,
+            1.6236840000000001
+          ],
+          "speedup_vs_current": 1.0,
+          "reduction_percent_vs_current": 0.0,
+          "one_call_attribution_us": {
+            "prepare_and_transpose": 338.607,
+            "remaining_including_GEMM_and_scatter": 1255.598
+          }
+        },
+        {
+          "name": "oneMKL_shared_prepare",
+          "setup_seconds": 0.09880354255437851,
+          "implementation": "existing core: one shared preparation",
+          "retained_weight_bytes": 6316448,
+          "onednn_scratchpad_bytes": 0,
+          "captured_output_checks": [
+            {
+              "bitwise_equal": true,
+              "finite": true,
+              "different_values": 0,
+              "max_abs_error": 0.0,
+              "rms_error": 0.0
+            },
+            {
+              "bitwise_equal": true,
+              "finite": true,
+              "different_values": 0,
+              "max_abs_error": 0.0,
+              "rms_error": 0.0
+            }
+          ],
+          "status": "qualified",
+          "preparation_checks": {
+            "all_zero": [
+              {
+                "bitwise_equal": true,
+                "finite": true,
+                "different_values": 0,
+                "max_abs_error": 0.0,
+                "rms_error": 0.0
+              },
+              {
+                "bitwise_equal": true,
+                "finite": true,
+                "different_values": 0,
+                "max_abs_error": 0.0,
+                "rms_error": 0.0
+              }
+            ],
+            "rounding_ties_and_zero_column": [
+              {
+                "bitwise_equal": true,
+                "finite": true,
+                "different_values": 0,
+                "max_abs_error": 0.0,
+                "rms_error": 0.0
+              },
+              {
+                "bitwise_equal": true,
+                "finite": true,
+                "different_values": 0,
+                "max_abs_error": 0.0,
+                "rms_error": 0.0
+              }
+            ]
+          },
+          "pair_ms_median": 1.519909,
+          "pair_ms_samples": [
+            1.519909,
+            1.750154,
+            1.48295
+          ],
+          "speedup_vs_current": 1.1222086322273241,
+          "reduction_percent_vs_current": 10.890009996159822,
+          "one_call_attribution_us": {
+            "prepare_and_transpose": 169.364,
+            "remaining_including_GEMM_and_scatter": 1063.39
+          }
+        },
+        {
+          "name": "oneDNN_MatMul_cached_weights",
+          "setup_seconds": 0.11359107121825218,
+          "implementation": "brg_matmul:avx512_core_vnni",
+          "retained_weight_bytes": 6340608,
+          "onednn_scratchpad_bytes": 768,
+          "captured_output_checks": [
+            {
+              "bitwise_equal": true,
+              "finite": true,
+              "different_values": 0,
+              "max_abs_error": 0.0,
+              "rms_error": 0.0
+            },
+            {
+              "bitwise_equal": true,
+              "finite": true,
+              "different_values": 0,
+              "max_abs_error": 0.0,
+              "rms_error": 0.0
+            }
+          ],
+          "status": "qualified",
+          "preparation_checks": {
+            "all_zero": [
+              {
+                "bitwise_equal": true,
+                "finite": true,
+                "different_values": 0,
+                "max_abs_error": 0.0,
+                "rms_error": 0.0
+              },
+              {
+                "bitwise_equal": true,
+                "finite": true,
+                "different_values": 0,
+                "max_abs_error": 0.0,
+                "rms_error": 0.0
+              }
+            ],
+            "rounding_ties_and_zero_column": [
+              {
+                "bitwise_equal": true,
+                "finite": true,
+                "different_values": 0,
+                "max_abs_error": 0.0,
+                "rms_error": 0.0
+              },
+              {
+                "bitwise_equal": true,
+                "finite": true,
+                "different_values": 0,
+                "max_abs_error": 0.0,
+                "rms_error": 0.0
+              }
+            ]
+          },
+          "pair_ms_median": 0.87894,
+          "pair_ms_samples": [
+            0.854607,
+            0.949738,
+            0.87894
+          ],
+          "speedup_vs_current": 1.9405818372130064,
+          "reduction_percent_vs_current": 48.46906320445811,
+          "one_call_attribution_us": {
+            "prepare_and_transpose": 166.974,
+            "remaining_including_GEMM_and_scatter": 672.108
+          }
+        },
+        {
+          "name": "oneDNN_BRGeMM_panel32",
+          "setup_seconds": 0.11051906459033489,
+          "implementation": "public BRGeMM: full K, panel=32",
+          "retained_weight_bytes": 6340608,
+          "onednn_scratchpad_bytes": 64,
+          "captured_output_checks": [
+            {
+              "bitwise_equal": true,
+              "finite": true,
+              "different_values": 0,
+              "max_abs_error": 0.0,
+              "rms_error": 0.0
+            },
+            {
+              "bitwise_equal": true,
+              "finite": true,
+              "different_values": 0,
+              "max_abs_error": 0.0,
+              "rms_error": 0.0
+            }
+          ],
+          "status": "qualified",
+          "preparation_checks": {
+            "all_zero": [
+              {
+                "bitwise_equal": true,
+                "finite": true,
+                "different_values": 0,
+                "max_abs_error": 0.0,
+                "rms_error": 0.0
+              },
+              {
+                "bitwise_equal": true,
+                "finite": true,
+                "different_values": 0,
+                "max_abs_error": 0.0,
+                "rms_error": 0.0
+              }
+            ],
+            "rounding_ties_and_zero_column": [
+              {
+                "bitwise_equal": true,
+                "finite": true,
+                "different_values": 0,
+                "max_abs_error": 0.0,
+                "rms_error": 0.0
+              },
+              {
+                "bitwise_equal": true,
+                "finite": true,
+                "different_values": 0,
+                "max_abs_error": 0.0,
+                "rms_error": 0.0
+              }
+            ]
+          },
+          "pair_ms_median": 0.8085829999999999,
+          "pair_ms_samples": [
+            0.750923,
+            0.8085829999999999,
+            0.89893
+          ],
+          "speedup_vs_current": 2.109437126429816,
+          "reduction_percent_vs_current": 52.5939888195444,
+          "one_call_attribution_us": {
+            "prepare_and_transpose": 171.022,
+            "remaining_including_GEMM_and_scatter": 626.631
+          }
+        },
+        {
+          "name": "oneDNN_BRGeMM_panel64",
+          "setup_seconds": 0.11120409891009331,
+          "implementation": "public BRGeMM: full K, panel=64",
+          "retained_weight_bytes": 6340608,
+          "onednn_scratchpad_bytes": 64,
+          "captured_output_checks": [
+            {
+              "bitwise_equal": true,
+              "finite": true,
+              "different_values": 0,
+              "max_abs_error": 0.0,
+              "rms_error": 0.0
+            },
+            {
+              "bitwise_equal": true,
+              "finite": true,
+              "different_values": 0,
+              "max_abs_error": 0.0,
+              "rms_error": 0.0
+            }
+          ],
+          "status": "qualified",
+          "preparation_checks": {
+            "all_zero": [
+              {
+                "bitwise_equal": true,
+                "finite": true,
+                "different_values": 0,
+                "max_abs_error": 0.0,
+                "rms_error": 0.0
+              },
+              {
+                "bitwise_equal": true,
+                "finite": true,
+                "different_values": 0,
+                "max_abs_error": 0.0,
+                "rms_error": 0.0
+              }
+            ],
+            "rounding_ties_and_zero_column": [
+              {
+                "bitwise_equal": true,
+                "finite": true,
+                "different_values": 0,
+                "max_abs_error": 0.0,
+                "rms_error": 0.0
+              },
+              {
+                "bitwise_equal": true,
+                "finite": true,
+                "different_values": 0,
+                "max_abs_error": 0.0,
+                "rms_error": 0.0
+              }
+            ]
+          },
+          "pair_ms_median": 0.782638,
+          "pair_ms_samples": [
+            0.729191,
+            0.782638,
+            0.908023
+          ],
+          "speedup_vs_current": 2.1793664503895798,
+          "reduction_percent_vs_current": 54.11510534076351,
+          "one_call_attribution_us": {
+            "prepare_and_transpose": 174.229,
+            "remaining_including_GEMM_and_scatter": 615.249
+          }
+        }
+      ]
+    },
+    {
+      "M": 3072,
+      "K": 1024,
+      "T": 16,
+      "packet_ms": 80,
+      "completed_call_seconds": 0.051484575,
+      "completed_calls": 47,
+      "status": "complete",
+      "methods": [
+        {
+          "name": "oneMKL_current_separate_prepare",
+          "setup_seconds": 0.09519078955054283,
+          "implementation": "existing core: two independent preparations",
+          "retained_weight_bytes": 6316448,
+          "onednn_scratchpad_bytes": 0,
+          "captured_output_checks": [
+            {
+              "bitwise_equal": true,
+              "finite": true,
+              "different_values": 0,
+              "max_abs_error": 0.0,
+              "rms_error": 0.0
+            },
+            {
+              "bitwise_equal": true,
+              "finite": true,
+              "different_values": 0,
+              "max_abs_error": 0.0,
+              "rms_error": 0.0
+            }
+          ],
+          "status": "qualified",
+          "preparation_checks": {
+            "all_zero": [
+              {
+                "bitwise_equal": true,
+                "finite": true,
+                "different_values": 0,
+                "max_abs_error": 0.0,
+                "rms_error": 0.0
+              },
+              {
+                "bitwise_equal": true,
+                "finite": true,
+                "different_values": 0,
+                "max_abs_error": 0.0,
+                "rms_error": 0.0
+              }
+            ],
+            "rounding_ties_and_zero_column": [
+              {
+                "bitwise_equal": true,
+                "finite": true,
+                "different_values": 0,
+                "max_abs_error": 0.0,
+                "rms_error": 0.0
+              },
+              {
+                "bitwise_equal": true,
+                "finite": true,
+                "different_values": 0,
+                "max_abs_error": 0.0,
+                "rms_error": 0.0
+              }
+            ]
+          },
+          "pair_ms_median": 1.373804,
+          "pair_ms_samples": [
+            1.373804,
+            1.3855149999999998,
+            1.329363
+          ],
+          "speedup_vs_current": 1.0,
+          "reduction_percent_vs_current": 0.0,
+          "one_call_attribution_us": {
+            "prepare_and_transpose": 18.907,
+            "remaining_including_GEMM_and_scatter": 1235.925
+          }
+        },
+        {
+          "name": "oneMKL_shared_prepare",
+          "setup_seconds": 0.09424842894077301,
+          "implementation": "existing core: one shared preparation",
+          "retained_weight_bytes": 6316448,
+          "onednn_scratchpad_bytes": 0,
+          "captured_output_checks": [
+            {
+              "bitwise_equal": true,
+              "finite": true,
+              "different_values": 0,
+              "max_abs_error": 0.0,
+              "rms_error": 0.0
+            },
+            {
+              "bitwise_equal": true,
+              "finite": true,
+              "different_values": 0,
+              "max_abs_error": 0.0,
+              "rms_error": 0.0
+            }
+          ],
+          "status": "qualified",
+          "preparation_checks": {
+            "all_zero": [
+              {
+                "bitwise_equal": true,
+                "finite": true,
+                "different_values": 0,
+                "max_abs_error": 0.0,
+                "rms_error": 0.0
+              },
+              {
+                "bitwise_equal": true,
+                "finite": true,
+                "different_values": 0,
+                "max_abs_error": 0.0,
+                "rms_error": 0.0
+              }
+            ],
+            "rounding_ties_and_zero_column": [
+              {
+                "bitwise_equal": true,
+                "finite": true,
+                "different_values": 0,
+                "max_abs_error": 0.0,
+                "rms_error": 0.0
+              },
+              {
+                "bitwise_equal": true,
+                "finite": true,
+                "different_values": 0,
+                "max_abs_error": 0.0,
+                "rms_error": 0.0
+              }
+            ]
+          },
+          "pair_ms_median": 1.312087,
+          "pair_ms_samples": [
+            1.354234,
+            1.312087,
+            1.2623980000000001
+          ],
+          "speedup_vs_current": 1.0470372772537186,
+          "reduction_percent_vs_current": 4.492416676614708,
+          "one_call_attribution_us": {
+            "prepare_and_transpose": 8.873,
+            "remaining_including_GEMM_and_scatter": 1136.05
+          }
+        },
+        {
+          "name": "oneDNN_MatMul_cached_weights",
+          "setup_seconds": 0.11001147516071796,
+          "implementation": "brg_matmul:avx512_core_vnni",
+          "retained_weight_bytes": 6340608,
+          "onednn_scratchpad_bytes": 768,
+          "captured_output_checks": [
+            {
+              "bitwise_equal": true,
+              "finite": true,
+              "different_values": 0,
+              "max_abs_error": 0.0,
+              "rms_error": 0.0
+            },
+            {
+              "bitwise_equal": true,
+              "finite": true,
+              "different_values": 0,
+              "max_abs_error": 0.0,
+              "rms_error": 0.0
+            }
+          ],
+          "status": "qualified",
+          "preparation_checks": {
+            "all_zero": [
+              {
+                "bitwise_equal": true,
+                "finite": true,
+                "different_values": 0,
+                "max_abs_error": 0.0,
+                "rms_error": 0.0
+              },
+              {
+                "bitwise_equal": true,
+                "finite": true,
+                "different_values": 0,
+                "max_abs_error": 0.0,
+                "rms_error": 0.0
+              }
+            ],
+            "rounding_ties_and_zero_column": [
+              {
+                "bitwise_equal": true,
+                "finite": true,
+                "different_values": 0,
+                "max_abs_error": 0.0,
+                "rms_error": 0.0
+              },
+              {
+                "bitwise_equal": true,
+                "finite": true,
+                "different_values": 0,
+                "max_abs_error": 0.0,
+                "rms_error": 0.0
+              }
+            ]
+          },
+          "pair_ms_median": 0.891016,
+          "pair_ms_samples": [
+            0.9292,
+            0.891016,
+            0.7760170000000001
+          ],
+          "speedup_vs_current": 1.5418398771739228,
+          "reduction_percent_vs_current": 35.142422063118175,
+          "one_call_attribution_us": {
+            "prepare_and_transpose": 21.951,
+            "remaining_including_GEMM_and_scatter": 760.283
+          }
+        },
+        {
+          "name": "oneDNN_BRGeMM_panel32",
+          "setup_seconds": 0.11547981388866901,
+          "implementation": "public BRGeMM: full K, panel=32",
+          "retained_weight_bytes": 6340608,
+          "onednn_scratchpad_bytes": 64,
+          "captured_output_checks": [
+            {
+              "bitwise_equal": true,
+              "finite": true,
+              "different_values": 0,
+              "max_abs_error": 0.0,
+              "rms_error": 0.0
+            },
+            {
+              "bitwise_equal": true,
+              "finite": true,
+              "different_values": 0,
+              "max_abs_error": 0.0,
+              "rms_error": 0.0
+            }
+          ],
+          "status": "qualified",
+          "preparation_checks": {
+            "all_zero": [
+              {
+                "bitwise_equal": true,
+                "finite": true,
+                "different_values": 0,
+                "max_abs_error": 0.0,
+                "rms_error": 0.0
+              },
+              {
+                "bitwise_equal": true,
+                "finite": true,
+                "different_values": 0,
+                "max_abs_error": 0.0,
+                "rms_error": 0.0
+              }
+            ],
+            "rounding_ties_and_zero_column": [
+              {
+                "bitwise_equal": true,
+                "finite": true,
+                "different_values": 0,
+                "max_abs_error": 0.0,
+                "rms_error": 0.0
+              },
+              {
+                "bitwise_equal": true,
+                "finite": true,
+                "different_values": 0,
+                "max_abs_error": 0.0,
+                "rms_error": 0.0
+              }
+            ]
+          },
+          "pair_ms_median": 0.7646299999999999,
+          "pair_ms_samples": [
+            0.770673,
+            0.7646299999999999,
+            0.732692
+          ],
+          "speedup_vs_current": 1.796691210127774,
+          "reduction_percent_vs_current": 44.342133230067745,
+          "one_call_attribution_us": {
+            "prepare_and_transpose": 18.897,
+            "remaining_including_GEMM_and_scatter": 735.776
+          }
+        },
+        {
+          "name": "oneDNN_BRGeMM_panel64",
+          "setup_seconds": 0.11164011619985104,
+          "implementation": "public BRGeMM: full K, panel=64",
+          "retained_weight_bytes": 6340608,
+          "onednn_scratchpad_bytes": 64,
+          "captured_output_checks": [
+            {
+              "bitwise_equal": true,
+              "finite": true,
+              "different_values": 0,
+              "max_abs_error": 0.0,
+              "rms_error": 0.0
+            },
+            {
+              "bitwise_equal": true,
+              "finite": true,
+              "different_values": 0,
+              "max_abs_error": 0.0,
+              "rms_error": 0.0
+            }
+          ],
+          "status": "qualified",
+          "preparation_checks": {
+            "all_zero": [
+              {
+                "bitwise_equal": true,
+                "finite": true,
+                "different_values": 0,
+                "max_abs_error": 0.0,
+                "rms_error": 0.0
+              },
+              {
+                "bitwise_equal": true,
+                "finite": true,
+                "different_values": 0,
+                "max_abs_error": 0.0,
+                "rms_error": 0.0
+              }
+            ],
+            "rounding_ties_and_zero_column": [
+              {
+                "bitwise_equal": true,
+                "finite": true,
+                "different_values": 0,
+                "max_abs_error": 0.0,
+                "rms_error": 0.0
+              },
+              {
+                "bitwise_equal": true,
+                "finite": true,
+                "different_values": 0,
+                "max_abs_error": 0.0,
+                "rms_error": 0.0
+              }
+            ]
+          },
+          "pair_ms_median": 0.657795,
+          "pair_ms_samples": [
+            0.657795,
+            0.641242,
+            0.762586
+          ],
+          "speedup_vs_current": 2.0884986964023744,
+          "reduction_percent_vs_current": 52.11871562464514,
+          "one_call_attribution_us": {
+            "prepare_and_transpose": 20.905,
+            "remaining_including_GEMM_and_scatter": 730.674
+          }
+        }
+      ]
+    }
+  ],
+  "micro_snake": {
+    "vml_ha_tile256": {
+      "reference_ns": 3773536,
+      "candidate_ns": 3003925,
+      "time_reduction_percent": 20.394955818627412,
+      "numeric_gate_passed": true,
+      "max_abs": 2.384185791015625e-07
+    },
+    "vml_ha_whole_call": {
+      "reference_ns": 3721621,
+      "candidate_ns": 2807326,
+      "time_reduction_percent": 24.567117393200434,
+      "numeric_gate_passed": true,
+      "max_abs": 2.384185791015625e-07
+    }
+  },
+  "recommendation": "Retain exact matrix-only winner first; retain combined as a separate numerical-change experiment pending broader quality qualification. No automatic serving or package changes.",
+  "local_tests": {
+    "passed": 8,
+    "failed": 0
+  },
+  "result_hashes": {
+    "matrix-full80-r2.json": "9dd9fba13ba3acc7298259ca16a45fd514a077b281733d6997fa3890855db504",
+    "snake-full80-r2.json": "e40445e23a3682847bbf5a3656eed294c7d9fc0e3ed009d3a359cac62037912a",
+    "evidence-inventory.json": "aef34f0e4f2553fbe8244a818c5638450e9bbbc27bfd4998be3bc6deb412060b",
+    "snake-full80.json": "30930621529d1578129862635db7f98967744cdb6beffe3ee7bbadeb94789d04",
+    "matrix-full80.json": "732d7ce62db89a0cc8c222e32195793275662ff9f6058aa11183b540785591d0",
+    "capture.json": "18db0699611db7b2039864bf720ff2cd9184c26ea86775964319d1057521673d",
+    "snake-full40-r2.json": "719da64a112bc055da07ab2f6d116579971b8c079d965dace84ef324ece5e740",
+    "combined-full40.json": "784509a42f03e9ac6b9627ac5d94d1eb890a2b00634fc12615f43527f0544781",
+    "matrix-full40-r2.json": "5c3f01caa25d5859a2f5453912f915edbdfa2c83290f3a99068da4c9498c4371",
+    "combined-full80.json": "cc8359ff170fb75b7467914752a6422d74500199a15bc4c5b90694c9c7dd4b8e",
+    "snake-result.json": "9779db64a16ba541ac2553ed4eb89ca276e6a5632e38c3f2d1efcf76471d0eee",
+    "matrix-result.json": "a3ac7918aeac1ea39dbc0c771e7614bbe29d4b00404e974c2f20dbf4502ad847",
+    "snake-full40.json": "4ac2dc7f1ae10feeee5a40ff7e57ff6b31fe4147679354ca5b92ffd4562570fb",
+    "matrix-build/build.json": "4df0928662277e41ffec6984159382574c042f96b88b4a02e3004f806691947c",
+    "matrix-bridge-r2/manifest.json": "637628bc734316b05302e917b6832cd48da7c2908bcce069b99a13a63d5d1bcc",
+    "matrix-bridge-r2/bridge-build.json": "ece9da7d1e17da2cf4d88066e29f9b95172f47e8b7d7f9452386bcd5541199de",
+    "prebuilt/configure.log": "f5889e778f4968a98910360db306895725eb7a4454b311ef8d5e6a3a1439dd92",
+    "prebuilt/provision.json": "402df6bd59db7a33b034a18d8b53c0fddcedb0aa211e4ad2956af00925240b6c",
+    "prebuilt/build.log": "7efe0d269e8a2bf7039dae2dcde1cdb0a0a372eda5964dcb66b106cf1e4f74b0",
+    "matrix-bridge/manifest.json": "86cc33d71031ec05d2ce07cbd8b4bf001399b8426940f46ea86e130cc9a4b946",
+    "matrix-bridge/bridge-build.json": "7a87bd52b01ad32321f00dfc2291f91833304c8d0463244a6f65df9a2e50972f",
+    "snake-build/build.json": "27fbb4e4d622069366ecaa16c20d67af6ac5f58607d9251a86caba7c2926f5fd",
+    "matrix-build-r2/build.json": "1fdf2067d779f8d8c2954e48226ec0e0c0929fcb0d3c7800509738d6a14b655d"
+  }
+}

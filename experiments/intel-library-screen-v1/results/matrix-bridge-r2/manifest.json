@@ -1,0 +1,35 @@
+{
+  "baseline": {
+    "model": "baseline.onnx",
+    "sha256": "ada257599e8f40c57203fa9dbcfd3954476f34807a7328fe0511b49641b61a40"
+  },
+  "variants": {
+    "matrix": {
+      "model": "matrix.onnx",
+      "sha256": "b3a562b5ba727bf7609dba887206d674deb351a762a07d468d4d0dc5fcc8decb",
+      "checks": {
+        "initializer_byte_identical": true,
+        "input_byte_identical": true,
+        "output_byte_identical": true,
+        "remaining_nodes_byte_identical": true
+      },
+      "removed_nodes": [
+        "ncc_up_2_split_matmul_current_node",
+        "ncc_up_2_split_matmul_previous_unshifted_node"
+      ],
+      "inserted_node": "intel_second_projection_pair_screen",
+      "mode": 4,
+      "scope": "Only two second-pair matrix nodes; existing first VNNI pair is unchanged"
+    }
+  },
+  "shared_weights": {
+    "file": "weights.bin",
+    "sha256": "5fabb7bfe08fc19e64be7e37cdcc80ceca2e43905a199666720ea71297f50f7d",
+    "bytes": 183057920
+  },
+  "additional_library": {
+    "path": "/dev/shm/intel-library-screen-v1/matrix-bridge-r2/libintel_matrix_screen_ort.so",
+    "sha256": "f9066730dd855b0b0e142a3eb9fdc9c7c61540118cd9e5673f3222ba3c00e1f3"
+  },
+  "scope": "Experimental one-thread 40/80ms only; no automatic serving selection or promotion"
+}

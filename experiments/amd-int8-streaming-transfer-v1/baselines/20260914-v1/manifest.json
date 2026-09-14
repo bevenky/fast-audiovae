@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "id": "amd-selective-int8-causal-streaming-20260914-v1",
+  "status": "user_accepted_experimental_baseline",
+  "mode": "streaming",
+  "device": "cpu",
+  "precision": "selective_int8_matrices_fp32_nonlinearities_and_output",
+  "threads": 1,
+  "cpu_affinity": [
+    0
+  ],
+  "cpu": "AMD EPYC 9654 / Zen 4",
+  "runtime": "onnxruntime 1.30.0",
+  "provider": "CPUExecutionProvider",
+  "trained_weights_changed": false,
+  "quantization_changed_from_existing_int8": false,
+  "production_recipe_changed": false,
+  "selection": "Only nominal 80 ms streams are performance-qualified here. Keep the selected graph and its own state for the entire stream, including a terminal 40 ms call. Other packet sizes were correctness checks, not timing baselines.",
+  "cases": {
+    "80": {
+      "spec": "80ms.json",
+      "spec_sha256": "b3827f6150caa82a6b9d030ba93fea4c30eaccbcaf91a1eb1ae801692a7bcdec",
+      "graph_sha256": "7fc62af2b701c0f65ff7adeedcd46d30b47dd775d41e0f3f7fa5cd6dcce2966c",
+      "reference_arm": "transferred",
+      "reference_rtf": 0.13753608179589114,
+      "reference_statistic": "median of three rounds; each round sums decoder service over three 1.6-second prefixes and divides by 4.8 seconds",
+      "pooled_rtf": 0.13716752278721994,
+      "timing_chunk_latent_frames": 2,
+      "latent_fps": 25,
+      "output_sample_rate": 48000
+    }
+  },
+  "timing_protocol": {
+    "uids": [
+      "bn_in_00151_1818",
+      "en_us_00103_1779",
+      "es_419_00060_1994"
+    ],
+    "seconds_per_prefix": 1.6,
+    "warmups_per_uid": 2,
+    "measured_rounds": 3,
+    "measured_comparisons": 9,
+    "transferred_vs_existing_int8_wins": 9,
+    "timing_boundary": "Sum of CPU Session.run service, including startup; excludes setup, encoding, validation, loop overhead and disk I/O",
+    "note": "This is an observed short-run reference, not a guaranteed latency or a replacement for paired controls in later experiments."
+  },
+  "qualification": {
+    "focused_gate_records": 836,
+    "focused_gate_records_bitwise": 836,
+    "timing_transfer_records": 285,
+    "timing_transfer_records_bitwise": 285,
+    "full_quality_recordings": 6,
+    "full_quality_source_seconds": 38.88,
+    "quality_signals": 36,
+    "quality_metric_errors": 0,
+    "unique_full_waveform_pairs_bitwise": 6,
+    "unique_full_final_state_pairs_bitwise": 108,
+    "duplicate_record_note": "The 114 unique full waveform/state transfer comparisons were logged twice, yielding 228 records; these are not independent recordings.",
+    "quality_claim": "Transferred optimizations preserved existing selective INT8 PCM samples on the tested panel; this does not remove the existing INT8-versus-FP32 loss."
+  },
+  "existing_quantization_quality_limits": {
+    "reference": "optimized_fp32_on_same_six_sources",
+    "mean_int8_minus_fp32": {
+      "pesq_wb": -0.04651033878326416,
+      "stoi": -0.0017528330137219772,
+      "estoi": -0.00359126158512868,
+      "utmos": -0.0059714516003928075,
+      "dnsmos_ovrl": -0.04011928250870955,
+      "dnsmos_p808": -0.005699426881851544
+    },
+    "largest_pesq_decline": {
+      "uid": "en_us_00287_1786",
+      "int8_minus_fp32": -0.15330219268798828
+    },
+    "metric_bandwidth_hz": [
+      0,
+      8000
+    ],
+    "source_sample_rate": 16000,
+    "limits": "One recording per language, no music or high-band qualification, no subjective transparency claim; bootstrap confidence intervals are not meaningful with one observation per language.",
+    "metric_identity": "UTMOS22 strong SpeechMOS; DNSMOS non-personalized P.835 OVRL and P.808 are separate scores."
+  },
+  "prepared_weight_memory_note": "Packed paired projection adds about 32 MiB of prepared weights; preparation is outside the measured RTF.",
+  "evidence": {
+    "timing": {
+      "path": "../../timing-001/result.json",
+      "sha256": "5480a576d6ca1c170d8a181141764c03464d2e3ed3a2ba640b8f1cc7dbb3cd58"
+    },
+    "gates": {
+      "path": "../../gates-001/result.json",
+      "sha256": "2b79f7cdba44cd269b7dc09d9c1e0a2d81bd6f7514834a490dc40992f85e3eb3"
+    },
+    "quality_exports": {
+      "path": "../../quality-002/result.json",
+      "sha256": "54f2116139b0da77306be5f828f848b912d3a595796297629fa3eb4fea70a2a4"
+    },
+    "quality_scores": {
+      "path": "../../quality-scores.json",
+      "sha256": "ee035b35882260feb5d69ce1bd535aed36cb11472f9af5b19a46fc7cf7e6cc09"
+    },
+    "quality_audit": {
+      "path": "../../quality-audit.md",
+      "sha256": "675c79c3eedd6ad514bb9d7839d66c0382070b5f7fafee7ce3f8140c489e5561"
+    },
+    "source_spec": {
+      "path": "../../pair/receipts/combined-001/spec.json",
+      "sha256": "b3827f6150caa82a6b9d030ba93fea4c30eaccbcaf91a1eb1ae801692a7bcdec"
+    }
+  },
+  "original_spec_note": "80ms.json is a byte-for-byte copy of the measured combined spec. Its chunks [1,2] field records available correctness cases and does not establish a 40 ms performance baseline."
+}

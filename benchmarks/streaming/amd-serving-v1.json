@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "date": "2026-09-14",
+  "cpu": "AMD EPYC 9654",
+  "mode": "causal streaming",
+  "threads": 1,
+  "packet_ms": 80,
+  "output_rate_hz": 48000,
+  "graph_sha256": "7fc62af2b701c0f65ff7adeedcd46d30b47dd775d41e0f3f7fa5cd6dcce2966c",
+  "measurement": "Three multilingual 1.6-second prefixes; two warmups, three measured repetitions; Session.run only; fixed CPU0; separate resident reference and candidate processes",
+  "same_math_as_existing_int8": true,
+  "quality_reference": "Existing accepted selective INT8 baseline, not original FP32",
+  "runs": [
+    {
+      "runtime": "1.29.0",
+      "reference_rtf": 0.1351600010982818,
+      "packaged_rtf": 0.13751877213103902,
+      "relative_time_increase_percent": 1.745169438880101,
+      "passed_checks": 639,
+      "total_checks": 639,
+      "timed_prefix_pairs": 15,
+      "combined_native_seconds": 7.259649224579334,
+      "source_result_sha256": "c41de0819cb16b56610559e758c98182ac0d920d282daef850f81cf95496014d"
+    },
+    {
+      "runtime": "1.30.0",
+      "reference_rtf": 0.1374959997418854,
+      "packaged_rtf": 0.14005864866905743,
+      "relative_time_increase_percent": 1.8637988974099295,
+      "passed_checks": 639,
+      "total_checks": 639,
+      "timed_prefix_pairs": 15,
+      "combined_native_seconds": 7.338085435330868,
+      "source_result_sha256": "f1d08d680e40e563ed55a857a450ddbf9d3b4553c477d9459642826357d4b950"
+    }
+  ],
+  "installed_wheel": {
+    "version": "0.4.0.dev20260914",
+    "released": false,
+    "public_load_passed": true,
+    "recipe": "amd_stream_selected",
+    "runtime": "1.29.0",
+    "threads": 1,
+    "mode": "streaming",
+    "cache_reuse": true,
+    "all_11_libraries_local": true,
+    "packet_sequence_ms": [
+      40,
+      80,
+      80
+    ],
+    "waveform_and_state_exact": true
+  },
+  "post_link_fix_ort130": {
+    "passed": true,
+    "runtime": "1.30.0",
+    "exact_waveform_and_state_checks": 171,
+    "all_packaged_libraries_local": true,
+    "library_count": 11,
+    "includes_adjacent_libgomp": true,
+    "cpu_only": true,
+    "timing_run": false
+  },
+  "packaging_fix": "AOCL now resolves the bundled OpenMP runtime via $ORIGIN; repeated exact output/state/closure checks after this lookup-only fix, without another timing run",
+  "scope": "No GPU, no quality-model rerun, no broad audio benchmark; AMD batch/four-worker and Intel/Apple kernels retain prior recipes"
+}

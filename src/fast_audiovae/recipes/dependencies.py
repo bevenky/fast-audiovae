@@ -151,9 +151,14 @@ def libxsmm(work, *, offline, jobs, commands):
 def aocl(work, *, offline, jobs, commands):
     pin = json.loads((work / "experiments/amd-precision/pins/rebuild.json").read_text())
     source_pin = pin["AOCL_source_pin"]
-    root = work / ".deps/automatic-aocl-dlp"
+    # Keep the installed OpenMP runtime beside AOCL, independent of the host's
+    # library search path. Separate cache identity preserves older builds.
+    root = work / ".deps/automatic-aocl-dlp-origin-v1"
+    configuration = {**pin["AOCL_CMake_configuration"],
+                     "CMAKE_INSTALL_RPATH": "$ORIGIN",
+                     "CMAKE_INSTALL_RPATH_USE_LINK_PATH": "OFF"}
     identity = {"commit": source_pin["commit"], "archive_sha256": source_pin["archive_sha256"],
-                "configuration": pin["AOCL_CMake_configuration"]}
+                "configuration": configuration}
     if _reuse(root, identity):
         return root / "install"
     root.mkdir(parents=True, exist_ok=True)
@@ -163,7 +168,7 @@ def aocl(work, *, offline, jobs, commands):
     install = root / "install"
     local_commands = []
     run(["cmake", "-S", source, "-B", root / "build", "-DCMAKE_INSTALL_PREFIX=" + str(install),
-         *["-D" + key + "=" + value for key, value in pin["AOCL_CMake_configuration"].items()]],
+         *["-D" + key + "=" + value for key, value in configuration.items()]],
         work, local_commands)
     run(["cmake", "--build", root / "build", "--parallel", jobs], work, local_commands)
     run(["cmake", "--install", root / "build"], work, local_commands)

@@ -1,0 +1,56 @@
+{
+  "full": "/workspace/amd-int8-review-v1/reconstruction-002/decoder_1_full.onnx",
+  "stream": "/workspace/amd-int8-review-v1/pair/combined-001/decoder_int8_transfers.onnx",
+  "stock_full": "/workspace/amd-fp32-experiments-v1/audio_vae_decoder.onnx",
+  "libraries": [
+    "/workspace/fast-audiovae-streaming-comparison-20260908-r1/one-worker/runtime/libfast_audiovae_x86_f39bdde646b8.so",
+    "/workspace/fast-audiovae-streaming-comparison-20260908-r1/one-worker/runtime/libamd_aocl_precision_ops.so",
+    "/workspace/fast-audiovae-streaming-comparison-20260908-r1/one-worker/runtime/libamd_aocl_precision_stage.so",
+    "/workspace/fast-audiovae-streaming-comparison-20260908-r1/one-worker/runtime/libamd_aocl_precision_upsample.so",
+    "/workspace/fast-audiovae-streaming-comparison-20260908-r1/one-worker/runtime/libstage_pipeline.so",
+    "/workspace/amd-int8-review-v1/pair/build-001/libamd_int8_paired_projection.so",
+    "/workspace/amd-fp32-experiments-v1/a2/build-001/libaudiovae_amd_a2_rawhistory.so",
+    "/workspace/amd-fp32-experiments-v1/a4/liba4_phase.so"
+  ],
+  "full_libraries": [
+    "/workspace/fast-audiovae-streaming-comparison-20260908-r1/one-worker/runtime/libfast_audiovae_x86_f39bdde646b8.so",
+    "/workspace/fast-audiovae-streaming-comparison-20260908-r1/one-worker/runtime/libamd_aocl_precision_ops.so",
+    "/workspace/fast-audiovae-streaming-comparison-20260908-r1/one-worker/runtime/libamd_aocl_precision_stage.so",
+    "/workspace/fast-audiovae-streaming-comparison-20260908-r1/one-worker/runtime/libamd_aocl_precision_upsample.so",
+    "/workspace/fast-audiovae-streaming-comparison-20260908-r1/one-worker/runtime/libstage_pipeline.so"
+  ],
+  "extra_artifacts": [
+    "/workspace/amd-fp32-experiments-v1/audio_vae_decoder.onnx.data",
+    "/workspace/fast-audiovae-streaming-comparison-20260908-r1/one-worker/runtime/libamd_aocl_precision_core.so"
+  ],
+  "streaming_audit": "/workspace/amd-int8-review-v1/reconstruction-002/streaming.json",
+  "historical_runtime": "1.29.0",
+  "requested_runtime": "must be explicit in comparison; graphs reconstructed only",
+  "expected_sha256": {
+    "/workspace/fast-audiovae-streaming-comparison-20260908-r1/one-worker/runtime/libfast_audiovae_x86_f39bdde646b8.so": "12b9e4175021cdb04e54c6942f305467d750d9646d530ac00acc8ce9db79b4c4",
+    "/workspace/fast-audiovae-streaming-comparison-20260908-r1/one-worker/runtime/libamd_aocl_precision_ops.so": "53984715a05abc18373d528c00070f5f67c41ab3a971768f9d378f2d545561ca",
+    "/workspace/fast-audiovae-streaming-comparison-20260908-r1/one-worker/runtime/libamd_aocl_precision_stage.so": "ae120b48c0f7b2469e67d55c9c9b670ab022f4d999114a79a6916a3b4de525d9",
+    "/workspace/fast-audiovae-streaming-comparison-20260908-r1/one-worker/runtime/libamd_aocl_precision_upsample.so": "8fc5aafaffdcdac7e9f079715522bf73452a6e492a843f8d5f62b002468fffb4",
+    "/workspace/fast-audiovae-streaming-comparison-20260908-r1/one-worker/runtime/libstage_pipeline.so": "d98b5f61d489c1bea4e28c2c0f752d3a916c51ae6414e5488f95165f107da9be",
+    "/workspace/fast-audiovae-streaming-comparison-20260908-r1/one-worker/runtime/libamd_aocl_precision_core.so": "27cfe25d1f8090187b8f3725a4602458f968358e9d3197476f96fa73b627f769",
+    "/workspace/amd-fp32-experiments-v1/audio_vae_decoder.onnx": "fdd20e200675ab9649bf33f16bc5974101ba5cf47ab89fbfe29f3d36ff6c3c84",
+    "/workspace/amd-fp32-experiments-v1/audio_vae_decoder.onnx.data": "3b76bd57356e96893655bd24a364989e016c5af2fc8c29195caaefb4eccf5143",
+    "/workspace/amd-int8-review-v1/reconstruction-002/decoder_1_full.onnx": "023e40ad0fb9578fbe232942d6aeedb2ed30a426c9db59b70694927e17c67310",
+    "/workspace/amd-int8-review-v1/pair/build-001/libamd_int8_paired_projection.so": "d2e0e6c5f033a7db35cab4bbc57ccd73fc446d892105ac32aaae7d18ceca03f5",
+    "/workspace/amd-fp32-experiments-v1/a2/build-001/libaudiovae_amd_a2_rawhistory.so": "2898fb2ee1146610511401442d622d2e7f6ce6568b7aa5fb9acc12555277adb9",
+    "/workspace/amd-fp32-experiments-v1/a4/liba4_phase.so": "ee1e51828353776f3e2158cb34667e690a84da3287bf3b12f2fa65befe8b410f",
+    "/workspace/amd-int8-review-v1/pair/combined-001/decoder_int8_transfers.onnx": "7fc62af2b701c0f65ff7adeedcd46d30b47dd775d41e0f3f7fa5cd6dcce2966c"
+  },
+  "fps": 25,
+  "frames": 40,
+  "chunks": [
+    1,
+    2
+  ],
+  "uids": [
+    "bn_in_00151_1818",
+    "en_us_00103_1779",
+    "es_419_00060_1994"
+  ],
+  "latents": "/workspace/fast-audiovae-multilingual-20260907/fast_audiovae2.npz"
+}

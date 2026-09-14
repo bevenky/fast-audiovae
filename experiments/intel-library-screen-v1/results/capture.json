@@ -1,0 +1,58 @@
+{
+  "baseline_graph": "/dev/shm/intel-streaming-transfer-v1-graphs-r2/combined.onnx",
+  "baseline_graph_sha256": "ada257599e8f40c57203fa9dbcfd3954476f34807a7328fe0511b49641b61a40",
+  "weights_sha256": "5fabb7bfe08fc19e64be7e37cdcc80ceca2e43905a199666720ea71297f50f7d",
+  "native_calls": 6,
+  "native_seconds": 0.2101073320955038,
+  "cpu_only": true,
+  "threads": 1,
+  "uid": "bn_in_00151_1818",
+  "ort": "1.29.0",
+  "capture_npz": "/dev/shm/intel-library-screen-v1/matrix-inputs.npz",
+  "capture_sha256": "1489022baaa256f016e1b463e20ee47e50924460191c3ceb602d146756d6707f",
+  "shapes": {
+    "weight0": [
+      3072,
+      1024
+    ],
+    "weight1": [
+      3072,
+      1024
+    ],
+    "input_8": [
+      1024,
+      8
+    ],
+    "expected0_8": [
+      3072,
+      8
+    ],
+    "expected1_8": [
+      3072,
+      8
+    ],
+    "input_16": [
+      1024,
+      16
+    ],
+    "expected0_16": [
+      3072,
+      16
+    ],
+    "expected1_16": [
+      3072,
+      16
+    ]
+  },
+  "libraries": {
+    "/dev/shm/fast-audiovae-projection-candidate-20260908-r1/libs/libfast_audiovae_x86_8eed60d94b7f.so": "0cb2b82857e5c0c9c2054000b19c670f02b25c92c54d7225422a9b0f7d99a7c2",
+    "/dev/shm/fast-audiovae-projection-candidate-20260908-r1/libs/libstage_pipeline.so": "33ed06712852546af72d209904e135fe151ffedc545fa392fe9b42bbaaa069e5",
+    "/dev/shm/fast-audiovae-projection-candidate-20260908-r1/libs/precision_ops.so": "41209af17f5f3e5ac1173bcfa32c9e014e5f6257fd8ad7e446a9d7872d196858",
+    "/dev/shm/fast-audiovae-projection-candidate-20260908-r1/libs/libprecision_stage.so": "04a19020e7c9a763a357b528bef8d8b29f0ec3fffa96a52f2971e612012df7e5",
+    "/dev/shm/fast-audiovae-projection-candidate-20260908-r1/libs/libprecision_upsample.so": "066e31b1a04f25a6a9ff7db21ab033081b62accab2f1d74ad20d8bd853a739eb",
+    "/dev/shm/fast-audiovae-projection-candidate-20260908-r1/libs/libpaired_projection.so": "5f8f40e62ca3d2357290fba4630fc4410ac26d9ce68f030b30ed498283287f58",
+    "/var/tmp/intel-streaming-transfer-v1/build/libintel_rawhistory.so": "8b24225fc181959aad0851740ade29b8cd4755fd9bf75fe8939dbae2b5551ea1",
+    "/var/tmp/intel-streaming-transfer-v1/build/libintel_phase.so": "b8f5d1fd0de5cc50b57f4256389e775e818b817c8dd12932612a96c315041d3d"
+  },
+  "scope": "Two warm packets then third packet; original weights and actual second-pair outputs; arrays remain remote"
+}

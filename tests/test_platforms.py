@@ -33,8 +33,8 @@ class SelectionTests(unittest.TestCase):
     def test_mode_and_vendor_select_separate_recipes(self):
         cases = [
             (evidence("apple", system="Darwin", machine="arm64"), "apple_native", "apple_stream_projection"),
-            (evidence("intel"), "intel_precision", "intel_stream_projection"),
-            (evidence("amd"), "amd_precision", "amd_precision"),
+            (evidence("intel"), "intel_precision", "intel_stream_selected"),
+            (evidence("amd"), "amd_precision", "amd_stream_selected"),
             (evidence("unknown"), "portable", "portable"),
             (evidence("mixed"), "portable", "portable"),
             (evidence("apple", system="Darwin", machine="x86_64"), "portable", "portable"),
@@ -61,9 +61,14 @@ class SelectionTests(unittest.TestCase):
     def test_validated_worker_schedules_and_cpu_budget(self):
         self.assertEqual(platforms.select_recipe(evidence(), "batch", threads=8)["threads"], 2)
         self.assertEqual(platforms.select_recipe(evidence(), "streaming", threads=8)["threads"], 1)
+        self.assertEqual(platforms.select_recipe(evidence(), "streaming", threads=8)["recipe"], "intel_stream_selected")
+        self.assertEqual(platforms.select_recipe(evidence())["validated_threads"], [1])
         self.assertEqual(platforms.select_recipe(evidence("amd"), threads=8)["threads"], 4)
         self.assertEqual(platforms.select_recipe(evidence("amd", maximum=3), threads=8)["threads"], 1)
         self.assertEqual(platforms.select_recipe(evidence("amd"), "streaming", threads=3)["threads"], 1)
+        self.assertEqual(platforms.select_recipe(evidence("amd"), threads=4)["recipe"], "amd_precision")
+        self.assertEqual(platforms.select_recipe(evidence("amd"), "batch")["recipe"], "amd_precision")
+        self.assertEqual(platforms.select_recipe(evidence("amd", maximum=3), threads=4)["recipe"], "amd_stream_selected")
         apple = evidence("apple", system="Darwin", machine="arm64")
         self.assertEqual(platforms.select_recipe(apple, "batch", threads=4)["threads"], 4)
         self.assertEqual(platforms.select_recipe(apple, "batch", threads=2)["threads"], 1)

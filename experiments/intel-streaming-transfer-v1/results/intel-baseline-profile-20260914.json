@@ -1,0 +1,4221 @@
+{
+  "ort": "1.29.0",
+  "kind": "intel",
+  "packet_ms": 80,
+  "cpu": 0,
+  "threads": 1,
+  "cpu_only": true,
+  "hashes": {
+    "/dev/shm/fast-audiovae-projection-candidate-20260908-r1/streaming/decoder_1.onnx": "59a937ee76d494896561b994c111b708603fb2f3c8e0fdf53df1380f2df41516",
+    "/var/tmp/fast-audiovae-20260907/assets/multilingual/fast_audiovae2.npz": "9b709b787c040591de57e094a5ba5a4515cc74e256e8014530ff8c7bb54d2d24",
+    "/dev/shm/fast-audiovae-projection-candidate-20260908-r1/libs/libfast_audiovae_x86_8eed60d94b7f.so": "0cb2b82857e5c0c9c2054000b19c670f02b25c92c54d7225422a9b0f7d99a7c2",
+    "/dev/shm/fast-audiovae-projection-candidate-20260908-r1/libs/libstage_pipeline.so": "33ed06712852546af72d209904e135fe151ffedc545fa392fe9b42bbaaa069e5",
+    "/dev/shm/fast-audiovae-projection-candidate-20260908-r1/libs/precision_ops.so": "41209af17f5f3e5ac1173bcfa32c9e014e5f6257fd8ad7e446a9d7872d196858",
+    "/dev/shm/fast-audiovae-projection-candidate-20260908-r1/libs/libprecision_stage.so": "04a19020e7c9a763a357b528bef8d8b29f0ec3fffa96a52f2971e612012df7e5",
+    "/dev/shm/fast-audiovae-projection-candidate-20260908-r1/libs/libprecision_upsample.so": "066e31b1a04f25a6a9ff7db21ab033081b62accab2f1d74ad20d8bd853a739eb",
+    "/dev/shm/fast-audiovae-projection-candidate-20260908-r1/libs/libpaired_projection.so": "5f8f40e62ca3d2357290fba4630fc4410ac26d9ce68f030b30ed498283287f58"
+  },
+  "timing_scope": "completed Session.run only; setup/checking/hashing excluded",
+  "results": [],
+  "profile": true,
+  "raw_profile": "/dev/shm/intel-baseline-profile-20260914_2026-09-14_13-08-38_370.json",
+  "ops_us": {
+    "StageStackStreamingF32": 50381,
+    "PackedProjectionPairF32": 39189,
+    "PrecisionMatMulF32": 37022,
+    "UpsampleStageStreamingF32": 22730,
+    "SnakeDW7SnakeF32": 20769,
+    "SnakeF32": 9247,
+    "Concat": 6908,
+    "Slice": 6067,
+    "MatMul": 3851,
+    "FusedConv": 3296,
+    "PhaseSumBiasInterleaveF32": 3268,
+    "Mul": 2921,
+    "Add": 2786,
+    "BiasResidualF32": 2642,
+    "Reshape": 1391,
+    "CausalDW7F32": 143,
+    "Shape": 133,
+    "Pad": 90,
+    "Squeeze": 44,
+    "Max": 41,
+    "Sub": 39
+  },
+  "nodes": {
+    "stream_first_projection_pair_kernel_time": {
+      "op": "PackedProjectionPairF32",
+      "us": 39189,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            8192,
+            2048
+          ]
+        },
+        {
+          "float": [
+            8192,
+            2048
+          ]
+        },
+        {
+          "float": [
+            1,
+            2048,
+            2
+          ]
+        }
+      ]
+    },
+    "upsample_stage_c128_kernel_time": {
+      "op": "UpsampleStageStreamingF32",
+      "us": 22730,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            256,
+            480
+          ]
+        },
+        {
+          "float": [
+            256,
+            256
+          ]
+        },
+        {
+          "float": [
+            256,
+            256
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128,
+            128
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128,
+            128
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128,
+            128
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            1,
+            128,
+            78
+          ]
+        },
+        {
+          "float": [
+            1,
+            256,
+            1
+          ]
+        }
+      ]
+    },
+    "sp_stage_c256_kernel_time": {
+      "op": "StageStackStreamingF32",
+      "us": 22012,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            256,
+            480
+          ]
+        },
+        {
+          "float": [
+            256,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        },
+        {
+          "float": [
+            256,
+            256
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        },
+        {
+          "float": [
+            256,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        },
+        {
+          "float": [
+            256,
+            256
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        },
+        {
+          "float": [
+            256,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        },
+        {
+          "float": [
+            256,
+            256
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        },
+        {
+          "float": [
+            1,
+            256,
+            78
+          ]
+        }
+      ]
+    },
+    "sp_stage_c64_kernel_time": {
+      "op": "StageStackStreamingF32",
+      "us": 15216,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            64,
+            1920
+          ]
+        },
+        {
+          "float": [
+            64,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            64,
+            64
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            64,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            64,
+            64
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            64,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            64,
+            64
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            1,
+            64,
+            78
+          ]
+        }
+      ]
+    },
+    "sp_stage_c32_kernel_time": {
+      "op": "StageStackStreamingF32",
+      "us": 13153,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            32,
+            3840
+          ]
+        },
+        {
+          "float": [
+            32,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            32,
+            32
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            32,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            32,
+            32
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            32,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            32,
+            32
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            1,
+            32,
+            78
+          ]
+        }
+      ]
+    },
+    "ncc_up_2_split_matmul_current_node_kernel_time": {
+      "op": "PrecisionMatMulF32",
+      "us": 6836,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            3072,
+            1024
+          ]
+        },
+        {
+          "float": [
+            1,
+            1024,
+            16
+          ]
+        }
+      ]
+    },
+    "ncc_up_2_split_matmul_previous_unshifted_node_kernel_time": {
+      "op": "PrecisionMatMulF32",
+      "us": 6713,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            3072,
+            1024
+          ]
+        },
+        {
+          "float": [
+            1,
+            1024,
+            16
+          ]
+        }
+      ]
+    },
+    "ncc_block_chain_34_kernel_time": {
+      "op": "SnakeDW7SnakeF32",
+      "us": 5030,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            1024,
+            70
+          ]
+        },
+        {
+          "float": [
+            1024,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            1024
+          ]
+        },
+        {
+          "float": [
+            1024
+          ]
+        },
+        {
+          "float": [
+            1024
+          ]
+        },
+        {
+          "float": [
+            1024
+          ]
+        },
+        {
+          "float": [
+            1024
+          ]
+        }
+      ]
+    },
+    "ncc_up_3_split_matmul_current_node_kernel_time": {
+      "op": "PrecisionMatMulF32",
+      "us": 3941,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1280,
+            512
+          ]
+        },
+        {
+          "float": [
+            1,
+            512,
+            96
+          ]
+        }
+      ]
+    },
+    "ncc_block_chain_18_kernel_time": {
+      "op": "SnakeDW7SnakeF32",
+      "us": 3742,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            1024,
+            22
+          ]
+        },
+        {
+          "float": [
+            1024,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            1024
+          ]
+        },
+        {
+          "float": [
+            1024
+          ]
+        },
+        {
+          "float": [
+            1024
+          ]
+        },
+        {
+          "float": [
+            1024
+          ]
+        },
+        {
+          "float": [
+            1024
+          ]
+        }
+      ]
+    },
+    "ncc_up_3_split_matmul_previous_unshifted_node_kernel_time": {
+      "op": "PrecisionMatMulF32",
+      "us": 3589,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1280,
+            512
+          ]
+        },
+        {
+          "float": [
+            1,
+            512,
+            96
+          ]
+        }
+      ]
+    },
+    "ncc_block_chain_69_kernel_time": {
+      "op": "SnakeDW7SnakeF32",
+      "us": 3441,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            512,
+            150
+          ]
+        },
+        {
+          "float": [
+            512,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            512
+          ]
+        },
+        {
+          "float": [
+            512
+          ]
+        },
+        {
+          "float": [
+            512
+          ]
+        },
+        {
+          "float": [
+            512
+          ]
+        },
+        {
+          "float": [
+            512
+          ]
+        }
+      ]
+    },
+    "node_conv1d_38_kernel_time": {
+      "op": "FusedConv",
+      "us": 3296,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            32,
+            3846
+          ]
+        },
+        {
+          "float": [
+            1,
+            32,
+            7
+          ]
+        },
+        {
+          "float": [
+            1
+          ]
+        }
+      ]
+    },
+    "ncc_block_chain_26_kernel_time": {
+      "op": "SnakeDW7SnakeF32",
+      "us": 3156,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            1024,
+            34
+          ]
+        },
+        {
+          "float": [
+            1024,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            1024
+          ]
+        },
+        {
+          "float": [
+            1024
+          ]
+        },
+        {
+          "float": [
+            1024
+          ]
+        },
+        {
+          "float": [
+            1024
+          ]
+        },
+        {
+          "float": [
+            1024
+          ]
+        }
+      ]
+    },
+    "ncc_block_chain_53_kernel_time": {
+      "op": "SnakeDW7SnakeF32",
+      "us": 2790,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            512,
+            102
+          ]
+        },
+        {
+          "float": [
+            512,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            512
+          ]
+        },
+        {
+          "float": [
+            512
+          ]
+        },
+        {
+          "float": [
+            512
+          ]
+        },
+        {
+          "float": [
+            512
+          ]
+        },
+        {
+          "float": [
+            512
+          ]
+        }
+      ]
+    },
+    "ncc_block_chain_61_kernel_time": {
+      "op": "SnakeDW7SnakeF32",
+      "us": 2610,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            512,
+            114
+          ]
+        },
+        {
+          "float": [
+            512,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            512
+          ]
+        },
+        {
+          "float": [
+            512
+          ]
+        },
+        {
+          "float": [
+            512
+          ]
+        },
+        {
+          "float": [
+            512
+          ]
+        },
+        {
+          "float": [
+            512
+          ]
+        }
+      ]
+    },
+    "node_conv1d_3__bct_mm_kernel_time": {
+      "op": "PrecisionMatMulF32",
+      "us": 2516,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1024,
+            1024
+          ]
+        },
+        {
+          "float": [
+            1,
+            1024,
+            16
+          ]
+        }
+      ]
+    },
+    "node_conv1d_7__bct_mm_kernel_time": {
+      "op": "PrecisionMatMulF32",
+      "us": 2460,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1024,
+            1024
+          ]
+        },
+        {
+          "float": [
+            1,
+            1024,
+            16
+          ]
+        }
+      ]
+    },
+    "node_conv1d_5__bct_mm_kernel_time": {
+      "op": "PrecisionMatMulF32",
+      "us": 2351,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1024,
+            1024
+          ]
+        },
+        {
+          "float": [
+            1,
+            1024,
+            16
+          ]
+        }
+      ]
+    },
+    "ncc_node_add_40_kernel_time": {
+      "op": "SnakeF32",
+      "us": 1846,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            2048,
+            2
+          ]
+        },
+        {
+          "float": [
+            2048
+          ]
+        },
+        {
+          "float": [
+            2048
+          ]
+        }
+      ]
+    },
+    "ncc_up_5_split_matmul_previous_unshifted_node_kernel_time": {
+      "op": "PrecisionMatMulF32",
+      "us": 1823,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            128,
+            128
+          ]
+        },
+        {
+          "float": [
+            1,
+            128,
+            960
+          ]
+        }
+      ]
+    },
+    "ncc_up_5_split_matmul_current_node_kernel_time": {
+      "op": "PrecisionMatMulF32",
+      "us": 1763,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            128,
+            128
+          ]
+        },
+        {
+          "float": [
+            1,
+            128,
+            960
+          ]
+        }
+      ]
+    },
+    "node_conv1d_13__bct_mm_kernel_time": {
+      "op": "PrecisionMatMulF32",
+      "us": 1716,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            512,
+            512
+          ]
+        },
+        {
+          "float": [
+            1,
+            512,
+            96
+          ]
+        }
+      ]
+    },
+    "node_conv1d_9__bct_mm_kernel_time": {
+      "op": "PrecisionMatMulF32",
+      "us": 1690,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            512,
+            512
+          ]
+        },
+        {
+          "float": [
+            1,
+            512,
+            96
+          ]
+        }
+      ]
+    },
+    "node_conv1d_11__bct_mm_kernel_time": {
+      "op": "PrecisionMatMulF32",
+      "us": 1624,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            512,
+            512
+          ]
+        },
+        {
+          "float": [
+            1,
+            512,
+            96
+          ]
+        }
+      ]
+    },
+    "ncc_node_add_706_kernel_time": {
+      "op": "SnakeF32",
+      "us": 1512,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            256,
+            480
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        }
+      ]
+    },
+    "ncc_node_add_1365_kernel_time": {
+      "op": "SnakeF32",
+      "us": 1435,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            32,
+            3840
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        }
+      ]
+    },
+    "ncc_up_6_split_matmul_current_node_kernel_time": {
+      "op": "MatMul",
+      "us": 1424,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            64,
+            64
+          ]
+        },
+        {
+          "float": [
+            1,
+            64,
+            1920
+          ]
+        }
+      ]
+    },
+    "ncc_up_6_split_matmul_previous_unshifted_node_kernel_time": {
+      "op": "MatMul",
+      "us": 1408,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            64,
+            64
+          ]
+        },
+        {
+          "float": [
+            1,
+            64,
+            1920
+          ]
+        }
+      ]
+    },
+    "ncc_node_add_928_kernel_time": {
+      "op": "SnakeF32",
+      "us": 1386,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            128,
+            960
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        },
+        {
+          "float": [
+            128
+          ]
+        }
+      ]
+    },
+    "ncc_node_add_1150_kernel_time": {
+      "op": "SnakeF32",
+      "us": 1327,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            64,
+            1920
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        }
+      ]
+    },
+    "node_conv1d_1__bct_mm_kernel_time": {
+      "op": "MatMul",
+      "us": 1019,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            2048,
+            64
+          ]
+        },
+        {
+          "float": [
+            1,
+            64,
+            2
+          ]
+        }
+      ]
+    },
+    "ncc_phase_finish_99_op_kernel_time": {
+      "op": "PhaseSumBiasInterleaveF32",
+      "us": 931,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            1280,
+            97
+          ]
+        },
+        {
+          "float": [
+            1,
+            1280,
+            97
+          ]
+        },
+        {
+          "float": [
+            256
+          ]
+        }
+      ]
+    },
+    "ncc_node_add_262_kernel_time": {
+      "op": "SnakeF32",
+      "us": 921,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            1024,
+            16
+          ]
+        },
+        {
+          "float": [
+            1024
+          ]
+        },
+        {
+          "float": [
+            1024
+          ]
+        }
+      ]
+    },
+    "ncc_node_add_484_kernel_time": {
+      "op": "SnakeF32",
+      "us": 820,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            512,
+            96
+          ]
+        },
+        {
+          "float": [
+            512
+          ]
+        },
+        {
+          "float": [
+            512
+          ]
+        }
+      ]
+    },
+    "ncc_phase_finish_222_op_kernel_time": {
+      "op": "PhaseSumBiasInterleaveF32",
+      "us": 768,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            64,
+            1921
+          ]
+        },
+        {
+          "float": [
+            1,
+            64,
+            1921
+          ]
+        },
+        {
+          "float": [
+            32
+          ]
+        }
+      ]
+    },
+    "ncc_phase_finish_181_op_kernel_time": {
+      "op": "PhaseSumBiasInterleaveF32",
+      "us": 701,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            128,
+            961
+          ]
+        },
+        {
+          "float": [
+            1,
+            128,
+            961
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        }
+      ]
+    },
+    "fast_stream_s01_retain_slice_kernel_time": {
+      "op": "Slice",
+      "us": 698,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            8192,
+            3
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    "fast_stream_s09_concat_kernel_time": {
+      "op": "Concat",
+      "us": 660,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            1280,
+            1
+          ]
+        },
+        {
+          "float": [
+            1,
+            1280,
+            96
+          ]
+        }
+      ]
+    },
+    "fast_stream_s13_concat_kernel_time": {
+      "op": "Concat",
+      "us": 628,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            128,
+            1
+          ]
+        },
+        {
+          "float": [
+            1,
+            128,
+            960
+          ]
+        }
+      ]
+    },
+    "node_conv1d_1__bct_mm_add_kernel_time": {
+      "op": "Add",
+      "us": 626,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            2048,
+            2
+          ]
+        },
+        {
+          "float": [
+            1,
+            2048,
+            1
+          ]
+        }
+      ]
+    },
+    "node_add_20_kernel_time": {
+      "op": "Add",
+      "us": 598,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            2048,
+            2
+          ]
+        },
+        {
+          "float": [
+            1,
+            2048,
+            1
+          ]
+        }
+      ]
+    },
+    "fast_stream_s09_current_concat_kernel_time": {
+      "op": "Concat",
+      "us": 562,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            1280,
+            1
+          ]
+        },
+        {
+          "float": [
+            1,
+            1280,
+            96
+          ]
+        }
+      ]
+    },
+    "ncc_block_adds_38_kernel_time": {
+      "op": "BiasResidualF32",
+      "us": 561,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            1024,
+            16
+          ]
+        },
+        {
+          "float": [
+            1024
+          ]
+        },
+        {
+          "float": [
+            1,
+            1024,
+            16
+          ]
+        }
+      ]
+    },
+    "node_mul_12_kernel_time": {
+      "op": "Mul",
+      "us": 556,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            2048,
+            2
+          ]
+        },
+        {
+          "float": [
+            1,
+            2048,
+            1
+          ]
+        }
+      ]
+    },
+    "ncc_block_adds_30_kernel_time": {
+      "op": "BiasResidualF32",
+      "us": 538,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            1024,
+            16
+          ]
+        },
+        {
+          "float": [
+            1024
+          ]
+        },
+        {
+          "float": [
+            1,
+            1024,
+            16
+          ]
+        }
+      ]
+    },
+    "ncc_block_adds_22_kernel_time": {
+      "op": "BiasResidualF32",
+      "us": 524,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            1024,
+            16
+          ]
+        },
+        {
+          "float": [
+            1024
+          ]
+        },
+        {
+          "float": [
+            1,
+            1024,
+            16
+          ]
+        }
+      ]
+    },
+    "node_mul_801_kernel_time": {
+      "op": "Mul",
+      "us": 488,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            256,
+            480
+          ]
+        },
+        {
+          "float": [
+            1,
+            256,
+            1
+          ]
+        }
+      ]
+    },
+    "node_mul_1064_kernel_time": {
+      "op": "Mul",
+      "us": 484,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            128,
+            960
+          ]
+        },
+        {
+          "float": [
+            1,
+            128,
+            1
+          ]
+        }
+      ]
+    },
+    "fast_stream_s04_retain_slice_kernel_time": {
+      "op": "Slice",
+      "us": 462,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            1024,
+            70
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    "fast_stream_s05_current_concat_kernel_time": {
+      "op": "Concat",
+      "us": 455,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            3072,
+            1
+          ]
+        },
+        {
+          "float": [
+            1,
+            3072,
+            16
+          ]
+        }
+      ]
+    },
+    "ncc_phase_finish_58_op_kernel_time": {
+      "op": "PhaseSumBiasInterleaveF32",
+      "us": 453,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            3072,
+            17
+          ]
+        },
+        {
+          "float": [
+            1,
+            3072,
+            17
+          ]
+        },
+        {
+          "float": [
+            512
+          ]
+        }
+      ]
+    },
+    "fast_stream_s01_current_concat_kernel_time": {
+      "op": "Concat",
+      "us": 448,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            8192,
+            1
+          ]
+        },
+        {
+          "float": [
+            1,
+            8192,
+            2
+          ]
+        }
+      ]
+    },
+    "fast_stream_s09_crop_slice_kernel_time": {
+      "op": "Slice",
+      "us": 447,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            256,
+            485
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    "fast_stream_s15_crop_slice_kernel_time": {
+      "op": "Slice",
+      "us": 442,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            32,
+            3842
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    "fast_stream_s13_current_concat_kernel_time": {
+      "op": "Concat",
+      "us": 433,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            128,
+            1
+          ]
+        },
+        {
+          "float": [
+            1,
+            128,
+            960
+          ]
+        }
+      ]
+    },
+    "fast_stream_s13_crop_slice_kernel_time": {
+      "op": "Slice",
+      "us": 428,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            64,
+            1922
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    "node_mul_1327_kernel_time": {
+      "op": "Mul",
+      "us": 417,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            64,
+            1920
+          ]
+        },
+        {
+          "float": [
+            1,
+            64,
+            1
+          ]
+        }
+      ]
+    },
+    "ncc_phase_finish_17_op_kernel_time": {
+      "op": "PhaseSumBiasInterleaveF32",
+      "us": 415,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            8192,
+            3
+          ]
+        },
+        {
+          "float": [
+            1,
+            8192,
+            3
+          ]
+        },
+        {
+          "float": [
+            1024
+          ]
+        }
+      ]
+    },
+    "fast_stream_s15_current_concat_kernel_time": {
+      "op": "Concat",
+      "us": 408,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            64,
+            1
+          ]
+        },
+        {
+          "float": [
+            1,
+            64,
+            1920
+          ]
+        }
+      ]
+    },
+    "fast_stream_s04_concat_kernel_time": {
+      "op": "Concat",
+      "us": 397,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            1024,
+            54
+          ]
+        },
+        {
+          "float": [
+            1,
+            1024,
+            16
+          ]
+        }
+      ]
+    },
+    "fast_stream_s01_concat_kernel_time": {
+      "op": "Concat",
+      "us": 383,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            8192,
+            1
+          ]
+        },
+        {
+          "float": [
+            1,
+            8192,
+            2
+          ]
+        }
+      ]
+    },
+    "fast_stream_s05_retain_slice_kernel_time": {
+      "op": "Slice",
+      "us": 366,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            3072,
+            17
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    "node_mul_275_kernel_time": {
+      "op": "Mul",
+      "us": 363,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            1024,
+            16
+          ]
+        },
+        {
+          "float": [
+            1,
+            1024,
+            1
+          ]
+        }
+      ]
+    },
+    "node_add_242_kernel_time": {
+      "op": "Add",
+      "us": 360,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            1024,
+            16
+          ]
+        },
+        {
+          "float": [
+            1,
+            1024,
+            1
+          ]
+        }
+      ]
+    },
+    "ncc_block_adds_65_kernel_time": {
+      "op": "BiasResidualF32",
+      "us": 355,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            512,
+            96
+          ]
+        },
+        {
+          "float": [
+            512
+          ]
+        },
+        {
+          "float": [
+            1,
+            512,
+            96
+          ]
+        }
+      ]
+    },
+    "node_add_686_kernel_time": {
+      "op": "Add",
+      "us": 346,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            256,
+            480
+          ]
+        },
+        {
+          "float": [
+            1,
+            256,
+            1
+          ]
+        }
+      ]
+    },
+    "fast_stream_s05_concat_kernel_time": {
+      "op": "Concat",
+      "us": 340,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            3072,
+            1
+          ]
+        },
+        {
+          "float": [
+            1,
+            3072,
+            16
+          ]
+        }
+      ]
+    },
+    "fast_stream_s07_concat_kernel_time": {
+      "op": "Concat",
+      "us": 340,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            512,
+            18
+          ]
+        },
+        {
+          "float": [
+            1,
+            512,
+            96
+          ]
+        }
+      ]
+    },
+    "ncc_block_adds_57_kernel_time": {
+      "op": "BiasResidualF32",
+      "us": 334,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            512,
+            96
+          ]
+        },
+        {
+          "float": [
+            512
+          ]
+        },
+        {
+          "float": [
+            1,
+            512,
+            96
+          ]
+        }
+      ]
+    },
+    "ncc_block_adds_73_kernel_time": {
+      "op": "BiasResidualF32",
+      "us": 330,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            512,
+            96
+          ]
+        },
+        {
+          "float": [
+            512
+          ]
+        },
+        {
+          "float": [
+            1,
+            512,
+            96
+          ]
+        }
+      ]
+    },
+    "node_add_908_kernel_time": {
+      "op": "Add",
+      "us": 330,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            128,
+            960
+          ]
+        },
+        {
+          "float": [
+            1,
+            128,
+            1
+          ]
+        }
+      ]
+    },
+    "fast_stream_s17_concat_kernel_time": {
+      "op": "Concat",
+      "us": 309,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            32,
+            6
+          ]
+        },
+        {
+          "float": [
+            1,
+            32,
+            3840
+          ]
+        }
+      ]
+    },
+    "node_add_1130_kernel_time": {
+      "op": "Add",
+      "us": 279,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            64,
+            1920
+          ]
+        },
+        {
+          "float": [
+            1,
+            64,
+            1
+          ]
+        }
+      ]
+    },
+    "node_mul_538_kernel_time": {
+      "op": "Mul",
+      "us": 276,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            512,
+            96
+          ]
+        },
+        {
+          "float": [
+            1,
+            512,
+            1
+          ]
+        }
+      ]
+    },
+    "fast_stream_s15_concat_kernel_time": {
+      "op": "Concat",
+      "us": 274,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            64,
+            1
+          ]
+        },
+        {
+          "float": [
+            1,
+            64,
+            1920
+          ]
+        }
+      ]
+    },
+    "fast_stream_s08_retain_slice_kernel_time": {
+      "op": "Slice",
+      "us": 268,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            512,
+            150
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    "fast_stream_s03_retain_slice_kernel_time": {
+      "op": "Slice",
+      "us": 263,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            1024,
+            34
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    "fast_stream_s08_concat_kernel_time": {
+      "op": "Concat",
+      "us": 260,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            512,
+            54
+          ]
+        },
+        {
+          "float": [
+            1,
+            512,
+            96
+          ]
+        }
+      ]
+    },
+    "fast_stream_s06_crop_slice_kernel_time": {
+      "op": "Slice",
+      "us": 257,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            512,
+            102
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    "fast_stream_s03_concat_kernel_time": {
+      "op": "Concat",
+      "us": 254,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            1024,
+            18
+          ]
+        },
+        {
+          "float": [
+            1,
+            1024,
+            16
+          ]
+        }
+      ]
+    },
+    "node_add_464_kernel_time": {
+      "op": "Add",
+      "us": 247,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            512,
+            96
+          ]
+        },
+        {
+          "float": [
+            1,
+            512,
+            1
+          ]
+        }
+      ]
+    },
+    "fast_stream_s09_retain_slice_kernel_time": {
+      "op": "Slice",
+      "us": 227,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            1280,
+            97
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    "fast_stream_s02_retain_slice_kernel_time": {
+      "op": "Slice",
+      "us": 209,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            1024,
+            22
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    "fast_stream_s08_crop_slice_kernel_time": {
+      "op": "Slice",
+      "us": 206,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            512,
+            150
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    "fast_stream_s06_concat_kernel_time": {
+      "op": "Concat",
+      "us": 193,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            512,
+            6
+          ]
+        },
+        {
+          "float": [
+            1,
+            512,
+            96
+          ]
+        }
+      ]
+    },
+    "fast_stream_s07_crop_slice_kernel_time": {
+      "op": "Slice",
+      "us": 193,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            512,
+            114
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    "fast_stream_s05_crop_slice_kernel_time": {
+      "op": "Slice",
+      "us": 184,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            512,
+            102
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    "fast_stream_s07_retain_slice_kernel_time": {
+      "op": "Slice",
+      "us": 175,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            512,
+            114
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    "fast_stream_s04_crop_slice_kernel_time": {
+      "op": "Slice",
+      "us": 165,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            1024,
+            70
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    "fast_stream_s02_crop_slice_kernel_time": {
+      "op": "Slice",
+      "us": 163,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            1024,
+            22
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    "fast_stream_s01_crop_slice_kernel_time": {
+      "op": "Slice",
+      "us": 157,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            1024,
+            24
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    "fast_stream_s06_retain_slice_kernel_time": {
+      "op": "Slice",
+      "us": 144,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            512,
+            102
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    "ncc_node_conv1d_kernel_time": {
+      "op": "CausalDW7F32",
+      "us": 143,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            64,
+            8
+          ]
+        },
+        {
+          "float": [
+            64,
+            1,
+            7
+          ]
+        },
+        {
+          "float": [
+            64
+          ]
+        }
+      ]
+    },
+    "fast_stream_s03_crop_slice_kernel_time": {
+      "op": "Slice",
+      "us": 140,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            1024,
+            34
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    "fast_stream_s02_concat_kernel_time": {
+      "op": "Concat",
+      "us": 131,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            1024,
+            6
+          ]
+        },
+        {
+          "float": [
+            1,
+            1024,
+            16
+          ]
+        }
+      ]
+    },
+    "node_Shape_0_kernel_time": {
+      "op": "Shape",
+      "us": 102,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            64,
+            2
+          ]
+        }
+      ]
+    },
+    "fast_stream_s17_retain_slice_kernel_time": {
+      "op": "Slice",
+      "us": 95,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            32,
+            3846
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    "fast_stream_s15_retain_slice_kernel_time": {
+      "op": "Slice",
+      "us": 93,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            64,
+            1921
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    "fast_stem_pad_kernel_time": {
+      "op": "Pad",
+      "us": 90,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            64,
+            2
+          ]
+        },
+        {
+          "int64": [
+            2
+          ]
+        },
+        {
+          "float": []
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    "fast_stream_s13_retain_slice_kernel_time": {
+      "op": "Slice",
+      "us": 86,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            128,
+            961
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    "node_mul_1630_kernel_time": {
+      "op": "Mul",
+      "us": 73,
+      "calls": 10,
+      "inputs": [
+        {
+          "int64": []
+        },
+        {
+          "int64": []
+        }
+      ]
+    },
+    "fast_stream_s00_crop_slice_kernel_time": {
+      "op": "Slice",
+      "us": 72,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            64,
+            8
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    "fast_stem_restore_width_kernel_time": {
+      "op": "Slice",
+      "us": 65,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            2048,
+            2
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    "node_mul_1632_kernel_time": {
+      "op": "Mul",
+      "us": 65,
+      "calls": 10,
+      "inputs": [
+        {
+          "int64": []
+        },
+        {
+          "int64": []
+        }
+      ]
+    },
+    "node_view_84_kernel_time": {
+      "op": "Reshape",
+      "us": 65,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            32,
+            3840
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ]
+    },
+    "node_Concat_267_kernel_time": {
+      "op": "Concat",
+      "us": 64,
+      "calls": 10,
+      "inputs": [
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    "node_Concat_171_kernel_time": {
+      "op": "Concat",
+      "us": 63,
+      "calls": 10,
+      "inputs": [
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    "node_Concat_362_kernel_time": {
+      "op": "Concat",
+      "us": 63,
+      "calls": 10,
+      "inputs": [
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    "fast_stream_s00_retain_slice_kernel_time": {
+      "op": "Slice",
+      "us": 62,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            64,
+            8
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    "node_mul_1633_kernel_time": {
+      "op": "Mul",
+      "us": 60,
+      "calls": 10,
+      "inputs": [
+        {
+          "int64": []
+        },
+        {
+          "int64": []
+        }
+      ]
+    },
+    "node_Concat_550_kernel_time": {
+      "op": "Concat",
+      "us": 60,
+      "calls": 10,
+      "inputs": [
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    "node_view_42_kernel_time": {
+      "op": "Reshape",
+      "us": 58,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            256,
+            480
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ]
+    },
+    "node_Concat_456_kernel_time": {
+      "op": "Concat",
+      "us": 58,
+      "calls": 10,
+      "inputs": [
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    "fast_stream_s00_concat_kernel_time": {
+      "op": "Concat",
+      "us": 55,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            64,
+            6
+          ]
+        },
+        {
+          "float": [
+            1,
+            64,
+            2
+          ]
+        }
+      ]
+    },
+    "node_view_56_kernel_time": {
+      "op": "Reshape",
+      "us": 55,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            128,
+            960
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ]
+    },
+    "node_mul_1631_kernel_time": {
+      "op": "Mul",
+      "us": 55,
+      "calls": 10,
+      "inputs": [
+        {
+          "int64": []
+        },
+        {
+          "int64": []
+        }
+      ]
+    },
+    "node_view_70_kernel_time": {
+      "op": "Reshape",
+      "us": 54,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            64,
+            1920
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ]
+    },
+    "node_mul_1629_kernel_time": {
+      "op": "Mul",
+      "us": 51,
+      "calls": 10,
+      "inputs": [
+        {
+          "int64": []
+        },
+        {
+          "int64": []
+        }
+      ]
+    },
+    "node_view_71_kernel_time": {
+      "op": "Reshape",
+      "us": 49,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            64,
+            1920
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ]
+    },
+    "node_Reshape_266_kernel_time": {
+      "op": "Reshape",
+      "us": 48,
+      "calls": 10,
+      "inputs": [
+        {
+          "int64": []
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    "node_view_2_kernel_time": {
+      "op": "Reshape",
+      "us": 47,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            1024,
+            16
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ]
+    },
+    "node_view_6_kernel_time": {
+      "op": "Reshape",
+      "us": 47,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            1024,
+            16
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ]
+    },
+    "node_view_14_kernel_time": {
+      "op": "Reshape",
+      "us": 47,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            1024,
+            16
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ]
+    },
+    "node_view_13_kernel_time": {
+      "op": "Reshape",
+      "us": 46,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            1024,
+            16
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ]
+    },
+    "node_view_16_kernel_time": {
+      "op": "Reshape",
+      "us": 45,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            512,
+            96
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ]
+    },
+    "node_view_20_kernel_time": {
+      "op": "Reshape",
+      "us": 45,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            512,
+            96
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ]
+    },
+    "node_view_28_kernel_time": {
+      "op": "Reshape",
+      "us": 45,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            512,
+            96
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ]
+    },
+    "node_sym_size_int_72_kernel_time": {
+      "op": "Squeeze",
+      "us": 44,
+      "calls": 10,
+      "inputs": [
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    "node_view_15_kernel_time": {
+      "op": "Reshape",
+      "us": 44,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            1024,
+            16
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ]
+    },
+    "node_view_43_kernel_time": {
+      "op": "Reshape",
+      "us": 44,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            256,
+            480
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ]
+    },
+    "node_Reshape_455_kernel_time": {
+      "op": "Reshape",
+      "us": 44,
+      "calls": 10,
+      "inputs": [
+        {
+          "int64": []
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    "node_view_24_kernel_time": {
+      "op": "Reshape",
+      "us": 43,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            512,
+            96
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ]
+    },
+    "node_view_27_kernel_time": {
+      "op": "Reshape",
+      "us": 43,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            512,
+            96
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ]
+    },
+    "node_Reshape_361_kernel_time": {
+      "op": "Reshape",
+      "us": 43,
+      "calls": 10,
+      "inputs": [
+        {
+          "int64": []
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    "node_view_57_kernel_time": {
+      "op": "Reshape",
+      "us": 43,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            128,
+            960
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ]
+    },
+    "node_view_kernel_time": {
+      "op": "Reshape",
+      "us": 42,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            2048,
+            2
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ]
+    },
+    "node_view_9_kernel_time": {
+      "op": "Reshape",
+      "us": 42,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            1024,
+            16
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ]
+    },
+    "node_view_10_kernel_time": {
+      "op": "Reshape",
+      "us": 42,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            1024,
+            16
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ]
+    },
+    "node_view_85_kernel_time": {
+      "op": "Reshape",
+      "us": 42,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            32,
+            3840
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ]
+    },
+    "fast_stem_maximum_kernel_time": {
+      "op": "Max",
+      "us": 41,
+      "calls": 10,
+      "inputs": [
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    "node_view_5_kernel_time": {
+      "op": "Reshape",
+      "us": 41,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            1024,
+            16
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ]
+    },
+    "node_Reshape_549_kernel_time": {
+      "op": "Reshape",
+      "us": 41,
+      "calls": 10,
+      "inputs": [
+        {
+          "int64": []
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    "node_Reshape_170_kernel_time": {
+      "op": "Reshape",
+      "us": 40,
+      "calls": 10,
+      "inputs": [
+        {
+          "int64": []
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    "node_view_23_kernel_time": {
+      "op": "Reshape",
+      "us": 40,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            512,
+            96
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ]
+    },
+    "fast_stem_subtract_kernel_time": {
+      "op": "Sub",
+      "us": 39,
+      "calls": 10,
+      "inputs": [
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    "node_view_19_kernel_time": {
+      "op": "Reshape",
+      "us": 38,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            512,
+            96
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ]
+    },
+    "node_view_29_kernel_time": {
+      "op": "Reshape",
+      "us": 38,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            512,
+            96
+          ]
+        },
+        {
+          "int64": [
+            3
+          ]
+        }
+      ]
+    },
+    "node_Concat_75_kernel_time": {
+      "op": "Concat",
+      "us": 37,
+      "calls": 10,
+      "inputs": [
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    "node_mul_1628_kernel_time": {
+      "op": "Mul",
+      "us": 33,
+      "calls": 10,
+      "inputs": [
+        {
+          "int64": []
+        },
+        {
+          "int64": []
+        }
+      ]
+    },
+    "fast_stem_padding_kernel_time": {
+      "op": "Concat",
+      "us": 33,
+      "calls": 10,
+      "inputs": [
+        {
+          "int64": [
+            1
+          ]
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    },
+    "fast_stem_shape_kernel_time": {
+      "op": "Shape",
+      "us": 31,
+      "calls": 10,
+      "inputs": [
+        {
+          "float": [
+            1,
+            64,
+            2
+          ]
+        }
+      ]
+    },
+    "node_Reshape_74_kernel_time": {
+      "op": "Reshape",
+      "us": 30,
+      "calls": 10,
+      "inputs": [
+        {
+          "int64": []
+        },
+        {
+          "int64": [
+            1
+          ]
+        }
+      ]
+    }
+  },
+  "total_kernel_us": 212958,
+  "model_run_us": 219158,
+  "native_seconds": 0.4545300155878067,
+  "native_calls": 20,
+  "libraries_mapped": [
+    "/dev/shm/fast-audiovae-projection-candidate-20260908-r1/libs/libfast_audiovae_x86_8eed60d94b7f.so",
+    "/dev/shm/fast-audiovae-projection-candidate-20260908-r1/libs/libpaired_projection.so",
+    "/dev/shm/fast-audiovae-projection-candidate-20260908-r1/libs/libprecision_stage.so",
+    "/dev/shm/fast-audiovae-projection-candidate-20260908-r1/libs/libprecision_upsample.so",
+    "/dev/shm/fast-audiovae-projection-candidate-20260908-r1/libs/libstage_pipeline.so",
+    "/dev/shm/fast-audiovae-projection-candidate-20260908-r1/libs/precision_ops.so",
+    "/var/tmp/fast-audiovae-20260907/mkl_candidate/dependency/lib/libmkl_avx512.so.3",
+    "/var/tmp/fast-audiovae-20260907/mkl_candidate/dependency/lib/libmkl_core.so.3",
+    "/var/tmp/fast-audiovae-20260907/mkl_candidate/dependency/lib/libmkl_intel_lp64.so.3",
+    "/var/tmp/fast-audiovae-20260907/mkl_candidate/dependency/lib/libmkl_sequential.so.3",
+    "/var/tmp/fast-audiovae-20260907/mkl_candidate/dependency/lib/libmkl_vml_avx512.so.3",
+    "/var/tmp/fast-audiovae-intel-precision/native-large-build-r1/libintel_precision_core.so"
+  ],
+  "state_bytes": 683264
+}

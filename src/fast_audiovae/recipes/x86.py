@@ -319,6 +319,21 @@ def _copy_library(source, directory):
     return {"library": "libs/" + target.name, "sha256": expected}
 
 
+def _openmp_notices(destination, sources=None):
+    sources = sources if sources is not None else (
+        Path("/usr/share/doc/libgomp1/copyright"), Path("/usr/share/licenses/libgomp"))
+    for source in sources:
+        source = Path(source)
+        if source.is_file():
+            destination.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(source, destination / source.name)
+            return
+        if source.is_dir() and any(p.is_file() for p in source.rglob("*")):
+            shutil.copytree(source, destination)
+            return
+    raise RuntimeError("Install the compiler's libgomp license files before packaging its runtime")
+
+
 def _libraries(work, vendor, native, libraries, dependency, bundle):
     directory = bundle / "libs"
     directory.mkdir()
@@ -342,6 +357,8 @@ def _libraries(work, vendor, native, libraries, dependency, bundle):
                               (work / "experiments/amd-precision/licenses", "amd")):
         if source_root.is_dir() and (name == vendor or name == "intel"):
             shutil.copytree(source_root, notices / name)
+    if vendor == "amd":
+        _openmp_notices(notices / "libgomp")
     return base, [records[name] for name in ("fp32_stage", "ops", "stage", "upsample")]
 
 
@@ -561,7 +578,17 @@ def export_native_payload(work_dir, bundle, destination):
     libraries["core"] = record("libs/" + core_name)
     if (destination / "libs/libpaired_projection.so").is_file():
         libraries["pair"] = record("libs/libpaired_projection.so")
-    native_record = json.loads((work / ".build/x86/build.json").read_text())
+    if recipe.get("amd_stream_selected"):
+        from .amd_streaming import LIBRARIES
+        for role, name in LIBRARIES.items():
+            libraries[role] = record("libs/" + name)
+    if recipe.get("intel_stream_selected"):
+        from .intel_streaming import LIBRARIES
+        for role, name in LIBRARIES.items():
+            libraries[role] = record("libs/" + name)
+    native_record_path = work / (".build/prebuilt-native.json" if recipe.get("prebuilt")
+                                  else ".build/x86/build.json")
+    native_record = json.loads(native_record_path.read_text())
     _verify(bundle / full["library"], native_record["library_sha256"])
     # Preparation needs the declared ABI/operators/backend capabilities, not
     # private compiler command paths from a maintainer's build directory.
@@ -573,7 +600,7 @@ def export_native_payload(work_dir, bundle, destination):
     (destination / "native-build.json").write_text(json.dumps(native_metadata, indent=2) + "\n")
     roles = {item["path"] for item in libraries.values()}
     payload = {"schema_version": 1, "vendor": vendor, "cpu_only": True,
-               "onnxruntime": "1.29.0", "native_build": record("native-build.json"),
+               "onnxruntime": manifest["onnxruntime"], "native_build": record("native-build.json"),
                "libraries": libraries,
                "runtime_files": [record(str(p.relative_to(destination))) for p in sorted((destination / "libs").iterdir())
                                  if p.is_file() and str(p.relative_to(destination)) not in roles],
@@ -594,6 +621,16 @@ def build_recipe(work_dir: Path, source: Path, platform_info: dict, mode: str, t
     """
     work, source = Path(work_dir).resolve(), Path(source).resolve()
     vendor = validate_selection(platform_info, mode, threads)
+    amd_selected = platform_info.get("recipe") == "amd_stream_selected"
+    intel_selected = platform_info.get("recipe") == "intel_stream_selected"
+    if intel_selected and (vendor != "intel" or mode != "streaming" or threads != 1):
+        raise ValueError("Selected Intel streaming requires Intel, streaming mode and one worker")
+    if intel_selected and platform_info.get("onnxruntime") != "1.29.0":
+        raise ValueError("Selected Intel streaming requires ONNX Runtime 1.29.0")
+    if amd_selected and (vendor != "amd" or mode != "streaming" or threads != 1):
+        raise ValueError("Selected AMD streaming requires AMD, streaming mode and one worker")
+    if amd_selected and platform_info.get("onnxruntime") not in ("1.29.0", "1.30.0"):
+        raise ValueError("Selected AMD streaming requires ONNX Runtime 1.29.0 or 1.30.0")
     _host_gate(vendor, threads)
     verify_model(source)
     offline = bool(platform_info.get("offline", False))
@@ -603,11 +640,20 @@ def build_recipe(work_dir: Path, source: Path, platform_info: dict, mode: str, t
     payload = _read_payload(platform_info["prebuilt"], vendor) if platform_info.get("prebuilt") else None
     if payload and vendor == "intel" and mode == "streaming" and "pair" not in payload[1]["libraries"]:
         raise ValueError("Prebuilt Intel streaming payload lacks its paired projection library")
+    if payload and amd_selected:
+        from .amd_streaming import LIBRARIES
+        if not set(LIBRARIES).issubset(payload[1]["libraries"]):
+            raise ValueError("Prebuilt AMD streaming payload lacks its selected kernel libraries")
+    if payload and intel_selected:
+        from .intel_streaming import LIBRARIES
+        if not set(LIBRARIES).issubset(payload[1]["libraries"]):
+            raise ValueError("Prebuilt Intel streaming payload lacks its selected kernel libraries")
     if not payload:
         for tool in ("gcc", "g++", "make", "cmake", "nm", "readelf"):
             if not shutil.which(tool):
                 raise RuntimeError("CPU source setup requires " + tool)
-    output = work / "bundles" / f"{vendor}-{mode}-{threads}"
+    suffix = ("-selected-ort" + platform_info["onnxruntime"]) if amd_selected or intel_selected else ""
+    output = work / "bundles" / (f"{vendor}-{mode}-{threads}" + suffix)
     commands = []
     work.mkdir(parents=True, exist_ok=True)
     with (work / ".x86-recipe.lock").open("a") as lock:
@@ -652,6 +698,14 @@ def build_recipe(work_dir: Path, source: Path, platform_info: dict, mode: str, t
             create_canonical(destination)
             if vendor == "intel" and mode == "streaming":
                 _pair(work, destination, commands, payload=payload)
+            if amd_selected:
+                from .amd_streaming import augment
+                augment(work, destination, commands, payload=payload,
+                        onnxruntime_version=platform_info["onnxruntime"])
+            if intel_selected:
+                from .intel_streaming import augment
+                augment(work, destination, commands, payload=payload,
+                        onnxruntime_version=platform_info["onnxruntime"], offline=offline, jobs=jobs)
             build_evidence["runtime_dependencies"] = (
                 {"verification": "Prebuilt payload hashes checked; ELF metadata checked during wheel assembly"}
                 if payload else _runtime_dependency_audit(destination))
@@ -661,7 +715,8 @@ def build_recipe(work_dir: Path, source: Path, platform_info: dict, mode: str, t
                 "version": 1, "vendor": vendor, "mode": mode, "threads": threads,
                 "precision": "selective_int8", "cpu_only": True, "inner_threads": 1,
                 "required_cpu_flags": sorted(REQUIRED_FLAGS),
-                "first_projection_pair": vendor == "intel" and mode == "streaming",
+                "first_projection_pair": (vendor == "intel" and mode == "streaming") or amd_selected,
+                "amd_stream_selected": amd_selected, "intel_stream_selected": intel_selected,
                 "prebuilt": payload is not None, "source_model_sha256": sha256(source),
                 "recipe_math": "Existing accepted scales, integer values, complete-K reduction and canonical streaming sine",
                 "build_validation": "Graph identity checked; fresh binary runtime validation is pending"}

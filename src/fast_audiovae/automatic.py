@@ -15,6 +15,12 @@ from .assets import MODEL_FILES, MODEL_REVISION, fetch_model, sha256, verify_mod
 RECIPE_VERSION = 2
 
 
+def _recipe_runtimes(recipe, cpu):
+    if recipe == "amd_stream_selected":
+        return ("1.29.0", "1.30.0")
+    return ("1.30.0",) if cpu.get("platform") == "Darwin/arm64" else ("1.29.0",)
+
+
 def cache_directory(directory=None):
     if directory is not None:
         return Path(directory).expanduser().resolve()
@@ -178,11 +184,19 @@ def setup(*, mode="streaming", threads=1, device="cpu", cache_dir=None, source=N
             fetch_model(source_path.parent)
         for selected_mode in modes:
             plan = select_recipe(cpu, mode=selected_mode, threads=threads)
-            required_runtime = "1.30.0" if cpu.get("platform") == "Darwin/arm64" else "1.29.0"
-            if not prefer_custom or ort.__version__ != required_runtime:
+            # Older native wheels keep their qualified vendor recipe.
+            legacy = {"amd_stream_selected": "amd_precision",
+                      "intel_stream_selected": "intel_stream_projection"}.get(plan["recipe"])
+            if (legacy and payload and not build_native
+                    and plan["recipe"] not in payload["manifest"].get("recipes", {})
+                    and legacy in payload["manifest"].get("recipes", {})):
+                plan = {**plan, "recipe": legacy, "reason":
+                        "Installed wheel predates selected streaming kernels; using its retained vendor recipe"}
+            required_runtimes = _recipe_runtimes(plan["recipe"], cpu)
+            if not prefer_custom or ort.__version__ not in required_runtimes:
                 plan = {**plan, "recipe": "portable", "fallback": True, "reason": (
                     "Portable ONNX explicitly requested" if not prefer_custom else
-                    "Native recipes on this platform require ONNX Runtime " + required_runtime)}
+                    "This native recipe requires ONNX Runtime " + " or ".join(required_runtimes))}
             if payload and not _payload_supported(payload, cpu):
                 plan = {**plan, "recipe": "portable", "fallback": True, "reason":
                         "The native wheel does not support this OS and process architecture; using portable ONNX"}
@@ -212,7 +226,8 @@ def setup(*, mode="streaming", threads=1, device="cpu", cache_dir=None, source=N
                 bundle = _verify_receipt(receipt, root, key)
                 hit = True
             else:
-                build_cpu = {**cpu, "offline": offline, "recipe": plan["recipe"], "prebuilt": prebuilt}
+                build_cpu = {**cpu, "offline": offline, "recipe": plan["recipe"], "prebuilt": prebuilt,
+                             "onnxruntime": ort.__version__}
                 bundle = _build(work, source_path, build_cpu, plan)
                 if not bundle.is_relative_to(root):
                     raise RuntimeError("Recipe output must remain inside the setup cache")

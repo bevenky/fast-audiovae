@@ -384,16 +384,20 @@ the bundle loader separately checks that compatible native artifacts exist.
     elif (proven and system == "Linux" and machine == "x86_64"
           and all(usable.get(key) is True for key in ("avx2", "avx512", "avx512_vnni"))):
         if vendor == "intel":
-            recipe = "intel_stream_projection" if mode == "streaming" else "intel_precision"
+            recipe = "intel_stream_selected" if mode == "streaming" else "intel_precision"
             reason = "Usable AVX512-VNNI verified; Intel recipe selected for " + mode
         elif vendor == "amd":
             recipe = "amd_precision"
             reason = "Usable AVX512-VNNI verified; retained AMD recipe selected for " + mode
     validated = {"apple_native": [1, 4], "apple_stream_projection": [1],
                  "apple_stream_selected": [1, 4], "apple_batch_selected": [1, 4],
-                 "intel_precision": [1, 2], "intel_stream_projection": [1],
+                 "intel_precision": [1, 2], "intel_stream_projection": [1], "intel_stream_selected": [1],
                  "amd_precision": [1, 4]}.get(recipe)
     selected_threads = max(value for value in validated if value <= available_budget) if validated else available_budget
+    if recipe == "amd_precision" and mode == "streaming" and selected_threads == 1:
+        recipe = "amd_stream_selected"
+        validated = [1]
+        reason = "Usable AVX512-VNNI verified; selected AMD streaming kernels with one worker"
     if selected_threads != threads:
         reason += "; worker request reduced to fit the available CPU budget and validated recipe schedules"
     return {"recipe": recipe, "mode": mode, "threads": selected_threads, "requested_threads": threads,
