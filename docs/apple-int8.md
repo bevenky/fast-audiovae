@@ -1,6 +1,6 @@
 # Apple CPU streaming update
 
-Version 0.4.2 automatically selects KleidiAI SME2 DOT INT8 for two large projections in the first upsampling stage. The rest of the decoder and its public inputs, outputs and streaming states remain float32. CPU, streaming and one thread remain the defaults.
+Version 0.5.0 automatically selects KleidiAI SME2 DOT INT8 for two large projections in the first upsampling stage. The rest of the decoder and its public inputs, outputs and streaming states remain float32. CPU, streaming and one thread remain the defaults.
 
 The loader requires verified SME and SME2 support. Multiple workers and batch mode retain the previous FP32 kernels. Other Apple CPUs keep their compatible path. GPU selection is unchanged and remains explicit. No compiler or extra package is needed with the native wheel.
 
