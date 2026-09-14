@@ -9,8 +9,28 @@ import json
 import os
 import platform
 from pathlib import Path
+from threading import Lock
 
 import onnxruntime as ort
+
+
+_NATIVE_LIBRARY_HANDLES = {}
+_NATIVE_LIBRARY_LOCK = Lock()
+
+
+def _retain_verified_library(path, digest):
+    """Keep validated custom-op libraries loaded between ORT sessions.
+
+    These libraries can own process-wide matrix-library state. ORT releases its
+    loader reference when a session is destroyed, but that must not finalize
+    shared native state while the process can still create another session.
+    The caller verifies the bundle path and content hash before every call.
+    """
+    key = (str(path), digest)
+    with _NATIVE_LIBRARY_LOCK:
+        if key not in _NATIVE_LIBRARY_HANDLES:
+            _NATIVE_LIBRARY_HANDLES[key] = ctypes.CDLL(str(path))
+        return _NATIVE_LIBRARY_HANDLES[key]
 
 
 def _default_threads():
@@ -221,6 +241,7 @@ def _load_session(model_dir, *, threads, prefer_custom, prefer_packed, streaming
                     or sha256(path) != record['sha256']):
                 raise RuntimeError('Additional native library is missing, duplicated or differs from its manifest')
             registered.add(path)
+            _retain_verified_library(path, record['sha256'])
             options.register_custom_ops_library(str(path))
     batch = (native.get('apple_batch_selected') if native and not streaming
              and info['selected'] == 'native' and selected == native['model'] else None)
