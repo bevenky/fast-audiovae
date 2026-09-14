@@ -1,6 +1,6 @@
 # Optional FP32 backends and encoder
 
-These options extend the public FP32 setup. Intel and AMD INT8 have separate experiment instructions.
+These are manual alternatives to the automatic decoder setup. Normal use is `load()`; see the [AMD serving validation](amd-serving.md) for its current automatic recipe.
 
 ## Optional fused decoder
 

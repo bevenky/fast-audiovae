@@ -102,6 +102,40 @@ class AutomaticTests(unittest.TestCase):
         self.assertEqual(result["recipe"], "portable")
         self.assertIn("1.30.0", result["reason"])
 
+    def test_selected_amd_supports_declared_runtimes_without_changing_intel(self):
+        self.cpu.update(platform="Linux/x86_64", system="Linux", machine="x86_64", vendor="amd",
+                        usable={"avx2": True, "avx512": True, "avx512_vnni": True},
+                        probe={"status": "ok"})
+        payload = {"identity": "selected-amd", "manifest": {"wheel_platform": "linux_x86_64",
+                   "recipes": {"amd_stream_selected": {}}}}
+        for version in ("1.29.0", "1.30.0"):
+            with self.subTest(version=version), patch("onnxruntime.__version__", version), \
+                 patch("fast_audiovae.native_payload.inspect_payload", return_value=payload), \
+                 patch("fast_audiovae.native_payload.materialize_payload", return_value={"manifest": "verified"}), \
+                 patch("fast_audiovae.native_payload.probe_payload", return_value=(True, "")), \
+                 tempfile.TemporaryDirectory() as cache:
+                result = automatic.setup(cache_dir=cache, source=self.root / "model.onnx")
+            self.assertEqual(result["recipe"], "amd_stream_selected")
+            self.assertEqual(result["threads"], 1)
+            self.assertFalse(result["fallback"])
+        self.assertEqual(automatic._recipe_runtimes("intel_stream_projection", self.cpu), ("1.29.0",))
+        self.assertEqual(automatic._recipe_runtimes("amd_precision", self.cpu), ("1.29.0",))
+
+    def test_legacy_amd_wheel_retains_its_working_recipe(self):
+        self.cpu.update(platform="Linux/x86_64", system="Linux", machine="x86_64", vendor="amd",
+                        usable={"avx2": True, "avx512": True, "avx512_vnni": True},
+                        probe={"status": "ok"})
+        payload = {"identity": "legacy-amd", "manifest": {"wheel_platform": "linux_x86_64",
+                   "recipes": {"amd_precision": {}}}}
+        with patch("onnxruntime.__version__", "1.29.0"), \
+             patch("fast_audiovae.native_payload.inspect_payload", return_value=payload), \
+             patch("fast_audiovae.native_payload.materialize_payload", return_value={"manifest": "verified"}), \
+             patch("fast_audiovae.native_payload.probe_payload", return_value=(True, "")):
+            result = self.setup()
+        self.assertEqual(result["recipe"], "amd_precision")
+        self.assertFalse(result["fallback"])
+        self.assertIn("predates", result["reason"])
+
     def test_selected_apple_batch_does_not_change_streaming_default(self):
         self.cpu.update(system="Darwin", machine="arm64", platform="Darwin/arm64", vendor="apple",
                         usable={"neon": True, "sme": True, "sme2": True}, probe={"status": "ok"})

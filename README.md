@@ -29,6 +29,8 @@ The loader selects the CPU kernels automatically. Streaming and one inference th
 
 Apple CPUs with SME/SME2 use the new streaming kernels. Other Apple CPUs retain the compatible native path; unsupported systems use portable ONNX with a fallback message. CPU is always the default device.
 
+The current branch also selects the updated AMD kernels automatically for one-thread streaming. The packaged path passed 40/80 ms audio and state checks and measured 0.1375 RTF on EPYC 9654 with ONNX Runtime 1.29.0. This AMD update is not in the published v0.4.0 wheels yet. [AMD validation](docs/amd-serving.md).
+
 Native wheels currently cover Apple ARM on macOS 26.2 or newer and compatible Intel/AMD Linux x86 systems with glibc 2.38 or newer. The loader also checks native library compatibility before using them.
 
 For Apple GPU support, add the optional `gpu` extra:

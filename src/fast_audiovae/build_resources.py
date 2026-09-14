@@ -25,6 +25,14 @@ native/x86/custom_ops.cpp
 native/amd/packed_a.c
 native/amd/packed_a.h
 native/amd/custom_op.cpp
+native/amd/streaming/sources.json
+native/amd/streaming/history/direct_history.c
+native/amd/streaming/history/custom_ops.cpp
+native/amd/streaming/phase/native_ops.cpp
+native/amd/streaming/pair/paired_projection.cpp
+native/amd/streaming/pair/precision.h
+tools/build_amd_streaming.py
+tools/package_x86_native.py
 tools/build.py
 tools/build_apple.py
 native/apple/streaming/sources.json

@@ -394,6 +394,10 @@ the bundle loader separately checks that compatible native artifacts exist.
                  "intel_precision": [1, 2], "intel_stream_projection": [1],
                  "amd_precision": [1, 4]}.get(recipe)
     selected_threads = max(value for value in validated if value <= available_budget) if validated else available_budget
+    if recipe == "amd_precision" and mode == "streaming" and selected_threads == 1:
+        recipe = "amd_stream_selected"
+        validated = [1]
+        reason = "Usable AVX512-VNNI verified; selected AMD streaming kernels with one worker"
     if selected_threads != threads:
         reason += "; worker request reduced to fit the available CPU budget and validated recipe schedules"
     return {"recipe": recipe, "mode": mode, "threads": selected_threads, "requested_threads": threads,

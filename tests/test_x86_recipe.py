@@ -56,6 +56,37 @@ def test_prebuilt_payload_hashes_and_paths(tmp_path):
         x86._payload_file(tmp_path, {"path": "../outside.so", "sha256": "0" * 64})
 
 
+def test_aocl_source_build_records_adjacent_runtime_lookup(tmp_path, monkeypatch):
+    pin = {"AOCL_source_pin": {"commit": "abc", "archive_sha256": "def"},
+           "AOCL_CMake_configuration": {"ENABLE_OPENMP": "ON"}}
+    _record(tmp_path, "experiments/amd-precision/pins/rebuild.json", json.dumps(pin).encode())
+    root = tmp_path / ".deps/automatic-aocl-dlp-origin-v1"
+    archive = tmp_path / "source.tar.gz"; archive.write_bytes(b"inert archive")
+    monkeypatch.setattr(dependencies, "fetch", lambda *args, **kwargs: archive)
+    monkeypatch.setattr(dependencies, "unpack", lambda archive, target: target)
+    def fake_run(command, work, commands):
+        commands.append([str(x) for x in command])
+        if "--install" in command:
+            _record(root, "install/lib/libaocl-dlp.so", b"inert library")
+    monkeypatch.setattr(dependencies, "run", fake_run)
+    commands = []
+    assert dependencies.aocl(tmp_path, offline=True, jobs=1, commands=commands) == root / "install"
+    assert "-DCMAKE_INSTALL_RPATH=$ORIGIN" in commands[0]
+    assert "-DCMAKE_INSTALL_RPATH_USE_LINK_PATH=OFF" in commands[0]
+    receipt = json.loads((root / "dependency-receipt.json").read_text())
+    assert receipt["identity"]["configuration"]["CMAKE_INSTALL_RPATH"] == "$ORIGIN"
+    assert receipt["identity"]["configuration"]["ENABLE_OPENMP"] == "ON"
+
+
+def test_bundled_openmp_requires_and_copies_its_notice(tmp_path):
+    missing, target = tmp_path / "missing", tmp_path / "notices"
+    with pytest.raises(RuntimeError, match="libgomp license"):
+        x86._openmp_notices(target, [missing])
+    source = tmp_path / "copyright"; source.write_text("compiler runtime notice")
+    x86._openmp_notices(target, [missing, source])
+    assert (target / "copyright").read_bytes() == source.read_bytes()
+
+
 def test_relocated_payload_preserves_roles_and_notices(tmp_path):
     root, bundle = tmp_path / "payload", tmp_path / "bundle"
     root.mkdir(); bundle.mkdir()
@@ -68,6 +99,37 @@ def test_relocated_payload_preserves_roles_and_notices(tmp_path):
     assert [x["library"] for x in additional] == ["libs/fp32_stage.so", "libs/ops.so", "libs/stage.so", "libs/upsample.so"]
     assert (bundle / "libs/dep.so").read_bytes() == b"artifact"
     assert (bundle / "licenses/vendor/LICENSE.txt").read_bytes() == b"terms"
+
+
+@pytest.mark.parametrize("prebuilt", [False, True])
+def test_selected_amd_export_preserves_roles_and_uses_its_actual_build(tmp_path, monkeypatch, prebuilt):
+    from fast_audiovae.recipes.amd_streaming import LIBRARIES
+    work, bundle = tmp_path / "work", tmp_path / "bundle"
+    names = ["base.so", "libamd_aocl_precision_core.so", "libstage_pipeline.so",
+             "libamd_aocl_precision_ops.so", "libamd_aocl_precision_stage.so",
+             "libamd_aocl_precision_upsample.so", *LIBRARIES.values()]
+    for name in names:
+        _record(bundle, "libs/" + name, name.encode())
+    def row(name):
+        return {"library": "libs/"+name, "sha256": x86.sha256(bundle / "libs" / name)}
+    native = {"library": "libs/base.so", "additional_libraries": [row(x) for x in names[2:6]]}
+    manifest = {"onnxruntime": "1.30.0", "native": {"Linux/x86_64": native},
+                "automatic_recipe": {"vendor": "amd", "amd_stream_selected": True, "prebuilt": prebuilt}}
+    (bundle / "bundle.json").write_text(json.dumps(manifest))
+    build = {"library_sha256": x86.sha256(bundle / "libs/base.so"),
+             "native_abi": 1, "ort_api_version": 29, "domain": "venky.audio.cpu.portable",
+             "fingerprint": {"explicit_avx512_backend": 5}}
+    record = ".build/prebuilt-native.json" if prebuilt else ".build/x86/build.json"
+    _record(work, record, json.dumps(build).encode())
+    # A stale record from the other path must never be selected.
+    other = ".build/x86/build.json" if prebuilt else ".build/prebuilt-native.json"
+    _record(work, other, b"invalid stale build")
+    monkeypatch.setattr(x86, "_runtime_dependency_audit", lambda _: {})
+    result = x86.export_native_payload(work, bundle, tmp_path / "export")
+    assert result["onnxruntime"] == "1.30.0"
+    assert set(LIBRARIES).issubset(result["libraries"])
+    assert len(result["libraries"]) == 9
+    assert result["runtime_files"] == []
 
 
 def _schedule_graph():
