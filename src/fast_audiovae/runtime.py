@@ -196,6 +196,13 @@ def _load_session(model_dir, *, threads, prefer_custom, prefer_packed, streaming
         entry = manifest.get('streaming', {}).get('models', {}).get(selected)
         if not entry:
             raise RuntimeError('No streaming graph for the selected decoder; run fast-audiovae prepare-streaming on this bundle')
+        if entry.get('apple_firstpair_int8') and threads != 1:
+            entry = entry.get('fp32_fallback')
+            if not isinstance(entry, dict) or entry.get('apple_firstpair_int8') or entry.get('precision') != 'FP32':
+                raise RuntimeError('Apple INT8 bundle requires its preserved FP32 multithreaded graph')
+            info['precision_reason'] = 'Existing FP32 kernels retained for multiple workers'
+        if 'precision' in entry:
+            info['precision'] = entry['precision']
         if manifest['streaming'].get('version') != 1:
             raise RuntimeError('Unsupported streaming manifest version')
         if entry.get('required_math_version') is not None:

@@ -50,7 +50,7 @@ def build_recipe(work_dir, source, platform_info, mode, threads):
         # The source completion marker describes the source graph, not this derivative.
         (destination / ".recipe-ready.json").unlink(missing_ok=True)
     projection = completed_bundle(result, create_projection)
-    if platform_info.get("recipe") not in ("apple_stream_selected", "apple_batch_selected"):
+    if platform_info.get("recipe") not in ("apple_stream_selected", "apple_batch_selected", "apple_stream_int8"):
         return projection
     if threads not in (1, 4):
         raise ValueError("Selected Apple streaming recipe supports ORT threads 1 or 4")
@@ -66,4 +66,15 @@ def build_recipe(work_dir, source, platform_info, mode, threads):
         from .apple_batch import prepare as prepare_batch
         return completed_bundle(root / "bundles/apple-batch-selected",
                                 lambda destination: prepare_batch(selected, destination))
+    if platform_info.get("recipe") == "apple_stream_int8":
+        if threads != 1:
+            raise ValueError("Apple INT8 streaming uses one worker")
+        if prebuilt:
+            int8_build = prebuilt["int8_build"]
+        else:
+            int8_build = _module(root / "tools/build_apple_int8.py", "_apple_int8_build").build(
+                offline=platform_info.get("offline", False))["build_manifest"]
+        from .apple_int8 import prepare as prepare_int8
+        return completed_bundle(root / "bundles/apple-stream-int8",
+                                lambda destination: prepare_int8(selected, destination, int8_build))
     return selected

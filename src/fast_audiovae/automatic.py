@@ -12,7 +12,7 @@ import warnings
 
 from .assets import MODEL_FILES, MODEL_REVISION, fetch_model, sha256, verify_model
 
-RECIPE_VERSION = 2
+RECIPE_VERSION = 3
 
 
 def _recipe_runtimes(recipe, cpu):
@@ -185,7 +185,8 @@ def setup(*, mode="streaming", threads=1, device="cpu", cache_dir=None, source=N
         for selected_mode in modes:
             plan = select_recipe(cpu, mode=selected_mode, threads=threads)
             # Older native wheels keep their qualified vendor recipe.
-            legacy = {"amd_stream_selected": "amd_precision",
+            legacy = {"apple_stream_int8": "apple_stream_selected",
+                      "amd_stream_selected": "amd_precision",
                       "intel_stream_selected": "intel_stream_projection"}.get(plan["recipe"])
             if (legacy and payload and not build_native
                     and plan["recipe"] not in payload["manifest"].get("recipes", {})

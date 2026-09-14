@@ -19,6 +19,20 @@ def evidence(vendor="intel", *, system="Linux", machine="x86_64", maximum=8, pro
 
 
 class SelectionTests(unittest.TestCase):
+    def test_apple_int8_only_for_eligible_one_worker_streams(self):
+        apple = evidence("apple", system="Darwin", machine="arm64")
+        apple["usable"].update(sme=True, sme2=True)
+        self.assertEqual(platforms.select_recipe(apple)["recipe"], "apple_stream_int8")
+        self.assertEqual(platforms.select_recipe(apple)["validated_threads"], [1])
+        self.assertEqual(platforms.select_recipe(apple, threads=4)["recipe"], "apple_stream_selected")
+        self.assertEqual(platforms.select_recipe(apple, "batch")["recipe"], "apple_batch_selected")
+        apple["max_threads"] = 1
+        self.assertEqual(platforms.select_recipe(apple, threads=4)["recipe"], "apple_stream_int8")
+        for feature in ("sme", "sme2"):
+            for value in (False, None, 1, "true"):
+                changed = dict(apple, usable=dict(apple["usable"], **{feature: value}))
+                self.assertEqual(platforms.select_recipe(changed)["recipe"], "apple_stream_projection")
+
     def test_selected_apple_recipe_requires_both_matrix_features(self):
         apple = evidence("apple", system="Darwin", machine="arm64")
         for sme, sme2 in ((True, True), (True, False), (False, True), ("1", True), (True, 1)):

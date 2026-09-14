@@ -394,6 +394,10 @@ the bundle loader separately checks that compatible native artifacts exist.
                  "intel_precision": [1, 2], "intel_stream_projection": [1], "intel_stream_selected": [1],
                  "amd_precision": [1, 4]}.get(recipe)
     selected_threads = max(value for value in validated if value <= available_budget) if validated else available_budget
+    if recipe == "apple_stream_selected" and selected_threads == 1:
+        recipe = "apple_stream_int8"
+        validated = [1]
+        reason = "Apple SME/SME2 verified; qualified INT8 projections for one-thread streaming"
     if recipe == "amd_precision" and mode == "streaming" and selected_threads == 1:
         recipe = "amd_stream_selected"
         validated = [1]
