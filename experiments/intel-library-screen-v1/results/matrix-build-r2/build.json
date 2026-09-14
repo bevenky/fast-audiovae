@@ -1,0 +1,42 @@
+{
+  "status": "built",
+  "command": [
+    "g++",
+    "-std=c++17",
+    "-O3",
+    "-shared",
+    "-fPIC",
+    "-fno-fast-math",
+    "-ffp-contract=off",
+    "-fvisibility=hidden",
+    "-Wall",
+    "-Wextra",
+    "-I/dev/shm/intel-library-screen-v1/prebuilt/onednn-build/include",
+    "-I/dev/shm/intel-library-screen-v1/oneDNN-3.13.2/include",
+    "/dev/shm/intel-library-screen-v1/matrix/screen.cpp",
+    "/dev/shm/intel-library-screen-v1/prebuilt/onednn-build/src/libdnnl.so.3.13",
+    "-ldl",
+    "-Wl,-z,defs",
+    "-Wl,-rpath,/dev/shm/intel-library-screen-v1/prebuilt/onednn-build/src",
+    "-o",
+    "/dev/shm/intel-library-screen-v1/matrix-build-r2/libintel_matrix_screen.so"
+  ],
+  "returncode": 0,
+  "stdout": "",
+  "stderr": "",
+  "pins": {
+    "/dev/shm/intel-library-screen-v1/matrix/screen.cpp": "2f8baa5fd1a1f5abf67084a2e91699f510883b7cf522781711f8e08eb6ff31ac",
+    "/dev/shm/intel-library-screen-v1/matrix/build.py": "0f764b07d6fe55a182da35952860e2038830ba008824d32ed18ffa81f3a77f14",
+    "/dev/shm/intel-library-screen-v1/matrix/run.py": "3b2667f932c489bb14148292b3c505af23da376199cf0ecc0c359b3cfcd0d682",
+    "/dev/shm/intel-library-screen-v1/prebuilt/onednn-build/src/libdnnl.so.3.13": "6d2c19aac8c8bd8ae7e3d612fe584301692a083cf38375c6a807ae1e5f54f134",
+    "/dev/shm/intel-library-screen-v1/oneDNN-3.13.2/include/oneapi/dnnl/dnnl.hpp": "a5137e4f6e68a29ff38d5ba7ad471a8a6a9912ca02847d4a9087bca1c37bb7c5",
+    "/dev/shm/intel-library-screen-v1/oneDNN-3.13.2/include/oneapi/dnnl/dnnl_ukernel.hpp": "9b99be1058b9f5d60ca2076847d9ccce8b5013d7e9f87a46864a09764917f316",
+    "/dev/shm/intel-library-screen-v1/prebuilt/onednn-build/include/oneapi/dnnl/dnnl_config.h": "477eeb0e380b87e5b1c2d4c3a0b2cbd08e97006a991826dd711299d5e89f3256",
+    "/dev/shm/intel-library-screen-v1/prebuilt/onednn-build/include/oneapi/dnnl/dnnl_version.h": "08dbeed206f22f8e91f4f34645119734ab55443fef64fe7ff738910c2d2ae936",
+    "/dev/shm/intel-library-screen-v1/matrix-build-r2/libintel_matrix_screen.so": "5252be856a12f8ce6734fc5e6fc49b468803cb39e6234a8e519db69f2bf6e350"
+  },
+  "library": "/dev/shm/intel-library-screen-v1/matrix-build-r2/libintel_matrix_screen.so",
+  "onednn_library": "/dev/shm/intel-library-screen-v1/prebuilt/onednn-build/src/libdnnl.so.3.13",
+  "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "scope": "CPU SEQ / GPU NONE; second projection pair only; no inference run"
+}

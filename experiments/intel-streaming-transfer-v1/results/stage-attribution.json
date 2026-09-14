@@ -1,0 +1,876 @@
+{
+  "status": "complete",
+  "threads": 1,
+  "cpu": 0,
+  "cpu_only": true,
+  "packet_ms": 80,
+  "native_call_budget_seconds": 1,
+  "native_ns": 132582079,
+  "calls": [
+    {
+      "phase": "capture_warm",
+      "ns": 27566075
+    },
+    {
+      "phase": "capture_warm",
+      "ns": 24686609
+    },
+    {
+      "phase": "capture_actual",
+      "ns": 21344424
+    },
+    {
+      "phase": "sp_stage_c256/warm",
+      "ns": 2818430
+    },
+    {
+      "phase": "sp_stage_c256/warm",
+      "ns": 1939005
+    },
+    {
+      "phase": "sp_stage_c256/off",
+      "ns": 2104956
+    },
+    {
+      "phase": "sp_stage_c256/on",
+      "ns": 1916276
+    },
+    {
+      "phase": "sp_stage_c256/off",
+      "ns": 1941216
+    },
+    {
+      "phase": "sp_stage_c256/on",
+      "ns": 1900145
+    },
+    {
+      "phase": "sp_stage_c256/off",
+      "ns": 1930126
+    },
+    {
+      "phase": "sp_stage_c256/on",
+      "ns": 2049381
+    },
+    {
+      "phase": "upsample_stage_c128/warm",
+      "ns": 2729366
+    },
+    {
+      "phase": "upsample_stage_c128/warm",
+      "ns": 2200173
+    },
+    {
+      "phase": "upsample_stage_c128/off",
+      "ns": 2159459
+    },
+    {
+      "phase": "upsample_stage_c128/on",
+      "ns": 2259277
+    },
+    {
+      "phase": "upsample_stage_c128/off",
+      "ns": 2138225
+    },
+    {
+      "phase": "upsample_stage_c128/on",
+      "ns": 2311370
+    },
+    {
+      "phase": "upsample_stage_c128/off",
+      "ns": 2415299
+    },
+    {
+      "phase": "upsample_stage_c128/on",
+      "ns": 2057059
+    },
+    {
+      "phase": "sp_stage_c64/warm",
+      "ns": 1727957
+    },
+    {
+      "phase": "sp_stage_c64/warm",
+      "ns": 1799030
+    },
+    {
+      "phase": "sp_stage_c64/off",
+      "ns": 1489104
+    },
+    {
+      "phase": "sp_stage_c64/on",
+      "ns": 1670993
+    },
+    {
+      "phase": "sp_stage_c64/off",
+      "ns": 1581269
+    },
+    {
+      "phase": "sp_stage_c64/on",
+      "ns": 1708433
+    },
+    {
+      "phase": "sp_stage_c64/off",
+      "ns": 1570452
+    },
+    {
+      "phase": "sp_stage_c64/on",
+      "ns": 1794023
+    },
+    {
+      "phase": "sp_stage_c32/warm",
+      "ns": 1642000
+    },
+    {
+      "phase": "sp_stage_c32/warm",
+      "ns": 1269193
+    },
+    {
+      "phase": "sp_stage_c32/off",
+      "ns": 1223147
+    },
+    {
+      "phase": "sp_stage_c32/on",
+      "ns": 1314155
+    },
+    {
+      "phase": "sp_stage_c32/off",
+      "ns": 1368616
+    },
+    {
+      "phase": "sp_stage_c32/on",
+      "ns": 1418819
+    },
+    {
+      "phase": "sp_stage_c32/off",
+      "ns": 1182455
+    },
+    {
+      "phase": "sp_stage_c32/on",
+      "ns": 1355562
+    }
+  ],
+  "regions": [
+    {
+      "node": "sp_stage_c256",
+      "op": "StageStackStreamingF32",
+      "input_shapes": {
+        "slice_3": [
+          1,
+          256,
+          480
+        ],
+        "fast_stream_s10_in": [
+          1,
+          256,
+          78
+        ]
+      },
+      "expected_calls": {
+        "prepare_calls": 6,
+        "row_calls": 6,
+        "gemm_calls": 6,
+        "snake_calls": 12,
+        "fx_calls": 0
+      },
+      "rows": [
+        {
+          "repeat": 0,
+          "off_ns": 2104956,
+          "on_ns": 1916276,
+          "counters": {
+            "abi": 2,
+            "fields": 26,
+            "enabled": 0,
+            "active": 0,
+            "prepare_calls": 6,
+            "prepare_ns": 147917,
+            "prepare_failures": 0,
+            "row_calls": 6,
+            "row_ns": 502940,
+            "row_failures": 0,
+            "gemm_calls": 6,
+            "gemm_ns": 373603,
+            "nested_gemm_calls": 6,
+            "nested_gemm_ns": 373603,
+            "outside_row_gemm_calls": 0,
+            "outside_row_gemm_ns": 0,
+            "clock_errors": 0,
+            "resolution_errors": 0,
+            "control_errors": 0,
+            "resolved": 1,
+            "snake_calls": 12,
+            "snake_ns": 755960,
+            "snake_failures": 0,
+            "fx_calls": 0,
+            "fx_ns": 0,
+            "fx_failures": 0
+          },
+          "exclusive": {
+            "prepare_ns": 147917,
+            "gemm_ns": 373603,
+            "row_remainder_ns": 129337,
+            "snake_ns": 755960,
+            "fp32_pointwise_ns": 0,
+            "other_stage_and_dispatch_ns": 509459
+          }
+        },
+        {
+          "repeat": 1,
+          "off_ns": 1941216,
+          "on_ns": 1900145,
+          "counters": {
+            "abi": 2,
+            "fields": 26,
+            "enabled": 0,
+            "active": 0,
+            "prepare_calls": 6,
+            "prepare_ns": 136317,
+            "prepare_failures": 0,
+            "row_calls": 6,
+            "row_ns": 524943,
+            "row_failures": 0,
+            "gemm_calls": 6,
+            "gemm_ns": 377542,
+            "nested_gemm_calls": 6,
+            "nested_gemm_ns": 377542,
+            "outside_row_gemm_calls": 0,
+            "outside_row_gemm_ns": 0,
+            "clock_errors": 0,
+            "resolution_errors": 0,
+            "control_errors": 0,
+            "resolved": 1,
+            "snake_calls": 12,
+            "snake_ns": 719767,
+            "snake_failures": 0,
+            "fx_calls": 0,
+            "fx_ns": 0,
+            "fx_failures": 0
+          },
+          "exclusive": {
+            "prepare_ns": 136317,
+            "gemm_ns": 377542,
+            "row_remainder_ns": 147401,
+            "snake_ns": 719767,
+            "fp32_pointwise_ns": 0,
+            "other_stage_and_dispatch_ns": 519118
+          }
+        },
+        {
+          "repeat": 2,
+          "off_ns": 1930126,
+          "on_ns": 2049381,
+          "counters": {
+            "abi": 2,
+            "fields": 26,
+            "enabled": 0,
+            "active": 0,
+            "prepare_calls": 6,
+            "prepare_ns": 172344,
+            "prepare_failures": 0,
+            "row_calls": 6,
+            "row_ns": 626874,
+            "row_failures": 0,
+            "gemm_calls": 6,
+            "gemm_ns": 482778,
+            "nested_gemm_calls": 6,
+            "nested_gemm_ns": 482778,
+            "outside_row_gemm_calls": 0,
+            "outside_row_gemm_ns": 0,
+            "clock_errors": 0,
+            "resolution_errors": 0,
+            "control_errors": 0,
+            "resolved": 1,
+            "snake_calls": 12,
+            "snake_ns": 772002,
+            "snake_failures": 0,
+            "fx_calls": 0,
+            "fx_ns": 0,
+            "fx_failures": 0
+          },
+          "exclusive": {
+            "prepare_ns": 172344,
+            "gemm_ns": 482778,
+            "row_remainder_ns": 144096,
+            "snake_ns": 772002,
+            "fp32_pointwise_ns": 0,
+            "other_stage_and_dispatch_ns": 478161
+          }
+        }
+      ],
+      "bitwise_checks": 5,
+      "summary": {
+        "off_median_ms": 1.941216,
+        "on_median_ms": 1.916276,
+        "exclusive_percent": {
+          "prepare_ns": 7.783726760637335,
+          "gemm_ns": 21.035878810774726,
+          "row_remainder_ns": 7.174364221635848,
+          "snake_ns": 38.31921022905308,
+          "fp32_pointwise_ns": 0.0,
+          "other_stage_and_dispatch_ns": 25.686819977899017
+        }
+      }
+    },
+    {
+      "node": "upsample_stage_c128",
+      "op": "UpsampleStageStreamingF32",
+      "input_shapes": {
+        "view_43": [
+          1,
+          256,
+          480
+        ],
+        "fast_stream_s11_in": [
+          1,
+          128,
+          78
+        ],
+        "fast_stream_s12_in": [
+          1,
+          256,
+          1
+        ]
+      },
+      "expected_calls": {
+        "prepare_calls": 32,
+        "row_calls": 40,
+        "gemm_calls": 40,
+        "snake_calls": 48,
+        "fx_calls": 0
+      },
+      "rows": [
+        {
+          "repeat": 0,
+          "off_ns": 2159459,
+          "on_ns": 2259277,
+          "counters": {
+            "abi": 2,
+            "fields": 26,
+            "enabled": 0,
+            "active": 0,
+            "prepare_calls": 32,
+            "prepare_ns": 170650,
+            "prepare_failures": 0,
+            "row_calls": 40,
+            "row_ns": 704637,
+            "row_failures": 0,
+            "gemm_calls": 40,
+            "gemm_ns": 527495,
+            "nested_gemm_calls": 40,
+            "nested_gemm_ns": 527495,
+            "outside_row_gemm_calls": 0,
+            "outside_row_gemm_ns": 0,
+            "clock_errors": 0,
+            "resolution_errors": 0,
+            "control_errors": 0,
+            "resolved": 1,
+            "snake_calls": 48,
+            "snake_ns": 861390,
+            "snake_failures": 0,
+            "fx_calls": 0,
+            "fx_ns": 0,
+            "fx_failures": 0
+          },
+          "exclusive": {
+            "prepare_ns": 170650,
+            "gemm_ns": 527495,
+            "row_remainder_ns": 177142,
+            "snake_ns": 861390,
+            "fp32_pointwise_ns": 0,
+            "other_stage_and_dispatch_ns": 522600
+          }
+        },
+        {
+          "repeat": 1,
+          "off_ns": 2138225,
+          "on_ns": 2311370,
+          "counters": {
+            "abi": 2,
+            "fields": 26,
+            "enabled": 0,
+            "active": 0,
+            "prepare_calls": 32,
+            "prepare_ns": 188925,
+            "prepare_failures": 0,
+            "row_calls": 40,
+            "row_ns": 713968,
+            "row_failures": 0,
+            "gemm_calls": 40,
+            "gemm_ns": 533944,
+            "nested_gemm_calls": 40,
+            "nested_gemm_ns": 533944,
+            "outside_row_gemm_calls": 0,
+            "outside_row_gemm_ns": 0,
+            "clock_errors": 0,
+            "resolution_errors": 0,
+            "control_errors": 0,
+            "resolved": 1,
+            "snake_calls": 48,
+            "snake_ns": 864719,
+            "snake_failures": 0,
+            "fx_calls": 0,
+            "fx_ns": 0,
+            "fx_failures": 0
+          },
+          "exclusive": {
+            "prepare_ns": 188925,
+            "gemm_ns": 533944,
+            "row_remainder_ns": 180024,
+            "snake_ns": 864719,
+            "fp32_pointwise_ns": 0,
+            "other_stage_and_dispatch_ns": 543758
+          }
+        },
+        {
+          "repeat": 2,
+          "off_ns": 2415299,
+          "on_ns": 2057059,
+          "counters": {
+            "abi": 2,
+            "fields": 26,
+            "enabled": 0,
+            "active": 0,
+            "prepare_calls": 32,
+            "prepare_ns": 174558,
+            "prepare_failures": 0,
+            "row_calls": 40,
+            "row_ns": 626090,
+            "row_failures": 0,
+            "gemm_calls": 40,
+            "gemm_ns": 472848,
+            "nested_gemm_calls": 40,
+            "nested_gemm_ns": 472848,
+            "outside_row_gemm_calls": 0,
+            "outside_row_gemm_ns": 0,
+            "clock_errors": 0,
+            "resolution_errors": 0,
+            "control_errors": 0,
+            "resolved": 1,
+            "snake_calls": 48,
+            "snake_ns": 787546,
+            "snake_failures": 0,
+            "fx_calls": 0,
+            "fx_ns": 0,
+            "fx_failures": 0
+          },
+          "exclusive": {
+            "prepare_ns": 174558,
+            "gemm_ns": 472848,
+            "row_remainder_ns": 153242,
+            "snake_ns": 787546,
+            "fp32_pointwise_ns": 0,
+            "other_stage_and_dispatch_ns": 468865
+          }
+        }
+      ],
+      "bitwise_checks": 5,
+      "summary": {
+        "off_median_ms": 2.159459,
+        "on_median_ms": 2.259277,
+        "exclusive_percent": {
+          "prepare_ns": 8.059093146256036,
+          "gemm_ns": 23.149593539604805,
+          "row_remainder_ns": 7.701126151341052,
+          "snake_ns": 37.92647108969529,
+          "fp32_pointwise_ns": 0.0,
+          "other_stage_and_dispatch_ns": 23.16371607310282
+        }
+      }
+    },
+    {
+      "node": "sp_stage_c64",
+      "op": "StageStackStreamingF32",
+      "input_shapes": {
+        "slice_5": [
+          1,
+          64,
+          1920
+        ],
+        "fast_stream_s14_in": [
+          1,
+          64,
+          78
+        ]
+      },
+      "expected_calls": {
+        "prepare_calls": 0,
+        "row_calls": 0,
+        "gemm_calls": 0,
+        "snake_calls": 48,
+        "fx_calls": 24
+      },
+      "rows": [
+        {
+          "repeat": 0,
+          "off_ns": 1489104,
+          "on_ns": 1670993,
+          "counters": {
+            "abi": 2,
+            "fields": 26,
+            "enabled": 0,
+            "active": 0,
+            "prepare_calls": 0,
+            "prepare_ns": 0,
+            "prepare_failures": 0,
+            "row_calls": 0,
+            "row_ns": 0,
+            "row_failures": 0,
+            "gemm_calls": 0,
+            "gemm_ns": 0,
+            "nested_gemm_calls": 0,
+            "nested_gemm_ns": 0,
+            "outside_row_gemm_calls": 0,
+            "outside_row_gemm_ns": 0,
+            "clock_errors": 0,
+            "resolution_errors": 0,
+            "control_errors": 0,
+            "resolved": 1,
+            "snake_calls": 48,
+            "snake_ns": 811319,
+            "snake_failures": 0,
+            "fx_calls": 24,
+            "fx_ns": 489931,
+            "fx_failures": 0
+          },
+          "exclusive": {
+            "prepare_ns": 0,
+            "gemm_ns": 0,
+            "row_remainder_ns": 0,
+            "snake_ns": 811319,
+            "fp32_pointwise_ns": 489931,
+            "other_stage_and_dispatch_ns": 369743
+          }
+        },
+        {
+          "repeat": 1,
+          "off_ns": 1581269,
+          "on_ns": 1708433,
+          "counters": {
+            "abi": 2,
+            "fields": 26,
+            "enabled": 0,
+            "active": 0,
+            "prepare_calls": 0,
+            "prepare_ns": 0,
+            "prepare_failures": 0,
+            "row_calls": 0,
+            "row_ns": 0,
+            "row_failures": 0,
+            "gemm_calls": 0,
+            "gemm_ns": 0,
+            "nested_gemm_calls": 0,
+            "nested_gemm_ns": 0,
+            "outside_row_gemm_calls": 0,
+            "outside_row_gemm_ns": 0,
+            "clock_errors": 0,
+            "resolution_errors": 0,
+            "control_errors": 0,
+            "resolved": 1,
+            "snake_calls": 48,
+            "snake_ns": 851135,
+            "snake_failures": 0,
+            "fx_calls": 24,
+            "fx_ns": 518120,
+            "fx_failures": 0
+          },
+          "exclusive": {
+            "prepare_ns": 0,
+            "gemm_ns": 0,
+            "row_remainder_ns": 0,
+            "snake_ns": 851135,
+            "fp32_pointwise_ns": 518120,
+            "other_stage_and_dispatch_ns": 339178
+          }
+        },
+        {
+          "repeat": 2,
+          "off_ns": 1570452,
+          "on_ns": 1794023,
+          "counters": {
+            "abi": 2,
+            "fields": 26,
+            "enabled": 0,
+            "active": 0,
+            "prepare_calls": 0,
+            "prepare_ns": 0,
+            "prepare_failures": 0,
+            "row_calls": 0,
+            "row_ns": 0,
+            "row_failures": 0,
+            "gemm_calls": 0,
+            "gemm_ns": 0,
+            "nested_gemm_calls": 0,
+            "nested_gemm_ns": 0,
+            "outside_row_gemm_calls": 0,
+            "outside_row_gemm_ns": 0,
+            "clock_errors": 0,
+            "resolution_errors": 0,
+            "control_errors": 0,
+            "resolved": 1,
+            "snake_calls": 48,
+            "snake_ns": 894390,
+            "snake_failures": 0,
+            "fx_calls": 24,
+            "fx_ns": 534762,
+            "fx_failures": 0
+          },
+          "exclusive": {
+            "prepare_ns": 0,
+            "gemm_ns": 0,
+            "row_remainder_ns": 0,
+            "snake_ns": 894390,
+            "fp32_pointwise_ns": 534762,
+            "other_stage_and_dispatch_ns": 364871
+          }
+        }
+      ],
+      "bitwise_checks": 5,
+      "summary": {
+        "off_median_ms": 1.570452,
+        "on_median_ms": 1.708433,
+        "exclusive_percent": {
+          "prepare_ns": 0.0,
+          "gemm_ns": 0.0,
+          "row_remainder_ns": 0.0,
+          "snake_ns": 49.4224259290079,
+          "fp32_pointwise_ns": 29.821749475060063,
+          "other_stage_and_dispatch_ns": 20.755824595932037
+        }
+      }
+    },
+    {
+      "node": "sp_stage_c32",
+      "op": "StageStackStreamingF32",
+      "input_shapes": {
+        "slice_6": [
+          1,
+          32,
+          3840
+        ],
+        "fast_stream_s16_in": [
+          1,
+          32,
+          78
+        ]
+      },
+      "expected_calls": {
+        "prepare_calls": 0,
+        "row_calls": 0,
+        "gemm_calls": 0,
+        "snake_calls": 90,
+        "fx_calls": 45
+      },
+      "rows": [
+        {
+          "repeat": 0,
+          "off_ns": 1223147,
+          "on_ns": 1314155,
+          "counters": {
+            "abi": 2,
+            "fields": 26,
+            "enabled": 0,
+            "active": 0,
+            "prepare_calls": 0,
+            "prepare_ns": 0,
+            "prepare_failures": 0,
+            "row_calls": 0,
+            "row_ns": 0,
+            "row_failures": 0,
+            "gemm_calls": 0,
+            "gemm_ns": 0,
+            "nested_gemm_calls": 0,
+            "nested_gemm_ns": 0,
+            "outside_row_gemm_calls": 0,
+            "outside_row_gemm_ns": 0,
+            "clock_errors": 0,
+            "resolution_errors": 0,
+            "control_errors": 0,
+            "resolved": 1,
+            "snake_calls": 90,
+            "snake_ns": 773758,
+            "snake_failures": 0,
+            "fx_calls": 45,
+            "fx_ns": 191159,
+            "fx_failures": 0
+          },
+          "exclusive": {
+            "prepare_ns": 0,
+            "gemm_ns": 0,
+            "row_remainder_ns": 0,
+            "snake_ns": 773758,
+            "fp32_pointwise_ns": 191159,
+            "other_stage_and_dispatch_ns": 349238
+          }
+        },
+        {
+          "repeat": 1,
+          "off_ns": 1368616,
+          "on_ns": 1418819,
+          "counters": {
+            "abi": 2,
+            "fields": 26,
+            "enabled": 0,
+            "active": 0,
+            "prepare_calls": 0,
+            "prepare_ns": 0,
+            "prepare_failures": 0,
+            "row_calls": 0,
+            "row_ns": 0,
+            "row_failures": 0,
+            "gemm_calls": 0,
+            "gemm_ns": 0,
+            "nested_gemm_calls": 0,
+            "nested_gemm_ns": 0,
+            "outside_row_gemm_calls": 0,
+            "outside_row_gemm_ns": 0,
+            "clock_errors": 0,
+            "resolution_errors": 0,
+            "control_errors": 0,
+            "resolved": 1,
+            "snake_calls": 90,
+            "snake_ns": 836491,
+            "snake_failures": 0,
+            "fx_calls": 45,
+            "fx_ns": 238318,
+            "fx_failures": 0
+          },
+          "exclusive": {
+            "prepare_ns": 0,
+            "gemm_ns": 0,
+            "row_remainder_ns": 0,
+            "snake_ns": 836491,
+            "fp32_pointwise_ns": 238318,
+            "other_stage_and_dispatch_ns": 344010
+          }
+        },
+        {
+          "repeat": 2,
+          "off_ns": 1182455,
+          "on_ns": 1355562,
+          "counters": {
+            "abi": 2,
+            "fields": 26,
+            "enabled": 0,
+            "active": 0,
+            "prepare_calls": 0,
+            "prepare_ns": 0,
+            "prepare_failures": 0,
+            "row_calls": 0,
+            "row_ns": 0,
+            "row_failures": 0,
+            "gemm_calls": 0,
+            "gemm_ns": 0,
+            "nested_gemm_calls": 0,
+            "nested_gemm_ns": 0,
+            "outside_row_gemm_calls": 0,
+            "outside_row_gemm_ns": 0,
+            "clock_errors": 0,
+            "resolution_errors": 0,
+            "control_errors": 0,
+            "resolved": 1,
+            "snake_calls": 90,
+            "snake_ns": 831552,
+            "snake_failures": 0,
+            "fx_calls": 45,
+            "fx_ns": 204774,
+            "fx_failures": 0
+          },
+          "exclusive": {
+            "prepare_ns": 0,
+            "gemm_ns": 0,
+            "row_remainder_ns": 0,
+            "snake_ns": 831552,
+            "fp32_pointwise_ns": 204774,
+            "other_stage_and_dispatch_ns": 319236
+          }
+        }
+      ],
+      "bitwise_checks": 5,
+      "summary": {
+        "off_median_ms": 1.223147,
+        "on_median_ms": 1.355562,
+        "exclusive_percent": {
+          "prepare_ns": 0.0,
+          "gemm_ns": 0.0,
+          "row_remainder_ns": 0.0,
+          "snake_ns": 59.72311360350013,
+          "fp32_pointwise_ns": 15.512912201335636,
+          "other_stage_and_dispatch_ns": 24.763974195164234
+        }
+      }
+    }
+  ],
+  "scope": "Four unchanged fused stages, one packet after two warm packets; two warmups and three paired off/on calls per stage. No tensor values saved.",
+  "limits": "Diagnostic timers include wrapper overhead. GEMM is nested inside row work. The remainder combines depthwise, copying, allocation, epilogues and ORT dispatch. Off calls still contain disabled shim wrappers. This is not an RTF benchmark.",
+  "artifact_sha256": {
+    "/dev/shm/fast-audiovae-projection-candidate-20260908-r1/streaming/decoder_1.onnx": "59a937ee76d494896561b994c111b708603fb2f3c8e0fdf53df1380f2df41516",
+    "/var/tmp/fast-audiovae-20260907/assets/multilingual/fast_audiovae2.npz": "9b709b787c040591de57e094a5ba5a4515cc74e256e8014530ff8c7bb54d2d24",
+    "/dev/shm/fast-audiovae-projection-candidate-20260908-r1/libs/libfast_audiovae_x86_8eed60d94b7f.so": "0cb2b82857e5c0c9c2054000b19c670f02b25c92c54d7225422a9b0f7d99a7c2",
+    "/dev/shm/fast-audiovae-projection-candidate-20260908-r1/libs/libstage_pipeline.so": "33ed06712852546af72d209904e135fe151ffedc545fa392fe9b42bbaaa069e5",
+    "/dev/shm/fast-audiovae-projection-candidate-20260908-r1/libs/precision_ops.so": "41209af17f5f3e5ac1173bcfa32c9e014e5f6257fd8ad7e446a9d7872d196858",
+    "/dev/shm/fast-audiovae-projection-candidate-20260908-r1/libs/libprecision_stage.so": "04a19020e7c9a763a357b528bef8d8b29f0ec3fffa96a52f2971e612012df7e5",
+    "/dev/shm/fast-audiovae-projection-candidate-20260908-r1/libs/libprecision_upsample.so": "066e31b1a04f25a6a9ff7db21ab033081b62accab2f1d74ad20d8bd853a739eb",
+    "/dev/shm/fast-audiovae-projection-candidate-20260908-r1/libs/libpaired_projection.so": "5f8f40e62ca3d2357290fba4630fc4410ac26d9ce68f030b30ed498283287f58",
+    "/var/tmp/intel-streaming-transfer-v1/attribution/build.py": "f9c13e8d5cf80835b44272fda04c1d385ddfde49b7a9928156fe3f92ac7b14d3",
+    "/var/tmp/intel-streaming-transfer-v1/attribution/run.py": "059daa34d7b145f3eaaa1bbb35b8b5976fcdb22f71a633d088c4966729c0676b",
+    "/var/tmp/intel-streaming-transfer-v1/attribution/precision_probe.cpp": "ff965bf5e0bd419b72d8e9de595e8695bb4c236f8a6a16c85bfd78f27992bf86",
+    "/var/tmp/intel-streaming-transfer-v1/attribution/precision.h": "c8758086e9346c1522802d86ea9be59a067fe0bc5e9702560c435b0960724ac0",
+    "/var/tmp/intel-streaming-transfer-v1/attribution/native_kernels.h": "046c463260fe9cd91940e2a020d3bd17bf5c869437947473ed7d31eb226dd8c4",
+    "/var/tmp/intel-streaming-transfer-v1/attribution/fused_pointwise.h": "68ca5b4acf978b779cf1c53874fba0e970d954ba665a1494b2efdc47ee44a6dc",
+    "/var/tmp/fast-audiovae-intel-precision/native-large-build-r1/libintel_precision_core.so": "cdf177421522690c61ea6df833c560ca7f49daf61433623d33bdb48961b21db4",
+    "/var/tmp/fast-audiovae-20260907/mkl_candidate/dependency/lib/libmkl_intel_lp64.so.3": "9dbdb7d4193679f028787da6b9b2b545e0e16b87a95a64ee7318f544da8b08ac",
+    "/var/tmp/fast-audiovae-20260907/mkl_candidate/dependency/include/mkl_cblas.h": "12100f333cbca07387ca3e9e51092e17f3af05f3a8aa1d93cab1b1e8420f0ec5",
+    "/var/tmp/fast-audiovae-20260907/mkl_candidate/dependency/include/mkl_types.h": "0039030497854ba329fe20f6a89bef50c9ab3901f44a1aaef39fbc842a1a0cc4",
+    "/var/tmp/intel-streaming-transfer-v1/attribution-build/libintel_stage_attribution.so": "e51c28e9aa7027f0c4a28684f41e6762301c5ef264b7014e89137d89c4e8999b",
+    "/var/tmp/intel-streaming-transfer-v1/attribution-build/build.json": "85285d49fefe43e8b9cd50e777ad8bbc200eeb08d2265c46282fb74ce4c1b6f7"
+  },
+  "ort": "1.29.0",
+  "capture": {
+    "uid": "bn_in_00151_1818",
+    "warm_packets": 2,
+    "packet_index": 2
+  },
+  "libraries_mapped": [
+    "/dev/shm/fast-audiovae-projection-candidate-20260908-r1/libs/libfast_audiovae_x86_8eed60d94b7f.so",
+    "/dev/shm/fast-audiovae-projection-candidate-20260908-r1/libs/libstage_pipeline.so",
+    "/usr/lib/python3.12/lib-dynload/_bz2.cpython-312-x86_64-linux-gnu.so",
+    "/usr/lib/python3.12/lib-dynload/_contextvars.cpython-312-x86_64-linux-gnu.so",
+    "/usr/lib/python3.12/lib-dynload/_ctypes.cpython-312-x86_64-linux-gnu.so",
+    "/usr/lib/python3.12/lib-dynload/_decimal.cpython-312-x86_64-linux-gnu.so",
+    "/usr/lib/python3.12/lib-dynload/_hashlib.cpython-312-x86_64-linux-gnu.so",
+    "/usr/lib/python3.12/lib-dynload/_json.cpython-312-x86_64-linux-gnu.so",
+    "/usr/lib/python3.12/lib-dynload/_lzma.cpython-312-x86_64-linux-gnu.so",
+    "/usr/lib/python3.12/lib-dynload/_ssl.cpython-312-x86_64-linux-gnu.so",
+    "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+    "/usr/lib/x86_64-linux-gnu/libbz2.so.1.0.4",
+    "/usr/lib/x86_64-linux-gnu/libc.so.6",
+    "/usr/lib/x86_64-linux-gnu/libcrypto.so.3",
+    "/usr/lib/x86_64-linux-gnu/libdl.so.2",
+    "/usr/lib/x86_64-linux-gnu/libexpat.so.1.9.1",
+    "/usr/lib/x86_64-linux-gnu/libffi.so.8.1.4",
+    "/usr/lib/x86_64-linux-gnu/libgcc_s.so.1",
+    "/usr/lib/x86_64-linux-gnu/liblzma.so.5.4.5",
+    "/usr/lib/x86_64-linux-gnu/libm.so.6",
+    "/usr/lib/x86_64-linux-gnu/libpthread.so.0",
+    "/usr/lib/x86_64-linux-gnu/librt.so.1",
+    "/usr/lib/x86_64-linux-gnu/libssl.so.3",
+    "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33",
+    "/usr/lib/x86_64-linux-gnu/libz.so.1.3",
+    "/var/tmp/fast-audiovae-20260907/mkl_candidate/dependency/lib/libmkl_avx512.so.3",
+    "/var/tmp/fast-audiovae-20260907/mkl_candidate/dependency/lib/libmkl_core.so.3",
+    "/var/tmp/fast-audiovae-20260907/mkl_candidate/dependency/lib/libmkl_intel_lp64.so.3",
+    "/var/tmp/fast-audiovae-20260907/mkl_candidate/dependency/lib/libmkl_sequential.so.3",
+    "/var/tmp/fast-audiovae-20260907/mkl_candidate/dependency/lib/libmkl_vml_avx512.so.3",
+    "/var/tmp/fast-audiovae-20260907/venv/lib/python3.12/site-packages/google/_upb/_message.abi3.so",
+    "/var/tmp/fast-audiovae-20260907/venv/lib/python3.12/site-packages/ml_dtypes/_ml_dtypes_ext.cpython-312-x86_64-linux-gnu.so",
+    "/var/tmp/fast-audiovae-20260907/venv/lib/python3.12/site-packages/numpy.libs/libgfortran-040039e1-0352e75f.so.5.0.0",
+    "/var/tmp/fast-audiovae-20260907/venv/lib/python3.12/site-packages/numpy.libs/libquadmath-96973f99-934c22de.so.0.0.0",
+    "/var/tmp/fast-audiovae-20260907/venv/lib/python3.12/site-packages/numpy.libs/libscipy_openblas64_-56d6093b.so",
+    "/var/tmp/fast-audiovae-20260907/venv/lib/python3.12/site-packages/numpy/_core/_multiarray_umath.cpython-312-x86_64-linux-gnu.so",
+    "/var/tmp/fast-audiovae-20260907/venv/lib/python3.12/site-packages/numpy/linalg/_umath_linalg.cpython-312-x86_64-linux-gnu.so",
+    "/var/tmp/fast-audiovae-20260907/venv/lib/python3.12/site-packages/onnx/onnx_cpp2py_export.cpython-312-x86_64-linux-gnu.so",
+    "/var/tmp/fast-audiovae-20260907/venv/lib/python3.12/site-packages/onnxruntime/capi/libonnxruntime_providers_shared.so",
+    "/var/tmp/fast-audiovae-20260907/venv/lib/python3.12/site-packages/onnxruntime/capi/onnxruntime_pybind11_state.cpython-312-x86_64-linux-gnu.so",
+    "/var/tmp/fast-audiovae-intel-precision/native-large-build-r1/libintel_precision_core.so",
+    "/var/tmp/intel-streaming-transfer-v1/attribution-build/libintel_stage_attribution.so"
+  ]
+}

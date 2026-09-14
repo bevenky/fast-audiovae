@@ -1,0 +1,24 @@
+{
+  "version": "3.13.2",
+  "configure": [
+    "cmake",
+    "-S",
+    "/dev/shm/intel-library-screen-v1/oneDNN-3.13.2",
+    "-B",
+    "/dev/shm/intel-library-screen-v1/onednn-build",
+    "-DCMAKE_BUILD_TYPE=Release",
+    "-DONEDNN_CPU_RUNTIME=SEQ",
+    "-DONEDNN_GPU_RUNTIME=NONE",
+    "-DONEDNN_BUILD_GRAPH=OFF",
+    "-DONEDNN_BUILD_TESTS=OFF",
+    "-DONEDNN_BUILD_EXAMPLES=OFF",
+    "-DONEDNN_ENABLE_PRIMITIVE=MATMUL;REORDER",
+    "-DONEDNN_ENABLE_PRIMITIVE_CPU_ISA=AVX512",
+    "-DONEDNN_EXPERIMENTAL_UKERNEL=ON"
+  ],
+  "configure_exit": 0,
+  "build_host": "AMD CPU compilation only",
+  "inference_run": false,
+  "source_sha256": "6f2240c94557117fdc1954145148c9dff440d1e5c1aeafc1096f3c7bc03a41b8",
+  "build_exit": 0
+}

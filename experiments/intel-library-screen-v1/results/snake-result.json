@@ -1,0 +1,2889 @@
+{
+  "status": "complete",
+  "threads": 1,
+  "cpu": 0,
+  "cpu_only": true,
+  "ort": "1.29.0",
+  "graph": "/dev/shm/intel-streaming-transfer-v1-graphs-r2/combined.onnx",
+  "source_sha256": {
+    "/dev/shm/intel-streaming-transfer-v1-graphs-r2/combined.onnx": "ada257599e8f40c57203fa9dbcfd3954476f34807a7328fe0511b49641b61a40",
+    "/dev/shm/intel-streaming-transfer-v1-graphs-r2/weights.bin": "5fabb7bfe08fc19e64be7e37cdcc80ceca2e43905a199666720ea71297f50f7d",
+    "/var/tmp/fast-audiovae-20260907/assets/multilingual/fast_audiovae2.npz": "9b709b787c040591de57e094a5ba5a4515cc74e256e8014530ff8c7bb54d2d24",
+    "/dev/shm/fast-audiovae-projection-candidate-20260908-r1/libs/libfast_audiovae_x86_8eed60d94b7f.so": "0cb2b82857e5c0c9c2054000b19c670f02b25c92c54d7225422a9b0f7d99a7c2",
+    "/dev/shm/fast-audiovae-projection-candidate-20260908-r1/libs/libstage_pipeline.so": "33ed06712852546af72d209904e135fe151ffedc545fa392fe9b42bbaaa069e5",
+    "/dev/shm/fast-audiovae-projection-candidate-20260908-r1/libs/precision_ops.so": "41209af17f5f3e5ac1173bcfa32c9e014e5f6257fd8ad7e446a9d7872d196858",
+    "/dev/shm/fast-audiovae-projection-candidate-20260908-r1/libs/libprecision_stage.so": "04a19020e7c9a763a357b528bef8d8b29f0ec3fffa96a52f2971e612012df7e5",
+    "/dev/shm/fast-audiovae-projection-candidate-20260908-r1/libs/libprecision_upsample.so": "066e31b1a04f25a6a9ff7db21ab033081b62accab2f1d74ad20d8bd853a739eb",
+    "/dev/shm/fast-audiovae-projection-candidate-20260908-r1/libs/libpaired_projection.so": "5f8f40e62ca3d2357290fba4630fc4410ac26d9ce68f030b30ed498283287f58",
+    "/var/tmp/intel-streaming-transfer-v1/build/libintel_rawhistory.so": "8b24225fc181959aad0851740ade29b8cd4755fd9bf75fe8939dbae2b5551ea1",
+    "/var/tmp/intel-streaming-transfer-v1/build/libintel_phase.so": "b8f5d1fd0de5cc50b57f4256389e775e818b817c8dd12932612a96c315041d3d",
+    "/var/tmp/fast-audiovae-20260907/mkl_candidate/dependency/lib/libmkl_intel_lp64.so.3": "9dbdb7d4193679f028787da6b9b2b545e0e16b87a95a64ee7318f544da8b08ac",
+    "/var/tmp/fast-audiovae-20260907/mkl_candidate/dependency/lib/libmkl_core.so.3": "b4f086651ee5a8471140d53fedfdbbaba606287784763b0739f282872c31aa9b",
+    "/var/tmp/fast-audiovae-20260907/mkl_candidate/dependency/lib/libmkl_sequential.so.3": "4e7ff529bec90a1b0ce70299258a64a2ebae7a5a6f3ec031306a6ddb39b5a650",
+    "/dev/shm/intel-library-screen-v1/snake/snake_screen.cpp": "8ddf4bfae66f71c71ae6b1b3dd2da6161c86eeae750c717c4a9532a72eae0221",
+    "/dev/shm/intel-library-screen-v1/snake/build.py": "cd34282645aca74a1d80bf130ed0a065b1151543869709c7206f2e97d9af53e9",
+    "/dev/shm/intel-library-screen-v1/snake/run.py": "dc19619fa23ded703ab398f31b7dd8a77804b67b9a1558e2cec01e5ab3af4566",
+    "/var/tmp/fast-audiovae-20260907/mkl_candidate/dependency/include/mkl_vml.h": "ccec6cbab8c6b020fd9615b192ec0fb7d8a07925c976c6b4b4faf1efbedc4908",
+    "/var/tmp/fast-audiovae-20260907/mkl_candidate/dependency/include/mkl_vml_defines.h": "c2315ccb4ff10c42d8da1771454ce9f9cccfdecd0e2986585907724430253706",
+    "/var/tmp/fast-audiovae-20260907/mkl_candidate/dependency/include/mkl_vml_functions.h": "e236ba7ade2e11938b9c5a70f3905d38c78a726fa11afa4ba1bbba39929b8b5f",
+    "/var/tmp/fast-audiovae-20260907/mkl_candidate/dependency/include/mkl_vml_omp_offload.h": "6f47555d4fe949c43e2446b11c08f31c52566d21ab4c8f3d7c01fb1d5cfe6349",
+    "/var/tmp/fast-audiovae-20260907/mkl_candidate/dependency/include/mkl_vml_omp_variant.h": "5ef32b783a96e8f0e8bec15bd711553109240be694485f3af3452779d1afb737",
+    "/var/tmp/fast-audiovae-20260907/mkl_candidate/dependency/include/mkl_vml_types.h": "d840cba94e4e0508fbcb4ed2406ef217a940c787f49a2586321ce760de1d1475",
+    "/dev/shm/intel-library-screen-v1/snake-build/libintel_snake_screen.so": "405c228e484a0f9e2534abede4c28fb2076f329a0ccaba2c6315587ad9b268c7"
+  },
+  "packet_ms": 80,
+  "full_session_ns": 99741093,
+  "micro_probe_wall_ns": 63836164,
+  "samples": [
+    {
+      "index": 0,
+      "shape": [
+        1,
+        256,
+        256
+      ],
+      "observed_calls": 1,
+      "variants": {
+        "vml_ha_tile256": {
+          "elements": 65536.0,
+          "bitwise_different": 5.0,
+          "max_abs": 2.9802322387695312e-08,
+          "max_relative": 1.1850063984420483e-07,
+          "rms_error": 1.9305297117420704e-10,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            88714,
+            56459,
+            75963,
+            54705,
+            95861,
+            58930,
+            89517,
+            58648,
+            75176,
+            54963,
+            75269,
+            54674,
+            75263,
+            87517
+          ],
+          "reference_median_ns": 75963,
+          "candidate_median_ns": 56459,
+          "time_reduction_percent": 25.67565788607612
+        },
+        "vml_ha_whole_call": {
+          "elements": 65536.0,
+          "bitwise_different": 5.0,
+          "max_abs": 2.9802322387695312e-08,
+          "max_relative": 1.1850063984420483e-07,
+          "rms_error": 1.9305297117420704e-10,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            82499,
+            61968,
+            81940,
+            58972,
+            81223,
+            63994,
+            81834,
+            59286,
+            95910,
+            70218,
+            81974,
+            58996,
+            80936,
+            60284
+          ],
+          "reference_median_ns": 81940,
+          "candidate_median_ns": 60284,
+          "time_reduction_percent": 26.429094459360503
+        }
+      }
+    },
+    {
+      "index": 1,
+      "shape": [
+        1,
+        256,
+        256
+      ],
+      "observed_calls": 1,
+      "variants": {
+        "vml_ha_tile256": {
+          "elements": 65536.0,
+          "bitwise_different": 6.0,
+          "max_abs": 5.960464477539063e-08,
+          "max_relative": 1.7274018270038163e-07,
+          "rms_error": 3.738454711467822e-10,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            80979,
+            58829,
+            97997,
+            58603,
+            114842,
+            83746,
+            90961,
+            66185,
+            90915,
+            66268,
+            90792,
+            66236,
+            90921,
+            66242
+          ],
+          "reference_median_ns": 90921,
+          "candidate_median_ns": 66236,
+          "time_reduction_percent": 27.14994335742018
+        },
+        "vml_ha_whole_call": {
+          "elements": 65536.0,
+          "bitwise_different": 6.0,
+          "max_abs": 5.960464477539063e-08,
+          "max_relative": 1.7274018270038163e-07,
+          "rms_error": 3.738454711467822e-10,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            99599,
+            65752,
+            82414,
+            58995,
+            81044,
+            61793,
+            81509,
+            59019,
+            80998,
+            60382,
+            81481,
+            59045,
+            90880,
+            64907
+          ],
+          "reference_median_ns": 81509,
+          "candidate_median_ns": 60382,
+          "time_reduction_percent": 25.919837073206644
+        }
+      }
+    },
+    {
+      "index": 2,
+      "shape": [
+        1,
+        256,
+        256
+      ],
+      "observed_calls": 1,
+      "variants": {
+        "vml_ha_tile256": {
+          "elements": 65536.0,
+          "bitwise_different": 12.0,
+          "max_abs": 5.960464477539063e-08,
+          "max_relative": 4.7313649278111996e-07,
+          "rms_error": 5.310950681711157e-10,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            87268,
+            64537,
+            87133,
+            64385,
+            111685,
+            65369,
+            81396,
+            72862,
+            80923,
+            59716,
+            80883,
+            59641,
+            80891,
+            59738
+          ],
+          "reference_median_ns": 81396,
+          "candidate_median_ns": 64385,
+          "time_reduction_percent": 20.899061378937546
+        },
+        "vml_ha_whole_call": {
+          "elements": 65536.0,
+          "bitwise_different": 12.0,
+          "max_abs": 5.960464477539063e-08,
+          "max_relative": 4.7313649278111996e-07,
+          "rms_error": 5.310950681711157e-10,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            97060,
+            63880,
+            82125,
+            60315,
+            81047,
+            61776,
+            81634,
+            60172,
+            81105,
+            60829,
+            93921,
+            60277,
+            104430,
+            80749
+          ],
+          "reference_median_ns": 82125,
+          "candidate_median_ns": 60829,
+          "time_reduction_percent": 25.931202435312027
+        }
+      }
+    },
+    {
+      "index": 3,
+      "shape": [
+        1,
+        256,
+        256
+      ],
+      "observed_calls": 1,
+      "variants": {
+        "vml_ha_tile256": {
+          "elements": 65536.0,
+          "bitwise_different": 6.0,
+          "max_abs": 1.1920928955078125e-07,
+          "max_relative": 1.1379826753517504e-07,
+          "rms_error": 5.115986519739657e-10,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            81004,
+            58831,
+            80849,
+            58733,
+            80832,
+            58707,
+            81282,
+            70695,
+            80921,
+            58833,
+            80750,
+            58668,
+            80741,
+            59052
+          ],
+          "reference_median_ns": 80849,
+          "candidate_median_ns": 58831,
+          "time_reduction_percent": 27.23348464421329
+        },
+        "vml_ha_whole_call": {
+          "elements": 65536.0,
+          "bitwise_different": 6.0,
+          "max_abs": 1.1920928955078125e-07,
+          "max_relative": 1.1379826753517504e-07,
+          "rms_error": 5.115986519739657e-10,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            89341,
+            67448,
+            88639,
+            64864,
+            87611,
+            66474,
+            88302,
+            64692,
+            87752,
+            65284,
+            88154,
+            64356,
+            111263,
+            83736
+          ],
+          "reference_median_ns": 88302,
+          "candidate_median_ns": 65284,
+          "time_reduction_percent": 26.06735974270118
+        }
+      }
+    },
+    {
+      "index": 4,
+      "shape": [
+        1,
+        256,
+        256
+      ],
+      "observed_calls": 1,
+      "variants": {
+        "vml_ha_tile256": {
+          "elements": 65536.0,
+          "bitwise_different": 25.0,
+          "max_abs": 1.1920928955078125e-07,
+          "max_relative": 4.4507001507674675e-07,
+          "rms_error": 1.4126604771604292e-09,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            75551,
+            55736,
+            80931,
+            76051,
+            105917,
+            61240,
+            81600,
+            59762,
+            81237,
+            59762,
+            81167,
+            59692,
+            81107,
+            59771
+          ],
+          "reference_median_ns": 81167,
+          "candidate_median_ns": 59762,
+          "time_reduction_percent": 26.371554942279495
+        },
+        "vml_ha_whole_call": {
+          "elements": 65536.0,
+          "bitwise_different": 25.0,
+          "max_abs": 1.1920928955078125e-07,
+          "max_relative": 4.4507001507674675e-07,
+          "rms_error": 1.4126604771604292e-09,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            82726,
+            62503,
+            88729,
+            78082,
+            93269,
+            62560,
+            93549,
+            60298,
+            81570,
+            66980,
+            81917,
+            60324,
+            81208,
+            61439
+          ],
+          "reference_median_ns": 82726,
+          "candidate_median_ns": 62503,
+          "time_reduction_percent": 24.445760704010834
+        }
+      }
+    },
+    {
+      "index": 5,
+      "shape": [
+        1,
+        256,
+        256
+      ],
+      "observed_calls": 1,
+      "variants": {
+        "vml_ha_tile256": {
+          "elements": 65536.0,
+          "bitwise_different": 6.0,
+          "max_abs": 5.960464477539063e-08,
+          "max_relative": 1.023869154436635e-07,
+          "rms_error": 3.1480605907249173e-10,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            86116,
+            62561,
+            86151,
+            62432,
+            86192,
+            62617,
+            86019,
+            62363,
+            86100,
+            62482,
+            106867,
+            62448,
+            95142,
+            58626
+          ],
+          "reference_median_ns": 86151,
+          "candidate_median_ns": 62448,
+          "time_reduction_percent": 27.513319636452273
+        },
+        "vml_ha_whole_call": {
+          "elements": 65536.0,
+          "bitwise_different": 6.0,
+          "max_abs": 5.960464477539063e-08,
+          "max_relative": 1.023869154436635e-07,
+          "rms_error": 3.1480605907249173e-10,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            81108,
+            75496,
+            81810,
+            58618,
+            80099,
+            61318,
+            80432,
+            58722,
+            80075,
+            59576,
+            80500,
+            58545,
+            111020,
+            70354
+          ],
+          "reference_median_ns": 80500,
+          "candidate_median_ns": 59576,
+          "time_reduction_percent": 25.992546583850928
+        }
+      }
+    },
+    {
+      "index": 6,
+      "shape": [
+        1,
+        256,
+        224
+      ],
+      "observed_calls": 1,
+      "variants": {
+        "vml_ha_tile256": {
+          "elements": 57344.0,
+          "bitwise_different": 1.0,
+          "max_abs": 1.4901161193847656e-08,
+          "max_relative": 7.381083729094742e-08,
+          "rms_error": 6.222660697820233e-11,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            65795,
+            50939,
+            84704,
+            50680,
+            86029,
+            55174,
+            70639,
+            54420,
+            70492,
+            54519,
+            70551,
+            54456,
+            70609,
+            54500
+          ],
+          "reference_median_ns": 70609,
+          "candidate_median_ns": 54456,
+          "time_reduction_percent": 22.87668710787577
+        },
+        "vml_ha_whole_call": {
+          "elements": 57344.0,
+          "bitwise_different": 1.0,
+          "max_abs": 1.4901161193847656e-08,
+          "max_relative": 7.381083729094742e-08,
+          "rms_error": 6.222660697820233e-11,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            76310,
+            57126,
+            76382,
+            57255,
+            76149,
+            57374,
+            76273,
+            57207,
+            76258,
+            57231,
+            70990,
+            93096,
+            70545,
+            52903
+          ],
+          "reference_median_ns": 76258,
+          "candidate_median_ns": 57231,
+          "time_reduction_percent": 24.95082483149309
+        }
+      }
+    },
+    {
+      "index": 7,
+      "shape": [
+        1,
+        256,
+        224
+      ],
+      "observed_calls": 1,
+      "variants": {
+        "vml_ha_tile256": {
+          "elements": 57344.0,
+          "bitwise_different": 2.0,
+          "max_abs": 5.960464477539063e-08,
+          "max_relative": 1.0884564620680542e-07,
+          "rms_error": 2.5656687329492517e-10,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            83334,
+            54301,
+            71434,
+            53907,
+            71413,
+            53867,
+            71269,
+            53735,
+            71337,
+            53909,
+            71346,
+            53760,
+            71348,
+            64132
+          ],
+          "reference_median_ns": 71348,
+          "candidate_median_ns": 53907,
+          "time_reduction_percent": 24.444973930593704
+        },
+        "vml_ha_whole_call": {
+          "elements": 57344.0,
+          "bitwise_different": 2.0,
+          "max_abs": 5.960464477539063e-08,
+          "max_relative": 1.0884564620680542e-07,
+          "rms_error": 2.5656687329492517e-10,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            71456,
+            52935,
+            87898,
+            52898,
+            73554,
+            56280,
+            71430,
+            52751,
+            86055,
+            72443,
+            84536,
+            70257,
+            71524,
+            57632
+          ],
+          "reference_median_ns": 73554,
+          "candidate_median_ns": 56280,
+          "time_reduction_percent": 23.48478668733176
+        }
+      }
+    },
+    {
+      "index": 8,
+      "shape": [
+        1,
+        256,
+        224
+      ],
+      "observed_calls": 1,
+      "variants": {
+        "vml_ha_tile256": {
+          "elements": 57344.0,
+          "bitwise_different": 9.0,
+          "max_abs": 8.940696716308594e-08,
+          "max_relative": 5.176164727646603e-07,
+          "rms_error": 5.252530165466931e-10,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            77172,
+            59089,
+            77175,
+            59150,
+            77076,
+            85397,
+            77387,
+            59506,
+            77147,
+            58975,
+            88140,
+            58909,
+            71673,
+            54999
+          ],
+          "reference_median_ns": 77172,
+          "candidate_median_ns": 59089,
+          "time_reduction_percent": 23.432073809153575
+        },
+        "vml_ha_whole_call": {
+          "elements": 57344.0,
+          "bitwise_different": 9.0,
+          "max_abs": 8.940696716308594e-08,
+          "max_relative": 5.176164727646603e-07,
+          "rms_error": 5.252530165466931e-10,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            71904,
+            53085,
+            71683,
+            52959,
+            71725,
+            52886,
+            77464,
+            84173,
+            85457,
+            58813,
+            77274,
+            56617,
+            77012,
+            56547
+          ],
+          "reference_median_ns": 77012,
+          "candidate_median_ns": 56547,
+          "time_reduction_percent": 26.573780709499818
+        }
+      }
+    },
+    {
+      "index": 9,
+      "shape": [
+        1,
+        256,
+        224
+      ],
+      "observed_calls": 1,
+      "variants": {
+        "vml_ha_tile256": {
+          "elements": 57344.0,
+          "bitwise_different": 4.0,
+          "max_abs": 1.1920928955078125e-07,
+          "max_relative": 1.162746215871509e-07,
+          "rms_error": 5.609030553951344e-10,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            70164,
+            53009,
+            70057,
+            53067,
+            70068,
+            53036,
+            70202,
+            52915,
+            70035,
+            59855,
+            70205,
+            52983,
+            70060,
+            53032
+          ],
+          "reference_median_ns": 70068,
+          "candidate_median_ns": 53032,
+          "time_reduction_percent": 24.31352400525204
+        },
+        "vml_ha_whole_call": {
+          "elements": 57344.0,
+          "bitwise_different": 4.0,
+          "max_abs": 1.1920928955078125e-07,
+          "max_relative": 1.162746215871509e-07,
+          "rms_error": 5.609030553951344e-10,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            70533,
+            51736,
+            70157,
+            51669,
+            69976,
+            51678,
+            70132,
+            51672,
+            70118,
+            52078,
+            96355,
+            79663,
+            88312,
+            59767
+          ],
+          "reference_median_ns": 70157,
+          "candidate_median_ns": 51736,
+          "time_reduction_percent": 26.256823980500876
+        }
+      }
+    },
+    {
+      "index": 10,
+      "shape": [
+        1,
+        256,
+        224
+      ],
+      "observed_calls": 1,
+      "variants": {
+        "vml_ha_tile256": {
+          "elements": 57344.0,
+          "bitwise_different": 17.0,
+          "max_abs": 1.1920928955078125e-07,
+          "max_relative": 4.182323076929511e-07,
+          "rms_error": 1.2241414495063908e-09,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            77439,
+            59535,
+            77328,
+            59394,
+            77345,
+            59335,
+            98273,
+            59166,
+            77375,
+            59739,
+            71669,
+            68049,
+            71549,
+            54914
+          ],
+          "reference_median_ns": 77345,
+          "candidate_median_ns": 59394,
+          "time_reduction_percent": 23.20899864244619
+        },
+        "vml_ha_whole_call": {
+          "elements": 57344.0,
+          "bitwise_different": 17.0,
+          "max_abs": 1.1920928955078125e-07,
+          "max_relative": 4.182323076929511e-07,
+          "rms_error": 1.2241414495063908e-09,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            77374,
+            56786,
+            77264,
+            56768,
+            88386,
+            75434,
+            77398,
+            57038,
+            77221,
+            56732,
+            77117,
+            56779,
+            77050,
+            56817
+          ],
+          "reference_median_ns": 77264,
+          "candidate_median_ns": 56786,
+          "time_reduction_percent": 26.503934562021126
+        }
+      }
+    },
+    {
+      "index": 11,
+      "shape": [
+        1,
+        256,
+        224
+      ],
+      "observed_calls": 1,
+      "variants": {
+        "vml_ha_tile256": {
+          "elements": 57344.0,
+          "bitwise_different": 3.0,
+          "max_abs": 5.960464477539063e-08,
+          "max_relative": 3.444099297860086e-07,
+          "rms_error": 2.6400513458710204e-10,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            71683,
+            54021,
+            95624,
+            54002,
+            111838,
+            67781,
+            94741,
+            54119,
+            77382,
+            58466,
+            77436,
+            58277,
+            77287,
+            58384
+          ],
+          "reference_median_ns": 77436,
+          "candidate_median_ns": 58277,
+          "time_reduction_percent": 24.741722196394445
+        },
+        "vml_ha_whole_call": {
+          "elements": 57344.0,
+          "bitwise_different": 3.0,
+          "max_abs": 5.960464477539063e-08,
+          "max_relative": 3.444099297860086e-07,
+          "rms_error": 2.6400513458710204e-10,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            83209,
+            53713,
+            67015,
+            50116,
+            66826,
+            50020,
+            66693,
+            50074,
+            66680,
+            50183,
+            66717,
+            50118,
+            66707,
+            50041
+          ],
+          "reference_median_ns": 66717,
+          "candidate_median_ns": 50116,
+          "time_reduction_percent": 24.882713551268786
+        }
+      }
+    },
+    {
+      "index": 12,
+      "shape": [
+        1,
+        128,
+        128
+      ],
+      "observed_calls": 7,
+      "variants": {
+        "vml_ha_tile256": {
+          "elements": 16384.0,
+          "bitwise_different": 1.0,
+          "max_abs": 2.9802322387695312e-08,
+          "max_relative": 7.223392291383554e-08,
+          "rms_error": 2.3283064365386963e-10,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            22607,
+            20335,
+            22651,
+            20222,
+            22486,
+            20310,
+            22562,
+            20215,
+            22514,
+            20220,
+            22652,
+            20077,
+            22506,
+            20261
+          ],
+          "reference_median_ns": 22562,
+          "candidate_median_ns": 20222,
+          "time_reduction_percent": 10.371420973317969
+        },
+        "vml_ha_whole_call": {
+          "elements": 16384.0,
+          "bitwise_different": 1.0,
+          "max_abs": 2.9802322387695312e-08,
+          "max_relative": 7.223392291383554e-08,
+          "rms_error": 2.3283064365386963e-10,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            20917,
+            15498,
+            20891,
+            15489,
+            20870,
+            15501,
+            20879,
+            15427,
+            20880,
+            15500,
+            20929,
+            25899,
+            20818,
+            15674
+          ],
+          "reference_median_ns": 20880,
+          "candidate_median_ns": 15500,
+          "time_reduction_percent": 25.76628352490421
+        }
+      }
+    },
+    {
+      "index": 13,
+      "shape": [
+        1,
+        128,
+        128
+      ],
+      "observed_calls": 7,
+      "variants": {
+        "vml_ha_tile256": {
+          "elements": 16384.0,
+          "bitwise_different": 0.0,
+          "max_abs": 0.0,
+          "max_relative": 0.0,
+          "rms_error": 0.0,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            41629,
+            24452,
+            28369,
+            25258,
+            28631,
+            27328,
+            21000,
+            27361,
+            20845,
+            18822,
+            20897,
+            18663,
+            20854,
+            18665
+          ],
+          "reference_median_ns": 21000,
+          "candidate_median_ns": 24452,
+          "time_reduction_percent": -16.43809523809523
+        },
+        "vml_ha_whole_call": {
+          "elements": 16384.0,
+          "bitwise_different": 0.0,
+          "max_abs": 0.0,
+          "max_relative": 0.0,
+          "rms_error": 0.0,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            20915,
+            15937,
+            20893,
+            15889,
+            20880,
+            15900,
+            20889,
+            15804,
+            20817,
+            15946,
+            20837,
+            15831,
+            20817,
+            15927
+          ],
+          "reference_median_ns": 20880,
+          "candidate_median_ns": 15900,
+          "time_reduction_percent": 23.85057471264368
+        }
+      }
+    },
+    {
+      "index": 14,
+      "shape": [
+        1,
+        128,
+        128
+      ],
+      "observed_calls": 7,
+      "variants": {
+        "vml_ha_tile256": {
+          "elements": 16384.0,
+          "bitwise_different": 3.0,
+          "max_abs": 5.960464477539063e-08,
+          "max_relative": 6.671768345528215e-08,
+          "rms_error": 5.703162734357589e-10,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            20920,
+            18722,
+            20926,
+            18631,
+            20890,
+            18695,
+            20883,
+            18670,
+            20817,
+            18711,
+            20889,
+            18651,
+            20845,
+            32747
+          ],
+          "reference_median_ns": 20889,
+          "candidate_median_ns": 18695,
+          "time_reduction_percent": 10.50313562161903
+        },
+        "vml_ha_whole_call": {
+          "elements": 16384.0,
+          "bitwise_different": 3.0,
+          "max_abs": 5.960464477539063e-08,
+          "max_relative": 6.671768345528215e-08,
+          "rms_error": 5.703162734357589e-10,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            33662,
+            17347,
+            22576,
+            17246,
+            22518,
+            17243,
+            22562,
+            17204,
+            22463,
+            17238,
+            22588,
+            17302,
+            22426,
+            17231
+          ],
+          "reference_median_ns": 22562,
+          "candidate_median_ns": 17243,
+          "time_reduction_percent": 23.57503767396507
+        }
+      }
+    },
+    {
+      "index": 15,
+      "shape": [
+        1,
+        128,
+        128
+      ],
+      "observed_calls": 7,
+      "variants": {
+        "vml_ha_tile256": {
+          "elements": 16384.0,
+          "bitwise_different": 2.0,
+          "max_abs": 2.9802322387695312e-08,
+          "max_relative": 9.205849986255667e-08,
+          "rms_error": 2.6031257322754127e-10,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            20919,
+            18606,
+            20928,
+            18651,
+            20854,
+            18616,
+            20947,
+            18628,
+            20784,
+            18632,
+            20847,
+            18628,
+            20807,
+            18630
+          ],
+          "reference_median_ns": 20854,
+          "candidate_median_ns": 18628,
+          "time_reduction_percent": 10.674211182506955
+        },
+        "vml_ha_whole_call": {
+          "elements": 16384.0,
+          "bitwise_different": 2.0,
+          "max_abs": 2.9802322387695312e-08,
+          "max_relative": 9.205849986255667e-08,
+          "rms_error": 2.6031257322754127e-10,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            23453,
+            18022,
+            23486,
+            17958,
+            23476,
+            18036,
+            48944,
+            17982,
+            37733,
+            17548,
+            22502,
+            17101,
+            22519,
+            29503
+          ],
+          "reference_median_ns": 23476,
+          "candidate_median_ns": 17982,
+          "time_reduction_percent": 23.402623956380985
+        }
+      }
+    },
+    {
+      "index": 16,
+      "shape": [
+        1,
+        128,
+        128
+      ],
+      "observed_calls": 7,
+      "variants": {
+        "vml_ha_tile256": {
+          "elements": 16384.0,
+          "bitwise_different": 2.0,
+          "max_abs": 5.960464477539063e-08,
+          "max_relative": 1.1619748832157144e-07,
+          "rms_error": 5.206251464550825e-10,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            20762,
+            18399,
+            20811,
+            18378,
+            20662,
+            18567,
+            20730,
+            18536,
+            20588,
+            18505,
+            20723,
+            18372,
+            20580,
+            18456
+          ],
+          "reference_median_ns": 20723,
+          "candidate_median_ns": 18456,
+          "time_reduction_percent": 10.939535781498822
+        },
+        "vml_ha_whole_call": {
+          "elements": 16384.0,
+          "bitwise_different": 2.0,
+          "max_abs": 5.960464477539063e-08,
+          "max_relative": 1.1619748832157144e-07,
+          "rms_error": 5.206251464550825e-10,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            20697,
+            15755,
+            34111,
+            15699,
+            20639,
+            15755,
+            20705,
+            15722,
+            20644,
+            15793,
+            20684,
+            15649,
+            20682,
+            15719
+          ],
+          "reference_median_ns": 20684,
+          "candidate_median_ns": 15722,
+          "time_reduction_percent": 23.9895571456198
+        }
+      }
+    },
+    {
+      "index": 17,
+      "shape": [
+        1,
+        128,
+        128
+      ],
+      "observed_calls": 7,
+      "variants": {
+        "vml_ha_tile256": {
+          "elements": 16384.0,
+          "bitwise_different": 1.0,
+          "max_abs": 5.960464477539063e-08,
+          "max_relative": 9.965714950854575e-08,
+          "rms_error": 4.656612873077393e-10,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            22543,
+            20283,
+            22544,
+            20234,
+            22481,
+            20284,
+            22631,
+            20257,
+            22464,
+            20295,
+            22473,
+            20269,
+            22516,
+            20199
+          ],
+          "reference_median_ns": 22516,
+          "candidate_median_ns": 20269,
+          "time_reduction_percent": 9.979570083496181
+        },
+        "vml_ha_whole_call": {
+          "elements": 16384.0,
+          "bitwise_different": 1.0,
+          "max_abs": 5.960464477539063e-08,
+          "max_relative": 9.965714950854575e-08,
+          "rms_error": 4.656612873077393e-10,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            20905,
+            15862,
+            20876,
+            15851,
+            20854,
+            15873,
+            20841,
+            15785,
+            20807,
+            15886,
+            20899,
+            15851,
+            20785,
+            15894
+          ],
+          "reference_median_ns": 20854,
+          "candidate_median_ns": 15862,
+          "time_reduction_percent": 23.93785364918002
+        }
+      }
+    },
+    {
+      "index": 18,
+      "shape": [
+        1,
+        128,
+        64
+      ],
+      "observed_calls": 1,
+      "variants": {
+        "vml_ha_tile256": {
+          "elements": 8192.0,
+          "bitwise_different": 0.0,
+          "max_abs": 0.0,
+          "max_relative": 0.0,
+          "rms_error": 0.0,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            11578,
+            12073,
+            11561,
+            12027,
+            11500,
+            12066,
+            11534,
+            11969,
+            11499,
+            11991,
+            11494,
+            12034,
+            11500,
+            12063
+          ],
+          "reference_median_ns": 11500,
+          "candidate_median_ns": 12034,
+          "time_reduction_percent": -4.643478260869571
+        },
+        "vml_ha_whole_call": {
+          "elements": 8192.0,
+          "bitwise_different": 0.0,
+          "max_abs": 0.0,
+          "max_relative": 0.0,
+          "rms_error": 0.0,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            25691,
+            10525,
+            13384,
+            10239,
+            13339,
+            10301,
+            13380,
+            10274,
+            13346,
+            10238,
+            13338,
+            10162,
+            13338,
+            10278
+          ],
+          "reference_median_ns": 13346,
+          "candidate_median_ns": 10274,
+          "time_reduction_percent": 23.01813277386483
+        }
+      }
+    },
+    {
+      "index": 19,
+      "shape": [
+        1,
+        128,
+        64
+      ],
+      "observed_calls": 1,
+      "variants": {
+        "vml_ha_tile256": {
+          "elements": 8192.0,
+          "bitwise_different": 1.0,
+          "max_abs": 7.450580596923828e-09,
+          "max_relative": 7.151968751045976e-08,
+          "rms_error": 8.231806349783991e-11,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            11570,
+            12127,
+            11572,
+            12054,
+            11517,
+            12118,
+            11536,
+            12013,
+            11500,
+            12091,
+            11570,
+            12057,
+            11491,
+            21483
+          ],
+          "reference_median_ns": 11536,
+          "candidate_median_ns": 12091,
+          "time_reduction_percent": -4.811026352288494
+        },
+        "vml_ha_whole_call": {
+          "elements": 8192.0,
+          "bitwise_different": 1.0,
+          "max_abs": 7.450580596923828e-09,
+          "max_relative": 7.151968751045976e-08,
+          "rms_error": 8.231806349783991e-11,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            22760,
+            9707,
+            12386,
+            9541,
+            12381,
+            9612,
+            12365,
+            9439,
+            12377,
+            9498,
+            12373,
+            9491,
+            12371,
+            9486
+          ],
+          "reference_median_ns": 12377,
+          "candidate_median_ns": 9498,
+          "time_reduction_percent": 23.260887129352838
+        }
+      }
+    },
+    {
+      "index": 20,
+      "shape": [
+        1,
+        128,
+        64
+      ],
+      "observed_calls": 1,
+      "variants": {
+        "vml_ha_tile256": {
+          "elements": 8192.0,
+          "bitwise_different": 0.0,
+          "max_abs": 0.0,
+          "max_relative": 0.0,
+          "rms_error": 0.0,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            13304,
+            23922,
+            13301,
+            13878,
+            13230,
+            13903,
+            13295,
+            13776,
+            13258,
+            13894,
+            13272,
+            13788,
+            13223,
+            13850
+          ],
+          "reference_median_ns": 13272,
+          "candidate_median_ns": 13878,
+          "time_reduction_percent": -4.566003616636527
+        },
+        "vml_ha_whole_call": {
+          "elements": 8192.0,
+          "bitwise_different": 0.0,
+          "max_abs": 0.0,
+          "max_relative": 0.0,
+          "rms_error": 0.0,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            12278,
+            9571,
+            12254,
+            9609,
+            12244,
+            9604,
+            12235,
+            9496,
+            12303,
+            9515,
+            12242,
+            9557,
+            12276,
+            9604
+          ],
+          "reference_median_ns": 12254,
+          "candidate_median_ns": 9571,
+          "time_reduction_percent": 21.894891464011756
+        }
+      }
+    },
+    {
+      "index": 21,
+      "shape": [
+        1,
+        128,
+        64
+      ],
+      "observed_calls": 1,
+      "variants": {
+        "vml_ha_tile256": {
+          "elements": 8192.0,
+          "bitwise_different": 0.0,
+          "max_abs": 0.0,
+          "max_relative": 0.0,
+          "rms_error": 0.0,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            11572,
+            12118,
+            11591,
+            12116,
+            11521,
+            12071,
+            11547,
+            12081,
+            11508,
+            12184,
+            11523,
+            12069,
+            11493,
+            12105
+          ],
+          "reference_median_ns": 11523,
+          "candidate_median_ns": 12105,
+          "time_reduction_percent": -5.0507680291590695
+        },
+        "vml_ha_whole_call": {
+          "elements": 8192.0,
+          "bitwise_different": 0.0,
+          "max_abs": 0.0,
+          "max_relative": 0.0,
+          "rms_error": 0.0,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            13406,
+            10321,
+            13421,
+            10317,
+            13343,
+            10350,
+            13332,
+            10253,
+            13324,
+            10240,
+            13366,
+            10186,
+            13374,
+            10299
+          ],
+          "reference_median_ns": 13366,
+          "candidate_median_ns": 10299,
+          "time_reduction_percent": 22.946281610055365
+        }
+      }
+    },
+    {
+      "index": 22,
+      "shape": [
+        1,
+        128,
+        64
+      ],
+      "observed_calls": 1,
+      "variants": {
+        "vml_ha_tile256": {
+          "elements": 8192.0,
+          "bitwise_different": 1.0,
+          "max_abs": 2.9802322387695312e-08,
+          "max_relative": 9.461836298310126e-08,
+          "rms_error": 3.2927225399135965e-10,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            11578,
+            12099,
+            11594,
+            12137,
+            21835,
+            12173,
+            11602,
+            12055,
+            11539,
+            12061,
+            11624,
+            12071,
+            11532,
+            12112
+          ],
+          "reference_median_ns": 11594,
+          "candidate_median_ns": 12099,
+          "time_reduction_percent": -4.355701224771424
+        },
+        "vml_ha_whole_call": {
+          "elements": 8192.0,
+          "bitwise_different": 1.0,
+          "max_abs": 2.9802322387695312e-08,
+          "max_relative": 9.461836298310126e-08,
+          "rms_error": 3.2927225399135965e-10,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            11537,
+            8877,
+            11540,
+            8867,
+            11549,
+            8863,
+            11554,
+            8789,
+            11512,
+            8867,
+            11543,
+            8815,
+            11567,
+            8850
+          ],
+          "reference_median_ns": 11543,
+          "candidate_median_ns": 8863,
+          "time_reduction_percent": 23.21753443645499
+        }
+      }
+    },
+    {
+      "index": 23,
+      "shape": [
+        1,
+        128,
+        64
+      ],
+      "observed_calls": 1,
+      "variants": {
+        "vml_ha_tile256": {
+          "elements": 8192.0,
+          "bitwise_different": 0.0,
+          "max_abs": 0.0,
+          "max_relative": 0.0,
+          "rms_error": 0.0,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            13478,
+            14073,
+            13518,
+            13961,
+            13453,
+            13984,
+            13455,
+            13926,
+            13435,
+            13976,
+            13498,
+            13924,
+            13426,
+            13956
+          ],
+          "reference_median_ns": 13455,
+          "candidate_median_ns": 13961,
+          "time_reduction_percent": -3.7606837606837695
+        },
+        "vml_ha_whole_call": {
+          "elements": 8192.0,
+          "bitwise_different": 0.0,
+          "max_abs": 0.0,
+          "max_relative": 0.0,
+          "rms_error": 0.0,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            12438,
+            9583,
+            12432,
+            9608,
+            12413,
+            9478,
+            12453,
+            9463,
+            12415,
+            9509,
+            12435,
+            9466,
+            12439,
+            9486
+          ],
+          "reference_median_ns": 12435,
+          "candidate_median_ns": 9486,
+          "time_reduction_percent": 23.715319662243672
+        }
+      }
+    },
+    {
+      "index": 24,
+      "shape": [
+        1,
+        64,
+        256
+      ],
+      "observed_calls": 7,
+      "variants": {
+        "vml_ha_tile256": {
+          "elements": 16384.0,
+          "bitwise_different": 0.0,
+          "max_abs": 0.0,
+          "max_relative": 0.0,
+          "rms_error": 0.0,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            19936,
+            14622,
+            19883,
+            14548,
+            19818,
+            14650,
+            19985,
+            14558,
+            19791,
+            14609,
+            19905,
+            14504,
+            19876,
+            14601
+          ],
+          "reference_median_ns": 19883,
+          "candidate_median_ns": 14601,
+          "time_reduction_percent": 26.565407634662776
+        },
+        "vml_ha_whole_call": {
+          "elements": 16384.0,
+          "bitwise_different": 0.0,
+          "max_abs": 0.0,
+          "max_relative": 0.0,
+          "rms_error": 0.0,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            18584,
+            14010,
+            18496,
+            13880,
+            32509,
+            13963,
+            18534,
+            13907,
+            18530,
+            14013,
+            18503,
+            13884,
+            18474,
+            13956
+          ],
+          "reference_median_ns": 18530,
+          "candidate_median_ns": 13956,
+          "time_reduction_percent": 24.68429573664328
+        }
+      }
+    },
+    {
+      "index": 25,
+      "shape": [
+        1,
+        64,
+        256
+      ],
+      "observed_calls": 7,
+      "variants": {
+        "vml_ha_tile256": {
+          "elements": 16384.0,
+          "bitwise_different": 1.0,
+          "max_abs": 1.4901161193847656e-08,
+          "max_relative": 8.276382168236668e-08,
+          "rms_error": 1.1641532182693481e-10,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            29268,
+            13985,
+            18751,
+            13885,
+            18737,
+            13927,
+            18732,
+            13814,
+            18709,
+            13837,
+            18732,
+            13793,
+            18738,
+            13859
+          ],
+          "reference_median_ns": 18737,
+          "candidate_median_ns": 13859,
+          "time_reduction_percent": 26.034050274857236
+        },
+        "vml_ha_whole_call": {
+          "elements": 16384.0,
+          "bitwise_different": 1.0,
+          "max_abs": 1.4901161193847656e-08,
+          "max_relative": 8.276382168236668e-08,
+          "rms_error": 1.1641532182693481e-10,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            22636,
+            17213,
+            22621,
+            17194,
+            22597,
+            17152,
+            22697,
+            17107,
+            22604,
+            17208,
+            22636,
+            17090,
+            22650,
+            17122
+          ],
+          "reference_median_ns": 22636,
+          "candidate_median_ns": 17152,
+          "time_reduction_percent": 24.226895211168053
+        }
+      }
+    },
+    {
+      "index": 26,
+      "shape": [
+        1,
+        64,
+        256
+      ],
+      "observed_calls": 7,
+      "variants": {
+        "vml_ha_tile256": {
+          "elements": 16384.0,
+          "bitwise_different": 1.0,
+          "max_abs": 5.960464477539063e-08,
+          "max_relative": 9.814509692613483e-08,
+          "rms_error": 4.656612873077393e-10,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            18770,
+            14377,
+            18760,
+            14327,
+            18731,
+            14386,
+            31986,
+            14268,
+            36148,
+            17588,
+            22655,
+            17293,
+            22599,
+            41501
+          ],
+          "reference_median_ns": 22599,
+          "candidate_median_ns": 14386,
+          "time_reduction_percent": 36.34231603168282
+        },
+        "vml_ha_whole_call": {
+          "elements": 16384.0,
+          "bitwise_different": 1.0,
+          "max_abs": 5.960464477539063e-08,
+          "max_relative": 9.814509692613483e-08,
+          "rms_error": 4.656612873077393e-10,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            18729,
+            14383,
+            18742,
+            14202,
+            18694,
+            14420,
+            18697,
+            14323,
+            18687,
+            14335,
+            18702,
+            14312,
+            18728,
+            14423
+          ],
+          "reference_median_ns": 18702,
+          "candidate_median_ns": 14335,
+          "time_reduction_percent": 23.350443802801834
+        }
+      }
+    },
+    {
+      "index": 27,
+      "shape": [
+        1,
+        64,
+        256
+      ],
+      "observed_calls": 7,
+      "variants": {
+        "vml_ha_tile256": {
+          "elements": 16384.0,
+          "bitwise_different": 0.0,
+          "max_abs": 0.0,
+          "max_relative": 0.0,
+          "rms_error": 0.0,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            18736,
+            14105,
+            18730,
+            14113,
+            18683,
+            14195,
+            18702,
+            14081,
+            18687,
+            14158,
+            18770,
+            14054,
+            18677,
+            14138
+          ],
+          "reference_median_ns": 18702,
+          "candidate_median_ns": 14113,
+          "time_reduction_percent": 24.53748262217944
+        },
+        "vml_ha_whole_call": {
+          "elements": 16384.0,
+          "bitwise_different": 0.0,
+          "max_abs": 0.0,
+          "max_relative": 0.0,
+          "rms_error": 0.0,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            25228,
+            28679,
+            20175,
+            15297,
+            20099,
+            15292,
+            20079,
+            15303,
+            20058,
+            15276,
+            20043,
+            15154,
+            20067,
+            15251
+          ],
+          "reference_median_ns": 20079,
+          "candidate_median_ns": 15292,
+          "time_reduction_percent": 23.840828726530205
+        }
+      }
+    },
+    {
+      "index": 28,
+      "shape": [
+        1,
+        64,
+        256
+      ],
+      "observed_calls": 7,
+      "variants": {
+        "vml_ha_tile256": {
+          "elements": 16384.0,
+          "bitwise_different": 3.0,
+          "max_abs": 2.384185791015625e-07,
+          "max_relative": 1.426075592559365e-07,
+          "rms_error": 2.1339280972982942e-09,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            19916,
+            14646,
+            19891,
+            14562,
+            19868,
+            14698,
+            19886,
+            14580,
+            19890,
+            14563,
+            19889,
+            14529,
+            19941,
+            14616
+          ],
+          "reference_median_ns": 19890,
+          "candidate_median_ns": 14580,
+          "time_reduction_percent": 26.696832579185525
+        },
+        "vml_ha_whole_call": {
+          "elements": 16384.0,
+          "bitwise_different": 3.0,
+          "max_abs": 2.384185791015625e-07,
+          "max_relative": 1.426075592559365e-07,
+          "rms_error": 2.1339280972982942e-09,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            19913,
+            14982,
+            19858,
+            14915,
+            19840,
+            14956,
+            19863,
+            14912,
+            19897,
+            15001,
+            19825,
+            14929,
+            19821,
+            14908
+          ],
+          "reference_median_ns": 19858,
+          "candidate_median_ns": 14929,
+          "time_reduction_percent": 24.821230738241518
+        }
+      }
+    },
+    {
+      "index": 29,
+      "shape": [
+        1,
+        64,
+        256
+      ],
+      "observed_calls": 7,
+      "variants": {
+        "vml_ha_tile256": {
+          "elements": 16384.0,
+          "bitwise_different": 1.0,
+          "max_abs": 5.960464477539063e-08,
+          "max_relative": 1.0532351381149366e-07,
+          "rms_error": 4.656612873077393e-10,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            22619,
+            16677,
+            25069,
+            16657,
+            43936,
+            47481,
+            29514,
+            22068,
+            28710,
+            22537,
+            28850,
+            22136,
+            28917,
+            21141
+          ],
+          "reference_median_ns": 28850,
+          "candidate_median_ns": 22068,
+          "time_reduction_percent": 23.507798960138647
+        },
+        "vml_ha_whole_call": {
+          "elements": 16384.0,
+          "bitwise_different": 1.0,
+          "max_abs": 5.960464477539063e-08,
+          "max_relative": 1.0532351381149366e-07,
+          "rms_error": 4.656612873077393e-10,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            22620,
+            17075,
+            22617,
+            17136,
+            22624,
+            17242,
+            22627,
+            17135,
+            22598,
+            17231,
+            22603,
+            17096,
+            22635,
+            17102
+          ],
+          "reference_median_ns": 22620,
+          "candidate_median_ns": 17135,
+          "time_reduction_percent": 24.248452696728563
+        }
+      }
+    },
+    {
+      "index": 30,
+      "shape": [
+        1,
+        64,
+        128
+      ],
+      "observed_calls": 1,
+      "variants": {
+        "vml_ha_tile256": {
+          "elements": 8192.0,
+          "bitwise_different": 1.0,
+          "max_abs": 1.4901161193847656e-08,
+          "max_relative": 1.0373483798641136e-07,
+          "rms_error": 1.6463612699567982e-10,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            11860,
+            10543,
+            11838,
+            10491,
+            11856,
+            10435,
+            11844,
+            10477,
+            11773,
+            10575,
+            11850,
+            10424,
+            11795,
+            10484
+          ],
+          "reference_median_ns": 11844,
+          "candidate_median_ns": 10484,
+          "time_reduction_percent": 11.482607227288078
+        },
+        "vml_ha_whole_call": {
+          "elements": 8192.0,
+          "bitwise_different": 1.0,
+          "max_abs": 1.4901161193847656e-08,
+          "max_relative": 1.0373483798641136e-07,
+          "rms_error": 1.6463612699567982e-10,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            24141,
+            19247,
+            11334,
+            8445,
+            11375,
+            8516,
+            11322,
+            8451,
+            11308,
+            8540,
+            11331,
+            8448,
+            11344,
+            8496
+          ],
+          "reference_median_ns": 11334,
+          "candidate_median_ns": 8496,
+          "time_reduction_percent": 25.03970354685019
+        }
+      }
+    },
+    {
+      "index": 31,
+      "shape": [
+        1,
+        64,
+        128
+      ],
+      "observed_calls": 1,
+      "variants": {
+        "vml_ha_tile256": {
+          "elements": 8192.0,
+          "bitwise_different": 0.0,
+          "max_abs": 0.0,
+          "max_relative": 0.0,
+          "rms_error": 0.0,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            20322,
+            8896,
+            9772,
+            8722,
+            9724,
+            8876,
+            9736,
+            8826,
+            9769,
+            8695,
+            9760,
+            8675,
+            9696,
+            8709
+          ],
+          "reference_median_ns": 9760,
+          "candidate_median_ns": 8722,
+          "time_reduction_percent": 10.635245901639346
+        },
+        "vml_ha_whole_call": {
+          "elements": 8192.0,
+          "bitwise_different": 0.0,
+          "max_abs": 0.0,
+          "max_relative": 0.0,
+          "rms_error": 0.0,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            10558,
+            17294,
+            9760,
+            7369,
+            9777,
+            7412,
+            9754,
+            7364,
+            9744,
+            7369,
+            9737,
+            7402,
+            9749,
+            7387
+          ],
+          "reference_median_ns": 9754,
+          "candidate_median_ns": 7387,
+          "time_reduction_percent": 24.26696739799057
+        }
+      }
+    },
+    {
+      "index": 32,
+      "shape": [
+        1,
+        64,
+        128
+      ],
+      "observed_calls": 1,
+      "variants": {
+        "vml_ha_tile256": {
+          "elements": 8192.0,
+          "bitwise_different": 0.0,
+          "max_abs": 0.0,
+          "max_relative": 0.0,
+          "rms_error": 0.0,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            10524,
+            9317,
+            10523,
+            9325,
+            10493,
+            9351,
+            10486,
+            9363,
+            10452,
+            9403,
+            10454,
+            9385,
+            10448,
+            9380
+          ],
+          "reference_median_ns": 10486,
+          "candidate_median_ns": 9363,
+          "time_reduction_percent": 10.709517451840544
+        },
+        "vml_ha_whole_call": {
+          "elements": 8192.0,
+          "bitwise_different": 0.0,
+          "max_abs": 0.0,
+          "max_relative": 0.0,
+          "rms_error": 0.0,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            21474,
+            7967,
+            10432,
+            7905,
+            10446,
+            7856,
+            10456,
+            7892,
+            10431,
+            7872,
+            10425,
+            7861,
+            10457,
+            7862
+          ],
+          "reference_median_ns": 10446,
+          "candidate_median_ns": 7872,
+          "time_reduction_percent": 24.641010913268236
+        }
+      }
+    },
+    {
+      "index": 33,
+      "shape": [
+        1,
+        64,
+        128
+      ],
+      "observed_calls": 1,
+      "variants": {
+        "vml_ha_tile256": {
+          "elements": 8192.0,
+          "bitwise_different": 0.0,
+          "max_abs": 0.0,
+          "max_relative": 0.0,
+          "rms_error": 0.0,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            9769,
+            8741,
+            9790,
+            8765,
+            9742,
+            8764,
+            9803,
+            8730,
+            9742,
+            8734,
+            9813,
+            8642,
+            9742,
+            8750
+          ],
+          "reference_median_ns": 9769,
+          "candidate_median_ns": 8741,
+          "time_reduction_percent": 10.523083222438324
+        },
+        "vml_ha_whole_call": {
+          "elements": 8192.0,
+          "bitwise_different": 0.0,
+          "max_abs": 0.0,
+          "max_relative": 0.0,
+          "rms_error": 0.0,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            10617,
+            7796,
+            21097,
+            7724,
+            12774,
+            7433,
+            9744,
+            7402,
+            9763,
+            7370,
+            9740,
+            7404,
+            9730,
+            7404
+          ],
+          "reference_median_ns": 9763,
+          "candidate_median_ns": 7404,
+          "time_reduction_percent": 24.162654921642932
+        }
+      }
+    },
+    {
+      "index": 34,
+      "shape": [
+        1,
+        64,
+        128
+      ],
+      "observed_calls": 1,
+      "variants": {
+        "vml_ha_tile256": {
+          "elements": 8192.0,
+          "bitwise_different": 2.0,
+          "max_abs": 1.1920928955078125e-07,
+          "max_relative": 1.1080921755395301e-07,
+          "rms_error": 1.3273388905207835e-09,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            10493,
+            8722,
+            21441,
+            8753,
+            22212,
+            8707,
+            9691,
+            8561,
+            9673,
+            8614,
+            9679,
+            8597,
+            9704,
+            8635
+          ],
+          "reference_median_ns": 9704,
+          "candidate_median_ns": 8635,
+          "time_reduction_percent": 11.016075845012363
+        },
+        "vml_ha_whole_call": {
+          "elements": 8192.0,
+          "bitwise_different": 2.0,
+          "max_abs": 1.1920928955078125e-07,
+          "max_relative": 1.1080921755395301e-07,
+          "rms_error": 1.3273388905207835e-09,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            20786,
+            7461,
+            9727,
+            7345,
+            9671,
+            7322,
+            9673,
+            7319,
+            9684,
+            7328,
+            9683,
+            7343,
+            9679,
+            7338
+          ],
+          "reference_median_ns": 9683,
+          "candidate_median_ns": 7338,
+          "time_reduction_percent": 24.217701125684187
+        }
+      }
+    },
+    {
+      "index": 35,
+      "shape": [
+        1,
+        64,
+        128
+      ],
+      "observed_calls": 1,
+      "variants": {
+        "vml_ha_tile256": {
+          "elements": 8192.0,
+          "bitwise_different": 0.0,
+          "max_abs": 0.0,
+          "max_relative": 0.0,
+          "rms_error": 0.0,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            20772,
+            8915,
+            9801,
+            8778,
+            9738,
+            8800,
+            9778,
+            8723,
+            9746,
+            8699,
+            9814,
+            8700,
+            9732,
+            8719
+          ],
+          "reference_median_ns": 9778,
+          "candidate_median_ns": 8723,
+          "time_reduction_percent": 10.789527510738395
+        },
+        "vml_ha_whole_call": {
+          "elements": 8192.0,
+          "bitwise_different": 0.0,
+          "max_abs": 0.0,
+          "max_relative": 0.0,
+          "rms_error": 0.0,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            26813,
+            8035,
+            10525,
+            7969,
+            10445,
+            7922,
+            10469,
+            7963,
+            10493,
+            19015,
+            9723,
+            7358,
+            9752,
+            7407
+          ],
+          "reference_median_ns": 10469,
+          "candidate_median_ns": 7963,
+          "time_reduction_percent": 23.937338809819465
+        }
+      }
+    },
+    {
+      "index": 36,
+      "shape": [
+        1,
+        32,
+        256
+      ],
+      "observed_calls": 15,
+      "variants": {
+        "vml_ha_tile256": {
+          "elements": 8192.0,
+          "bitwise_different": 1.0,
+          "max_abs": 2.9802322387695312e-08,
+          "max_relative": 6.664051248686599e-08,
+          "rms_error": 3.2927225399135965e-10,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            21312,
+            7109,
+            9421,
+            6985,
+            9359,
+            6984,
+            9406,
+            6921,
+            9355,
+            6934,
+            9379,
+            6940,
+            9374,
+            6941
+          ],
+          "reference_median_ns": 9379,
+          "candidate_median_ns": 6941,
+          "time_reduction_percent": 25.994242456551873
+        },
+        "vml_ha_whole_call": {
+          "elements": 8192.0,
+          "bitwise_different": 1.0,
+          "max_abs": 2.9802322387695312e-08,
+          "max_relative": 6.664051248686599e-08,
+          "rms_error": 3.2927225399135965e-10,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            10089,
+            7627,
+            10103,
+            7569,
+            10090,
+            7602,
+            10046,
+            7545,
+            10065,
+            7562,
+            10032,
+            7552,
+            10064,
+            7571
+          ],
+          "reference_median_ns": 10065,
+          "candidate_median_ns": 7569,
+          "time_reduction_percent": 24.79880774962743
+        }
+      }
+    },
+    {
+      "index": 37,
+      "shape": [
+        1,
+        32,
+        256
+      ],
+      "observed_calls": 15,
+      "variants": {
+        "vml_ha_tile256": {
+          "elements": 8192.0,
+          "bitwise_different": 2.0,
+          "max_abs": 2.9802322387695312e-08,
+          "max_relative": 9.748584968520357e-08,
+          "rms_error": 3.681375715146283e-10,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            10911,
+            8095,
+            10922,
+            8108,
+            10893,
+            8123,
+            10899,
+            8049,
+            10877,
+            8094,
+            10862,
+            8079,
+            10901,
+            8073
+          ],
+          "reference_median_ns": 10899,
+          "candidate_median_ns": 8094,
+          "time_reduction_percent": 25.73630608312689
+        },
+        "vml_ha_whole_call": {
+          "elements": 8192.0,
+          "bitwise_different": 2.0,
+          "max_abs": 2.9802322387695312e-08,
+          "max_relative": 9.748584968520357e-08,
+          "rms_error": 3.681375715146283e-10,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            10117,
+            7429,
+            9401,
+            29862,
+            9356,
+            7129,
+            9356,
+            7028,
+            9359,
+            7064,
+            9363,
+            7025,
+            9362,
+            7052
+          ],
+          "reference_median_ns": 9362,
+          "candidate_median_ns": 7064,
+          "time_reduction_percent": 24.546037171544544
+        }
+      }
+    },
+    {
+      "index": 38,
+      "shape": [
+        1,
+        32,
+        256
+      ],
+      "observed_calls": 15,
+      "variants": {
+        "vml_ha_tile256": {
+          "elements": 8192.0,
+          "bitwise_different": 5.0,
+          "max_abs": 2.384185791015625e-07,
+          "max_relative": 1.1733218066199051e-07,
+          "rms_error": 4.3682900814557725e-09,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            9407,
+            6957,
+            9389,
+            6945,
+            9410,
+            6970,
+            9388,
+            6946,
+            9359,
+            6950,
+            9387,
+            6947,
+            9376,
+            7050
+          ],
+          "reference_median_ns": 9388,
+          "candidate_median_ns": 6950,
+          "time_reduction_percent": 25.96932253941202
+        },
+        "vml_ha_whole_call": {
+          "elements": 8192.0,
+          "bitwise_different": 5.0,
+          "max_abs": 2.384185791015625e-07,
+          "max_relative": 1.1733218066199051e-07,
+          "rms_error": 4.3682900814557725e-09,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            9407,
+            7053,
+            9367,
+            7059,
+            9403,
+            7055,
+            9361,
+            7019,
+            9380,
+            7097,
+            9369,
+            7051,
+            9367,
+            7039
+          ],
+          "reference_median_ns": 9369,
+          "candidate_median_ns": 7053,
+          "time_reduction_percent": 24.719820685238545
+        }
+      }
+    },
+    {
+      "index": 39,
+      "shape": [
+        1,
+        32,
+        256
+      ],
+      "observed_calls": 15,
+      "variants": {
+        "vml_ha_tile256": {
+          "elements": 8192.0,
+          "bitwise_different": 0.0,
+          "max_abs": 0.0,
+          "max_relative": 0.0,
+          "rms_error": 0.0,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            9412,
+            6963,
+            9394,
+            6966,
+            9358,
+            6946,
+            9353,
+            6901,
+            9342,
+            6949,
+            9348,
+            6897,
+            9396,
+            6925
+          ],
+          "reference_median_ns": 9358,
+          "candidate_median_ns": 6946,
+          "time_reduction_percent": 25.774738191921355
+        },
+        "vml_ha_whole_call": {
+          "elements": 8192.0,
+          "bitwise_different": 0.0,
+          "max_abs": 0.0,
+          "max_relative": 0.0,
+          "rms_error": 0.0,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            10107,
+            7626,
+            10076,
+            7671,
+            10050,
+            7693,
+            10042,
+            7639,
+            10032,
+            7669,
+            10029,
+            7636,
+            10053,
+            7613
+          ],
+          "reference_median_ns": 10050,
+          "candidate_median_ns": 7639,
+          "time_reduction_percent": 23.99004975124378
+        }
+      }
+    },
+    {
+      "index": 40,
+      "shape": [
+        1,
+        32,
+        256
+      ],
+      "observed_calls": 15,
+      "variants": {
+        "vml_ha_tile256": {
+          "elements": 8192.0,
+          "bitwise_different": 2.0,
+          "max_abs": 1.1920928955078125e-07,
+          "max_relative": 1.0161822966004434e-07,
+          "rms_error": 1.4725502860585132e-09,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            10815,
+            7875,
+            10880,
+            7901,
+            22153,
+            7614,
+            10079,
+            7476,
+            10082,
+            7519,
+            10076,
+            7482,
+            10066,
+            7485
+          ],
+          "reference_median_ns": 10082,
+          "candidate_median_ns": 7519,
+          "time_reduction_percent": 25.421543344574495
+        },
+        "vml_ha_whole_call": {
+          "elements": 8192.0,
+          "bitwise_different": 2.0,
+          "max_abs": 1.1920928955078125e-07,
+          "max_relative": 1.0161822966004434e-07,
+          "rms_error": 1.4725502860585132e-09,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            10213,
+            7504,
+            9385,
+            17637,
+            9366,
+            7173,
+            9376,
+            7118,
+            9358,
+            7090,
+            9360,
+            7130,
+            9336,
+            7127
+          ],
+          "reference_median_ns": 9366,
+          "candidate_median_ns": 7130,
+          "time_reduction_percent": 23.873585308562884
+        }
+      }
+    },
+    {
+      "index": 41,
+      "shape": [
+        1,
+        32,
+        256
+      ],
+      "observed_calls": 15,
+      "variants": {
+        "vml_ha_tile256": {
+          "elements": 8192.0,
+          "bitwise_different": 1.0,
+          "max_abs": 5.960464477539063e-08,
+          "max_relative": 1.5209874980911608e-07,
+          "rms_error": 6.585445079827193e-10,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            10811,
+            8002,
+            10772,
+            7919,
+            10791,
+            7984,
+            10760,
+            7972,
+            10745,
+            8008,
+            10811,
+            7951,
+            28526,
+            8414
+          ],
+          "reference_median_ns": 10791,
+          "candidate_median_ns": 7984,
+          "time_reduction_percent": 26.012417755537022
+        },
+        "vml_ha_whole_call": {
+          "elements": 8192.0,
+          "bitwise_different": 1.0,
+          "max_abs": 5.960464477539063e-08,
+          "max_relative": 1.5209874980911608e-07,
+          "rms_error": 6.585445079827193e-10,
+          "tolerance_failures": 0.0,
+          "nonfinite": 0.0,
+          "paired_ns": [
+            10826,
+            8095,
+            10807,
+            8104,
+            10761,
+            8176,
+            10711,
+            8075,
+            10750,
+            8096,
+            10752,
+            8020,
+            10718,
+            8105
+          ],
+          "reference_median_ns": 10752,
+          "candidate_median_ns": 8096,
+          "time_reduction_percent": 24.702380952380953
+        }
+      }
+    }
+  ],
+  "scope": "One actual 80 ms packet after two warm packets from the accepted combined Intel baseline; captures stay in RAM. No audio, latent or feature values are exported.",
+  "coverage": "Only dynamically linked ncc_snake_f32 calls inside fused stages; symbol-bound base/history kernels are unchanged.",
+  "numeric_gate": "Finite and abs(error)<=1e-5+1e-4*abs(reference); bitwise differences are separately counted. This is not full-decoder quality qualification.",
+  "timing_scope": "Seven alternating native micro-pairs per captured shape/coefficients. Timing is not decoder RTF.",
+  "native_work_budget_seconds": 5,
+  "mkl_max_threads": 1,
+  "capture_preserves_complete_waveform_and_all_states": true,
+  "capture": {
+    "count": 42,
+    "bytes": 4369920,
+    "intercepted_calls": 198,
+    "unsupported_calls": 0,
+    "resolved": 1
+  },
+  "current": {
+    "index": 41,
+    "variant": "vml_ha_whole_call"
+  },
+  "weighted_summary": {
+    "vml_ha_tile256": {
+      "reference_ns": 3773536,
+      "candidate_ns": 3003925,
+      "time_reduction_percent": 20.394955818627412,
+      "numeric_gate_passed": true,
+      "max_abs": 2.384185791015625e-07
+    },
+    "vml_ha_whole_call": {
+      "reference_ns": 3721621,
+      "candidate_ns": 2807326,
+      "time_reduction_percent": 24.567117393200434,
+      "numeric_gate_passed": true,
+      "max_abs": 2.384185791015625e-07
+    }
+  },
+  "represented_calls": 198,
+  "all_supported_calls_represented": true
+}

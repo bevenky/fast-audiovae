@@ -1,0 +1,41 @@
+{
+  "version": "intel_streaming_region_parity_v1",
+  "complete": true,
+  "cpu_only": true,
+  "threads": 1,
+  "runtime": "1.29.0",
+  "lengths": [
+    1,
+    8,
+    16,
+    17,
+    96,
+    257
+  ],
+  "patterns": [
+    "zero",
+    "tiny",
+    "random"
+  ],
+  "calls": 252,
+  "native_seconds": 0.20563938096165657,
+  "input_checks": 126,
+  "output_state_checks": 252,
+  "output_state_checks_passed": 252,
+  "maximum_absolute_error": 0.0,
+  "failures": [],
+  "scope": "Actual coefficients, deterministic synthetic region inputs; not audio quality or RTF",
+  "zero_length_scope": "T=0 intentionally excluded: public streaming empty calls bypass ONNX; this region check does not establish public empty-call behavior",
+  "prior_attempts": [
+    "Initial dynamic-shape harness aborted in ORT std::clamp before reporting.",
+    "Removing T=0 did not fix it: the second receipt locates the abort at reference_session_load for ncc_block_chain_18, before any inference. This disproves the zero-input explanation. The standalone extraction now supplies concrete input, output and intermediate shape metadata for each tested T; original kernels are unchanged."
+  ],
+  "last_call": {
+    "region": "first_phase",
+    "length": 257,
+    "pattern": "random",
+    "phase": "candidate_run",
+    "status": "complete"
+  },
+  "passed": true
+}

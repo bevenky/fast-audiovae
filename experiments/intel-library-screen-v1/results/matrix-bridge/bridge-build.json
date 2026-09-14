@@ -1,0 +1,33 @@
+{
+  "status": "built",
+  "command": [
+    "g++",
+    "-std=c++17",
+    "-shared",
+    "-O3",
+    "-fPIC",
+    "-fno-fast-math",
+    "-ffp-contract=off",
+    "-fvisibility=hidden",
+    "-pthread",
+    "-I/var/tmp/fast-audiovae-20260907/repo/.deps/onnxruntime/include",
+    "/dev/shm/intel-library-screen-v1/matrix/bridge.cpp",
+    "/dev/shm/intel-library-screen-v1/matrix-build-r2/libintel_matrix_screen.so",
+    "/var/tmp/fast-audiovae-intel-precision/native-large-build-r1/libintel_precision_core.so",
+    "-Wl,-z,defs",
+    "-Wl,-rpath,/dev/shm/intel-library-screen-v1/matrix-build-r2:/var/tmp/fast-audiovae-intel-precision/native-large-build-r1",
+    "-o",
+    "/dev/shm/intel-library-screen-v1/matrix-bridge/libintel_matrix_screen_ort.so"
+  ],
+  "stdout": "",
+  "stderr": "",
+  "matrix_library": "/dev/shm/intel-library-screen-v1/matrix-build-r2/libintel_matrix_screen.so",
+  "matrix_build": "/dev/shm/intel-library-screen-v1/matrix-build-r2/build.json",
+  "matrix_build_sha256": "1fdf2067d779f8d8c2954e48226ec0e0c0929fcb0d3c7800509738d6a14b655d",
+  "source_sha256": "ada257599e8f40c57203fa9dbcfd3954476f34807a7328fe0511b49641b61a40",
+  "bridge_source_sha256": "288d587b33444765a9d7b1a1ff0cd1002af82d11b9372624bb19cbaba5a0327d",
+  "fallback_core_sha256": "cdf177421522690c61ea6df833c560ca7f49daf61433623d33bdb48961b21db4",
+  "fallback_core": "/var/tmp/fast-audiovae-intel-precision/native-large-build-r1/libintel_precision_core.so",
+  "header_sha256": "acc0cf4b3f28d39339c76770d76164bb7a0637dc89f5fde764b4017b632f6743",
+  "mode": 4
+}

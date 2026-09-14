@@ -1,0 +1,189 @@
+{
+  "version": "intel_streaming_transfer_build_v1",
+  "complete": true,
+  "cpu_only": true,
+  "inference_executed": false,
+  "base_fingerprint": {
+    "source_sha256": {
+      "native/x86/native_kernels.c": "082059962a20afdd72b43f0342fd13a273422198d5670b88242da353559b04bd",
+      "native/x86/native_kernels.h": "acffa4b6c2ebb375b62420e3997fbcd080dd0216c7810b2b293f1ad4c7f2eae3",
+      "native/x86/custom_ops.cpp": "2e1a60139ff929b7780decf16687121c9e46a654e96f8b22dc5ef72da1798705",
+      "tools/build_x86.py": "fa132e71fc8048e5aea86f226c7be5d919f81fa6594889b3cafef0c68bf5a392"
+    },
+    "header_sha256": {
+      "onnxruntime_c_api.h": "acc0cf4b3f28d39339c76770d76164bb7a0637dc89f5fde764b4017b632f6743",
+      "onnxruntime_cxx_api.h": "9c63ed5bf0427ddf1c10a99aca0beeec77318ce77d2ea6f7ae76d7d933660f67",
+      "onnxruntime_cxx_inline.h": "c508dbb7d8203003a2584b8712118cb88e5b4ef1e1c7876a9974156fb7489301",
+      "onnxruntime_ep_c_api.h": "e6c986c9e98583f8113b2c6bc3864814883b806d501cf24da4d239c45753e235",
+      "onnxruntime_error_code.h": "5ce3b054e798eced8d14f5b86e98692fd33470463f96194ce0700a2d53dd8721",
+      "onnxruntime_float16.h": "88b242845d25981633a0bbd1c148e273cf8bfb016ea3f57c4af41a06530f72b0"
+    },
+    "sleef": {
+      "tag": "3.9.0",
+      "commit": "906ca7512ee483296780a81a21b9ca715d40dfe1",
+      "archive_url": "https://codeload.github.com/shibatch/sleef/tar.gz/refs/tags/3.9.0",
+      "archive_sha256": "af60856abac08a3b5e72a8d156dd71fec1f7ac23de8ee67793f45f9edcdf0908"
+    },
+    "sleef_header_sha256": "2f8add3a70ea0653d15dd29df4ec999ca33fd995cda9fe283ab01951df37623a",
+    "sleef_library_sha256": "a3e4dee0f28628339d8c98745a71afe8ab0dcb898b789f8b42a050e69986f8f5",
+    "compilers": {
+      "cc": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+      "cxx": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0"
+    },
+    "domain": "venky.audio.cpu.portable",
+    "native_abi": 1,
+    "ort_api_version": 29,
+    "common_flags": [
+      "-O3",
+      "-fPIC",
+      "-fno-fast-math",
+      "-ffp-contract=off",
+      "-fvisibility=hidden",
+      "-Wall",
+      "-Wextra",
+      "-march=x86-64",
+      "-mtune=generic"
+    ],
+    "c_novec_flags": [
+      "-fno-tree-vectorize"
+    ],
+    "openmp": false,
+    "tile": 256,
+    "required_sleef_symbols": [
+      "Sleef_sinf4_u10sse2",
+      "Sleef_sinf8_u10avx2",
+      "Sleef_sinf16_u10avx512f"
+    ],
+    "explicit_avx512_backend": 5,
+    "auto_backend_policy": "AVX2 then SSE2; AVX512 remains opt-in"
+  },
+  "compiler": {
+    "cc": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "cxx": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0"
+  },
+  "input_sha256": {
+    "/var/tmp/fast-audiovae-streaming-20260908-r1/canonical-native/.build/x86/build.json": "0e9d3967371b58cc1a116bd3c4f5306946b3659ce8b193e258d01c4e8a253cda",
+    "/var/tmp/intel-streaming-transfer-v1/native/amd/streaming/sources.json": "79b6a4f57fb84f8d3d01368c21629fa21b652d51c825a75c0ae4e889d92bf362",
+    "/var/tmp/intel-streaming-transfer-v1/experiments/intel-streaming-transfer-v1/build.py": "fb57e95f9fb41f636ff9606d6b763295140100a1e3e05aebffe6e19351285777",
+    "/var/tmp/fast-audiovae-streaming-20260908-r1/canonical-native/native/x86/native_kernels.c": "082059962a20afdd72b43f0342fd13a273422198d5670b88242da353559b04bd",
+    "/var/tmp/fast-audiovae-streaming-20260908-r1/canonical-native/native/x86/native_kernels.h": "acffa4b6c2ebb375b62420e3997fbcd080dd0216c7810b2b293f1ad4c7f2eae3",
+    "/var/tmp/intel-streaming-transfer-v1/native/amd/streaming/history/direct_history.c": "17a0fdd8183e595876f2a5c1cc9b34d7652c845e3c355345bea32f54bcceb883",
+    "/var/tmp/intel-streaming-transfer-v1/native/amd/streaming/history/custom_ops.cpp": "038e057ac9552829c5e6bca207c9f264ad7a62f2e6b8893549bbd346591932cc",
+    "/var/tmp/intel-streaming-transfer-v1/native/amd/streaming/phase/native_ops.cpp": "4ad8c74179ee8a64b1c790d4847e3a720c6c7502d2ccf22f0f7425b0409a5cba",
+    "/var/tmp/fast-audiovae-20260907/repo/.deps/onnxruntime/include/onnxruntime_c_api.h": "acc0cf4b3f28d39339c76770d76164bb7a0637dc89f5fde764b4017b632f6743",
+    "/var/tmp/fast-audiovae-20260907/repo/.deps/onnxruntime/include/onnxruntime_cxx_api.h": "9c63ed5bf0427ddf1c10a99aca0beeec77318ce77d2ea6f7ae76d7d933660f67",
+    "/var/tmp/fast-audiovae-20260907/repo/.deps/onnxruntime/include/onnxruntime_cxx_inline.h": "c508dbb7d8203003a2584b8712118cb88e5b4ef1e1c7876a9974156fb7489301",
+    "/var/tmp/fast-audiovae-20260907/repo/.deps/onnxruntime/include/onnxruntime_ep_c_api.h": "e6c986c9e98583f8113b2c6bc3864814883b806d501cf24da4d239c45753e235",
+    "/var/tmp/fast-audiovae-20260907/repo/.deps/onnxruntime/include/onnxruntime_error_code.h": "5ce3b054e798eced8d14f5b86e98692fd33470463f96194ce0700a2d53dd8721",
+    "/var/tmp/fast-audiovae-20260907/repo/.deps/onnxruntime/include/onnxruntime_float16.h": "88b242845d25981633a0bbd1c148e273cf8bfb016ea3f57c4af41a06530f72b0",
+    "/var/tmp/fast-audiovae-20260907/repo/.deps/sleef/lib/libsleef.a": "a3e4dee0f28628339d8c98745a71afe8ab0dcb898b789f8b42a050e69986f8f5",
+    "/var/tmp/fast-audiovae-20260907/repo/.deps/sleef/include/sleef.h": "2f8add3a70ea0653d15dd29df4ec999ca33fd995cda9fe283ab01951df37623a",
+    "/var/tmp/fast-audiovae-streaming-20260908-r1/canonical-native/.build/x86/libfast_audiovae_x86_8eed60d94b7f.so": "0cb2b82857e5c0c9c2054000b19c670f02b25c92c54d7225422a9b0f7d99a7c2"
+  },
+  "commands": [
+    [
+      "/usr/bin/gcc",
+      "-O3",
+      "-fPIC",
+      "-fno-fast-math",
+      "-ffp-contract=off",
+      "-fvisibility=hidden",
+      "-Wall",
+      "-Wextra",
+      "-march=x86-64",
+      "-mtune=generic",
+      "-fno-tree-vectorize",
+      "-std=c11",
+      "-DNCC_USE_SLEEF=1",
+      "-I/var/tmp/fast-audiovae-20260907/repo/.deps/sleef/include",
+      "-I/var/tmp/fast-audiovae-streaming-20260908-r1/canonical-native/native/x86",
+      "-I/var/tmp/intel-streaming-transfer-v1/native/amd/streaming/history",
+      "-c",
+      "/var/tmp/intel-streaming-transfer-v1/build/history_wrapper.c",
+      "-o",
+      "/var/tmp/intel-streaming-transfer-v1/build/history.o"
+    ],
+    [
+      "/usr/bin/g++",
+      "-O3",
+      "-fPIC",
+      "-fno-fast-math",
+      "-ffp-contract=off",
+      "-fvisibility=hidden",
+      "-Wall",
+      "-Wextra",
+      "-march=x86-64",
+      "-mtune=generic",
+      "-std=c++17",
+      "-I/var/tmp/fast-audiovae-20260907/repo/.deps/onnxruntime/include",
+      "-I/var/tmp/fast-audiovae-streaming-20260908-r1/canonical-native/native/x86",
+      "-c",
+      "/var/tmp/intel-streaming-transfer-v1/native/amd/streaming/history/custom_ops.cpp",
+      "-o",
+      "/var/tmp/intel-streaming-transfer-v1/build/history_bridge.o"
+    ],
+    [
+      "/usr/bin/g++",
+      "-shared",
+      "-pthread",
+      "/var/tmp/intel-streaming-transfer-v1/build/history.o",
+      "/var/tmp/intel-streaming-transfer-v1/build/history_bridge.o",
+      "/var/tmp/fast-audiovae-20260907/repo/.deps/sleef/lib/libsleef.a",
+      "-lm",
+      "-Wl,-Bsymbolic",
+      "-Wl,--exclude-libs,ALL",
+      "-Wl,-z,defs",
+      "-Wl,-rpath,$ORIGIN",
+      "-Wl,-soname,libintel_rawhistory.so",
+      "-o",
+      "/var/tmp/intel-streaming-transfer-v1/build/libintel_rawhistory.so"
+    ],
+    [
+      "/usr/bin/g++",
+      "-O3",
+      "-std=c++17",
+      "-shared",
+      "-fPIC",
+      "-fvisibility=hidden",
+      "-fno-fast-math",
+      "-ffp-contract=off",
+      "-pthread",
+      "-I/var/tmp/fast-audiovae-20260907/repo/.deps/onnxruntime/include",
+      "/var/tmp/intel-streaming-transfer-v1/native/amd/streaming/phase/native_ops.cpp",
+      "-Wl,-rpath,$ORIGIN",
+      "-Wl,-soname,libintel_phase.so",
+      "-Wl,-z,defs",
+      "-o",
+      "/var/tmp/intel-streaming-transfer-v1/build/libintel_phase.so"
+    ]
+  ],
+  "libraries": {
+    "history": {
+      "path": "/var/tmp/intel-streaming-transfer-v1/build/libintel_rawhistory.so",
+      "sha256": "8b24225fc181959aad0851740ade29b8cd4755fd9bf75fe8939dbae2b5551ea1"
+    },
+    "phase": {
+      "path": "/var/tmp/intel-streaming-transfer-v1/build/libintel_phase.so",
+      "sha256": "b8f5d1fd0de5cc50b57f4256389e775e818b817c8dd12932612a96c315041d3d"
+    }
+  },
+  "runtime_dependencies": {
+    "libintel_rawhistory.so": {
+      "needed": [
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6"
+      ],
+      "dynamic": "\nDynamic section at offset 0x3ed88 contains 31 entries:\n  Tag        Type                         Name/Value\n 0x0000000000000001 (NEEDED)             Shared library: [libstdc++.so.6]\n 0x0000000000000001 (NEEDED)             Shared library: [libm.so.6]\n 0x0000000000000001 (NEEDED)             Shared library: [libgcc_s.so.1]\n 0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]\n 0x000000000000000e (SONAME)             Library soname: [libintel_rawhistory.so]\n 0x0000000000000010 (SYMBOLIC)           0x0\n 0x000000000000001d (RUNPATH)            Library runpath: [$ORIGIN]\n 0x000000000000000c (INIT)               0x2000\n 0x000000000000000d (FINI)               0x31260\n 0x0000000000000019 (INIT_ARRAY)         0x3fd30\n 0x000000000000001b (INIT_ARRAYSZ)       16 (bytes)\n 0x000000000000001a (FINI_ARRAY)         0x3fd40\n 0x000000000000001c (FINI_ARRAYSZ)       8 (bytes)\n 0x000000006ffffef5 (GNU_HASH)           0x2f0\n 0x0000000000000005 (STRTAB)             0x9c8\n 0x0000000000000006 (SYMTAB)             0x3b0\n 0x000000000000000a (STRSZ)              1533 (bytes)\n 0x000000000000000b (SYMENT)             24 (bytes)\n 0x0000000000000003 (PLTGOT)             0x3ffe8\n 0x0000000000000002 (PLTRELSZ)           768 (bytes)\n 0x0000000000000014 (PLTREL)             RELA\n 0x0000000000000017 (JMPREL)             0x1330\n 0x0000000000000007 (RELA)               0x1138\n 0x0000000000000008 (RELASZ)             504 (bytes)\n 0x0000000000000009 (RELAENT)            24 (bytes)\n 0x000000000000001e (FLAGS)              SYMBOLIC\n 0x000000006ffffffe (VERNEED)            0x1048\n 0x000000006fffffff (VERNEEDNUM)         4\n 0x000000006ffffff0 (VERSYM)             0xfc6\n 0x000000006ffffff9 (RELACOUNT)          10\n 0x0000000000000000 (NULL)               0x0\n"
+    },
+    "libintel_phase.so": {
+      "needed": [
+        "libstdc++.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6"
+      ],
+      "dynamic": "\nDynamic section at offset 0x6db8 contains 28 entries:\n  Tag        Type                         Name/Value\n 0x0000000000000001 (NEEDED)             Shared library: [libstdc++.so.6]\n 0x0000000000000001 (NEEDED)             Shared library: [libgcc_s.so.1]\n 0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]\n 0x000000000000000e (SONAME)             Library soname: [libintel_phase.so]\n 0x000000000000001d (RUNPATH)            Library runpath: [$ORIGIN]\n 0x000000000000000c (INIT)               0x2000\n 0x000000000000000d (FINI)               0x5734\n 0x0000000000000019 (INIT_ARRAY)         0x7d60\n 0x000000000000001b (INIT_ARRAYSZ)       16 (bytes)\n 0x000000000000001a (FINI_ARRAY)         0x7d70\n 0x000000000000001c (FINI_ARRAYSZ)       8 (bytes)\n 0x000000006ffffef5 (GNU_HASH)           0x2f0\n 0x0000000000000005 (STRTAB)             0x6e0\n 0x0000000000000006 (SYMTAB)             0x320\n 0x000000000000000a (STRSZ)              1065 (bytes)\n 0x000000000000000b (SYMENT)             24 (bytes)\n 0x0000000000000003 (PLTGOT)             0x7fe8\n 0x0000000000000002 (PLTRELSZ)           672 (bytes)\n 0x0000000000000014 (PLTREL)             RELA\n 0x0000000000000017 (JMPREL)             0xe00\n 0x0000000000000007 (RELA)               0xc20\n 0x0000000000000008 (RELASZ)             480 (bytes)\n 0x0000000000000009 (RELAENT)            24 (bytes)\n 0x000000006ffffffe (VERNEED)            0xb60\n 0x000000006fffffff (VERNEEDNUM)         3\n 0x000000006ffffff0 (VERSYM)             0xb0a\n 0x000000006ffffff9 (RELACOUNT)          9\n 0x0000000000000000 (NULL)               0x0\n"
+    }
+  }
+}

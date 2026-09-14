@@ -1,0 +1,1529 @@
+{
+  "status": "complete",
+  "packet_ms": 80,
+  "threads": 1,
+  "cpu": 0,
+  "cpu_only": true,
+  "matrix_mode": 4,
+  "weight_cache_scope": "Separate cached T8/T16 pair plans plus unchanged core fallback; about12.6MB extra packed weight storage. Packing excluded from inference time.",
+  "ort": "1.29.0",
+  "graph": "/dev/shm/intel-library-screen-v1/matrix-bridge-r2/baseline.onnx",
+  "candidate_graph": "/dev/shm/intel-library-screen-v1/matrix-bridge-r2/matrix.onnx",
+  "snake_enabled": false,
+  "pins": {
+    "/dev/shm/intel-library-screen-v1/matrix/screen.cpp": "2f8baa5fd1a1f5abf67084a2e91699f510883b7cf522781711f8e08eb6ff31ac",
+    "/dev/shm/intel-library-screen-v1/matrix/build.py": "0f764b07d6fe55a182da35952860e2038830ba008824d32ed18ffa81f3a77f14",
+    "/dev/shm/intel-library-screen-v1/matrix/run.py": "3b2667f932c489bb14148292b3c505af23da376199cf0ecc0c359b3cfcd0d682",
+    "/dev/shm/intel-library-screen-v1/prebuilt/onednn-build/src/libdnnl.so.3.13": "6d2c19aac8c8bd8ae7e3d612fe584301692a083cf38375c6a807ae1e5f54f134",
+    "/dev/shm/intel-library-screen-v1/oneDNN-3.13.2/include/oneapi/dnnl/dnnl.hpp": "a5137e4f6e68a29ff38d5ba7ad471a8a6a9912ca02847d4a9087bca1c37bb7c5",
+    "/dev/shm/intel-library-screen-v1/oneDNN-3.13.2/include/oneapi/dnnl/dnnl_ukernel.hpp": "9b99be1058b9f5d60ca2076847d9ccce8b5013d7e9f87a46864a09764917f316",
+    "/dev/shm/intel-library-screen-v1/prebuilt/onednn-build/include/oneapi/dnnl/dnnl_config.h": "477eeb0e380b87e5b1c2d4c3a0b2cbd08e97006a991826dd711299d5e89f3256",
+    "/dev/shm/intel-library-screen-v1/prebuilt/onednn-build/include/oneapi/dnnl/dnnl_version.h": "08dbeed206f22f8e91f4f34645119734ab55443fef64fe7ff738910c2d2ae936",
+    "/dev/shm/intel-library-screen-v1/matrix-build-r2/libintel_matrix_screen.so": "5252be856a12f8ce6734fc5e6fc49b468803cb39e6234a8e519db69f2bf6e350",
+    "/dev/shm/fast-audiovae-projection-candidate-20260908-r1/libs/libfast_audiovae_x86_8eed60d94b7f.so": "0cb2b82857e5c0c9c2054000b19c670f02b25c92c54d7225422a9b0f7d99a7c2",
+    "/dev/shm/fast-audiovae-projection-candidate-20260908-r1/libs/libstage_pipeline.so": "33ed06712852546af72d209904e135fe151ffedc545fa392fe9b42bbaaa069e5",
+    "/dev/shm/fast-audiovae-projection-candidate-20260908-r1/libs/precision_ops.so": "41209af17f5f3e5ac1173bcfa32c9e014e5f6257fd8ad7e446a9d7872d196858",
+    "/dev/shm/fast-audiovae-projection-candidate-20260908-r1/libs/libprecision_stage.so": "04a19020e7c9a763a357b528bef8d8b29f0ec3fffa96a52f2971e612012df7e5",
+    "/dev/shm/fast-audiovae-projection-candidate-20260908-r1/libs/libprecision_upsample.so": "066e31b1a04f25a6a9ff7db21ab033081b62accab2f1d74ad20d8bd853a739eb",
+    "/dev/shm/fast-audiovae-projection-candidate-20260908-r1/libs/libpaired_projection.so": "5f8f40e62ca3d2357290fba4630fc4410ac26d9ce68f030b30ed498283287f58",
+    "/var/tmp/intel-streaming-transfer-v1/build/libintel_rawhistory.so": "8b24225fc181959aad0851740ade29b8cd4755fd9bf75fe8939dbae2b5551ea1",
+    "/var/tmp/intel-streaming-transfer-v1/build/libintel_phase.so": "b8f5d1fd0de5cc50b57f4256389e775e818b817c8dd12932612a96c315041d3d",
+    "/var/tmp/fast-audiovae-20260907/assets/multilingual/fast_audiovae2.npz": "9b709b787c040591de57e094a5ba5a4515cc74e256e8014530ff8c7bb54d2d24",
+    "/var/tmp/fast-audiovae-intel-precision/native-large-build-r1/libintel_precision_core.so": "cdf177421522690c61ea6df833c560ca7f49daf61433623d33bdb48961b21db4",
+    "/dev/shm/intel-library-screen-v1/matrix-bridge-r2/baseline.onnx": "ada257599e8f40c57203fa9dbcfd3954476f34807a7328fe0511b49641b61a40",
+    "/dev/shm/intel-library-screen-v1/matrix-bridge-r2/matrix.onnx": "b3a562b5ba727bf7609dba887206d674deb351a762a07d468d4d0dc5fcc8decb",
+    "/dev/shm/intel-library-screen-v1/matrix-bridge-r2/weights.bin": "5fabb7bfe08fc19e64be7e37cdcc80ceca2e43905a199666720ea71297f50f7d",
+    "/dev/shm/intel-library-screen-v1/matrix-bridge-r2/libintel_matrix_screen_ort.so": "f9066730dd855b0b0e142a3eb9fdc9c7c61540118cd9e5673f3222ba3c00e1f3",
+    "/dev/shm/intel-library-screen-v1/capture.json": "18db0699611db7b2039864bf720ff2cd9184c26ea86775964319d1057521673d",
+    "/dev/shm/intel-library-screen-v1/matrix-bridge-r2/bridge-build.json": "ece9da7d1e17da2cf4d88066e29f9b95172f47e8b7d7f9452386bcd5541199de",
+    "/dev/shm/intel-library-screen-v1/matrix-bridge-r2/manifest.json": "637628bc734316b05302e917b6832cd48da7c2908bcce069b99a13a63d5d1bcc",
+    "/dev/shm/intel-library-screen-v1/matrix/full_check.py": "c1f71b5ff34673f0a168b3c6fcb255f60f14c0e4994b35eb87eb1cc0341d69d3",
+    "/dev/shm/fast-audiovae-projection-candidate-20260908-r1/bundle.json": "21a00ea8de558fb73eabfeed7683435b0100a9d9f9bd4f0861e0ec4fb3b5587b",
+    "/var/tmp/intel-streaming-transfer-v1/src/fast_audiovae/streaming.py": "d22115a91fa71fa2741c098be75a6540b2165ecfbb0cbf0daa78016a52c31827"
+  },
+  "pairs": [
+    {
+      "uid": "bn_in_00151_1818",
+      "rep": 0,
+      "order": [
+        0,
+        2
+      ],
+      "baseline": {
+        "session_ns": 445758404,
+        "packets": 20,
+        "output_samples": 76800,
+        "duration": 1.6,
+        "rtf": 0.27859900249999997,
+        "intercepted_calls": 0
+      },
+      "candidate": {
+        "session_ns": 435414857,
+        "packets": 20,
+        "output_samples": 76800,
+        "duration": 1.6,
+        "rtf": 0.27213428562499997,
+        "intercepted_calls": 0
+      },
+      "comparison": {
+        "waveform": {
+          "arrays": 20,
+          "elements": 76800,
+          "shape_and_finite_checks_passed": true,
+          "bitwise_exact_arrays": 20,
+          "different_elements": 0,
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "relative_l2": 0.0,
+          "cosine": 1.0
+        },
+        "all_states": {
+          "arrays": 18,
+          "elements": 170816,
+          "shape_and_finite_checks_passed": true,
+          "bitwise_exact_arrays": 18,
+          "different_elements": 0,
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "relative_l2": 0.0,
+          "cosine": 1.0
+        },
+        "packets_compared": 20,
+        "state_checks": 18,
+        "state_scope": "final_packet_only"
+      },
+      "time_reduction_percent": 2.320437911474571
+    },
+    {
+      "uid": "en_us_00103_1779",
+      "rep": 0,
+      "order": [
+        2,
+        0
+      ],
+      "baseline": {
+        "session_ns": 447173126,
+        "packets": 20,
+        "output_samples": 76800,
+        "duration": 1.6,
+        "rtf": 0.27948320374999996,
+        "intercepted_calls": 0
+      },
+      "candidate": {
+        "session_ns": 434150230,
+        "packets": 20,
+        "output_samples": 76800,
+        "duration": 1.6,
+        "rtf": 0.27134389375,
+        "intercepted_calls": 0
+      },
+      "comparison": {
+        "waveform": {
+          "arrays": 20,
+          "elements": 76800,
+          "shape_and_finite_checks_passed": true,
+          "bitwise_exact_arrays": 20,
+          "different_elements": 0,
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "relative_l2": 0.0,
+          "cosine": 1.0
+        },
+        "all_states": {
+          "arrays": 18,
+          "elements": 170816,
+          "shape_and_finite_checks_passed": true,
+          "bitwise_exact_arrays": 18,
+          "different_elements": 0,
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "relative_l2": 0.0,
+          "cosine": 1.0
+        },
+        "packets_compared": 20,
+        "state_checks": 18,
+        "state_scope": "final_packet_only"
+      },
+      "time_reduction_percent": 2.9122716108838764
+    },
+    {
+      "uid": "es_419_00060_1994",
+      "rep": 0,
+      "order": [
+        0,
+        2
+      ],
+      "baseline": {
+        "session_ns": 442064522,
+        "packets": 20,
+        "output_samples": 76800,
+        "duration": 1.6,
+        "rtf": 0.27629032625,
+        "intercepted_calls": 0
+      },
+      "candidate": {
+        "session_ns": 435456608,
+        "packets": 20,
+        "output_samples": 76800,
+        "duration": 1.6,
+        "rtf": 0.27216038,
+        "intercepted_calls": 0
+      },
+      "comparison": {
+        "waveform": {
+          "arrays": 20,
+          "elements": 76800,
+          "shape_and_finite_checks_passed": true,
+          "bitwise_exact_arrays": 20,
+          "different_elements": 0,
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "relative_l2": 0.0,
+          "cosine": 1.0
+        },
+        "all_states": {
+          "arrays": 18,
+          "elements": 170816,
+          "shape_and_finite_checks_passed": true,
+          "bitwise_exact_arrays": 18,
+          "different_elements": 0,
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "relative_l2": 0.0,
+          "cosine": 1.0
+        },
+        "packets_compared": 20,
+        "state_checks": 18,
+        "state_scope": "final_packet_only"
+      },
+      "time_reduction_percent": 1.4947849626349319
+    },
+    {
+      "uid": "bn_in_00151_1818",
+      "rep": 1,
+      "order": [
+        2,
+        0
+      ],
+      "baseline": {
+        "session_ns": 470303477,
+        "packets": 20,
+        "output_samples": 76800,
+        "duration": 1.6,
+        "rtf": 0.293939673125,
+        "intercepted_calls": 0
+      },
+      "candidate": {
+        "session_ns": 431349788,
+        "packets": 20,
+        "output_samples": 76800,
+        "duration": 1.6,
+        "rtf": 0.2695936175,
+        "intercepted_calls": 0
+      },
+      "comparison": {
+        "waveform": {
+          "arrays": 20,
+          "elements": 76800,
+          "shape_and_finite_checks_passed": true,
+          "bitwise_exact_arrays": 20,
+          "different_elements": 0,
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "relative_l2": 0.0,
+          "cosine": 1.0
+        },
+        "all_states": {
+          "arrays": 18,
+          "elements": 170816,
+          "shape_and_finite_checks_passed": true,
+          "bitwise_exact_arrays": 18,
+          "different_elements": 0,
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "relative_l2": 0.0,
+          "cosine": 1.0
+        },
+        "packets_compared": 20,
+        "state_checks": 18,
+        "state_scope": "final_packet_only"
+      },
+      "time_reduction_percent": 8.282670850847229
+    },
+    {
+      "uid": "en_us_00103_1779",
+      "rep": 1,
+      "order": [
+        0,
+        2
+      ],
+      "baseline": {
+        "session_ns": 458639806,
+        "packets": 20,
+        "output_samples": 76800,
+        "duration": 1.6,
+        "rtf": 0.28664987875,
+        "intercepted_calls": 0
+      },
+      "candidate": {
+        "session_ns": 441025331,
+        "packets": 20,
+        "output_samples": 76800,
+        "duration": 1.6,
+        "rtf": 0.275640831875,
+        "intercepted_calls": 0
+      },
+      "comparison": {
+        "waveform": {
+          "arrays": 20,
+          "elements": 76800,
+          "shape_and_finite_checks_passed": true,
+          "bitwise_exact_arrays": 20,
+          "different_elements": 0,
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "relative_l2": 0.0,
+          "cosine": 1.0
+        },
+        "all_states": {
+          "arrays": 18,
+          "elements": 170816,
+          "shape_and_finite_checks_passed": true,
+          "bitwise_exact_arrays": 18,
+          "different_elements": 0,
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "relative_l2": 0.0,
+          "cosine": 1.0
+        },
+        "packets_compared": 20,
+        "state_checks": 18,
+        "state_scope": "final_packet_only"
+      },
+      "time_reduction_percent": 3.840590103511421
+    },
+    {
+      "uid": "es_419_00060_1994",
+      "rep": 1,
+      "order": [
+        2,
+        0
+      ],
+      "baseline": {
+        "session_ns": 453746699,
+        "packets": 20,
+        "output_samples": 76800,
+        "duration": 1.6,
+        "rtf": 0.28359168687499997,
+        "intercepted_calls": 0
+      },
+      "candidate": {
+        "session_ns": 433295945,
+        "packets": 20,
+        "output_samples": 76800,
+        "duration": 1.6,
+        "rtf": 0.270809965625,
+        "intercepted_calls": 0
+      },
+      "comparison": {
+        "waveform": {
+          "arrays": 20,
+          "elements": 76800,
+          "shape_and_finite_checks_passed": true,
+          "bitwise_exact_arrays": 20,
+          "different_elements": 0,
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "relative_l2": 0.0,
+          "cosine": 1.0
+        },
+        "all_states": {
+          "arrays": 18,
+          "elements": 170816,
+          "shape_and_finite_checks_passed": true,
+          "bitwise_exact_arrays": 18,
+          "different_elements": 0,
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "relative_l2": 0.0,
+          "cosine": 1.0
+        },
+        "packets_compared": 20,
+        "state_checks": 18,
+        "state_scope": "final_packet_only"
+      },
+      "time_reduction_percent": 4.507086011880823
+    },
+    {
+      "uid": "bn_in_00151_1818",
+      "rep": 2,
+      "order": [
+        0,
+        2
+      ],
+      "baseline": {
+        "session_ns": 449664595,
+        "packets": 20,
+        "output_samples": 76800,
+        "duration": 1.6,
+        "rtf": 0.281040371875,
+        "intercepted_calls": 0
+      },
+      "candidate": {
+        "session_ns": 440031577,
+        "packets": 20,
+        "output_samples": 76800,
+        "duration": 1.6,
+        "rtf": 0.275019735625,
+        "intercepted_calls": 0
+      },
+      "comparison": {
+        "waveform": {
+          "arrays": 20,
+          "elements": 76800,
+          "shape_and_finite_checks_passed": true,
+          "bitwise_exact_arrays": 20,
+          "different_elements": 0,
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "relative_l2": 0.0,
+          "cosine": 1.0
+        },
+        "all_states": {
+          "arrays": 18,
+          "elements": 170816,
+          "shape_and_finite_checks_passed": true,
+          "bitwise_exact_arrays": 18,
+          "different_elements": 0,
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "relative_l2": 0.0,
+          "cosine": 1.0
+        },
+        "packets_compared": 20,
+        "state_checks": 18,
+        "state_scope": "final_packet_only"
+      },
+      "time_reduction_percent": 2.1422673937671277
+    },
+    {
+      "uid": "en_us_00103_1779",
+      "rep": 2,
+      "order": [
+        2,
+        0
+      ],
+      "baseline": {
+        "session_ns": 456103388,
+        "packets": 20,
+        "output_samples": 76800,
+        "duration": 1.6,
+        "rtf": 0.2850646175,
+        "intercepted_calls": 0
+      },
+      "candidate": {
+        "session_ns": 439378183,
+        "packets": 20,
+        "output_samples": 76800,
+        "duration": 1.6,
+        "rtf": 0.27461136437499994,
+        "intercepted_calls": 0
+      },
+      "comparison": {
+        "waveform": {
+          "arrays": 20,
+          "elements": 76800,
+          "shape_and_finite_checks_passed": true,
+          "bitwise_exact_arrays": 20,
+          "different_elements": 0,
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "relative_l2": 0.0,
+          "cosine": 1.0
+        },
+        "all_states": {
+          "arrays": 18,
+          "elements": 170816,
+          "shape_and_finite_checks_passed": true,
+          "bitwise_exact_arrays": 18,
+          "different_elements": 0,
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "relative_l2": 0.0,
+          "cosine": 1.0
+        },
+        "packets_compared": 20,
+        "state_checks": 18,
+        "state_scope": "final_packet_only"
+      },
+      "time_reduction_percent": 3.6669767074828163
+    },
+    {
+      "uid": "es_419_00060_1994",
+      "rep": 2,
+      "order": [
+        0,
+        2
+      ],
+      "baseline": {
+        "session_ns": 450495498,
+        "packets": 20,
+        "output_samples": 76800,
+        "duration": 1.6,
+        "rtf": 0.28155968625,
+        "intercepted_calls": 0
+      },
+      "candidate": {
+        "session_ns": 431150600,
+        "packets": 20,
+        "output_samples": 76800,
+        "duration": 1.6,
+        "rtf": 0.269469125,
+        "intercepted_calls": 0
+      },
+      "comparison": {
+        "waveform": {
+          "arrays": 20,
+          "elements": 76800,
+          "shape_and_finite_checks_passed": true,
+          "bitwise_exact_arrays": 20,
+          "different_elements": 0,
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "relative_l2": 0.0,
+          "cosine": 1.0
+        },
+        "all_states": {
+          "arrays": 18,
+          "elements": 170816,
+          "shape_and_finite_checks_passed": true,
+          "bitwise_exact_arrays": 18,
+          "different_elements": 0,
+          "max_abs": 0.0,
+          "rms_error": 0.0,
+          "relative_l2": 0.0,
+          "cosine": 1.0
+        },
+        "packets_compared": 20,
+        "state_checks": 18,
+        "state_scope": "final_packet_only"
+      },
+      "time_reduction_percent": 4.294137918332764
+    }
+  ],
+  "gates": [
+    {
+      "case": "bn_in_00151_1818",
+      "chunks": [
+        1,
+        2,
+        2
+      ],
+      "waveform": {
+        "arrays": 3,
+        "elements": 9600,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 3,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "all_states": {
+        "arrays": 54,
+        "elements": 512448,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 54,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "packets_compared": 3,
+      "state_checks": 54,
+      "state_scope": "every_packet"
+    },
+    {
+      "case": "bn_in_00151_1818",
+      "chunks": [
+        2,
+        1,
+        2
+      ],
+      "waveform": {
+        "arrays": 3,
+        "elements": 9600,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 3,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "all_states": {
+        "arrays": 54,
+        "elements": 512448,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 54,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "packets_compared": 3,
+      "state_checks": 54,
+      "state_scope": "every_packet"
+    },
+    {
+      "case": "bn_in_00151_1818",
+      "chunks": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "waveform": {
+        "arrays": 5,
+        "elements": 9600,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 5,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "all_states": {
+        "arrays": 90,
+        "elements": 854080,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 90,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "packets_compared": 5,
+      "state_checks": 90,
+      "state_scope": "every_packet"
+    },
+    {
+      "case": "bn_in_00151_1818",
+      "chunks": [
+        5
+      ],
+      "waveform": {
+        "arrays": 1,
+        "elements": 9600,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 1,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "all_states": {
+        "arrays": 18,
+        "elements": 170816,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 18,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "packets_compared": 1,
+      "state_checks": 18,
+      "state_scope": "every_packet"
+    },
+    {
+      "case": "en_us_00103_1779",
+      "chunks": [
+        1,
+        2,
+        2
+      ],
+      "waveform": {
+        "arrays": 3,
+        "elements": 9600,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 3,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "all_states": {
+        "arrays": 54,
+        "elements": 512448,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 54,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "packets_compared": 3,
+      "state_checks": 54,
+      "state_scope": "every_packet"
+    },
+    {
+      "case": "en_us_00103_1779",
+      "chunks": [
+        2,
+        1,
+        2
+      ],
+      "waveform": {
+        "arrays": 3,
+        "elements": 9600,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 3,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "all_states": {
+        "arrays": 54,
+        "elements": 512448,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 54,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "packets_compared": 3,
+      "state_checks": 54,
+      "state_scope": "every_packet"
+    },
+    {
+      "case": "en_us_00103_1779",
+      "chunks": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "waveform": {
+        "arrays": 5,
+        "elements": 9600,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 5,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "all_states": {
+        "arrays": 90,
+        "elements": 854080,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 90,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "packets_compared": 5,
+      "state_checks": 90,
+      "state_scope": "every_packet"
+    },
+    {
+      "case": "en_us_00103_1779",
+      "chunks": [
+        5
+      ],
+      "waveform": {
+        "arrays": 1,
+        "elements": 9600,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 1,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "all_states": {
+        "arrays": 18,
+        "elements": 170816,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 18,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "packets_compared": 1,
+      "state_checks": 18,
+      "state_scope": "every_packet"
+    },
+    {
+      "case": "es_419_00060_1994",
+      "chunks": [
+        1,
+        2,
+        2
+      ],
+      "waveform": {
+        "arrays": 3,
+        "elements": 9600,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 3,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "all_states": {
+        "arrays": 54,
+        "elements": 512448,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 54,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "packets_compared": 3,
+      "state_checks": 54,
+      "state_scope": "every_packet"
+    },
+    {
+      "case": "es_419_00060_1994",
+      "chunks": [
+        2,
+        1,
+        2
+      ],
+      "waveform": {
+        "arrays": 3,
+        "elements": 9600,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 3,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "all_states": {
+        "arrays": 54,
+        "elements": 512448,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 54,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "packets_compared": 3,
+      "state_checks": 54,
+      "state_scope": "every_packet"
+    },
+    {
+      "case": "es_419_00060_1994",
+      "chunks": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "waveform": {
+        "arrays": 5,
+        "elements": 9600,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 5,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "all_states": {
+        "arrays": 90,
+        "elements": 854080,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 90,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "packets_compared": 5,
+      "state_checks": 90,
+      "state_scope": "every_packet"
+    },
+    {
+      "case": "es_419_00060_1994",
+      "chunks": [
+        5
+      ],
+      "waveform": {
+        "arrays": 1,
+        "elements": 9600,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 1,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "all_states": {
+        "arrays": 18,
+        "elements": 170816,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 18,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "packets_compared": 1,
+      "state_checks": 18,
+      "state_scope": "every_packet"
+    },
+    {
+      "case": "zero",
+      "chunks": [
+        1,
+        2,
+        2
+      ],
+      "waveform": {
+        "arrays": 3,
+        "elements": 9600,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 3,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "all_states": {
+        "arrays": 54,
+        "elements": 512448,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 54,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "packets_compared": 3,
+      "state_checks": 54,
+      "state_scope": "every_packet"
+    },
+    {
+      "case": "zero",
+      "chunks": [
+        2,
+        1,
+        2
+      ],
+      "waveform": {
+        "arrays": 3,
+        "elements": 9600,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 3,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "all_states": {
+        "arrays": 54,
+        "elements": 512448,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 54,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "packets_compared": 3,
+      "state_checks": 54,
+      "state_scope": "every_packet"
+    },
+    {
+      "case": "zero",
+      "chunks": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "waveform": {
+        "arrays": 5,
+        "elements": 9600,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 5,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "all_states": {
+        "arrays": 90,
+        "elements": 854080,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 90,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "packets_compared": 5,
+      "state_checks": 90,
+      "state_scope": "every_packet"
+    },
+    {
+      "case": "zero",
+      "chunks": [
+        5
+      ],
+      "waveform": {
+        "arrays": 1,
+        "elements": 9600,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 1,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "all_states": {
+        "arrays": 18,
+        "elements": 170816,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 18,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "packets_compared": 1,
+      "state_checks": 18,
+      "state_scope": "every_packet"
+    },
+    {
+      "case": "tiny",
+      "chunks": [
+        1,
+        2,
+        2
+      ],
+      "waveform": {
+        "arrays": 3,
+        "elements": 9600,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 3,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "all_states": {
+        "arrays": 54,
+        "elements": 512448,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 54,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "packets_compared": 3,
+      "state_checks": 54,
+      "state_scope": "every_packet"
+    },
+    {
+      "case": "tiny",
+      "chunks": [
+        2,
+        1,
+        2
+      ],
+      "waveform": {
+        "arrays": 3,
+        "elements": 9600,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 3,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "all_states": {
+        "arrays": 54,
+        "elements": 512448,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 54,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "packets_compared": 3,
+      "state_checks": 54,
+      "state_scope": "every_packet"
+    },
+    {
+      "case": "tiny",
+      "chunks": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "waveform": {
+        "arrays": 5,
+        "elements": 9600,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 5,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "all_states": {
+        "arrays": 90,
+        "elements": 854080,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 90,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "packets_compared": 5,
+      "state_checks": 90,
+      "state_scope": "every_packet"
+    },
+    {
+      "case": "tiny",
+      "chunks": [
+        5
+      ],
+      "waveform": {
+        "arrays": 1,
+        "elements": 9600,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 1,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "all_states": {
+        "arrays": 18,
+        "elements": 170816,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 18,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "packets_compared": 1,
+      "state_checks": 18,
+      "state_scope": "every_packet"
+    }
+  ],
+  "timing_scope": "Two resident sessions: combined baseline / matrix candidate, optionally adding Snake mode2 to candidate only. Serial complete prefixes and separate reset streaming state. Alternating order. Completed Session.run time only. Timed passes keep packet audio and final states, releasing earlier histories; full state checks occur in warm qualification and short gates. No per-packet state scans during timing; controls, comparisons and setup excluded.",
+  "workload": "Three 1.6-second prefixes, one warm pass per prefix and variant, three measured repetitions, selected packet size.",
+  "numerical_scope": "Matrix-only requires bitwise equality. Warm qualification and short gates compare waveform and all18states each packet; timed passes compare each waveform packet and final18states. With --snake-build, tiny differences are measured; baseline uses Snake mode0 and candidate mode2. No automatic quality promotion.",
+  "relative_l2_denominator_floor": 1e-12,
+  "native_budget_seconds_per_mode": 25,
+  "privacy": "Audio, latent, feature and history arrays remain in RAM; reports contain only aggregate errors, timing and counts.",
+  "warmup_checks": [
+    {
+      "uid": "bn_in_00151_1818",
+      "waveform": {
+        "arrays": 20,
+        "elements": 76800,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 20,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "all_states": {
+        "arrays": 360,
+        "elements": 3416320,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 360,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "packets_compared": 20,
+      "state_checks": 360,
+      "state_scope": "every_packet"
+    },
+    {
+      "uid": "en_us_00103_1779",
+      "waveform": {
+        "arrays": 20,
+        "elements": 76800,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 20,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "all_states": {
+        "arrays": 360,
+        "elements": 3416320,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 360,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "packets_compared": 20,
+      "state_checks": 360,
+      "state_scope": "every_packet"
+    },
+    {
+      "uid": "es_419_00060_1994",
+      "waveform": {
+        "arrays": 20,
+        "elements": 76800,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 20,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "all_states": {
+        "arrays": 360,
+        "elements": 3416320,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 360,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "packets_compared": 20,
+      "state_checks": 360,
+      "state_scope": "every_packet"
+    }
+  ],
+  "public_api": {
+    "0": {
+      "empty_before_after_no_native_call": true,
+      "empty_preserves_all_states_and_frame_count": true,
+      "reset_clears_all_states": true,
+      "reset_replay_all_states_and_audio_exact": true
+    },
+    "2": {
+      "empty_before_after_no_native_call": true,
+      "empty_preserves_all_states_and_frame_count": true,
+      "reset_clears_all_states": true,
+      "reset_replay_all_states_and_audio_exact": true
+    }
+  },
+  "interception": {
+    "captures": 0,
+    "capture_bytes": 0,
+    "intercepted": 0,
+    "unsupported": 0,
+    "resolved": 1
+  },
+  "timing_summary": {
+    "baseline": {
+      "pooled_rtf": 0.2829131607638889,
+      "median_prefix_rtf": 0.28155968625,
+      "packets": 180
+    },
+    "candidate": {
+      "pooled_rtf": 0.272309244375,
+      "median_prefix_rtf": 0.27213428562499997,
+      "packets": 180
+    },
+    "time_reduction_percent": 3.7481170406698183,
+    "improved_pairs": 9
+  },
+  "comparison": {
+    "waveform": {
+      "arrays": 240,
+      "elements": 883200,
+      "shape_and_finite_checks_passed": true,
+      "bitwise_exact_arrays": 240,
+      "different_elements": 0,
+      "max_abs": 0.0,
+      "rms_error": 0.0,
+      "relative_l2": 0.0,
+      "cosine": 1.0
+    },
+    "states": {
+      "fast_stream_s00_in": {
+        "arrays": 69,
+        "elements": 26496,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 69,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "fast_stream_s01_in": {
+        "arrays": 69,
+        "elements": 565248,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 69,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "fast_stream_s02_in": {
+        "arrays": 69,
+        "elements": 423936,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 69,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "fast_stream_s03_in": {
+        "arrays": 69,
+        "elements": 1271808,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 69,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "fast_stream_s04_in": {
+        "arrays": 69,
+        "elements": 3815424,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 69,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "fast_stream_s05_in": {
+        "arrays": 69,
+        "elements": 211968,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 69,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "fast_stream_s06_in": {
+        "arrays": 69,
+        "elements": 211968,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 69,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "fast_stream_s07_in": {
+        "arrays": 69,
+        "elements": 635904,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 69,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "fast_stream_s08_in": {
+        "arrays": 69,
+        "elements": 1907712,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 69,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "fast_stream_s09_in": {
+        "arrays": 69,
+        "elements": 88320,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 69,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "fast_stream_s10_in": {
+        "arrays": 69,
+        "elements": 1377792,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 69,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "fast_stream_s11_in": {
+        "arrays": 69,
+        "elements": 688896,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 69,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "fast_stream_s12_in": {
+        "arrays": 69,
+        "elements": 17664,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 69,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "fast_stream_s13_in": {
+        "arrays": 69,
+        "elements": 8832,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 69,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "fast_stream_s14_in": {
+        "arrays": 69,
+        "elements": 344448,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 69,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "fast_stream_s15_in": {
+        "arrays": 69,
+        "elements": 4416,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 69,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "fast_stream_s16_in": {
+        "arrays": 69,
+        "elements": 172224,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 69,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      },
+      "fast_stream_s17_in": {
+        "arrays": 69,
+        "elements": 13248,
+        "shape_and_finite_checks_passed": true,
+        "bitwise_exact_arrays": 69,
+        "different_elements": 0,
+        "max_abs": 0.0,
+        "rms_error": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      }
+    }
+  },
+  "matrix_only_all_outputs_and_states_bitwise_equal": true,
+  "native_ns_per_mode": {
+    "0": 6754688777,
+    "2": 6498294141
+  },
+  "native_calls_per_mode": {
+    "0": 302,
+    "2": 302
+  },
+  "intercepted_calls_in_prefix_runs_per_mode": {
+    "0": 0,
+    "2": 0
+  }
+}

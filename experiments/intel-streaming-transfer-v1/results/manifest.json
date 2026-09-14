@@ -1,0 +1,146 @@
+{
+  "version": "intel_streaming_transfer_v1",
+  "source_sha256": "59a937ee76d494896561b994c111b708603fb2f3c8e0fdf53df1380f2df41516",
+  "cpu_only": true,
+  "inference_executed": false,
+  "intel_projection_unchanged": true,
+  "externalization": "Only FP32 raw initializer payloads >=1024 bytes; all integer and smaller constants stay embedded",
+  "baseline": {
+    "model": "baseline.onnx",
+    "sha256": "b536b352d86a188a083474838aa6d134bf0645394b0fb31038a8010535b171ab"
+  },
+  "shared_weights": {
+    "file": "weights.bin",
+    "sha256": "5fabb7bfe08fc19e64be7e37cdcc80ceca2e43905a199666720ea71297f50f7d",
+    "bytes": 183057920
+  },
+  "variants": {
+    "history": {
+      "model": "history.onnx",
+      "sha256": "98bca87588860d26c9a447a0c1dd58540fbf0227ea707fb050312c784e7ba59f",
+      "checks": {
+        "initializer_byte_identical": true,
+        "input_byte_identical": true,
+        "output_byte_identical": true,
+        "remaining_nodes_byte_identical": true,
+        "intel_pair_byte_identical": true
+      },
+      "removed_nodes": [
+        "fast_stream_s02_concat",
+        "fast_stream_s02_crop_slice",
+        "fast_stream_s02_retain_slice",
+        "fast_stream_s03_concat",
+        "fast_stream_s03_crop_slice",
+        "fast_stream_s03_retain_slice",
+        "fast_stream_s04_concat",
+        "fast_stream_s04_crop_slice",
+        "fast_stream_s04_retain_slice",
+        "fast_stream_s06_concat",
+        "fast_stream_s06_crop_slice",
+        "fast_stream_s06_retain_slice",
+        "fast_stream_s07_concat",
+        "fast_stream_s07_crop_slice",
+        "fast_stream_s07_retain_slice",
+        "fast_stream_s08_concat",
+        "fast_stream_s08_crop_slice",
+        "fast_stream_s08_retain_slice",
+        "ncc_block_chain_18",
+        "ncc_block_chain_26",
+        "ncc_block_chain_34",
+        "ncc_block_chain_53",
+        "ncc_block_chain_61",
+        "ncc_block_chain_69"
+      ],
+      "inserted_nodes": [
+        "ncc_block_chain_18",
+        "ncc_block_chain_26",
+        "ncc_block_chain_34",
+        "ncc_block_chain_53",
+        "ncc_block_chain_61",
+        "ncc_block_chain_69"
+      ],
+      "required_transfer_domains": [
+        "fast.audiovae.amd.rawhistory.a2.v1"
+      ]
+    },
+    "phase": {
+      "model": "phase.onnx",
+      "sha256": "a17a55ec4cd9fc06b7e2005f696c7c357d6a2b4d8b5db97f9a3d69f92b2194d0",
+      "checks": {
+        "initializer_byte_identical": true,
+        "input_byte_identical": true,
+        "output_byte_identical": true,
+        "remaining_nodes_byte_identical": true,
+        "intel_pair_byte_identical": true
+      },
+      "removed_nodes": [
+        "fast_stream_s01_concat",
+        "fast_stream_s01_crop_slice",
+        "fast_stream_s01_current_concat",
+        "fast_stream_s01_retain_slice",
+        "ncc_phase_finish_17_op"
+      ],
+      "inserted_nodes": [
+        "ncc_phase_finish_17_op_a4_direct"
+      ],
+      "required_transfer_domains": [
+        "fast.audiovae.amd.phase.state.v1"
+      ]
+    },
+    "combined": {
+      "model": "combined.onnx",
+      "sha256": "ada257599e8f40c57203fa9dbcfd3954476f34807a7328fe0511b49641b61a40",
+      "checks": {
+        "initializer_byte_identical": true,
+        "input_byte_identical": true,
+        "output_byte_identical": true,
+        "remaining_nodes_byte_identical": true,
+        "intel_pair_byte_identical": true
+      },
+      "removed_nodes": [
+        "fast_stream_s01_concat",
+        "fast_stream_s01_crop_slice",
+        "fast_stream_s01_current_concat",
+        "fast_stream_s01_retain_slice",
+        "fast_stream_s02_concat",
+        "fast_stream_s02_crop_slice",
+        "fast_stream_s02_retain_slice",
+        "fast_stream_s03_concat",
+        "fast_stream_s03_crop_slice",
+        "fast_stream_s03_retain_slice",
+        "fast_stream_s04_concat",
+        "fast_stream_s04_crop_slice",
+        "fast_stream_s04_retain_slice",
+        "fast_stream_s06_concat",
+        "fast_stream_s06_crop_slice",
+        "fast_stream_s06_retain_slice",
+        "fast_stream_s07_concat",
+        "fast_stream_s07_crop_slice",
+        "fast_stream_s07_retain_slice",
+        "fast_stream_s08_concat",
+        "fast_stream_s08_crop_slice",
+        "fast_stream_s08_retain_slice",
+        "ncc_block_chain_18",
+        "ncc_block_chain_26",
+        "ncc_block_chain_34",
+        "ncc_block_chain_53",
+        "ncc_block_chain_61",
+        "ncc_block_chain_69",
+        "ncc_phase_finish_17_op"
+      ],
+      "inserted_nodes": [
+        "ncc_block_chain_18",
+        "ncc_block_chain_26",
+        "ncc_block_chain_34",
+        "ncc_block_chain_53",
+        "ncc_block_chain_61",
+        "ncc_block_chain_69",
+        "ncc_phase_finish_17_op_a4_direct"
+      ],
+      "required_transfer_domains": [
+        "fast.audiovae.amd.rawhistory.a2.v1",
+        "fast.audiovae.amd.phase.state.v1"
+      ]
+    }
+  }
+}

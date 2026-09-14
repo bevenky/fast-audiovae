@@ -1,0 +1,383 @@
+{
+  "date": "2026-09-14",
+  "status": "short_test_candidate_not_serving_default",
+  "cpu": "Xeon Platinum 8280 identity on 2-vCPU KVM",
+  "cpu_only": true,
+  "threads": 1,
+  "affinity": [
+    0
+  ],
+  "ort": "1.29.0",
+  "protocol": "Three 1.6-second prefixes; one warmup per clip; three alternating paired repetitions; completed Session.run time only",
+  "timings": {
+    "40": {
+      "rtf": {
+        "baseline": 0.395753154815692,
+        "combined": 0.37886995589360595
+      },
+      "time_reduction_percent": 4.266093325256959,
+      "all_waveform_and_state_exact": true,
+      "per_clip_time_reduction_percent": {
+        "bn_in_00151_1818": 2.7808416729871444,
+        "en_us_00103_1779": 5.242667886056562,
+        "es_419_00060_1994": 4.740932394458552
+      },
+      "individual_pairs_improved": 8,
+      "individual_pairs_total": 9
+    },
+    "80": {
+      "rtf": {
+        "baseline": 0.25730637290204567,
+        "combined": 0.24475049628462228
+      },
+      "time_reduction_percent": 4.879737907697801,
+      "all_waveform_and_state_exact": true,
+      "per_clip_time_reduction_percent": {
+        "bn_in_00151_1818": 6.077952755277238,
+        "en_us_00103_1779": 3.1515114823032375,
+        "es_419_00060_1994": 5.415097226853383
+      },
+      "individual_pairs_improved": 9,
+      "individual_pairs_total": 9
+    }
+  },
+  "receipts": {
+    "build.json": {
+      "sha256": "89f8baee137fcc4cd91138f19c5854500acc56919323cb4dcc8832b03aee84cf",
+      "bytes": 11818
+    },
+    "manifest.json": {
+      "sha256": "5016a4a9b6170c67cab5f7e773dee6c0f6c4b7633726dec7ac8ef490125c9be0",
+      "bytes": 4825
+    },
+    "intel-paired40-20260914.json": {
+      "sha256": "17f118b6ec968b3e5e48959df7a63ff31f73d6ebed6bac7a70e77cc87d3e1d82",
+      "bytes": 125560
+    },
+    "intel-paired80-20260914.json": {
+      "sha256": "0917fc2f8cdf176be02d867238174f9248a2c04ed95afb53756c734f2236e7c8",
+      "bytes": 125578
+    },
+    "intel-transfer-gates-summary-20260914.json": {
+      "sha256": "683a1490ed7eea3f626862b20d9e5e14914532a01f9959e501b6e58a15264dd2",
+      "bytes": 249
+    },
+    "intel-regions-20260914-r3.json": {
+      "sha256": "0879701ba7156355e52a88030cb973876fd61ed54a2e1f34a4861608cff760dc",
+      "bytes": 1320
+    },
+    "stage-attribution.json": {
+      "sha256": "e60793407611bace8e2a3428d568b3a666ddefbb8fae11419798cdd7153dd515",
+      "bytes": 27556
+    },
+    "intel-baseline-profile-20260914.json": {
+      "sha256": "495557d862af0027b594bb48a12d5ac4a731340a55b0f675c1cce8756a38cf5f",
+      "bytes": 67481
+    },
+    "intel-combined-profile-20260914.json": {
+      "sha256": "6a1710942b1d12ef4c6c52195ba5593c70ea6e438e7b8eba0b64314cd81bfaa2",
+      "bytes": 58968
+    },
+    "intel-baseline-gates-20260914-r2.json": {
+      "sha256": "3d13bf72d69a96dbb58c4ea0216fbfdb68f9b1c2bd1009932c7e52f06a374bbc",
+      "bytes": 415194
+    },
+    "intel-combined-gates-20260914-r2.json": {
+      "sha256": "3683a6efee13e639dd465e5af3a659350fe43c3a9a2e045f67eae3235dc23902",
+      "bytes": 415727
+    },
+    "intel-baseline-short-20260914.json": {
+      "sha256": "1d08412aac28953b034087446cae7cd2412158fde4bdbf1956eabeafddf4d961",
+      "bytes": 45405
+    },
+    "intel-baseline40-short-20260914.json": {
+      "sha256": "d7604c7ea94b44b8c46cb2cc46eba8a79d5e111c0b4de5fe13d70b75097d932c",
+      "bytes": 45400
+    },
+    "intel-stock-short-20260914.json": {
+      "sha256": "b3cbc11084db5776e32022716c7420a13115cd6f91707de7de3c73de72593c3e",
+      "bytes": 60608
+    },
+    "intel-mimi-short-20260914.json": {
+      "sha256": "47da13165d02f251b63b7729045b65fce395cd0861d315c1770c122463f95c12",
+      "bytes": 34005
+    },
+    "intel-history-short-20260914.json": {
+      "sha256": "65113fbef2eac3c98176b120f3c09ff02db1ccef3d304bb5cf73169419fbf38a",
+      "bytes": 45934
+    },
+    "intel-phase-short-20260914.json": {
+      "sha256": "70aa644ce2f74f8e72ebc3b9eb93095ebcd42f435ef7307790ddfe882863ece3",
+      "bytes": 45933
+    },
+    "intel-combined-short-20260914.json": {
+      "sha256": "2babb79feddf95e4652867ecd0db1d8a5f8474c09a9ddbbbedec75c4f0e2769b",
+      "bytes": 45941
+    }
+  },
+  "gates": {
+    "exact_output_state_checks": 1520,
+    "cases": 20,
+    "passed": true,
+    "public_api": {
+      "empty_before_and_after_no_native_call": true,
+      "empty_retains_all_state": true,
+      "reset_zeros_all_state": true,
+      "reset_replay_exact": true
+    }
+  },
+  "regions": {
+    "version": "intel_streaming_region_parity_v1",
+    "complete": true,
+    "cpu_only": true,
+    "threads": 1,
+    "runtime": "1.29.0",
+    "lengths": [
+      1,
+      8,
+      16,
+      17,
+      96,
+      257
+    ],
+    "patterns": [
+      "zero",
+      "tiny",
+      "random"
+    ],
+    "calls": 252,
+    "native_seconds": 0.20563938096165657,
+    "input_checks": 126,
+    "output_state_checks": 252,
+    "output_state_checks_passed": 252,
+    "maximum_absolute_error": 0.0,
+    "failures": [],
+    "scope": "Actual coefficients, deterministic synthetic region inputs; not audio quality or RTF",
+    "zero_length_scope": "T=0 intentionally excluded: public streaming empty calls bypass ONNX; this region check does not establish public empty-call behavior",
+    "prior_attempts": [
+      "Initial dynamic-shape harness aborted in ORT std::clamp before reporting.",
+      "Removing T=0 did not fix it: the second receipt locates the abort at reference_session_load for ncc_block_chain_18, before any inference. This disproves the zero-input explanation. The standalone extraction now supplies concrete input, output and intermediate shape metadata for each tested T; original kernels are unchanged."
+    ],
+    "last_call": {
+      "region": "first_phase",
+      "length": 257,
+      "pattern": "random",
+      "phase": "candidate_run",
+      "status": "complete"
+    },
+    "passed": true
+  },
+  "stage_attribution": {
+    "native_ns": 132582079,
+    "calls": [
+      {
+        "phase": "capture_warm",
+        "ns": 27566075
+      },
+      {
+        "phase": "capture_warm",
+        "ns": 24686609
+      },
+      {
+        "phase": "capture_actual",
+        "ns": 21344424
+      },
+      {
+        "phase": "sp_stage_c256/warm",
+        "ns": 2818430
+      },
+      {
+        "phase": "sp_stage_c256/warm",
+        "ns": 1939005
+      },
+      {
+        "phase": "sp_stage_c256/off",
+        "ns": 2104956
+      },
+      {
+        "phase": "sp_stage_c256/on",
+        "ns": 1916276
+      },
+      {
+        "phase": "sp_stage_c256/off",
+        "ns": 1941216
+      },
+      {
+        "phase": "sp_stage_c256/on",
+        "ns": 1900145
+      },
+      {
+        "phase": "sp_stage_c256/off",
+        "ns": 1930126
+      },
+      {
+        "phase": "sp_stage_c256/on",
+        "ns": 2049381
+      },
+      {
+        "phase": "upsample_stage_c128/warm",
+        "ns": 2729366
+      },
+      {
+        "phase": "upsample_stage_c128/warm",
+        "ns": 2200173
+      },
+      {
+        "phase": "upsample_stage_c128/off",
+        "ns": 2159459
+      },
+      {
+        "phase": "upsample_stage_c128/on",
+        "ns": 2259277
+      },
+      {
+        "phase": "upsample_stage_c128/off",
+        "ns": 2138225
+      },
+      {
+        "phase": "upsample_stage_c128/on",
+        "ns": 2311370
+      },
+      {
+        "phase": "upsample_stage_c128/off",
+        "ns": 2415299
+      },
+      {
+        "phase": "upsample_stage_c128/on",
+        "ns": 2057059
+      },
+      {
+        "phase": "sp_stage_c64/warm",
+        "ns": 1727957
+      },
+      {
+        "phase": "sp_stage_c64/warm",
+        "ns": 1799030
+      },
+      {
+        "phase": "sp_stage_c64/off",
+        "ns": 1489104
+      },
+      {
+        "phase": "sp_stage_c64/on",
+        "ns": 1670993
+      },
+      {
+        "phase": "sp_stage_c64/off",
+        "ns": 1581269
+      },
+      {
+        "phase": "sp_stage_c64/on",
+        "ns": 1708433
+      },
+      {
+        "phase": "sp_stage_c64/off",
+        "ns": 1570452
+      },
+      {
+        "phase": "sp_stage_c64/on",
+        "ns": 1794023
+      },
+      {
+        "phase": "sp_stage_c32/warm",
+        "ns": 1642000
+      },
+      {
+        "phase": "sp_stage_c32/warm",
+        "ns": 1269193
+      },
+      {
+        "phase": "sp_stage_c32/off",
+        "ns": 1223147
+      },
+      {
+        "phase": "sp_stage_c32/on",
+        "ns": 1314155
+      },
+      {
+        "phase": "sp_stage_c32/off",
+        "ns": 1368616
+      },
+      {
+        "phase": "sp_stage_c32/on",
+        "ns": 1418819
+      },
+      {
+        "phase": "sp_stage_c32/off",
+        "ns": 1182455
+      },
+      {
+        "phase": "sp_stage_c32/on",
+        "ns": 1355562
+      }
+    ],
+    "limits": "Diagnostic timers include wrapper overhead. GEMM is nested inside row work. The remainder combines depthwise, copying, allocation, epilogues and ORT dispatch. Off calls still contain disabled shim wrappers. This is not an RTF benchmark.",
+    "regions": {
+      "sp_stage_c256": {
+        "off_median_ms": 1.941216,
+        "on_median_ms": 1.916276,
+        "exclusive_percent": {
+          "prepare_ns": 7.783726760637335,
+          "gemm_ns": 21.035878810774726,
+          "row_remainder_ns": 7.174364221635848,
+          "snake_ns": 38.31921022905308,
+          "fp32_pointwise_ns": 0.0,
+          "other_stage_and_dispatch_ns": 25.686819977899017
+        }
+      },
+      "upsample_stage_c128": {
+        "off_median_ms": 2.159459,
+        "on_median_ms": 2.259277,
+        "exclusive_percent": {
+          "prepare_ns": 8.059093146256036,
+          "gemm_ns": 23.149593539604805,
+          "row_remainder_ns": 7.701126151341052,
+          "snake_ns": 37.92647108969529,
+          "fp32_pointwise_ns": 0.0,
+          "other_stage_and_dispatch_ns": 23.16371607310282
+        }
+      },
+      "sp_stage_c64": {
+        "off_median_ms": 1.570452,
+        "on_median_ms": 1.708433,
+        "exclusive_percent": {
+          "prepare_ns": 0.0,
+          "gemm_ns": 0.0,
+          "row_remainder_ns": 0.0,
+          "snake_ns": 49.4224259290079,
+          "fp32_pointwise_ns": 29.821749475060063,
+          "other_stage_and_dispatch_ns": 20.755824595932037
+        }
+      },
+      "sp_stage_c32": {
+        "off_median_ms": 1.223147,
+        "on_median_ms": 1.355562,
+        "exclusive_percent": {
+          "prepare_ns": 0.0,
+          "gemm_ns": 0.0,
+          "row_remainder_ns": 0.0,
+          "snake_ns": 59.72311360350013,
+          "fp32_pointwise_ns": 15.512912201335636,
+          "other_stage_and_dispatch_ns": 24.763974195164234
+        }
+      }
+    }
+  },
+  "separate_screen_rtf": {
+    "baseline": 0.2556233652608676,
+    "baseline40": 0.3868335054721683,
+    "stock": 0.8614815487008955,
+    "mimi": 0.18010947892131904,
+    "history": 0.2441904792148206,
+    "phase": 0.24989857778160107,
+    "combined": 0.2430320427649551
+  },
+  "limits": [
+    "Three short prefixes, not corpus-wide qualification",
+    "Exact versus existing INT8, not original FP32",
+    "Mimi separately timed, not interleaved with combined",
+    "New Intel library candidates researched but not benchmarked",
+    "No encoder or GPU benchmark",
+    "No production serving changes or commits"
+  ]
+}
