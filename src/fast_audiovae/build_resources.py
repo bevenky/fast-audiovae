@@ -41,6 +41,24 @@ tools/package_x86_native.py
 tools/build.py
 tools/build_apple.py
 native/apple/streaming/sources.json
+native/apple/streaming/first_pair_int8/sources.json
+native/apple/streaming/first_pair_int8/README.md
+native/apple/streaming/first_pair_int8/validate.py
+native/apple/streaming/first_pair_int8/adapter.cpp
+native/apple/streaming/first_pair_int8/adapter.h
+native/apple/streaming/first_pair_int8/licenses/KleidiAI-INT8-LICENSE.txt
+native/apple/streaming/first_pair_int8/ort_ops.cpp
+native/apple/streaming/first_pair_int8/quantize.cpp
+native/apple/streaming/first_pair_int8/upstream-provenance.json
+native/apple/streaming/first_pair_int8/upstream/LICENSES/Apache-2.0.txt
+native/apple/streaming/first_pair_int8/upstream/kai/kai_common.h
+native/apple/streaming/first_pair_int8/upstream/kai/kai_common_sme_asm.S
+native/apple/streaming/first_pair_int8/upstream/kai/ukernels/matmul/matmul_clamp_f32_qai8dxp_qsi8cxp/kai_matmul_clamp_f32_qai8dxp1x4_qsi8cxp4vlx4_1x4vl_sme2_dot.c
+native/apple/streaming/first_pair_int8/upstream/kai/ukernels/matmul/matmul_clamp_f32_qai8dxp_qsi8cxp/kai_matmul_clamp_f32_qai8dxp1x4_qsi8cxp4vlx4_1x4vl_sme2_dot.h
+native/apple/streaming/first_pair_int8/upstream/kai/ukernels/matmul/matmul_clamp_f32_qai8dxp_qsi8cxp/kai_matmul_clamp_f32_qai8dxp1x4_qsi8cxp4vlx4_1x4vl_sme2_dot_asm.S
+native/apple/streaming/first_pair_int8/upstream/kai/ukernels/matmul/pack/kai_rhs_pack_nxk_qsi8cxp_qsi8cx_neon.c
+native/apple/streaming/first_pair_int8/upstream/kai/ukernels/matmul/pack/kai_rhs_pack_nxk_qsi8cxp_qsi8cx_neon.h
+tools/build_apple_int8.py
 native/apple/streaming/kleidiai/LICENSES/Apache-2.0.txt
 native/apple/streaming/kleidiai/kai/kai_common.h
 native/apple/streaming/kleidiai/kai/kai_common_sme_asm.S
@@ -301,7 +319,18 @@ def validate_native_payload(root: str | Path) -> dict:
     recipes = manifest.get("recipes", {})
     if not isinstance(recipes, dict):
         raise ValueError("Native payload recipes must be a mapping")
-    for entry in recipes.values():
+    for recipe, entry in recipes.items():
+        if isinstance(entry, dict) and "int8_build" in entry:
+            if recipe != "apple_stream_int8" or not tag.startswith("macosx_"):
+                raise ValueError("Apple INT8 build is only valid for its streaming recipe")
+            for key in ("base_build", "streaming_build", "int8_build"):
+                if entry.get(key) not in files:
+                    raise ValueError("Apple INT8 build record is outside the wheel inventory")
+            record = json.loads((root / entry["int8_build"]).read_text())
+            check_metadata(record)
+            validate_int8_record(record, files)
+        elif recipe == "apple_stream_int8":
+            raise ValueError("Apple INT8 streaming recipe requires its build record")
         if not isinstance(entry, dict) or "streaming_build" not in entry:
             continue
         for key in ("base_build", "streaming_build"):
@@ -317,6 +346,27 @@ def validate_streaming_record(record: dict, files: dict) -> None:
     """Validate the relative selected-Apple closure before copying or loading."""
     if not isinstance(record, dict) or record.get("version") != "apple_stream_selected_build_v1" or record.get("complete") is not True:
         raise ValueError("Selected Apple streaming build version is required")
+    _validate_apple_closure(record, files)
+
+
+def validate_int8_record(record: dict, files: dict) -> None:
+    """Only accept the qualified, self-contained first-pair INT8 extension."""
+    if not isinstance(record, dict) or record.get("version") != "apple_firstpair_int8_build_v1" or record.get("complete") is not True:
+        raise ValueError("Apple first-pair INT8 build version is required")
+    if record.get("required_cpu_features") != ["sme", "sme2"]:
+        raise ValueError("Apple first-pair INT8 requires SME and SME2")
+    _validate_apple_closure(record, files)
+    runtime = record["runtime_files"]
+    if (len(runtime) != 1 or not runtime[0]["register"]
+            or not runtime[0]["path"].endswith(".dylib")
+            or runtime[0].get("domain") != "fast.audiovae.apple.firstpair.int8.v1"):
+        raise ValueError("Apple first-pair INT8 requires its self-contained registered library")
+    if not record.get("license_files"):
+        raise ValueError("Apple first-pair INT8 dependency licenses are required")
+
+
+def _validate_apple_closure(record: dict, files: dict) -> None:
+    """Check exact hashes and registration policy for an Apple build record."""
     runtime = record.get("runtime_files")
     additional = record.get("additional_libraries")
     if not isinstance(runtime, list) or not runtime or not isinstance(additional, list) or not additional:

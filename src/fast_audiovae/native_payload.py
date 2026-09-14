@@ -87,10 +87,16 @@ def materialize_payload(payload, destination, recipe):
         derived = destination.parent / (recipe + "-native-build.json")
         derived.write_text(json.dumps(record, indent=2) + "\n")
         result["base_build"] = str(derived)
-    if "streaming_build" in entry:
-        from .build_resources import validate_streaming_record
-        record = json.loads(_path(destination, entry["streaming_build"]).read_text())
-        validate_streaming_record(record, manifest["files"])
+    from .build_resources import validate_int8_record, validate_streaming_record
+    for key, validator in (("streaming_build", validate_streaming_record), ("int8_build", validate_int8_record)):
+        if key not in entry:
+            continue
+        if entry[key] not in manifest["files"]:
+            raise RuntimeError("Native build record is outside the wheel inventory")
+        if key == "int8_build" and recipe != "apple_stream_int8":
+            raise RuntimeError("Apple INT8 build is only valid for its streaming recipe")
+        record = json.loads(_path(destination, entry[key]).read_text())
+        validator(record, manifest["files"])
         record["runtime_files"] = [{**item, "path": str(_path(destination, item["path"]))}
                                    for item in record["runtime_files"]]
         record["additional_libraries"] = [
@@ -99,9 +105,9 @@ def materialize_payload(payload, destination, recipe):
         if "license_files" in record:
             record["license_files"] = [{**item, "path": str(_path(destination, item["path"]))}
                                        for item in record["license_files"]]
-        derived = destination.parent / (recipe + "-streaming-build.json")
+        derived = destination.parent / (recipe + "-" + key.replace("_", "-") + ".json")
         derived.write_text(json.dumps(record, indent=2) + "\n")
-        result["streaming_build"] = str(derived)
+        result[key] = str(derived)
     return result
 
 
@@ -131,8 +137,10 @@ def probe_payload(prebuilt):
     else:
         record = json.loads(Path(prebuilt["base_build"]).read_text())
         paths, identities = (record["library"],), (record["library_sha256"],)
-        if "streaming_build" in prebuilt:
-            stream = json.loads(Path(prebuilt["streaming_build"]).read_text())
+        for key in ("streaming_build", "int8_build"):
+            if key not in prebuilt:
+                continue
+            stream = json.loads(Path(prebuilt[key]).read_text())
             # Dependencies are load-only. Registration order remains explicit
             # for the recipe; a transitive dylib is never an ORT custom op.
             deps = [item for item in stream["runtime_files"] if not item["register"]]
